@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -68,55 +68,154 @@ class AppSignonPolicyRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to exclude
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_includeds: Set of User IDs to include
         """
-        pulumi.set(__self__, "policy_id", policy_id)
+        AppSignonPolicyRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_id=policy_id,
+            access=access,
+            constraints=constraints,
+            custom_expression=custom_expression,
+            device_assurances_includeds=device_assurances_includeds,
+            device_is_managed=device_is_managed,
+            device_is_registered=device_is_registered,
+            factor_mode=factor_mode,
+            groups_excludeds=groups_excludeds,
+            groups_includeds=groups_includeds,
+            inactivity_period=inactivity_period,
+            name=name,
+            network_connection=network_connection,
+            network_excludes=network_excludes,
+            network_includes=network_includes,
+            platform_includes=platform_includes,
+            priority=priority,
+            re_authentication_frequency=re_authentication_frequency,
+            risk_score=risk_score,
+            status=status,
+            type=type,
+            user_types_excludeds=user_types_excludeds,
+            user_types_includeds=user_types_includeds,
+            users_excludeds=users_excludeds,
+            users_includeds=users_includeds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_id: Optional[pulumi.Input[str]] = None,
+             access: Optional[pulumi.Input[str]] = None,
+             constraints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             custom_expression: Optional[pulumi.Input[str]] = None,
+             device_assurances_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             device_is_managed: Optional[pulumi.Input[bool]] = None,
+             device_is_registered: Optional[pulumi.Input[bool]] = None,
+             factor_mode: Optional[pulumi.Input[str]] = None,
+             groups_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             inactivity_period: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_connection: Optional[pulumi.Input[str]] = None,
+             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input['AppSignonPolicyRulePlatformIncludeArgs']]]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             re_authentication_frequency: Optional[pulumi.Input[str]] = None,
+             risk_score: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             user_types_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_types_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
+        if custom_expression is None and 'customExpression' in kwargs:
+            custom_expression = kwargs['customExpression']
+        if device_assurances_includeds is None and 'deviceAssurancesIncludeds' in kwargs:
+            device_assurances_includeds = kwargs['deviceAssurancesIncludeds']
+        if device_is_managed is None and 'deviceIsManaged' in kwargs:
+            device_is_managed = kwargs['deviceIsManaged']
+        if device_is_registered is None and 'deviceIsRegistered' in kwargs:
+            device_is_registered = kwargs['deviceIsRegistered']
+        if factor_mode is None and 'factorMode' in kwargs:
+            factor_mode = kwargs['factorMode']
+        if groups_excludeds is None and 'groupsExcludeds' in kwargs:
+            groups_excludeds = kwargs['groupsExcludeds']
+        if groups_includeds is None and 'groupsIncludeds' in kwargs:
+            groups_includeds = kwargs['groupsIncludeds']
+        if inactivity_period is None and 'inactivityPeriod' in kwargs:
+            inactivity_period = kwargs['inactivityPeriod']
+        if network_connection is None and 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if network_excludes is None and 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if network_includes is None and 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if platform_includes is None and 'platformIncludes' in kwargs:
+            platform_includes = kwargs['platformIncludes']
+        if re_authentication_frequency is None and 'reAuthenticationFrequency' in kwargs:
+            re_authentication_frequency = kwargs['reAuthenticationFrequency']
+        if risk_score is None and 'riskScore' in kwargs:
+            risk_score = kwargs['riskScore']
+        if user_types_excludeds is None and 'userTypesExcludeds' in kwargs:
+            user_types_excludeds = kwargs['userTypesExcludeds']
+        if user_types_includeds is None and 'userTypesIncludeds' in kwargs:
+            user_types_includeds = kwargs['userTypesIncludeds']
+        if users_excludeds is None and 'usersExcludeds' in kwargs:
+            users_excludeds = kwargs['usersExcludeds']
+        if users_includeds is None and 'usersIncludeds' in kwargs:
+            users_includeds = kwargs['usersIncludeds']
+
+        _setter("policy_id", policy_id)
         if access is not None:
-            pulumi.set(__self__, "access", access)
+            _setter("access", access)
         if constraints is not None:
-            pulumi.set(__self__, "constraints", constraints)
+            _setter("constraints", constraints)
         if custom_expression is not None:
-            pulumi.set(__self__, "custom_expression", custom_expression)
+            _setter("custom_expression", custom_expression)
         if device_assurances_includeds is not None:
-            pulumi.set(__self__, "device_assurances_includeds", device_assurances_includeds)
+            _setter("device_assurances_includeds", device_assurances_includeds)
         if device_is_managed is not None:
-            pulumi.set(__self__, "device_is_managed", device_is_managed)
+            _setter("device_is_managed", device_is_managed)
         if device_is_registered is not None:
-            pulumi.set(__self__, "device_is_registered", device_is_registered)
+            _setter("device_is_registered", device_is_registered)
         if factor_mode is not None:
-            pulumi.set(__self__, "factor_mode", factor_mode)
+            _setter("factor_mode", factor_mode)
         if groups_excludeds is not None:
-            pulumi.set(__self__, "groups_excludeds", groups_excludeds)
+            _setter("groups_excludeds", groups_excludeds)
         if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+            _setter("groups_includeds", groups_includeds)
         if inactivity_period is not None:
-            pulumi.set(__self__, "inactivity_period", inactivity_period)
+            _setter("inactivity_period", inactivity_period)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_connection is not None:
-            pulumi.set(__self__, "network_connection", network_connection)
+            _setter("network_connection", network_connection)
         if network_excludes is not None:
-            pulumi.set(__self__, "network_excludes", network_excludes)
+            _setter("network_excludes", network_excludes)
         if network_includes is not None:
-            pulumi.set(__self__, "network_includes", network_includes)
+            _setter("network_includes", network_includes)
         if platform_includes is not None:
-            pulumi.set(__self__, "platform_includes", platform_includes)
+            _setter("platform_includes", platform_includes)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if re_authentication_frequency is not None:
-            pulumi.set(__self__, "re_authentication_frequency", re_authentication_frequency)
+            _setter("re_authentication_frequency", re_authentication_frequency)
         if risk_score is not None:
-            pulumi.set(__self__, "risk_score", risk_score)
+            _setter("risk_score", risk_score)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_types_excludeds is not None:
-            pulumi.set(__self__, "user_types_excludeds", user_types_excludeds)
+            _setter("user_types_excludeds", user_types_excludeds)
         if user_types_includeds is not None:
-            pulumi.set(__self__, "user_types_includeds", user_types_includeds)
+            _setter("user_types_includeds", user_types_includeds)
         if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
+            _setter("users_excludeds", users_excludeds)
         if users_includeds is not None:
-            pulumi.set(__self__, "users_includeds", users_includeds)
+            _setter("users_includeds", users_includeds)
 
     @property
     @pulumi.getter(name="policyId")
@@ -473,58 +572,157 @@ class _AppSignonPolicyRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to exclude
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_includeds: Set of User IDs to include
         """
+        _AppSignonPolicyRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            constraints=constraints,
+            custom_expression=custom_expression,
+            device_assurances_includeds=device_assurances_includeds,
+            device_is_managed=device_is_managed,
+            device_is_registered=device_is_registered,
+            factor_mode=factor_mode,
+            groups_excludeds=groups_excludeds,
+            groups_includeds=groups_includeds,
+            inactivity_period=inactivity_period,
+            name=name,
+            network_connection=network_connection,
+            network_excludes=network_excludes,
+            network_includes=network_includes,
+            platform_includes=platform_includes,
+            policy_id=policy_id,
+            priority=priority,
+            re_authentication_frequency=re_authentication_frequency,
+            risk_score=risk_score,
+            status=status,
+            system=system,
+            type=type,
+            user_types_excludeds=user_types_excludeds,
+            user_types_includeds=user_types_includeds,
+            users_excludeds=users_excludeds,
+            users_includeds=users_includeds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: Optional[pulumi.Input[str]] = None,
+             constraints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             custom_expression: Optional[pulumi.Input[str]] = None,
+             device_assurances_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             device_is_managed: Optional[pulumi.Input[bool]] = None,
+             device_is_registered: Optional[pulumi.Input[bool]] = None,
+             factor_mode: Optional[pulumi.Input[str]] = None,
+             groups_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             inactivity_period: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_connection: Optional[pulumi.Input[str]] = None,
+             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input['AppSignonPolicyRulePlatformIncludeArgs']]]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             re_authentication_frequency: Optional[pulumi.Input[str]] = None,
+             risk_score: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             system: Optional[pulumi.Input[bool]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             user_types_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_types_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if custom_expression is None and 'customExpression' in kwargs:
+            custom_expression = kwargs['customExpression']
+        if device_assurances_includeds is None and 'deviceAssurancesIncludeds' in kwargs:
+            device_assurances_includeds = kwargs['deviceAssurancesIncludeds']
+        if device_is_managed is None and 'deviceIsManaged' in kwargs:
+            device_is_managed = kwargs['deviceIsManaged']
+        if device_is_registered is None and 'deviceIsRegistered' in kwargs:
+            device_is_registered = kwargs['deviceIsRegistered']
+        if factor_mode is None and 'factorMode' in kwargs:
+            factor_mode = kwargs['factorMode']
+        if groups_excludeds is None and 'groupsExcludeds' in kwargs:
+            groups_excludeds = kwargs['groupsExcludeds']
+        if groups_includeds is None and 'groupsIncludeds' in kwargs:
+            groups_includeds = kwargs['groupsIncludeds']
+        if inactivity_period is None and 'inactivityPeriod' in kwargs:
+            inactivity_period = kwargs['inactivityPeriod']
+        if network_connection is None and 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if network_excludes is None and 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if network_includes is None and 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if platform_includes is None and 'platformIncludes' in kwargs:
+            platform_includes = kwargs['platformIncludes']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if re_authentication_frequency is None and 'reAuthenticationFrequency' in kwargs:
+            re_authentication_frequency = kwargs['reAuthenticationFrequency']
+        if risk_score is None and 'riskScore' in kwargs:
+            risk_score = kwargs['riskScore']
+        if user_types_excludeds is None and 'userTypesExcludeds' in kwargs:
+            user_types_excludeds = kwargs['userTypesExcludeds']
+        if user_types_includeds is None and 'userTypesIncludeds' in kwargs:
+            user_types_includeds = kwargs['userTypesIncludeds']
+        if users_excludeds is None and 'usersExcludeds' in kwargs:
+            users_excludeds = kwargs['usersExcludeds']
+        if users_includeds is None and 'usersIncludeds' in kwargs:
+            users_includeds = kwargs['usersIncludeds']
+
         if access is not None:
-            pulumi.set(__self__, "access", access)
+            _setter("access", access)
         if constraints is not None:
-            pulumi.set(__self__, "constraints", constraints)
+            _setter("constraints", constraints)
         if custom_expression is not None:
-            pulumi.set(__self__, "custom_expression", custom_expression)
+            _setter("custom_expression", custom_expression)
         if device_assurances_includeds is not None:
-            pulumi.set(__self__, "device_assurances_includeds", device_assurances_includeds)
+            _setter("device_assurances_includeds", device_assurances_includeds)
         if device_is_managed is not None:
-            pulumi.set(__self__, "device_is_managed", device_is_managed)
+            _setter("device_is_managed", device_is_managed)
         if device_is_registered is not None:
-            pulumi.set(__self__, "device_is_registered", device_is_registered)
+            _setter("device_is_registered", device_is_registered)
         if factor_mode is not None:
-            pulumi.set(__self__, "factor_mode", factor_mode)
+            _setter("factor_mode", factor_mode)
         if groups_excludeds is not None:
-            pulumi.set(__self__, "groups_excludeds", groups_excludeds)
+            _setter("groups_excludeds", groups_excludeds)
         if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+            _setter("groups_includeds", groups_includeds)
         if inactivity_period is not None:
-            pulumi.set(__self__, "inactivity_period", inactivity_period)
+            _setter("inactivity_period", inactivity_period)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_connection is not None:
-            pulumi.set(__self__, "network_connection", network_connection)
+            _setter("network_connection", network_connection)
         if network_excludes is not None:
-            pulumi.set(__self__, "network_excludes", network_excludes)
+            _setter("network_excludes", network_excludes)
         if network_includes is not None:
-            pulumi.set(__self__, "network_includes", network_includes)
+            _setter("network_includes", network_includes)
         if platform_includes is not None:
-            pulumi.set(__self__, "platform_includes", platform_includes)
+            _setter("platform_includes", platform_includes)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if re_authentication_frequency is not None:
-            pulumi.set(__self__, "re_authentication_frequency", re_authentication_frequency)
+            _setter("re_authentication_frequency", re_authentication_frequency)
         if risk_score is not None:
-            pulumi.set(__self__, "risk_score", risk_score)
+            _setter("risk_score", risk_score)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if system is not None:
-            pulumi.set(__self__, "system", system)
+            _setter("system", system)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_types_excludeds is not None:
-            pulumi.set(__self__, "user_types_excludeds", user_types_excludeds)
+            _setter("user_types_excludeds", user_types_excludeds)
         if user_types_includeds is not None:
-            pulumi.set(__self__, "user_types_includeds", user_types_includeds)
+            _setter("user_types_includeds", user_types_includeds)
         if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
+            _setter("users_excludeds", users_excludeds)
         if users_includeds is not None:
-            pulumi.set(__self__, "users_includeds", users_includeds)
+            _setter("users_includeds", users_includeds)
 
     @property
     @pulumi.getter
@@ -914,6 +1112,10 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppSignonPolicyRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

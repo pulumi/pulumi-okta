@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,36 +43,99 @@ class RuleIdpDiscoveryArgs:
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
         """
+        RuleIdpDiscoveryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_excludes=app_excludes,
+            app_includes=app_includes,
+            idp_id=idp_id,
+            idp_type=idp_type,
+            name=name,
+            network_connection=network_connection,
+            network_excludes=network_excludes,
+            network_includes=network_includes,
+            platform_includes=platform_includes,
+            policy_id=policy_id,
+            priority=priority,
+            status=status,
+            user_identifier_attribute=user_identifier_attribute,
+            user_identifier_patterns=user_identifier_patterns,
+            user_identifier_type=user_identifier_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]] = None,
+             app_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]] = None,
+             idp_id: Optional[pulumi.Input[str]] = None,
+             idp_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_connection: Optional[pulumi.Input[str]] = None,
+             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             user_identifier_attribute: Optional[pulumi.Input[str]] = None,
+             user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] = None,
+             user_identifier_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_excludes is None and 'appExcludes' in kwargs:
+            app_excludes = kwargs['appExcludes']
+        if app_includes is None and 'appIncludes' in kwargs:
+            app_includes = kwargs['appIncludes']
+        if idp_id is None and 'idpId' in kwargs:
+            idp_id = kwargs['idpId']
+        if idp_type is None and 'idpType' in kwargs:
+            idp_type = kwargs['idpType']
+        if network_connection is None and 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if network_excludes is None and 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if network_includes is None and 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if platform_includes is None and 'platformIncludes' in kwargs:
+            platform_includes = kwargs['platformIncludes']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if user_identifier_attribute is None and 'userIdentifierAttribute' in kwargs:
+            user_identifier_attribute = kwargs['userIdentifierAttribute']
+        if user_identifier_patterns is None and 'userIdentifierPatterns' in kwargs:
+            user_identifier_patterns = kwargs['userIdentifierPatterns']
+        if user_identifier_type is None and 'userIdentifierType' in kwargs:
+            user_identifier_type = kwargs['userIdentifierType']
+
         if app_excludes is not None:
-            pulumi.set(__self__, "app_excludes", app_excludes)
+            _setter("app_excludes", app_excludes)
         if app_includes is not None:
-            pulumi.set(__self__, "app_includes", app_includes)
+            _setter("app_includes", app_includes)
         if idp_id is not None:
-            pulumi.set(__self__, "idp_id", idp_id)
+            _setter("idp_id", idp_id)
         if idp_type is not None:
-            pulumi.set(__self__, "idp_type", idp_type)
+            _setter("idp_type", idp_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_connection is not None:
-            pulumi.set(__self__, "network_connection", network_connection)
+            _setter("network_connection", network_connection)
         if network_excludes is not None:
-            pulumi.set(__self__, "network_excludes", network_excludes)
+            _setter("network_excludes", network_excludes)
         if network_includes is not None:
-            pulumi.set(__self__, "network_includes", network_includes)
+            _setter("network_includes", network_includes)
         if platform_includes is not None:
-            pulumi.set(__self__, "platform_includes", platform_includes)
+            _setter("platform_includes", platform_includes)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if user_identifier_attribute is not None:
-            pulumi.set(__self__, "user_identifier_attribute", user_identifier_attribute)
+            _setter("user_identifier_attribute", user_identifier_attribute)
         if user_identifier_patterns is not None:
-            pulumi.set(__self__, "user_identifier_patterns", user_identifier_patterns)
+            _setter("user_identifier_patterns", user_identifier_patterns)
         if user_identifier_type is not None:
-            pulumi.set(__self__, "user_identifier_type", user_identifier_type)
+            _setter("user_identifier_type", user_identifier_type)
 
     @property
     @pulumi.getter(name="appExcludes")
@@ -267,36 +330,99 @@ class _RuleIdpDiscoveryState:
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
         """
+        _RuleIdpDiscoveryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_excludes=app_excludes,
+            app_includes=app_includes,
+            idp_id=idp_id,
+            idp_type=idp_type,
+            name=name,
+            network_connection=network_connection,
+            network_excludes=network_excludes,
+            network_includes=network_includes,
+            platform_includes=platform_includes,
+            policy_id=policy_id,
+            priority=priority,
+            status=status,
+            user_identifier_attribute=user_identifier_attribute,
+            user_identifier_patterns=user_identifier_patterns,
+            user_identifier_type=user_identifier_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]] = None,
+             app_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]] = None,
+             idp_id: Optional[pulumi.Input[str]] = None,
+             idp_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_connection: Optional[pulumi.Input[str]] = None,
+             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             user_identifier_attribute: Optional[pulumi.Input[str]] = None,
+             user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] = None,
+             user_identifier_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_excludes is None and 'appExcludes' in kwargs:
+            app_excludes = kwargs['appExcludes']
+        if app_includes is None and 'appIncludes' in kwargs:
+            app_includes = kwargs['appIncludes']
+        if idp_id is None and 'idpId' in kwargs:
+            idp_id = kwargs['idpId']
+        if idp_type is None and 'idpType' in kwargs:
+            idp_type = kwargs['idpType']
+        if network_connection is None and 'networkConnection' in kwargs:
+            network_connection = kwargs['networkConnection']
+        if network_excludes is None and 'networkExcludes' in kwargs:
+            network_excludes = kwargs['networkExcludes']
+        if network_includes is None and 'networkIncludes' in kwargs:
+            network_includes = kwargs['networkIncludes']
+        if platform_includes is None and 'platformIncludes' in kwargs:
+            platform_includes = kwargs['platformIncludes']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if user_identifier_attribute is None and 'userIdentifierAttribute' in kwargs:
+            user_identifier_attribute = kwargs['userIdentifierAttribute']
+        if user_identifier_patterns is None and 'userIdentifierPatterns' in kwargs:
+            user_identifier_patterns = kwargs['userIdentifierPatterns']
+        if user_identifier_type is None and 'userIdentifierType' in kwargs:
+            user_identifier_type = kwargs['userIdentifierType']
+
         if app_excludes is not None:
-            pulumi.set(__self__, "app_excludes", app_excludes)
+            _setter("app_excludes", app_excludes)
         if app_includes is not None:
-            pulumi.set(__self__, "app_includes", app_includes)
+            _setter("app_includes", app_includes)
         if idp_id is not None:
-            pulumi.set(__self__, "idp_id", idp_id)
+            _setter("idp_id", idp_id)
         if idp_type is not None:
-            pulumi.set(__self__, "idp_type", idp_type)
+            _setter("idp_type", idp_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_connection is not None:
-            pulumi.set(__self__, "network_connection", network_connection)
+            _setter("network_connection", network_connection)
         if network_excludes is not None:
-            pulumi.set(__self__, "network_excludes", network_excludes)
+            _setter("network_excludes", network_excludes)
         if network_includes is not None:
-            pulumi.set(__self__, "network_includes", network_includes)
+            _setter("network_includes", network_includes)
         if platform_includes is not None:
-            pulumi.set(__self__, "platform_includes", platform_includes)
+            _setter("platform_includes", platform_includes)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if user_identifier_attribute is not None:
-            pulumi.set(__self__, "user_identifier_attribute", user_identifier_attribute)
+            _setter("user_identifier_attribute", user_identifier_attribute)
         if user_identifier_patterns is not None:
-            pulumi.set(__self__, "user_identifier_patterns", user_identifier_patterns)
+            _setter("user_identifier_patterns", user_identifier_patterns)
         if user_identifier_type is not None:
-            pulumi.set(__self__, "user_identifier_type", user_identifier_type)
+            _setter("user_identifier_type", user_identifier_type)
 
     @property
     @pulumi.getter(name="appExcludes")
@@ -514,6 +640,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RuleIdpDiscoveryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

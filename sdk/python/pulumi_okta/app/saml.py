@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -110,97 +110,280 @@ class SamlArgs:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
         """
-        pulumi.set(__self__, "label", label)
+        SamlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            accessibility_error_redirect_url=accessibility_error_redirect_url,
+            accessibility_login_redirect_url=accessibility_login_redirect_url,
+            accessibility_self_service=accessibility_self_service,
+            acs_endpoints=acs_endpoints,
+            admin_note=admin_note,
+            app_links_json=app_links_json,
+            app_settings_json=app_settings_json,
+            assertion_signed=assertion_signed,
+            attribute_statements=attribute_statements,
+            audience=audience,
+            authentication_policy=authentication_policy,
+            authn_context_class_ref=authn_context_class_ref,
+            auto_submit_toolbar=auto_submit_toolbar,
+            default_relay_state=default_relay_state,
+            destination=destination,
+            digest_algorithm=digest_algorithm,
+            enduser_note=enduser_note,
+            hide_ios=hide_ios,
+            hide_web=hide_web,
+            honor_force_authn=honor_force_authn,
+            idp_issuer=idp_issuer,
+            implicit_assignment=implicit_assignment,
+            inline_hook_id=inline_hook_id,
+            key_name=key_name,
+            key_years_valid=key_years_valid,
+            logo=logo,
+            preconfigured_app=preconfigured_app,
+            recipient=recipient,
+            request_compressed=request_compressed,
+            response_signed=response_signed,
+            saml_signed_request_enabled=saml_signed_request_enabled,
+            saml_version=saml_version,
+            signature_algorithm=signature_algorithm,
+            single_logout_certificate=single_logout_certificate,
+            single_logout_issuer=single_logout_issuer,
+            single_logout_url=single_logout_url,
+            sp_issuer=sp_issuer,
+            sso_url=sso_url,
+            status=status,
+            subject_name_id_format=subject_name_id_format,
+            subject_name_id_template=subject_name_id_template,
+            user_name_template=user_name_template,
+            user_name_template_push_status=user_name_template_push_status,
+            user_name_template_suffix=user_name_template_suffix,
+            user_name_template_type=user_name_template_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: Optional[pulumi.Input[str]] = None,
+             accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+             acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             admin_note: Optional[pulumi.Input[str]] = None,
+             app_links_json: Optional[pulumi.Input[str]] = None,
+             app_settings_json: Optional[pulumi.Input[str]] = None,
+             assertion_signed: Optional[pulumi.Input[bool]] = None,
+             attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]] = None,
+             audience: Optional[pulumi.Input[str]] = None,
+             authentication_policy: Optional[pulumi.Input[str]] = None,
+             authn_context_class_ref: Optional[pulumi.Input[str]] = None,
+             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+             default_relay_state: Optional[pulumi.Input[str]] = None,
+             destination: Optional[pulumi.Input[str]] = None,
+             digest_algorithm: Optional[pulumi.Input[str]] = None,
+             enduser_note: Optional[pulumi.Input[str]] = None,
+             hide_ios: Optional[pulumi.Input[bool]] = None,
+             hide_web: Optional[pulumi.Input[bool]] = None,
+             honor_force_authn: Optional[pulumi.Input[bool]] = None,
+             idp_issuer: Optional[pulumi.Input[str]] = None,
+             implicit_assignment: Optional[pulumi.Input[bool]] = None,
+             inline_hook_id: Optional[pulumi.Input[str]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_years_valid: Optional[pulumi.Input[int]] = None,
+             logo: Optional[pulumi.Input[str]] = None,
+             preconfigured_app: Optional[pulumi.Input[str]] = None,
+             recipient: Optional[pulumi.Input[str]] = None,
+             request_compressed: Optional[pulumi.Input[bool]] = None,
+             response_signed: Optional[pulumi.Input[bool]] = None,
+             saml_signed_request_enabled: Optional[pulumi.Input[bool]] = None,
+             saml_version: Optional[pulumi.Input[str]] = None,
+             signature_algorithm: Optional[pulumi.Input[str]] = None,
+             single_logout_certificate: Optional[pulumi.Input[str]] = None,
+             single_logout_issuer: Optional[pulumi.Input[str]] = None,
+             single_logout_url: Optional[pulumi.Input[str]] = None,
+             sp_issuer: Optional[pulumi.Input[str]] = None,
+             sso_url: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subject_name_id_format: Optional[pulumi.Input[str]] = None,
+             subject_name_id_template: Optional[pulumi.Input[str]] = None,
+             user_name_template: Optional[pulumi.Input[str]] = None,
+             user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+             user_name_template_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if accessibility_error_redirect_url is None and 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if accessibility_login_redirect_url is None and 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if accessibility_self_service is None and 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if acs_endpoints is None and 'acsEndpoints' in kwargs:
+            acs_endpoints = kwargs['acsEndpoints']
+        if admin_note is None and 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if app_links_json is None and 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if app_settings_json is None and 'appSettingsJson' in kwargs:
+            app_settings_json = kwargs['appSettingsJson']
+        if assertion_signed is None and 'assertionSigned' in kwargs:
+            assertion_signed = kwargs['assertionSigned']
+        if attribute_statements is None and 'attributeStatements' in kwargs:
+            attribute_statements = kwargs['attributeStatements']
+        if authentication_policy is None and 'authenticationPolicy' in kwargs:
+            authentication_policy = kwargs['authenticationPolicy']
+        if authn_context_class_ref is None and 'authnContextClassRef' in kwargs:
+            authn_context_class_ref = kwargs['authnContextClassRef']
+        if auto_submit_toolbar is None and 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if default_relay_state is None and 'defaultRelayState' in kwargs:
+            default_relay_state = kwargs['defaultRelayState']
+        if digest_algorithm is None and 'digestAlgorithm' in kwargs:
+            digest_algorithm = kwargs['digestAlgorithm']
+        if enduser_note is None and 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if hide_ios is None and 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if hide_web is None and 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+        if honor_force_authn is None and 'honorForceAuthn' in kwargs:
+            honor_force_authn = kwargs['honorForceAuthn']
+        if idp_issuer is None and 'idpIssuer' in kwargs:
+            idp_issuer = kwargs['idpIssuer']
+        if implicit_assignment is None and 'implicitAssignment' in kwargs:
+            implicit_assignment = kwargs['implicitAssignment']
+        if inline_hook_id is None and 'inlineHookId' in kwargs:
+            inline_hook_id = kwargs['inlineHookId']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_years_valid is None and 'keyYearsValid' in kwargs:
+            key_years_valid = kwargs['keyYearsValid']
+        if preconfigured_app is None and 'preconfiguredApp' in kwargs:
+            preconfigured_app = kwargs['preconfiguredApp']
+        if request_compressed is None and 'requestCompressed' in kwargs:
+            request_compressed = kwargs['requestCompressed']
+        if response_signed is None and 'responseSigned' in kwargs:
+            response_signed = kwargs['responseSigned']
+        if saml_signed_request_enabled is None and 'samlSignedRequestEnabled' in kwargs:
+            saml_signed_request_enabled = kwargs['samlSignedRequestEnabled']
+        if saml_version is None and 'samlVersion' in kwargs:
+            saml_version = kwargs['samlVersion']
+        if signature_algorithm is None and 'signatureAlgorithm' in kwargs:
+            signature_algorithm = kwargs['signatureAlgorithm']
+        if single_logout_certificate is None and 'singleLogoutCertificate' in kwargs:
+            single_logout_certificate = kwargs['singleLogoutCertificate']
+        if single_logout_issuer is None and 'singleLogoutIssuer' in kwargs:
+            single_logout_issuer = kwargs['singleLogoutIssuer']
+        if single_logout_url is None and 'singleLogoutUrl' in kwargs:
+            single_logout_url = kwargs['singleLogoutUrl']
+        if sp_issuer is None and 'spIssuer' in kwargs:
+            sp_issuer = kwargs['spIssuer']
+        if sso_url is None and 'ssoUrl' in kwargs:
+            sso_url = kwargs['ssoUrl']
+        if subject_name_id_format is None and 'subjectNameIdFormat' in kwargs:
+            subject_name_id_format = kwargs['subjectNameIdFormat']
+        if subject_name_id_template is None and 'subjectNameIdTemplate' in kwargs:
+            subject_name_id_template = kwargs['subjectNameIdTemplate']
+        if user_name_template is None and 'userNameTemplate' in kwargs:
+            user_name_template = kwargs['userNameTemplate']
+        if user_name_template_push_status is None and 'userNameTemplatePushStatus' in kwargs:
+            user_name_template_push_status = kwargs['userNameTemplatePushStatus']
+        if user_name_template_suffix is None and 'userNameTemplateSuffix' in kwargs:
+            user_name_template_suffix = kwargs['userNameTemplateSuffix']
+        if user_name_template_type is None and 'userNameTemplateType' in kwargs:
+            user_name_template_type = kwargs['userNameTemplateType']
+
+        _setter("label", label)
         if accessibility_error_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+            _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
+            _setter("accessibility_login_redirect_url", accessibility_login_redirect_url)
         if accessibility_self_service is not None:
-            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+            _setter("accessibility_self_service", accessibility_self_service)
         if acs_endpoints is not None:
-            pulumi.set(__self__, "acs_endpoints", acs_endpoints)
+            _setter("acs_endpoints", acs_endpoints)
         if admin_note is not None:
-            pulumi.set(__self__, "admin_note", admin_note)
+            _setter("admin_note", admin_note)
         if app_links_json is not None:
-            pulumi.set(__self__, "app_links_json", app_links_json)
+            _setter("app_links_json", app_links_json)
         if app_settings_json is not None:
-            pulumi.set(__self__, "app_settings_json", app_settings_json)
+            _setter("app_settings_json", app_settings_json)
         if assertion_signed is not None:
-            pulumi.set(__self__, "assertion_signed", assertion_signed)
+            _setter("assertion_signed", assertion_signed)
         if attribute_statements is not None:
-            pulumi.set(__self__, "attribute_statements", attribute_statements)
+            _setter("attribute_statements", attribute_statements)
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if authentication_policy is not None:
-            pulumi.set(__self__, "authentication_policy", authentication_policy)
+            _setter("authentication_policy", authentication_policy)
         if authn_context_class_ref is not None:
-            pulumi.set(__self__, "authn_context_class_ref", authn_context_class_ref)
+            _setter("authn_context_class_ref", authn_context_class_ref)
         if auto_submit_toolbar is not None:
-            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+            _setter("auto_submit_toolbar", auto_submit_toolbar)
         if default_relay_state is not None:
-            pulumi.set(__self__, "default_relay_state", default_relay_state)
+            _setter("default_relay_state", default_relay_state)
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if digest_algorithm is not None:
-            pulumi.set(__self__, "digest_algorithm", digest_algorithm)
+            _setter("digest_algorithm", digest_algorithm)
         if enduser_note is not None:
-            pulumi.set(__self__, "enduser_note", enduser_note)
+            _setter("enduser_note", enduser_note)
         if hide_ios is not None:
-            pulumi.set(__self__, "hide_ios", hide_ios)
+            _setter("hide_ios", hide_ios)
         if hide_web is not None:
-            pulumi.set(__self__, "hide_web", hide_web)
+            _setter("hide_web", hide_web)
         if honor_force_authn is not None:
-            pulumi.set(__self__, "honor_force_authn", honor_force_authn)
+            _setter("honor_force_authn", honor_force_authn)
         if idp_issuer is not None:
-            pulumi.set(__self__, "idp_issuer", idp_issuer)
+            _setter("idp_issuer", idp_issuer)
         if implicit_assignment is not None:
-            pulumi.set(__self__, "implicit_assignment", implicit_assignment)
+            _setter("implicit_assignment", implicit_assignment)
         if inline_hook_id is not None:
-            pulumi.set(__self__, "inline_hook_id", inline_hook_id)
+            _setter("inline_hook_id", inline_hook_id)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_years_valid is not None:
-            pulumi.set(__self__, "key_years_valid", key_years_valid)
+            _setter("key_years_valid", key_years_valid)
         if logo is not None:
-            pulumi.set(__self__, "logo", logo)
+            _setter("logo", logo)
         if preconfigured_app is not None:
-            pulumi.set(__self__, "preconfigured_app", preconfigured_app)
+            _setter("preconfigured_app", preconfigured_app)
         if recipient is not None:
-            pulumi.set(__self__, "recipient", recipient)
+            _setter("recipient", recipient)
         if request_compressed is not None:
-            pulumi.set(__self__, "request_compressed", request_compressed)
+            _setter("request_compressed", request_compressed)
         if response_signed is not None:
-            pulumi.set(__self__, "response_signed", response_signed)
+            _setter("response_signed", response_signed)
         if saml_signed_request_enabled is not None:
-            pulumi.set(__self__, "saml_signed_request_enabled", saml_signed_request_enabled)
+            _setter("saml_signed_request_enabled", saml_signed_request_enabled)
         if saml_version is not None:
-            pulumi.set(__self__, "saml_version", saml_version)
+            _setter("saml_version", saml_version)
         if signature_algorithm is not None:
-            pulumi.set(__self__, "signature_algorithm", signature_algorithm)
+            _setter("signature_algorithm", signature_algorithm)
         if single_logout_certificate is not None:
-            pulumi.set(__self__, "single_logout_certificate", single_logout_certificate)
+            _setter("single_logout_certificate", single_logout_certificate)
         if single_logout_issuer is not None:
-            pulumi.set(__self__, "single_logout_issuer", single_logout_issuer)
+            _setter("single_logout_issuer", single_logout_issuer)
         if single_logout_url is not None:
-            pulumi.set(__self__, "single_logout_url", single_logout_url)
+            _setter("single_logout_url", single_logout_url)
         if sp_issuer is not None:
-            pulumi.set(__self__, "sp_issuer", sp_issuer)
+            _setter("sp_issuer", sp_issuer)
         if sso_url is not None:
-            pulumi.set(__self__, "sso_url", sso_url)
+            _setter("sso_url", sso_url)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subject_name_id_format is not None:
-            pulumi.set(__self__, "subject_name_id_format", subject_name_id_format)
+            _setter("subject_name_id_format", subject_name_id_format)
         if subject_name_id_template is not None:
-            pulumi.set(__self__, "subject_name_id_template", subject_name_id_template)
+            _setter("subject_name_id_template", subject_name_id_template)
         if user_name_template is not None:
-            pulumi.set(__self__, "user_name_template", user_name_template)
+            _setter("user_name_template", user_name_template)
         if user_name_template_push_status is not None:
-            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
+            _setter("user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
-            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+            _setter("user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
-            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+            _setter("user_name_template_type", user_name_template_type)
 
     @property
     @pulumi.getter
@@ -877,126 +1060,353 @@ class _SamlState:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
         """
+        _SamlState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accessibility_error_redirect_url=accessibility_error_redirect_url,
+            accessibility_login_redirect_url=accessibility_login_redirect_url,
+            accessibility_self_service=accessibility_self_service,
+            acs_endpoints=acs_endpoints,
+            admin_note=admin_note,
+            app_links_json=app_links_json,
+            app_settings_json=app_settings_json,
+            assertion_signed=assertion_signed,
+            attribute_statements=attribute_statements,
+            audience=audience,
+            authentication_policy=authentication_policy,
+            authn_context_class_ref=authn_context_class_ref,
+            auto_submit_toolbar=auto_submit_toolbar,
+            certificate=certificate,
+            default_relay_state=default_relay_state,
+            destination=destination,
+            digest_algorithm=digest_algorithm,
+            embed_url=embed_url,
+            enduser_note=enduser_note,
+            entity_key=entity_key,
+            entity_url=entity_url,
+            features=features,
+            hide_ios=hide_ios,
+            hide_web=hide_web,
+            honor_force_authn=honor_force_authn,
+            http_post_binding=http_post_binding,
+            http_redirect_binding=http_redirect_binding,
+            idp_issuer=idp_issuer,
+            implicit_assignment=implicit_assignment,
+            inline_hook_id=inline_hook_id,
+            key_id=key_id,
+            key_name=key_name,
+            key_years_valid=key_years_valid,
+            keys=keys,
+            label=label,
+            logo=logo,
+            logo_url=logo_url,
+            metadata=metadata,
+            metadata_url=metadata_url,
+            name=name,
+            preconfigured_app=preconfigured_app,
+            recipient=recipient,
+            request_compressed=request_compressed,
+            response_signed=response_signed,
+            saml_signed_request_enabled=saml_signed_request_enabled,
+            saml_version=saml_version,
+            sign_on_mode=sign_on_mode,
+            signature_algorithm=signature_algorithm,
+            single_logout_certificate=single_logout_certificate,
+            single_logout_issuer=single_logout_issuer,
+            single_logout_url=single_logout_url,
+            sp_issuer=sp_issuer,
+            sso_url=sso_url,
+            status=status,
+            subject_name_id_format=subject_name_id_format,
+            subject_name_id_template=subject_name_id_template,
+            user_name_template=user_name_template,
+            user_name_template_push_status=user_name_template_push_status,
+            user_name_template_suffix=user_name_template_suffix,
+            user_name_template_type=user_name_template_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+             acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             admin_note: Optional[pulumi.Input[str]] = None,
+             app_links_json: Optional[pulumi.Input[str]] = None,
+             app_settings_json: Optional[pulumi.Input[str]] = None,
+             assertion_signed: Optional[pulumi.Input[bool]] = None,
+             attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]] = None,
+             audience: Optional[pulumi.Input[str]] = None,
+             authentication_policy: Optional[pulumi.Input[str]] = None,
+             authn_context_class_ref: Optional[pulumi.Input[str]] = None,
+             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+             certificate: Optional[pulumi.Input[str]] = None,
+             default_relay_state: Optional[pulumi.Input[str]] = None,
+             destination: Optional[pulumi.Input[str]] = None,
+             digest_algorithm: Optional[pulumi.Input[str]] = None,
+             embed_url: Optional[pulumi.Input[str]] = None,
+             enduser_note: Optional[pulumi.Input[str]] = None,
+             entity_key: Optional[pulumi.Input[str]] = None,
+             entity_url: Optional[pulumi.Input[str]] = None,
+             features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             hide_ios: Optional[pulumi.Input[bool]] = None,
+             hide_web: Optional[pulumi.Input[bool]] = None,
+             honor_force_authn: Optional[pulumi.Input[bool]] = None,
+             http_post_binding: Optional[pulumi.Input[str]] = None,
+             http_redirect_binding: Optional[pulumi.Input[str]] = None,
+             idp_issuer: Optional[pulumi.Input[str]] = None,
+             implicit_assignment: Optional[pulumi.Input[bool]] = None,
+             inline_hook_id: Optional[pulumi.Input[str]] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_years_valid: Optional[pulumi.Input[int]] = None,
+             keys: Optional[pulumi.Input[Sequence[pulumi.Input['SamlKeyArgs']]]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             logo: Optional[pulumi.Input[str]] = None,
+             logo_url: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[str]] = None,
+             metadata_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             preconfigured_app: Optional[pulumi.Input[str]] = None,
+             recipient: Optional[pulumi.Input[str]] = None,
+             request_compressed: Optional[pulumi.Input[bool]] = None,
+             response_signed: Optional[pulumi.Input[bool]] = None,
+             saml_signed_request_enabled: Optional[pulumi.Input[bool]] = None,
+             saml_version: Optional[pulumi.Input[str]] = None,
+             sign_on_mode: Optional[pulumi.Input[str]] = None,
+             signature_algorithm: Optional[pulumi.Input[str]] = None,
+             single_logout_certificate: Optional[pulumi.Input[str]] = None,
+             single_logout_issuer: Optional[pulumi.Input[str]] = None,
+             single_logout_url: Optional[pulumi.Input[str]] = None,
+             sp_issuer: Optional[pulumi.Input[str]] = None,
+             sso_url: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subject_name_id_format: Optional[pulumi.Input[str]] = None,
+             subject_name_id_template: Optional[pulumi.Input[str]] = None,
+             user_name_template: Optional[pulumi.Input[str]] = None,
+             user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+             user_name_template_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if accessibility_error_redirect_url is None and 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if accessibility_login_redirect_url is None and 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if accessibility_self_service is None and 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if acs_endpoints is None and 'acsEndpoints' in kwargs:
+            acs_endpoints = kwargs['acsEndpoints']
+        if admin_note is None and 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if app_links_json is None and 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if app_settings_json is None and 'appSettingsJson' in kwargs:
+            app_settings_json = kwargs['appSettingsJson']
+        if assertion_signed is None and 'assertionSigned' in kwargs:
+            assertion_signed = kwargs['assertionSigned']
+        if attribute_statements is None and 'attributeStatements' in kwargs:
+            attribute_statements = kwargs['attributeStatements']
+        if authentication_policy is None and 'authenticationPolicy' in kwargs:
+            authentication_policy = kwargs['authenticationPolicy']
+        if authn_context_class_ref is None and 'authnContextClassRef' in kwargs:
+            authn_context_class_ref = kwargs['authnContextClassRef']
+        if auto_submit_toolbar is None and 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if default_relay_state is None and 'defaultRelayState' in kwargs:
+            default_relay_state = kwargs['defaultRelayState']
+        if digest_algorithm is None and 'digestAlgorithm' in kwargs:
+            digest_algorithm = kwargs['digestAlgorithm']
+        if embed_url is None and 'embedUrl' in kwargs:
+            embed_url = kwargs['embedUrl']
+        if enduser_note is None and 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if entity_key is None and 'entityKey' in kwargs:
+            entity_key = kwargs['entityKey']
+        if entity_url is None and 'entityUrl' in kwargs:
+            entity_url = kwargs['entityUrl']
+        if hide_ios is None and 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if hide_web is None and 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+        if honor_force_authn is None and 'honorForceAuthn' in kwargs:
+            honor_force_authn = kwargs['honorForceAuthn']
+        if http_post_binding is None and 'httpPostBinding' in kwargs:
+            http_post_binding = kwargs['httpPostBinding']
+        if http_redirect_binding is None and 'httpRedirectBinding' in kwargs:
+            http_redirect_binding = kwargs['httpRedirectBinding']
+        if idp_issuer is None and 'idpIssuer' in kwargs:
+            idp_issuer = kwargs['idpIssuer']
+        if implicit_assignment is None and 'implicitAssignment' in kwargs:
+            implicit_assignment = kwargs['implicitAssignment']
+        if inline_hook_id is None and 'inlineHookId' in kwargs:
+            inline_hook_id = kwargs['inlineHookId']
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_years_valid is None and 'keyYearsValid' in kwargs:
+            key_years_valid = kwargs['keyYearsValid']
+        if logo_url is None and 'logoUrl' in kwargs:
+            logo_url = kwargs['logoUrl']
+        if metadata_url is None and 'metadataUrl' in kwargs:
+            metadata_url = kwargs['metadataUrl']
+        if preconfigured_app is None and 'preconfiguredApp' in kwargs:
+            preconfigured_app = kwargs['preconfiguredApp']
+        if request_compressed is None and 'requestCompressed' in kwargs:
+            request_compressed = kwargs['requestCompressed']
+        if response_signed is None and 'responseSigned' in kwargs:
+            response_signed = kwargs['responseSigned']
+        if saml_signed_request_enabled is None and 'samlSignedRequestEnabled' in kwargs:
+            saml_signed_request_enabled = kwargs['samlSignedRequestEnabled']
+        if saml_version is None and 'samlVersion' in kwargs:
+            saml_version = kwargs['samlVersion']
+        if sign_on_mode is None and 'signOnMode' in kwargs:
+            sign_on_mode = kwargs['signOnMode']
+        if signature_algorithm is None and 'signatureAlgorithm' in kwargs:
+            signature_algorithm = kwargs['signatureAlgorithm']
+        if single_logout_certificate is None and 'singleLogoutCertificate' in kwargs:
+            single_logout_certificate = kwargs['singleLogoutCertificate']
+        if single_logout_issuer is None and 'singleLogoutIssuer' in kwargs:
+            single_logout_issuer = kwargs['singleLogoutIssuer']
+        if single_logout_url is None and 'singleLogoutUrl' in kwargs:
+            single_logout_url = kwargs['singleLogoutUrl']
+        if sp_issuer is None and 'spIssuer' in kwargs:
+            sp_issuer = kwargs['spIssuer']
+        if sso_url is None and 'ssoUrl' in kwargs:
+            sso_url = kwargs['ssoUrl']
+        if subject_name_id_format is None and 'subjectNameIdFormat' in kwargs:
+            subject_name_id_format = kwargs['subjectNameIdFormat']
+        if subject_name_id_template is None and 'subjectNameIdTemplate' in kwargs:
+            subject_name_id_template = kwargs['subjectNameIdTemplate']
+        if user_name_template is None and 'userNameTemplate' in kwargs:
+            user_name_template = kwargs['userNameTemplate']
+        if user_name_template_push_status is None and 'userNameTemplatePushStatus' in kwargs:
+            user_name_template_push_status = kwargs['userNameTemplatePushStatus']
+        if user_name_template_suffix is None and 'userNameTemplateSuffix' in kwargs:
+            user_name_template_suffix = kwargs['userNameTemplateSuffix']
+        if user_name_template_type is None and 'userNameTemplateType' in kwargs:
+            user_name_template_type = kwargs['userNameTemplateType']
+
         if accessibility_error_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+            _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
+            _setter("accessibility_login_redirect_url", accessibility_login_redirect_url)
         if accessibility_self_service is not None:
-            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+            _setter("accessibility_self_service", accessibility_self_service)
         if acs_endpoints is not None:
-            pulumi.set(__self__, "acs_endpoints", acs_endpoints)
+            _setter("acs_endpoints", acs_endpoints)
         if admin_note is not None:
-            pulumi.set(__self__, "admin_note", admin_note)
+            _setter("admin_note", admin_note)
         if app_links_json is not None:
-            pulumi.set(__self__, "app_links_json", app_links_json)
+            _setter("app_links_json", app_links_json)
         if app_settings_json is not None:
-            pulumi.set(__self__, "app_settings_json", app_settings_json)
+            _setter("app_settings_json", app_settings_json)
         if assertion_signed is not None:
-            pulumi.set(__self__, "assertion_signed", assertion_signed)
+            _setter("assertion_signed", assertion_signed)
         if attribute_statements is not None:
-            pulumi.set(__self__, "attribute_statements", attribute_statements)
+            _setter("attribute_statements", attribute_statements)
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if authentication_policy is not None:
-            pulumi.set(__self__, "authentication_policy", authentication_policy)
+            _setter("authentication_policy", authentication_policy)
         if authn_context_class_ref is not None:
-            pulumi.set(__self__, "authn_context_class_ref", authn_context_class_ref)
+            _setter("authn_context_class_ref", authn_context_class_ref)
         if auto_submit_toolbar is not None:
-            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+            _setter("auto_submit_toolbar", auto_submit_toolbar)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if default_relay_state is not None:
-            pulumi.set(__self__, "default_relay_state", default_relay_state)
+            _setter("default_relay_state", default_relay_state)
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if digest_algorithm is not None:
-            pulumi.set(__self__, "digest_algorithm", digest_algorithm)
+            _setter("digest_algorithm", digest_algorithm)
         if embed_url is not None:
-            pulumi.set(__self__, "embed_url", embed_url)
+            _setter("embed_url", embed_url)
         if enduser_note is not None:
-            pulumi.set(__self__, "enduser_note", enduser_note)
+            _setter("enduser_note", enduser_note)
         if entity_key is not None:
-            pulumi.set(__self__, "entity_key", entity_key)
+            _setter("entity_key", entity_key)
         if entity_url is not None:
-            pulumi.set(__self__, "entity_url", entity_url)
+            _setter("entity_url", entity_url)
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if hide_ios is not None:
-            pulumi.set(__self__, "hide_ios", hide_ios)
+            _setter("hide_ios", hide_ios)
         if hide_web is not None:
-            pulumi.set(__self__, "hide_web", hide_web)
+            _setter("hide_web", hide_web)
         if honor_force_authn is not None:
-            pulumi.set(__self__, "honor_force_authn", honor_force_authn)
+            _setter("honor_force_authn", honor_force_authn)
         if http_post_binding is not None:
-            pulumi.set(__self__, "http_post_binding", http_post_binding)
+            _setter("http_post_binding", http_post_binding)
         if http_redirect_binding is not None:
-            pulumi.set(__self__, "http_redirect_binding", http_redirect_binding)
+            _setter("http_redirect_binding", http_redirect_binding)
         if idp_issuer is not None:
-            pulumi.set(__self__, "idp_issuer", idp_issuer)
+            _setter("idp_issuer", idp_issuer)
         if implicit_assignment is not None:
-            pulumi.set(__self__, "implicit_assignment", implicit_assignment)
+            _setter("implicit_assignment", implicit_assignment)
         if inline_hook_id is not None:
-            pulumi.set(__self__, "inline_hook_id", inline_hook_id)
+            _setter("inline_hook_id", inline_hook_id)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_years_valid is not None:
-            pulumi.set(__self__, "key_years_valid", key_years_valid)
+            _setter("key_years_valid", key_years_valid)
         if keys is not None:
-            pulumi.set(__self__, "keys", keys)
+            _setter("keys", keys)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if logo is not None:
-            pulumi.set(__self__, "logo", logo)
+            _setter("logo", logo)
         if logo_url is not None:
-            pulumi.set(__self__, "logo_url", logo_url)
+            _setter("logo_url", logo_url)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if metadata_url is not None:
-            pulumi.set(__self__, "metadata_url", metadata_url)
+            _setter("metadata_url", metadata_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if preconfigured_app is not None:
-            pulumi.set(__self__, "preconfigured_app", preconfigured_app)
+            _setter("preconfigured_app", preconfigured_app)
         if recipient is not None:
-            pulumi.set(__self__, "recipient", recipient)
+            _setter("recipient", recipient)
         if request_compressed is not None:
-            pulumi.set(__self__, "request_compressed", request_compressed)
+            _setter("request_compressed", request_compressed)
         if response_signed is not None:
-            pulumi.set(__self__, "response_signed", response_signed)
+            _setter("response_signed", response_signed)
         if saml_signed_request_enabled is not None:
-            pulumi.set(__self__, "saml_signed_request_enabled", saml_signed_request_enabled)
+            _setter("saml_signed_request_enabled", saml_signed_request_enabled)
         if saml_version is not None:
-            pulumi.set(__self__, "saml_version", saml_version)
+            _setter("saml_version", saml_version)
         if sign_on_mode is not None:
-            pulumi.set(__self__, "sign_on_mode", sign_on_mode)
+            _setter("sign_on_mode", sign_on_mode)
         if signature_algorithm is not None:
-            pulumi.set(__self__, "signature_algorithm", signature_algorithm)
+            _setter("signature_algorithm", signature_algorithm)
         if single_logout_certificate is not None:
-            pulumi.set(__self__, "single_logout_certificate", single_logout_certificate)
+            _setter("single_logout_certificate", single_logout_certificate)
         if single_logout_issuer is not None:
-            pulumi.set(__self__, "single_logout_issuer", single_logout_issuer)
+            _setter("single_logout_issuer", single_logout_issuer)
         if single_logout_url is not None:
-            pulumi.set(__self__, "single_logout_url", single_logout_url)
+            _setter("single_logout_url", single_logout_url)
         if sp_issuer is not None:
-            pulumi.set(__self__, "sp_issuer", sp_issuer)
+            _setter("sp_issuer", sp_issuer)
         if sso_url is not None:
-            pulumi.set(__self__, "sso_url", sso_url)
+            _setter("sso_url", sso_url)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subject_name_id_format is not None:
-            pulumi.set(__self__, "subject_name_id_format", subject_name_id_format)
+            _setter("subject_name_id_format", subject_name_id_format)
         if subject_name_id_template is not None:
-            pulumi.set(__self__, "subject_name_id_template", subject_name_id_template)
+            _setter("subject_name_id_template", subject_name_id_template)
         if user_name_template is not None:
-            pulumi.set(__self__, "user_name_template", user_name_template)
+            _setter("user_name_template", user_name_template)
         if user_name_template_push_status is not None:
-            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
+            _setter("user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
-            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+            _setter("user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
-            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+            _setter("user_name_template_type", user_name_template_type)
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
@@ -1836,6 +2246,10 @@ class Saml(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SamlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

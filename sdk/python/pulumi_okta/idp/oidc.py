@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OidcArgs', 'Oidc']
@@ -53,60 +53,211 @@ class OidcArgs:
         :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request
         :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an authorization request to the IdP
         """
-        pulumi.set(__self__, "authorization_binding", authorization_binding)
-        pulumi.set(__self__, "authorization_url", authorization_url)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
-        pulumi.set(__self__, "issuer_url", issuer_url)
-        pulumi.set(__self__, "jwks_binding", jwks_binding)
-        pulumi.set(__self__, "jwks_url", jwks_url)
-        pulumi.set(__self__, "scopes", scopes)
-        pulumi.set(__self__, "token_binding", token_binding)
-        pulumi.set(__self__, "token_url", token_url)
+        OidcArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_binding=authorization_binding,
+            authorization_url=authorization_url,
+            client_id=client_id,
+            client_secret=client_secret,
+            issuer_url=issuer_url,
+            jwks_binding=jwks_binding,
+            jwks_url=jwks_url,
+            scopes=scopes,
+            token_binding=token_binding,
+            token_url=token_url,
+            account_link_action=account_link_action,
+            account_link_group_includes=account_link_group_includes,
+            deprovisioned_action=deprovisioned_action,
+            groups_action=groups_action,
+            groups_assignments=groups_assignments,
+            groups_attribute=groups_attribute,
+            groups_filters=groups_filters,
+            issuer_mode=issuer_mode,
+            max_clock_skew=max_clock_skew,
+            name=name,
+            profile_master=profile_master,
+            protocol_type=protocol_type,
+            provisioning_action=provisioning_action,
+            request_signature_algorithm=request_signature_algorithm,
+            request_signature_scope=request_signature_scope,
+            status=status,
+            subject_match_attribute=subject_match_attribute,
+            subject_match_type=subject_match_type,
+            suspended_action=suspended_action,
+            user_info_binding=user_info_binding,
+            user_info_url=user_info_url,
+            username_template=username_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_binding: Optional[pulumi.Input[str]] = None,
+             authorization_url: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             issuer_url: Optional[pulumi.Input[str]] = None,
+             jwks_binding: Optional[pulumi.Input[str]] = None,
+             jwks_url: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             token_binding: Optional[pulumi.Input[str]] = None,
+             token_url: Optional[pulumi.Input[str]] = None,
+             account_link_action: Optional[pulumi.Input[str]] = None,
+             account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             deprovisioned_action: Optional[pulumi.Input[str]] = None,
+             groups_action: Optional[pulumi.Input[str]] = None,
+             groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             groups_attribute: Optional[pulumi.Input[str]] = None,
+             groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             issuer_mode: Optional[pulumi.Input[str]] = None,
+             max_clock_skew: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             profile_master: Optional[pulumi.Input[bool]] = None,
+             protocol_type: Optional[pulumi.Input[str]] = None,
+             provisioning_action: Optional[pulumi.Input[str]] = None,
+             request_signature_algorithm: Optional[pulumi.Input[str]] = None,
+             request_signature_scope: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subject_match_attribute: Optional[pulumi.Input[str]] = None,
+             subject_match_type: Optional[pulumi.Input[str]] = None,
+             suspended_action: Optional[pulumi.Input[str]] = None,
+             user_info_binding: Optional[pulumi.Input[str]] = None,
+             user_info_url: Optional[pulumi.Input[str]] = None,
+             username_template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authorization_binding is None and 'authorizationBinding' in kwargs:
+            authorization_binding = kwargs['authorizationBinding']
+        if authorization_binding is None:
+            raise TypeError("Missing 'authorization_binding' argument")
+        if authorization_url is None and 'authorizationUrl' in kwargs:
+            authorization_url = kwargs['authorizationUrl']
+        if authorization_url is None:
+            raise TypeError("Missing 'authorization_url' argument")
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if issuer_url is None and 'issuerUrl' in kwargs:
+            issuer_url = kwargs['issuerUrl']
+        if issuer_url is None:
+            raise TypeError("Missing 'issuer_url' argument")
+        if jwks_binding is None and 'jwksBinding' in kwargs:
+            jwks_binding = kwargs['jwksBinding']
+        if jwks_binding is None:
+            raise TypeError("Missing 'jwks_binding' argument")
+        if jwks_url is None and 'jwksUrl' in kwargs:
+            jwks_url = kwargs['jwksUrl']
+        if jwks_url is None:
+            raise TypeError("Missing 'jwks_url' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if token_binding is None and 'tokenBinding' in kwargs:
+            token_binding = kwargs['tokenBinding']
+        if token_binding is None:
+            raise TypeError("Missing 'token_binding' argument")
+        if token_url is None and 'tokenUrl' in kwargs:
+            token_url = kwargs['tokenUrl']
+        if token_url is None:
+            raise TypeError("Missing 'token_url' argument")
+        if account_link_action is None and 'accountLinkAction' in kwargs:
+            account_link_action = kwargs['accountLinkAction']
+        if account_link_group_includes is None and 'accountLinkGroupIncludes' in kwargs:
+            account_link_group_includes = kwargs['accountLinkGroupIncludes']
+        if deprovisioned_action is None and 'deprovisionedAction' in kwargs:
+            deprovisioned_action = kwargs['deprovisionedAction']
+        if groups_action is None and 'groupsAction' in kwargs:
+            groups_action = kwargs['groupsAction']
+        if groups_assignments is None and 'groupsAssignments' in kwargs:
+            groups_assignments = kwargs['groupsAssignments']
+        if groups_attribute is None and 'groupsAttribute' in kwargs:
+            groups_attribute = kwargs['groupsAttribute']
+        if groups_filters is None and 'groupsFilters' in kwargs:
+            groups_filters = kwargs['groupsFilters']
+        if issuer_mode is None and 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+        if max_clock_skew is None and 'maxClockSkew' in kwargs:
+            max_clock_skew = kwargs['maxClockSkew']
+        if profile_master is None and 'profileMaster' in kwargs:
+            profile_master = kwargs['profileMaster']
+        if protocol_type is None and 'protocolType' in kwargs:
+            protocol_type = kwargs['protocolType']
+        if provisioning_action is None and 'provisioningAction' in kwargs:
+            provisioning_action = kwargs['provisioningAction']
+        if request_signature_algorithm is None and 'requestSignatureAlgorithm' in kwargs:
+            request_signature_algorithm = kwargs['requestSignatureAlgorithm']
+        if request_signature_scope is None and 'requestSignatureScope' in kwargs:
+            request_signature_scope = kwargs['requestSignatureScope']
+        if subject_match_attribute is None and 'subjectMatchAttribute' in kwargs:
+            subject_match_attribute = kwargs['subjectMatchAttribute']
+        if subject_match_type is None and 'subjectMatchType' in kwargs:
+            subject_match_type = kwargs['subjectMatchType']
+        if suspended_action is None and 'suspendedAction' in kwargs:
+            suspended_action = kwargs['suspendedAction']
+        if user_info_binding is None and 'userInfoBinding' in kwargs:
+            user_info_binding = kwargs['userInfoBinding']
+        if user_info_url is None and 'userInfoUrl' in kwargs:
+            user_info_url = kwargs['userInfoUrl']
+        if username_template is None and 'usernameTemplate' in kwargs:
+            username_template = kwargs['usernameTemplate']
+
+        _setter("authorization_binding", authorization_binding)
+        _setter("authorization_url", authorization_url)
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
+        _setter("issuer_url", issuer_url)
+        _setter("jwks_binding", jwks_binding)
+        _setter("jwks_url", jwks_url)
+        _setter("scopes", scopes)
+        _setter("token_binding", token_binding)
+        _setter("token_url", token_url)
         if account_link_action is not None:
-            pulumi.set(__self__, "account_link_action", account_link_action)
+            _setter("account_link_action", account_link_action)
         if account_link_group_includes is not None:
-            pulumi.set(__self__, "account_link_group_includes", account_link_group_includes)
+            _setter("account_link_group_includes", account_link_group_includes)
         if deprovisioned_action is not None:
-            pulumi.set(__self__, "deprovisioned_action", deprovisioned_action)
+            _setter("deprovisioned_action", deprovisioned_action)
         if groups_action is not None:
-            pulumi.set(__self__, "groups_action", groups_action)
+            _setter("groups_action", groups_action)
         if groups_assignments is not None:
-            pulumi.set(__self__, "groups_assignments", groups_assignments)
+            _setter("groups_assignments", groups_assignments)
         if groups_attribute is not None:
-            pulumi.set(__self__, "groups_attribute", groups_attribute)
+            _setter("groups_attribute", groups_attribute)
         if groups_filters is not None:
-            pulumi.set(__self__, "groups_filters", groups_filters)
+            _setter("groups_filters", groups_filters)
         if issuer_mode is not None:
-            pulumi.set(__self__, "issuer_mode", issuer_mode)
+            _setter("issuer_mode", issuer_mode)
         if max_clock_skew is not None:
-            pulumi.set(__self__, "max_clock_skew", max_clock_skew)
+            _setter("max_clock_skew", max_clock_skew)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if profile_master is not None:
-            pulumi.set(__self__, "profile_master", profile_master)
+            _setter("profile_master", profile_master)
         if protocol_type is not None:
-            pulumi.set(__self__, "protocol_type", protocol_type)
+            _setter("protocol_type", protocol_type)
         if provisioning_action is not None:
-            pulumi.set(__self__, "provisioning_action", provisioning_action)
+            _setter("provisioning_action", provisioning_action)
         if request_signature_algorithm is not None:
-            pulumi.set(__self__, "request_signature_algorithm", request_signature_algorithm)
+            _setter("request_signature_algorithm", request_signature_algorithm)
         if request_signature_scope is not None:
-            pulumi.set(__self__, "request_signature_scope", request_signature_scope)
+            _setter("request_signature_scope", request_signature_scope)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subject_match_attribute is not None:
-            pulumi.set(__self__, "subject_match_attribute", subject_match_attribute)
+            _setter("subject_match_attribute", subject_match_attribute)
         if subject_match_type is not None:
-            pulumi.set(__self__, "subject_match_type", subject_match_type)
+            _setter("subject_match_type", subject_match_type)
         if suspended_action is not None:
-            pulumi.set(__self__, "suspended_action", suspended_action)
+            _setter("suspended_action", suspended_action)
         if user_info_binding is not None:
-            pulumi.set(__self__, "user_info_binding", user_info_binding)
+            _setter("user_info_binding", user_info_binding)
         if user_info_url is not None:
-            pulumi.set(__self__, "user_info_url", user_info_url)
+            _setter("user_info_url", user_info_url)
         if username_template is not None:
-            pulumi.set(__self__, "username_template", username_template)
+            _setter("username_template", username_template)
 
     @property
     @pulumi.getter(name="authorizationBinding")
@@ -454,74 +605,211 @@ class _OidcState:
         :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an authorization request to the IdP
         :param pulumi.Input[str] type: Type of OIDC IdP.
         """
+        _OidcState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_link_action=account_link_action,
+            account_link_group_includes=account_link_group_includes,
+            authorization_binding=authorization_binding,
+            authorization_url=authorization_url,
+            client_id=client_id,
+            client_secret=client_secret,
+            deprovisioned_action=deprovisioned_action,
+            groups_action=groups_action,
+            groups_assignments=groups_assignments,
+            groups_attribute=groups_attribute,
+            groups_filters=groups_filters,
+            issuer_mode=issuer_mode,
+            issuer_url=issuer_url,
+            jwks_binding=jwks_binding,
+            jwks_url=jwks_url,
+            max_clock_skew=max_clock_skew,
+            name=name,
+            profile_master=profile_master,
+            protocol_type=protocol_type,
+            provisioning_action=provisioning_action,
+            request_signature_algorithm=request_signature_algorithm,
+            request_signature_scope=request_signature_scope,
+            scopes=scopes,
+            status=status,
+            subject_match_attribute=subject_match_attribute,
+            subject_match_type=subject_match_type,
+            suspended_action=suspended_action,
+            token_binding=token_binding,
+            token_url=token_url,
+            type=type,
+            user_info_binding=user_info_binding,
+            user_info_url=user_info_url,
+            user_type_id=user_type_id,
+            username_template=username_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_link_action: Optional[pulumi.Input[str]] = None,
+             account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             authorization_binding: Optional[pulumi.Input[str]] = None,
+             authorization_url: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             deprovisioned_action: Optional[pulumi.Input[str]] = None,
+             groups_action: Optional[pulumi.Input[str]] = None,
+             groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             groups_attribute: Optional[pulumi.Input[str]] = None,
+             groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             issuer_mode: Optional[pulumi.Input[str]] = None,
+             issuer_url: Optional[pulumi.Input[str]] = None,
+             jwks_binding: Optional[pulumi.Input[str]] = None,
+             jwks_url: Optional[pulumi.Input[str]] = None,
+             max_clock_skew: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             profile_master: Optional[pulumi.Input[bool]] = None,
+             protocol_type: Optional[pulumi.Input[str]] = None,
+             provisioning_action: Optional[pulumi.Input[str]] = None,
+             request_signature_algorithm: Optional[pulumi.Input[str]] = None,
+             request_signature_scope: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subject_match_attribute: Optional[pulumi.Input[str]] = None,
+             subject_match_type: Optional[pulumi.Input[str]] = None,
+             suspended_action: Optional[pulumi.Input[str]] = None,
+             token_binding: Optional[pulumi.Input[str]] = None,
+             token_url: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             user_info_binding: Optional[pulumi.Input[str]] = None,
+             user_info_url: Optional[pulumi.Input[str]] = None,
+             user_type_id: Optional[pulumi.Input[str]] = None,
+             username_template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_link_action is None and 'accountLinkAction' in kwargs:
+            account_link_action = kwargs['accountLinkAction']
+        if account_link_group_includes is None and 'accountLinkGroupIncludes' in kwargs:
+            account_link_group_includes = kwargs['accountLinkGroupIncludes']
+        if authorization_binding is None and 'authorizationBinding' in kwargs:
+            authorization_binding = kwargs['authorizationBinding']
+        if authorization_url is None and 'authorizationUrl' in kwargs:
+            authorization_url = kwargs['authorizationUrl']
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if deprovisioned_action is None and 'deprovisionedAction' in kwargs:
+            deprovisioned_action = kwargs['deprovisionedAction']
+        if groups_action is None and 'groupsAction' in kwargs:
+            groups_action = kwargs['groupsAction']
+        if groups_assignments is None and 'groupsAssignments' in kwargs:
+            groups_assignments = kwargs['groupsAssignments']
+        if groups_attribute is None and 'groupsAttribute' in kwargs:
+            groups_attribute = kwargs['groupsAttribute']
+        if groups_filters is None and 'groupsFilters' in kwargs:
+            groups_filters = kwargs['groupsFilters']
+        if issuer_mode is None and 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+        if issuer_url is None and 'issuerUrl' in kwargs:
+            issuer_url = kwargs['issuerUrl']
+        if jwks_binding is None and 'jwksBinding' in kwargs:
+            jwks_binding = kwargs['jwksBinding']
+        if jwks_url is None and 'jwksUrl' in kwargs:
+            jwks_url = kwargs['jwksUrl']
+        if max_clock_skew is None and 'maxClockSkew' in kwargs:
+            max_clock_skew = kwargs['maxClockSkew']
+        if profile_master is None and 'profileMaster' in kwargs:
+            profile_master = kwargs['profileMaster']
+        if protocol_type is None and 'protocolType' in kwargs:
+            protocol_type = kwargs['protocolType']
+        if provisioning_action is None and 'provisioningAction' in kwargs:
+            provisioning_action = kwargs['provisioningAction']
+        if request_signature_algorithm is None and 'requestSignatureAlgorithm' in kwargs:
+            request_signature_algorithm = kwargs['requestSignatureAlgorithm']
+        if request_signature_scope is None and 'requestSignatureScope' in kwargs:
+            request_signature_scope = kwargs['requestSignatureScope']
+        if subject_match_attribute is None and 'subjectMatchAttribute' in kwargs:
+            subject_match_attribute = kwargs['subjectMatchAttribute']
+        if subject_match_type is None and 'subjectMatchType' in kwargs:
+            subject_match_type = kwargs['subjectMatchType']
+        if suspended_action is None and 'suspendedAction' in kwargs:
+            suspended_action = kwargs['suspendedAction']
+        if token_binding is None and 'tokenBinding' in kwargs:
+            token_binding = kwargs['tokenBinding']
+        if token_url is None and 'tokenUrl' in kwargs:
+            token_url = kwargs['tokenUrl']
+        if user_info_binding is None and 'userInfoBinding' in kwargs:
+            user_info_binding = kwargs['userInfoBinding']
+        if user_info_url is None and 'userInfoUrl' in kwargs:
+            user_info_url = kwargs['userInfoUrl']
+        if user_type_id is None and 'userTypeId' in kwargs:
+            user_type_id = kwargs['userTypeId']
+        if username_template is None and 'usernameTemplate' in kwargs:
+            username_template = kwargs['usernameTemplate']
+
         if account_link_action is not None:
-            pulumi.set(__self__, "account_link_action", account_link_action)
+            _setter("account_link_action", account_link_action)
         if account_link_group_includes is not None:
-            pulumi.set(__self__, "account_link_group_includes", account_link_group_includes)
+            _setter("account_link_group_includes", account_link_group_includes)
         if authorization_binding is not None:
-            pulumi.set(__self__, "authorization_binding", authorization_binding)
+            _setter("authorization_binding", authorization_binding)
         if authorization_url is not None:
-            pulumi.set(__self__, "authorization_url", authorization_url)
+            _setter("authorization_url", authorization_url)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if deprovisioned_action is not None:
-            pulumi.set(__self__, "deprovisioned_action", deprovisioned_action)
+            _setter("deprovisioned_action", deprovisioned_action)
         if groups_action is not None:
-            pulumi.set(__self__, "groups_action", groups_action)
+            _setter("groups_action", groups_action)
         if groups_assignments is not None:
-            pulumi.set(__self__, "groups_assignments", groups_assignments)
+            _setter("groups_assignments", groups_assignments)
         if groups_attribute is not None:
-            pulumi.set(__self__, "groups_attribute", groups_attribute)
+            _setter("groups_attribute", groups_attribute)
         if groups_filters is not None:
-            pulumi.set(__self__, "groups_filters", groups_filters)
+            _setter("groups_filters", groups_filters)
         if issuer_mode is not None:
-            pulumi.set(__self__, "issuer_mode", issuer_mode)
+            _setter("issuer_mode", issuer_mode)
         if issuer_url is not None:
-            pulumi.set(__self__, "issuer_url", issuer_url)
+            _setter("issuer_url", issuer_url)
         if jwks_binding is not None:
-            pulumi.set(__self__, "jwks_binding", jwks_binding)
+            _setter("jwks_binding", jwks_binding)
         if jwks_url is not None:
-            pulumi.set(__self__, "jwks_url", jwks_url)
+            _setter("jwks_url", jwks_url)
         if max_clock_skew is not None:
-            pulumi.set(__self__, "max_clock_skew", max_clock_skew)
+            _setter("max_clock_skew", max_clock_skew)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if profile_master is not None:
-            pulumi.set(__self__, "profile_master", profile_master)
+            _setter("profile_master", profile_master)
         if protocol_type is not None:
-            pulumi.set(__self__, "protocol_type", protocol_type)
+            _setter("protocol_type", protocol_type)
         if provisioning_action is not None:
-            pulumi.set(__self__, "provisioning_action", provisioning_action)
+            _setter("provisioning_action", provisioning_action)
         if request_signature_algorithm is not None:
-            pulumi.set(__self__, "request_signature_algorithm", request_signature_algorithm)
+            _setter("request_signature_algorithm", request_signature_algorithm)
         if request_signature_scope is not None:
-            pulumi.set(__self__, "request_signature_scope", request_signature_scope)
+            _setter("request_signature_scope", request_signature_scope)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subject_match_attribute is not None:
-            pulumi.set(__self__, "subject_match_attribute", subject_match_attribute)
+            _setter("subject_match_attribute", subject_match_attribute)
         if subject_match_type is not None:
-            pulumi.set(__self__, "subject_match_type", subject_match_type)
+            _setter("subject_match_type", subject_match_type)
         if suspended_action is not None:
-            pulumi.set(__self__, "suspended_action", suspended_action)
+            _setter("suspended_action", suspended_action)
         if token_binding is not None:
-            pulumi.set(__self__, "token_binding", token_binding)
+            _setter("token_binding", token_binding)
         if token_url is not None:
-            pulumi.set(__self__, "token_url", token_url)
+            _setter("token_url", token_url)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_info_binding is not None:
-            pulumi.set(__self__, "user_info_binding", user_info_binding)
+            _setter("user_info_binding", user_info_binding)
         if user_info_url is not None:
-            pulumi.set(__self__, "user_info_url", user_info_url)
+            _setter("user_info_url", user_info_url)
         if user_type_id is not None:
-            pulumi.set(__self__, "user_type_id", user_type_id)
+            _setter("user_type_id", user_type_id)
         if username_template is not None:
-            pulumi.set(__self__, "username_template", username_template)
+            _setter("username_template", username_template)
 
     @property
     @pulumi.getter(name="accountLinkAction")
@@ -910,6 +1198,10 @@ class Oidc(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OidcArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

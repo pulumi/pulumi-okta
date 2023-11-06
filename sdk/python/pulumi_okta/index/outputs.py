@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -40,14 +40,33 @@ class EmailDomainDnsValidationRecord(dict):
                  fqdn: Optional[str] = None,
                  record_type: Optional[str] = None,
                  value: Optional[str] = None):
+        EmailDomainDnsValidationRecord._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration=expiration,
+            fqdn=fqdn,
+            record_type=record_type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration: Optional[str] = None,
+             fqdn: Optional[str] = None,
+             record_type: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if record_type is None and 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if record_type is not None:
-            pulumi.set(__self__, "record_type", record_type)
+            _setter("record_type", record_type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -80,10 +99,37 @@ class GetDomainDnsRecordResult(dict):
                  fqdn: str,
                  record_type: str,
                  values: Sequence[str]):
-        pulumi.set(__self__, "expiration", expiration)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "record_type", record_type)
-        pulumi.set(__self__, "values", values)
+        GetDomainDnsRecordResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration=expiration,
+            fqdn=fqdn,
+            record_type=record_type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration: Optional[str] = None,
+             fqdn: Optional[str] = None,
+             record_type: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if expiration is None:
+            raise TypeError("Missing 'expiration' argument")
+        if fqdn is None:
+            raise TypeError("Missing 'fqdn' argument")
+        if record_type is None and 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+        if record_type is None:
+            raise TypeError("Missing 'record_type' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("expiration", expiration)
+        _setter("fqdn", fqdn)
+        _setter("record_type", record_type)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -115,8 +161,25 @@ class GetOrgMetadataDomainsResult(dict):
         :param str alternate: Custom Domain Org URI
         :param str organization: Standard Org URI
         """
-        pulumi.set(__self__, "alternate", alternate)
-        pulumi.set(__self__, "organization", organization)
+        GetOrgMetadataDomainsResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alternate=alternate,
+            organization=organization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alternate: Optional[str] = None,
+             organization: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if alternate is None:
+            raise TypeError("Missing 'alternate' argument")
+        if organization is None:
+            raise TypeError("Missing 'organization' argument")
+
+        _setter("alternate", alternate)
+        _setter("organization", organization)
 
     @property
     @pulumi.getter
@@ -144,9 +207,36 @@ class GetOrgMetadataSettingsResult(dict):
         """
         :param bool om_enabled: Whether the legacy Okta Mobile application is enabled for the org
         """
-        pulumi.set(__self__, "analytics_collection_enabled", analytics_collection_enabled)
-        pulumi.set(__self__, "bug_reporting_enabled", bug_reporting_enabled)
-        pulumi.set(__self__, "om_enabled", om_enabled)
+        GetOrgMetadataSettingsResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            analytics_collection_enabled=analytics_collection_enabled,
+            bug_reporting_enabled=bug_reporting_enabled,
+            om_enabled=om_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             analytics_collection_enabled: Optional[bool] = None,
+             bug_reporting_enabled: Optional[bool] = None,
+             om_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if analytics_collection_enabled is None and 'analyticsCollectionEnabled' in kwargs:
+            analytics_collection_enabled = kwargs['analyticsCollectionEnabled']
+        if analytics_collection_enabled is None:
+            raise TypeError("Missing 'analytics_collection_enabled' argument")
+        if bug_reporting_enabled is None and 'bugReportingEnabled' in kwargs:
+            bug_reporting_enabled = kwargs['bugReportingEnabled']
+        if bug_reporting_enabled is None:
+            raise TypeError("Missing 'bug_reporting_enabled' argument")
+        if om_enabled is None and 'omEnabled' in kwargs:
+            om_enabled = kwargs['omEnabled']
+        if om_enabled is None:
+            raise TypeError("Missing 'om_enabled' argument")
+
+        _setter("analytics_collection_enabled", analytics_collection_enabled)
+        _setter("bug_reporting_enabled", bug_reporting_enabled)
+        _setter("om_enabled", om_enabled)
 
     @property
     @pulumi.getter(name="analyticsCollectionEnabled")

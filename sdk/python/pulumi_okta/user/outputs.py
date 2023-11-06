@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -50,14 +50,41 @@ class UserPasswordHash(dict):
         :param str salt_order: Specifies whether salt was pre- or postfixed to the password before hashing
         :param int work_factor: Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
         """
-        pulumi.set(__self__, "algorithm", algorithm)
-        pulumi.set(__self__, "value", value)
+        UserPasswordHash._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            algorithm=algorithm,
+            value=value,
+            salt=salt,
+            salt_order=salt_order,
+            work_factor=work_factor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             algorithm: Optional[str] = None,
+             value: Optional[str] = None,
+             salt: Optional[str] = None,
+             salt_order: Optional[str] = None,
+             work_factor: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if salt_order is None and 'saltOrder' in kwargs:
+            salt_order = kwargs['saltOrder']
+        if work_factor is None and 'workFactor' in kwargs:
+            work_factor = kwargs['workFactor']
+
+        _setter("algorithm", algorithm)
+        _setter("value", value)
         if salt is not None:
-            pulumi.set(__self__, "salt", salt)
+            _setter("salt", salt)
         if salt_order is not None:
-            pulumi.set(__self__, "salt_order", salt_order)
+            _setter("salt_order", salt_order)
         if work_factor is not None:
-            pulumi.set(__self__, "work_factor", work_factor)
+            _setter("work_factor", work_factor)
 
     @property
     @pulumi.getter
@@ -111,14 +138,31 @@ class GetUserSearchResult(dict):
         :param str expression: A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         :param str name: Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
+        GetUserSearchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison=comparison,
+            expression=expression,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison: Optional[str] = None,
+             expression: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if comparison is not None:
-            pulumi.set(__self__, "comparison", comparison)
+            _setter("comparison", comparison)
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -158,14 +202,31 @@ class GetUsersSearchResult(dict):
         :param str expression: A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         :param str name: Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
+        GetUsersSearchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison=comparison,
+            expression=expression,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison: Optional[str] = None,
+             expression: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if comparison is not None:
-            pulumi.set(__self__, "comparison", comparison)
+            _setter("comparison", comparison)
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -234,43 +295,246 @@ class GetUsersUserResult(dict):
                  title: str,
                  user_type: str,
                  zip_code: str):
-        pulumi.set(__self__, "admin_roles", admin_roles)
-        pulumi.set(__self__, "city", city)
-        pulumi.set(__self__, "cost_center", cost_center)
-        pulumi.set(__self__, "country_code", country_code)
-        pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
-        pulumi.set(__self__, "department", department)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "division", division)
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "employee_number", employee_number)
-        pulumi.set(__self__, "first_name", first_name)
-        pulumi.set(__self__, "group_memberships", group_memberships)
-        pulumi.set(__self__, "honorific_prefix", honorific_prefix)
-        pulumi.set(__self__, "honorific_suffix", honorific_suffix)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_name", last_name)
-        pulumi.set(__self__, "locale", locale)
-        pulumi.set(__self__, "login", login)
-        pulumi.set(__self__, "manager", manager)
-        pulumi.set(__self__, "manager_id", manager_id)
-        pulumi.set(__self__, "middle_name", middle_name)
-        pulumi.set(__self__, "mobile_phone", mobile_phone)
-        pulumi.set(__self__, "nick_name", nick_name)
-        pulumi.set(__self__, "organization", organization)
-        pulumi.set(__self__, "postal_address", postal_address)
-        pulumi.set(__self__, "preferred_language", preferred_language)
-        pulumi.set(__self__, "primary_phone", primary_phone)
-        pulumi.set(__self__, "profile_url", profile_url)
-        pulumi.set(__self__, "roles", roles)
-        pulumi.set(__self__, "second_email", second_email)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "street_address", street_address)
-        pulumi.set(__self__, "timezone", timezone)
-        pulumi.set(__self__, "title", title)
-        pulumi.set(__self__, "user_type", user_type)
-        pulumi.set(__self__, "zip_code", zip_code)
+        GetUsersUserResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_roles=admin_roles,
+            city=city,
+            cost_center=cost_center,
+            country_code=country_code,
+            custom_profile_attributes=custom_profile_attributes,
+            department=department,
+            display_name=display_name,
+            division=division,
+            email=email,
+            employee_number=employee_number,
+            first_name=first_name,
+            group_memberships=group_memberships,
+            honorific_prefix=honorific_prefix,
+            honorific_suffix=honorific_suffix,
+            id=id,
+            last_name=last_name,
+            locale=locale,
+            login=login,
+            manager=manager,
+            manager_id=manager_id,
+            middle_name=middle_name,
+            mobile_phone=mobile_phone,
+            nick_name=nick_name,
+            organization=organization,
+            postal_address=postal_address,
+            preferred_language=preferred_language,
+            primary_phone=primary_phone,
+            profile_url=profile_url,
+            roles=roles,
+            second_email=second_email,
+            state=state,
+            status=status,
+            street_address=street_address,
+            timezone=timezone,
+            title=title,
+            user_type=user_type,
+            zip_code=zip_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_roles: Optional[Sequence[str]] = None,
+             city: Optional[str] = None,
+             cost_center: Optional[str] = None,
+             country_code: Optional[str] = None,
+             custom_profile_attributes: Optional[str] = None,
+             department: Optional[str] = None,
+             display_name: Optional[str] = None,
+             division: Optional[str] = None,
+             email: Optional[str] = None,
+             employee_number: Optional[str] = None,
+             first_name: Optional[str] = None,
+             group_memberships: Optional[Sequence[str]] = None,
+             honorific_prefix: Optional[str] = None,
+             honorific_suffix: Optional[str] = None,
+             id: Optional[str] = None,
+             last_name: Optional[str] = None,
+             locale: Optional[str] = None,
+             login: Optional[str] = None,
+             manager: Optional[str] = None,
+             manager_id: Optional[str] = None,
+             middle_name: Optional[str] = None,
+             mobile_phone: Optional[str] = None,
+             nick_name: Optional[str] = None,
+             organization: Optional[str] = None,
+             postal_address: Optional[str] = None,
+             preferred_language: Optional[str] = None,
+             primary_phone: Optional[str] = None,
+             profile_url: Optional[str] = None,
+             roles: Optional[Sequence[str]] = None,
+             second_email: Optional[str] = None,
+             state: Optional[str] = None,
+             status: Optional[str] = None,
+             street_address: Optional[str] = None,
+             timezone: Optional[str] = None,
+             title: Optional[str] = None,
+             user_type: Optional[str] = None,
+             zip_code: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if admin_roles is None and 'adminRoles' in kwargs:
+            admin_roles = kwargs['adminRoles']
+        if admin_roles is None:
+            raise TypeError("Missing 'admin_roles' argument")
+        if city is None:
+            raise TypeError("Missing 'city' argument")
+        if cost_center is None and 'costCenter' in kwargs:
+            cost_center = kwargs['costCenter']
+        if cost_center is None:
+            raise TypeError("Missing 'cost_center' argument")
+        if country_code is None and 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if country_code is None:
+            raise TypeError("Missing 'country_code' argument")
+        if custom_profile_attributes is None and 'customProfileAttributes' in kwargs:
+            custom_profile_attributes = kwargs['customProfileAttributes']
+        if custom_profile_attributes is None:
+            raise TypeError("Missing 'custom_profile_attributes' argument")
+        if department is None:
+            raise TypeError("Missing 'department' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if division is None:
+            raise TypeError("Missing 'division' argument")
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if employee_number is None and 'employeeNumber' in kwargs:
+            employee_number = kwargs['employeeNumber']
+        if employee_number is None:
+            raise TypeError("Missing 'employee_number' argument")
+        if first_name is None and 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if first_name is None:
+            raise TypeError("Missing 'first_name' argument")
+        if group_memberships is None and 'groupMemberships' in kwargs:
+            group_memberships = kwargs['groupMemberships']
+        if group_memberships is None:
+            raise TypeError("Missing 'group_memberships' argument")
+        if honorific_prefix is None and 'honorificPrefix' in kwargs:
+            honorific_prefix = kwargs['honorificPrefix']
+        if honorific_prefix is None:
+            raise TypeError("Missing 'honorific_prefix' argument")
+        if honorific_suffix is None and 'honorificSuffix' in kwargs:
+            honorific_suffix = kwargs['honorificSuffix']
+        if honorific_suffix is None:
+            raise TypeError("Missing 'honorific_suffix' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_name is None and 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if last_name is None:
+            raise TypeError("Missing 'last_name' argument")
+        if locale is None:
+            raise TypeError("Missing 'locale' argument")
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if manager is None:
+            raise TypeError("Missing 'manager' argument")
+        if manager_id is None and 'managerId' in kwargs:
+            manager_id = kwargs['managerId']
+        if manager_id is None:
+            raise TypeError("Missing 'manager_id' argument")
+        if middle_name is None and 'middleName' in kwargs:
+            middle_name = kwargs['middleName']
+        if middle_name is None:
+            raise TypeError("Missing 'middle_name' argument")
+        if mobile_phone is None and 'mobilePhone' in kwargs:
+            mobile_phone = kwargs['mobilePhone']
+        if mobile_phone is None:
+            raise TypeError("Missing 'mobile_phone' argument")
+        if nick_name is None and 'nickName' in kwargs:
+            nick_name = kwargs['nickName']
+        if nick_name is None:
+            raise TypeError("Missing 'nick_name' argument")
+        if organization is None:
+            raise TypeError("Missing 'organization' argument")
+        if postal_address is None and 'postalAddress' in kwargs:
+            postal_address = kwargs['postalAddress']
+        if postal_address is None:
+            raise TypeError("Missing 'postal_address' argument")
+        if preferred_language is None and 'preferredLanguage' in kwargs:
+            preferred_language = kwargs['preferredLanguage']
+        if preferred_language is None:
+            raise TypeError("Missing 'preferred_language' argument")
+        if primary_phone is None and 'primaryPhone' in kwargs:
+            primary_phone = kwargs['primaryPhone']
+        if primary_phone is None:
+            raise TypeError("Missing 'primary_phone' argument")
+        if profile_url is None and 'profileUrl' in kwargs:
+            profile_url = kwargs['profileUrl']
+        if profile_url is None:
+            raise TypeError("Missing 'profile_url' argument")
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if second_email is None and 'secondEmail' in kwargs:
+            second_email = kwargs['secondEmail']
+        if second_email is None:
+            raise TypeError("Missing 'second_email' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if street_address is None and 'streetAddress' in kwargs:
+            street_address = kwargs['streetAddress']
+        if street_address is None:
+            raise TypeError("Missing 'street_address' argument")
+        if timezone is None:
+            raise TypeError("Missing 'timezone' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if user_type is None and 'userType' in kwargs:
+            user_type = kwargs['userType']
+        if user_type is None:
+            raise TypeError("Missing 'user_type' argument")
+        if zip_code is None and 'zipCode' in kwargs:
+            zip_code = kwargs['zipCode']
+        if zip_code is None:
+            raise TypeError("Missing 'zip_code' argument")
+
+        _setter("admin_roles", admin_roles)
+        _setter("city", city)
+        _setter("cost_center", cost_center)
+        _setter("country_code", country_code)
+        _setter("custom_profile_attributes", custom_profile_attributes)
+        _setter("department", department)
+        _setter("display_name", display_name)
+        _setter("division", division)
+        _setter("email", email)
+        _setter("employee_number", employee_number)
+        _setter("first_name", first_name)
+        _setter("group_memberships", group_memberships)
+        _setter("honorific_prefix", honorific_prefix)
+        _setter("honorific_suffix", honorific_suffix)
+        _setter("id", id)
+        _setter("last_name", last_name)
+        _setter("locale", locale)
+        _setter("login", login)
+        _setter("manager", manager)
+        _setter("manager_id", manager_id)
+        _setter("middle_name", middle_name)
+        _setter("mobile_phone", mobile_phone)
+        _setter("nick_name", nick_name)
+        _setter("organization", organization)
+        _setter("postal_address", postal_address)
+        _setter("preferred_language", preferred_language)
+        _setter("primary_phone", primary_phone)
+        _setter("profile_url", profile_url)
+        _setter("roles", roles)
+        _setter("second_email", second_email)
+        _setter("state", state)
+        _setter("status", status)
+        _setter("street_address", street_address)
+        _setter("timezone", timezone)
+        _setter("title", title)
+        _setter("user_type", user_type)
+        _setter("zip_code", zip_code)
 
     @property
     @pulumi.getter(name="adminRoles")

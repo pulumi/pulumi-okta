@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BasicAuthArgs', 'BasicAuth']
@@ -45,31 +45,94 @@ class BasicAuthArgs:
         :param pulumi.Input[str] logo: Local path to logo of the application.
         :param pulumi.Input[str] status: Status of application.
         """
-        pulumi.set(__self__, "auth_url", auth_url)
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "url", url)
+        BasicAuthArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_url=auth_url,
+            label=label,
+            url=url,
+            accessibility_error_redirect_url=accessibility_error_redirect_url,
+            accessibility_login_redirect_url=accessibility_login_redirect_url,
+            accessibility_self_service=accessibility_self_service,
+            admin_note=admin_note,
+            app_links_json=app_links_json,
+            auto_submit_toolbar=auto_submit_toolbar,
+            enduser_note=enduser_note,
+            hide_ios=hide_ios,
+            hide_web=hide_web,
+            logo=logo,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_url: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+             admin_note: Optional[pulumi.Input[str]] = None,
+             app_links_json: Optional[pulumi.Input[str]] = None,
+             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+             enduser_note: Optional[pulumi.Input[str]] = None,
+             hide_ios: Optional[pulumi.Input[bool]] = None,
+             hide_web: Optional[pulumi.Input[bool]] = None,
+             logo: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auth_url is None and 'authUrl' in kwargs:
+            auth_url = kwargs['authUrl']
+        if auth_url is None:
+            raise TypeError("Missing 'auth_url' argument")
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if accessibility_error_redirect_url is None and 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if accessibility_login_redirect_url is None and 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if accessibility_self_service is None and 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if admin_note is None and 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if app_links_json is None and 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if auto_submit_toolbar is None and 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if enduser_note is None and 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if hide_ios is None and 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if hide_web is None and 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+
+        _setter("auth_url", auth_url)
+        _setter("label", label)
+        _setter("url", url)
         if accessibility_error_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+            _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
+            _setter("accessibility_login_redirect_url", accessibility_login_redirect_url)
         if accessibility_self_service is not None:
-            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+            _setter("accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
-            pulumi.set(__self__, "admin_note", admin_note)
+            _setter("admin_note", admin_note)
         if app_links_json is not None:
-            pulumi.set(__self__, "app_links_json", app_links_json)
+            _setter("app_links_json", app_links_json)
         if auto_submit_toolbar is not None:
-            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+            _setter("auto_submit_toolbar", auto_submit_toolbar)
         if enduser_note is not None:
-            pulumi.set(__self__, "enduser_note", enduser_note)
+            _setter("enduser_note", enduser_note)
         if hide_ios is not None:
-            pulumi.set(__self__, "hide_ios", hide_ios)
+            _setter("hide_ios", hide_ios)
         if hide_web is not None:
-            pulumi.set(__self__, "hide_web", hide_web)
+            _setter("hide_web", hide_web)
         if logo is not None:
-            pulumi.set(__self__, "logo", logo)
+            _setter("logo", logo)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="authUrl")
@@ -280,40 +343,107 @@ class _BasicAuthState:
         :param pulumi.Input[str] status: Status of application.
         :param pulumi.Input[str] url: Login password field
         """
+        _BasicAuthState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accessibility_error_redirect_url=accessibility_error_redirect_url,
+            accessibility_login_redirect_url=accessibility_login_redirect_url,
+            accessibility_self_service=accessibility_self_service,
+            admin_note=admin_note,
+            app_links_json=app_links_json,
+            auth_url=auth_url,
+            auto_submit_toolbar=auto_submit_toolbar,
+            enduser_note=enduser_note,
+            hide_ios=hide_ios,
+            hide_web=hide_web,
+            label=label,
+            logo=logo,
+            logo_url=logo_url,
+            name=name,
+            sign_on_mode=sign_on_mode,
+            status=status,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+             admin_note: Optional[pulumi.Input[str]] = None,
+             app_links_json: Optional[pulumi.Input[str]] = None,
+             auth_url: Optional[pulumi.Input[str]] = None,
+             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+             enduser_note: Optional[pulumi.Input[str]] = None,
+             hide_ios: Optional[pulumi.Input[bool]] = None,
+             hide_web: Optional[pulumi.Input[bool]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             logo: Optional[pulumi.Input[str]] = None,
+             logo_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sign_on_mode: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if accessibility_error_redirect_url is None and 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if accessibility_login_redirect_url is None and 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if accessibility_self_service is None and 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if admin_note is None and 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if app_links_json is None and 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if auth_url is None and 'authUrl' in kwargs:
+            auth_url = kwargs['authUrl']
+        if auto_submit_toolbar is None and 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if enduser_note is None and 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if hide_ios is None and 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if hide_web is None and 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+        if logo_url is None and 'logoUrl' in kwargs:
+            logo_url = kwargs['logoUrl']
+        if sign_on_mode is None and 'signOnMode' in kwargs:
+            sign_on_mode = kwargs['signOnMode']
+
         if accessibility_error_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+            _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
+            _setter("accessibility_login_redirect_url", accessibility_login_redirect_url)
         if accessibility_self_service is not None:
-            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+            _setter("accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
-            pulumi.set(__self__, "admin_note", admin_note)
+            _setter("admin_note", admin_note)
         if app_links_json is not None:
-            pulumi.set(__self__, "app_links_json", app_links_json)
+            _setter("app_links_json", app_links_json)
         if auth_url is not None:
-            pulumi.set(__self__, "auth_url", auth_url)
+            _setter("auth_url", auth_url)
         if auto_submit_toolbar is not None:
-            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+            _setter("auto_submit_toolbar", auto_submit_toolbar)
         if enduser_note is not None:
-            pulumi.set(__self__, "enduser_note", enduser_note)
+            _setter("enduser_note", enduser_note)
         if hide_ios is not None:
-            pulumi.set(__self__, "hide_ios", hide_ios)
+            _setter("hide_ios", hide_ios)
         if hide_web is not None:
-            pulumi.set(__self__, "hide_web", hide_web)
+            _setter("hide_web", hide_web)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if logo is not None:
-            pulumi.set(__self__, "logo", logo)
+            _setter("logo", logo)
         if logo_url is not None:
-            pulumi.set(__self__, "logo_url", logo_url)
+            _setter("logo_url", logo_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sign_on_mode is not None:
-            pulumi.set(__self__, "sign_on_mode", sign_on_mode)
+            _setter("sign_on_mode", sign_on_mode)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
@@ -577,6 +707,10 @@ class BasicAuth(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BasicAuthArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

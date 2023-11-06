@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['OrgConfigurationArgs', 'OrgConfiguration']
@@ -47,35 +47,92 @@ class OrgConfigurationArgs:
         :param pulumi.Input[str] technical_contact_user: User ID representing the technical contact
         :param pulumi.Input[str] website: The org's website
         """
-        pulumi.set(__self__, "company_name", company_name)
+        OrgConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            company_name=company_name,
+            address1=address1,
+            address2=address2,
+            billing_contact_user=billing_contact_user,
+            city=city,
+            country=country,
+            end_user_support_help_url=end_user_support_help_url,
+            logo=logo,
+            opt_out_communication_emails=opt_out_communication_emails,
+            phone_number=phone_number,
+            postal_code=postal_code,
+            state=state,
+            support_phone_number=support_phone_number,
+            technical_contact_user=technical_contact_user,
+            website=website,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             company_name: Optional[pulumi.Input[str]] = None,
+             address1: Optional[pulumi.Input[str]] = None,
+             address2: Optional[pulumi.Input[str]] = None,
+             billing_contact_user: Optional[pulumi.Input[str]] = None,
+             city: Optional[pulumi.Input[str]] = None,
+             country: Optional[pulumi.Input[str]] = None,
+             end_user_support_help_url: Optional[pulumi.Input[str]] = None,
+             logo: Optional[pulumi.Input[str]] = None,
+             opt_out_communication_emails: Optional[pulumi.Input[bool]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
+             postal_code: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             support_phone_number: Optional[pulumi.Input[str]] = None,
+             technical_contact_user: Optional[pulumi.Input[str]] = None,
+             website: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if company_name is None and 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if company_name is None:
+            raise TypeError("Missing 'company_name' argument")
+        if billing_contact_user is None and 'billingContactUser' in kwargs:
+            billing_contact_user = kwargs['billingContactUser']
+        if end_user_support_help_url is None and 'endUserSupportHelpUrl' in kwargs:
+            end_user_support_help_url = kwargs['endUserSupportHelpUrl']
+        if opt_out_communication_emails is None and 'optOutCommunicationEmails' in kwargs:
+            opt_out_communication_emails = kwargs['optOutCommunicationEmails']
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if postal_code is None and 'postalCode' in kwargs:
+            postal_code = kwargs['postalCode']
+        if support_phone_number is None and 'supportPhoneNumber' in kwargs:
+            support_phone_number = kwargs['supportPhoneNumber']
+        if technical_contact_user is None and 'technicalContactUser' in kwargs:
+            technical_contact_user = kwargs['technicalContactUser']
+
+        _setter("company_name", company_name)
         if address1 is not None:
-            pulumi.set(__self__, "address1", address1)
+            _setter("address1", address1)
         if address2 is not None:
-            pulumi.set(__self__, "address2", address2)
+            _setter("address2", address2)
         if billing_contact_user is not None:
-            pulumi.set(__self__, "billing_contact_user", billing_contact_user)
+            _setter("billing_contact_user", billing_contact_user)
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if country is not None:
-            pulumi.set(__self__, "country", country)
+            _setter("country", country)
         if end_user_support_help_url is not None:
-            pulumi.set(__self__, "end_user_support_help_url", end_user_support_help_url)
+            _setter("end_user_support_help_url", end_user_support_help_url)
         if logo is not None:
-            pulumi.set(__self__, "logo", logo)
+            _setter("logo", logo)
         if opt_out_communication_emails is not None:
-            pulumi.set(__self__, "opt_out_communication_emails", opt_out_communication_emails)
+            _setter("opt_out_communication_emails", opt_out_communication_emails)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
         if postal_code is not None:
-            pulumi.set(__self__, "postal_code", postal_code)
+            _setter("postal_code", postal_code)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if support_phone_number is not None:
-            pulumi.set(__self__, "support_phone_number", support_phone_number)
+            _setter("support_phone_number", support_phone_number)
         if technical_contact_user is not None:
-            pulumi.set(__self__, "technical_contact_user", technical_contact_user)
+            _setter("technical_contact_user", technical_contact_user)
         if website is not None:
-            pulumi.set(__self__, "website", website)
+            _setter("website", website)
 
     @property
     @pulumi.getter(name="companyName")
@@ -298,40 +355,101 @@ class _OrgConfigurationState:
         :param pulumi.Input[str] technical_contact_user: User ID representing the technical contact
         :param pulumi.Input[str] website: The org's website
         """
+        _OrgConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address1=address1,
+            address2=address2,
+            billing_contact_user=billing_contact_user,
+            city=city,
+            company_name=company_name,
+            country=country,
+            end_user_support_help_url=end_user_support_help_url,
+            expires_at=expires_at,
+            logo=logo,
+            opt_out_communication_emails=opt_out_communication_emails,
+            phone_number=phone_number,
+            postal_code=postal_code,
+            state=state,
+            subdomain=subdomain,
+            support_phone_number=support_phone_number,
+            technical_contact_user=technical_contact_user,
+            website=website,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address1: Optional[pulumi.Input[str]] = None,
+             address2: Optional[pulumi.Input[str]] = None,
+             billing_contact_user: Optional[pulumi.Input[str]] = None,
+             city: Optional[pulumi.Input[str]] = None,
+             company_name: Optional[pulumi.Input[str]] = None,
+             country: Optional[pulumi.Input[str]] = None,
+             end_user_support_help_url: Optional[pulumi.Input[str]] = None,
+             expires_at: Optional[pulumi.Input[str]] = None,
+             logo: Optional[pulumi.Input[str]] = None,
+             opt_out_communication_emails: Optional[pulumi.Input[bool]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
+             postal_code: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             subdomain: Optional[pulumi.Input[str]] = None,
+             support_phone_number: Optional[pulumi.Input[str]] = None,
+             technical_contact_user: Optional[pulumi.Input[str]] = None,
+             website: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if billing_contact_user is None and 'billingContactUser' in kwargs:
+            billing_contact_user = kwargs['billingContactUser']
+        if company_name is None and 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if end_user_support_help_url is None and 'endUserSupportHelpUrl' in kwargs:
+            end_user_support_help_url = kwargs['endUserSupportHelpUrl']
+        if expires_at is None and 'expiresAt' in kwargs:
+            expires_at = kwargs['expiresAt']
+        if opt_out_communication_emails is None and 'optOutCommunicationEmails' in kwargs:
+            opt_out_communication_emails = kwargs['optOutCommunicationEmails']
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if postal_code is None and 'postalCode' in kwargs:
+            postal_code = kwargs['postalCode']
+        if support_phone_number is None and 'supportPhoneNumber' in kwargs:
+            support_phone_number = kwargs['supportPhoneNumber']
+        if technical_contact_user is None and 'technicalContactUser' in kwargs:
+            technical_contact_user = kwargs['technicalContactUser']
+
         if address1 is not None:
-            pulumi.set(__self__, "address1", address1)
+            _setter("address1", address1)
         if address2 is not None:
-            pulumi.set(__self__, "address2", address2)
+            _setter("address2", address2)
         if billing_contact_user is not None:
-            pulumi.set(__self__, "billing_contact_user", billing_contact_user)
+            _setter("billing_contact_user", billing_contact_user)
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if company_name is not None:
-            pulumi.set(__self__, "company_name", company_name)
+            _setter("company_name", company_name)
         if country is not None:
-            pulumi.set(__self__, "country", country)
+            _setter("country", country)
         if end_user_support_help_url is not None:
-            pulumi.set(__self__, "end_user_support_help_url", end_user_support_help_url)
+            _setter("end_user_support_help_url", end_user_support_help_url)
         if expires_at is not None:
-            pulumi.set(__self__, "expires_at", expires_at)
+            _setter("expires_at", expires_at)
         if logo is not None:
-            pulumi.set(__self__, "logo", logo)
+            _setter("logo", logo)
         if opt_out_communication_emails is not None:
-            pulumi.set(__self__, "opt_out_communication_emails", opt_out_communication_emails)
+            _setter("opt_out_communication_emails", opt_out_communication_emails)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
         if postal_code is not None:
-            pulumi.set(__self__, "postal_code", postal_code)
+            _setter("postal_code", postal_code)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if subdomain is not None:
-            pulumi.set(__self__, "subdomain", subdomain)
+            _setter("subdomain", subdomain)
         if support_phone_number is not None:
-            pulumi.set(__self__, "support_phone_number", support_phone_number)
+            _setter("support_phone_number", support_phone_number)
         if technical_contact_user is not None:
-            pulumi.set(__self__, "technical_contact_user", technical_contact_user)
+            _setter("technical_contact_user", technical_contact_user)
         if website is not None:
-            pulumi.set(__self__, "website", website)
+            _setter("website", website)
 
     @property
     @pulumi.getter
@@ -597,6 +715,10 @@ class OrgConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrgConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

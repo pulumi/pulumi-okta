@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SamlKeyArgs', 'SamlKey']
@@ -19,7 +19,20 @@ class SamlKeyArgs:
         The set of arguments for constructing a SamlKey resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
         """
-        pulumi.set(__self__, "x5cs", x5cs)
+        SamlKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            x5cs=x5cs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if x5cs is None:
+            raise TypeError("Missing 'x5cs' argument")
+
+        _setter("x5cs", x5cs)
 
     @property
     @pulumi.getter
@@ -48,20 +61,47 @@ class _SamlKeyState:
         Input properties used for looking up and filtering SamlKey resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
         """
+        _SamlKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created=created,
+            expires_at=expires_at,
+            kid=kid,
+            kty=kty,
+            use=use,
+            x5cs=x5cs,
+            x5t_s256=x5t_s256,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created: Optional[pulumi.Input[str]] = None,
+             expires_at: Optional[pulumi.Input[str]] = None,
+             kid: Optional[pulumi.Input[str]] = None,
+             kty: Optional[pulumi.Input[str]] = None,
+             use: Optional[pulumi.Input[str]] = None,
+             x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             x5t_s256: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if expires_at is None and 'expiresAt' in kwargs:
+            expires_at = kwargs['expiresAt']
+        if x5t_s256 is None and 'x5tS256' in kwargs:
+            x5t_s256 = kwargs['x5tS256']
+
         if created is not None:
-            pulumi.set(__self__, "created", created)
+            _setter("created", created)
         if expires_at is not None:
-            pulumi.set(__self__, "expires_at", expires_at)
+            _setter("expires_at", expires_at)
         if kid is not None:
-            pulumi.set(__self__, "kid", kid)
+            _setter("kid", kid)
         if kty is not None:
-            pulumi.set(__self__, "kty", kty)
+            _setter("kty", kty)
         if use is not None:
-            pulumi.set(__self__, "use", use)
+            _setter("use", use)
         if x5cs is not None:
-            pulumi.set(__self__, "x5cs", x5cs)
+            _setter("x5cs", x5cs)
         if x5t_s256 is not None:
-            pulumi.set(__self__, "x5t_s256", x5t_s256)
+            _setter("x5t_s256", x5t_s256)
 
     @property
     @pulumi.getter
@@ -161,6 +201,10 @@ class SamlKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SamlKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ResourceSetArgs', 'ResourceSet']
@@ -23,10 +23,29 @@ class ResourceSetArgs:
         :param pulumi.Input[str] label: Unique name given to the Resource Set
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The endpoints that reference the resources to be included in the new Resource Set
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "label", label)
+        ResourceSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            label=label,
+            resources=resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+
+        _setter("description", description)
+        _setter("label", label)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
 
     @property
     @pulumi.getter
@@ -77,12 +96,27 @@ class _ResourceSetState:
         :param pulumi.Input[str] label: Unique name given to the Resource Set
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The endpoints that reference the resources to be included in the new Resource Set
         """
+        _ResourceSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            label=label,
+            resources=resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
 
     @property
     @pulumi.getter
@@ -158,6 +192,10 @@ class ResourceSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['LinkDefinitionArgs', 'LinkDefinition']
@@ -29,12 +29,57 @@ class LinkDefinitionArgs:
         :param pulumi.Input[str] primary_name: API name of the primary link.
         :param pulumi.Input[str] primary_title: Display name of the primary link.
         """
-        pulumi.set(__self__, "associated_description", associated_description)
-        pulumi.set(__self__, "associated_name", associated_name)
-        pulumi.set(__self__, "associated_title", associated_title)
-        pulumi.set(__self__, "primary_description", primary_description)
-        pulumi.set(__self__, "primary_name", primary_name)
-        pulumi.set(__self__, "primary_title", primary_title)
+        LinkDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            associated_description=associated_description,
+            associated_name=associated_name,
+            associated_title=associated_title,
+            primary_description=primary_description,
+            primary_name=primary_name,
+            primary_title=primary_title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             associated_description: Optional[pulumi.Input[str]] = None,
+             associated_name: Optional[pulumi.Input[str]] = None,
+             associated_title: Optional[pulumi.Input[str]] = None,
+             primary_description: Optional[pulumi.Input[str]] = None,
+             primary_name: Optional[pulumi.Input[str]] = None,
+             primary_title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if associated_description is None and 'associatedDescription' in kwargs:
+            associated_description = kwargs['associatedDescription']
+        if associated_description is None:
+            raise TypeError("Missing 'associated_description' argument")
+        if associated_name is None and 'associatedName' in kwargs:
+            associated_name = kwargs['associatedName']
+        if associated_name is None:
+            raise TypeError("Missing 'associated_name' argument")
+        if associated_title is None and 'associatedTitle' in kwargs:
+            associated_title = kwargs['associatedTitle']
+        if associated_title is None:
+            raise TypeError("Missing 'associated_title' argument")
+        if primary_description is None and 'primaryDescription' in kwargs:
+            primary_description = kwargs['primaryDescription']
+        if primary_description is None:
+            raise TypeError("Missing 'primary_description' argument")
+        if primary_name is None and 'primaryName' in kwargs:
+            primary_name = kwargs['primaryName']
+        if primary_name is None:
+            raise TypeError("Missing 'primary_name' argument")
+        if primary_title is None and 'primaryTitle' in kwargs:
+            primary_title = kwargs['primaryTitle']
+        if primary_title is None:
+            raise TypeError("Missing 'primary_title' argument")
+
+        _setter("associated_description", associated_description)
+        _setter("associated_name", associated_name)
+        _setter("associated_title", associated_title)
+        _setter("primary_description", primary_description)
+        _setter("primary_name", primary_name)
+        _setter("primary_title", primary_title)
 
     @property
     @pulumi.getter(name="associatedDescription")
@@ -127,18 +172,51 @@ class _LinkDefinitionState:
         :param pulumi.Input[str] primary_name: API name of the primary link.
         :param pulumi.Input[str] primary_title: Display name of the primary link.
         """
+        _LinkDefinitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            associated_description=associated_description,
+            associated_name=associated_name,
+            associated_title=associated_title,
+            primary_description=primary_description,
+            primary_name=primary_name,
+            primary_title=primary_title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             associated_description: Optional[pulumi.Input[str]] = None,
+             associated_name: Optional[pulumi.Input[str]] = None,
+             associated_title: Optional[pulumi.Input[str]] = None,
+             primary_description: Optional[pulumi.Input[str]] = None,
+             primary_name: Optional[pulumi.Input[str]] = None,
+             primary_title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if associated_description is None and 'associatedDescription' in kwargs:
+            associated_description = kwargs['associatedDescription']
+        if associated_name is None and 'associatedName' in kwargs:
+            associated_name = kwargs['associatedName']
+        if associated_title is None and 'associatedTitle' in kwargs:
+            associated_title = kwargs['associatedTitle']
+        if primary_description is None and 'primaryDescription' in kwargs:
+            primary_description = kwargs['primaryDescription']
+        if primary_name is None and 'primaryName' in kwargs:
+            primary_name = kwargs['primaryName']
+        if primary_title is None and 'primaryTitle' in kwargs:
+            primary_title = kwargs['primaryTitle']
+
         if associated_description is not None:
-            pulumi.set(__self__, "associated_description", associated_description)
+            _setter("associated_description", associated_description)
         if associated_name is not None:
-            pulumi.set(__self__, "associated_name", associated_name)
+            _setter("associated_name", associated_name)
         if associated_title is not None:
-            pulumi.set(__self__, "associated_title", associated_title)
+            _setter("associated_title", associated_title)
         if primary_description is not None:
-            pulumi.set(__self__, "primary_description", primary_description)
+            _setter("primary_description", primary_description)
         if primary_name is not None:
-            pulumi.set(__self__, "primary_name", primary_name)
+            _setter("primary_name", primary_name)
         if primary_title is not None:
-            pulumi.set(__self__, "primary_title", primary_title)
+            _setter("primary_title", primary_title)
 
     @property
     @pulumi.getter(name="associatedDescription")
@@ -254,6 +332,10 @@ class LinkDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

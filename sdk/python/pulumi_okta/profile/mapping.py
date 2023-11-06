@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,14 +28,45 @@ class MappingArgs:
         :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
         :param pulumi.Input[bool] delete_when_absent: When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
         """
-        pulumi.set(__self__, "source_id", source_id)
-        pulumi.set(__self__, "target_id", target_id)
+        MappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_id=source_id,
+            target_id=target_id,
+            always_apply=always_apply,
+            delete_when_absent=delete_when_absent,
+            mappings=mappings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_id: Optional[pulumi.Input[str]] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
+             always_apply: Optional[pulumi.Input[bool]] = None,
+             delete_when_absent: Optional[pulumi.Input[bool]] = None,
+             mappings: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if source_id is None and 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if source_id is None:
+            raise TypeError("Missing 'source_id' argument")
+        if target_id is None and 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if target_id is None:
+            raise TypeError("Missing 'target_id' argument")
+        if always_apply is None and 'alwaysApply' in kwargs:
+            always_apply = kwargs['alwaysApply']
+        if delete_when_absent is None and 'deleteWhenAbsent' in kwargs:
+            delete_when_absent = kwargs['deleteWhenAbsent']
+
+        _setter("source_id", source_id)
+        _setter("target_id", target_id)
         if always_apply is not None:
-            pulumi.set(__self__, "always_apply", always_apply)
+            _setter("always_apply", always_apply)
         if delete_when_absent is not None:
-            pulumi.set(__self__, "delete_when_absent", delete_when_absent)
+            _setter("delete_when_absent", delete_when_absent)
         if mappings is not None:
-            pulumi.set(__self__, "mappings", mappings)
+            _setter("mappings", mappings)
 
     @property
     @pulumi.getter(name="sourceId")
@@ -114,24 +145,67 @@ class _MappingState:
         :param pulumi.Input[str] source_id: The source id of the mapping to manage.
         :param pulumi.Input[str] target_id: The target id of the mapping to manage.
         """
+        _MappingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            always_apply=always_apply,
+            delete_when_absent=delete_when_absent,
+            mappings=mappings,
+            source_id=source_id,
+            source_name=source_name,
+            source_type=source_type,
+            target_id=target_id,
+            target_name=target_name,
+            target_type=target_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             always_apply: Optional[pulumi.Input[bool]] = None,
+             delete_when_absent: Optional[pulumi.Input[bool]] = None,
+             mappings: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]] = None,
+             source_id: Optional[pulumi.Input[str]] = None,
+             source_name: Optional[pulumi.Input[str]] = None,
+             source_type: Optional[pulumi.Input[str]] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
+             target_name: Optional[pulumi.Input[str]] = None,
+             target_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if always_apply is None and 'alwaysApply' in kwargs:
+            always_apply = kwargs['alwaysApply']
+        if delete_when_absent is None and 'deleteWhenAbsent' in kwargs:
+            delete_when_absent = kwargs['deleteWhenAbsent']
+        if source_id is None and 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if source_name is None and 'sourceName' in kwargs:
+            source_name = kwargs['sourceName']
+        if source_type is None and 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+        if target_id is None and 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if target_name is None and 'targetName' in kwargs:
+            target_name = kwargs['targetName']
+        if target_type is None and 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+
         if always_apply is not None:
-            pulumi.set(__self__, "always_apply", always_apply)
+            _setter("always_apply", always_apply)
         if delete_when_absent is not None:
-            pulumi.set(__self__, "delete_when_absent", delete_when_absent)
+            _setter("delete_when_absent", delete_when_absent)
         if mappings is not None:
-            pulumi.set(__self__, "mappings", mappings)
+            _setter("mappings", mappings)
         if source_id is not None:
-            pulumi.set(__self__, "source_id", source_id)
+            _setter("source_id", source_id)
         if source_name is not None:
-            pulumi.set(__self__, "source_name", source_name)
+            _setter("source_name", source_name)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
         if target_id is not None:
-            pulumi.set(__self__, "target_id", target_id)
+            _setter("target_id", target_id)
         if target_name is not None:
-            pulumi.set(__self__, "target_name", target_name)
+            _setter("target_name", target_name)
         if target_type is not None:
-            pulumi.set(__self__, "target_type", target_type)
+            _setter("target_type", target_type)
 
     @property
     @pulumi.getter(name="alwaysApply")
@@ -265,6 +339,10 @@ class Mapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

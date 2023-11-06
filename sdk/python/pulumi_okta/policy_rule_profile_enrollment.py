@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,69 @@ class PolicyRuleProfileEnrollmentArgs:
         :param pulumi.Input[str] target_group_id: The ID of a Group that this User should be added to
         :param pulumi.Input[str] ui_schema_id: Value created by the backend. If present all policy updates must include this attribute/value.
         """
-        pulumi.set(__self__, "policy_id", policy_id)
-        pulumi.set(__self__, "unknown_user_action", unknown_user_action)
+        PolicyRuleProfileEnrollmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_id=policy_id,
+            unknown_user_action=unknown_user_action,
+            access=access,
+            email_verification=email_verification,
+            inline_hook_id=inline_hook_id,
+            profile_attributes=profile_attributes,
+            progressive_profiling_action=progressive_profiling_action,
+            target_group_id=target_group_id,
+            ui_schema_id=ui_schema_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_id: Optional[pulumi.Input[str]] = None,
+             unknown_user_action: Optional[pulumi.Input[str]] = None,
+             access: Optional[pulumi.Input[str]] = None,
+             email_verification: Optional[pulumi.Input[bool]] = None,
+             inline_hook_id: Optional[pulumi.Input[str]] = None,
+             profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] = None,
+             progressive_profiling_action: Optional[pulumi.Input[str]] = None,
+             target_group_id: Optional[pulumi.Input[str]] = None,
+             ui_schema_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
+        if unknown_user_action is None and 'unknownUserAction' in kwargs:
+            unknown_user_action = kwargs['unknownUserAction']
+        if unknown_user_action is None:
+            raise TypeError("Missing 'unknown_user_action' argument")
+        if email_verification is None and 'emailVerification' in kwargs:
+            email_verification = kwargs['emailVerification']
+        if inline_hook_id is None and 'inlineHookId' in kwargs:
+            inline_hook_id = kwargs['inlineHookId']
+        if profile_attributes is None and 'profileAttributes' in kwargs:
+            profile_attributes = kwargs['profileAttributes']
+        if progressive_profiling_action is None and 'progressiveProfilingAction' in kwargs:
+            progressive_profiling_action = kwargs['progressiveProfilingAction']
+        if target_group_id is None and 'targetGroupId' in kwargs:
+            target_group_id = kwargs['targetGroupId']
+        if ui_schema_id is None and 'uiSchemaId' in kwargs:
+            ui_schema_id = kwargs['uiSchemaId']
+
+        _setter("policy_id", policy_id)
+        _setter("unknown_user_action", unknown_user_action)
         if access is not None:
-            pulumi.set(__self__, "access", access)
+            _setter("access", access)
         if email_verification is not None:
-            pulumi.set(__self__, "email_verification", email_verification)
+            _setter("email_verification", email_verification)
         if inline_hook_id is not None:
-            pulumi.set(__self__, "inline_hook_id", inline_hook_id)
+            _setter("inline_hook_id", inline_hook_id)
         if profile_attributes is not None:
-            pulumi.set(__self__, "profile_attributes", profile_attributes)
+            _setter("profile_attributes", profile_attributes)
         if progressive_profiling_action is not None:
-            pulumi.set(__self__, "progressive_profiling_action", progressive_profiling_action)
+            _setter("progressive_profiling_action", progressive_profiling_action)
         if target_group_id is not None:
-            pulumi.set(__self__, "target_group_id", target_group_id)
+            _setter("target_group_id", target_group_id)
         if ui_schema_id is not None:
-            pulumi.set(__self__, "ui_schema_id", ui_schema_id)
+            _setter("ui_schema_id", ui_schema_id)
 
     @property
     @pulumi.getter(name="policyId")
@@ -191,28 +238,75 @@ class _PolicyRuleProfileEnrollmentState:
         :param pulumi.Input[str] ui_schema_id: Value created by the backend. If present all policy updates must include this attribute/value.
         :param pulumi.Input[str] unknown_user_action: Which action should be taken if this User is new
         """
+        _PolicyRuleProfileEnrollmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            email_verification=email_verification,
+            inline_hook_id=inline_hook_id,
+            name=name,
+            policy_id=policy_id,
+            profile_attributes=profile_attributes,
+            progressive_profiling_action=progressive_profiling_action,
+            status=status,
+            target_group_id=target_group_id,
+            ui_schema_id=ui_schema_id,
+            unknown_user_action=unknown_user_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: Optional[pulumi.Input[str]] = None,
+             email_verification: Optional[pulumi.Input[bool]] = None,
+             inline_hook_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] = None,
+             progressive_profiling_action: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             target_group_id: Optional[pulumi.Input[str]] = None,
+             ui_schema_id: Optional[pulumi.Input[str]] = None,
+             unknown_user_action: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email_verification is None and 'emailVerification' in kwargs:
+            email_verification = kwargs['emailVerification']
+        if inline_hook_id is None and 'inlineHookId' in kwargs:
+            inline_hook_id = kwargs['inlineHookId']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if profile_attributes is None and 'profileAttributes' in kwargs:
+            profile_attributes = kwargs['profileAttributes']
+        if progressive_profiling_action is None and 'progressiveProfilingAction' in kwargs:
+            progressive_profiling_action = kwargs['progressiveProfilingAction']
+        if target_group_id is None and 'targetGroupId' in kwargs:
+            target_group_id = kwargs['targetGroupId']
+        if ui_schema_id is None and 'uiSchemaId' in kwargs:
+            ui_schema_id = kwargs['uiSchemaId']
+        if unknown_user_action is None and 'unknownUserAction' in kwargs:
+            unknown_user_action = kwargs['unknownUserAction']
+
         if access is not None:
-            pulumi.set(__self__, "access", access)
+            _setter("access", access)
         if email_verification is not None:
-            pulumi.set(__self__, "email_verification", email_verification)
+            _setter("email_verification", email_verification)
         if inline_hook_id is not None:
-            pulumi.set(__self__, "inline_hook_id", inline_hook_id)
+            _setter("inline_hook_id", inline_hook_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if profile_attributes is not None:
-            pulumi.set(__self__, "profile_attributes", profile_attributes)
+            _setter("profile_attributes", profile_attributes)
         if progressive_profiling_action is not None:
-            pulumi.set(__self__, "progressive_profiling_action", progressive_profiling_action)
+            _setter("progressive_profiling_action", progressive_profiling_action)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if target_group_id is not None:
-            pulumi.set(__self__, "target_group_id", target_group_id)
+            _setter("target_group_id", target_group_id)
         if ui_schema_id is not None:
-            pulumi.set(__self__, "ui_schema_id", ui_schema_id)
+            _setter("ui_schema_id", ui_schema_id)
         if unknown_user_action is not None:
-            pulumi.set(__self__, "unknown_user_action", unknown_user_action)
+            _setter("unknown_user_action", unknown_user_action)
 
     @property
     @pulumi.getter
@@ -394,6 +488,10 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyRuleProfileEnrollmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

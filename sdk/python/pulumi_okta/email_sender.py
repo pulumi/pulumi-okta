@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,9 +25,34 @@ class EmailSenderArgs:
         :param pulumi.Input[str] from_name: Name of sender
         :param pulumi.Input[str] subdomain: Mail domain to send from
         """
-        pulumi.set(__self__, "from_address", from_address)
-        pulumi.set(__self__, "from_name", from_name)
-        pulumi.set(__self__, "subdomain", subdomain)
+        EmailSenderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_address=from_address,
+            from_name=from_name,
+            subdomain=subdomain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_address: Optional[pulumi.Input[str]] = None,
+             from_name: Optional[pulumi.Input[str]] = None,
+             subdomain: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if from_address is None and 'fromAddress' in kwargs:
+            from_address = kwargs['fromAddress']
+        if from_address is None:
+            raise TypeError("Missing 'from_address' argument")
+        if from_name is None and 'fromName' in kwargs:
+            from_name = kwargs['fromName']
+        if from_name is None:
+            raise TypeError("Missing 'from_name' argument")
+        if subdomain is None:
+            raise TypeError("Missing 'subdomain' argument")
+
+        _setter("from_address", from_address)
+        _setter("from_name", from_name)
+        _setter("subdomain", subdomain)
 
     @property
     @pulumi.getter(name="fromAddress")
@@ -82,16 +107,41 @@ class _EmailSenderState:
         :param pulumi.Input[str] status: Verification status
         :param pulumi.Input[str] subdomain: Mail domain to send from
         """
+        _EmailSenderState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_records=dns_records,
+            from_address=from_address,
+            from_name=from_name,
+            status=status,
+            subdomain=subdomain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_records: Optional[pulumi.Input[Sequence[pulumi.Input['EmailSenderDnsRecordArgs']]]] = None,
+             from_address: Optional[pulumi.Input[str]] = None,
+             from_name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subdomain: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dns_records is None and 'dnsRecords' in kwargs:
+            dns_records = kwargs['dnsRecords']
+        if from_address is None and 'fromAddress' in kwargs:
+            from_address = kwargs['fromAddress']
+        if from_name is None and 'fromName' in kwargs:
+            from_name = kwargs['fromName']
+
         if dns_records is not None:
-            pulumi.set(__self__, "dns_records", dns_records)
+            _setter("dns_records", dns_records)
         if from_address is not None:
-            pulumi.set(__self__, "from_address", from_address)
+            _setter("from_address", from_address)
         if from_name is not None:
-            pulumi.set(__self__, "from_name", from_name)
+            _setter("from_name", from_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subdomain is not None:
-            pulumi.set(__self__, "subdomain", subdomain)
+            _setter("subdomain", subdomain)
 
     @property
     @pulumi.getter(name="dnsRecords")
@@ -189,6 +239,10 @@ class EmailSender(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EmailSenderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

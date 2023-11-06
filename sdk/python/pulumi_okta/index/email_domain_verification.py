@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EmailDomainVerificationArgs', 'EmailDomainVerification']
@@ -19,7 +19,22 @@ class EmailDomainVerificationArgs:
         The set of arguments for constructing a EmailDomainVerification resource.
         :param pulumi.Input[str] email_domain_id: Email domain ID
         """
-        pulumi.set(__self__, "email_domain_id", email_domain_id)
+        EmailDomainVerificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_domain_id=email_domain_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_domain_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email_domain_id is None and 'emailDomainId' in kwargs:
+            email_domain_id = kwargs['emailDomainId']
+        if email_domain_id is None:
+            raise TypeError("Missing 'email_domain_id' argument")
+
+        _setter("email_domain_id", email_domain_id)
 
     @property
     @pulumi.getter(name="emailDomainId")
@@ -42,8 +57,21 @@ class _EmailDomainVerificationState:
         Input properties used for looking up and filtering EmailDomainVerification resources.
         :param pulumi.Input[str] email_domain_id: Email domain ID
         """
+        _EmailDomainVerificationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_domain_id=email_domain_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_domain_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email_domain_id is None and 'emailDomainId' in kwargs:
+            email_domain_id = kwargs['emailDomainId']
+
         if email_domain_id is not None:
-            pulumi.set(__self__, "email_domain_id", email_domain_id)
+            _setter("email_domain_id", email_domain_id)
 
     @property
     @pulumi.getter(name="emailDomainId")
@@ -89,6 +117,10 @@ class EmailDomainVerification(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EmailDomainVerificationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

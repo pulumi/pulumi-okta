@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GroupAssignmentArgs', 'GroupAssignment']
@@ -27,14 +27,43 @@ class GroupAssignmentArgs:
         :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         :param pulumi.Input[bool] retain_assignment: Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "group_id", group_id)
+        GroupAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            group_id=group_id,
+            priority=priority,
+            profile=profile,
+            retain_assignment=retain_assignment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             group_id: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             profile: Optional[pulumi.Input[str]] = None,
+             retain_assignment: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if retain_assignment is None and 'retainAssignment' in kwargs:
+            retain_assignment = kwargs['retainAssignment']
+
+        _setter("app_id", app_id)
+        _setter("group_id", group_id)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if retain_assignment is not None:
-            pulumi.set(__self__, "retain_assignment", retain_assignment)
+            _setter("retain_assignment", retain_assignment)
 
     @property
     @pulumi.getter(name="appId")
@@ -113,16 +142,41 @@ class _GroupAssignmentState:
         :param pulumi.Input[str] profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         :param pulumi.Input[bool] retain_assignment: Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         """
+        _GroupAssignmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            group_id=group_id,
+            priority=priority,
+            profile=profile,
+            retain_assignment=retain_assignment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             group_id: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             profile: Optional[pulumi.Input[str]] = None,
+             retain_assignment: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if retain_assignment is None and 'retainAssignment' in kwargs:
+            retain_assignment = kwargs['retainAssignment']
+
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if retain_assignment is not None:
-            pulumi.set(__self__, "retain_assignment", retain_assignment)
+            _setter("retain_assignment", retain_assignment)
 
     @property
     @pulumi.getter(name="appId")
@@ -224,6 +278,10 @@ class GroupAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

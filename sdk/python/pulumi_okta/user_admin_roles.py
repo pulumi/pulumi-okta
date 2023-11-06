@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserAdminRolesArgs', 'UserAdminRoles']
@@ -23,10 +23,35 @@ class UserAdminRolesArgs:
         :param pulumi.Input[str] user_id: ID of a Okta User
         :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta administrator emails
         """
-        pulumi.set(__self__, "admin_roles", admin_roles)
-        pulumi.set(__self__, "user_id", user_id)
+        UserAdminRolesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_roles=admin_roles,
+            user_id=user_id,
+            disable_notifications=disable_notifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             disable_notifications: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if admin_roles is None and 'adminRoles' in kwargs:
+            admin_roles = kwargs['adminRoles']
+        if admin_roles is None:
+            raise TypeError("Missing 'admin_roles' argument")
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
+        if disable_notifications is None and 'disableNotifications' in kwargs:
+            disable_notifications = kwargs['disableNotifications']
+
+        _setter("admin_roles", admin_roles)
+        _setter("user_id", user_id)
         if disable_notifications is not None:
-            pulumi.set(__self__, "disable_notifications", disable_notifications)
+            _setter("disable_notifications", disable_notifications)
 
     @property
     @pulumi.getter(name="adminRoles")
@@ -77,12 +102,33 @@ class _UserAdminRolesState:
         :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta administrator emails
         :param pulumi.Input[str] user_id: ID of a Okta User
         """
+        _UserAdminRolesState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_roles=admin_roles,
+            disable_notifications=disable_notifications,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             disable_notifications: Optional[pulumi.Input[bool]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if admin_roles is None and 'adminRoles' in kwargs:
+            admin_roles = kwargs['adminRoles']
+        if disable_notifications is None and 'disableNotifications' in kwargs:
+            disable_notifications = kwargs['disableNotifications']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if admin_roles is not None:
-            pulumi.set(__self__, "admin_roles", admin_roles)
+            _setter("admin_roles", admin_roles)
         if disable_notifications is not None:
-            pulumi.set(__self__, "disable_notifications", disable_notifications)
+            _setter("disable_notifications", disable_notifications)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="adminRoles")
@@ -158,6 +204,10 @@ class UserAdminRoles(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserAdminRolesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

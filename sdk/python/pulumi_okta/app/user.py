@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserArgs', 'User']
@@ -29,16 +29,47 @@ class UserArgs:
         :param pulumi.Input[bool] retain_assignment: Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         :param pulumi.Input[str] username: The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "user_id", user_id)
+        UserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            user_id=user_id,
+            password=password,
+            profile=profile,
+            retain_assignment=retain_assignment,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             profile: Optional[pulumi.Input[str]] = None,
+             retain_assignment: Optional[pulumi.Input[bool]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
+        if retain_assignment is None and 'retainAssignment' in kwargs:
+            retain_assignment = kwargs['retainAssignment']
+
+        _setter("app_id", app_id)
+        _setter("user_id", user_id)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if retain_assignment is not None:
-            pulumi.set(__self__, "retain_assignment", retain_assignment)
+            _setter("retain_assignment", retain_assignment)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="appId")
@@ -132,20 +163,51 @@ class _UserState:
         :param pulumi.Input[str] user_id: User associated with the application
         :param pulumi.Input[str] username: The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
         """
+        _UserState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            has_shared_username=has_shared_username,
+            password=password,
+            profile=profile,
+            retain_assignment=retain_assignment,
+            user_id=user_id,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             has_shared_username: Optional[pulumi.Input[bool]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             profile: Optional[pulumi.Input[str]] = None,
+             retain_assignment: Optional[pulumi.Input[bool]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if has_shared_username is None and 'hasSharedUsername' in kwargs:
+            has_shared_username = kwargs['hasSharedUsername']
+        if retain_assignment is None and 'retainAssignment' in kwargs:
+            retain_assignment = kwargs['retainAssignment']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if has_shared_username is not None:
-            pulumi.set(__self__, "has_shared_username", has_shared_username)
+            _setter("has_shared_username", has_shared_username)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if retain_assignment is not None:
-            pulumi.set(__self__, "retain_assignment", retain_assignment)
+            _setter("retain_assignment", retain_assignment)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="appId")
@@ -270,6 +332,10 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

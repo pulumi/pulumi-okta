@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,16 +30,41 @@ class EventHookArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EventHookHeaderArgs']]] headers: Map of headers to send along in event hook request.
         :param pulumi.Input[str] name: The event hook display name.
         """
-        pulumi.set(__self__, "channel", channel)
-        pulumi.set(__self__, "events", events)
+        EventHookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel=channel,
+            events=events,
+            auth=auth,
+            headers=headers,
+            name=name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventHookHeaderArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if channel is None:
+            raise TypeError("Missing 'channel' argument")
+        if events is None:
+            raise TypeError("Missing 'events' argument")
+
+        _setter("channel", channel)
+        _setter("events", events)
         if auth is not None:
-            pulumi.set(__self__, "auth", auth)
+            _setter("auth", auth)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -128,18 +153,39 @@ class _EventHookState:
         :param pulumi.Input[Sequence[pulumi.Input['EventHookHeaderArgs']]] headers: Map of headers to send along in event hook request.
         :param pulumi.Input[str] name: The event hook display name.
         """
+        _EventHookState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth=auth,
+            channel=channel,
+            events=events,
+            headers=headers,
+            name=name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventHookHeaderArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if auth is not None:
-            pulumi.set(__self__, "auth", auth)
+            _setter("auth", auth)
         if channel is not None:
-            pulumi.set(__self__, "channel", channel)
+            _setter("channel", channel)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -251,6 +297,10 @@ class EventHook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventHookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RuleArgs', 'Rule']
@@ -26,18 +26,55 @@ class RuleArgs:
         :param pulumi.Input[bool] remove_assigned_users: Remove users added by this rule from the assigned group after deleting this resource
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The list of user IDs that would be excluded when rules are processed
         """
-        pulumi.set(__self__, "expression_value", expression_value)
-        pulumi.set(__self__, "group_assignments", group_assignments)
+        RuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expression_value=expression_value,
+            group_assignments=group_assignments,
+            expression_type=expression_type,
+            name=name,
+            remove_assigned_users=remove_assigned_users,
+            status=status,
+            users_excludeds=users_excludeds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expression_value: Optional[pulumi.Input[str]] = None,
+             group_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             expression_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             remove_assigned_users: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if expression_value is None and 'expressionValue' in kwargs:
+            expression_value = kwargs['expressionValue']
+        if expression_value is None:
+            raise TypeError("Missing 'expression_value' argument")
+        if group_assignments is None and 'groupAssignments' in kwargs:
+            group_assignments = kwargs['groupAssignments']
+        if group_assignments is None:
+            raise TypeError("Missing 'group_assignments' argument")
+        if expression_type is None and 'expressionType' in kwargs:
+            expression_type = kwargs['expressionType']
+        if remove_assigned_users is None and 'removeAssignedUsers' in kwargs:
+            remove_assigned_users = kwargs['removeAssignedUsers']
+        if users_excludeds is None and 'usersExcludeds' in kwargs:
+            users_excludeds = kwargs['usersExcludeds']
+
+        _setter("expression_value", expression_value)
+        _setter("group_assignments", group_assignments)
         if expression_type is not None:
-            pulumi.set(__self__, "expression_type", expression_type)
+            _setter("expression_type", expression_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if remove_assigned_users is not None:
-            pulumi.set(__self__, "remove_assigned_users", remove_assigned_users)
+            _setter("remove_assigned_users", remove_assigned_users)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
+            _setter("users_excludeds", users_excludeds)
 
     @property
     @pulumi.getter(name="expressionValue")
@@ -124,20 +161,53 @@ class _RuleState:
         :param pulumi.Input[bool] remove_assigned_users: Remove users added by this rule from the assigned group after deleting this resource
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The list of user IDs that would be excluded when rules are processed
         """
+        _RuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expression_type=expression_type,
+            expression_value=expression_value,
+            group_assignments=group_assignments,
+            name=name,
+            remove_assigned_users=remove_assigned_users,
+            status=status,
+            users_excludeds=users_excludeds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expression_type: Optional[pulumi.Input[str]] = None,
+             expression_value: Optional[pulumi.Input[str]] = None,
+             group_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             remove_assigned_users: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if expression_type is None and 'expressionType' in kwargs:
+            expression_type = kwargs['expressionType']
+        if expression_value is None and 'expressionValue' in kwargs:
+            expression_value = kwargs['expressionValue']
+        if group_assignments is None and 'groupAssignments' in kwargs:
+            group_assignments = kwargs['groupAssignments']
+        if remove_assigned_users is None and 'removeAssignedUsers' in kwargs:
+            remove_assigned_users = kwargs['removeAssignedUsers']
+        if users_excludeds is None and 'usersExcludeds' in kwargs:
+            users_excludeds = kwargs['usersExcludeds']
+
         if expression_type is not None:
-            pulumi.set(__self__, "expression_type", expression_type)
+            _setter("expression_type", expression_type)
         if expression_value is not None:
-            pulumi.set(__self__, "expression_value", expression_value)
+            _setter("expression_value", expression_value)
         if group_assignments is not None:
-            pulumi.set(__self__, "group_assignments", group_assignments)
+            _setter("group_assignments", group_assignments)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if remove_assigned_users is not None:
-            pulumi.set(__self__, "remove_assigned_users", remove_assigned_users)
+            _setter("remove_assigned_users", remove_assigned_users)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
+            _setter("users_excludeds", users_excludeds)
 
     @property
     @pulumi.getter(name="expressionType")
@@ -247,6 +317,10 @@ class Rule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

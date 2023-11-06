@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['EventHookVerificationArgs', 'EventHookVerification']
@@ -19,7 +19,22 @@ class EventHookVerificationArgs:
         The set of arguments for constructing a EventHookVerification resource.
         :param pulumi.Input[str] event_hook_id: Event hook ID
         """
-        pulumi.set(__self__, "event_hook_id", event_hook_id)
+        EventHookVerificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_hook_id=event_hook_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_hook_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if event_hook_id is None and 'eventHookId' in kwargs:
+            event_hook_id = kwargs['eventHookId']
+        if event_hook_id is None:
+            raise TypeError("Missing 'event_hook_id' argument")
+
+        _setter("event_hook_id", event_hook_id)
 
     @property
     @pulumi.getter(name="eventHookId")
@@ -42,8 +57,21 @@ class _EventHookVerificationState:
         Input properties used for looking up and filtering EventHookVerification resources.
         :param pulumi.Input[str] event_hook_id: Event hook ID
         """
+        _EventHookVerificationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_hook_id=event_hook_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_hook_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if event_hook_id is None and 'eventHookId' in kwargs:
+            event_hook_id = kwargs['eventHookId']
+
         if event_hook_id is not None:
-            pulumi.set(__self__, "event_hook_id", event_hook_id)
+            _setter("event_hook_id", event_hook_id)
 
     @property
     @pulumi.getter(name="eventHookId")
@@ -89,6 +117,10 @@ class EventHookVerification(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventHookVerificationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

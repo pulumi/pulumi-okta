@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MfaArgs', 'Mfa']
@@ -50,60 +50,163 @@ class MfaArgs:
         :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Status: ACTIVE or INACTIVE.
         """
+        MfaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            duo=duo,
+            external_idp=external_idp,
+            fido_u2f=fido_u2f,
+            fido_webauthn=fido_webauthn,
+            google_otp=google_otp,
+            groups_includeds=groups_includeds,
+            hotp=hotp,
+            is_oie=is_oie,
+            name=name,
+            okta_call=okta_call,
+            okta_email=okta_email,
+            okta_otp=okta_otp,
+            okta_password=okta_password,
+            okta_push=okta_push,
+            okta_question=okta_question,
+            okta_sms=okta_sms,
+            okta_verify=okta_verify,
+            onprem_mfa=onprem_mfa,
+            phone_number=phone_number,
+            priority=priority,
+            rsa_token=rsa_token,
+            security_question=security_question,
+            status=status,
+            symantec_vip=symantec_vip,
+            webauthn=webauthn,
+            yubikey_token=yubikey_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             external_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             fido_u2f: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             hotp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             is_oie: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             okta_email: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             okta_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             okta_password: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             okta_push: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             okta_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             okta_sms: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             okta_verify: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             onprem_mfa: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             phone_number: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             rsa_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             security_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if external_idp is None and 'externalIdp' in kwargs:
+            external_idp = kwargs['externalIdp']
+        if fido_u2f is None and 'fidoU2f' in kwargs:
+            fido_u2f = kwargs['fidoU2f']
+        if fido_webauthn is None and 'fidoWebauthn' in kwargs:
+            fido_webauthn = kwargs['fidoWebauthn']
+        if google_otp is None and 'googleOtp' in kwargs:
+            google_otp = kwargs['googleOtp']
+        if groups_includeds is None and 'groupsIncludeds' in kwargs:
+            groups_includeds = kwargs['groupsIncludeds']
+        if is_oie is None and 'isOie' in kwargs:
+            is_oie = kwargs['isOie']
+        if okta_call is None and 'oktaCall' in kwargs:
+            okta_call = kwargs['oktaCall']
+        if okta_email is None and 'oktaEmail' in kwargs:
+            okta_email = kwargs['oktaEmail']
+        if okta_otp is None and 'oktaOtp' in kwargs:
+            okta_otp = kwargs['oktaOtp']
+        if okta_password is None and 'oktaPassword' in kwargs:
+            okta_password = kwargs['oktaPassword']
+        if okta_push is None and 'oktaPush' in kwargs:
+            okta_push = kwargs['oktaPush']
+        if okta_question is None and 'oktaQuestion' in kwargs:
+            okta_question = kwargs['oktaQuestion']
+        if okta_sms is None and 'oktaSms' in kwargs:
+            okta_sms = kwargs['oktaSms']
+        if okta_verify is None and 'oktaVerify' in kwargs:
+            okta_verify = kwargs['oktaVerify']
+        if onprem_mfa is None and 'onpremMfa' in kwargs:
+            onprem_mfa = kwargs['onpremMfa']
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if rsa_token is None and 'rsaToken' in kwargs:
+            rsa_token = kwargs['rsaToken']
+        if security_question is None and 'securityQuestion' in kwargs:
+            security_question = kwargs['securityQuestion']
+        if symantec_vip is None and 'symantecVip' in kwargs:
+            symantec_vip = kwargs['symantecVip']
+        if yubikey_token is None and 'yubikeyToken' in kwargs:
+            yubikey_token = kwargs['yubikeyToken']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if duo is not None:
-            pulumi.set(__self__, "duo", duo)
+            _setter("duo", duo)
         if external_idp is not None:
-            pulumi.set(__self__, "external_idp", external_idp)
+            _setter("external_idp", external_idp)
         if fido_u2f is not None:
-            pulumi.set(__self__, "fido_u2f", fido_u2f)
+            _setter("fido_u2f", fido_u2f)
         if fido_webauthn is not None:
-            pulumi.set(__self__, "fido_webauthn", fido_webauthn)
+            _setter("fido_webauthn", fido_webauthn)
         if google_otp is not None:
-            pulumi.set(__self__, "google_otp", google_otp)
+            _setter("google_otp", google_otp)
         if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+            _setter("groups_includeds", groups_includeds)
         if hotp is not None:
-            pulumi.set(__self__, "hotp", hotp)
+            _setter("hotp", hotp)
         if is_oie is not None:
-            pulumi.set(__self__, "is_oie", is_oie)
+            _setter("is_oie", is_oie)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if okta_call is not None:
-            pulumi.set(__self__, "okta_call", okta_call)
+            _setter("okta_call", okta_call)
         if okta_email is not None:
-            pulumi.set(__self__, "okta_email", okta_email)
+            _setter("okta_email", okta_email)
         if okta_otp is not None:
-            pulumi.set(__self__, "okta_otp", okta_otp)
+            _setter("okta_otp", okta_otp)
         if okta_password is not None:
-            pulumi.set(__self__, "okta_password", okta_password)
+            _setter("okta_password", okta_password)
         if okta_push is not None:
-            pulumi.set(__self__, "okta_push", okta_push)
+            _setter("okta_push", okta_push)
         if okta_question is not None:
-            pulumi.set(__self__, "okta_question", okta_question)
+            _setter("okta_question", okta_question)
         if okta_sms is not None:
-            pulumi.set(__self__, "okta_sms", okta_sms)
+            _setter("okta_sms", okta_sms)
         if okta_verify is not None:
-            pulumi.set(__self__, "okta_verify", okta_verify)
+            _setter("okta_verify", okta_verify)
         if onprem_mfa is not None:
-            pulumi.set(__self__, "onprem_mfa", onprem_mfa)
+            _setter("onprem_mfa", onprem_mfa)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if rsa_token is not None:
-            pulumi.set(__self__, "rsa_token", rsa_token)
+            _setter("rsa_token", rsa_token)
         if security_question is not None:
-            pulumi.set(__self__, "security_question", security_question)
+            _setter("security_question", security_question)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if symantec_vip is not None:
-            pulumi.set(__self__, "symantec_vip", symantec_vip)
+            _setter("symantec_vip", symantec_vip)
         if webauthn is not None:
-            pulumi.set(__self__, "webauthn", webauthn)
+            _setter("webauthn", webauthn)
         if yubikey_token is not None:
-            pulumi.set(__self__, "yubikey_token", yubikey_token)
+            _setter("yubikey_token", yubikey_token)
 
     @property
     @pulumi.getter
@@ -406,60 +509,163 @@ class _MfaState:
         :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Status: ACTIVE or INACTIVE.
         """
+        _MfaState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            duo=duo,
+            external_idp=external_idp,
+            fido_u2f=fido_u2f,
+            fido_webauthn=fido_webauthn,
+            google_otp=google_otp,
+            groups_includeds=groups_includeds,
+            hotp=hotp,
+            is_oie=is_oie,
+            name=name,
+            okta_call=okta_call,
+            okta_email=okta_email,
+            okta_otp=okta_otp,
+            okta_password=okta_password,
+            okta_push=okta_push,
+            okta_question=okta_question,
+            okta_sms=okta_sms,
+            okta_verify=okta_verify,
+            onprem_mfa=onprem_mfa,
+            phone_number=phone_number,
+            priority=priority,
+            rsa_token=rsa_token,
+            security_question=security_question,
+            status=status,
+            symantec_vip=symantec_vip,
+            webauthn=webauthn,
+            yubikey_token=yubikey_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             external_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             fido_u2f: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             hotp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             is_oie: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             okta_call: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             okta_email: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             okta_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             okta_password: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             okta_push: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             okta_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             okta_sms: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             okta_verify: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             onprem_mfa: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             phone_number: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             rsa_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             security_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if external_idp is None and 'externalIdp' in kwargs:
+            external_idp = kwargs['externalIdp']
+        if fido_u2f is None and 'fidoU2f' in kwargs:
+            fido_u2f = kwargs['fidoU2f']
+        if fido_webauthn is None and 'fidoWebauthn' in kwargs:
+            fido_webauthn = kwargs['fidoWebauthn']
+        if google_otp is None and 'googleOtp' in kwargs:
+            google_otp = kwargs['googleOtp']
+        if groups_includeds is None and 'groupsIncludeds' in kwargs:
+            groups_includeds = kwargs['groupsIncludeds']
+        if is_oie is None and 'isOie' in kwargs:
+            is_oie = kwargs['isOie']
+        if okta_call is None and 'oktaCall' in kwargs:
+            okta_call = kwargs['oktaCall']
+        if okta_email is None and 'oktaEmail' in kwargs:
+            okta_email = kwargs['oktaEmail']
+        if okta_otp is None and 'oktaOtp' in kwargs:
+            okta_otp = kwargs['oktaOtp']
+        if okta_password is None and 'oktaPassword' in kwargs:
+            okta_password = kwargs['oktaPassword']
+        if okta_push is None and 'oktaPush' in kwargs:
+            okta_push = kwargs['oktaPush']
+        if okta_question is None and 'oktaQuestion' in kwargs:
+            okta_question = kwargs['oktaQuestion']
+        if okta_sms is None and 'oktaSms' in kwargs:
+            okta_sms = kwargs['oktaSms']
+        if okta_verify is None and 'oktaVerify' in kwargs:
+            okta_verify = kwargs['oktaVerify']
+        if onprem_mfa is None and 'onpremMfa' in kwargs:
+            onprem_mfa = kwargs['onpremMfa']
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if rsa_token is None and 'rsaToken' in kwargs:
+            rsa_token = kwargs['rsaToken']
+        if security_question is None and 'securityQuestion' in kwargs:
+            security_question = kwargs['securityQuestion']
+        if symantec_vip is None and 'symantecVip' in kwargs:
+            symantec_vip = kwargs['symantecVip']
+        if yubikey_token is None and 'yubikeyToken' in kwargs:
+            yubikey_token = kwargs['yubikeyToken']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if duo is not None:
-            pulumi.set(__self__, "duo", duo)
+            _setter("duo", duo)
         if external_idp is not None:
-            pulumi.set(__self__, "external_idp", external_idp)
+            _setter("external_idp", external_idp)
         if fido_u2f is not None:
-            pulumi.set(__self__, "fido_u2f", fido_u2f)
+            _setter("fido_u2f", fido_u2f)
         if fido_webauthn is not None:
-            pulumi.set(__self__, "fido_webauthn", fido_webauthn)
+            _setter("fido_webauthn", fido_webauthn)
         if google_otp is not None:
-            pulumi.set(__self__, "google_otp", google_otp)
+            _setter("google_otp", google_otp)
         if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+            _setter("groups_includeds", groups_includeds)
         if hotp is not None:
-            pulumi.set(__self__, "hotp", hotp)
+            _setter("hotp", hotp)
         if is_oie is not None:
-            pulumi.set(__self__, "is_oie", is_oie)
+            _setter("is_oie", is_oie)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if okta_call is not None:
-            pulumi.set(__self__, "okta_call", okta_call)
+            _setter("okta_call", okta_call)
         if okta_email is not None:
-            pulumi.set(__self__, "okta_email", okta_email)
+            _setter("okta_email", okta_email)
         if okta_otp is not None:
-            pulumi.set(__self__, "okta_otp", okta_otp)
+            _setter("okta_otp", okta_otp)
         if okta_password is not None:
-            pulumi.set(__self__, "okta_password", okta_password)
+            _setter("okta_password", okta_password)
         if okta_push is not None:
-            pulumi.set(__self__, "okta_push", okta_push)
+            _setter("okta_push", okta_push)
         if okta_question is not None:
-            pulumi.set(__self__, "okta_question", okta_question)
+            _setter("okta_question", okta_question)
         if okta_sms is not None:
-            pulumi.set(__self__, "okta_sms", okta_sms)
+            _setter("okta_sms", okta_sms)
         if okta_verify is not None:
-            pulumi.set(__self__, "okta_verify", okta_verify)
+            _setter("okta_verify", okta_verify)
         if onprem_mfa is not None:
-            pulumi.set(__self__, "onprem_mfa", onprem_mfa)
+            _setter("onprem_mfa", onprem_mfa)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if rsa_token is not None:
-            pulumi.set(__self__, "rsa_token", rsa_token)
+            _setter("rsa_token", rsa_token)
         if security_question is not None:
-            pulumi.set(__self__, "security_question", security_question)
+            _setter("security_question", security_question)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if symantec_vip is not None:
-            pulumi.set(__self__, "symantec_vip", symantec_vip)
+            _setter("symantec_vip", symantec_vip)
         if webauthn is not None:
-            pulumi.set(__self__, "webauthn", webauthn)
+            _setter("webauthn", webauthn)
         if yubikey_token is not None:
-            pulumi.set(__self__, "yubikey_token", yubikey_token)
+            _setter("yubikey_token", yubikey_token)
 
     @property
     @pulumi.getter
@@ -785,6 +991,10 @@ class Mfa(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MfaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

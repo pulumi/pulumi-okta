@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AppOauthApiScopeArgs', 'AppOauthApiScope']
@@ -23,9 +23,32 @@ class AppOauthApiScopeArgs:
         :param pulumi.Input[str] issuer: The issuer of your Org Authorization Server, your Org URL.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the application for which consent is granted.
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "scopes", scopes)
+        AppOauthApiScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            issuer=issuer,
+            scopes=scopes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if issuer is None:
+            raise TypeError("Missing 'issuer' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+
+        _setter("app_id", app_id)
+        _setter("issuer", issuer)
+        _setter("scopes", scopes)
 
     @property
     @pulumi.getter(name="appId")
@@ -76,12 +99,29 @@ class _AppOauthApiScopeState:
         :param pulumi.Input[str] issuer: The issuer of your Org Authorization Server, your Org URL.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes of the application for which consent is granted.
         """
+        _AppOauthApiScopeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            issuer=issuer,
+            scopes=scopes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
+            _setter("issuer", issuer)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
 
     @property
     @pulumi.getter(name="appId")
@@ -155,6 +195,10 @@ class AppOauthApiScope(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppOauthApiScopeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

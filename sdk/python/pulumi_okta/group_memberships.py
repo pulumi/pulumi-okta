@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['GroupMembershipsArgs', 'GroupMemberships']
@@ -23,10 +23,33 @@ class GroupMembershipsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The list of Okta user IDs which the group should have membership managed for.
         :param pulumi.Input[bool] track_all_users: The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
         """
-        pulumi.set(__self__, "group_id", group_id)
-        pulumi.set(__self__, "users", users)
+        GroupMembershipsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            users=users,
+            track_all_users=track_all_users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: Optional[pulumi.Input[str]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             track_all_users: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if users is None:
+            raise TypeError("Missing 'users' argument")
+        if track_all_users is None and 'trackAllUsers' in kwargs:
+            track_all_users = kwargs['trackAllUsers']
+
+        _setter("group_id", group_id)
+        _setter("users", users)
         if track_all_users is not None:
-            pulumi.set(__self__, "track_all_users", track_all_users)
+            _setter("track_all_users", track_all_users)
 
     @property
     @pulumi.getter(name="groupId")
@@ -77,12 +100,31 @@ class _GroupMembershipsState:
         :param pulumi.Input[bool] track_all_users: The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The list of Okta user IDs which the group should have membership managed for.
         """
+        _GroupMembershipsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            track_all_users=track_all_users,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: Optional[pulumi.Input[str]] = None,
+             track_all_users: Optional[pulumi.Input[bool]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if track_all_users is None and 'trackAllUsers' in kwargs:
+            track_all_users = kwargs['trackAllUsers']
+
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if track_all_users is not None:
-            pulumi.set(__self__, "track_all_users", track_all_users)
+            _setter("track_all_users", track_all_users)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter(name="groupId")
@@ -158,6 +200,10 @@ class GroupMemberships(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupMembershipsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

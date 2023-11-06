@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SignonArgs', 'Signon']
@@ -27,16 +27,37 @@ class SignonArgs:
         :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Status: ACTIVE or INACTIVE.
         """
+        SignonArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            groups_includeds=groups_includeds,
+            name=name,
+            priority=priority,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if groups_includeds is None and 'groupsIncludeds' in kwargs:
+            groups_includeds = kwargs['groupsIncludeds']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+            _setter("groups_includeds", groups_includeds)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -115,16 +136,37 @@ class _SignonState:
         :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] status: Policy Status: ACTIVE or INACTIVE.
         """
+        _SignonState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            groups_includeds=groups_includeds,
+            name=name,
+            priority=priority,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if groups_includeds is None and 'groupsIncludeds' in kwargs:
+            groups_includeds = kwargs['groupsIncludeds']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+            _setter("groups_includeds", groups_includeds)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -226,6 +268,10 @@ class Signon(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SignonArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

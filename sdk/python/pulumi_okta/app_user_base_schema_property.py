@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AppUserBaseSchemaPropertyArgs', 'AppUserBaseSchemaProperty']
@@ -35,20 +35,59 @@ class AppUserBaseSchemaPropertyArgs:
         :param pulumi.Input[bool] required: Whether the subschema is required
         :param pulumi.Input[str] user_type: Custom subschema user type
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "index", index)
-        pulumi.set(__self__, "title", title)
-        pulumi.set(__self__, "type", type)
+        AppUserBaseSchemaPropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            index=index,
+            title=title,
+            type=type,
+            master=master,
+            pattern=pattern,
+            permissions=permissions,
+            required=required,
+            user_type=user_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             index: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             master: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[str]] = None,
+             required: Optional[pulumi.Input[bool]] = None,
+             user_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if index is None:
+            raise TypeError("Missing 'index' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_type is None and 'userType' in kwargs:
+            user_type = kwargs['userType']
+
+        _setter("app_id", app_id)
+        _setter("index", index)
+        _setter("title", title)
+        _setter("type", type)
         if master is not None:
-            pulumi.set(__self__, "master", master)
+            _setter("master", master)
         if pattern is not None:
-            pulumi.set(__self__, "pattern", pattern)
+            _setter("pattern", pattern)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if required is not None:
-            pulumi.set(__self__, "required", required)
+            _setter("required", required)
         if user_type is not None:
-            pulumi.set(__self__, "user_type", user_type)
+            _setter("user_type", user_type)
 
     @property
     @pulumi.getter(name="appId")
@@ -183,24 +222,55 @@ class _AppUserBaseSchemaPropertyState:
         :param pulumi.Input[str] type: Subschema type: string, boolean, number, integer, array, or object
         :param pulumi.Input[str] user_type: Custom subschema user type
         """
+        _AppUserBaseSchemaPropertyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            index=index,
+            master=master,
+            pattern=pattern,
+            permissions=permissions,
+            required=required,
+            title=title,
+            type=type,
+            user_type=user_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             index: Optional[pulumi.Input[str]] = None,
+             master: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[str]] = None,
+             required: Optional[pulumi.Input[bool]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             user_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if user_type is None and 'userType' in kwargs:
+            user_type = kwargs['userType']
+
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if index is not None:
-            pulumi.set(__self__, "index", index)
+            _setter("index", index)
         if master is not None:
-            pulumi.set(__self__, "master", master)
+            _setter("master", master)
         if pattern is not None:
-            pulumi.set(__self__, "pattern", pattern)
+            _setter("pattern", pattern)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if required is not None:
-            pulumi.set(__self__, "required", required)
+            _setter("required", required)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_type is not None:
-            pulumi.set(__self__, "user_type", user_type)
+            _setter("user_type", user_type)
 
     @property
     @pulumi.getter(name="appId")
@@ -358,6 +428,10 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppUserBaseSchemaPropertyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

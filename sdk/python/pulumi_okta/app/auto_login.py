@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AutoLoginArgs', 'AutoLogin']
@@ -65,53 +65,154 @@ class AutoLoginArgs:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
         """
-        pulumi.set(__self__, "label", label)
+        AutoLoginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            accessibility_error_redirect_url=accessibility_error_redirect_url,
+            accessibility_login_redirect_url=accessibility_login_redirect_url,
+            accessibility_self_service=accessibility_self_service,
+            admin_note=admin_note,
+            app_links_json=app_links_json,
+            app_settings_json=app_settings_json,
+            auto_submit_toolbar=auto_submit_toolbar,
+            credentials_scheme=credentials_scheme,
+            enduser_note=enduser_note,
+            hide_ios=hide_ios,
+            hide_web=hide_web,
+            logo=logo,
+            preconfigured_app=preconfigured_app,
+            reveal_password=reveal_password,
+            shared_password=shared_password,
+            shared_username=shared_username,
+            sign_on_redirect_url=sign_on_redirect_url,
+            sign_on_url=sign_on_url,
+            status=status,
+            user_name_template=user_name_template,
+            user_name_template_push_status=user_name_template_push_status,
+            user_name_template_suffix=user_name_template_suffix,
+            user_name_template_type=user_name_template_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: Optional[pulumi.Input[str]] = None,
+             accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+             admin_note: Optional[pulumi.Input[str]] = None,
+             app_links_json: Optional[pulumi.Input[str]] = None,
+             app_settings_json: Optional[pulumi.Input[str]] = None,
+             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+             credentials_scheme: Optional[pulumi.Input[str]] = None,
+             enduser_note: Optional[pulumi.Input[str]] = None,
+             hide_ios: Optional[pulumi.Input[bool]] = None,
+             hide_web: Optional[pulumi.Input[bool]] = None,
+             logo: Optional[pulumi.Input[str]] = None,
+             preconfigured_app: Optional[pulumi.Input[str]] = None,
+             reveal_password: Optional[pulumi.Input[bool]] = None,
+             shared_password: Optional[pulumi.Input[str]] = None,
+             shared_username: Optional[pulumi.Input[str]] = None,
+             sign_on_redirect_url: Optional[pulumi.Input[str]] = None,
+             sign_on_url: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             user_name_template: Optional[pulumi.Input[str]] = None,
+             user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+             user_name_template_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if accessibility_error_redirect_url is None and 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if accessibility_login_redirect_url is None and 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if accessibility_self_service is None and 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if admin_note is None and 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if app_links_json is None and 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if app_settings_json is None and 'appSettingsJson' in kwargs:
+            app_settings_json = kwargs['appSettingsJson']
+        if auto_submit_toolbar is None and 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if credentials_scheme is None and 'credentialsScheme' in kwargs:
+            credentials_scheme = kwargs['credentialsScheme']
+        if enduser_note is None and 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if hide_ios is None and 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if hide_web is None and 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+        if preconfigured_app is None and 'preconfiguredApp' in kwargs:
+            preconfigured_app = kwargs['preconfiguredApp']
+        if reveal_password is None and 'revealPassword' in kwargs:
+            reveal_password = kwargs['revealPassword']
+        if shared_password is None and 'sharedPassword' in kwargs:
+            shared_password = kwargs['sharedPassword']
+        if shared_username is None and 'sharedUsername' in kwargs:
+            shared_username = kwargs['sharedUsername']
+        if sign_on_redirect_url is None and 'signOnRedirectUrl' in kwargs:
+            sign_on_redirect_url = kwargs['signOnRedirectUrl']
+        if sign_on_url is None and 'signOnUrl' in kwargs:
+            sign_on_url = kwargs['signOnUrl']
+        if user_name_template is None and 'userNameTemplate' in kwargs:
+            user_name_template = kwargs['userNameTemplate']
+        if user_name_template_push_status is None and 'userNameTemplatePushStatus' in kwargs:
+            user_name_template_push_status = kwargs['userNameTemplatePushStatus']
+        if user_name_template_suffix is None and 'userNameTemplateSuffix' in kwargs:
+            user_name_template_suffix = kwargs['userNameTemplateSuffix']
+        if user_name_template_type is None and 'userNameTemplateType' in kwargs:
+            user_name_template_type = kwargs['userNameTemplateType']
+
+        _setter("label", label)
         if accessibility_error_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+            _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
+            _setter("accessibility_login_redirect_url", accessibility_login_redirect_url)
         if accessibility_self_service is not None:
-            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+            _setter("accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
-            pulumi.set(__self__, "admin_note", admin_note)
+            _setter("admin_note", admin_note)
         if app_links_json is not None:
-            pulumi.set(__self__, "app_links_json", app_links_json)
+            _setter("app_links_json", app_links_json)
         if app_settings_json is not None:
-            pulumi.set(__self__, "app_settings_json", app_settings_json)
+            _setter("app_settings_json", app_settings_json)
         if auto_submit_toolbar is not None:
-            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+            _setter("auto_submit_toolbar", auto_submit_toolbar)
         if credentials_scheme is not None:
-            pulumi.set(__self__, "credentials_scheme", credentials_scheme)
+            _setter("credentials_scheme", credentials_scheme)
         if enduser_note is not None:
-            pulumi.set(__self__, "enduser_note", enduser_note)
+            _setter("enduser_note", enduser_note)
         if hide_ios is not None:
-            pulumi.set(__self__, "hide_ios", hide_ios)
+            _setter("hide_ios", hide_ios)
         if hide_web is not None:
-            pulumi.set(__self__, "hide_web", hide_web)
+            _setter("hide_web", hide_web)
         if logo is not None:
-            pulumi.set(__self__, "logo", logo)
+            _setter("logo", logo)
         if preconfigured_app is not None:
-            pulumi.set(__self__, "preconfigured_app", preconfigured_app)
+            _setter("preconfigured_app", preconfigured_app)
         if reveal_password is not None:
-            pulumi.set(__self__, "reveal_password", reveal_password)
+            _setter("reveal_password", reveal_password)
         if shared_password is not None:
-            pulumi.set(__self__, "shared_password", shared_password)
+            _setter("shared_password", shared_password)
         if shared_username is not None:
-            pulumi.set(__self__, "shared_username", shared_username)
+            _setter("shared_username", shared_username)
         if sign_on_redirect_url is not None:
-            pulumi.set(__self__, "sign_on_redirect_url", sign_on_redirect_url)
+            _setter("sign_on_redirect_url", sign_on_redirect_url)
         if sign_on_url is not None:
-            pulumi.set(__self__, "sign_on_url", sign_on_url)
+            _setter("sign_on_url", sign_on_url)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if user_name_template is not None:
-            pulumi.set(__self__, "user_name_template", user_name_template)
+            _setter("user_name_template", user_name_template)
         if user_name_template_push_status is not None:
-            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
+            _setter("user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
-            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+            _setter("user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
-            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+            _setter("user_name_template_type", user_name_template_type)
 
     @property
     @pulumi.getter
@@ -462,60 +563,169 @@ class _AutoLoginState:
         :param pulumi.Input[str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[str] user_name_template_type: Username template type
         """
+        _AutoLoginState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accessibility_error_redirect_url=accessibility_error_redirect_url,
+            accessibility_login_redirect_url=accessibility_login_redirect_url,
+            accessibility_self_service=accessibility_self_service,
+            admin_note=admin_note,
+            app_links_json=app_links_json,
+            app_settings_json=app_settings_json,
+            auto_submit_toolbar=auto_submit_toolbar,
+            credentials_scheme=credentials_scheme,
+            enduser_note=enduser_note,
+            hide_ios=hide_ios,
+            hide_web=hide_web,
+            label=label,
+            logo=logo,
+            logo_url=logo_url,
+            name=name,
+            preconfigured_app=preconfigured_app,
+            reveal_password=reveal_password,
+            shared_password=shared_password,
+            shared_username=shared_username,
+            sign_on_mode=sign_on_mode,
+            sign_on_redirect_url=sign_on_redirect_url,
+            sign_on_url=sign_on_url,
+            status=status,
+            user_name_template=user_name_template,
+            user_name_template_push_status=user_name_template_push_status,
+            user_name_template_suffix=user_name_template_suffix,
+            user_name_template_type=user_name_template_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accessibility_error_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_login_redirect_url: Optional[pulumi.Input[str]] = None,
+             accessibility_self_service: Optional[pulumi.Input[bool]] = None,
+             admin_note: Optional[pulumi.Input[str]] = None,
+             app_links_json: Optional[pulumi.Input[str]] = None,
+             app_settings_json: Optional[pulumi.Input[str]] = None,
+             auto_submit_toolbar: Optional[pulumi.Input[bool]] = None,
+             credentials_scheme: Optional[pulumi.Input[str]] = None,
+             enduser_note: Optional[pulumi.Input[str]] = None,
+             hide_ios: Optional[pulumi.Input[bool]] = None,
+             hide_web: Optional[pulumi.Input[bool]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             logo: Optional[pulumi.Input[str]] = None,
+             logo_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             preconfigured_app: Optional[pulumi.Input[str]] = None,
+             reveal_password: Optional[pulumi.Input[bool]] = None,
+             shared_password: Optional[pulumi.Input[str]] = None,
+             shared_username: Optional[pulumi.Input[str]] = None,
+             sign_on_mode: Optional[pulumi.Input[str]] = None,
+             sign_on_redirect_url: Optional[pulumi.Input[str]] = None,
+             sign_on_url: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             user_name_template: Optional[pulumi.Input[str]] = None,
+             user_name_template_push_status: Optional[pulumi.Input[str]] = None,
+             user_name_template_suffix: Optional[pulumi.Input[str]] = None,
+             user_name_template_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if accessibility_error_redirect_url is None and 'accessibilityErrorRedirectUrl' in kwargs:
+            accessibility_error_redirect_url = kwargs['accessibilityErrorRedirectUrl']
+        if accessibility_login_redirect_url is None and 'accessibilityLoginRedirectUrl' in kwargs:
+            accessibility_login_redirect_url = kwargs['accessibilityLoginRedirectUrl']
+        if accessibility_self_service is None and 'accessibilitySelfService' in kwargs:
+            accessibility_self_service = kwargs['accessibilitySelfService']
+        if admin_note is None and 'adminNote' in kwargs:
+            admin_note = kwargs['adminNote']
+        if app_links_json is None and 'appLinksJson' in kwargs:
+            app_links_json = kwargs['appLinksJson']
+        if app_settings_json is None and 'appSettingsJson' in kwargs:
+            app_settings_json = kwargs['appSettingsJson']
+        if auto_submit_toolbar is None and 'autoSubmitToolbar' in kwargs:
+            auto_submit_toolbar = kwargs['autoSubmitToolbar']
+        if credentials_scheme is None and 'credentialsScheme' in kwargs:
+            credentials_scheme = kwargs['credentialsScheme']
+        if enduser_note is None and 'enduserNote' in kwargs:
+            enduser_note = kwargs['enduserNote']
+        if hide_ios is None and 'hideIos' in kwargs:
+            hide_ios = kwargs['hideIos']
+        if hide_web is None and 'hideWeb' in kwargs:
+            hide_web = kwargs['hideWeb']
+        if logo_url is None and 'logoUrl' in kwargs:
+            logo_url = kwargs['logoUrl']
+        if preconfigured_app is None and 'preconfiguredApp' in kwargs:
+            preconfigured_app = kwargs['preconfiguredApp']
+        if reveal_password is None and 'revealPassword' in kwargs:
+            reveal_password = kwargs['revealPassword']
+        if shared_password is None and 'sharedPassword' in kwargs:
+            shared_password = kwargs['sharedPassword']
+        if shared_username is None and 'sharedUsername' in kwargs:
+            shared_username = kwargs['sharedUsername']
+        if sign_on_mode is None and 'signOnMode' in kwargs:
+            sign_on_mode = kwargs['signOnMode']
+        if sign_on_redirect_url is None and 'signOnRedirectUrl' in kwargs:
+            sign_on_redirect_url = kwargs['signOnRedirectUrl']
+        if sign_on_url is None and 'signOnUrl' in kwargs:
+            sign_on_url = kwargs['signOnUrl']
+        if user_name_template is None and 'userNameTemplate' in kwargs:
+            user_name_template = kwargs['userNameTemplate']
+        if user_name_template_push_status is None and 'userNameTemplatePushStatus' in kwargs:
+            user_name_template_push_status = kwargs['userNameTemplatePushStatus']
+        if user_name_template_suffix is None and 'userNameTemplateSuffix' in kwargs:
+            user_name_template_suffix = kwargs['userNameTemplateSuffix']
+        if user_name_template_type is None and 'userNameTemplateType' in kwargs:
+            user_name_template_type = kwargs['userNameTemplateType']
+
         if accessibility_error_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
+            _setter("accessibility_error_redirect_url", accessibility_error_redirect_url)
         if accessibility_login_redirect_url is not None:
-            pulumi.set(__self__, "accessibility_login_redirect_url", accessibility_login_redirect_url)
+            _setter("accessibility_login_redirect_url", accessibility_login_redirect_url)
         if accessibility_self_service is not None:
-            pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
+            _setter("accessibility_self_service", accessibility_self_service)
         if admin_note is not None:
-            pulumi.set(__self__, "admin_note", admin_note)
+            _setter("admin_note", admin_note)
         if app_links_json is not None:
-            pulumi.set(__self__, "app_links_json", app_links_json)
+            _setter("app_links_json", app_links_json)
         if app_settings_json is not None:
-            pulumi.set(__self__, "app_settings_json", app_settings_json)
+            _setter("app_settings_json", app_settings_json)
         if auto_submit_toolbar is not None:
-            pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+            _setter("auto_submit_toolbar", auto_submit_toolbar)
         if credentials_scheme is not None:
-            pulumi.set(__self__, "credentials_scheme", credentials_scheme)
+            _setter("credentials_scheme", credentials_scheme)
         if enduser_note is not None:
-            pulumi.set(__self__, "enduser_note", enduser_note)
+            _setter("enduser_note", enduser_note)
         if hide_ios is not None:
-            pulumi.set(__self__, "hide_ios", hide_ios)
+            _setter("hide_ios", hide_ios)
         if hide_web is not None:
-            pulumi.set(__self__, "hide_web", hide_web)
+            _setter("hide_web", hide_web)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if logo is not None:
-            pulumi.set(__self__, "logo", logo)
+            _setter("logo", logo)
         if logo_url is not None:
-            pulumi.set(__self__, "logo_url", logo_url)
+            _setter("logo_url", logo_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if preconfigured_app is not None:
-            pulumi.set(__self__, "preconfigured_app", preconfigured_app)
+            _setter("preconfigured_app", preconfigured_app)
         if reveal_password is not None:
-            pulumi.set(__self__, "reveal_password", reveal_password)
+            _setter("reveal_password", reveal_password)
         if shared_password is not None:
-            pulumi.set(__self__, "shared_password", shared_password)
+            _setter("shared_password", shared_password)
         if shared_username is not None:
-            pulumi.set(__self__, "shared_username", shared_username)
+            _setter("shared_username", shared_username)
         if sign_on_mode is not None:
-            pulumi.set(__self__, "sign_on_mode", sign_on_mode)
+            _setter("sign_on_mode", sign_on_mode)
         if sign_on_redirect_url is not None:
-            pulumi.set(__self__, "sign_on_redirect_url", sign_on_redirect_url)
+            _setter("sign_on_redirect_url", sign_on_redirect_url)
         if sign_on_url is not None:
-            pulumi.set(__self__, "sign_on_url", sign_on_url)
+            _setter("sign_on_url", sign_on_url)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if user_name_template is not None:
-            pulumi.set(__self__, "user_name_template", user_name_template)
+            _setter("user_name_template", user_name_template)
         if user_name_template_push_status is not None:
-            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
+            _setter("user_name_template_push_status", user_name_template_push_status)
         if user_name_template_suffix is not None:
-            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+            _setter("user_name_template_suffix", user_name_template_suffix)
         if user_name_template_type is not None:
-            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
+            _setter("user_name_template_type", user_name_template_type)
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
@@ -919,6 +1129,10 @@ class AutoLogin(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AutoLoginArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

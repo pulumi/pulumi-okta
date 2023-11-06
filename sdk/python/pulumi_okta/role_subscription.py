@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RoleSubscriptionArgs', 'RoleSubscription']
@@ -23,10 +23,33 @@ class RoleSubscriptionArgs:
         :param pulumi.Input[str] role_type: Type of the role
         :param pulumi.Input[str] status: Status of subscription
         """
-        pulumi.set(__self__, "notification_type", notification_type)
-        pulumi.set(__self__, "role_type", role_type)
+        RoleSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notification_type=notification_type,
+            role_type=role_type,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notification_type: Optional[pulumi.Input[str]] = None,
+             role_type: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if notification_type is None and 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+        if notification_type is None:
+            raise TypeError("Missing 'notification_type' argument")
+        if role_type is None and 'roleType' in kwargs:
+            role_type = kwargs['roleType']
+        if role_type is None:
+            raise TypeError("Missing 'role_type' argument")
+
+        _setter("notification_type", notification_type)
+        _setter("role_type", role_type)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="notificationType")
@@ -77,12 +100,31 @@ class _RoleSubscriptionState:
         :param pulumi.Input[str] role_type: Type of the role
         :param pulumi.Input[str] status: Status of subscription
         """
+        _RoleSubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notification_type=notification_type,
+            role_type=role_type,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notification_type: Optional[pulumi.Input[str]] = None,
+             role_type: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if notification_type is None and 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+        if role_type is None and 'roleType' in kwargs:
+            role_type = kwargs['roleType']
+
         if notification_type is not None:
-            pulumi.set(__self__, "notification_type", notification_type)
+            _setter("notification_type", notification_type)
         if role_type is not None:
-            pulumi.set(__self__, "role_type", role_type)
+            _setter("role_type", role_type)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="notificationType")
@@ -156,6 +198,10 @@ class RoleSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

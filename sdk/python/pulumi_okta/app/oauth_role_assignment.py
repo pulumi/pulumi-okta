@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OauthRoleAssignmentArgs', 'OauthRoleAssignment']
@@ -25,12 +25,37 @@ class OauthRoleAssignmentArgs:
         :param pulumi.Input[str] resource_set: Resource set for the custom role to assign, must be the ID of the created resource set.
         :param pulumi.Input[str] role: Custom Role ID
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "type", type)
+        OauthRoleAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            type=type,
+            resource_set=resource_set,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             resource_set: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if resource_set is None and 'resourceSet' in kwargs:
+            resource_set = kwargs['resourceSet']
+
+        _setter("client_id", client_id)
+        _setter("type", type)
         if resource_set is not None:
-            pulumi.set(__self__, "resource_set", resource_set)
+            _setter("resource_set", resource_set)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter(name="clientId")
@@ -99,18 +124,43 @@ class _OauthRoleAssignmentState:
         :param pulumi.Input[str] status: Status of the role assignment
         :param pulumi.Input[str] type: Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resource_set` and `role` attributes to be set.
         """
+        _OauthRoleAssignmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            label=label,
+            resource_set=resource_set,
+            role=role,
+            status=status,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             resource_set: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if resource_set is None and 'resourceSet' in kwargs:
+            resource_set = kwargs['resourceSet']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if resource_set is not None:
-            pulumi.set(__self__, "resource_set", resource_set)
+            _setter("resource_set", resource_set)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="clientId")
@@ -244,6 +294,10 @@ class OauthRoleAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OauthRoleAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

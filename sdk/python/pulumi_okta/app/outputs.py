@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -51,13 +51,42 @@ class OAuthGroupsClaim(dict):
         :param str filter_type: Groups claim filter. Can only be set if type is FILTER.
         :param str issuer_mode: Issuer mode inherited from OAuth App
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        OAuthGroupsClaim._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            value=value,
+            filter_type=filter_type,
+            issuer_mode=issuer_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             value: Optional[str] = None,
+             filter_type: Optional[str] = None,
+             issuer_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if filter_type is None and 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if issuer_mode is None and 'issuerMode' in kwargs:
+            issuer_mode = kwargs['issuerMode']
+
+        _setter("name", name)
+        _setter("type", type)
+        _setter("value", value)
         if filter_type is not None:
-            pulumi.set(__self__, "filter_type", filter_type)
+            _setter("filter_type", filter_type)
         if issuer_mode is not None:
-            pulumi.set(__self__, "issuer_mode", issuer_mode)
+            _setter("issuer_mode", issuer_mode)
 
     @property
     @pulumi.getter
@@ -115,16 +144,41 @@ class OAuthJwk(dict):
         :param str e: RSA Exponent
         :param str n: RSA Modulus
         """
-        pulumi.set(__self__, "kid", kid)
-        pulumi.set(__self__, "kty", kty)
+        OAuthJwk._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kid=kid,
+            kty=kty,
+            e=e,
+            n=n,
+            x=x,
+            y=y,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kid: Optional[str] = None,
+             kty: Optional[str] = None,
+             e: Optional[str] = None,
+             n: Optional[str] = None,
+             x: Optional[str] = None,
+             y: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if kid is None:
+            raise TypeError("Missing 'kid' argument")
+        if kty is None:
+            raise TypeError("Missing 'kty' argument")
+
+        _setter("kid", kid)
+        _setter("kty", kty)
         if e is not None:
-            pulumi.set(__self__, "e", e)
+            _setter("e", e)
         if n is not None:
-            pulumi.set(__self__, "n", n)
+            _setter("n", n)
         if x is not None:
-            pulumi.set(__self__, "x", x)
+            _setter("x", x)
         if y is not None:
-            pulumi.set(__self__, "y", y)
+            _setter("y", y)
 
     @property
     @pulumi.getter
@@ -204,17 +258,44 @@ class SamlAttributeStatement(dict):
         :param str namespace: The name format of the attribute
         :param str type: The type of attribute statements object
         """
-        pulumi.set(__self__, "name", name)
+        SamlAttributeStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            filter_type=filter_type,
+            filter_value=filter_value,
+            namespace=namespace,
+            type=type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             filter_type: Optional[str] = None,
+             filter_value: Optional[str] = None,
+             namespace: Optional[str] = None,
+             type: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if filter_type is None and 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if filter_value is None and 'filterValue' in kwargs:
+            filter_value = kwargs['filterValue']
+
+        _setter("name", name)
         if filter_type is not None:
-            pulumi.set(__self__, "filter_type", filter_type)
+            _setter("filter_type", filter_type)
         if filter_value is not None:
-            pulumi.set(__self__, "filter_value", filter_value)
+            _setter("filter_value", filter_value)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter
@@ -296,26 +377,61 @@ class SamlKey(dict):
                  use: Optional[str] = None,
                  x5cs: Optional[Sequence[str]] = None,
                  x5t_s256: Optional[str] = None):
+        SamlKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created=created,
+            e=e,
+            expires_at=expires_at,
+            kid=kid,
+            kty=kty,
+            last_updated=last_updated,
+            n=n,
+            use=use,
+            x5cs=x5cs,
+            x5t_s256=x5t_s256,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created: Optional[str] = None,
+             e: Optional[str] = None,
+             expires_at: Optional[str] = None,
+             kid: Optional[str] = None,
+             kty: Optional[str] = None,
+             last_updated: Optional[str] = None,
+             n: Optional[str] = None,
+             use: Optional[str] = None,
+             x5cs: Optional[Sequence[str]] = None,
+             x5t_s256: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if expires_at is None and 'expiresAt' in kwargs:
+            expires_at = kwargs['expiresAt']
+        if last_updated is None and 'lastUpdated' in kwargs:
+            last_updated = kwargs['lastUpdated']
+        if x5t_s256 is None and 'x5tS256' in kwargs:
+            x5t_s256 = kwargs['x5tS256']
+
         if created is not None:
-            pulumi.set(__self__, "created", created)
+            _setter("created", created)
         if e is not None:
-            pulumi.set(__self__, "e", e)
+            _setter("e", e)
         if expires_at is not None:
-            pulumi.set(__self__, "expires_at", expires_at)
+            _setter("expires_at", expires_at)
         if kid is not None:
-            pulumi.set(__self__, "kid", kid)
+            _setter("kid", kid)
         if kty is not None:
-            pulumi.set(__self__, "kty", kty)
+            _setter("kty", kty)
         if last_updated is not None:
-            pulumi.set(__self__, "last_updated", last_updated)
+            _setter("last_updated", last_updated)
         if n is not None:
-            pulumi.set(__self__, "n", n)
+            _setter("n", n)
         if use is not None:
-            pulumi.set(__self__, "use", use)
+            _setter("use", use)
         if x5cs is not None:
-            pulumi.set(__self__, "x5cs", x5cs)
+            _setter("x5cs", x5cs)
         if x5t_s256 is not None:
-            pulumi.set(__self__, "x5t_s256", x5t_s256)
+            _setter("x5t_s256", x5t_s256)
 
     @property
     @pulumi.getter
@@ -377,12 +493,49 @@ class GetSamlAttributeStatementResult(dict):
                  namespace: str,
                  type: str,
                  values: Sequence[str]):
-        pulumi.set(__self__, "filter_type", filter_type)
-        pulumi.set(__self__, "filter_value", filter_value)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "values", values)
+        GetSamlAttributeStatementResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter_type=filter_type,
+            filter_value=filter_value,
+            name=name,
+            namespace=namespace,
+            type=type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter_type: Optional[str] = None,
+             filter_value: Optional[str] = None,
+             name: Optional[str] = None,
+             namespace: Optional[str] = None,
+             type: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if filter_type is None and 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if filter_type is None:
+            raise TypeError("Missing 'filter_type' argument")
+        if filter_value is None and 'filterValue' in kwargs:
+            filter_value = kwargs['filterValue']
+        if filter_value is None:
+            raise TypeError("Missing 'filter_value' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("filter_type", filter_type)
+        _setter("filter_value", filter_value)
+        _setter("name", name)
+        _setter("namespace", namespace)
+        _setter("type", type)
+        _setter("values", values)
 
     @property
     @pulumi.getter(name="filterType")

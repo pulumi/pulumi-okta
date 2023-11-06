@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DeviceAssuranceChromeosArgs', 'DeviceAssuranceChromeos']
@@ -47,36 +47,103 @@ class DeviceAssuranceChromeosArgs:
         :param pulumi.Input[bool] tpsp_screen_lock_secured: Third party signal provider screen lock secure
         :param pulumi.Input[bool] tpsp_site_isolation_enabled: Third party signal provider site isolation enabled
         """
+        DeviceAssuranceChromeosArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tpsp_allow_screen_lock=tpsp_allow_screen_lock,
+            tpsp_browser_version=tpsp_browser_version,
+            tpsp_builtin_dns_client_enabled=tpsp_builtin_dns_client_enabled,
+            tpsp_chrome_remote_desktop_app_blocked=tpsp_chrome_remote_desktop_app_blocked,
+            tpsp_device_enrollment_domain=tpsp_device_enrollment_domain,
+            tpsp_disk_encrypted=tpsp_disk_encrypted,
+            tpsp_key_trust_level=tpsp_key_trust_level,
+            tpsp_os_firewall=tpsp_os_firewall,
+            tpsp_os_version=tpsp_os_version,
+            tpsp_password_proctection_warning_trigger=tpsp_password_proctection_warning_trigger,
+            tpsp_realtime_url_check_mode=tpsp_realtime_url_check_mode,
+            tpsp_safe_browsing_protection_level=tpsp_safe_browsing_protection_level,
+            tpsp_screen_lock_secured=tpsp_screen_lock_secured,
+            tpsp_site_isolation_enabled=tpsp_site_isolation_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             tpsp_allow_screen_lock: Optional[pulumi.Input[bool]] = None,
+             tpsp_browser_version: Optional[pulumi.Input[str]] = None,
+             tpsp_builtin_dns_client_enabled: Optional[pulumi.Input[bool]] = None,
+             tpsp_chrome_remote_desktop_app_blocked: Optional[pulumi.Input[bool]] = None,
+             tpsp_device_enrollment_domain: Optional[pulumi.Input[str]] = None,
+             tpsp_disk_encrypted: Optional[pulumi.Input[bool]] = None,
+             tpsp_key_trust_level: Optional[pulumi.Input[str]] = None,
+             tpsp_os_firewall: Optional[pulumi.Input[bool]] = None,
+             tpsp_os_version: Optional[pulumi.Input[str]] = None,
+             tpsp_password_proctection_warning_trigger: Optional[pulumi.Input[str]] = None,
+             tpsp_realtime_url_check_mode: Optional[pulumi.Input[bool]] = None,
+             tpsp_safe_browsing_protection_level: Optional[pulumi.Input[str]] = None,
+             tpsp_screen_lock_secured: Optional[pulumi.Input[bool]] = None,
+             tpsp_site_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if tpsp_allow_screen_lock is None and 'tpspAllowScreenLock' in kwargs:
+            tpsp_allow_screen_lock = kwargs['tpspAllowScreenLock']
+        if tpsp_browser_version is None and 'tpspBrowserVersion' in kwargs:
+            tpsp_browser_version = kwargs['tpspBrowserVersion']
+        if tpsp_builtin_dns_client_enabled is None and 'tpspBuiltinDnsClientEnabled' in kwargs:
+            tpsp_builtin_dns_client_enabled = kwargs['tpspBuiltinDnsClientEnabled']
+        if tpsp_chrome_remote_desktop_app_blocked is None and 'tpspChromeRemoteDesktopAppBlocked' in kwargs:
+            tpsp_chrome_remote_desktop_app_blocked = kwargs['tpspChromeRemoteDesktopAppBlocked']
+        if tpsp_device_enrollment_domain is None and 'tpspDeviceEnrollmentDomain' in kwargs:
+            tpsp_device_enrollment_domain = kwargs['tpspDeviceEnrollmentDomain']
+        if tpsp_disk_encrypted is None and 'tpspDiskEncrypted' in kwargs:
+            tpsp_disk_encrypted = kwargs['tpspDiskEncrypted']
+        if tpsp_key_trust_level is None and 'tpspKeyTrustLevel' in kwargs:
+            tpsp_key_trust_level = kwargs['tpspKeyTrustLevel']
+        if tpsp_os_firewall is None and 'tpspOsFirewall' in kwargs:
+            tpsp_os_firewall = kwargs['tpspOsFirewall']
+        if tpsp_os_version is None and 'tpspOsVersion' in kwargs:
+            tpsp_os_version = kwargs['tpspOsVersion']
+        if tpsp_password_proctection_warning_trigger is None and 'tpspPasswordProctectionWarningTrigger' in kwargs:
+            tpsp_password_proctection_warning_trigger = kwargs['tpspPasswordProctectionWarningTrigger']
+        if tpsp_realtime_url_check_mode is None and 'tpspRealtimeUrlCheckMode' in kwargs:
+            tpsp_realtime_url_check_mode = kwargs['tpspRealtimeUrlCheckMode']
+        if tpsp_safe_browsing_protection_level is None and 'tpspSafeBrowsingProtectionLevel' in kwargs:
+            tpsp_safe_browsing_protection_level = kwargs['tpspSafeBrowsingProtectionLevel']
+        if tpsp_screen_lock_secured is None and 'tpspScreenLockSecured' in kwargs:
+            tpsp_screen_lock_secured = kwargs['tpspScreenLockSecured']
+        if tpsp_site_isolation_enabled is None and 'tpspSiteIsolationEnabled' in kwargs:
+            tpsp_site_isolation_enabled = kwargs['tpspSiteIsolationEnabled']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tpsp_allow_screen_lock is not None:
-            pulumi.set(__self__, "tpsp_allow_screen_lock", tpsp_allow_screen_lock)
+            _setter("tpsp_allow_screen_lock", tpsp_allow_screen_lock)
         if tpsp_browser_version is not None:
-            pulumi.set(__self__, "tpsp_browser_version", tpsp_browser_version)
+            _setter("tpsp_browser_version", tpsp_browser_version)
         if tpsp_builtin_dns_client_enabled is not None:
-            pulumi.set(__self__, "tpsp_builtin_dns_client_enabled", tpsp_builtin_dns_client_enabled)
+            _setter("tpsp_builtin_dns_client_enabled", tpsp_builtin_dns_client_enabled)
         if tpsp_chrome_remote_desktop_app_blocked is not None:
-            pulumi.set(__self__, "tpsp_chrome_remote_desktop_app_blocked", tpsp_chrome_remote_desktop_app_blocked)
+            _setter("tpsp_chrome_remote_desktop_app_blocked", tpsp_chrome_remote_desktop_app_blocked)
         if tpsp_device_enrollment_domain is not None:
-            pulumi.set(__self__, "tpsp_device_enrollment_domain", tpsp_device_enrollment_domain)
+            _setter("tpsp_device_enrollment_domain", tpsp_device_enrollment_domain)
         if tpsp_disk_encrypted is not None:
-            pulumi.set(__self__, "tpsp_disk_encrypted", tpsp_disk_encrypted)
+            _setter("tpsp_disk_encrypted", tpsp_disk_encrypted)
         if tpsp_key_trust_level is not None:
-            pulumi.set(__self__, "tpsp_key_trust_level", tpsp_key_trust_level)
+            _setter("tpsp_key_trust_level", tpsp_key_trust_level)
         if tpsp_os_firewall is not None:
-            pulumi.set(__self__, "tpsp_os_firewall", tpsp_os_firewall)
+            _setter("tpsp_os_firewall", tpsp_os_firewall)
         if tpsp_os_version is not None:
-            pulumi.set(__self__, "tpsp_os_version", tpsp_os_version)
+            _setter("tpsp_os_version", tpsp_os_version)
         if tpsp_password_proctection_warning_trigger is not None:
-            pulumi.set(__self__, "tpsp_password_proctection_warning_trigger", tpsp_password_proctection_warning_trigger)
+            _setter("tpsp_password_proctection_warning_trigger", tpsp_password_proctection_warning_trigger)
         if tpsp_realtime_url_check_mode is not None:
-            pulumi.set(__self__, "tpsp_realtime_url_check_mode", tpsp_realtime_url_check_mode)
+            _setter("tpsp_realtime_url_check_mode", tpsp_realtime_url_check_mode)
         if tpsp_safe_browsing_protection_level is not None:
-            pulumi.set(__self__, "tpsp_safe_browsing_protection_level", tpsp_safe_browsing_protection_level)
+            _setter("tpsp_safe_browsing_protection_level", tpsp_safe_browsing_protection_level)
         if tpsp_screen_lock_secured is not None:
-            pulumi.set(__self__, "tpsp_screen_lock_secured", tpsp_screen_lock_secured)
+            _setter("tpsp_screen_lock_secured", tpsp_screen_lock_secured)
         if tpsp_site_isolation_enabled is not None:
-            pulumi.set(__self__, "tpsp_site_isolation_enabled", tpsp_site_isolation_enabled)
+            _setter("tpsp_site_isolation_enabled", tpsp_site_isolation_enabled)
 
     @property
     @pulumi.getter
@@ -305,46 +372,131 @@ class _DeviceAssuranceChromeosState:
         :param pulumi.Input[bool] tpsp_screen_lock_secured: Third party signal provider screen lock secure
         :param pulumi.Input[bool] tpsp_site_isolation_enabled: Third party signal provider site isolation enabled
         """
+        _DeviceAssuranceChromeosState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_by=created_by,
+            created_date=created_date,
+            last_update=last_update,
+            last_updated_by=last_updated_by,
+            name=name,
+            platform=platform,
+            tpsp_allow_screen_lock=tpsp_allow_screen_lock,
+            tpsp_browser_version=tpsp_browser_version,
+            tpsp_builtin_dns_client_enabled=tpsp_builtin_dns_client_enabled,
+            tpsp_chrome_remote_desktop_app_blocked=tpsp_chrome_remote_desktop_app_blocked,
+            tpsp_device_enrollment_domain=tpsp_device_enrollment_domain,
+            tpsp_disk_encrypted=tpsp_disk_encrypted,
+            tpsp_key_trust_level=tpsp_key_trust_level,
+            tpsp_os_firewall=tpsp_os_firewall,
+            tpsp_os_version=tpsp_os_version,
+            tpsp_password_proctection_warning_trigger=tpsp_password_proctection_warning_trigger,
+            tpsp_realtime_url_check_mode=tpsp_realtime_url_check_mode,
+            tpsp_safe_browsing_protection_level=tpsp_safe_browsing_protection_level,
+            tpsp_screen_lock_secured=tpsp_screen_lock_secured,
+            tpsp_site_isolation_enabled=tpsp_site_isolation_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_by: Optional[pulumi.Input[str]] = None,
+             created_date: Optional[pulumi.Input[str]] = None,
+             last_update: Optional[pulumi.Input[str]] = None,
+             last_updated_by: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             platform: Optional[pulumi.Input[str]] = None,
+             tpsp_allow_screen_lock: Optional[pulumi.Input[bool]] = None,
+             tpsp_browser_version: Optional[pulumi.Input[str]] = None,
+             tpsp_builtin_dns_client_enabled: Optional[pulumi.Input[bool]] = None,
+             tpsp_chrome_remote_desktop_app_blocked: Optional[pulumi.Input[bool]] = None,
+             tpsp_device_enrollment_domain: Optional[pulumi.Input[str]] = None,
+             tpsp_disk_encrypted: Optional[pulumi.Input[bool]] = None,
+             tpsp_key_trust_level: Optional[pulumi.Input[str]] = None,
+             tpsp_os_firewall: Optional[pulumi.Input[bool]] = None,
+             tpsp_os_version: Optional[pulumi.Input[str]] = None,
+             tpsp_password_proctection_warning_trigger: Optional[pulumi.Input[str]] = None,
+             tpsp_realtime_url_check_mode: Optional[pulumi.Input[bool]] = None,
+             tpsp_safe_browsing_protection_level: Optional[pulumi.Input[str]] = None,
+             tpsp_screen_lock_secured: Optional[pulumi.Input[bool]] = None,
+             tpsp_site_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_date is None and 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if last_update is None and 'lastUpdate' in kwargs:
+            last_update = kwargs['lastUpdate']
+        if last_updated_by is None and 'lastUpdatedBy' in kwargs:
+            last_updated_by = kwargs['lastUpdatedBy']
+        if tpsp_allow_screen_lock is None and 'tpspAllowScreenLock' in kwargs:
+            tpsp_allow_screen_lock = kwargs['tpspAllowScreenLock']
+        if tpsp_browser_version is None and 'tpspBrowserVersion' in kwargs:
+            tpsp_browser_version = kwargs['tpspBrowserVersion']
+        if tpsp_builtin_dns_client_enabled is None and 'tpspBuiltinDnsClientEnabled' in kwargs:
+            tpsp_builtin_dns_client_enabled = kwargs['tpspBuiltinDnsClientEnabled']
+        if tpsp_chrome_remote_desktop_app_blocked is None and 'tpspChromeRemoteDesktopAppBlocked' in kwargs:
+            tpsp_chrome_remote_desktop_app_blocked = kwargs['tpspChromeRemoteDesktopAppBlocked']
+        if tpsp_device_enrollment_domain is None and 'tpspDeviceEnrollmentDomain' in kwargs:
+            tpsp_device_enrollment_domain = kwargs['tpspDeviceEnrollmentDomain']
+        if tpsp_disk_encrypted is None and 'tpspDiskEncrypted' in kwargs:
+            tpsp_disk_encrypted = kwargs['tpspDiskEncrypted']
+        if tpsp_key_trust_level is None and 'tpspKeyTrustLevel' in kwargs:
+            tpsp_key_trust_level = kwargs['tpspKeyTrustLevel']
+        if tpsp_os_firewall is None and 'tpspOsFirewall' in kwargs:
+            tpsp_os_firewall = kwargs['tpspOsFirewall']
+        if tpsp_os_version is None and 'tpspOsVersion' in kwargs:
+            tpsp_os_version = kwargs['tpspOsVersion']
+        if tpsp_password_proctection_warning_trigger is None and 'tpspPasswordProctectionWarningTrigger' in kwargs:
+            tpsp_password_proctection_warning_trigger = kwargs['tpspPasswordProctectionWarningTrigger']
+        if tpsp_realtime_url_check_mode is None and 'tpspRealtimeUrlCheckMode' in kwargs:
+            tpsp_realtime_url_check_mode = kwargs['tpspRealtimeUrlCheckMode']
+        if tpsp_safe_browsing_protection_level is None and 'tpspSafeBrowsingProtectionLevel' in kwargs:
+            tpsp_safe_browsing_protection_level = kwargs['tpspSafeBrowsingProtectionLevel']
+        if tpsp_screen_lock_secured is None and 'tpspScreenLockSecured' in kwargs:
+            tpsp_screen_lock_secured = kwargs['tpspScreenLockSecured']
+        if tpsp_site_isolation_enabled is None and 'tpspSiteIsolationEnabled' in kwargs:
+            tpsp_site_isolation_enabled = kwargs['tpspSiteIsolationEnabled']
+
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_date is not None:
-            pulumi.set(__self__, "created_date", created_date)
+            _setter("created_date", created_date)
         if last_update is not None:
-            pulumi.set(__self__, "last_update", last_update)
+            _setter("last_update", last_update)
         if last_updated_by is not None:
-            pulumi.set(__self__, "last_updated_by", last_updated_by)
+            _setter("last_updated_by", last_updated_by)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if tpsp_allow_screen_lock is not None:
-            pulumi.set(__self__, "tpsp_allow_screen_lock", tpsp_allow_screen_lock)
+            _setter("tpsp_allow_screen_lock", tpsp_allow_screen_lock)
         if tpsp_browser_version is not None:
-            pulumi.set(__self__, "tpsp_browser_version", tpsp_browser_version)
+            _setter("tpsp_browser_version", tpsp_browser_version)
         if tpsp_builtin_dns_client_enabled is not None:
-            pulumi.set(__self__, "tpsp_builtin_dns_client_enabled", tpsp_builtin_dns_client_enabled)
+            _setter("tpsp_builtin_dns_client_enabled", tpsp_builtin_dns_client_enabled)
         if tpsp_chrome_remote_desktop_app_blocked is not None:
-            pulumi.set(__self__, "tpsp_chrome_remote_desktop_app_blocked", tpsp_chrome_remote_desktop_app_blocked)
+            _setter("tpsp_chrome_remote_desktop_app_blocked", tpsp_chrome_remote_desktop_app_blocked)
         if tpsp_device_enrollment_domain is not None:
-            pulumi.set(__self__, "tpsp_device_enrollment_domain", tpsp_device_enrollment_domain)
+            _setter("tpsp_device_enrollment_domain", tpsp_device_enrollment_domain)
         if tpsp_disk_encrypted is not None:
-            pulumi.set(__self__, "tpsp_disk_encrypted", tpsp_disk_encrypted)
+            _setter("tpsp_disk_encrypted", tpsp_disk_encrypted)
         if tpsp_key_trust_level is not None:
-            pulumi.set(__self__, "tpsp_key_trust_level", tpsp_key_trust_level)
+            _setter("tpsp_key_trust_level", tpsp_key_trust_level)
         if tpsp_os_firewall is not None:
-            pulumi.set(__self__, "tpsp_os_firewall", tpsp_os_firewall)
+            _setter("tpsp_os_firewall", tpsp_os_firewall)
         if tpsp_os_version is not None:
-            pulumi.set(__self__, "tpsp_os_version", tpsp_os_version)
+            _setter("tpsp_os_version", tpsp_os_version)
         if tpsp_password_proctection_warning_trigger is not None:
-            pulumi.set(__self__, "tpsp_password_proctection_warning_trigger", tpsp_password_proctection_warning_trigger)
+            _setter("tpsp_password_proctection_warning_trigger", tpsp_password_proctection_warning_trigger)
         if tpsp_realtime_url_check_mode is not None:
-            pulumi.set(__self__, "tpsp_realtime_url_check_mode", tpsp_realtime_url_check_mode)
+            _setter("tpsp_realtime_url_check_mode", tpsp_realtime_url_check_mode)
         if tpsp_safe_browsing_protection_level is not None:
-            pulumi.set(__self__, "tpsp_safe_browsing_protection_level", tpsp_safe_browsing_protection_level)
+            _setter("tpsp_safe_browsing_protection_level", tpsp_safe_browsing_protection_level)
         if tpsp_screen_lock_secured is not None:
-            pulumi.set(__self__, "tpsp_screen_lock_secured", tpsp_screen_lock_secured)
+            _setter("tpsp_screen_lock_secured", tpsp_screen_lock_secured)
         if tpsp_site_isolation_enabled is not None:
-            pulumi.set(__self__, "tpsp_site_isolation_enabled", tpsp_site_isolation_enabled)
+            _setter("tpsp_site_isolation_enabled", tpsp_site_isolation_enabled)
 
     @property
     @pulumi.getter(name="createdBy")
@@ -646,6 +798,10 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeviceAssuranceChromeosArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

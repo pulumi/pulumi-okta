@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AuthenticatorArgs', 'Authenticator']
@@ -41,29 +41,80 @@ class AuthenticatorArgs:
         :param pulumi.Input[str] settings: Authenticator settings in JSON format
         :param pulumi.Input[str] status: Authenticator status: ACTIVE or INACTIVE
         """
-        pulumi.set(__self__, "key", key)
+        AuthenticatorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            name=name,
+            provider_auth_port=provider_auth_port,
+            provider_host=provider_host,
+            provider_hostname=provider_hostname,
+            provider_integration_key=provider_integration_key,
+            provider_json=provider_json,
+            provider_secret_key=provider_secret_key,
+            provider_shared_secret=provider_shared_secret,
+            provider_user_name_template=provider_user_name_template,
+            settings=settings,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             provider_auth_port: Optional[pulumi.Input[int]] = None,
+             provider_host: Optional[pulumi.Input[str]] = None,
+             provider_hostname: Optional[pulumi.Input[str]] = None,
+             provider_integration_key: Optional[pulumi.Input[str]] = None,
+             provider_json: Optional[pulumi.Input[str]] = None,
+             provider_secret_key: Optional[pulumi.Input[str]] = None,
+             provider_shared_secret: Optional[pulumi.Input[str]] = None,
+             provider_user_name_template: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if provider_auth_port is None and 'providerAuthPort' in kwargs:
+            provider_auth_port = kwargs['providerAuthPort']
+        if provider_host is None and 'providerHost' in kwargs:
+            provider_host = kwargs['providerHost']
+        if provider_hostname is None and 'providerHostname' in kwargs:
+            provider_hostname = kwargs['providerHostname']
+        if provider_integration_key is None and 'providerIntegrationKey' in kwargs:
+            provider_integration_key = kwargs['providerIntegrationKey']
+        if provider_json is None and 'providerJson' in kwargs:
+            provider_json = kwargs['providerJson']
+        if provider_secret_key is None and 'providerSecretKey' in kwargs:
+            provider_secret_key = kwargs['providerSecretKey']
+        if provider_shared_secret is None and 'providerSharedSecret' in kwargs:
+            provider_shared_secret = kwargs['providerSharedSecret']
+        if provider_user_name_template is None and 'providerUserNameTemplate' in kwargs:
+            provider_user_name_template = kwargs['providerUserNameTemplate']
+
+        _setter("key", key)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provider_auth_port is not None:
-            pulumi.set(__self__, "provider_auth_port", provider_auth_port)
+            _setter("provider_auth_port", provider_auth_port)
         if provider_host is not None:
-            pulumi.set(__self__, "provider_host", provider_host)
+            _setter("provider_host", provider_host)
         if provider_hostname is not None:
-            pulumi.set(__self__, "provider_hostname", provider_hostname)
+            _setter("provider_hostname", provider_hostname)
         if provider_integration_key is not None:
-            pulumi.set(__self__, "provider_integration_key", provider_integration_key)
+            _setter("provider_integration_key", provider_integration_key)
         if provider_json is not None:
-            pulumi.set(__self__, "provider_json", provider_json)
+            _setter("provider_json", provider_json)
         if provider_secret_key is not None:
-            pulumi.set(__self__, "provider_secret_key", provider_secret_key)
+            _setter("provider_secret_key", provider_secret_key)
         if provider_shared_secret is not None:
-            pulumi.set(__self__, "provider_shared_secret", provider_shared_secret)
+            _setter("provider_shared_secret", provider_shared_secret)
         if provider_user_name_template is not None:
-            pulumi.set(__self__, "provider_user_name_template", provider_user_name_template)
+            _setter("provider_user_name_template", provider_user_name_template)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -246,36 +297,95 @@ class _AuthenticatorState:
         :param pulumi.Input[str] status: Authenticator status: ACTIVE or INACTIVE
         :param pulumi.Input[str] type: The type of Authenticator
         """
+        _AuthenticatorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            name=name,
+            provider_auth_port=provider_auth_port,
+            provider_host=provider_host,
+            provider_hostname=provider_hostname,
+            provider_instance_id=provider_instance_id,
+            provider_integration_key=provider_integration_key,
+            provider_json=provider_json,
+            provider_secret_key=provider_secret_key,
+            provider_shared_secret=provider_shared_secret,
+            provider_type=provider_type,
+            provider_user_name_template=provider_user_name_template,
+            settings=settings,
+            status=status,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             provider_auth_port: Optional[pulumi.Input[int]] = None,
+             provider_host: Optional[pulumi.Input[str]] = None,
+             provider_hostname: Optional[pulumi.Input[str]] = None,
+             provider_instance_id: Optional[pulumi.Input[str]] = None,
+             provider_integration_key: Optional[pulumi.Input[str]] = None,
+             provider_json: Optional[pulumi.Input[str]] = None,
+             provider_secret_key: Optional[pulumi.Input[str]] = None,
+             provider_shared_secret: Optional[pulumi.Input[str]] = None,
+             provider_type: Optional[pulumi.Input[str]] = None,
+             provider_user_name_template: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if provider_auth_port is None and 'providerAuthPort' in kwargs:
+            provider_auth_port = kwargs['providerAuthPort']
+        if provider_host is None and 'providerHost' in kwargs:
+            provider_host = kwargs['providerHost']
+        if provider_hostname is None and 'providerHostname' in kwargs:
+            provider_hostname = kwargs['providerHostname']
+        if provider_instance_id is None and 'providerInstanceId' in kwargs:
+            provider_instance_id = kwargs['providerInstanceId']
+        if provider_integration_key is None and 'providerIntegrationKey' in kwargs:
+            provider_integration_key = kwargs['providerIntegrationKey']
+        if provider_json is None and 'providerJson' in kwargs:
+            provider_json = kwargs['providerJson']
+        if provider_secret_key is None and 'providerSecretKey' in kwargs:
+            provider_secret_key = kwargs['providerSecretKey']
+        if provider_shared_secret is None and 'providerSharedSecret' in kwargs:
+            provider_shared_secret = kwargs['providerSharedSecret']
+        if provider_type is None and 'providerType' in kwargs:
+            provider_type = kwargs['providerType']
+        if provider_user_name_template is None and 'providerUserNameTemplate' in kwargs:
+            provider_user_name_template = kwargs['providerUserNameTemplate']
+
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provider_auth_port is not None:
-            pulumi.set(__self__, "provider_auth_port", provider_auth_port)
+            _setter("provider_auth_port", provider_auth_port)
         if provider_host is not None:
-            pulumi.set(__self__, "provider_host", provider_host)
+            _setter("provider_host", provider_host)
         if provider_hostname is not None:
-            pulumi.set(__self__, "provider_hostname", provider_hostname)
+            _setter("provider_hostname", provider_hostname)
         if provider_instance_id is not None:
-            pulumi.set(__self__, "provider_instance_id", provider_instance_id)
+            _setter("provider_instance_id", provider_instance_id)
         if provider_integration_key is not None:
-            pulumi.set(__self__, "provider_integration_key", provider_integration_key)
+            _setter("provider_integration_key", provider_integration_key)
         if provider_json is not None:
-            pulumi.set(__self__, "provider_json", provider_json)
+            _setter("provider_json", provider_json)
         if provider_secret_key is not None:
-            pulumi.set(__self__, "provider_secret_key", provider_secret_key)
+            _setter("provider_secret_key", provider_secret_key)
         if provider_shared_secret is not None:
-            pulumi.set(__self__, "provider_shared_secret", provider_shared_secret)
+            _setter("provider_shared_secret", provider_shared_secret)
         if provider_type is not None:
-            pulumi.set(__self__, "provider_type", provider_type)
+            _setter("provider_type", provider_type)
         if provider_user_name_template is not None:
-            pulumi.set(__self__, "provider_user_name_template", provider_user_name_template)
+            _setter("provider_user_name_template", provider_user_name_template)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -511,6 +621,10 @@ class Authenticator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AuthenticatorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

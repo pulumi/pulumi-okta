@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['BrandArgs', 'Brand']
@@ -37,29 +37,74 @@ class BrandArgs:
         :param pulumi.Input[str] name: Brand name
         :param pulumi.Input[bool] remove_powered_by_okta: Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
+        BrandArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agree_to_custom_privacy_policy=agree_to_custom_privacy_policy,
+            brand_id=brand_id,
+            custom_privacy_policy_url=custom_privacy_policy_url,
+            default_app_app_instance_id=default_app_app_instance_id,
+            default_app_app_link_name=default_app_app_link_name,
+            default_app_classic_application_uri=default_app_classic_application_uri,
+            email_domain_id=email_domain_id,
+            locale=locale,
+            name=name,
+            remove_powered_by_okta=remove_powered_by_okta,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agree_to_custom_privacy_policy: Optional[pulumi.Input[bool]] = None,
+             brand_id: Optional[pulumi.Input[str]] = None,
+             custom_privacy_policy_url: Optional[pulumi.Input[str]] = None,
+             default_app_app_instance_id: Optional[pulumi.Input[str]] = None,
+             default_app_app_link_name: Optional[pulumi.Input[str]] = None,
+             default_app_classic_application_uri: Optional[pulumi.Input[str]] = None,
+             email_domain_id: Optional[pulumi.Input[str]] = None,
+             locale: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             remove_powered_by_okta: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if agree_to_custom_privacy_policy is None and 'agreeToCustomPrivacyPolicy' in kwargs:
+            agree_to_custom_privacy_policy = kwargs['agreeToCustomPrivacyPolicy']
+        if brand_id is None and 'brandId' in kwargs:
+            brand_id = kwargs['brandId']
+        if custom_privacy_policy_url is None and 'customPrivacyPolicyUrl' in kwargs:
+            custom_privacy_policy_url = kwargs['customPrivacyPolicyUrl']
+        if default_app_app_instance_id is None and 'defaultAppAppInstanceId' in kwargs:
+            default_app_app_instance_id = kwargs['defaultAppAppInstanceId']
+        if default_app_app_link_name is None and 'defaultAppAppLinkName' in kwargs:
+            default_app_app_link_name = kwargs['defaultAppAppLinkName']
+        if default_app_classic_application_uri is None and 'defaultAppClassicApplicationUri' in kwargs:
+            default_app_classic_application_uri = kwargs['defaultAppClassicApplicationUri']
+        if email_domain_id is None and 'emailDomainId' in kwargs:
+            email_domain_id = kwargs['emailDomainId']
+        if remove_powered_by_okta is None and 'removePoweredByOkta' in kwargs:
+            remove_powered_by_okta = kwargs['removePoweredByOkta']
+
         if agree_to_custom_privacy_policy is not None:
-            pulumi.set(__self__, "agree_to_custom_privacy_policy", agree_to_custom_privacy_policy)
+            _setter("agree_to_custom_privacy_policy", agree_to_custom_privacy_policy)
         if brand_id is not None:
             warnings.warn("""Okta has fully support brand creation, this attribute is a no op and will be removed""", DeprecationWarning)
             pulumi.log.warn("""brand_id is deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed""")
         if brand_id is not None:
-            pulumi.set(__self__, "brand_id", brand_id)
+            _setter("brand_id", brand_id)
         if custom_privacy_policy_url is not None:
-            pulumi.set(__self__, "custom_privacy_policy_url", custom_privacy_policy_url)
+            _setter("custom_privacy_policy_url", custom_privacy_policy_url)
         if default_app_app_instance_id is not None:
-            pulumi.set(__self__, "default_app_app_instance_id", default_app_app_instance_id)
+            _setter("default_app_app_instance_id", default_app_app_instance_id)
         if default_app_app_link_name is not None:
-            pulumi.set(__self__, "default_app_app_link_name", default_app_app_link_name)
+            _setter("default_app_app_link_name", default_app_app_link_name)
         if default_app_classic_application_uri is not None:
-            pulumi.set(__self__, "default_app_classic_application_uri", default_app_classic_application_uri)
+            _setter("default_app_classic_application_uri", default_app_classic_application_uri)
         if email_domain_id is not None:
-            pulumi.set(__self__, "email_domain_id", email_domain_id)
+            _setter("email_domain_id", email_domain_id)
         if locale is not None:
-            pulumi.set(__self__, "locale", locale)
+            _setter("locale", locale)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if remove_powered_by_okta is not None:
-            pulumi.set(__self__, "remove_powered_by_okta", remove_powered_by_okta)
+            _setter("remove_powered_by_okta", remove_powered_by_okta)
 
     @property
     @pulumi.getter(name="agreeToCustomPrivacyPolicy")
@@ -215,33 +260,84 @@ class _BrandState:
         :param pulumi.Input[str] name: Brand name
         :param pulumi.Input[bool] remove_powered_by_okta: Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
+        _BrandState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agree_to_custom_privacy_policy=agree_to_custom_privacy_policy,
+            brand_id=brand_id,
+            custom_privacy_policy_url=custom_privacy_policy_url,
+            default_app_app_instance_id=default_app_app_instance_id,
+            default_app_app_link_name=default_app_app_link_name,
+            default_app_classic_application_uri=default_app_classic_application_uri,
+            email_domain_id=email_domain_id,
+            is_default=is_default,
+            links=links,
+            locale=locale,
+            name=name,
+            remove_powered_by_okta=remove_powered_by_okta,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agree_to_custom_privacy_policy: Optional[pulumi.Input[bool]] = None,
+             brand_id: Optional[pulumi.Input[str]] = None,
+             custom_privacy_policy_url: Optional[pulumi.Input[str]] = None,
+             default_app_app_instance_id: Optional[pulumi.Input[str]] = None,
+             default_app_app_link_name: Optional[pulumi.Input[str]] = None,
+             default_app_classic_application_uri: Optional[pulumi.Input[str]] = None,
+             email_domain_id: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             links: Optional[pulumi.Input[str]] = None,
+             locale: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             remove_powered_by_okta: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if agree_to_custom_privacy_policy is None and 'agreeToCustomPrivacyPolicy' in kwargs:
+            agree_to_custom_privacy_policy = kwargs['agreeToCustomPrivacyPolicy']
+        if brand_id is None and 'brandId' in kwargs:
+            brand_id = kwargs['brandId']
+        if custom_privacy_policy_url is None and 'customPrivacyPolicyUrl' in kwargs:
+            custom_privacy_policy_url = kwargs['customPrivacyPolicyUrl']
+        if default_app_app_instance_id is None and 'defaultAppAppInstanceId' in kwargs:
+            default_app_app_instance_id = kwargs['defaultAppAppInstanceId']
+        if default_app_app_link_name is None and 'defaultAppAppLinkName' in kwargs:
+            default_app_app_link_name = kwargs['defaultAppAppLinkName']
+        if default_app_classic_application_uri is None and 'defaultAppClassicApplicationUri' in kwargs:
+            default_app_classic_application_uri = kwargs['defaultAppClassicApplicationUri']
+        if email_domain_id is None and 'emailDomainId' in kwargs:
+            email_domain_id = kwargs['emailDomainId']
+        if is_default is None and 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if remove_powered_by_okta is None and 'removePoweredByOkta' in kwargs:
+            remove_powered_by_okta = kwargs['removePoweredByOkta']
+
         if agree_to_custom_privacy_policy is not None:
-            pulumi.set(__self__, "agree_to_custom_privacy_policy", agree_to_custom_privacy_policy)
+            _setter("agree_to_custom_privacy_policy", agree_to_custom_privacy_policy)
         if brand_id is not None:
             warnings.warn("""Okta has fully support brand creation, this attribute is a no op and will be removed""", DeprecationWarning)
             pulumi.log.warn("""brand_id is deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed""")
         if brand_id is not None:
-            pulumi.set(__self__, "brand_id", brand_id)
+            _setter("brand_id", brand_id)
         if custom_privacy_policy_url is not None:
-            pulumi.set(__self__, "custom_privacy_policy_url", custom_privacy_policy_url)
+            _setter("custom_privacy_policy_url", custom_privacy_policy_url)
         if default_app_app_instance_id is not None:
-            pulumi.set(__self__, "default_app_app_instance_id", default_app_app_instance_id)
+            _setter("default_app_app_instance_id", default_app_app_instance_id)
         if default_app_app_link_name is not None:
-            pulumi.set(__self__, "default_app_app_link_name", default_app_app_link_name)
+            _setter("default_app_app_link_name", default_app_app_link_name)
         if default_app_classic_application_uri is not None:
-            pulumi.set(__self__, "default_app_classic_application_uri", default_app_classic_application_uri)
+            _setter("default_app_classic_application_uri", default_app_classic_application_uri)
         if email_domain_id is not None:
-            pulumi.set(__self__, "email_domain_id", email_domain_id)
+            _setter("email_domain_id", email_domain_id)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if links is not None:
-            pulumi.set(__self__, "links", links)
+            _setter("links", links)
         if locale is not None:
-            pulumi.set(__self__, "locale", locale)
+            _setter("locale", locale)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if remove_powered_by_okta is not None:
-            pulumi.set(__self__, "remove_powered_by_okta", remove_powered_by_okta)
+            _setter("remove_powered_by_okta", remove_powered_by_okta)
 
     @property
     @pulumi.getter(name="agreeToCustomPrivacyPolicy")
@@ -442,6 +538,10 @@ class Brand(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BrandArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
