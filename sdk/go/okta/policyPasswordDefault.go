@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type PolicyPasswordDefault struct {
@@ -362,12 +361,6 @@ func (i *PolicyPasswordDefault) ToPolicyPasswordDefaultOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPasswordDefaultOutput)
 }
 
-func (i *PolicyPasswordDefault) ToOutput(ctx context.Context) pulumix.Output[*PolicyPasswordDefault] {
-	return pulumix.Output[*PolicyPasswordDefault]{
-		OutputState: i.ToPolicyPasswordDefaultOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyPasswordDefaultArrayInput is an input type that accepts PolicyPasswordDefaultArray and PolicyPasswordDefaultArrayOutput values.
 // You can construct a concrete instance of `PolicyPasswordDefaultArrayInput` via:
 //
@@ -391,12 +384,6 @@ func (i PolicyPasswordDefaultArray) ToPolicyPasswordDefaultArrayOutput() PolicyP
 
 func (i PolicyPasswordDefaultArray) ToPolicyPasswordDefaultArrayOutputWithContext(ctx context.Context) PolicyPasswordDefaultArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPasswordDefaultArrayOutput)
-}
-
-func (i PolicyPasswordDefaultArray) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyPasswordDefault] {
-	return pulumix.Output[[]*PolicyPasswordDefault]{
-		OutputState: i.ToPolicyPasswordDefaultArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PolicyPasswordDefaultMapInput is an input type that accepts PolicyPasswordDefaultMap and PolicyPasswordDefaultMapOutput values.
@@ -424,12 +411,6 @@ func (i PolicyPasswordDefaultMap) ToPolicyPasswordDefaultMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPasswordDefaultMapOutput)
 }
 
-func (i PolicyPasswordDefaultMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyPasswordDefault] {
-	return pulumix.Output[map[string]*PolicyPasswordDefault]{
-		OutputState: i.ToPolicyPasswordDefaultMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyPasswordDefaultOutput struct{ *pulumi.OutputState }
 
 func (PolicyPasswordDefaultOutput) ElementType() reflect.Type {
@@ -442,12 +423,6 @@ func (o PolicyPasswordDefaultOutput) ToPolicyPasswordDefaultOutput() PolicyPassw
 
 func (o PolicyPasswordDefaultOutput) ToPolicyPasswordDefaultOutputWithContext(ctx context.Context) PolicyPasswordDefaultOutput {
 	return o
-}
-
-func (o PolicyPasswordDefaultOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPasswordDefault] {
-	return pulumix.Output[*PolicyPasswordDefault]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enable or disable voice call recovery: ACTIVE or INACTIVE.
@@ -614,12 +589,6 @@ func (o PolicyPasswordDefaultArrayOutput) ToPolicyPasswordDefaultArrayOutputWith
 	return o
 }
 
-func (o PolicyPasswordDefaultArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyPasswordDefault] {
-	return pulumix.Output[[]*PolicyPasswordDefault]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyPasswordDefaultArrayOutput) Index(i pulumi.IntInput) PolicyPasswordDefaultOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyPasswordDefault {
 		return vs[0].([]*PolicyPasswordDefault)[vs[1].(int)]
@@ -638,12 +607,6 @@ func (o PolicyPasswordDefaultMapOutput) ToPolicyPasswordDefaultMapOutput() Polic
 
 func (o PolicyPasswordDefaultMapOutput) ToPolicyPasswordDefaultMapOutputWithContext(ctx context.Context) PolicyPasswordDefaultMapOutput {
 	return o
-}
-
-func (o PolicyPasswordDefaultMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyPasswordDefault] {
-	return pulumix.Output[map[string]*PolicyPasswordDefault]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyPasswordDefaultMapOutput) MapIndex(k pulumi.StringInput) PolicyPasswordDefaultOutput {

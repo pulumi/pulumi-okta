@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get a single Theme of a Brand of an Okta Organization.
@@ -103,12 +102,6 @@ func (o LookupThemeResultOutput) ToLookupThemeResultOutput() LookupThemeResultOu
 
 func (o LookupThemeResultOutput) ToLookupThemeResultOutputWithContext(ctx context.Context) LookupThemeResultOutput {
 	return o
-}
-
-func (o LookupThemeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupThemeResult] {
-	return pulumix.Output[LookupThemeResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Background image URL

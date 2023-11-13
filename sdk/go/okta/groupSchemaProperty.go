@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type GroupSchemaProperty struct {
@@ -276,12 +275,6 @@ func (i *GroupSchemaProperty) ToGroupSchemaPropertyOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(GroupSchemaPropertyOutput)
 }
 
-func (i *GroupSchemaProperty) ToOutput(ctx context.Context) pulumix.Output[*GroupSchemaProperty] {
-	return pulumix.Output[*GroupSchemaProperty]{
-		OutputState: i.ToGroupSchemaPropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GroupSchemaPropertyArrayInput is an input type that accepts GroupSchemaPropertyArray and GroupSchemaPropertyArrayOutput values.
 // You can construct a concrete instance of `GroupSchemaPropertyArrayInput` via:
 //
@@ -305,12 +298,6 @@ func (i GroupSchemaPropertyArray) ToGroupSchemaPropertyArrayOutput() GroupSchema
 
 func (i GroupSchemaPropertyArray) ToGroupSchemaPropertyArrayOutputWithContext(ctx context.Context) GroupSchemaPropertyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupSchemaPropertyArrayOutput)
-}
-
-func (i GroupSchemaPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]*GroupSchemaProperty] {
-	return pulumix.Output[[]*GroupSchemaProperty]{
-		OutputState: i.ToGroupSchemaPropertyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GroupSchemaPropertyMapInput is an input type that accepts GroupSchemaPropertyMap and GroupSchemaPropertyMapOutput values.
@@ -338,12 +325,6 @@ func (i GroupSchemaPropertyMap) ToGroupSchemaPropertyMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GroupSchemaPropertyMapOutput)
 }
 
-func (i GroupSchemaPropertyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupSchemaProperty] {
-	return pulumix.Output[map[string]*GroupSchemaProperty]{
-		OutputState: i.ToGroupSchemaPropertyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupSchemaPropertyOutput struct{ *pulumi.OutputState }
 
 func (GroupSchemaPropertyOutput) ElementType() reflect.Type {
@@ -356,12 +337,6 @@ func (o GroupSchemaPropertyOutput) ToGroupSchemaPropertyOutput() GroupSchemaProp
 
 func (o GroupSchemaPropertyOutput) ToGroupSchemaPropertyOutputWithContext(ctx context.Context) GroupSchemaPropertyOutput {
 	return o
-}
-
-func (o GroupSchemaPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupSchemaProperty] {
-	return pulumix.Output[*GroupSchemaProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Custom Subschema enumerated value of a property of type array.
@@ -473,12 +448,6 @@ func (o GroupSchemaPropertyArrayOutput) ToGroupSchemaPropertyArrayOutputWithCont
 	return o
 }
 
-func (o GroupSchemaPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GroupSchemaProperty] {
-	return pulumix.Output[[]*GroupSchemaProperty]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GroupSchemaPropertyArrayOutput) Index(i pulumi.IntInput) GroupSchemaPropertyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GroupSchemaProperty {
 		return vs[0].([]*GroupSchemaProperty)[vs[1].(int)]
@@ -497,12 +466,6 @@ func (o GroupSchemaPropertyMapOutput) ToGroupSchemaPropertyMapOutput() GroupSche
 
 func (o GroupSchemaPropertyMapOutput) ToGroupSchemaPropertyMapOutputWithContext(ctx context.Context) GroupSchemaPropertyMapOutput {
 	return o
-}
-
-func (o GroupSchemaPropertyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupSchemaProperty] {
-	return pulumix.Output[map[string]*GroupSchemaProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupSchemaPropertyMapOutput) MapIndex(k pulumi.StringInput) GroupSchemaPropertyOutput {

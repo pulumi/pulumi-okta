@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type EmailDomainVerification struct {
@@ -100,12 +99,6 @@ func (i *EmailDomainVerification) ToEmailDomainVerificationOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EmailDomainVerificationOutput)
 }
 
-func (i *EmailDomainVerification) ToOutput(ctx context.Context) pulumix.Output[*EmailDomainVerification] {
-	return pulumix.Output[*EmailDomainVerification]{
-		OutputState: i.ToEmailDomainVerificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EmailDomainVerificationArrayInput is an input type that accepts EmailDomainVerificationArray and EmailDomainVerificationArrayOutput values.
 // You can construct a concrete instance of `EmailDomainVerificationArrayInput` via:
 //
@@ -129,12 +122,6 @@ func (i EmailDomainVerificationArray) ToEmailDomainVerificationArrayOutput() Ema
 
 func (i EmailDomainVerificationArray) ToEmailDomainVerificationArrayOutputWithContext(ctx context.Context) EmailDomainVerificationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailDomainVerificationArrayOutput)
-}
-
-func (i EmailDomainVerificationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EmailDomainVerification] {
-	return pulumix.Output[[]*EmailDomainVerification]{
-		OutputState: i.ToEmailDomainVerificationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EmailDomainVerificationMapInput is an input type that accepts EmailDomainVerificationMap and EmailDomainVerificationMapOutput values.
@@ -162,12 +149,6 @@ func (i EmailDomainVerificationMap) ToEmailDomainVerificationMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EmailDomainVerificationMapOutput)
 }
 
-func (i EmailDomainVerificationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailDomainVerification] {
-	return pulumix.Output[map[string]*EmailDomainVerification]{
-		OutputState: i.ToEmailDomainVerificationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EmailDomainVerificationOutput struct{ *pulumi.OutputState }
 
 func (EmailDomainVerificationOutput) ElementType() reflect.Type {
@@ -180,12 +161,6 @@ func (o EmailDomainVerificationOutput) ToEmailDomainVerificationOutput() EmailDo
 
 func (o EmailDomainVerificationOutput) ToEmailDomainVerificationOutputWithContext(ctx context.Context) EmailDomainVerificationOutput {
 	return o
-}
-
-func (o EmailDomainVerificationOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailDomainVerification] {
-	return pulumix.Output[*EmailDomainVerification]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Email domain ID
@@ -207,12 +182,6 @@ func (o EmailDomainVerificationArrayOutput) ToEmailDomainVerificationArrayOutput
 	return o
 }
 
-func (o EmailDomainVerificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EmailDomainVerification] {
-	return pulumix.Output[[]*EmailDomainVerification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EmailDomainVerificationArrayOutput) Index(i pulumi.IntInput) EmailDomainVerificationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EmailDomainVerification {
 		return vs[0].([]*EmailDomainVerification)[vs[1].(int)]
@@ -231,12 +200,6 @@ func (o EmailDomainVerificationMapOutput) ToEmailDomainVerificationMapOutput() E
 
 func (o EmailDomainVerificationMapOutput) ToEmailDomainVerificationMapOutputWithContext(ctx context.Context) EmailDomainVerificationMapOutput {
 	return o
-}
-
-func (o EmailDomainVerificationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailDomainVerification] {
-	return pulumix.Output[map[string]*EmailDomainVerification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EmailDomainVerificationMapOutput) MapIndex(k pulumi.StringInput) EmailDomainVerificationOutput {

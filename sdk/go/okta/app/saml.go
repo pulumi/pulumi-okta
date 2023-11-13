@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Saml struct {
@@ -629,12 +628,6 @@ func (i *Saml) ToSamlOutputWithContext(ctx context.Context) SamlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamlOutput)
 }
 
-func (i *Saml) ToOutput(ctx context.Context) pulumix.Output[*Saml] {
-	return pulumix.Output[*Saml]{
-		OutputState: i.ToSamlOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SamlArrayInput is an input type that accepts SamlArray and SamlArrayOutput values.
 // You can construct a concrete instance of `SamlArrayInput` via:
 //
@@ -658,12 +651,6 @@ func (i SamlArray) ToSamlArrayOutput() SamlArrayOutput {
 
 func (i SamlArray) ToSamlArrayOutputWithContext(ctx context.Context) SamlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamlArrayOutput)
-}
-
-func (i SamlArray) ToOutput(ctx context.Context) pulumix.Output[[]*Saml] {
-	return pulumix.Output[[]*Saml]{
-		OutputState: i.ToSamlArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SamlMapInput is an input type that accepts SamlMap and SamlMapOutput values.
@@ -691,12 +678,6 @@ func (i SamlMap) ToSamlMapOutputWithContext(ctx context.Context) SamlMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamlMapOutput)
 }
 
-func (i SamlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Saml] {
-	return pulumix.Output[map[string]*Saml]{
-		OutputState: i.ToSamlMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SamlOutput struct{ *pulumi.OutputState }
 
 func (SamlOutput) ElementType() reflect.Type {
@@ -709,12 +690,6 @@ func (o SamlOutput) ToSamlOutput() SamlOutput {
 
 func (o SamlOutput) ToSamlOutputWithContext(ctx context.Context) SamlOutput {
 	return o
-}
-
-func (o SamlOutput) ToOutput(ctx context.Context) pulumix.Output[*Saml] {
-	return pulumix.Output[*Saml]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Custom error page URL
@@ -1030,12 +1005,6 @@ func (o SamlArrayOutput) ToSamlArrayOutputWithContext(ctx context.Context) SamlA
 	return o
 }
 
-func (o SamlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Saml] {
-	return pulumix.Output[[]*Saml]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SamlArrayOutput) Index(i pulumi.IntInput) SamlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Saml {
 		return vs[0].([]*Saml)[vs[1].(int)]
@@ -1054,12 +1023,6 @@ func (o SamlMapOutput) ToSamlMapOutput() SamlMapOutput {
 
 func (o SamlMapOutput) ToSamlMapOutputWithContext(ctx context.Context) SamlMapOutput {
 	return o
-}
-
-func (o SamlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Saml] {
-	return pulumix.Output[map[string]*Saml]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SamlMapOutput) MapIndex(k pulumi.StringInput) SamlOutput {

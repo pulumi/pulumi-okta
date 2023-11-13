@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get authorization server claim from Okta.
@@ -122,12 +121,6 @@ func (o GetAuthServerClaimResultOutput) ToGetAuthServerClaimResultOutput() GetAu
 
 func (o GetAuthServerClaimResultOutput) ToGetAuthServerClaimResultOutputWithContext(ctx context.Context) GetAuthServerClaimResultOutput {
 	return o
-}
-
-func (o GetAuthServerClaimResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAuthServerClaimResult] {
-	return pulumix.Output[GetAuthServerClaimResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether to include Claims in the token.

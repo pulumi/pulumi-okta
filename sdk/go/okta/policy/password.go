@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Password struct {
@@ -386,12 +385,6 @@ func (i *Password) ToPasswordOutputWithContext(ctx context.Context) PasswordOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PasswordOutput)
 }
 
-func (i *Password) ToOutput(ctx context.Context) pulumix.Output[*Password] {
-	return pulumix.Output[*Password]{
-		OutputState: i.ToPasswordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PasswordArrayInput is an input type that accepts PasswordArray and PasswordArrayOutput values.
 // You can construct a concrete instance of `PasswordArrayInput` via:
 //
@@ -415,12 +408,6 @@ func (i PasswordArray) ToPasswordArrayOutput() PasswordArrayOutput {
 
 func (i PasswordArray) ToPasswordArrayOutputWithContext(ctx context.Context) PasswordArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PasswordArrayOutput)
-}
-
-func (i PasswordArray) ToOutput(ctx context.Context) pulumix.Output[[]*Password] {
-	return pulumix.Output[[]*Password]{
-		OutputState: i.ToPasswordArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PasswordMapInput is an input type that accepts PasswordMap and PasswordMapOutput values.
@@ -448,12 +435,6 @@ func (i PasswordMap) ToPasswordMapOutputWithContext(ctx context.Context) Passwor
 	return pulumi.ToOutputWithContext(ctx, i).(PasswordMapOutput)
 }
 
-func (i PasswordMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Password] {
-	return pulumix.Output[map[string]*Password]{
-		OutputState: i.ToPasswordMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PasswordOutput struct{ *pulumi.OutputState }
 
 func (PasswordOutput) ElementType() reflect.Type {
@@ -466,12 +447,6 @@ func (o PasswordOutput) ToPasswordOutput() PasswordOutput {
 
 func (o PasswordOutput) ToPasswordOutputWithContext(ctx context.Context) PasswordOutput {
 	return o
-}
-
-func (o PasswordOutput) ToOutput(ctx context.Context) pulumix.Output[*Password] {
-	return pulumix.Output[*Password]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Authentication Provider: OKTA, ACTIVE_DIRECTORY or LDAP
@@ -638,12 +613,6 @@ func (o PasswordArrayOutput) ToPasswordArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o PasswordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Password] {
-	return pulumix.Output[[]*Password]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PasswordArrayOutput) Index(i pulumi.IntInput) PasswordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Password {
 		return vs[0].([]*Password)[vs[1].(int)]
@@ -662,12 +631,6 @@ func (o PasswordMapOutput) ToPasswordMapOutput() PasswordMapOutput {
 
 func (o PasswordMapOutput) ToPasswordMapOutputWithContext(ctx context.Context) PasswordMapOutput {
 	return o
-}
-
-func (o PasswordMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Password] {
-	return pulumix.Output[map[string]*Password]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PasswordMapOutput) MapIndex(k pulumi.StringInput) PasswordOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Signon struct {
@@ -136,12 +135,6 @@ func (i *Signon) ToSignonOutputWithContext(ctx context.Context) SignonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SignonOutput)
 }
 
-func (i *Signon) ToOutput(ctx context.Context) pulumix.Output[*Signon] {
-	return pulumix.Output[*Signon]{
-		OutputState: i.ToSignonOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SignonArrayInput is an input type that accepts SignonArray and SignonArrayOutput values.
 // You can construct a concrete instance of `SignonArrayInput` via:
 //
@@ -165,12 +158,6 @@ func (i SignonArray) ToSignonArrayOutput() SignonArrayOutput {
 
 func (i SignonArray) ToSignonArrayOutputWithContext(ctx context.Context) SignonArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SignonArrayOutput)
-}
-
-func (i SignonArray) ToOutput(ctx context.Context) pulumix.Output[[]*Signon] {
-	return pulumix.Output[[]*Signon]{
-		OutputState: i.ToSignonArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SignonMapInput is an input type that accepts SignonMap and SignonMapOutput values.
@@ -198,12 +185,6 @@ func (i SignonMap) ToSignonMapOutputWithContext(ctx context.Context) SignonMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SignonMapOutput)
 }
 
-func (i SignonMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Signon] {
-	return pulumix.Output[map[string]*Signon]{
-		OutputState: i.ToSignonMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SignonOutput struct{ *pulumi.OutputState }
 
 func (SignonOutput) ElementType() reflect.Type {
@@ -216,12 +197,6 @@ func (o SignonOutput) ToSignonOutput() SignonOutput {
 
 func (o SignonOutput) ToSignonOutputWithContext(ctx context.Context) SignonOutput {
 	return o
-}
-
-func (o SignonOutput) ToOutput(ctx context.Context) pulumix.Output[*Signon] {
-	return pulumix.Output[*Signon]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Policy Description
@@ -263,12 +238,6 @@ func (o SignonArrayOutput) ToSignonArrayOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o SignonArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Signon] {
-	return pulumix.Output[[]*Signon]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SignonArrayOutput) Index(i pulumi.IntInput) SignonOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Signon {
 		return vs[0].([]*Signon)[vs[1].(int)]
@@ -287,12 +256,6 @@ func (o SignonMapOutput) ToSignonMapOutput() SignonMapOutput {
 
 func (o SignonMapOutput) ToSignonMapOutputWithContext(ctx context.Context) SignonMapOutput {
 	return o
-}
-
-func (o SignonMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Signon] {
-	return pulumix.Output[map[string]*Signon]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SignonMapOutput) MapIndex(k pulumi.StringInput) SignonOutput {

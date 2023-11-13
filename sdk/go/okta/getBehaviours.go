@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get a behaviors by search criteria.
@@ -100,12 +99,6 @@ func (o GetBehavioursResultOutput) ToGetBehavioursResultOutput() GetBehavioursRe
 
 func (o GetBehavioursResultOutput) ToGetBehavioursResultOutputWithContext(ctx context.Context) GetBehavioursResultOutput {
 	return o
-}
-
-func (o GetBehavioursResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetBehavioursResult] {
-	return pulumix.Output[GetBehavioursResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBehavioursResultOutput) Behaviors() GetBehavioursBehaviorArrayOutput {

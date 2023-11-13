@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get a user type from Okta.
@@ -103,12 +102,6 @@ func (o LookupUserTypeResultOutput) ToLookupUserTypeResultOutput() LookupUserTyp
 
 func (o LookupUserTypeResultOutput) ToLookupUserTypeResultOutputWithContext(ctx context.Context) LookupUserTypeResultOutput {
 	return o
-}
-
-func (o LookupUserTypeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserTypeResult] {
-	return pulumix.Output[LookupUserTypeResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Description of user type.

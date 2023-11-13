@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource to manage a question factor for a user
@@ -146,12 +145,6 @@ func (i *UserFactorQuestion) ToUserFactorQuestionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(UserFactorQuestionOutput)
 }
 
-func (i *UserFactorQuestion) ToOutput(ctx context.Context) pulumix.Output[*UserFactorQuestion] {
-	return pulumix.Output[*UserFactorQuestion]{
-		OutputState: i.ToUserFactorQuestionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserFactorQuestionArrayInput is an input type that accepts UserFactorQuestionArray and UserFactorQuestionArrayOutput values.
 // You can construct a concrete instance of `UserFactorQuestionArrayInput` via:
 //
@@ -175,12 +168,6 @@ func (i UserFactorQuestionArray) ToUserFactorQuestionArrayOutput() UserFactorQue
 
 func (i UserFactorQuestionArray) ToUserFactorQuestionArrayOutputWithContext(ctx context.Context) UserFactorQuestionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserFactorQuestionArrayOutput)
-}
-
-func (i UserFactorQuestionArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserFactorQuestion] {
-	return pulumix.Output[[]*UserFactorQuestion]{
-		OutputState: i.ToUserFactorQuestionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserFactorQuestionMapInput is an input type that accepts UserFactorQuestionMap and UserFactorQuestionMapOutput values.
@@ -208,12 +195,6 @@ func (i UserFactorQuestionMap) ToUserFactorQuestionMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserFactorQuestionMapOutput)
 }
 
-func (i UserFactorQuestionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserFactorQuestion] {
-	return pulumix.Output[map[string]*UserFactorQuestion]{
-		OutputState: i.ToUserFactorQuestionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserFactorQuestionOutput struct{ *pulumi.OutputState }
 
 func (UserFactorQuestionOutput) ElementType() reflect.Type {
@@ -226,12 +207,6 @@ func (o UserFactorQuestionOutput) ToUserFactorQuestionOutput() UserFactorQuestio
 
 func (o UserFactorQuestionOutput) ToUserFactorQuestionOutputWithContext(ctx context.Context) UserFactorQuestionOutput {
 	return o
-}
-
-func (o UserFactorQuestionOutput) ToOutput(ctx context.Context) pulumix.Output[*UserFactorQuestion] {
-	return pulumix.Output[*UserFactorQuestion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // User password security answer
@@ -273,12 +248,6 @@ func (o UserFactorQuestionArrayOutput) ToUserFactorQuestionArrayOutputWithContex
 	return o
 }
 
-func (o UserFactorQuestionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserFactorQuestion] {
-	return pulumix.Output[[]*UserFactorQuestion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserFactorQuestionArrayOutput) Index(i pulumi.IntInput) UserFactorQuestionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserFactorQuestion {
 		return vs[0].([]*UserFactorQuestion)[vs[1].(int)]
@@ -297,12 +266,6 @@ func (o UserFactorQuestionMapOutput) ToUserFactorQuestionMapOutput() UserFactorQ
 
 func (o UserFactorQuestionMapOutput) ToUserFactorQuestionMapOutputWithContext(ctx context.Context) UserFactorQuestionMapOutput {
 	return o
-}
-
-func (o UserFactorQuestionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserFactorQuestion] {
-	return pulumix.Output[map[string]*UserFactorQuestion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserFactorQuestionMapOutput) MapIndex(k pulumi.StringInput) UserFactorQuestionOutput {

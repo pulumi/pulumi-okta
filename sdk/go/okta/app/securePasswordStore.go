@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type SecurePasswordStore struct {
@@ -407,12 +406,6 @@ func (i *SecurePasswordStore) ToSecurePasswordStoreOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreOutput)
 }
 
-func (i *SecurePasswordStore) ToOutput(ctx context.Context) pulumix.Output[*SecurePasswordStore] {
-	return pulumix.Output[*SecurePasswordStore]{
-		OutputState: i.ToSecurePasswordStoreOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SecurePasswordStoreArrayInput is an input type that accepts SecurePasswordStoreArray and SecurePasswordStoreArrayOutput values.
 // You can construct a concrete instance of `SecurePasswordStoreArrayInput` via:
 //
@@ -436,12 +429,6 @@ func (i SecurePasswordStoreArray) ToSecurePasswordStoreArrayOutput() SecurePassw
 
 func (i SecurePasswordStoreArray) ToSecurePasswordStoreArrayOutputWithContext(ctx context.Context) SecurePasswordStoreArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreArrayOutput)
-}
-
-func (i SecurePasswordStoreArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecurePasswordStore] {
-	return pulumix.Output[[]*SecurePasswordStore]{
-		OutputState: i.ToSecurePasswordStoreArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SecurePasswordStoreMapInput is an input type that accepts SecurePasswordStoreMap and SecurePasswordStoreMapOutput values.
@@ -469,12 +456,6 @@ func (i SecurePasswordStoreMap) ToSecurePasswordStoreMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SecurePasswordStoreMapOutput)
 }
 
-func (i SecurePasswordStoreMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurePasswordStore] {
-	return pulumix.Output[map[string]*SecurePasswordStore]{
-		OutputState: i.ToSecurePasswordStoreMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecurePasswordStoreOutput struct{ *pulumi.OutputState }
 
 func (SecurePasswordStoreOutput) ElementType() reflect.Type {
@@ -487,12 +468,6 @@ func (o SecurePasswordStoreOutput) ToSecurePasswordStoreOutput() SecurePasswordS
 
 func (o SecurePasswordStoreOutput) ToSecurePasswordStoreOutputWithContext(ctx context.Context) SecurePasswordStoreOutput {
 	return o
-}
-
-func (o SecurePasswordStoreOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurePasswordStore] {
-	return pulumix.Output[*SecurePasswordStore]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Custom error page URL
@@ -669,12 +644,6 @@ func (o SecurePasswordStoreArrayOutput) ToSecurePasswordStoreArrayOutputWithCont
 	return o
 }
 
-func (o SecurePasswordStoreArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecurePasswordStore] {
-	return pulumix.Output[[]*SecurePasswordStore]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecurePasswordStoreArrayOutput) Index(i pulumi.IntInput) SecurePasswordStoreOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurePasswordStore {
 		return vs[0].([]*SecurePasswordStore)[vs[1].(int)]
@@ -693,12 +662,6 @@ func (o SecurePasswordStoreMapOutput) ToSecurePasswordStoreMapOutput() SecurePas
 
 func (o SecurePasswordStoreMapOutput) ToSecurePasswordStoreMapOutputWithContext(ctx context.Context) SecurePasswordStoreMapOutput {
 	return o
-}
-
-func (o SecurePasswordStoreMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurePasswordStore] {
-	return pulumix.Output[map[string]*SecurePasswordStore]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecurePasswordStoreMapOutput) MapIndex(k pulumi.StringInput) SecurePasswordStoreOutput {

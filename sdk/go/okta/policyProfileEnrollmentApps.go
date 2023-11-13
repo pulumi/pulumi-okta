@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type PolicyProfileEnrollmentApps struct {
@@ -116,12 +115,6 @@ func (i *PolicyProfileEnrollmentApps) ToPolicyProfileEnrollmentAppsOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyProfileEnrollmentAppsOutput)
 }
 
-func (i *PolicyProfileEnrollmentApps) ToOutput(ctx context.Context) pulumix.Output[*PolicyProfileEnrollmentApps] {
-	return pulumix.Output[*PolicyProfileEnrollmentApps]{
-		OutputState: i.ToPolicyProfileEnrollmentAppsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyProfileEnrollmentAppsArrayInput is an input type that accepts PolicyProfileEnrollmentAppsArray and PolicyProfileEnrollmentAppsArrayOutput values.
 // You can construct a concrete instance of `PolicyProfileEnrollmentAppsArrayInput` via:
 //
@@ -145,12 +138,6 @@ func (i PolicyProfileEnrollmentAppsArray) ToPolicyProfileEnrollmentAppsArrayOutp
 
 func (i PolicyProfileEnrollmentAppsArray) ToPolicyProfileEnrollmentAppsArrayOutputWithContext(ctx context.Context) PolicyProfileEnrollmentAppsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyProfileEnrollmentAppsArrayOutput)
-}
-
-func (i PolicyProfileEnrollmentAppsArray) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyProfileEnrollmentApps] {
-	return pulumix.Output[[]*PolicyProfileEnrollmentApps]{
-		OutputState: i.ToPolicyProfileEnrollmentAppsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PolicyProfileEnrollmentAppsMapInput is an input type that accepts PolicyProfileEnrollmentAppsMap and PolicyProfileEnrollmentAppsMapOutput values.
@@ -178,12 +165,6 @@ func (i PolicyProfileEnrollmentAppsMap) ToPolicyProfileEnrollmentAppsMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyProfileEnrollmentAppsMapOutput)
 }
 
-func (i PolicyProfileEnrollmentAppsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyProfileEnrollmentApps] {
-	return pulumix.Output[map[string]*PolicyProfileEnrollmentApps]{
-		OutputState: i.ToPolicyProfileEnrollmentAppsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyProfileEnrollmentAppsOutput struct{ *pulumi.OutputState }
 
 func (PolicyProfileEnrollmentAppsOutput) ElementType() reflect.Type {
@@ -196,12 +177,6 @@ func (o PolicyProfileEnrollmentAppsOutput) ToPolicyProfileEnrollmentAppsOutput()
 
 func (o PolicyProfileEnrollmentAppsOutput) ToPolicyProfileEnrollmentAppsOutputWithContext(ctx context.Context) PolicyProfileEnrollmentAppsOutput {
 	return o
-}
-
-func (o PolicyProfileEnrollmentAppsOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyProfileEnrollmentApps] {
-	return pulumix.Output[*PolicyProfileEnrollmentApps]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of app IDs to be added to this policy
@@ -233,12 +208,6 @@ func (o PolicyProfileEnrollmentAppsArrayOutput) ToPolicyProfileEnrollmentAppsArr
 	return o
 }
 
-func (o PolicyProfileEnrollmentAppsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyProfileEnrollmentApps] {
-	return pulumix.Output[[]*PolicyProfileEnrollmentApps]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyProfileEnrollmentAppsArrayOutput) Index(i pulumi.IntInput) PolicyProfileEnrollmentAppsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyProfileEnrollmentApps {
 		return vs[0].([]*PolicyProfileEnrollmentApps)[vs[1].(int)]
@@ -257,12 +226,6 @@ func (o PolicyProfileEnrollmentAppsMapOutput) ToPolicyProfileEnrollmentAppsMapOu
 
 func (o PolicyProfileEnrollmentAppsMapOutput) ToPolicyProfileEnrollmentAppsMapOutputWithContext(ctx context.Context) PolicyProfileEnrollmentAppsMapOutput {
 	return o
-}
-
-func (o PolicyProfileEnrollmentAppsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyProfileEnrollmentApps] {
-	return pulumix.Output[map[string]*PolicyProfileEnrollmentApps]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyProfileEnrollmentAppsMapOutput) MapIndex(k pulumi.StringInput) PolicyProfileEnrollmentAppsOutput {

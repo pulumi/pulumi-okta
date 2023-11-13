@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type RuleSignon struct {
@@ -311,12 +310,6 @@ func (i *RuleSignon) ToRuleSignonOutputWithContext(ctx context.Context) RuleSign
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonOutput)
 }
 
-func (i *RuleSignon) ToOutput(ctx context.Context) pulumix.Output[*RuleSignon] {
-	return pulumix.Output[*RuleSignon]{
-		OutputState: i.ToRuleSignonOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RuleSignonArrayInput is an input type that accepts RuleSignonArray and RuleSignonArrayOutput values.
 // You can construct a concrete instance of `RuleSignonArrayInput` via:
 //
@@ -340,12 +333,6 @@ func (i RuleSignonArray) ToRuleSignonArrayOutput() RuleSignonArrayOutput {
 
 func (i RuleSignonArray) ToRuleSignonArrayOutputWithContext(ctx context.Context) RuleSignonArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonArrayOutput)
-}
-
-func (i RuleSignonArray) ToOutput(ctx context.Context) pulumix.Output[[]*RuleSignon] {
-	return pulumix.Output[[]*RuleSignon]{
-		OutputState: i.ToRuleSignonArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RuleSignonMapInput is an input type that accepts RuleSignonMap and RuleSignonMapOutput values.
@@ -373,12 +360,6 @@ func (i RuleSignonMap) ToRuleSignonMapOutputWithContext(ctx context.Context) Rul
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSignonMapOutput)
 }
 
-func (i RuleSignonMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RuleSignon] {
-	return pulumix.Output[map[string]*RuleSignon]{
-		OutputState: i.ToRuleSignonMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RuleSignonOutput struct{ *pulumi.OutputState }
 
 func (RuleSignonOutput) ElementType() reflect.Type {
@@ -391,12 +372,6 @@ func (o RuleSignonOutput) ToRuleSignonOutput() RuleSignonOutput {
 
 func (o RuleSignonOutput) ToRuleSignonOutputWithContext(ctx context.Context) RuleSignonOutput {
 	return o
-}
-
-func (o RuleSignonOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleSignon] {
-	return pulumix.Output[*RuleSignon]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
@@ -527,12 +502,6 @@ func (o RuleSignonArrayOutput) ToRuleSignonArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o RuleSignonArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RuleSignon] {
-	return pulumix.Output[[]*RuleSignon]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleSignonArrayOutput) Index(i pulumi.IntInput) RuleSignonOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RuleSignon {
 		return vs[0].([]*RuleSignon)[vs[1].(int)]
@@ -551,12 +520,6 @@ func (o RuleSignonMapOutput) ToRuleSignonMapOutput() RuleSignonMapOutput {
 
 func (o RuleSignonMapOutput) ToRuleSignonMapOutputWithContext(ctx context.Context) RuleSignonMapOutput {
 	return o
-}
-
-func (o RuleSignonMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RuleSignon] {
-	return pulumix.Output[map[string]*RuleSignon]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RuleSignonMapOutput) MapIndex(k pulumi.StringInput) RuleSignonOutput {

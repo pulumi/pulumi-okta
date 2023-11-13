@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type AppOauthApiScope struct {
@@ -126,12 +125,6 @@ func (i *AppOauthApiScope) ToAppOauthApiScopeOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AppOauthApiScopeOutput)
 }
 
-func (i *AppOauthApiScope) ToOutput(ctx context.Context) pulumix.Output[*AppOauthApiScope] {
-	return pulumix.Output[*AppOauthApiScope]{
-		OutputState: i.ToAppOauthApiScopeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppOauthApiScopeArrayInput is an input type that accepts AppOauthApiScopeArray and AppOauthApiScopeArrayOutput values.
 // You can construct a concrete instance of `AppOauthApiScopeArrayInput` via:
 //
@@ -155,12 +148,6 @@ func (i AppOauthApiScopeArray) ToAppOauthApiScopeArrayOutput() AppOauthApiScopeA
 
 func (i AppOauthApiScopeArray) ToAppOauthApiScopeArrayOutputWithContext(ctx context.Context) AppOauthApiScopeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppOauthApiScopeArrayOutput)
-}
-
-func (i AppOauthApiScopeArray) ToOutput(ctx context.Context) pulumix.Output[[]*AppOauthApiScope] {
-	return pulumix.Output[[]*AppOauthApiScope]{
-		OutputState: i.ToAppOauthApiScopeArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AppOauthApiScopeMapInput is an input type that accepts AppOauthApiScopeMap and AppOauthApiScopeMapOutput values.
@@ -188,12 +175,6 @@ func (i AppOauthApiScopeMap) ToAppOauthApiScopeMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AppOauthApiScopeMapOutput)
 }
 
-func (i AppOauthApiScopeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppOauthApiScope] {
-	return pulumix.Output[map[string]*AppOauthApiScope]{
-		OutputState: i.ToAppOauthApiScopeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppOauthApiScopeOutput struct{ *pulumi.OutputState }
 
 func (AppOauthApiScopeOutput) ElementType() reflect.Type {
@@ -206,12 +187,6 @@ func (o AppOauthApiScopeOutput) ToAppOauthApiScopeOutput() AppOauthApiScopeOutpu
 
 func (o AppOauthApiScopeOutput) ToAppOauthApiScopeOutputWithContext(ctx context.Context) AppOauthApiScopeOutput {
 	return o
-}
-
-func (o AppOauthApiScopeOutput) ToOutput(ctx context.Context) pulumix.Output[*AppOauthApiScope] {
-	return pulumix.Output[*AppOauthApiScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the application.
@@ -243,12 +218,6 @@ func (o AppOauthApiScopeArrayOutput) ToAppOauthApiScopeArrayOutputWithContext(ct
 	return o
 }
 
-func (o AppOauthApiScopeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AppOauthApiScope] {
-	return pulumix.Output[[]*AppOauthApiScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppOauthApiScopeArrayOutput) Index(i pulumi.IntInput) AppOauthApiScopeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppOauthApiScope {
 		return vs[0].([]*AppOauthApiScope)[vs[1].(int)]
@@ -267,12 +236,6 @@ func (o AppOauthApiScopeMapOutput) ToAppOauthApiScopeMapOutput() AppOauthApiScop
 
 func (o AppOauthApiScopeMapOutput) ToAppOauthApiScopeMapOutputWithContext(ctx context.Context) AppOauthApiScopeMapOutput {
 	return o
-}
-
-func (o AppOauthApiScopeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppOauthApiScope] {
-	return pulumix.Output[map[string]*AppOauthApiScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppOauthApiScopeMapOutput) MapIndex(k pulumi.StringInput) AppOauthApiScopeOutput {
