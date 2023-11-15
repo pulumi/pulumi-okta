@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type AdminRoleTargets struct {
@@ -139,12 +138,6 @@ func (i *AdminRoleTargets) ToAdminRoleTargetsOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleTargetsOutput)
 }
 
-func (i *AdminRoleTargets) ToOutput(ctx context.Context) pulumix.Output[*AdminRoleTargets] {
-	return pulumix.Output[*AdminRoleTargets]{
-		OutputState: i.ToAdminRoleTargetsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AdminRoleTargetsArrayInput is an input type that accepts AdminRoleTargetsArray and AdminRoleTargetsArrayOutput values.
 // You can construct a concrete instance of `AdminRoleTargetsArrayInput` via:
 //
@@ -168,12 +161,6 @@ func (i AdminRoleTargetsArray) ToAdminRoleTargetsArrayOutput() AdminRoleTargetsA
 
 func (i AdminRoleTargetsArray) ToAdminRoleTargetsArrayOutputWithContext(ctx context.Context) AdminRoleTargetsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleTargetsArrayOutput)
-}
-
-func (i AdminRoleTargetsArray) ToOutput(ctx context.Context) pulumix.Output[[]*AdminRoleTargets] {
-	return pulumix.Output[[]*AdminRoleTargets]{
-		OutputState: i.ToAdminRoleTargetsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AdminRoleTargetsMapInput is an input type that accepts AdminRoleTargetsMap and AdminRoleTargetsMapOutput values.
@@ -201,12 +188,6 @@ func (i AdminRoleTargetsMap) ToAdminRoleTargetsMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleTargetsMapOutput)
 }
 
-func (i AdminRoleTargetsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AdminRoleTargets] {
-	return pulumix.Output[map[string]*AdminRoleTargets]{
-		OutputState: i.ToAdminRoleTargetsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AdminRoleTargetsOutput struct{ *pulumi.OutputState }
 
 func (AdminRoleTargetsOutput) ElementType() reflect.Type {
@@ -219,12 +200,6 @@ func (o AdminRoleTargetsOutput) ToAdminRoleTargetsOutput() AdminRoleTargetsOutpu
 
 func (o AdminRoleTargetsOutput) ToAdminRoleTargetsOutputWithContext(ctx context.Context) AdminRoleTargetsOutput {
 	return o
-}
-
-func (o AdminRoleTargetsOutput) ToOutput(ctx context.Context) pulumix.Output[*AdminRoleTargets] {
-	return pulumix.Output[*AdminRoleTargets]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
@@ -266,12 +241,6 @@ func (o AdminRoleTargetsArrayOutput) ToAdminRoleTargetsArrayOutputWithContext(ct
 	return o
 }
 
-func (o AdminRoleTargetsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AdminRoleTargets] {
-	return pulumix.Output[[]*AdminRoleTargets]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AdminRoleTargetsArrayOutput) Index(i pulumi.IntInput) AdminRoleTargetsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AdminRoleTargets {
 		return vs[0].([]*AdminRoleTargets)[vs[1].(int)]
@@ -290,12 +259,6 @@ func (o AdminRoleTargetsMapOutput) ToAdminRoleTargetsMapOutput() AdminRoleTarget
 
 func (o AdminRoleTargetsMapOutput) ToAdminRoleTargetsMapOutputWithContext(ctx context.Context) AdminRoleTargetsMapOutput {
 	return o
-}
-
-func (o AdminRoleTargetsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AdminRoleTargets] {
-	return pulumix.Output[map[string]*AdminRoleTargets]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AdminRoleTargetsMapOutput) MapIndex(k pulumi.StringInput) AdminRoleTargetsOutput {

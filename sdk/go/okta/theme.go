@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Theme struct {
@@ -244,12 +243,6 @@ func (i *Theme) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeOutput)
 }
 
-func (i *Theme) ToOutput(ctx context.Context) pulumix.Output[*Theme] {
-	return pulumix.Output[*Theme]{
-		OutputState: i.ToThemeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ThemeArrayInput is an input type that accepts ThemeArray and ThemeArrayOutput values.
 // You can construct a concrete instance of `ThemeArrayInput` via:
 //
@@ -273,12 +266,6 @@ func (i ThemeArray) ToThemeArrayOutput() ThemeArrayOutput {
 
 func (i ThemeArray) ToThemeArrayOutputWithContext(ctx context.Context) ThemeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeArrayOutput)
-}
-
-func (i ThemeArray) ToOutput(ctx context.Context) pulumix.Output[[]*Theme] {
-	return pulumix.Output[[]*Theme]{
-		OutputState: i.ToThemeArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ThemeMapInput is an input type that accepts ThemeMap and ThemeMapOutput values.
@@ -306,12 +293,6 @@ func (i ThemeMap) ToThemeMapOutputWithContext(ctx context.Context) ThemeMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeMapOutput)
 }
 
-func (i ThemeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Theme] {
-	return pulumix.Output[map[string]*Theme]{
-		OutputState: i.ToThemeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThemeOutput struct{ *pulumi.OutputState }
 
 func (ThemeOutput) ElementType() reflect.Type {
@@ -324,12 +305,6 @@ func (o ThemeOutput) ToThemeOutput() ThemeOutput {
 
 func (o ThemeOutput) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 	return o
-}
-
-func (o ThemeOutput) ToOutput(ctx context.Context) pulumix.Output[*Theme] {
-	return pulumix.Output[*Theme]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Path to local file
@@ -431,12 +406,6 @@ func (o ThemeArrayOutput) ToThemeArrayOutputWithContext(ctx context.Context) The
 	return o
 }
 
-func (o ThemeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Theme] {
-	return pulumix.Output[[]*Theme]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThemeArrayOutput) Index(i pulumi.IntInput) ThemeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Theme {
 		return vs[0].([]*Theme)[vs[1].(int)]
@@ -455,12 +424,6 @@ func (o ThemeMapOutput) ToThemeMapOutput() ThemeMapOutput {
 
 func (o ThemeMapOutput) ToThemeMapOutputWithContext(ctx context.Context) ThemeMapOutput {
 	return o
-}
-
-func (o ThemeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Theme] {
-	return pulumix.Output[map[string]*Theme]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeMapOutput) MapIndex(k pulumi.StringInput) ThemeOutput {

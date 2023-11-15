@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ThreatInsightSettings struct {
@@ -110,12 +109,6 @@ func (i *ThreatInsightSettings) ToThreatInsightSettingsOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatInsightSettingsOutput)
 }
 
-func (i *ThreatInsightSettings) ToOutput(ctx context.Context) pulumix.Output[*ThreatInsightSettings] {
-	return pulumix.Output[*ThreatInsightSettings]{
-		OutputState: i.ToThreatInsightSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ThreatInsightSettingsArrayInput is an input type that accepts ThreatInsightSettingsArray and ThreatInsightSettingsArrayOutput values.
 // You can construct a concrete instance of `ThreatInsightSettingsArrayInput` via:
 //
@@ -139,12 +132,6 @@ func (i ThreatInsightSettingsArray) ToThreatInsightSettingsArrayOutput() ThreatI
 
 func (i ThreatInsightSettingsArray) ToThreatInsightSettingsArrayOutputWithContext(ctx context.Context) ThreatInsightSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatInsightSettingsArrayOutput)
-}
-
-func (i ThreatInsightSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*ThreatInsightSettings] {
-	return pulumix.Output[[]*ThreatInsightSettings]{
-		OutputState: i.ToThreatInsightSettingsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ThreatInsightSettingsMapInput is an input type that accepts ThreatInsightSettingsMap and ThreatInsightSettingsMapOutput values.
@@ -172,12 +159,6 @@ func (i ThreatInsightSettingsMap) ToThreatInsightSettingsMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatInsightSettingsMapOutput)
 }
 
-func (i ThreatInsightSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThreatInsightSettings] {
-	return pulumix.Output[map[string]*ThreatInsightSettings]{
-		OutputState: i.ToThreatInsightSettingsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThreatInsightSettingsOutput struct{ *pulumi.OutputState }
 
 func (ThreatInsightSettingsOutput) ElementType() reflect.Type {
@@ -190,12 +171,6 @@ func (o ThreatInsightSettingsOutput) ToThreatInsightSettingsOutput() ThreatInsig
 
 func (o ThreatInsightSettingsOutput) ToThreatInsightSettingsOutputWithContext(ctx context.Context) ThreatInsightSettingsOutput {
 	return o
-}
-
-func (o ThreatInsightSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*ThreatInsightSettings] {
-	return pulumix.Output[*ThreatInsightSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies how Okta responds to authentication requests from suspicious IPs
@@ -222,12 +197,6 @@ func (o ThreatInsightSettingsArrayOutput) ToThreatInsightSettingsArrayOutputWith
 	return o
 }
 
-func (o ThreatInsightSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ThreatInsightSettings] {
-	return pulumix.Output[[]*ThreatInsightSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThreatInsightSettingsArrayOutput) Index(i pulumi.IntInput) ThreatInsightSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ThreatInsightSettings {
 		return vs[0].([]*ThreatInsightSettings)[vs[1].(int)]
@@ -246,12 +215,6 @@ func (o ThreatInsightSettingsMapOutput) ToThreatInsightSettingsMapOutput() Threa
 
 func (o ThreatInsightSettingsMapOutput) ToThreatInsightSettingsMapOutputWithContext(ctx context.Context) ThreatInsightSettingsMapOutput {
 	return o
-}
-
-func (o ThreatInsightSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThreatInsightSettings] {
-	return pulumix.Output[map[string]*ThreatInsightSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThreatInsightSettingsMapOutput) MapIndex(k pulumi.StringInput) ThreatInsightSettingsOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type DomainCertificate struct {
@@ -152,12 +151,6 @@ func (i *DomainCertificate) ToDomainCertificateOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DomainCertificateOutput)
 }
 
-func (i *DomainCertificate) ToOutput(ctx context.Context) pulumix.Output[*DomainCertificate] {
-	return pulumix.Output[*DomainCertificate]{
-		OutputState: i.ToDomainCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DomainCertificateArrayInput is an input type that accepts DomainCertificateArray and DomainCertificateArrayOutput values.
 // You can construct a concrete instance of `DomainCertificateArrayInput` via:
 //
@@ -181,12 +174,6 @@ func (i DomainCertificateArray) ToDomainCertificateArrayOutput() DomainCertifica
 
 func (i DomainCertificateArray) ToDomainCertificateArrayOutputWithContext(ctx context.Context) DomainCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainCertificateArrayOutput)
-}
-
-func (i DomainCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*DomainCertificate] {
-	return pulumix.Output[[]*DomainCertificate]{
-		OutputState: i.ToDomainCertificateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DomainCertificateMapInput is an input type that accepts DomainCertificateMap and DomainCertificateMapOutput values.
@@ -214,12 +201,6 @@ func (i DomainCertificateMap) ToDomainCertificateMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DomainCertificateMapOutput)
 }
 
-func (i DomainCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainCertificate] {
-	return pulumix.Output[map[string]*DomainCertificate]{
-		OutputState: i.ToDomainCertificateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainCertificateOutput struct{ *pulumi.OutputState }
 
 func (DomainCertificateOutput) ElementType() reflect.Type {
@@ -232,12 +213,6 @@ func (o DomainCertificateOutput) ToDomainCertificateOutput() DomainCertificateOu
 
 func (o DomainCertificateOutput) ToDomainCertificateOutputWithContext(ctx context.Context) DomainCertificateOutput {
 	return o
-}
-
-func (o DomainCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainCertificate] {
-	return pulumix.Output[*DomainCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Certificate content
@@ -279,12 +254,6 @@ func (o DomainCertificateArrayOutput) ToDomainCertificateArrayOutputWithContext(
 	return o
 }
 
-func (o DomainCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DomainCertificate] {
-	return pulumix.Output[[]*DomainCertificate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainCertificateArrayOutput) Index(i pulumi.IntInput) DomainCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainCertificate {
 		return vs[0].([]*DomainCertificate)[vs[1].(int)]
@@ -303,12 +272,6 @@ func (o DomainCertificateMapOutput) ToDomainCertificateMapOutput() DomainCertifi
 
 func (o DomainCertificateMapOutput) ToDomainCertificateMapOutputWithContext(ctx context.Context) DomainCertificateMapOutput {
 	return o
-}
-
-func (o DomainCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainCertificate] {
-	return pulumix.Output[map[string]*DomainCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainCertificateMapOutput) MapIndex(k pulumi.StringInput) DomainCertificateOutput {

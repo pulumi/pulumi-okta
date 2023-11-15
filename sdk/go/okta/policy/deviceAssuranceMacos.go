@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type DeviceAssuranceMacos struct {
@@ -306,12 +305,6 @@ func (i *DeviceAssuranceMacos) ToDeviceAssuranceMacosOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAssuranceMacosOutput)
 }
 
-func (i *DeviceAssuranceMacos) ToOutput(ctx context.Context) pulumix.Output[*DeviceAssuranceMacos] {
-	return pulumix.Output[*DeviceAssuranceMacos]{
-		OutputState: i.ToDeviceAssuranceMacosOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DeviceAssuranceMacosArrayInput is an input type that accepts DeviceAssuranceMacosArray and DeviceAssuranceMacosArrayOutput values.
 // You can construct a concrete instance of `DeviceAssuranceMacosArrayInput` via:
 //
@@ -335,12 +328,6 @@ func (i DeviceAssuranceMacosArray) ToDeviceAssuranceMacosArrayOutput() DeviceAss
 
 func (i DeviceAssuranceMacosArray) ToDeviceAssuranceMacosArrayOutputWithContext(ctx context.Context) DeviceAssuranceMacosArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAssuranceMacosArrayOutput)
-}
-
-func (i DeviceAssuranceMacosArray) ToOutput(ctx context.Context) pulumix.Output[[]*DeviceAssuranceMacos] {
-	return pulumix.Output[[]*DeviceAssuranceMacos]{
-		OutputState: i.ToDeviceAssuranceMacosArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DeviceAssuranceMacosMapInput is an input type that accepts DeviceAssuranceMacosMap and DeviceAssuranceMacosMapOutput values.
@@ -368,12 +355,6 @@ func (i DeviceAssuranceMacosMap) ToDeviceAssuranceMacosMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAssuranceMacosMapOutput)
 }
 
-func (i DeviceAssuranceMacosMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeviceAssuranceMacos] {
-	return pulumix.Output[map[string]*DeviceAssuranceMacos]{
-		OutputState: i.ToDeviceAssuranceMacosMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeviceAssuranceMacosOutput struct{ *pulumi.OutputState }
 
 func (DeviceAssuranceMacosOutput) ElementType() reflect.Type {
@@ -386,12 +367,6 @@ func (o DeviceAssuranceMacosOutput) ToDeviceAssuranceMacosOutput() DeviceAssuran
 
 func (o DeviceAssuranceMacosOutput) ToDeviceAssuranceMacosOutputWithContext(ctx context.Context) DeviceAssuranceMacosOutput {
 	return o
-}
-
-func (o DeviceAssuranceMacosOutput) ToOutput(ctx context.Context) pulumix.Output[*DeviceAssuranceMacos] {
-	return pulumix.Output[*DeviceAssuranceMacos]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Created by
@@ -528,12 +503,6 @@ func (o DeviceAssuranceMacosArrayOutput) ToDeviceAssuranceMacosArrayOutputWithCo
 	return o
 }
 
-func (o DeviceAssuranceMacosArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DeviceAssuranceMacos] {
-	return pulumix.Output[[]*DeviceAssuranceMacos]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeviceAssuranceMacosArrayOutput) Index(i pulumi.IntInput) DeviceAssuranceMacosOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DeviceAssuranceMacos {
 		return vs[0].([]*DeviceAssuranceMacos)[vs[1].(int)]
@@ -552,12 +521,6 @@ func (o DeviceAssuranceMacosMapOutput) ToDeviceAssuranceMacosMapOutput() DeviceA
 
 func (o DeviceAssuranceMacosMapOutput) ToDeviceAssuranceMacosMapOutputWithContext(ctx context.Context) DeviceAssuranceMacosMapOutput {
 	return o
-}
-
-func (o DeviceAssuranceMacosMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeviceAssuranceMacos] {
-	return pulumix.Output[map[string]*DeviceAssuranceMacos]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeviceAssuranceMacosMapOutput) MapIndex(k pulumi.StringInput) DeviceAssuranceMacosOutput {

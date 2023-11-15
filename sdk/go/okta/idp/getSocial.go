@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get a social IdP from Okta.
@@ -153,12 +152,6 @@ func (o LookupSocialResultOutput) ToLookupSocialResultOutput() LookupSocialResul
 
 func (o LookupSocialResultOutput) ToLookupSocialResultOutputWithContext(ctx context.Context) LookupSocialResultOutput {
 	return o
-}
-
-func (o LookupSocialResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSocialResult] {
-	return pulumix.Output[LookupSocialResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the account linking action for an IdP user.

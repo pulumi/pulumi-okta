@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type RuleMfa struct {
@@ -196,12 +195,6 @@ func (i *RuleMfa) ToRuleMfaOutputWithContext(ctx context.Context) RuleMfaOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaOutput)
 }
 
-func (i *RuleMfa) ToOutput(ctx context.Context) pulumix.Output[*RuleMfa] {
-	return pulumix.Output[*RuleMfa]{
-		OutputState: i.ToRuleMfaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RuleMfaArrayInput is an input type that accepts RuleMfaArray and RuleMfaArrayOutput values.
 // You can construct a concrete instance of `RuleMfaArrayInput` via:
 //
@@ -225,12 +218,6 @@ func (i RuleMfaArray) ToRuleMfaArrayOutput() RuleMfaArrayOutput {
 
 func (i RuleMfaArray) ToRuleMfaArrayOutputWithContext(ctx context.Context) RuleMfaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaArrayOutput)
-}
-
-func (i RuleMfaArray) ToOutput(ctx context.Context) pulumix.Output[[]*RuleMfa] {
-	return pulumix.Output[[]*RuleMfa]{
-		OutputState: i.ToRuleMfaArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RuleMfaMapInput is an input type that accepts RuleMfaMap and RuleMfaMapOutput values.
@@ -258,12 +245,6 @@ func (i RuleMfaMap) ToRuleMfaMapOutputWithContext(ctx context.Context) RuleMfaMa
 	return pulumi.ToOutputWithContext(ctx, i).(RuleMfaMapOutput)
 }
 
-func (i RuleMfaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RuleMfa] {
-	return pulumix.Output[map[string]*RuleMfa]{
-		OutputState: i.ToRuleMfaMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RuleMfaOutput struct{ *pulumi.OutputState }
 
 func (RuleMfaOutput) ElementType() reflect.Type {
@@ -276,12 +257,6 @@ func (o RuleMfaOutput) ToRuleMfaOutput() RuleMfaOutput {
 
 func (o RuleMfaOutput) ToRuleMfaOutputWithContext(ctx context.Context) RuleMfaOutput {
 	return o
-}
-
-func (o RuleMfaOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleMfa] {
-	return pulumix.Output[*RuleMfa]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Applications to exclude
@@ -353,12 +328,6 @@ func (o RuleMfaArrayOutput) ToRuleMfaArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o RuleMfaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RuleMfa] {
-	return pulumix.Output[[]*RuleMfa]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuleMfaArrayOutput) Index(i pulumi.IntInput) RuleMfaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RuleMfa {
 		return vs[0].([]*RuleMfa)[vs[1].(int)]
@@ -377,12 +346,6 @@ func (o RuleMfaMapOutput) ToRuleMfaMapOutput() RuleMfaMapOutput {
 
 func (o RuleMfaMapOutput) ToRuleMfaMapOutputWithContext(ctx context.Context) RuleMfaMapOutput {
 	return o
-}
-
-func (o RuleMfaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RuleMfa] {
-	return pulumix.Output[map[string]*RuleMfa]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RuleMfaMapOutput) MapIndex(k pulumi.StringInput) RuleMfaOutput {

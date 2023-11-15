@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type EventHook struct {
@@ -148,12 +147,6 @@ func (i *EventHook) ToEventHookOutputWithContext(ctx context.Context) EventHookO
 	return pulumi.ToOutputWithContext(ctx, i).(EventHookOutput)
 }
 
-func (i *EventHook) ToOutput(ctx context.Context) pulumix.Output[*EventHook] {
-	return pulumix.Output[*EventHook]{
-		OutputState: i.ToEventHookOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventHookArrayInput is an input type that accepts EventHookArray and EventHookArrayOutput values.
 // You can construct a concrete instance of `EventHookArrayInput` via:
 //
@@ -177,12 +170,6 @@ func (i EventHookArray) ToEventHookArrayOutput() EventHookArrayOutput {
 
 func (i EventHookArray) ToEventHookArrayOutputWithContext(ctx context.Context) EventHookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHookArrayOutput)
-}
-
-func (i EventHookArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventHook] {
-	return pulumix.Output[[]*EventHook]{
-		OutputState: i.ToEventHookArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventHookMapInput is an input type that accepts EventHookMap and EventHookMapOutput values.
@@ -210,12 +197,6 @@ func (i EventHookMap) ToEventHookMapOutputWithContext(ctx context.Context) Event
 	return pulumi.ToOutputWithContext(ctx, i).(EventHookMapOutput)
 }
 
-func (i EventHookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventHook] {
-	return pulumix.Output[map[string]*EventHook]{
-		OutputState: i.ToEventHookMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventHookOutput struct{ *pulumi.OutputState }
 
 func (EventHookOutput) ElementType() reflect.Type {
@@ -228,12 +209,6 @@ func (o EventHookOutput) ToEventHookOutput() EventHookOutput {
 
 func (o EventHookOutput) ToEventHookOutputWithContext(ctx context.Context) EventHookOutput {
 	return o
-}
-
-func (o EventHookOutput) ToOutput(ctx context.Context) pulumix.Output[*EventHook] {
-	return pulumix.Output[*EventHook]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Authentication required for event hook request.
@@ -279,12 +254,6 @@ func (o EventHookArrayOutput) ToEventHookArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o EventHookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventHook] {
-	return pulumix.Output[[]*EventHook]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventHookArrayOutput) Index(i pulumi.IntInput) EventHookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventHook {
 		return vs[0].([]*EventHook)[vs[1].(int)]
@@ -303,12 +272,6 @@ func (o EventHookMapOutput) ToEventHookMapOutput() EventHookMapOutput {
 
 func (o EventHookMapOutput) ToEventHookMapOutputWithContext(ctx context.Context) EventHookMapOutput {
 	return o
-}
-
-func (o EventHookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventHook] {
-	return pulumix.Output[map[string]*EventHook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventHookMapOutput) MapIndex(k pulumi.StringInput) EventHookOutput {

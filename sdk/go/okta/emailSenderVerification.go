@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type EmailSenderVerification struct {
@@ -100,12 +99,6 @@ func (i *EmailSenderVerification) ToEmailSenderVerificationOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EmailSenderVerificationOutput)
 }
 
-func (i *EmailSenderVerification) ToOutput(ctx context.Context) pulumix.Output[*EmailSenderVerification] {
-	return pulumix.Output[*EmailSenderVerification]{
-		OutputState: i.ToEmailSenderVerificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EmailSenderVerificationArrayInput is an input type that accepts EmailSenderVerificationArray and EmailSenderVerificationArrayOutput values.
 // You can construct a concrete instance of `EmailSenderVerificationArrayInput` via:
 //
@@ -129,12 +122,6 @@ func (i EmailSenderVerificationArray) ToEmailSenderVerificationArrayOutput() Ema
 
 func (i EmailSenderVerificationArray) ToEmailSenderVerificationArrayOutputWithContext(ctx context.Context) EmailSenderVerificationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailSenderVerificationArrayOutput)
-}
-
-func (i EmailSenderVerificationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EmailSenderVerification] {
-	return pulumix.Output[[]*EmailSenderVerification]{
-		OutputState: i.ToEmailSenderVerificationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EmailSenderVerificationMapInput is an input type that accepts EmailSenderVerificationMap and EmailSenderVerificationMapOutput values.
@@ -162,12 +149,6 @@ func (i EmailSenderVerificationMap) ToEmailSenderVerificationMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EmailSenderVerificationMapOutput)
 }
 
-func (i EmailSenderVerificationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailSenderVerification] {
-	return pulumix.Output[map[string]*EmailSenderVerification]{
-		OutputState: i.ToEmailSenderVerificationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EmailSenderVerificationOutput struct{ *pulumi.OutputState }
 
 func (EmailSenderVerificationOutput) ElementType() reflect.Type {
@@ -180,12 +161,6 @@ func (o EmailSenderVerificationOutput) ToEmailSenderVerificationOutput() EmailSe
 
 func (o EmailSenderVerificationOutput) ToEmailSenderVerificationOutputWithContext(ctx context.Context) EmailSenderVerificationOutput {
 	return o
-}
-
-func (o EmailSenderVerificationOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailSenderVerification] {
-	return pulumix.Output[*EmailSenderVerification]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Email sender ID
@@ -207,12 +182,6 @@ func (o EmailSenderVerificationArrayOutput) ToEmailSenderVerificationArrayOutput
 	return o
 }
 
-func (o EmailSenderVerificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EmailSenderVerification] {
-	return pulumix.Output[[]*EmailSenderVerification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EmailSenderVerificationArrayOutput) Index(i pulumi.IntInput) EmailSenderVerificationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EmailSenderVerification {
 		return vs[0].([]*EmailSenderVerification)[vs[1].(int)]
@@ -231,12 +200,6 @@ func (o EmailSenderVerificationMapOutput) ToEmailSenderVerificationMapOutput() E
 
 func (o EmailSenderVerificationMapOutput) ToEmailSenderVerificationMapOutputWithContext(ctx context.Context) EmailSenderVerificationMapOutput {
 	return o
-}
-
-func (o EmailSenderVerificationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailSenderVerification] {
-	return pulumix.Output[map[string]*EmailSenderVerification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EmailSenderVerificationMapOutput) MapIndex(k pulumi.StringInput) EmailSenderVerificationOutput {

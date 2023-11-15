@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type DeviceAssuranceChromeos struct {
@@ -266,12 +265,6 @@ func (i *DeviceAssuranceChromeos) ToDeviceAssuranceChromeosOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAssuranceChromeosOutput)
 }
 
-func (i *DeviceAssuranceChromeos) ToOutput(ctx context.Context) pulumix.Output[*DeviceAssuranceChromeos] {
-	return pulumix.Output[*DeviceAssuranceChromeos]{
-		OutputState: i.ToDeviceAssuranceChromeosOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DeviceAssuranceChromeosArrayInput is an input type that accepts DeviceAssuranceChromeosArray and DeviceAssuranceChromeosArrayOutput values.
 // You can construct a concrete instance of `DeviceAssuranceChromeosArrayInput` via:
 //
@@ -295,12 +288,6 @@ func (i DeviceAssuranceChromeosArray) ToDeviceAssuranceChromeosArrayOutput() Dev
 
 func (i DeviceAssuranceChromeosArray) ToDeviceAssuranceChromeosArrayOutputWithContext(ctx context.Context) DeviceAssuranceChromeosArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAssuranceChromeosArrayOutput)
-}
-
-func (i DeviceAssuranceChromeosArray) ToOutput(ctx context.Context) pulumix.Output[[]*DeviceAssuranceChromeos] {
-	return pulumix.Output[[]*DeviceAssuranceChromeos]{
-		OutputState: i.ToDeviceAssuranceChromeosArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DeviceAssuranceChromeosMapInput is an input type that accepts DeviceAssuranceChromeosMap and DeviceAssuranceChromeosMapOutput values.
@@ -328,12 +315,6 @@ func (i DeviceAssuranceChromeosMap) ToDeviceAssuranceChromeosMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAssuranceChromeosMapOutput)
 }
 
-func (i DeviceAssuranceChromeosMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeviceAssuranceChromeos] {
-	return pulumix.Output[map[string]*DeviceAssuranceChromeos]{
-		OutputState: i.ToDeviceAssuranceChromeosMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeviceAssuranceChromeosOutput struct{ *pulumi.OutputState }
 
 func (DeviceAssuranceChromeosOutput) ElementType() reflect.Type {
@@ -346,12 +327,6 @@ func (o DeviceAssuranceChromeosOutput) ToDeviceAssuranceChromeosOutput() DeviceA
 
 func (o DeviceAssuranceChromeosOutput) ToDeviceAssuranceChromeosOutputWithContext(ctx context.Context) DeviceAssuranceChromeosOutput {
 	return o
-}
-
-func (o DeviceAssuranceChromeosOutput) ToOutput(ctx context.Context) pulumix.Output[*DeviceAssuranceChromeos] {
-	return pulumix.Output[*DeviceAssuranceChromeos]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Created by
@@ -470,12 +445,6 @@ func (o DeviceAssuranceChromeosArrayOutput) ToDeviceAssuranceChromeosArrayOutput
 	return o
 }
 
-func (o DeviceAssuranceChromeosArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DeviceAssuranceChromeos] {
-	return pulumix.Output[[]*DeviceAssuranceChromeos]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeviceAssuranceChromeosArrayOutput) Index(i pulumi.IntInput) DeviceAssuranceChromeosOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DeviceAssuranceChromeos {
 		return vs[0].([]*DeviceAssuranceChromeos)[vs[1].(int)]
@@ -494,12 +463,6 @@ func (o DeviceAssuranceChromeosMapOutput) ToDeviceAssuranceChromeosMapOutput() D
 
 func (o DeviceAssuranceChromeosMapOutput) ToDeviceAssuranceChromeosMapOutputWithContext(ctx context.Context) DeviceAssuranceChromeosMapOutput {
 	return o
-}
-
-func (o DeviceAssuranceChromeosMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeviceAssuranceChromeos] {
-	return pulumix.Output[map[string]*DeviceAssuranceChromeos]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeviceAssuranceChromeosMapOutput) MapIndex(k pulumi.StringInput) DeviceAssuranceChromeosOutput {

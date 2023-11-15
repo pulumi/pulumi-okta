@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Hook struct {
@@ -131,12 +130,6 @@ func (i *Hook) ToHookOutputWithContext(ctx context.Context) HookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HookOutput)
 }
 
-func (i *Hook) ToOutput(ctx context.Context) pulumix.Output[*Hook] {
-	return pulumix.Output[*Hook]{
-		OutputState: i.ToHookOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HookArrayInput is an input type that accepts HookArray and HookArrayOutput values.
 // You can construct a concrete instance of `HookArrayInput` via:
 //
@@ -160,12 +153,6 @@ func (i HookArray) ToHookArrayOutput() HookArrayOutput {
 
 func (i HookArray) ToHookArrayOutputWithContext(ctx context.Context) HookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HookArrayOutput)
-}
-
-func (i HookArray) ToOutput(ctx context.Context) pulumix.Output[[]*Hook] {
-	return pulumix.Output[[]*Hook]{
-		OutputState: i.ToHookArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // HookMapInput is an input type that accepts HookMap and HookMapOutput values.
@@ -193,12 +180,6 @@ func (i HookMap) ToHookMapOutputWithContext(ctx context.Context) HookMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HookMapOutput)
 }
 
-func (i HookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Hook] {
-	return pulumix.Output[map[string]*Hook]{
-		OutputState: i.ToHookMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HookOutput struct{ *pulumi.OutputState }
 
 func (HookOutput) ElementType() reflect.Type {
@@ -211,12 +192,6 @@ func (o HookOutput) ToHookOutput() HookOutput {
 
 func (o HookOutput) ToHookOutputWithContext(ctx context.Context) HookOutput {
 	return o
-}
-
-func (o HookOutput) ToOutput(ctx context.Context) pulumix.Output[*Hook] {
-	return pulumix.Output[*Hook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HookOutput) Auth() pulumi.StringMapOutput {
@@ -261,12 +236,6 @@ func (o HookArrayOutput) ToHookArrayOutputWithContext(ctx context.Context) HookA
 	return o
 }
 
-func (o HookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Hook] {
-	return pulumix.Output[[]*Hook]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HookArrayOutput) Index(i pulumi.IntInput) HookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Hook {
 		return vs[0].([]*Hook)[vs[1].(int)]
@@ -285,12 +254,6 @@ func (o HookMapOutput) ToHookMapOutput() HookMapOutput {
 
 func (o HookMapOutput) ToHookMapOutputWithContext(ctx context.Context) HookMapOutput {
 	return o
-}
-
-func (o HookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Hook] {
-	return pulumix.Output[map[string]*Hook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HookMapOutput) MapIndex(k pulumi.StringInput) HookOutput {

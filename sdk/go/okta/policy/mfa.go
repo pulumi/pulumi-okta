@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Mfa struct {
@@ -251,12 +250,6 @@ func (i *Mfa) ToMfaOutputWithContext(ctx context.Context) MfaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MfaOutput)
 }
 
-func (i *Mfa) ToOutput(ctx context.Context) pulumix.Output[*Mfa] {
-	return pulumix.Output[*Mfa]{
-		OutputState: i.ToMfaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MfaArrayInput is an input type that accepts MfaArray and MfaArrayOutput values.
 // You can construct a concrete instance of `MfaArrayInput` via:
 //
@@ -280,12 +273,6 @@ func (i MfaArray) ToMfaArrayOutput() MfaArrayOutput {
 
 func (i MfaArray) ToMfaArrayOutputWithContext(ctx context.Context) MfaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MfaArrayOutput)
-}
-
-func (i MfaArray) ToOutput(ctx context.Context) pulumix.Output[[]*Mfa] {
-	return pulumix.Output[[]*Mfa]{
-		OutputState: i.ToMfaArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MfaMapInput is an input type that accepts MfaMap and MfaMapOutput values.
@@ -313,12 +300,6 @@ func (i MfaMap) ToMfaMapOutputWithContext(ctx context.Context) MfaMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MfaMapOutput)
 }
 
-func (i MfaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Mfa] {
-	return pulumix.Output[map[string]*Mfa]{
-		OutputState: i.ToMfaMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MfaOutput struct{ *pulumi.OutputState }
 
 func (MfaOutput) ElementType() reflect.Type {
@@ -331,12 +312,6 @@ func (o MfaOutput) ToMfaOutput() MfaOutput {
 
 func (o MfaOutput) ToMfaOutputWithContext(ctx context.Context) MfaOutput {
 	return o
-}
-
-func (o MfaOutput) ToOutput(ctx context.Context) pulumix.Output[*Mfa] {
-	return pulumix.Output[*Mfa]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Policy Description
@@ -467,12 +442,6 @@ func (o MfaArrayOutput) ToMfaArrayOutputWithContext(ctx context.Context) MfaArra
 	return o
 }
 
-func (o MfaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Mfa] {
-	return pulumix.Output[[]*Mfa]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MfaArrayOutput) Index(i pulumi.IntInput) MfaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Mfa {
 		return vs[0].([]*Mfa)[vs[1].(int)]
@@ -491,12 +460,6 @@ func (o MfaMapOutput) ToMfaMapOutput() MfaMapOutput {
 
 func (o MfaMapOutput) ToMfaMapOutputWithContext(ctx context.Context) MfaMapOutput {
 	return o
-}
-
-func (o MfaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Mfa] {
-	return pulumix.Output[map[string]*Mfa]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MfaMapOutput) MapIndex(k pulumi.StringInput) MfaOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type GroupAssignment struct {
@@ -143,12 +142,6 @@ func (i *GroupAssignment) ToGroupAssignmentOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(GroupAssignmentOutput)
 }
 
-func (i *GroupAssignment) ToOutput(ctx context.Context) pulumix.Output[*GroupAssignment] {
-	return pulumix.Output[*GroupAssignment]{
-		OutputState: i.ToGroupAssignmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GroupAssignmentArrayInput is an input type that accepts GroupAssignmentArray and GroupAssignmentArrayOutput values.
 // You can construct a concrete instance of `GroupAssignmentArrayInput` via:
 //
@@ -172,12 +165,6 @@ func (i GroupAssignmentArray) ToGroupAssignmentArrayOutput() GroupAssignmentArra
 
 func (i GroupAssignmentArray) ToGroupAssignmentArrayOutputWithContext(ctx context.Context) GroupAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupAssignmentArrayOutput)
-}
-
-func (i GroupAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*GroupAssignment] {
-	return pulumix.Output[[]*GroupAssignment]{
-		OutputState: i.ToGroupAssignmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GroupAssignmentMapInput is an input type that accepts GroupAssignmentMap and GroupAssignmentMapOutput values.
@@ -205,12 +192,6 @@ func (i GroupAssignmentMap) ToGroupAssignmentMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GroupAssignmentMapOutput)
 }
 
-func (i GroupAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupAssignment] {
-	return pulumix.Output[map[string]*GroupAssignment]{
-		OutputState: i.ToGroupAssignmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupAssignmentOutput struct{ *pulumi.OutputState }
 
 func (GroupAssignmentOutput) ElementType() reflect.Type {
@@ -223,12 +204,6 @@ func (o GroupAssignmentOutput) ToGroupAssignmentOutput() GroupAssignmentOutput {
 
 func (o GroupAssignmentOutput) ToGroupAssignmentOutputWithContext(ctx context.Context) GroupAssignmentOutput {
 	return o
-}
-
-func (o GroupAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupAssignment] {
-	return pulumix.Output[*GroupAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // App to associate group with
@@ -270,12 +245,6 @@ func (o GroupAssignmentArrayOutput) ToGroupAssignmentArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o GroupAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GroupAssignment] {
-	return pulumix.Output[[]*GroupAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GroupAssignmentArrayOutput) Index(i pulumi.IntInput) GroupAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GroupAssignment {
 		return vs[0].([]*GroupAssignment)[vs[1].(int)]
@@ -294,12 +263,6 @@ func (o GroupAssignmentMapOutput) ToGroupAssignmentMapOutput() GroupAssignmentMa
 
 func (o GroupAssignmentMapOutput) ToGroupAssignmentMapOutputWithContext(ctx context.Context) GroupAssignmentMapOutput {
 	return o
-}
-
-func (o GroupAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupAssignment] {
-	return pulumix.Output[map[string]*GroupAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupAssignmentMapOutput) MapIndex(k pulumi.StringInput) GroupAssignmentOutput {

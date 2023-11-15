@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type CaptchaOrgWideSettings struct {
@@ -106,12 +105,6 @@ func (i *CaptchaOrgWideSettings) ToCaptchaOrgWideSettingsOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(CaptchaOrgWideSettingsOutput)
 }
 
-func (i *CaptchaOrgWideSettings) ToOutput(ctx context.Context) pulumix.Output[*CaptchaOrgWideSettings] {
-	return pulumix.Output[*CaptchaOrgWideSettings]{
-		OutputState: i.ToCaptchaOrgWideSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CaptchaOrgWideSettingsArrayInput is an input type that accepts CaptchaOrgWideSettingsArray and CaptchaOrgWideSettingsArrayOutput values.
 // You can construct a concrete instance of `CaptchaOrgWideSettingsArrayInput` via:
 //
@@ -135,12 +128,6 @@ func (i CaptchaOrgWideSettingsArray) ToCaptchaOrgWideSettingsArrayOutput() Captc
 
 func (i CaptchaOrgWideSettingsArray) ToCaptchaOrgWideSettingsArrayOutputWithContext(ctx context.Context) CaptchaOrgWideSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CaptchaOrgWideSettingsArrayOutput)
-}
-
-func (i CaptchaOrgWideSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*CaptchaOrgWideSettings] {
-	return pulumix.Output[[]*CaptchaOrgWideSettings]{
-		OutputState: i.ToCaptchaOrgWideSettingsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CaptchaOrgWideSettingsMapInput is an input type that accepts CaptchaOrgWideSettingsMap and CaptchaOrgWideSettingsMapOutput values.
@@ -168,12 +155,6 @@ func (i CaptchaOrgWideSettingsMap) ToCaptchaOrgWideSettingsMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CaptchaOrgWideSettingsMapOutput)
 }
 
-func (i CaptchaOrgWideSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CaptchaOrgWideSettings] {
-	return pulumix.Output[map[string]*CaptchaOrgWideSettings]{
-		OutputState: i.ToCaptchaOrgWideSettingsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CaptchaOrgWideSettingsOutput struct{ *pulumi.OutputState }
 
 func (CaptchaOrgWideSettingsOutput) ElementType() reflect.Type {
@@ -186,12 +167,6 @@ func (o CaptchaOrgWideSettingsOutput) ToCaptchaOrgWideSettingsOutput() CaptchaOr
 
 func (o CaptchaOrgWideSettingsOutput) ToCaptchaOrgWideSettingsOutputWithContext(ctx context.Context) CaptchaOrgWideSettingsOutput {
 	return o
-}
-
-func (o CaptchaOrgWideSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*CaptchaOrgWideSettings] {
-	return pulumix.Output[*CaptchaOrgWideSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the CAPTCHA
@@ -218,12 +193,6 @@ func (o CaptchaOrgWideSettingsArrayOutput) ToCaptchaOrgWideSettingsArrayOutputWi
 	return o
 }
 
-func (o CaptchaOrgWideSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CaptchaOrgWideSettings] {
-	return pulumix.Output[[]*CaptchaOrgWideSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CaptchaOrgWideSettingsArrayOutput) Index(i pulumi.IntInput) CaptchaOrgWideSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CaptchaOrgWideSettings {
 		return vs[0].([]*CaptchaOrgWideSettings)[vs[1].(int)]
@@ -242,12 +211,6 @@ func (o CaptchaOrgWideSettingsMapOutput) ToCaptchaOrgWideSettingsMapOutput() Cap
 
 func (o CaptchaOrgWideSettingsMapOutput) ToCaptchaOrgWideSettingsMapOutputWithContext(ctx context.Context) CaptchaOrgWideSettingsMapOutput {
 	return o
-}
-
-func (o CaptchaOrgWideSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CaptchaOrgWideSettings] {
-	return pulumix.Output[map[string]*CaptchaOrgWideSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CaptchaOrgWideSettingsMapOutput) MapIndex(k pulumi.StringInput) CaptchaOrgWideSettingsOutput {

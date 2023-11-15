@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get a OIDC IdP from Okta.
@@ -135,12 +134,6 @@ func (o LookupOidcResultOutput) ToLookupOidcResultOutput() LookupOidcResultOutpu
 
 func (o LookupOidcResultOutput) ToLookupOidcResultOutputWithContext(ctx context.Context) LookupOidcResultOutput {
 	return o
-}
-
-func (o LookupOidcResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOidcResult] {
-	return pulumix.Output[LookupOidcResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The method of making an authorization request.
