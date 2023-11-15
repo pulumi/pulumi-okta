@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ServerScope struct {
@@ -176,12 +175,6 @@ func (i *ServerScope) ToServerScopeOutputWithContext(ctx context.Context) Server
 	return pulumi.ToOutputWithContext(ctx, i).(ServerScopeOutput)
 }
 
-func (i *ServerScope) ToOutput(ctx context.Context) pulumix.Output[*ServerScope] {
-	return pulumix.Output[*ServerScope]{
-		OutputState: i.ToServerScopeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerScopeArrayInput is an input type that accepts ServerScopeArray and ServerScopeArrayOutput values.
 // You can construct a concrete instance of `ServerScopeArrayInput` via:
 //
@@ -205,12 +198,6 @@ func (i ServerScopeArray) ToServerScopeArrayOutput() ServerScopeArrayOutput {
 
 func (i ServerScopeArray) ToServerScopeArrayOutputWithContext(ctx context.Context) ServerScopeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerScopeArrayOutput)
-}
-
-func (i ServerScopeArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerScope] {
-	return pulumix.Output[[]*ServerScope]{
-		OutputState: i.ToServerScopeArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServerScopeMapInput is an input type that accepts ServerScopeMap and ServerScopeMapOutput values.
@@ -238,12 +225,6 @@ func (i ServerScopeMap) ToServerScopeMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(ServerScopeMapOutput)
 }
 
-func (i ServerScopeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerScope] {
-	return pulumix.Output[map[string]*ServerScope]{
-		OutputState: i.ToServerScopeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerScopeOutput struct{ *pulumi.OutputState }
 
 func (ServerScopeOutput) ElementType() reflect.Type {
@@ -256,12 +237,6 @@ func (o ServerScopeOutput) ToServerScopeOutput() ServerScopeOutput {
 
 func (o ServerScopeOutput) ToServerScopeOutputWithContext(ctx context.Context) ServerScopeOutput {
 	return o
-}
-
-func (o ServerScopeOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerScope] {
-	return pulumix.Output[*ServerScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Auth server ID
@@ -323,12 +298,6 @@ func (o ServerScopeArrayOutput) ToServerScopeArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o ServerScopeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerScope] {
-	return pulumix.Output[[]*ServerScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServerScopeArrayOutput) Index(i pulumi.IntInput) ServerScopeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerScope {
 		return vs[0].([]*ServerScope)[vs[1].(int)]
@@ -347,12 +316,6 @@ func (o ServerScopeMapOutput) ToServerScopeMapOutput() ServerScopeMapOutput {
 
 func (o ServerScopeMapOutput) ToServerScopeMapOutputWithContext(ctx context.Context) ServerScopeMapOutput {
 	return o
-}
-
-func (o ServerScopeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerScope] {
-	return pulumix.Output[map[string]*ServerScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerScopeMapOutput) MapIndex(k pulumi.StringInput) ServerScopeOutput {

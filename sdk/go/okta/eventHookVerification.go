@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type EventHookVerification struct {
@@ -100,12 +99,6 @@ func (i *EventHookVerification) ToEventHookVerificationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(EventHookVerificationOutput)
 }
 
-func (i *EventHookVerification) ToOutput(ctx context.Context) pulumix.Output[*EventHookVerification] {
-	return pulumix.Output[*EventHookVerification]{
-		OutputState: i.ToEventHookVerificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventHookVerificationArrayInput is an input type that accepts EventHookVerificationArray and EventHookVerificationArrayOutput values.
 // You can construct a concrete instance of `EventHookVerificationArrayInput` via:
 //
@@ -129,12 +122,6 @@ func (i EventHookVerificationArray) ToEventHookVerificationArrayOutput() EventHo
 
 func (i EventHookVerificationArray) ToEventHookVerificationArrayOutputWithContext(ctx context.Context) EventHookVerificationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHookVerificationArrayOutput)
-}
-
-func (i EventHookVerificationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventHookVerification] {
-	return pulumix.Output[[]*EventHookVerification]{
-		OutputState: i.ToEventHookVerificationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventHookVerificationMapInput is an input type that accepts EventHookVerificationMap and EventHookVerificationMapOutput values.
@@ -162,12 +149,6 @@ func (i EventHookVerificationMap) ToEventHookVerificationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EventHookVerificationMapOutput)
 }
 
-func (i EventHookVerificationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventHookVerification] {
-	return pulumix.Output[map[string]*EventHookVerification]{
-		OutputState: i.ToEventHookVerificationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventHookVerificationOutput struct{ *pulumi.OutputState }
 
 func (EventHookVerificationOutput) ElementType() reflect.Type {
@@ -180,12 +161,6 @@ func (o EventHookVerificationOutput) ToEventHookVerificationOutput() EventHookVe
 
 func (o EventHookVerificationOutput) ToEventHookVerificationOutputWithContext(ctx context.Context) EventHookVerificationOutput {
 	return o
-}
-
-func (o EventHookVerificationOutput) ToOutput(ctx context.Context) pulumix.Output[*EventHookVerification] {
-	return pulumix.Output[*EventHookVerification]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Event hook ID
@@ -207,12 +182,6 @@ func (o EventHookVerificationArrayOutput) ToEventHookVerificationArrayOutputWith
 	return o
 }
 
-func (o EventHookVerificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventHookVerification] {
-	return pulumix.Output[[]*EventHookVerification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventHookVerificationArrayOutput) Index(i pulumi.IntInput) EventHookVerificationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventHookVerification {
 		return vs[0].([]*EventHookVerification)[vs[1].(int)]
@@ -231,12 +200,6 @@ func (o EventHookVerificationMapOutput) ToEventHookVerificationMapOutput() Event
 
 func (o EventHookVerificationMapOutput) ToEventHookVerificationMapOutputWithContext(ctx context.Context) EventHookVerificationMapOutput {
 	return o
-}
-
-func (o EventHookVerificationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventHookVerification] {
-	return pulumix.Output[map[string]*EventHookVerification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventHookVerificationMapOutput) MapIndex(k pulumi.StringInput) EventHookVerificationOutput {

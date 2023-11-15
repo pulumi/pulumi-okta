@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ThreeField struct {
@@ -396,12 +395,6 @@ func (i *ThreeField) ToThreeFieldOutputWithContext(ctx context.Context) ThreeFie
 	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldOutput)
 }
 
-func (i *ThreeField) ToOutput(ctx context.Context) pulumix.Output[*ThreeField] {
-	return pulumix.Output[*ThreeField]{
-		OutputState: i.ToThreeFieldOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ThreeFieldArrayInput is an input type that accepts ThreeFieldArray and ThreeFieldArrayOutput values.
 // You can construct a concrete instance of `ThreeFieldArrayInput` via:
 //
@@ -425,12 +418,6 @@ func (i ThreeFieldArray) ToThreeFieldArrayOutput() ThreeFieldArrayOutput {
 
 func (i ThreeFieldArray) ToThreeFieldArrayOutputWithContext(ctx context.Context) ThreeFieldArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldArrayOutput)
-}
-
-func (i ThreeFieldArray) ToOutput(ctx context.Context) pulumix.Output[[]*ThreeField] {
-	return pulumix.Output[[]*ThreeField]{
-		OutputState: i.ToThreeFieldArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ThreeFieldMapInput is an input type that accepts ThreeFieldMap and ThreeFieldMapOutput values.
@@ -458,12 +445,6 @@ func (i ThreeFieldMap) ToThreeFieldMapOutputWithContext(ctx context.Context) Thr
 	return pulumi.ToOutputWithContext(ctx, i).(ThreeFieldMapOutput)
 }
 
-func (i ThreeFieldMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThreeField] {
-	return pulumix.Output[map[string]*ThreeField]{
-		OutputState: i.ToThreeFieldMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThreeFieldOutput struct{ *pulumi.OutputState }
 
 func (ThreeFieldOutput) ElementType() reflect.Type {
@@ -476,12 +457,6 @@ func (o ThreeFieldOutput) ToThreeFieldOutput() ThreeFieldOutput {
 
 func (o ThreeFieldOutput) ToThreeFieldOutputWithContext(ctx context.Context) ThreeFieldOutput {
 	return o
-}
-
-func (o ThreeFieldOutput) ToOutput(ctx context.Context) pulumix.Output[*ThreeField] {
-	return pulumix.Output[*ThreeField]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Custom error page URL
@@ -648,12 +623,6 @@ func (o ThreeFieldArrayOutput) ToThreeFieldArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ThreeFieldArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ThreeField] {
-	return pulumix.Output[[]*ThreeField]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThreeFieldArrayOutput) Index(i pulumi.IntInput) ThreeFieldOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ThreeField {
 		return vs[0].([]*ThreeField)[vs[1].(int)]
@@ -672,12 +641,6 @@ func (o ThreeFieldMapOutput) ToThreeFieldMapOutput() ThreeFieldMapOutput {
 
 func (o ThreeFieldMapOutput) ToThreeFieldMapOutputWithContext(ctx context.Context) ThreeFieldMapOutput {
 	return o
-}
-
-func (o ThreeFieldMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThreeField] {
-	return pulumix.Output[map[string]*ThreeField]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThreeFieldMapOutput) MapIndex(k pulumi.StringInput) ThreeFieldOutput {

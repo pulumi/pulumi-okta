@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get a set of groups assigned to an Okta application.
@@ -99,12 +98,6 @@ func (o LookupAppGroupAssignmentsResultOutput) ToLookupAppGroupAssignmentsResult
 
 func (o LookupAppGroupAssignmentsResultOutput) ToLookupAppGroupAssignmentsResultOutputWithContext(ctx context.Context) LookupAppGroupAssignmentsResultOutput {
 	return o
-}
-
-func (o LookupAppGroupAssignmentsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAppGroupAssignmentsResult] {
-	return pulumix.Output[LookupAppGroupAssignmentsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of groups IDs assigned to the app

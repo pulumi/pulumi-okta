@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type DeviceAssuranceIos struct {
@@ -156,12 +155,6 @@ func (i *DeviceAssuranceIos) ToDeviceAssuranceIosOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAssuranceIosOutput)
 }
 
-func (i *DeviceAssuranceIos) ToOutput(ctx context.Context) pulumix.Output[*DeviceAssuranceIos] {
-	return pulumix.Output[*DeviceAssuranceIos]{
-		OutputState: i.ToDeviceAssuranceIosOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DeviceAssuranceIosArrayInput is an input type that accepts DeviceAssuranceIosArray and DeviceAssuranceIosArrayOutput values.
 // You can construct a concrete instance of `DeviceAssuranceIosArrayInput` via:
 //
@@ -185,12 +178,6 @@ func (i DeviceAssuranceIosArray) ToDeviceAssuranceIosArrayOutput() DeviceAssuran
 
 func (i DeviceAssuranceIosArray) ToDeviceAssuranceIosArrayOutputWithContext(ctx context.Context) DeviceAssuranceIosArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAssuranceIosArrayOutput)
-}
-
-func (i DeviceAssuranceIosArray) ToOutput(ctx context.Context) pulumix.Output[[]*DeviceAssuranceIos] {
-	return pulumix.Output[[]*DeviceAssuranceIos]{
-		OutputState: i.ToDeviceAssuranceIosArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DeviceAssuranceIosMapInput is an input type that accepts DeviceAssuranceIosMap and DeviceAssuranceIosMapOutput values.
@@ -218,12 +205,6 @@ func (i DeviceAssuranceIosMap) ToDeviceAssuranceIosMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAssuranceIosMapOutput)
 }
 
-func (i DeviceAssuranceIosMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeviceAssuranceIos] {
-	return pulumix.Output[map[string]*DeviceAssuranceIos]{
-		OutputState: i.ToDeviceAssuranceIosMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeviceAssuranceIosOutput struct{ *pulumi.OutputState }
 
 func (DeviceAssuranceIosOutput) ElementType() reflect.Type {
@@ -236,12 +217,6 @@ func (o DeviceAssuranceIosOutput) ToDeviceAssuranceIosOutput() DeviceAssuranceIo
 
 func (o DeviceAssuranceIosOutput) ToDeviceAssuranceIosOutputWithContext(ctx context.Context) DeviceAssuranceIosOutput {
 	return o
-}
-
-func (o DeviceAssuranceIosOutput) ToOutput(ctx context.Context) pulumix.Output[*DeviceAssuranceIos] {
-	return pulumix.Output[*DeviceAssuranceIos]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Created by
@@ -303,12 +278,6 @@ func (o DeviceAssuranceIosArrayOutput) ToDeviceAssuranceIosArrayOutputWithContex
 	return o
 }
 
-func (o DeviceAssuranceIosArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DeviceAssuranceIos] {
-	return pulumix.Output[[]*DeviceAssuranceIos]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeviceAssuranceIosArrayOutput) Index(i pulumi.IntInput) DeviceAssuranceIosOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DeviceAssuranceIos {
 		return vs[0].([]*DeviceAssuranceIos)[vs[1].(int)]
@@ -327,12 +296,6 @@ func (o DeviceAssuranceIosMapOutput) ToDeviceAssuranceIosMapOutput() DeviceAssur
 
 func (o DeviceAssuranceIosMapOutput) ToDeviceAssuranceIosMapOutputWithContext(ctx context.Context) DeviceAssuranceIosMapOutput {
 	return o
-}
-
-func (o DeviceAssuranceIosMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeviceAssuranceIos] {
-	return pulumix.Output[map[string]*DeviceAssuranceIos]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeviceAssuranceIosMapOutput) MapIndex(k pulumi.StringInput) DeviceAssuranceIosOutput {

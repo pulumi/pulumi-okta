@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type OAuth struct {
@@ -580,12 +579,6 @@ func (i *OAuth) ToOAuthOutputWithContext(ctx context.Context) OAuthOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthOutput)
 }
 
-func (i *OAuth) ToOutput(ctx context.Context) pulumix.Output[*OAuth] {
-	return pulumix.Output[*OAuth]{
-		OutputState: i.ToOAuthOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OAuthArrayInput is an input type that accepts OAuthArray and OAuthArrayOutput values.
 // You can construct a concrete instance of `OAuthArrayInput` via:
 //
@@ -609,12 +602,6 @@ func (i OAuthArray) ToOAuthArrayOutput() OAuthArrayOutput {
 
 func (i OAuthArray) ToOAuthArrayOutputWithContext(ctx context.Context) OAuthArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthArrayOutput)
-}
-
-func (i OAuthArray) ToOutput(ctx context.Context) pulumix.Output[[]*OAuth] {
-	return pulumix.Output[[]*OAuth]{
-		OutputState: i.ToOAuthArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OAuthMapInput is an input type that accepts OAuthMap and OAuthMapOutput values.
@@ -642,12 +629,6 @@ func (i OAuthMap) ToOAuthMapOutputWithContext(ctx context.Context) OAuthMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthMapOutput)
 }
 
-func (i OAuthMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OAuth] {
-	return pulumix.Output[map[string]*OAuth]{
-		OutputState: i.ToOAuthMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OAuthOutput struct{ *pulumi.OutputState }
 
 func (OAuthOutput) ElementType() reflect.Type {
@@ -660,12 +641,6 @@ func (o OAuthOutput) ToOAuthOutput() OAuthOutput {
 
 func (o OAuthOutput) ToOAuthOutputWithContext(ctx context.Context) OAuthOutput {
 	return o
-}
-
-func (o OAuthOutput) ToOutput(ctx context.Context) pulumix.Output[*OAuth] {
-	return pulumix.Output[*OAuth]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Custom error page URL
@@ -931,12 +906,6 @@ func (o OAuthArrayOutput) ToOAuthArrayOutputWithContext(ctx context.Context) OAu
 	return o
 }
 
-func (o OAuthArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OAuth] {
-	return pulumix.Output[[]*OAuth]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OAuthArrayOutput) Index(i pulumi.IntInput) OAuthOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OAuth {
 		return vs[0].([]*OAuth)[vs[1].(int)]
@@ -955,12 +924,6 @@ func (o OAuthMapOutput) ToOAuthMapOutput() OAuthMapOutput {
 
 func (o OAuthMapOutput) ToOAuthMapOutputWithContext(ctx context.Context) OAuthMapOutput {
 	return o
-}
-
-func (o OAuthMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OAuth] {
-	return pulumix.Output[map[string]*OAuth]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OAuthMapOutput) MapIndex(k pulumi.StringInput) OAuthOutput {

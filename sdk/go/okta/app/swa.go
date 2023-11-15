@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Swa struct {
@@ -348,12 +347,6 @@ func (i *Swa) ToSwaOutputWithContext(ctx context.Context) SwaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SwaOutput)
 }
 
-func (i *Swa) ToOutput(ctx context.Context) pulumix.Output[*Swa] {
-	return pulumix.Output[*Swa]{
-		OutputState: i.ToSwaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SwaArrayInput is an input type that accepts SwaArray and SwaArrayOutput values.
 // You can construct a concrete instance of `SwaArrayInput` via:
 //
@@ -377,12 +370,6 @@ func (i SwaArray) ToSwaArrayOutput() SwaArrayOutput {
 
 func (i SwaArray) ToSwaArrayOutputWithContext(ctx context.Context) SwaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SwaArrayOutput)
-}
-
-func (i SwaArray) ToOutput(ctx context.Context) pulumix.Output[[]*Swa] {
-	return pulumix.Output[[]*Swa]{
-		OutputState: i.ToSwaArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SwaMapInput is an input type that accepts SwaMap and SwaMapOutput values.
@@ -410,12 +397,6 @@ func (i SwaMap) ToSwaMapOutputWithContext(ctx context.Context) SwaMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SwaMapOutput)
 }
 
-func (i SwaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Swa] {
-	return pulumix.Output[map[string]*Swa]{
-		OutputState: i.ToSwaMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SwaOutput struct{ *pulumi.OutputState }
 
 func (SwaOutput) ElementType() reflect.Type {
@@ -428,12 +409,6 @@ func (o SwaOutput) ToSwaOutput() SwaOutput {
 
 func (o SwaOutput) ToSwaOutputWithContext(ctx context.Context) SwaOutput {
 	return o
-}
-
-func (o SwaOutput) ToOutput(ctx context.Context) pulumix.Output[*Swa] {
-	return pulumix.Output[*Swa]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Custom error page URL
@@ -585,12 +560,6 @@ func (o SwaArrayOutput) ToSwaArrayOutputWithContext(ctx context.Context) SwaArra
 	return o
 }
 
-func (o SwaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Swa] {
-	return pulumix.Output[[]*Swa]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SwaArrayOutput) Index(i pulumi.IntInput) SwaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Swa {
 		return vs[0].([]*Swa)[vs[1].(int)]
@@ -609,12 +578,6 @@ func (o SwaMapOutput) ToSwaMapOutput() SwaMapOutput {
 
 func (o SwaMapOutput) ToSwaMapOutputWithContext(ctx context.Context) SwaMapOutput {
 	return o
-}
-
-func (o SwaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Swa] {
-	return pulumix.Output[map[string]*Swa]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SwaMapOutput) MapIndex(k pulumi.StringInput) SwaOutput {

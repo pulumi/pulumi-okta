@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get an authenticator by key, name of ID.
@@ -137,12 +136,6 @@ func (o LookupAuthenticatorResultOutput) ToLookupAuthenticatorResultOutput() Loo
 
 func (o LookupAuthenticatorResultOutput) ToLookupAuthenticatorResultOutputWithContext(ctx context.Context) LookupAuthenticatorResultOutput {
 	return o
-}
-
-func (o LookupAuthenticatorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAuthenticatorResult] {
-	return pulumix.Output[LookupAuthenticatorResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the authenticator.

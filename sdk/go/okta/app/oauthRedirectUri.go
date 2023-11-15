@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type OAuthRedirectUri struct {
@@ -113,12 +112,6 @@ func (i *OAuthRedirectUri) ToOAuthRedirectUriOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthRedirectUriOutput)
 }
 
-func (i *OAuthRedirectUri) ToOutput(ctx context.Context) pulumix.Output[*OAuthRedirectUri] {
-	return pulumix.Output[*OAuthRedirectUri]{
-		OutputState: i.ToOAuthRedirectUriOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OAuthRedirectUriArrayInput is an input type that accepts OAuthRedirectUriArray and OAuthRedirectUriArrayOutput values.
 // You can construct a concrete instance of `OAuthRedirectUriArrayInput` via:
 //
@@ -142,12 +135,6 @@ func (i OAuthRedirectUriArray) ToOAuthRedirectUriArrayOutput() OAuthRedirectUriA
 
 func (i OAuthRedirectUriArray) ToOAuthRedirectUriArrayOutputWithContext(ctx context.Context) OAuthRedirectUriArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthRedirectUriArrayOutput)
-}
-
-func (i OAuthRedirectUriArray) ToOutput(ctx context.Context) pulumix.Output[[]*OAuthRedirectUri] {
-	return pulumix.Output[[]*OAuthRedirectUri]{
-		OutputState: i.ToOAuthRedirectUriArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OAuthRedirectUriMapInput is an input type that accepts OAuthRedirectUriMap and OAuthRedirectUriMapOutput values.
@@ -175,12 +162,6 @@ func (i OAuthRedirectUriMap) ToOAuthRedirectUriMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthRedirectUriMapOutput)
 }
 
-func (i OAuthRedirectUriMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OAuthRedirectUri] {
-	return pulumix.Output[map[string]*OAuthRedirectUri]{
-		OutputState: i.ToOAuthRedirectUriMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OAuthRedirectUriOutput struct{ *pulumi.OutputState }
 
 func (OAuthRedirectUriOutput) ElementType() reflect.Type {
@@ -193,12 +174,6 @@ func (o OAuthRedirectUriOutput) ToOAuthRedirectUriOutput() OAuthRedirectUriOutpu
 
 func (o OAuthRedirectUriOutput) ToOAuthRedirectUriOutputWithContext(ctx context.Context) OAuthRedirectUriOutput {
 	return o
-}
-
-func (o OAuthRedirectUriOutput) ToOutput(ctx context.Context) pulumix.Output[*OAuthRedirectUri] {
-	return pulumix.Output[*OAuthRedirectUri]{
-		OutputState: o.OutputState,
-	}
 }
 
 // OAuth application ID.
@@ -225,12 +200,6 @@ func (o OAuthRedirectUriArrayOutput) ToOAuthRedirectUriArrayOutputWithContext(ct
 	return o
 }
 
-func (o OAuthRedirectUriArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OAuthRedirectUri] {
-	return pulumix.Output[[]*OAuthRedirectUri]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OAuthRedirectUriArrayOutput) Index(i pulumi.IntInput) OAuthRedirectUriOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OAuthRedirectUri {
 		return vs[0].([]*OAuthRedirectUri)[vs[1].(int)]
@@ -249,12 +218,6 @@ func (o OAuthRedirectUriMapOutput) ToOAuthRedirectUriMapOutput() OAuthRedirectUr
 
 func (o OAuthRedirectUriMapOutput) ToOAuthRedirectUriMapOutputWithContext(ctx context.Context) OAuthRedirectUriMapOutput {
 	return o
-}
-
-func (o OAuthRedirectUriMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OAuthRedirectUri] {
-	return pulumix.Output[map[string]*OAuthRedirectUri]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OAuthRedirectUriMapOutput) MapIndex(k pulumi.StringInput) OAuthRedirectUriOutput {

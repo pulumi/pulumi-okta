@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type PolicyProfileEnrollment struct {
@@ -106,12 +105,6 @@ func (i *PolicyProfileEnrollment) ToPolicyProfileEnrollmentOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyProfileEnrollmentOutput)
 }
 
-func (i *PolicyProfileEnrollment) ToOutput(ctx context.Context) pulumix.Output[*PolicyProfileEnrollment] {
-	return pulumix.Output[*PolicyProfileEnrollment]{
-		OutputState: i.ToPolicyProfileEnrollmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyProfileEnrollmentArrayInput is an input type that accepts PolicyProfileEnrollmentArray and PolicyProfileEnrollmentArrayOutput values.
 // You can construct a concrete instance of `PolicyProfileEnrollmentArrayInput` via:
 //
@@ -135,12 +128,6 @@ func (i PolicyProfileEnrollmentArray) ToPolicyProfileEnrollmentArrayOutput() Pol
 
 func (i PolicyProfileEnrollmentArray) ToPolicyProfileEnrollmentArrayOutputWithContext(ctx context.Context) PolicyProfileEnrollmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyProfileEnrollmentArrayOutput)
-}
-
-func (i PolicyProfileEnrollmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyProfileEnrollment] {
-	return pulumix.Output[[]*PolicyProfileEnrollment]{
-		OutputState: i.ToPolicyProfileEnrollmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PolicyProfileEnrollmentMapInput is an input type that accepts PolicyProfileEnrollmentMap and PolicyProfileEnrollmentMapOutput values.
@@ -168,12 +155,6 @@ func (i PolicyProfileEnrollmentMap) ToPolicyProfileEnrollmentMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyProfileEnrollmentMapOutput)
 }
 
-func (i PolicyProfileEnrollmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyProfileEnrollment] {
-	return pulumix.Output[map[string]*PolicyProfileEnrollment]{
-		OutputState: i.ToPolicyProfileEnrollmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyProfileEnrollmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyProfileEnrollmentOutput) ElementType() reflect.Type {
@@ -186,12 +167,6 @@ func (o PolicyProfileEnrollmentOutput) ToPolicyProfileEnrollmentOutput() PolicyP
 
 func (o PolicyProfileEnrollmentOutput) ToPolicyProfileEnrollmentOutputWithContext(ctx context.Context) PolicyProfileEnrollmentOutput {
 	return o
-}
-
-func (o PolicyProfileEnrollmentOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyProfileEnrollment] {
-	return pulumix.Output[*PolicyProfileEnrollment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the policy
@@ -218,12 +193,6 @@ func (o PolicyProfileEnrollmentArrayOutput) ToPolicyProfileEnrollmentArrayOutput
 	return o
 }
 
-func (o PolicyProfileEnrollmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyProfileEnrollment] {
-	return pulumix.Output[[]*PolicyProfileEnrollment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyProfileEnrollmentArrayOutput) Index(i pulumi.IntInput) PolicyProfileEnrollmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyProfileEnrollment {
 		return vs[0].([]*PolicyProfileEnrollment)[vs[1].(int)]
@@ -242,12 +211,6 @@ func (o PolicyProfileEnrollmentMapOutput) ToPolicyProfileEnrollmentMapOutput() P
 
 func (o PolicyProfileEnrollmentMapOutput) ToPolicyProfileEnrollmentMapOutputWithContext(ctx context.Context) PolicyProfileEnrollmentMapOutput {
 	return o
-}
-
-func (o PolicyProfileEnrollmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyProfileEnrollment] {
-	return pulumix.Output[map[string]*PolicyProfileEnrollment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyProfileEnrollmentMapOutput) MapIndex(k pulumi.StringInput) PolicyProfileEnrollmentOutput {

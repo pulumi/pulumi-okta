@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type RoleSubscription struct {
@@ -123,12 +122,6 @@ func (i *RoleSubscription) ToRoleSubscriptionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RoleSubscriptionOutput)
 }
 
-func (i *RoleSubscription) ToOutput(ctx context.Context) pulumix.Output[*RoleSubscription] {
-	return pulumix.Output[*RoleSubscription]{
-		OutputState: i.ToRoleSubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RoleSubscriptionArrayInput is an input type that accepts RoleSubscriptionArray and RoleSubscriptionArrayOutput values.
 // You can construct a concrete instance of `RoleSubscriptionArrayInput` via:
 //
@@ -152,12 +145,6 @@ func (i RoleSubscriptionArray) ToRoleSubscriptionArrayOutput() RoleSubscriptionA
 
 func (i RoleSubscriptionArray) ToRoleSubscriptionArrayOutputWithContext(ctx context.Context) RoleSubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleSubscriptionArrayOutput)
-}
-
-func (i RoleSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*RoleSubscription] {
-	return pulumix.Output[[]*RoleSubscription]{
-		OutputState: i.ToRoleSubscriptionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RoleSubscriptionMapInput is an input type that accepts RoleSubscriptionMap and RoleSubscriptionMapOutput values.
@@ -185,12 +172,6 @@ func (i RoleSubscriptionMap) ToRoleSubscriptionMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RoleSubscriptionMapOutput)
 }
 
-func (i RoleSubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoleSubscription] {
-	return pulumix.Output[map[string]*RoleSubscription]{
-		OutputState: i.ToRoleSubscriptionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RoleSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (RoleSubscriptionOutput) ElementType() reflect.Type {
@@ -203,12 +184,6 @@ func (o RoleSubscriptionOutput) ToRoleSubscriptionOutput() RoleSubscriptionOutpu
 
 func (o RoleSubscriptionOutput) ToRoleSubscriptionOutputWithContext(ctx context.Context) RoleSubscriptionOutput {
 	return o
-}
-
-func (o RoleSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*RoleSubscription] {
-	return pulumix.Output[*RoleSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Type of the notification
@@ -240,12 +215,6 @@ func (o RoleSubscriptionArrayOutput) ToRoleSubscriptionArrayOutputWithContext(ct
 	return o
 }
 
-func (o RoleSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RoleSubscription] {
-	return pulumix.Output[[]*RoleSubscription]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoleSubscriptionArrayOutput) Index(i pulumi.IntInput) RoleSubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RoleSubscription {
 		return vs[0].([]*RoleSubscription)[vs[1].(int)]
@@ -264,12 +233,6 @@ func (o RoleSubscriptionMapOutput) ToRoleSubscriptionMapOutput() RoleSubscriptio
 
 func (o RoleSubscriptionMapOutput) ToRoleSubscriptionMapOutputWithContext(ctx context.Context) RoleSubscriptionMapOutput {
 	return o
-}
-
-func (o RoleSubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoleSubscription] {
-	return pulumix.Output[map[string]*RoleSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RoleSubscriptionMapOutput) MapIndex(k pulumi.StringInput) RoleSubscriptionOutput {

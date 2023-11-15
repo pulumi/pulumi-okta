@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get a sign-on policy for the application.
@@ -109,12 +108,6 @@ func (o LookupAppSignonPolicyResultOutput) ToLookupAppSignonPolicyResultOutput()
 
 func (o LookupAppSignonPolicyResultOutput) ToLookupAppSignonPolicyResultOutputWithContext(ctx context.Context) LookupAppSignonPolicyResultOutput {
 	return o
-}
-
-func (o LookupAppSignonPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAppSignonPolicyResult] {
-	return pulumix.Output[LookupAppSignonPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // App ID

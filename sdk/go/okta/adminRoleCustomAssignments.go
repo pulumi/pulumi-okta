@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource to manage the assignment and unassignment of Custom Roles
@@ -124,12 +123,6 @@ func (i *AdminRoleCustomAssignments) ToAdminRoleCustomAssignmentsOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleCustomAssignmentsOutput)
 }
 
-func (i *AdminRoleCustomAssignments) ToOutput(ctx context.Context) pulumix.Output[*AdminRoleCustomAssignments] {
-	return pulumix.Output[*AdminRoleCustomAssignments]{
-		OutputState: i.ToAdminRoleCustomAssignmentsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AdminRoleCustomAssignmentsArrayInput is an input type that accepts AdminRoleCustomAssignmentsArray and AdminRoleCustomAssignmentsArrayOutput values.
 // You can construct a concrete instance of `AdminRoleCustomAssignmentsArrayInput` via:
 //
@@ -153,12 +146,6 @@ func (i AdminRoleCustomAssignmentsArray) ToAdminRoleCustomAssignmentsArrayOutput
 
 func (i AdminRoleCustomAssignmentsArray) ToAdminRoleCustomAssignmentsArrayOutputWithContext(ctx context.Context) AdminRoleCustomAssignmentsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleCustomAssignmentsArrayOutput)
-}
-
-func (i AdminRoleCustomAssignmentsArray) ToOutput(ctx context.Context) pulumix.Output[[]*AdminRoleCustomAssignments] {
-	return pulumix.Output[[]*AdminRoleCustomAssignments]{
-		OutputState: i.ToAdminRoleCustomAssignmentsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AdminRoleCustomAssignmentsMapInput is an input type that accepts AdminRoleCustomAssignmentsMap and AdminRoleCustomAssignmentsMapOutput values.
@@ -186,12 +173,6 @@ func (i AdminRoleCustomAssignmentsMap) ToAdminRoleCustomAssignmentsMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AdminRoleCustomAssignmentsMapOutput)
 }
 
-func (i AdminRoleCustomAssignmentsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AdminRoleCustomAssignments] {
-	return pulumix.Output[map[string]*AdminRoleCustomAssignments]{
-		OutputState: i.ToAdminRoleCustomAssignmentsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AdminRoleCustomAssignmentsOutput struct{ *pulumi.OutputState }
 
 func (AdminRoleCustomAssignmentsOutput) ElementType() reflect.Type {
@@ -204,12 +185,6 @@ func (o AdminRoleCustomAssignmentsOutput) ToAdminRoleCustomAssignmentsOutput() A
 
 func (o AdminRoleCustomAssignmentsOutput) ToAdminRoleCustomAssignmentsOutputWithContext(ctx context.Context) AdminRoleCustomAssignmentsOutput {
 	return o
-}
-
-func (o AdminRoleCustomAssignmentsOutput) ToOutput(ctx context.Context) pulumix.Output[*AdminRoleCustomAssignments] {
-	return pulumix.Output[*AdminRoleCustomAssignments]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the Custom Role
@@ -241,12 +216,6 @@ func (o AdminRoleCustomAssignmentsArrayOutput) ToAdminRoleCustomAssignmentsArray
 	return o
 }
 
-func (o AdminRoleCustomAssignmentsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AdminRoleCustomAssignments] {
-	return pulumix.Output[[]*AdminRoleCustomAssignments]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AdminRoleCustomAssignmentsArrayOutput) Index(i pulumi.IntInput) AdminRoleCustomAssignmentsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AdminRoleCustomAssignments {
 		return vs[0].([]*AdminRoleCustomAssignments)[vs[1].(int)]
@@ -265,12 +234,6 @@ func (o AdminRoleCustomAssignmentsMapOutput) ToAdminRoleCustomAssignmentsMapOutp
 
 func (o AdminRoleCustomAssignmentsMapOutput) ToAdminRoleCustomAssignmentsMapOutputWithContext(ctx context.Context) AdminRoleCustomAssignmentsMapOutput {
 	return o
-}
-
-func (o AdminRoleCustomAssignmentsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AdminRoleCustomAssignments] {
-	return pulumix.Output[map[string]*AdminRoleCustomAssignments]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AdminRoleCustomAssignmentsMapOutput) MapIndex(k pulumi.StringInput) AdminRoleCustomAssignmentsOutput {

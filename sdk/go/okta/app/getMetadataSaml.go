@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get a SAML application's metadata from Okta.
@@ -118,12 +117,6 @@ func (o GetMetadataSamlResultOutput) ToGetMetadataSamlResultOutput() GetMetadata
 
 func (o GetMetadataSamlResultOutput) ToGetMetadataSamlResultOutputWithContext(ctx context.Context) GetMetadataSamlResultOutput {
 	return o
-}
-
-func (o GetMetadataSamlResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetMetadataSamlResult] {
-	return pulumix.Output[GetMetadataSamlResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The application ID.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type UserBaseSchemaProperty struct {
@@ -176,12 +175,6 @@ func (i *UserBaseSchemaProperty) ToUserBaseSchemaPropertyOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(UserBaseSchemaPropertyOutput)
 }
 
-func (i *UserBaseSchemaProperty) ToOutput(ctx context.Context) pulumix.Output[*UserBaseSchemaProperty] {
-	return pulumix.Output[*UserBaseSchemaProperty]{
-		OutputState: i.ToUserBaseSchemaPropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserBaseSchemaPropertyArrayInput is an input type that accepts UserBaseSchemaPropertyArray and UserBaseSchemaPropertyArrayOutput values.
 // You can construct a concrete instance of `UserBaseSchemaPropertyArrayInput` via:
 //
@@ -205,12 +198,6 @@ func (i UserBaseSchemaPropertyArray) ToUserBaseSchemaPropertyArrayOutput() UserB
 
 func (i UserBaseSchemaPropertyArray) ToUserBaseSchemaPropertyArrayOutputWithContext(ctx context.Context) UserBaseSchemaPropertyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserBaseSchemaPropertyArrayOutput)
-}
-
-func (i UserBaseSchemaPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserBaseSchemaProperty] {
-	return pulumix.Output[[]*UserBaseSchemaProperty]{
-		OutputState: i.ToUserBaseSchemaPropertyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserBaseSchemaPropertyMapInput is an input type that accepts UserBaseSchemaPropertyMap and UserBaseSchemaPropertyMapOutput values.
@@ -238,12 +225,6 @@ func (i UserBaseSchemaPropertyMap) ToUserBaseSchemaPropertyMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(UserBaseSchemaPropertyMapOutput)
 }
 
-func (i UserBaseSchemaPropertyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserBaseSchemaProperty] {
-	return pulumix.Output[map[string]*UserBaseSchemaProperty]{
-		OutputState: i.ToUserBaseSchemaPropertyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserBaseSchemaPropertyOutput struct{ *pulumi.OutputState }
 
 func (UserBaseSchemaPropertyOutput) ElementType() reflect.Type {
@@ -256,12 +237,6 @@ func (o UserBaseSchemaPropertyOutput) ToUserBaseSchemaPropertyOutput() UserBaseS
 
 func (o UserBaseSchemaPropertyOutput) ToUserBaseSchemaPropertyOutputWithContext(ctx context.Context) UserBaseSchemaPropertyOutput {
 	return o
-}
-
-func (o UserBaseSchemaPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[*UserBaseSchemaProperty] {
-	return pulumix.Output[*UserBaseSchemaProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Subschema unique string identifier
@@ -318,12 +293,6 @@ func (o UserBaseSchemaPropertyArrayOutput) ToUserBaseSchemaPropertyArrayOutputWi
 	return o
 }
 
-func (o UserBaseSchemaPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserBaseSchemaProperty] {
-	return pulumix.Output[[]*UserBaseSchemaProperty]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserBaseSchemaPropertyArrayOutput) Index(i pulumi.IntInput) UserBaseSchemaPropertyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserBaseSchemaProperty {
 		return vs[0].([]*UserBaseSchemaProperty)[vs[1].(int)]
@@ -342,12 +311,6 @@ func (o UserBaseSchemaPropertyMapOutput) ToUserBaseSchemaPropertyMapOutput() Use
 
 func (o UserBaseSchemaPropertyMapOutput) ToUserBaseSchemaPropertyMapOutputWithContext(ctx context.Context) UserBaseSchemaPropertyMapOutput {
 	return o
-}
-
-func (o UserBaseSchemaPropertyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserBaseSchemaProperty] {
-	return pulumix.Output[map[string]*UserBaseSchemaProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserBaseSchemaPropertyMapOutput) MapIndex(k pulumi.StringInput) UserBaseSchemaPropertyOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get the base user Profile Mapping source or target from Okta.
@@ -84,12 +83,6 @@ func (o GetUserProfileMappingSourceResultOutput) ToGetUserProfileMappingSourceRe
 
 func (o GetUserProfileMappingSourceResultOutput) ToGetUserProfileMappingSourceResultOutputWithContext(ctx context.Context) GetUserProfileMappingSourceResultOutput {
 	return o
-}
-
-func (o GetUserProfileMappingSourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserProfileMappingSourceResult] {
-	return pulumix.Output[GetUserProfileMappingSourceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the source

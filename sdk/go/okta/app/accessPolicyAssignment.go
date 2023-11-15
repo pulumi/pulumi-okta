@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages assignment of Access Policy to an Application
@@ -114,12 +113,6 @@ func (i *AccessPolicyAssignment) ToAccessPolicyAssignmentOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyAssignmentOutput)
 }
 
-func (i *AccessPolicyAssignment) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyAssignment] {
-	return pulumix.Output[*AccessPolicyAssignment]{
-		OutputState: i.ToAccessPolicyAssignmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccessPolicyAssignmentArrayInput is an input type that accepts AccessPolicyAssignmentArray and AccessPolicyAssignmentArrayOutput values.
 // You can construct a concrete instance of `AccessPolicyAssignmentArrayInput` via:
 //
@@ -143,12 +136,6 @@ func (i AccessPolicyAssignmentArray) ToAccessPolicyAssignmentArrayOutput() Acces
 
 func (i AccessPolicyAssignmentArray) ToAccessPolicyAssignmentArrayOutputWithContext(ctx context.Context) AccessPolicyAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyAssignmentArrayOutput)
-}
-
-func (i AccessPolicyAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccessPolicyAssignment] {
-	return pulumix.Output[[]*AccessPolicyAssignment]{
-		OutputState: i.ToAccessPolicyAssignmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AccessPolicyAssignmentMapInput is an input type that accepts AccessPolicyAssignmentMap and AccessPolicyAssignmentMapOutput values.
@@ -176,12 +163,6 @@ func (i AccessPolicyAssignmentMap) ToAccessPolicyAssignmentMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyAssignmentMapOutput)
 }
 
-func (i AccessPolicyAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessPolicyAssignment] {
-	return pulumix.Output[map[string]*AccessPolicyAssignment]{
-		OutputState: i.ToAccessPolicyAssignmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessPolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyAssignmentOutput) ElementType() reflect.Type {
@@ -194,12 +175,6 @@ func (o AccessPolicyAssignmentOutput) ToAccessPolicyAssignmentOutput() AccessPol
 
 func (o AccessPolicyAssignmentOutput) ToAccessPolicyAssignmentOutputWithContext(ctx context.Context) AccessPolicyAssignmentOutput {
 	return o
-}
-
-func (o AccessPolicyAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyAssignment] {
-	return pulumix.Output[*AccessPolicyAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The application ID; this value is immutable and can not be updated.
@@ -226,12 +201,6 @@ func (o AccessPolicyAssignmentArrayOutput) ToAccessPolicyAssignmentArrayOutputWi
 	return o
 }
 
-func (o AccessPolicyAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccessPolicyAssignment] {
-	return pulumix.Output[[]*AccessPolicyAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessPolicyAssignmentArrayOutput) Index(i pulumi.IntInput) AccessPolicyAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccessPolicyAssignment {
 		return vs[0].([]*AccessPolicyAssignment)[vs[1].(int)]
@@ -250,12 +219,6 @@ func (o AccessPolicyAssignmentMapOutput) ToAccessPolicyAssignmentMapOutput() Acc
 
 func (o AccessPolicyAssignmentMapOutput) ToAccessPolicyAssignmentMapOutputWithContext(ctx context.Context) AccessPolicyAssignmentMapOutput {
 	return o
-}
-
-func (o AccessPolicyAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessPolicyAssignment] {
-	return pulumix.Output[map[string]*AccessPolicyAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPolicyAssignmentMapOutput) MapIndex(k pulumi.StringInput) AccessPolicyAssignmentOutput {

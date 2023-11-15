@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type EmailSender struct {
@@ -138,12 +137,6 @@ func (i *EmailSender) ToEmailSenderOutputWithContext(ctx context.Context) EmailS
 	return pulumi.ToOutputWithContext(ctx, i).(EmailSenderOutput)
 }
 
-func (i *EmailSender) ToOutput(ctx context.Context) pulumix.Output[*EmailSender] {
-	return pulumix.Output[*EmailSender]{
-		OutputState: i.ToEmailSenderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EmailSenderArrayInput is an input type that accepts EmailSenderArray and EmailSenderArrayOutput values.
 // You can construct a concrete instance of `EmailSenderArrayInput` via:
 //
@@ -167,12 +160,6 @@ func (i EmailSenderArray) ToEmailSenderArrayOutput() EmailSenderArrayOutput {
 
 func (i EmailSenderArray) ToEmailSenderArrayOutputWithContext(ctx context.Context) EmailSenderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailSenderArrayOutput)
-}
-
-func (i EmailSenderArray) ToOutput(ctx context.Context) pulumix.Output[[]*EmailSender] {
-	return pulumix.Output[[]*EmailSender]{
-		OutputState: i.ToEmailSenderArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EmailSenderMapInput is an input type that accepts EmailSenderMap and EmailSenderMapOutput values.
@@ -200,12 +187,6 @@ func (i EmailSenderMap) ToEmailSenderMapOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(EmailSenderMapOutput)
 }
 
-func (i EmailSenderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailSender] {
-	return pulumix.Output[map[string]*EmailSender]{
-		OutputState: i.ToEmailSenderMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EmailSenderOutput struct{ *pulumi.OutputState }
 
 func (EmailSenderOutput) ElementType() reflect.Type {
@@ -218,12 +199,6 @@ func (o EmailSenderOutput) ToEmailSenderOutput() EmailSenderOutput {
 
 func (o EmailSenderOutput) ToEmailSenderOutputWithContext(ctx context.Context) EmailSenderOutput {
 	return o
-}
-
-func (o EmailSenderOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailSender] {
-	return pulumix.Output[*EmailSender]{
-		OutputState: o.OutputState,
-	}
 }
 
 // TXT and CNAME records to be registered for the Domain
@@ -265,12 +240,6 @@ func (o EmailSenderArrayOutput) ToEmailSenderArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o EmailSenderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EmailSender] {
-	return pulumix.Output[[]*EmailSender]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EmailSenderArrayOutput) Index(i pulumi.IntInput) EmailSenderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EmailSender {
 		return vs[0].([]*EmailSender)[vs[1].(int)]
@@ -289,12 +258,6 @@ func (o EmailSenderMapOutput) ToEmailSenderMapOutput() EmailSenderMapOutput {
 
 func (o EmailSenderMapOutput) ToEmailSenderMapOutputWithContext(ctx context.Context) EmailSenderMapOutput {
 	return o
-}
-
-func (o EmailSenderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailSender] {
-	return pulumix.Output[map[string]*EmailSender]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EmailSenderMapOutput) MapIndex(k pulumi.StringInput) EmailSenderOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get List of Trusted Origins using filters.
@@ -98,12 +97,6 @@ func (o GetTrustedOriginsResultOutput) ToGetTrustedOriginsResultOutput() GetTrus
 
 func (o GetTrustedOriginsResultOutput) ToGetTrustedOriginsResultOutputWithContext(ctx context.Context) GetTrustedOriginsResultOutput {
 	return o
-}
-
-func (o GetTrustedOriginsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTrustedOriginsResult] {
-	return pulumix.Output[GetTrustedOriginsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Filter criteria. Filter value will be URL-encoded by the provider

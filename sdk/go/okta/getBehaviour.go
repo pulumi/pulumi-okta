@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get a behavior by name or ID.
@@ -83,12 +82,6 @@ func (o LookupBehaviourResultOutput) ToLookupBehaviourResultOutput() LookupBehav
 
 func (o LookupBehaviourResultOutput) ToLookupBehaviourResultOutputWithContext(ctx context.Context) LookupBehaviourResultOutput {
 	return o
-}
-
-func (o LookupBehaviourResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBehaviourResult] {
-	return pulumix.Output[LookupBehaviourResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Behavior ID.

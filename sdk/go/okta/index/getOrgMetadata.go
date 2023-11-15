@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
@@ -107,12 +106,6 @@ func (o GetOrgMetadataResultOutput) ToGetOrgMetadataResultOutput() GetOrgMetadat
 
 func (o GetOrgMetadataResultOutput) ToGetOrgMetadataResultOutputWithContext(ctx context.Context) GetOrgMetadataResultOutput {
 	return o
-}
-
-func (o GetOrgMetadataResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrgMetadataResult] {
-	return pulumix.Output[GetOrgMetadataResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The URIs for the org's configured domains.

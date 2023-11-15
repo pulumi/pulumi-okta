@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Mapping struct {
@@ -150,12 +149,6 @@ func (i *Mapping) ToMappingOutputWithContext(ctx context.Context) MappingOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(MappingOutput)
 }
 
-func (i *Mapping) ToOutput(ctx context.Context) pulumix.Output[*Mapping] {
-	return pulumix.Output[*Mapping]{
-		OutputState: i.ToMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MappingArrayInput is an input type that accepts MappingArray and MappingArrayOutput values.
 // You can construct a concrete instance of `MappingArrayInput` via:
 //
@@ -179,12 +172,6 @@ func (i MappingArray) ToMappingArrayOutput() MappingArrayOutput {
 
 func (i MappingArray) ToMappingArrayOutputWithContext(ctx context.Context) MappingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MappingArrayOutput)
-}
-
-func (i MappingArray) ToOutput(ctx context.Context) pulumix.Output[[]*Mapping] {
-	return pulumix.Output[[]*Mapping]{
-		OutputState: i.ToMappingArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MappingMapInput is an input type that accepts MappingMap and MappingMapOutput values.
@@ -212,12 +199,6 @@ func (i MappingMap) ToMappingMapOutputWithContext(ctx context.Context) MappingMa
 	return pulumi.ToOutputWithContext(ctx, i).(MappingMapOutput)
 }
 
-func (i MappingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Mapping] {
-	return pulumix.Output[map[string]*Mapping]{
-		OutputState: i.ToMappingMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MappingOutput struct{ *pulumi.OutputState }
 
 func (MappingOutput) ElementType() reflect.Type {
@@ -230,12 +211,6 @@ func (o MappingOutput) ToMappingOutput() MappingOutput {
 
 func (o MappingOutput) ToMappingOutputWithContext(ctx context.Context) MappingOutput {
 	return o
-}
-
-func (o MappingOutput) ToOutput(ctx context.Context) pulumix.Output[*Mapping] {
-	return pulumix.Output[*Mapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether apply the changes to all users with this profile after updating or creating the these mappings.
@@ -292,12 +267,6 @@ func (o MappingArrayOutput) ToMappingArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o MappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Mapping] {
-	return pulumix.Output[[]*Mapping]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MappingArrayOutput) Index(i pulumi.IntInput) MappingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Mapping {
 		return vs[0].([]*Mapping)[vs[1].(int)]
@@ -316,12 +285,6 @@ func (o MappingMapOutput) ToMappingMapOutput() MappingMapOutput {
 
 func (o MappingMapOutput) ToMappingMapOutputWithContext(ctx context.Context) MappingMapOutput {
 	return o
-}
-
-func (o MappingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Mapping] {
-	return pulumix.Output[map[string]*Mapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MappingMapOutput) MapIndex(k pulumi.StringInput) MappingOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -63,12 +62,6 @@ func (i OAuthGroupsClaimArgs) ToOAuthGroupsClaimOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthGroupsClaimOutput)
 }
 
-func (i OAuthGroupsClaimArgs) ToOutput(ctx context.Context) pulumix.Output[OAuthGroupsClaim] {
-	return pulumix.Output[OAuthGroupsClaim]{
-		OutputState: i.ToOAuthGroupsClaimOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OAuthGroupsClaimArgs) ToOAuthGroupsClaimPtrOutput() OAuthGroupsClaimPtrOutput {
 	return i.ToOAuthGroupsClaimPtrOutputWithContext(context.Background())
 }
@@ -110,12 +103,6 @@ func (i *oauthGroupsClaimPtrType) ToOAuthGroupsClaimPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthGroupsClaimPtrOutput)
 }
 
-func (i *oauthGroupsClaimPtrType) ToOutput(ctx context.Context) pulumix.Output[*OAuthGroupsClaim] {
-	return pulumix.Output[*OAuthGroupsClaim]{
-		OutputState: i.ToOAuthGroupsClaimPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OAuthGroupsClaimOutput struct{ *pulumi.OutputState }
 
 func (OAuthGroupsClaimOutput) ElementType() reflect.Type {
@@ -138,12 +125,6 @@ func (o OAuthGroupsClaimOutput) ToOAuthGroupsClaimPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuthGroupsClaim) *OAuthGroupsClaim {
 		return &v
 	}).(OAuthGroupsClaimPtrOutput)
-}
-
-func (o OAuthGroupsClaimOutput) ToOutput(ctx context.Context) pulumix.Output[OAuthGroupsClaim] {
-	return pulumix.Output[OAuthGroupsClaim]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Groups claim filter. Can only be set if type is FILTER.
@@ -183,12 +164,6 @@ func (o OAuthGroupsClaimPtrOutput) ToOAuthGroupsClaimPtrOutput() OAuthGroupsClai
 
 func (o OAuthGroupsClaimPtrOutput) ToOAuthGroupsClaimPtrOutputWithContext(ctx context.Context) OAuthGroupsClaimPtrOutput {
 	return o
-}
-
-func (o OAuthGroupsClaimPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OAuthGroupsClaim] {
-	return pulumix.Output[*OAuthGroupsClaim]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OAuthGroupsClaimPtrOutput) Elem() OAuthGroupsClaimOutput {
@@ -300,12 +275,6 @@ func (i OAuthJwkArgs) ToOAuthJwkOutputWithContext(ctx context.Context) OAuthJwkO
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthJwkOutput)
 }
 
-func (i OAuthJwkArgs) ToOutput(ctx context.Context) pulumix.Output[OAuthJwk] {
-	return pulumix.Output[OAuthJwk]{
-		OutputState: i.ToOAuthJwkOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OAuthJwkArrayInput is an input type that accepts OAuthJwkArray and OAuthJwkArrayOutput values.
 // You can construct a concrete instance of `OAuthJwkArrayInput` via:
 //
@@ -331,12 +300,6 @@ func (i OAuthJwkArray) ToOAuthJwkArrayOutputWithContext(ctx context.Context) OAu
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthJwkArrayOutput)
 }
 
-func (i OAuthJwkArray) ToOutput(ctx context.Context) pulumix.Output[[]OAuthJwk] {
-	return pulumix.Output[[]OAuthJwk]{
-		OutputState: i.ToOAuthJwkArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OAuthJwkOutput struct{ *pulumi.OutputState }
 
 func (OAuthJwkOutput) ElementType() reflect.Type {
@@ -349,12 +312,6 @@ func (o OAuthJwkOutput) ToOAuthJwkOutput() OAuthJwkOutput {
 
 func (o OAuthJwkOutput) ToOAuthJwkOutputWithContext(ctx context.Context) OAuthJwkOutput {
 	return o
-}
-
-func (o OAuthJwkOutput) ToOutput(ctx context.Context) pulumix.Output[OAuthJwk] {
-	return pulumix.Output[OAuthJwk]{
-		OutputState: o.OutputState,
-	}
 }
 
 // RSA Exponent
@@ -397,12 +354,6 @@ func (o OAuthJwkArrayOutput) ToOAuthJwkArrayOutput() OAuthJwkArrayOutput {
 
 func (o OAuthJwkArrayOutput) ToOAuthJwkArrayOutputWithContext(ctx context.Context) OAuthJwkArrayOutput {
 	return o
-}
-
-func (o OAuthJwkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OAuthJwk] {
-	return pulumix.Output[[]OAuthJwk]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OAuthJwkArrayOutput) Index(i pulumi.IntInput) OAuthJwkOutput {
@@ -462,12 +413,6 @@ func (i SamlAttributeStatementArgs) ToSamlAttributeStatementOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SamlAttributeStatementOutput)
 }
 
-func (i SamlAttributeStatementArgs) ToOutput(ctx context.Context) pulumix.Output[SamlAttributeStatement] {
-	return pulumix.Output[SamlAttributeStatement]{
-		OutputState: i.ToSamlAttributeStatementOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SamlAttributeStatementArrayInput is an input type that accepts SamlAttributeStatementArray and SamlAttributeStatementArrayOutput values.
 // You can construct a concrete instance of `SamlAttributeStatementArrayInput` via:
 //
@@ -493,12 +438,6 @@ func (i SamlAttributeStatementArray) ToSamlAttributeStatementArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SamlAttributeStatementArrayOutput)
 }
 
-func (i SamlAttributeStatementArray) ToOutput(ctx context.Context) pulumix.Output[[]SamlAttributeStatement] {
-	return pulumix.Output[[]SamlAttributeStatement]{
-		OutputState: i.ToSamlAttributeStatementArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SamlAttributeStatementOutput struct{ *pulumi.OutputState }
 
 func (SamlAttributeStatementOutput) ElementType() reflect.Type {
@@ -511,12 +450,6 @@ func (o SamlAttributeStatementOutput) ToSamlAttributeStatementOutput() SamlAttri
 
 func (o SamlAttributeStatementOutput) ToSamlAttributeStatementOutputWithContext(ctx context.Context) SamlAttributeStatementOutput {
 	return o
-}
-
-func (o SamlAttributeStatementOutput) ToOutput(ctx context.Context) pulumix.Output[SamlAttributeStatement] {
-	return pulumix.Output[SamlAttributeStatement]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Type of group attribute filter
@@ -560,12 +493,6 @@ func (o SamlAttributeStatementArrayOutput) ToSamlAttributeStatementArrayOutput()
 
 func (o SamlAttributeStatementArrayOutput) ToSamlAttributeStatementArrayOutputWithContext(ctx context.Context) SamlAttributeStatementArrayOutput {
 	return o
-}
-
-func (o SamlAttributeStatementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SamlAttributeStatement] {
-	return pulumix.Output[[]SamlAttributeStatement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SamlAttributeStatementArrayOutput) Index(i pulumi.IntInput) SamlAttributeStatementOutput {
@@ -623,12 +550,6 @@ func (i SamlKeyArgs) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SamlKeyOutput)
 }
 
-func (i SamlKeyArgs) ToOutput(ctx context.Context) pulumix.Output[SamlKey] {
-	return pulumix.Output[SamlKey]{
-		OutputState: i.ToSamlKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SamlKeyArrayInput is an input type that accepts SamlKeyArray and SamlKeyArrayOutput values.
 // You can construct a concrete instance of `SamlKeyArrayInput` via:
 //
@@ -654,12 +575,6 @@ func (i SamlKeyArray) ToSamlKeyArrayOutputWithContext(ctx context.Context) SamlK
 	return pulumi.ToOutputWithContext(ctx, i).(SamlKeyArrayOutput)
 }
 
-func (i SamlKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]SamlKey] {
-	return pulumix.Output[[]SamlKey]{
-		OutputState: i.ToSamlKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SamlKeyOutput struct{ *pulumi.OutputState }
 
 func (SamlKeyOutput) ElementType() reflect.Type {
@@ -672,12 +587,6 @@ func (o SamlKeyOutput) ToSamlKeyOutput() SamlKeyOutput {
 
 func (o SamlKeyOutput) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOutput {
 	return o
-}
-
-func (o SamlKeyOutput) ToOutput(ctx context.Context) pulumix.Output[SamlKey] {
-	return pulumix.Output[SamlKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SamlKeyOutput) Created() pulumi.StringPtrOutput {
@@ -734,12 +643,6 @@ func (o SamlKeyArrayOutput) ToSamlKeyArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o SamlKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SamlKey] {
-	return pulumix.Output[[]SamlKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SamlKeyArrayOutput) Index(i pulumi.IntInput) SamlKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlKey {
 		return vs[0].([]SamlKey)[vs[1].(int)]
@@ -787,12 +690,6 @@ func (i GetSamlAttributeStatementArgs) ToGetSamlAttributeStatementOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetSamlAttributeStatementOutput)
 }
 
-func (i GetSamlAttributeStatementArgs) ToOutput(ctx context.Context) pulumix.Output[GetSamlAttributeStatement] {
-	return pulumix.Output[GetSamlAttributeStatement]{
-		OutputState: i.ToGetSamlAttributeStatementOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetSamlAttributeStatementArrayInput is an input type that accepts GetSamlAttributeStatementArray and GetSamlAttributeStatementArrayOutput values.
 // You can construct a concrete instance of `GetSamlAttributeStatementArrayInput` via:
 //
@@ -818,12 +715,6 @@ func (i GetSamlAttributeStatementArray) ToGetSamlAttributeStatementArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetSamlAttributeStatementArrayOutput)
 }
 
-func (i GetSamlAttributeStatementArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSamlAttributeStatement] {
-	return pulumix.Output[[]GetSamlAttributeStatement]{
-		OutputState: i.ToGetSamlAttributeStatementArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetSamlAttributeStatementOutput struct{ *pulumi.OutputState }
 
 func (GetSamlAttributeStatementOutput) ElementType() reflect.Type {
@@ -836,12 +727,6 @@ func (o GetSamlAttributeStatementOutput) ToGetSamlAttributeStatementOutput() Get
 
 func (o GetSamlAttributeStatementOutput) ToGetSamlAttributeStatementOutputWithContext(ctx context.Context) GetSamlAttributeStatementOutput {
 	return o
-}
-
-func (o GetSamlAttributeStatementOutput) ToOutput(ctx context.Context) pulumix.Output[GetSamlAttributeStatement] {
-	return pulumix.Output[GetSamlAttributeStatement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSamlAttributeStatementOutput) FilterType() pulumi.StringOutput {
@@ -880,12 +765,6 @@ func (o GetSamlAttributeStatementArrayOutput) ToGetSamlAttributeStatementArrayOu
 
 func (o GetSamlAttributeStatementArrayOutput) ToGetSamlAttributeStatementArrayOutputWithContext(ctx context.Context) GetSamlAttributeStatementArrayOutput {
 	return o
-}
-
-func (o GetSamlAttributeStatementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSamlAttributeStatement] {
-	return pulumix.Output[[]GetSamlAttributeStatement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSamlAttributeStatementArrayOutput) Index(i pulumi.IntInput) GetSamlAttributeStatementOutput {

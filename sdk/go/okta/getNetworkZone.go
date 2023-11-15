@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Gets Okta Network Zone.
@@ -119,12 +118,6 @@ func (o GetNetworkZoneResultOutput) ToGetNetworkZoneResultOutput() GetNetworkZon
 
 func (o GetNetworkZoneResultOutput) ToGetNetworkZoneResultOutputWithContext(ctx context.Context) GetNetworkZoneResultOutput {
 	return o
-}
-
-func (o GetNetworkZoneResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkZoneResult] {
-	return pulumix.Output[GetNetworkZoneResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Format of each array value: a string representation of an ASN numeric value

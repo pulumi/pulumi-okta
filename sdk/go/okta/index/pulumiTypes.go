@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i EmailDomainDnsValidationRecordArgs) ToEmailDomainDnsValidationRecordOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EmailDomainDnsValidationRecordOutput)
 }
 
-func (i EmailDomainDnsValidationRecordArgs) ToOutput(ctx context.Context) pulumix.Output[EmailDomainDnsValidationRecord] {
-	return pulumix.Output[EmailDomainDnsValidationRecord]{
-		OutputState: i.ToEmailDomainDnsValidationRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EmailDomainDnsValidationRecordArrayInput is an input type that accepts EmailDomainDnsValidationRecordArray and EmailDomainDnsValidationRecordArrayOutput values.
 // You can construct a concrete instance of `EmailDomainDnsValidationRecordArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i EmailDomainDnsValidationRecordArray) ToEmailDomainDnsValidationRecordArr
 	return pulumi.ToOutputWithContext(ctx, i).(EmailDomainDnsValidationRecordArrayOutput)
 }
 
-func (i EmailDomainDnsValidationRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]EmailDomainDnsValidationRecord] {
-	return pulumix.Output[[]EmailDomainDnsValidationRecord]{
-		OutputState: i.ToEmailDomainDnsValidationRecordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EmailDomainDnsValidationRecordOutput struct{ *pulumi.OutputState }
 
 func (EmailDomainDnsValidationRecordOutput) ElementType() reflect.Type {
@@ -102,12 +89,6 @@ func (o EmailDomainDnsValidationRecordOutput) ToEmailDomainDnsValidationRecordOu
 
 func (o EmailDomainDnsValidationRecordOutput) ToEmailDomainDnsValidationRecordOutputWithContext(ctx context.Context) EmailDomainDnsValidationRecordOutput {
 	return o
-}
-
-func (o EmailDomainDnsValidationRecordOutput) ToOutput(ctx context.Context) pulumix.Output[EmailDomainDnsValidationRecord] {
-	return pulumix.Output[EmailDomainDnsValidationRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Deprecated: This field has been removed in the newest go sdk version and has become noop
@@ -139,12 +120,6 @@ func (o EmailDomainDnsValidationRecordArrayOutput) ToEmailDomainDnsValidationRec
 
 func (o EmailDomainDnsValidationRecordArrayOutput) ToEmailDomainDnsValidationRecordArrayOutputWithContext(ctx context.Context) EmailDomainDnsValidationRecordArrayOutput {
 	return o
-}
-
-func (o EmailDomainDnsValidationRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EmailDomainDnsValidationRecord] {
-	return pulumix.Output[[]EmailDomainDnsValidationRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EmailDomainDnsValidationRecordArrayOutput) Index(i pulumi.IntInput) EmailDomainDnsValidationRecordOutput {
@@ -190,12 +165,6 @@ func (i GetDomainDnsRecordArgs) ToGetDomainDnsRecordOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainDnsRecordOutput)
 }
 
-func (i GetDomainDnsRecordArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainDnsRecord] {
-	return pulumix.Output[GetDomainDnsRecord]{
-		OutputState: i.ToGetDomainDnsRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDomainDnsRecordArrayInput is an input type that accepts GetDomainDnsRecordArray and GetDomainDnsRecordArrayOutput values.
 // You can construct a concrete instance of `GetDomainDnsRecordArrayInput` via:
 //
@@ -221,12 +190,6 @@ func (i GetDomainDnsRecordArray) ToGetDomainDnsRecordArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainDnsRecordArrayOutput)
 }
 
-func (i GetDomainDnsRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainDnsRecord] {
-	return pulumix.Output[[]GetDomainDnsRecord]{
-		OutputState: i.ToGetDomainDnsRecordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDomainDnsRecordOutput struct{ *pulumi.OutputState }
 
 func (GetDomainDnsRecordOutput) ElementType() reflect.Type {
@@ -239,12 +202,6 @@ func (o GetDomainDnsRecordOutput) ToGetDomainDnsRecordOutput() GetDomainDnsRecor
 
 func (o GetDomainDnsRecordOutput) ToGetDomainDnsRecordOutputWithContext(ctx context.Context) GetDomainDnsRecordOutput {
 	return o
-}
-
-func (o GetDomainDnsRecordOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainDnsRecord] {
-	return pulumix.Output[GetDomainDnsRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDomainDnsRecordOutput) Expiration() pulumi.StringOutput {
@@ -275,12 +232,6 @@ func (o GetDomainDnsRecordArrayOutput) ToGetDomainDnsRecordArrayOutput() GetDoma
 
 func (o GetDomainDnsRecordArrayOutput) ToGetDomainDnsRecordArrayOutputWithContext(ctx context.Context) GetDomainDnsRecordArrayOutput {
 	return o
-}
-
-func (o GetDomainDnsRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainDnsRecord] {
-	return pulumix.Output[[]GetDomainDnsRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDomainDnsRecordArrayOutput) Index(i pulumi.IntInput) GetDomainDnsRecordOutput {
@@ -326,12 +277,6 @@ func (i GetOrgMetadataDomainsArgs) ToGetOrgMetadataDomainsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataDomainsOutput)
 }
 
-func (i GetOrgMetadataDomainsArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrgMetadataDomains] {
-	return pulumix.Output[GetOrgMetadataDomains]{
-		OutputState: i.ToGetOrgMetadataDomainsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetOrgMetadataDomainsArgs) ToGetOrgMetadataDomainsPtrOutput() GetOrgMetadataDomainsPtrOutput {
 	return i.ToGetOrgMetadataDomainsPtrOutputWithContext(context.Background())
 }
@@ -373,12 +318,6 @@ func (i *getOrgMetadataDomainsPtrType) ToGetOrgMetadataDomainsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataDomainsPtrOutput)
 }
 
-func (i *getOrgMetadataDomainsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetOrgMetadataDomains] {
-	return pulumix.Output[*GetOrgMetadataDomains]{
-		OutputState: i.ToGetOrgMetadataDomainsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOrgMetadataDomainsOutput struct{ *pulumi.OutputState }
 
 func (GetOrgMetadataDomainsOutput) ElementType() reflect.Type {
@@ -403,12 +342,6 @@ func (o GetOrgMetadataDomainsOutput) ToGetOrgMetadataDomainsPtrOutputWithContext
 	}).(GetOrgMetadataDomainsPtrOutput)
 }
 
-func (o GetOrgMetadataDomainsOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrgMetadataDomains] {
-	return pulumix.Output[GetOrgMetadataDomains]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Custom Domain Org URI
 func (o GetOrgMetadataDomainsOutput) Alternate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrgMetadataDomains) string { return v.Alternate }).(pulumi.StringOutput)
@@ -431,12 +364,6 @@ func (o GetOrgMetadataDomainsPtrOutput) ToGetOrgMetadataDomainsPtrOutput() GetOr
 
 func (o GetOrgMetadataDomainsPtrOutput) ToGetOrgMetadataDomainsPtrOutputWithContext(ctx context.Context) GetOrgMetadataDomainsPtrOutput {
 	return o
-}
-
-func (o GetOrgMetadataDomainsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetOrgMetadataDomains] {
-	return pulumix.Output[*GetOrgMetadataDomains]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOrgMetadataDomainsPtrOutput) Elem() GetOrgMetadataDomainsOutput {
@@ -506,12 +433,6 @@ func (i GetOrgMetadataSettingsArgs) ToGetOrgMetadataSettingsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataSettingsOutput)
 }
 
-func (i GetOrgMetadataSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrgMetadataSettings] {
-	return pulumix.Output[GetOrgMetadataSettings]{
-		OutputState: i.ToGetOrgMetadataSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetOrgMetadataSettingsArgs) ToGetOrgMetadataSettingsPtrOutput() GetOrgMetadataSettingsPtrOutput {
 	return i.ToGetOrgMetadataSettingsPtrOutputWithContext(context.Background())
 }
@@ -553,12 +474,6 @@ func (i *getOrgMetadataSettingsPtrType) ToGetOrgMetadataSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataSettingsPtrOutput)
 }
 
-func (i *getOrgMetadataSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetOrgMetadataSettings] {
-	return pulumix.Output[*GetOrgMetadataSettings]{
-		OutputState: i.ToGetOrgMetadataSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOrgMetadataSettingsOutput struct{ *pulumi.OutputState }
 
 func (GetOrgMetadataSettingsOutput) ElementType() reflect.Type {
@@ -581,12 +496,6 @@ func (o GetOrgMetadataSettingsOutput) ToGetOrgMetadataSettingsPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetOrgMetadataSettings) *GetOrgMetadataSettings {
 		return &v
 	}).(GetOrgMetadataSettingsPtrOutput)
-}
-
-func (o GetOrgMetadataSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrgMetadataSettings] {
-	return pulumix.Output[GetOrgMetadataSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOrgMetadataSettingsOutput) AnalyticsCollectionEnabled() pulumi.BoolOutput {
@@ -614,12 +523,6 @@ func (o GetOrgMetadataSettingsPtrOutput) ToGetOrgMetadataSettingsPtrOutput() Get
 
 func (o GetOrgMetadataSettingsPtrOutput) ToGetOrgMetadataSettingsPtrOutputWithContext(ctx context.Context) GetOrgMetadataSettingsPtrOutput {
 	return o
-}
-
-func (o GetOrgMetadataSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetOrgMetadataSettings] {
-	return pulumix.Output[*GetOrgMetadataSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOrgMetadataSettingsPtrOutput) Elem() GetOrgMetadataSettingsOutput {

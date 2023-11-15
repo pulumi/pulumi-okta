@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get a policy from Okta.
@@ -108,12 +107,6 @@ func (o GetPolicyResultOutput) ToGetPolicyResultOutput() GetPolicyResultOutput {
 
 func (o GetPolicyResultOutput) ToGetPolicyResultOutputWithContext(ctx context.Context) GetPolicyResultOutput {
 	return o
-}
-
-func (o GetPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyResult] {
-	return pulumix.Output[GetPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

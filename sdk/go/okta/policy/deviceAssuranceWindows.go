@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type DeviceAssuranceWindows struct {
@@ -366,12 +365,6 @@ func (i *DeviceAssuranceWindows) ToDeviceAssuranceWindowsOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAssuranceWindowsOutput)
 }
 
-func (i *DeviceAssuranceWindows) ToOutput(ctx context.Context) pulumix.Output[*DeviceAssuranceWindows] {
-	return pulumix.Output[*DeviceAssuranceWindows]{
-		OutputState: i.ToDeviceAssuranceWindowsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DeviceAssuranceWindowsArrayInput is an input type that accepts DeviceAssuranceWindowsArray and DeviceAssuranceWindowsArrayOutput values.
 // You can construct a concrete instance of `DeviceAssuranceWindowsArrayInput` via:
 //
@@ -395,12 +388,6 @@ func (i DeviceAssuranceWindowsArray) ToDeviceAssuranceWindowsArrayOutput() Devic
 
 func (i DeviceAssuranceWindowsArray) ToDeviceAssuranceWindowsArrayOutputWithContext(ctx context.Context) DeviceAssuranceWindowsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAssuranceWindowsArrayOutput)
-}
-
-func (i DeviceAssuranceWindowsArray) ToOutput(ctx context.Context) pulumix.Output[[]*DeviceAssuranceWindows] {
-	return pulumix.Output[[]*DeviceAssuranceWindows]{
-		OutputState: i.ToDeviceAssuranceWindowsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DeviceAssuranceWindowsMapInput is an input type that accepts DeviceAssuranceWindowsMap and DeviceAssuranceWindowsMapOutput values.
@@ -428,12 +415,6 @@ func (i DeviceAssuranceWindowsMap) ToDeviceAssuranceWindowsMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAssuranceWindowsMapOutput)
 }
 
-func (i DeviceAssuranceWindowsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeviceAssuranceWindows] {
-	return pulumix.Output[map[string]*DeviceAssuranceWindows]{
-		OutputState: i.ToDeviceAssuranceWindowsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeviceAssuranceWindowsOutput struct{ *pulumi.OutputState }
 
 func (DeviceAssuranceWindowsOutput) ElementType() reflect.Type {
@@ -446,12 +427,6 @@ func (o DeviceAssuranceWindowsOutput) ToDeviceAssuranceWindowsOutput() DeviceAss
 
 func (o DeviceAssuranceWindowsOutput) ToDeviceAssuranceWindowsOutputWithContext(ctx context.Context) DeviceAssuranceWindowsOutput {
 	return o
-}
-
-func (o DeviceAssuranceWindowsOutput) ToOutput(ctx context.Context) pulumix.Output[*DeviceAssuranceWindows] {
-	return pulumix.Output[*DeviceAssuranceWindows]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Created by
@@ -618,12 +593,6 @@ func (o DeviceAssuranceWindowsArrayOutput) ToDeviceAssuranceWindowsArrayOutputWi
 	return o
 }
 
-func (o DeviceAssuranceWindowsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DeviceAssuranceWindows] {
-	return pulumix.Output[[]*DeviceAssuranceWindows]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeviceAssuranceWindowsArrayOutput) Index(i pulumi.IntInput) DeviceAssuranceWindowsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DeviceAssuranceWindows {
 		return vs[0].([]*DeviceAssuranceWindows)[vs[1].(int)]
@@ -642,12 +611,6 @@ func (o DeviceAssuranceWindowsMapOutput) ToDeviceAssuranceWindowsMapOutput() Dev
 
 func (o DeviceAssuranceWindowsMapOutput) ToDeviceAssuranceWindowsMapOutputWithContext(ctx context.Context) DeviceAssuranceWindowsMapOutput {
 	return o
-}
-
-func (o DeviceAssuranceWindowsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeviceAssuranceWindows] {
-	return pulumix.Output[map[string]*DeviceAssuranceWindows]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeviceAssuranceWindowsMapOutput) MapIndex(k pulumi.StringInput) DeviceAssuranceWindowsOutput {

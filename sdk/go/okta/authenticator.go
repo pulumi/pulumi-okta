@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Authenticator struct {
@@ -235,12 +234,6 @@ func (i *Authenticator) ToAuthenticatorOutputWithContext(ctx context.Context) Au
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorOutput)
 }
 
-func (i *Authenticator) ToOutput(ctx context.Context) pulumix.Output[*Authenticator] {
-	return pulumix.Output[*Authenticator]{
-		OutputState: i.ToAuthenticatorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AuthenticatorArrayInput is an input type that accepts AuthenticatorArray and AuthenticatorArrayOutput values.
 // You can construct a concrete instance of `AuthenticatorArrayInput` via:
 //
@@ -264,12 +257,6 @@ func (i AuthenticatorArray) ToAuthenticatorArrayOutput() AuthenticatorArrayOutpu
 
 func (i AuthenticatorArray) ToAuthenticatorArrayOutputWithContext(ctx context.Context) AuthenticatorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorArrayOutput)
-}
-
-func (i AuthenticatorArray) ToOutput(ctx context.Context) pulumix.Output[[]*Authenticator] {
-	return pulumix.Output[[]*Authenticator]{
-		OutputState: i.ToAuthenticatorArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AuthenticatorMapInput is an input type that accepts AuthenticatorMap and AuthenticatorMapOutput values.
@@ -297,12 +284,6 @@ func (i AuthenticatorMap) ToAuthenticatorMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorMapOutput)
 }
 
-func (i AuthenticatorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Authenticator] {
-	return pulumix.Output[map[string]*Authenticator]{
-		OutputState: i.ToAuthenticatorMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AuthenticatorOutput struct{ *pulumi.OutputState }
 
 func (AuthenticatorOutput) ElementType() reflect.Type {
@@ -315,12 +296,6 @@ func (o AuthenticatorOutput) ToAuthenticatorOutput() AuthenticatorOutput {
 
 func (o AuthenticatorOutput) ToAuthenticatorOutputWithContext(ctx context.Context) AuthenticatorOutput {
 	return o
-}
-
-func (o AuthenticatorOutput) ToOutput(ctx context.Context) pulumix.Output[*Authenticator] {
-	return pulumix.Output[*Authenticator]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A human-readable string that identifies the Authenticator
@@ -412,12 +387,6 @@ func (o AuthenticatorArrayOutput) ToAuthenticatorArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o AuthenticatorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Authenticator] {
-	return pulumix.Output[[]*Authenticator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AuthenticatorArrayOutput) Index(i pulumi.IntInput) AuthenticatorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Authenticator {
 		return vs[0].([]*Authenticator)[vs[1].(int)]
@@ -436,12 +405,6 @@ func (o AuthenticatorMapOutput) ToAuthenticatorMapOutput() AuthenticatorMapOutpu
 
 func (o AuthenticatorMapOutput) ToAuthenticatorMapOutputWithContext(ctx context.Context) AuthenticatorMapOutput {
 	return o
-}
-
-func (o AuthenticatorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Authenticator] {
-	return pulumix.Output[map[string]*Authenticator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AuthenticatorMapOutput) MapIndex(k pulumi.StringInput) AuthenticatorOutput {

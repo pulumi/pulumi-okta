@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type OAuthPostLogoutRedirectUri struct {
@@ -113,12 +112,6 @@ func (i *OAuthPostLogoutRedirectUri) ToOAuthPostLogoutRedirectUriOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthPostLogoutRedirectUriOutput)
 }
 
-func (i *OAuthPostLogoutRedirectUri) ToOutput(ctx context.Context) pulumix.Output[*OAuthPostLogoutRedirectUri] {
-	return pulumix.Output[*OAuthPostLogoutRedirectUri]{
-		OutputState: i.ToOAuthPostLogoutRedirectUriOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OAuthPostLogoutRedirectUriArrayInput is an input type that accepts OAuthPostLogoutRedirectUriArray and OAuthPostLogoutRedirectUriArrayOutput values.
 // You can construct a concrete instance of `OAuthPostLogoutRedirectUriArrayInput` via:
 //
@@ -142,12 +135,6 @@ func (i OAuthPostLogoutRedirectUriArray) ToOAuthPostLogoutRedirectUriArrayOutput
 
 func (i OAuthPostLogoutRedirectUriArray) ToOAuthPostLogoutRedirectUriArrayOutputWithContext(ctx context.Context) OAuthPostLogoutRedirectUriArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthPostLogoutRedirectUriArrayOutput)
-}
-
-func (i OAuthPostLogoutRedirectUriArray) ToOutput(ctx context.Context) pulumix.Output[[]*OAuthPostLogoutRedirectUri] {
-	return pulumix.Output[[]*OAuthPostLogoutRedirectUri]{
-		OutputState: i.ToOAuthPostLogoutRedirectUriArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OAuthPostLogoutRedirectUriMapInput is an input type that accepts OAuthPostLogoutRedirectUriMap and OAuthPostLogoutRedirectUriMapOutput values.
@@ -175,12 +162,6 @@ func (i OAuthPostLogoutRedirectUriMap) ToOAuthPostLogoutRedirectUriMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OAuthPostLogoutRedirectUriMapOutput)
 }
 
-func (i OAuthPostLogoutRedirectUriMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OAuthPostLogoutRedirectUri] {
-	return pulumix.Output[map[string]*OAuthPostLogoutRedirectUri]{
-		OutputState: i.ToOAuthPostLogoutRedirectUriMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OAuthPostLogoutRedirectUriOutput struct{ *pulumi.OutputState }
 
 func (OAuthPostLogoutRedirectUriOutput) ElementType() reflect.Type {
@@ -193,12 +174,6 @@ func (o OAuthPostLogoutRedirectUriOutput) ToOAuthPostLogoutRedirectUriOutput() O
 
 func (o OAuthPostLogoutRedirectUriOutput) ToOAuthPostLogoutRedirectUriOutputWithContext(ctx context.Context) OAuthPostLogoutRedirectUriOutput {
 	return o
-}
-
-func (o OAuthPostLogoutRedirectUriOutput) ToOutput(ctx context.Context) pulumix.Output[*OAuthPostLogoutRedirectUri] {
-	return pulumix.Output[*OAuthPostLogoutRedirectUri]{
-		OutputState: o.OutputState,
-	}
 }
 
 // OAuth application ID.
@@ -225,12 +200,6 @@ func (o OAuthPostLogoutRedirectUriArrayOutput) ToOAuthPostLogoutRedirectUriArray
 	return o
 }
 
-func (o OAuthPostLogoutRedirectUriArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OAuthPostLogoutRedirectUri] {
-	return pulumix.Output[[]*OAuthPostLogoutRedirectUri]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OAuthPostLogoutRedirectUriArrayOutput) Index(i pulumi.IntInput) OAuthPostLogoutRedirectUriOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OAuthPostLogoutRedirectUri {
 		return vs[0].([]*OAuthPostLogoutRedirectUri)[vs[1].(int)]
@@ -249,12 +218,6 @@ func (o OAuthPostLogoutRedirectUriMapOutput) ToOAuthPostLogoutRedirectUriMapOutp
 
 func (o OAuthPostLogoutRedirectUriMapOutput) ToOAuthPostLogoutRedirectUriMapOutputWithContext(ctx context.Context) OAuthPostLogoutRedirectUriMapOutput {
 	return o
-}
-
-func (o OAuthPostLogoutRedirectUriMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OAuthPostLogoutRedirectUri] {
-	return pulumix.Output[map[string]*OAuthPostLogoutRedirectUri]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OAuthPostLogoutRedirectUriMapOutput) MapIndex(k pulumi.StringInput) OAuthPostLogoutRedirectUriOutput {

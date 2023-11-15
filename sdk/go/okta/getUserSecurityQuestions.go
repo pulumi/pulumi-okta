@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -105,12 +104,6 @@ func (o GetUserSecurityQuestionsResultOutput) ToGetUserSecurityQuestionsResultOu
 
 func (o GetUserSecurityQuestionsResultOutput) ToGetUserSecurityQuestionsResultOutputWithContext(ctx context.Context) GetUserSecurityQuestionsResultOutput {
 	return o
-}
-
-func (o GetUserSecurityQuestionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserSecurityQuestionsResult] {
-	return pulumix.Output[GetUserSecurityQuestionsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.
