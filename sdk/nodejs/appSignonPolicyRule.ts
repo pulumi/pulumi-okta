@@ -106,7 +106,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
     /**
      * The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      */
-    public readonly riskScore!: pulumi.Output<string | undefined>;
+    public readonly riskScore!: pulumi.Output<string>;
     /**
      * Status of the rule
      */

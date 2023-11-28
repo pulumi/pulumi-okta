@@ -269,14 +269,14 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="riskScore", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> riskScore;
+    private Output<String> riskScore;
 
     /**
      * @return The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      * 
      */
-    public Output<Optional<String>> riskScore() {
-        return Codegen.optional(this.riskScore);
+    public Output<String> riskScore() {
+        return this.riskScore;
     }
     /**
      * Status of the rule

@@ -55,7 +55,7 @@ namespace Pulumi.Okta
         /// Email Domain ID tied to this brand
         /// </summary>
         [Output("emailDomainId")]
-        public Output<string?> EmailDomainId { get; private set; } = null!;
+        public Output<string> EmailDomainId { get; private set; } = null!;
 
         /// <summary>
         /// Is this the default brand
@@ -168,12 +168,6 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("defaultAppClassicApplicationUri")]
         public Input<string>? DefaultAppClassicApplicationUri { get; set; }
-
-        /// <summary>
-        /// Email Domain ID tied to this brand
-        /// </summary>
-        [Input("emailDomainId")]
-        public Input<string>? EmailDomainId { get; set; }
 
         /// <summary>
         /// The language specified as an IETF BCP 47 language tag

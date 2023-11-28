@@ -121,7 +121,7 @@ namespace Pulumi.Okta
         /// The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         /// </summary>
         [Output("riskScore")]
-        public Output<string?> RiskScore { get; private set; } = null!;
+        public Output<string> RiskScore { get; private set; } = null!;
 
         /// <summary>
         /// Status of the rule
