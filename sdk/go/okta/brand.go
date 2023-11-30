@@ -30,7 +30,7 @@ type Brand struct {
 	// Default app classic application uri
 	DefaultAppClassicApplicationUri pulumi.StringPtrOutput `pulumi:"defaultAppClassicApplicationUri"`
 	// Email Domain ID tied to this brand
-	EmailDomainId pulumi.StringPtrOutput `pulumi:"emailDomainId"`
+	EmailDomainId pulumi.StringOutput `pulumi:"emailDomainId"`
 	// Is this the default brand
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
 	// Link relations for this object - JSON HAL - Discoverable resources related to the brand
@@ -149,8 +149,6 @@ type brandArgs struct {
 	DefaultAppAppLinkName *string `pulumi:"defaultAppAppLinkName"`
 	// Default app classic application uri
 	DefaultAppClassicApplicationUri *string `pulumi:"defaultAppClassicApplicationUri"`
-	// Email Domain ID tied to this brand
-	EmailDomainId *string `pulumi:"emailDomainId"`
 	// The language specified as an IETF BCP 47 language tag
 	Locale *string `pulumi:"locale"`
 	// Brand name
@@ -175,8 +173,6 @@ type BrandArgs struct {
 	DefaultAppAppLinkName pulumi.StringPtrInput
 	// Default app classic application uri
 	DefaultAppClassicApplicationUri pulumi.StringPtrInput
-	// Email Domain ID tied to this brand
-	EmailDomainId pulumi.StringPtrInput
 	// The language specified as an IETF BCP 47 language tag
 	Locale pulumi.StringPtrInput
 	// Brand name
@@ -305,8 +301,8 @@ func (o BrandOutput) DefaultAppClassicApplicationUri() pulumi.StringPtrOutput {
 }
 
 // Email Domain ID tied to this brand
-func (o BrandOutput) EmailDomainId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Brand) pulumi.StringPtrOutput { return v.EmailDomainId }).(pulumi.StringPtrOutput)
+func (o BrandOutput) EmailDomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Brand) pulumi.StringOutput { return v.EmailDomainId }).(pulumi.StringOutput)
 }
 
 // Is this the default brand

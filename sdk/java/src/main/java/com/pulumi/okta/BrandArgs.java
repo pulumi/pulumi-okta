@@ -115,21 +115,6 @@ public final class BrandArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Email Domain ID tied to this brand
-     * 
-     */
-    @Import(name="emailDomainId")
-    private @Nullable Output<String> emailDomainId;
-
-    /**
-     * @return Email Domain ID tied to this brand
-     * 
-     */
-    public Optional<Output<String>> emailDomainId() {
-        return Optional.ofNullable(this.emailDomainId);
-    }
-
-    /**
      * The language specified as an IETF BCP 47 language tag
      * 
      */
@@ -183,7 +168,6 @@ public final class BrandArgs extends com.pulumi.resources.ResourceArgs {
         this.defaultAppAppInstanceId = $.defaultAppAppInstanceId;
         this.defaultAppAppLinkName = $.defaultAppAppLinkName;
         this.defaultAppClassicApplicationUri = $.defaultAppClassicApplicationUri;
-        this.emailDomainId = $.emailDomainId;
         this.locale = $.locale;
         this.name = $.name;
         this.removePoweredByOkta = $.removePoweredByOkta;
@@ -339,27 +323,6 @@ public final class BrandArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder defaultAppClassicApplicationUri(String defaultAppClassicApplicationUri) {
             return defaultAppClassicApplicationUri(Output.of(defaultAppClassicApplicationUri));
-        }
-
-        /**
-         * @param emailDomainId Email Domain ID tied to this brand
-         * 
-         * @return builder
-         * 
-         */
-        public Builder emailDomainId(@Nullable Output<String> emailDomainId) {
-            $.emailDomainId = emailDomainId;
-            return this;
-        }
-
-        /**
-         * @param emailDomainId Email Domain ID tied to this brand
-         * 
-         * @return builder
-         * 
-         */
-        public Builder emailDomainId(String emailDomainId) {
-            return emailDomainId(Output.of(emailDomainId));
         }
 
         /**

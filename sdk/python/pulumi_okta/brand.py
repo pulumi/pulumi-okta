@@ -20,7 +20,6 @@ class BrandArgs:
                  default_app_app_instance_id: Optional[pulumi.Input[str]] = None,
                  default_app_app_link_name: Optional[pulumi.Input[str]] = None,
                  default_app_classic_application_uri: Optional[pulumi.Input[str]] = None,
-                 email_domain_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remove_powered_by_okta: Optional[pulumi.Input[bool]] = None):
@@ -32,7 +31,6 @@ class BrandArgs:
         :param pulumi.Input[str] default_app_app_instance_id: Default app app instance id
         :param pulumi.Input[str] default_app_app_link_name: Default app app link name
         :param pulumi.Input[str] default_app_classic_application_uri: Default app classic application uri
-        :param pulumi.Input[str] email_domain_id: Email Domain ID tied to this brand
         :param pulumi.Input[str] locale: The language specified as an IETF BCP 47 language tag
         :param pulumi.Input[str] name: Brand name
         :param pulumi.Input[bool] remove_powered_by_okta: Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
@@ -52,8 +50,6 @@ class BrandArgs:
             pulumi.set(__self__, "default_app_app_link_name", default_app_app_link_name)
         if default_app_classic_application_uri is not None:
             pulumi.set(__self__, "default_app_classic_application_uri", default_app_classic_application_uri)
-        if email_domain_id is not None:
-            pulumi.set(__self__, "email_domain_id", email_domain_id)
         if locale is not None:
             pulumi.set(__self__, "locale", locale)
         if name is not None:
@@ -135,18 +131,6 @@ class BrandArgs:
     @default_app_classic_application_uri.setter
     def default_app_classic_application_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_app_classic_application_uri", value)
-
-    @property
-    @pulumi.getter(name="emailDomainId")
-    def email_domain_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Email Domain ID tied to this brand
-        """
-        return pulumi.get(self, "email_domain_id")
-
-    @email_domain_id.setter
-    def email_domain_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "email_domain_id", value)
 
     @property
     @pulumi.getter
@@ -402,7 +386,6 @@ class Brand(pulumi.CustomResource):
                  default_app_app_instance_id: Optional[pulumi.Input[str]] = None,
                  default_app_app_link_name: Optional[pulumi.Input[str]] = None,
                  default_app_classic_application_uri: Optional[pulumi.Input[str]] = None,
-                 email_domain_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remove_powered_by_okta: Optional[pulumi.Input[bool]] = None,
@@ -418,7 +401,6 @@ class Brand(pulumi.CustomResource):
         :param pulumi.Input[str] default_app_app_instance_id: Default app app instance id
         :param pulumi.Input[str] default_app_app_link_name: Default app app link name
         :param pulumi.Input[str] default_app_classic_application_uri: Default app classic application uri
-        :param pulumi.Input[str] email_domain_id: Email Domain ID tied to this brand
         :param pulumi.Input[str] locale: The language specified as an IETF BCP 47 language tag
         :param pulumi.Input[str] name: Brand name
         :param pulumi.Input[bool] remove_powered_by_okta: Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
@@ -453,7 +435,6 @@ class Brand(pulumi.CustomResource):
                  default_app_app_instance_id: Optional[pulumi.Input[str]] = None,
                  default_app_app_link_name: Optional[pulumi.Input[str]] = None,
                  default_app_classic_application_uri: Optional[pulumi.Input[str]] = None,
-                 email_domain_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remove_powered_by_okta: Optional[pulumi.Input[bool]] = None,
@@ -472,10 +453,10 @@ class Brand(pulumi.CustomResource):
             __props__.__dict__["default_app_app_instance_id"] = default_app_app_instance_id
             __props__.__dict__["default_app_app_link_name"] = default_app_app_link_name
             __props__.__dict__["default_app_classic_application_uri"] = default_app_classic_application_uri
-            __props__.__dict__["email_domain_id"] = email_domain_id
             __props__.__dict__["locale"] = locale
             __props__.__dict__["name"] = name
             __props__.__dict__["remove_powered_by_okta"] = remove_powered_by_okta
+            __props__.__dict__["email_domain_id"] = None
             __props__.__dict__["is_default"] = None
             __props__.__dict__["links"] = None
         super(Brand, __self__).__init__(
@@ -591,7 +572,7 @@ class Brand(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="emailDomainId")
-    def email_domain_id(self) -> pulumi.Output[Optional[str]]:
+    def email_domain_id(self) -> pulumi.Output[str]:
         """
         Email Domain ID tied to this brand
         """
