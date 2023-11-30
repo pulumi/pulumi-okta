@@ -1225,7 +1225,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="riskScore")
-    def risk_score(self) -> pulumi.Output[Optional[str]]:
+    def risk_score(self) -> pulumi.Output[str]:
         """
         The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         """

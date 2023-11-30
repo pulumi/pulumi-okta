@@ -114,14 +114,14 @@ public class Brand extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="emailDomainId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> emailDomainId;
+    private Output<String> emailDomainId;
 
     /**
      * @return Email Domain ID tied to this brand
      * 
      */
-    public Output<Optional<String>> emailDomainId() {
-        return Codegen.optional(this.emailDomainId);
+    public Output<String> emailDomainId() {
+        return this.emailDomainId;
     }
     /**
      * Is this the default brand

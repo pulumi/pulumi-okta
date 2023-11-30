@@ -51,7 +51,7 @@ type AppSignonPolicyRule struct {
 	// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
 	ReAuthenticationFrequency pulumi.StringPtrOutput `pulumi:"reAuthenticationFrequency"`
 	// The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
-	RiskScore pulumi.StringPtrOutput `pulumi:"riskScore"`
+	RiskScore pulumi.StringOutput `pulumi:"riskScore"`
 	// Status of the rule
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy
@@ -494,8 +494,8 @@ func (o AppSignonPolicyRuleOutput) ReAuthenticationFrequency() pulumi.StringPtrO
 }
 
 // The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
-func (o AppSignonPolicyRuleOutput) RiskScore() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.RiskScore }).(pulumi.StringPtrOutput)
+func (o AppSignonPolicyRuleOutput) RiskScore() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringOutput { return v.RiskScore }).(pulumi.StringOutput)
 }
 
 // Status of the rule

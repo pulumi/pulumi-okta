@@ -64,7 +64,7 @@ export class Brand extends pulumi.CustomResource {
     /**
      * Email Domain ID tied to this brand
      */
-    public readonly emailDomainId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly emailDomainId!: pulumi.Output<string>;
     /**
      * Is this the default brand
      */
@@ -119,10 +119,10 @@ export class Brand extends pulumi.CustomResource {
             resourceInputs["defaultAppAppInstanceId"] = args ? args.defaultAppAppInstanceId : undefined;
             resourceInputs["defaultAppAppLinkName"] = args ? args.defaultAppAppLinkName : undefined;
             resourceInputs["defaultAppClassicApplicationUri"] = args ? args.defaultAppClassicApplicationUri : undefined;
-            resourceInputs["emailDomainId"] = args ? args.emailDomainId : undefined;
             resourceInputs["locale"] = args ? args.locale : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["removePoweredByOkta"] = args ? args.removePoweredByOkta : undefined;
+            resourceInputs["emailDomainId"] = undefined /*out*/;
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["links"] = undefined /*out*/;
         }
@@ -217,10 +217,6 @@ export interface BrandArgs {
      * Default app classic application uri
      */
     defaultAppClassicApplicationUri?: pulumi.Input<string>;
-    /**
-     * Email Domain ID tied to this brand
-     */
-    emailDomainId?: pulumi.Input<string>;
     /**
      * The language specified as an IETF BCP 47 language tag
      */
