@@ -136,7 +136,7 @@ namespace Pulumi.Okta.Auth
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "okta:auth/serverPolicyClaim:ServerPolicyClaim"},
+                    new global::Pulumi.Alias { Type = "okta:auth/serverPolicyClaim:ServerPolicyClaim" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
