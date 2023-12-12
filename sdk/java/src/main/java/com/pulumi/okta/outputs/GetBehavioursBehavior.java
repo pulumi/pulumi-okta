@@ -83,13 +83,13 @@ public final class GetBehavioursBehavior {
             return this;
         }
         public GetBehavioursBehavior build() {
-            final var o = new GetBehavioursBehavior();
-            o.id = id;
-            o.name = name;
-            o.settings = settings;
-            o.status = status;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetBehavioursBehavior();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.settings = settings;
+            _resultValue.status = status;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

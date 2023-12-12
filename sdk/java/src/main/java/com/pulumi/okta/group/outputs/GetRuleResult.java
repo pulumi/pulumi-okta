@@ -161,15 +161,15 @@ public final class GetRuleResult {
             return usersExcludeds(List.of(usersExcludeds));
         }
         public GetRuleResult build() {
-            final var o = new GetRuleResult();
-            o.expressionType = expressionType;
-            o.expressionValue = expressionValue;
-            o.groupAssignments = groupAssignments;
-            o.id = id;
-            o.name = name;
-            o.status = status;
-            o.usersExcludeds = usersExcludeds;
-            return o;
+            final var _resultValue = new GetRuleResult();
+            _resultValue.expressionType = expressionType;
+            _resultValue.expressionValue = expressionValue;
+            _resultValue.groupAssignments = groupAssignments;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            _resultValue.usersExcludeds = usersExcludeds;
+            return _resultValue;
         }
     }
 }

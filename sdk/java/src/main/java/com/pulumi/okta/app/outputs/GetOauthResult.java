@@ -570,34 +570,34 @@ public final class GetOauthResult {
             return this;
         }
         public GetOauthResult build() {
-            final var o = new GetOauthResult();
-            o.activeOnly = activeOnly;
-            o.autoSubmitToolbar = autoSubmitToolbar;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.clientUri = clientUri;
-            o.grantTypes = grantTypes;
-            o.hideIos = hideIos;
-            o.hideWeb = hideWeb;
-            o.id = id;
-            o.label = label;
-            o.labelPrefix = labelPrefix;
-            o.links = links;
-            o.loginMode = loginMode;
-            o.loginScopes = loginScopes;
-            o.loginUri = loginUri;
-            o.logoUri = logoUri;
-            o.name = name;
-            o.policyUri = policyUri;
-            o.postLogoutRedirectUris = postLogoutRedirectUris;
-            o.redirectUris = redirectUris;
-            o.responseTypes = responseTypes;
-            o.skipGroups = skipGroups;
-            o.skipUsers = skipUsers;
-            o.status = status;
-            o.type = type;
-            o.wildcardRedirect = wildcardRedirect;
-            return o;
+            final var _resultValue = new GetOauthResult();
+            _resultValue.activeOnly = activeOnly;
+            _resultValue.autoSubmitToolbar = autoSubmitToolbar;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.clientUri = clientUri;
+            _resultValue.grantTypes = grantTypes;
+            _resultValue.hideIos = hideIos;
+            _resultValue.hideWeb = hideWeb;
+            _resultValue.id = id;
+            _resultValue.label = label;
+            _resultValue.labelPrefix = labelPrefix;
+            _resultValue.links = links;
+            _resultValue.loginMode = loginMode;
+            _resultValue.loginScopes = loginScopes;
+            _resultValue.loginUri = loginUri;
+            _resultValue.logoUri = logoUri;
+            _resultValue.name = name;
+            _resultValue.policyUri = policyUri;
+            _resultValue.postLogoutRedirectUris = postLogoutRedirectUris;
+            _resultValue.redirectUris = redirectUris;
+            _resultValue.responseTypes = responseTypes;
+            _resultValue.skipGroups = skipGroups;
+            _resultValue.skipUsers = skipUsers;
+            _resultValue.status = status;
+            _resultValue.type = type;
+            _resultValue.wildcardRedirect = wildcardRedirect;
+            return _resultValue;
         }
     }
 }

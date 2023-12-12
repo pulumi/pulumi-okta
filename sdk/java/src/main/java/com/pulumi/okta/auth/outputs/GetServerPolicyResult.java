@@ -146,14 +146,14 @@ public final class GetServerPolicyResult {
             return this;
         }
         public GetServerPolicyResult build() {
-            final var o = new GetServerPolicyResult();
-            o.assignedClients = assignedClients;
-            o.authServerId = authServerId;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.priority = priority;
-            return o;
+            final var _resultValue = new GetServerPolicyResult();
+            _resultValue.assignedClients = assignedClients;
+            _resultValue.authServerId = authServerId;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            return _resultValue;
         }
     }
 }

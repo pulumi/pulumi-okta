@@ -103,12 +103,12 @@ public final class GetTemplateResult {
             return this;
         }
         public GetTemplateResult build() {
-            final var o = new GetTemplateResult();
-            o.brandId = brandId;
-            o.id = id;
-            o.links = links;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetTemplateResult();
+            _resultValue.brandId = brandId;
+            _resultValue.id = id;
+            _resultValue.links = links;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

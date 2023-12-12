@@ -232,18 +232,18 @@ public final class GetNetworkZoneResult {
             return this;
         }
         public GetNetworkZoneResult build() {
-            final var o = new GetNetworkZoneResult();
-            o.asns = asns;
-            o.dynamicLocations = dynamicLocations;
-            o.dynamicProxyType = dynamicProxyType;
-            o.gateways = gateways;
-            o.id = id;
-            o.name = name;
-            o.proxies = proxies;
-            o.status = status;
-            o.type = type;
-            o.usage = usage;
-            return o;
+            final var _resultValue = new GetNetworkZoneResult();
+            _resultValue.asns = asns;
+            _resultValue.dynamicLocations = dynamicLocations;
+            _resultValue.dynamicProxyType = dynamicProxyType;
+            _resultValue.gateways = gateways;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.proxies = proxies;
+            _resultValue.status = status;
+            _resultValue.type = type;
+            _resultValue.usage = usage;
+            return _resultValue;
         }
     }
 }

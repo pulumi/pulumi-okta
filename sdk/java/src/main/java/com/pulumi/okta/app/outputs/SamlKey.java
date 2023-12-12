@@ -143,18 +143,18 @@ public final class SamlKey {
             return this;
         }
         public SamlKey build() {
-            final var o = new SamlKey();
-            o.created = created;
-            o.e = e;
-            o.expiresAt = expiresAt;
-            o.kid = kid;
-            o.kty = kty;
-            o.lastUpdated = lastUpdated;
-            o.n = n;
-            o.use = use;
-            o.x5cs = x5cs;
-            o.x5tS256 = x5tS256;
-            return o;
+            final var _resultValue = new SamlKey();
+            _resultValue.created = created;
+            _resultValue.e = e;
+            _resultValue.expiresAt = expiresAt;
+            _resultValue.kid = kid;
+            _resultValue.kty = kty;
+            _resultValue.lastUpdated = lastUpdated;
+            _resultValue.n = n;
+            _resultValue.use = use;
+            _resultValue.x5cs = x5cs;
+            _resultValue.x5tS256 = x5tS256;
+            return _resultValue;
         }
     }
 }

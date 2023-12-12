@@ -127,14 +127,14 @@ public final class OAuthJwk {
             return this;
         }
         public OAuthJwk build() {
-            final var o = new OAuthJwk();
-            o.e = e;
-            o.kid = kid;
-            o.kty = kty;
-            o.n = n;
-            o.x = x;
-            o.y = y;
-            return o;
+            final var _resultValue = new OAuthJwk();
+            _resultValue.e = e;
+            _resultValue.kid = kid;
+            _resultValue.kty = kty;
+            _resultValue.n = n;
+            _resultValue.x = x;
+            _resultValue.y = y;
+            return _resultValue;
         }
     }
 }

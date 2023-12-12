@@ -70,10 +70,10 @@ public final class GetBrandsResult {
             return this;
         }
         public GetBrandsResult build() {
-            final var o = new GetBrandsResult();
-            o.brands = brands;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetBrandsResult();
+            _resultValue.brands = brands;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -142,14 +142,14 @@ public final class GetBrandResult {
             return this;
         }
         public GetBrandResult build() {
-            final var o = new GetBrandResult();
-            o.brandId = brandId;
-            o.customPrivacyPolicyUrl = customPrivacyPolicyUrl;
-            o.id = id;
-            o.links = links;
-            o.name = name;
-            o.removePoweredByOkta = removePoweredByOkta;
-            return o;
+            final var _resultValue = new GetBrandResult();
+            _resultValue.brandId = brandId;
+            _resultValue.customPrivacyPolicyUrl = customPrivacyPolicyUrl;
+            _resultValue.id = id;
+            _resultValue.links = links;
+            _resultValue.name = name;
+            _resultValue.removePoweredByOkta = removePoweredByOkta;
+            return _resultValue;
         }
     }
 }

@@ -557,35 +557,35 @@ public final class GetSocialResult {
             return this;
         }
         public GetSocialResult build() {
-            final var o = new GetSocialResult();
-            o.accountLinkAction = accountLinkAction;
-            o.accountLinkGroupIncludes = accountLinkGroupIncludes;
-            o.authorizationBinding = authorizationBinding;
-            o.authorizationUrl = authorizationUrl;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.deprovisionedAction = deprovisionedAction;
-            o.groupsAction = groupsAction;
-            o.groupsAssignments = groupsAssignments;
-            o.groupsAttribute = groupsAttribute;
-            o.groupsFilters = groupsFilters;
-            o.id = id;
-            o.issuerMode = issuerMode;
-            o.maxClockSkew = maxClockSkew;
-            o.name = name;
-            o.profileMaster = profileMaster;
-            o.protocolType = protocolType;
-            o.provisioningAction = provisioningAction;
-            o.scopes = scopes;
-            o.status = status;
-            o.subjectMatchAttribute = subjectMatchAttribute;
-            o.subjectMatchType = subjectMatchType;
-            o.suspendedAction = suspendedAction;
-            o.tokenBinding = tokenBinding;
-            o.tokenUrl = tokenUrl;
-            o.type = type;
-            o.usernameTemplate = usernameTemplate;
-            return o;
+            final var _resultValue = new GetSocialResult();
+            _resultValue.accountLinkAction = accountLinkAction;
+            _resultValue.accountLinkGroupIncludes = accountLinkGroupIncludes;
+            _resultValue.authorizationBinding = authorizationBinding;
+            _resultValue.authorizationUrl = authorizationUrl;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.deprovisionedAction = deprovisionedAction;
+            _resultValue.groupsAction = groupsAction;
+            _resultValue.groupsAssignments = groupsAssignments;
+            _resultValue.groupsAttribute = groupsAttribute;
+            _resultValue.groupsFilters = groupsFilters;
+            _resultValue.id = id;
+            _resultValue.issuerMode = issuerMode;
+            _resultValue.maxClockSkew = maxClockSkew;
+            _resultValue.name = name;
+            _resultValue.profileMaster = profileMaster;
+            _resultValue.protocolType = protocolType;
+            _resultValue.provisioningAction = provisioningAction;
+            _resultValue.scopes = scopes;
+            _resultValue.status = status;
+            _resultValue.subjectMatchAttribute = subjectMatchAttribute;
+            _resultValue.subjectMatchType = subjectMatchType;
+            _resultValue.suspendedAction = suspendedAction;
+            _resultValue.tokenBinding = tokenBinding;
+            _resultValue.tokenUrl = tokenUrl;
+            _resultValue.type = type;
+            _resultValue.usernameTemplate = usernameTemplate;
+            return _resultValue;
         }
     }
 }

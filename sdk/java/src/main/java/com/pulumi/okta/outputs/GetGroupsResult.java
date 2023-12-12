@@ -113,13 +113,13 @@ public final class GetGroupsResult {
             return this;
         }
         public GetGroupsResult build() {
-            final var o = new GetGroupsResult();
-            o.groups = groups;
-            o.id = id;
-            o.q = q;
-            o.search = search;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetGroupsResult();
+            _resultValue.groups = groups;
+            _resultValue.id = id;
+            _resultValue.q = q;
+            _resultValue.search = search;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

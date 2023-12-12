@@ -84,11 +84,11 @@ public final class GetAppSignonPolicyResult {
             return this;
         }
         public GetAppSignonPolicyResult build() {
-            final var o = new GetAppSignonPolicyResult();
-            o.appId = appId;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetAppSignonPolicyResult();
+            _resultValue.appId = appId;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

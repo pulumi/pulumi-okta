@@ -89,12 +89,12 @@ public final class GetUserSearch {
             return this;
         }
         public GetUserSearch build() {
-            final var o = new GetUserSearch();
-            o.comparison = comparison;
-            o.expression = expression;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetUserSearch();
+            _resultValue.comparison = comparison;
+            _resultValue.expression = expression;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

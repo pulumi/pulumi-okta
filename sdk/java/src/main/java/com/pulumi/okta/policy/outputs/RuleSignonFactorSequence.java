@@ -82,11 +82,11 @@ public final class RuleSignonFactorSequence {
             return secondaryCriterias(List.of(secondaryCriterias));
         }
         public RuleSignonFactorSequence build() {
-            final var o = new RuleSignonFactorSequence();
-            o.primaryCriteriaFactorType = primaryCriteriaFactorType;
-            o.primaryCriteriaProvider = primaryCriteriaProvider;
-            o.secondaryCriterias = secondaryCriterias;
-            return o;
+            final var _resultValue = new RuleSignonFactorSequence();
+            _resultValue.primaryCriteriaFactorType = primaryCriteriaFactorType;
+            _resultValue.primaryCriteriaProvider = primaryCriteriaProvider;
+            _resultValue.secondaryCriterias = secondaryCriterias;
+            return _resultValue;
         }
     }
 }

@@ -312,23 +312,23 @@ public final class GetThemeResult {
             return this;
         }
         public GetThemeResult build() {
-            final var o = new GetThemeResult();
-            o.backgroundImageUrl = backgroundImageUrl;
-            o.brandId = brandId;
-            o.emailTemplateTouchPointVariant = emailTemplateTouchPointVariant;
-            o.endUserDashboardTouchPointVariant = endUserDashboardTouchPointVariant;
-            o.errorPageTouchPointVariant = errorPageTouchPointVariant;
-            o.faviconUrl = faviconUrl;
-            o.id = id;
-            o.links = links;
-            o.logoUrl = logoUrl;
-            o.primaryColorContrastHex = primaryColorContrastHex;
-            o.primaryColorHex = primaryColorHex;
-            o.secondaryColorContrastHex = secondaryColorContrastHex;
-            o.secondaryColorHex = secondaryColorHex;
-            o.signInPageTouchPointVariant = signInPageTouchPointVariant;
-            o.themeId = themeId;
-            return o;
+            final var _resultValue = new GetThemeResult();
+            _resultValue.backgroundImageUrl = backgroundImageUrl;
+            _resultValue.brandId = brandId;
+            _resultValue.emailTemplateTouchPointVariant = emailTemplateTouchPointVariant;
+            _resultValue.endUserDashboardTouchPointVariant = endUserDashboardTouchPointVariant;
+            _resultValue.errorPageTouchPointVariant = errorPageTouchPointVariant;
+            _resultValue.faviconUrl = faviconUrl;
+            _resultValue.id = id;
+            _resultValue.links = links;
+            _resultValue.logoUrl = logoUrl;
+            _resultValue.primaryColorContrastHex = primaryColorContrastHex;
+            _resultValue.primaryColorHex = primaryColorHex;
+            _resultValue.secondaryColorContrastHex = secondaryColorContrastHex;
+            _resultValue.secondaryColorHex = secondaryColorHex;
+            _resultValue.signInPageTouchPointVariant = signInPageTouchPointVariant;
+            _resultValue.themeId = themeId;
+            return _resultValue;
         }
     }
 }

@@ -70,11 +70,11 @@ public final class RuleIdpDiscoveryPlatformInclude {
             return this;
         }
         public RuleIdpDiscoveryPlatformInclude build() {
-            final var o = new RuleIdpDiscoveryPlatformInclude();
-            o.osExpression = osExpression;
-            o.osType = osType;
-            o.type = type;
-            return o;
+            final var _resultValue = new RuleIdpDiscoveryPlatformInclude();
+            _resultValue.osExpression = osExpression;
+            _resultValue.osType = osType;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

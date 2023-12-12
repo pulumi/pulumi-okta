@@ -205,17 +205,17 @@ public final class GetAuthServerClaimResult {
             return this;
         }
         public GetAuthServerClaimResult build() {
-            final var o = new GetAuthServerClaimResult();
-            o.alwaysIncludeInToken = alwaysIncludeInToken;
-            o.authServerId = authServerId;
-            o.claimType = claimType;
-            o.id = id;
-            o.name = name;
-            o.scopes = scopes;
-            o.status = status;
-            o.value = value;
-            o.valueType = valueType;
-            return o;
+            final var _resultValue = new GetAuthServerClaimResult();
+            _resultValue.alwaysIncludeInToken = alwaysIncludeInToken;
+            _resultValue.authServerId = authServerId;
+            _resultValue.claimType = claimType;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.scopes = scopes;
+            _resultValue.status = status;
+            _resultValue.value = value;
+            _resultValue.valueType = valueType;
+            return _resultValue;
         }
     }
 }

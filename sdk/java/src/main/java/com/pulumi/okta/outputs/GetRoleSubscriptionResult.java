@@ -103,12 +103,12 @@ public final class GetRoleSubscriptionResult {
             return this;
         }
         public GetRoleSubscriptionResult build() {
-            final var o = new GetRoleSubscriptionResult();
-            o.id = id;
-            o.notificationType = notificationType;
-            o.roleType = roleType;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetRoleSubscriptionResult();
+            _resultValue.id = id;
+            _resultValue.notificationType = notificationType;
+            _resultValue.roleType = roleType;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

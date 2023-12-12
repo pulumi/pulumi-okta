@@ -65,10 +65,10 @@ public final class GroupSchemaPropertyArrayOneOf {
             return this;
         }
         public GroupSchemaPropertyArrayOneOf build() {
-            final var o = new GroupSchemaPropertyArrayOneOf();
-            o.const_ = const_;
-            o.title = title;
-            return o;
+            final var _resultValue = new GroupSchemaPropertyArrayOneOf();
+            _resultValue.const_ = const_;
+            _resultValue.title = title;
+            return _resultValue;
         }
     }
 }

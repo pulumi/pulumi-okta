@@ -103,12 +103,12 @@ public final class GetUserTypeResult {
             return this;
         }
         public GetUserTypeResult build() {
-            final var o = new GetUserTypeResult();
-            o.description = description;
-            o.displayName = displayName;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetUserTypeResult();
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

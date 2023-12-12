@@ -65,10 +65,10 @@ public final class RuleSignonFactorSequenceSecondaryCriteria {
             return this;
         }
         public RuleSignonFactorSequenceSecondaryCriteria build() {
-            final var o = new RuleSignonFactorSequenceSecondaryCriteria();
-            o.factorType = factorType;
-            o.provider = provider;
-            return o;
+            final var _resultValue = new RuleSignonFactorSequenceSecondaryCriteria();
+            _resultValue.factorType = factorType;
+            _resultValue.provider = provider;
+            return _resultValue;
         }
     }
 }

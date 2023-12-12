@@ -70,11 +70,11 @@ public final class MappingMapping {
             return this;
         }
         public MappingMapping build() {
-            final var o = new MappingMapping();
-            o.expression = expression;
-            o.id = id;
-            o.pushStatus = pushStatus;
-            return o;
+            final var _resultValue = new MappingMapping();
+            _resultValue.expression = expression;
+            _resultValue.id = id;
+            _resultValue.pushStatus = pushStatus;
+            return _resultValue;
         }
     }
 }

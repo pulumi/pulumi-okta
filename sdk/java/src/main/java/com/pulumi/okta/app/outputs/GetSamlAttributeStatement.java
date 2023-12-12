@@ -97,14 +97,14 @@ public final class GetSamlAttributeStatement {
             return values(List.of(values));
         }
         public GetSamlAttributeStatement build() {
-            final var o = new GetSamlAttributeStatement();
-            o.filterType = filterType;
-            o.filterValue = filterValue;
-            o.name = name;
-            o.namespace = namespace;
-            o.type = type;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetSamlAttributeStatement();
+            _resultValue.filterType = filterType;
+            _resultValue.filterValue = filterValue;
+            _resultValue.name = name;
+            _resultValue.namespace = namespace;
+            _resultValue.type = type;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -108,12 +108,12 @@ public final class GetEmailCustomizationsResult {
             return this;
         }
         public GetEmailCustomizationsResult build() {
-            final var o = new GetEmailCustomizationsResult();
-            o.brandId = brandId;
-            o.emailCustomizations = emailCustomizations;
-            o.id = id;
-            o.templateName = templateName;
-            return o;
+            final var _resultValue = new GetEmailCustomizationsResult();
+            _resultValue.brandId = brandId;
+            _resultValue.emailCustomizations = emailCustomizations;
+            _resultValue.id = id;
+            _resultValue.templateName = templateName;
+            return _resultValue;
         }
     }
 }

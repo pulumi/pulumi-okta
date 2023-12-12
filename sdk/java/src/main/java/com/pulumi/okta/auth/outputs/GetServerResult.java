@@ -240,19 +240,19 @@ public final class GetServerResult {
             return this;
         }
         public GetServerResult build() {
-            final var o = new GetServerResult();
-            o.audiences = audiences;
-            o.credentialsLastRotated = credentialsLastRotated;
-            o.credentialsNextRotation = credentialsNextRotation;
-            o.credentialsRotationMode = credentialsRotationMode;
-            o.description = description;
-            o.id = id;
-            o.issuer = issuer;
-            o.issuerMode = issuerMode;
-            o.kid = kid;
-            o.name = name;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetServerResult();
+            _resultValue.audiences = audiences;
+            _resultValue.credentialsLastRotated = credentialsLastRotated;
+            _resultValue.credentialsNextRotation = credentialsNextRotation;
+            _resultValue.credentialsRotationMode = credentialsRotationMode;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.issuer = issuer;
+            _resultValue.issuerMode = issuerMode;
+            _resultValue.kid = kid;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

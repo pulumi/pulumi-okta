@@ -65,10 +65,10 @@ public final class UserSchemaPropertyArrayOneOf {
             return this;
         }
         public UserSchemaPropertyArrayOneOf build() {
-            final var o = new UserSchemaPropertyArrayOneOf();
-            o.const_ = const_;
-            o.title = title;
-            return o;
+            final var _resultValue = new UserSchemaPropertyArrayOneOf();
+            _resultValue.const_ = const_;
+            _resultValue.title = title;
+            return _resultValue;
         }
     }
 }

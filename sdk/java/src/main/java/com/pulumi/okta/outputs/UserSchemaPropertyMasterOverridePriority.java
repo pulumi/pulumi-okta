@@ -51,10 +51,10 @@ public final class UserSchemaPropertyMasterOverridePriority {
             return this;
         }
         public UserSchemaPropertyMasterOverridePriority build() {
-            final var o = new UserSchemaPropertyMasterOverridePriority();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new UserSchemaPropertyMasterOverridePriority();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

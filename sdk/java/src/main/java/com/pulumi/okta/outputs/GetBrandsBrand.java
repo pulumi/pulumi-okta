@@ -83,13 +83,13 @@ public final class GetBrandsBrand {
             return this;
         }
         public GetBrandsBrand build() {
-            final var o = new GetBrandsBrand();
-            o.customPrivacyPolicyUrl = customPrivacyPolicyUrl;
-            o.id = id;
-            o.links = links;
-            o.name = name;
-            o.removePoweredByOkta = removePoweredByOkta;
-            return o;
+            final var _resultValue = new GetBrandsBrand();
+            _resultValue.customPrivacyPolicyUrl = customPrivacyPolicyUrl;
+            _resultValue.id = id;
+            _resultValue.links = links;
+            _resultValue.name = name;
+            _resultValue.removePoweredByOkta = removePoweredByOkta;
+            return _resultValue;
         }
     }
 }

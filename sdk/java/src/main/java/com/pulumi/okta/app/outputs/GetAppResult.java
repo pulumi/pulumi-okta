@@ -292,19 +292,19 @@ public final class GetAppResult {
             return users(List.of(users));
         }
         public GetAppResult build() {
-            final var o = new GetAppResult();
-            o.activeOnly = activeOnly;
-            o.groups = groups;
-            o.id = id;
-            o.label = label;
-            o.labelPrefix = labelPrefix;
-            o.links = links;
-            o.name = name;
-            o.skipGroups = skipGroups;
-            o.skipUsers = skipUsers;
-            o.status = status;
-            o.users = users;
-            return o;
+            final var _resultValue = new GetAppResult();
+            _resultValue.activeOnly = activeOnly;
+            _resultValue.groups = groups;
+            _resultValue.id = id;
+            _resultValue.label = label;
+            _resultValue.labelPrefix = labelPrefix;
+            _resultValue.links = links;
+            _resultValue.name = name;
+            _resultValue.skipGroups = skipGroups;
+            _resultValue.skipUsers = skipUsers;
+            _resultValue.status = status;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

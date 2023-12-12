@@ -191,16 +191,16 @@ public final class GetUsersResult {
             return users(List.of(users));
         }
         public GetUsersResult build() {
-            final var o = new GetUsersResult();
-            o.compoundSearchOperator = compoundSearchOperator;
-            o.delayReadSeconds = delayReadSeconds;
-            o.groupId = groupId;
-            o.id = id;
-            o.includeGroups = includeGroups;
-            o.includeRoles = includeRoles;
-            o.searches = searches;
-            o.users = users;
-            return o;
+            final var _resultValue = new GetUsersResult();
+            _resultValue.compoundSearchOperator = compoundSearchOperator;
+            _resultValue.delayReadSeconds = delayReadSeconds;
+            _resultValue.groupId = groupId;
+            _resultValue.id = id;
+            _resultValue.includeGroups = includeGroups;
+            _resultValue.includeRoles = includeRoles;
+            _resultValue.searches = searches;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

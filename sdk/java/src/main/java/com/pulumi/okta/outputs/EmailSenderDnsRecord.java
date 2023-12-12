@@ -62,11 +62,11 @@ public final class EmailSenderDnsRecord {
             return this;
         }
         public EmailSenderDnsRecord build() {
-            final var o = new EmailSenderDnsRecord();
-            o.fqdn = fqdn;
-            o.recordType = recordType;
-            o.value = value;
-            return o;
+            final var _resultValue = new EmailSenderDnsRecord();
+            _resultValue.fqdn = fqdn;
+            _resultValue.recordType = recordType;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

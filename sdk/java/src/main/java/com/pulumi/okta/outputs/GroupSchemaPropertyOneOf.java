@@ -65,10 +65,10 @@ public final class GroupSchemaPropertyOneOf {
             return this;
         }
         public GroupSchemaPropertyOneOf build() {
-            final var o = new GroupSchemaPropertyOneOf();
-            o.const_ = const_;
-            o.title = title;
-            return o;
+            final var _resultValue = new GroupSchemaPropertyOneOf();
+            _resultValue.const_ = const_;
+            _resultValue.title = title;
+            return _resultValue;
         }
     }
 }

@@ -51,10 +51,10 @@ public final class GroupSchemaPropertyMasterOverridePriority {
             return this;
         }
         public GroupSchemaPropertyMasterOverridePriority build() {
-            final var o = new GroupSchemaPropertyMasterOverridePriority();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new GroupSchemaPropertyMasterOverridePriority();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -49,10 +49,10 @@ public final class GetUserSecurityQuestionsQuestion {
             return this;
         }
         public GetUserSecurityQuestionsQuestion build() {
-            final var o = new GetUserSecurityQuestionsQuestion();
-            o.key = key;
-            o.text = text;
-            return o;
+            final var _resultValue = new GetUserSecurityQuestionsQuestion();
+            _resultValue.key = key;
+            _resultValue.text = text;
+            return _resultValue;
         }
     }
 }

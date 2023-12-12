@@ -376,26 +376,26 @@ public final class GetOidcResult {
             return this;
         }
         public GetOidcResult build() {
-            final var o = new GetOidcResult();
-            o.authorizationBinding = authorizationBinding;
-            o.authorizationUrl = authorizationUrl;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.id = id;
-            o.issuerMode = issuerMode;
-            o.issuerUrl = issuerUrl;
-            o.jwksBinding = jwksBinding;
-            o.jwksUrl = jwksUrl;
-            o.maxClockSkew = maxClockSkew;
-            o.name = name;
-            o.protocolType = protocolType;
-            o.scopes = scopes;
-            o.tokenBinding = tokenBinding;
-            o.tokenUrl = tokenUrl;
-            o.type = type;
-            o.userInfoBinding = userInfoBinding;
-            o.userInfoUrl = userInfoUrl;
-            return o;
+            final var _resultValue = new GetOidcResult();
+            _resultValue.authorizationBinding = authorizationBinding;
+            _resultValue.authorizationUrl = authorizationUrl;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.id = id;
+            _resultValue.issuerMode = issuerMode;
+            _resultValue.issuerUrl = issuerUrl;
+            _resultValue.jwksBinding = jwksBinding;
+            _resultValue.jwksUrl = jwksUrl;
+            _resultValue.maxClockSkew = maxClockSkew;
+            _resultValue.name = name;
+            _resultValue.protocolType = protocolType;
+            _resultValue.scopes = scopes;
+            _resultValue.tokenBinding = tokenBinding;
+            _resultValue.tokenUrl = tokenUrl;
+            _resultValue.type = type;
+            _resultValue.userInfoBinding = userInfoBinding;
+            _resultValue.userInfoUrl = userInfoUrl;
+            return _resultValue;
         }
     }
 }

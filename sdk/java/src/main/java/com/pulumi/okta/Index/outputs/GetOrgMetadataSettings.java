@@ -68,11 +68,11 @@ public final class GetOrgMetadataSettings {
             return this;
         }
         public GetOrgMetadataSettings build() {
-            final var o = new GetOrgMetadataSettings();
-            o.analyticsCollectionEnabled = analyticsCollectionEnabled;
-            o.bugReportingEnabled = bugReportingEnabled;
-            o.omEnabled = omEnabled;
-            return o;
+            final var _resultValue = new GetOrgMetadataSettings();
+            _resultValue.analyticsCollectionEnabled = analyticsCollectionEnabled;
+            _resultValue.bugReportingEnabled = bugReportingEnabled;
+            _resultValue.omEnabled = omEnabled;
+            return _resultValue;
         }
     }
 }
