@@ -51,10 +51,10 @@ public final class HookHeader {
             return this;
         }
         public HookHeader build() {
-            final var o = new HookHeader();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new HookHeader();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

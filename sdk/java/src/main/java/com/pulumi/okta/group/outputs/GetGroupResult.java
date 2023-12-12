@@ -159,15 +159,15 @@ public final class GetGroupResult {
             return users(List.of(users));
         }
         public GetGroupResult build() {
-            final var o = new GetGroupResult();
-            o.delayReadSeconds = delayReadSeconds;
-            o.description = description;
-            o.id = id;
-            o.includeUsers = includeUsers;
-            o.name = name;
-            o.type = type;
-            o.users = users;
-            return o;
+            final var _resultValue = new GetGroupResult();
+            _resultValue.delayReadSeconds = delayReadSeconds;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.includeUsers = includeUsers;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

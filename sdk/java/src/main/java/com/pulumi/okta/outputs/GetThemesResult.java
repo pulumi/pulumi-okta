@@ -89,11 +89,11 @@ public final class GetThemesResult {
             return themes(List.of(themes));
         }
         public GetThemesResult build() {
-            final var o = new GetThemesResult();
-            o.brandId = brandId;
-            o.id = id;
-            o.themes = themes;
-            return o;
+            final var _resultValue = new GetThemesResult();
+            _resultValue.brandId = brandId;
+            _resultValue.id = id;
+            _resultValue.themes = themes;
+            return _resultValue;
         }
     }
 }

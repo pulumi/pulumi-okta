@@ -87,11 +87,11 @@ public final class AppGroupAssignmentsGroup {
             return this;
         }
         public AppGroupAssignmentsGroup build() {
-            final var o = new AppGroupAssignmentsGroup();
-            o.id = id;
-            o.priority = priority;
-            o.profile = profile;
-            return o;
+            final var _resultValue = new AppGroupAssignmentsGroup();
+            _resultValue.id = id;
+            _resultValue.priority = priority;
+            _resultValue.profile = profile;
+            return _resultValue;
         }
     }
 }

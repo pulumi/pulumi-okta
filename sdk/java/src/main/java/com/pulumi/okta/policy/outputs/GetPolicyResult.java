@@ -103,12 +103,12 @@ public final class GetPolicyResult {
             return this;
         }
         public GetPolicyResult build() {
-            final var o = new GetPolicyResult();
-            o.id = id;
-            o.name = name;
-            o.status = status;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetPolicyResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

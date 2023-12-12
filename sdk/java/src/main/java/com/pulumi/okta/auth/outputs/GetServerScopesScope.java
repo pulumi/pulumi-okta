@@ -127,17 +127,17 @@ public final class GetServerScopesScope {
             return this;
         }
         public GetServerScopesScope build() {
-            final var o = new GetServerScopesScope();
-            o.consent = consent;
-            o.default_ = default_;
-            o.description = description;
-            o.displayName = displayName;
-            o.id = id;
-            o.metadataPublish = metadataPublish;
-            o.name = name;
-            o.optional = optional;
-            o.system = system;
-            return o;
+            final var _resultValue = new GetServerScopesScope();
+            _resultValue.consent = consent;
+            _resultValue.default_ = default_;
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.metadataPublish = metadataPublish;
+            _resultValue.name = name;
+            _resultValue.optional = optional;
+            _resultValue.system = system;
+            return _resultValue;
         }
     }
 }

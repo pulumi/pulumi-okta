@@ -81,11 +81,11 @@ public final class GetUserSecurityQuestionsResult {
             return this;
         }
         public GetUserSecurityQuestionsResult build() {
-            final var o = new GetUserSecurityQuestionsResult();
-            o.id = id;
-            o.questions = questions;
-            o.userId = userId;
-            return o;
+            final var _resultValue = new GetUserSecurityQuestionsResult();
+            _resultValue.id = id;
+            _resultValue.questions = questions;
+            _resultValue.userId = userId;
+            return _resultValue;
         }
     }
 }

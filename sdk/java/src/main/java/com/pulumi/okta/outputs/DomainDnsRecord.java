@@ -77,12 +77,12 @@ public final class DomainDnsRecord {
             return values(List.of(values));
         }
         public DomainDnsRecord build() {
-            final var o = new DomainDnsRecord();
-            o.expiration = expiration;
-            o.fqdn = fqdn;
-            o.recordType = recordType;
-            o.values = values;
-            return o;
+            final var _resultValue = new DomainDnsRecord();
+            _resultValue.expiration = expiration;
+            _resultValue.fqdn = fqdn;
+            _resultValue.recordType = recordType;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class PolicyRuleProfileEnrollmentProfileAttribute {
             return this;
         }
         public PolicyRuleProfileEnrollmentProfileAttribute build() {
-            final var o = new PolicyRuleProfileEnrollmentProfileAttribute();
-            o.label = label;
-            o.name = name;
-            o.required = required;
-            return o;
+            final var _resultValue = new PolicyRuleProfileEnrollmentProfileAttribute();
+            _resultValue.label = label;
+            _resultValue.name = name;
+            _resultValue.required = required;
+            return _resultValue;
         }
     }
 }

@@ -170,21 +170,21 @@ public final class GetThemesTheme {
             return this;
         }
         public GetThemesTheme build() {
-            final var o = new GetThemesTheme();
-            o.backgroundImageUrl = backgroundImageUrl;
-            o.emailTemplateTouchPointVariant = emailTemplateTouchPointVariant;
-            o.endUserDashboardTouchPointVariant = endUserDashboardTouchPointVariant;
-            o.errorPageTouchPointVariant = errorPageTouchPointVariant;
-            o.faviconUrl = faviconUrl;
-            o.id = id;
-            o.links = links;
-            o.logoUrl = logoUrl;
-            o.primaryColorContrastHex = primaryColorContrastHex;
-            o.primaryColorHex = primaryColorHex;
-            o.secondaryColorContrastHex = secondaryColorContrastHex;
-            o.secondaryColorHex = secondaryColorHex;
-            o.signInPageTouchPointVariant = signInPageTouchPointVariant;
-            return o;
+            final var _resultValue = new GetThemesTheme();
+            _resultValue.backgroundImageUrl = backgroundImageUrl;
+            _resultValue.emailTemplateTouchPointVariant = emailTemplateTouchPointVariant;
+            _resultValue.endUserDashboardTouchPointVariant = endUserDashboardTouchPointVariant;
+            _resultValue.errorPageTouchPointVariant = errorPageTouchPointVariant;
+            _resultValue.faviconUrl = faviconUrl;
+            _resultValue.id = id;
+            _resultValue.links = links;
+            _resultValue.logoUrl = logoUrl;
+            _resultValue.primaryColorContrastHex = primaryColorContrastHex;
+            _resultValue.primaryColorHex = primaryColorHex;
+            _resultValue.secondaryColorContrastHex = secondaryColorContrastHex;
+            _resultValue.secondaryColorHex = secondaryColorHex;
+            _resultValue.signInPageTouchPointVariant = signInPageTouchPointVariant;
+            return _resultValue;
         }
     }
 }

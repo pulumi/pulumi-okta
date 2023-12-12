@@ -199,17 +199,17 @@ public final class GetEmailCustomizationResult {
             return this;
         }
         public GetEmailCustomizationResult build() {
-            final var o = new GetEmailCustomizationResult();
-            o.body = body;
-            o.brandId = brandId;
-            o.customizationId = customizationId;
-            o.id = id;
-            o.isDefault = isDefault;
-            o.language = language;
-            o.links = links;
-            o.subject = subject;
-            o.templateName = templateName;
-            return o;
+            final var _resultValue = new GetEmailCustomizationResult();
+            _resultValue.body = body;
+            _resultValue.brandId = brandId;
+            _resultValue.customizationId = customizationId;
+            _resultValue.id = id;
+            _resultValue.isDefault = isDefault;
+            _resultValue.language = language;
+            _resultValue.links = links;
+            _resultValue.subject = subject;
+            _resultValue.templateName = templateName;
+            return _resultValue;
         }
     }
 }

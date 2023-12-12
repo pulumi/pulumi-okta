@@ -94,14 +94,14 @@ public final class GetEmailCustomizationsEmailCustomization {
             return this;
         }
         public GetEmailCustomizationsEmailCustomization build() {
-            final var o = new GetEmailCustomizationsEmailCustomization();
-            o.body = body;
-            o.id = id;
-            o.isDefault = isDefault;
-            o.language = language;
-            o.links = links;
-            o.subject = subject;
-            return o;
+            final var _resultValue = new GetEmailCustomizationsEmailCustomization();
+            _resultValue.body = body;
+            _resultValue.id = id;
+            _resultValue.isDefault = isDefault;
+            _resultValue.language = language;
+            _resultValue.links = links;
+            _resultValue.subject = subject;
+            return _resultValue;
         }
     }
 }

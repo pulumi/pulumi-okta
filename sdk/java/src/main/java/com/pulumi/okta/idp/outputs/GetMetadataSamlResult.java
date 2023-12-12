@@ -220,18 +220,18 @@ public final class GetMetadataSamlResult {
             return this;
         }
         public GetMetadataSamlResult build() {
-            final var o = new GetMetadataSamlResult();
-            o.assertionsSigned = assertionsSigned;
-            o.authnRequestSigned = authnRequestSigned;
-            o.encryptionCertificate = encryptionCertificate;
-            o.entityId = entityId;
-            o.httpPostBinding = httpPostBinding;
-            o.httpRedirectBinding = httpRedirectBinding;
-            o.id = id;
-            o.idpId = idpId;
-            o.metadata = metadata;
-            o.signingCertificate = signingCertificate;
-            return o;
+            final var _resultValue = new GetMetadataSamlResult();
+            _resultValue.assertionsSigned = assertionsSigned;
+            _resultValue.authnRequestSigned = authnRequestSigned;
+            _resultValue.encryptionCertificate = encryptionCertificate;
+            _resultValue.entityId = entityId;
+            _resultValue.httpPostBinding = httpPostBinding;
+            _resultValue.httpRedirectBinding = httpRedirectBinding;
+            _resultValue.id = id;
+            _resultValue.idpId = idpId;
+            _resultValue.metadata = metadata;
+            _resultValue.signingCertificate = signingCertificate;
+            return _resultValue;
         }
     }
 }

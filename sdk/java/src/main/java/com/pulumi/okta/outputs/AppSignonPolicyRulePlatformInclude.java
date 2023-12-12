@@ -70,11 +70,11 @@ public final class AppSignonPolicyRulePlatformInclude {
             return this;
         }
         public AppSignonPolicyRulePlatformInclude build() {
-            final var o = new AppSignonPolicyRulePlatformInclude();
-            o.osExpression = osExpression;
-            o.osType = osType;
-            o.type = type;
-            return o;
+            final var _resultValue = new AppSignonPolicyRulePlatformInclude();
+            _resultValue.osExpression = osExpression;
+            _resultValue.osType = osType;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -120,16 +120,16 @@ public final class GetAuthServerClaimsClaim {
             return this;
         }
         public GetAuthServerClaimsClaim build() {
-            final var o = new GetAuthServerClaimsClaim();
-            o.alwaysIncludeInToken = alwaysIncludeInToken;
-            o.claimType = claimType;
-            o.id = id;
-            o.name = name;
-            o.scopes = scopes;
-            o.status = status;
-            o.value = value;
-            o.valueType = valueType;
-            return o;
+            final var _resultValue = new GetAuthServerClaimsClaim();
+            _resultValue.alwaysIncludeInToken = alwaysIncludeInToken;
+            _resultValue.claimType = claimType;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.scopes = scopes;
+            _resultValue.status = status;
+            _resultValue.value = value;
+            _resultValue.valueType = valueType;
+            return _resultValue;
         }
     }
 }

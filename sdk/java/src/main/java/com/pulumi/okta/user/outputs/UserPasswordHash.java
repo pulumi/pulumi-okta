@@ -125,13 +125,13 @@ public final class UserPasswordHash {
             return this;
         }
         public UserPasswordHash build() {
-            final var o = new UserPasswordHash();
-            o.algorithm = algorithm;
-            o.salt = salt;
-            o.saltOrder = saltOrder;
-            o.value = value;
-            o.workFactor = workFactor;
-            return o;
+            final var _resultValue = new UserPasswordHash();
+            _resultValue.algorithm = algorithm;
+            _resultValue.salt = salt;
+            _resultValue.saltOrder = saltOrder;
+            _resultValue.value = value;
+            _resultValue.workFactor = workFactor;
+            return _resultValue;
         }
     }
 }

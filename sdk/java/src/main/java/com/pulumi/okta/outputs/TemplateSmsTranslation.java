@@ -49,10 +49,10 @@ public final class TemplateSmsTranslation {
             return this;
         }
         public TemplateSmsTranslation build() {
-            final var o = new TemplateSmsTranslation();
-            o.language = language;
-            o.template = template;
-            return o;
+            final var _resultValue = new TemplateSmsTranslation();
+            _resultValue.language = language;
+            _resultValue.template = template;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class GetAppGroupAssignmentsResult {
             return this;
         }
         public GetAppGroupAssignmentsResult build() {
-            final var o = new GetAppGroupAssignmentsResult();
-            o.groups = groups;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetAppGroupAssignmentsResult();
+            _resultValue.groups = groups;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

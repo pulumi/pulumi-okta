@@ -51,10 +51,10 @@ public final class EventHookHeader {
             return this;
         }
         public EventHookHeader build() {
-            final var o = new EventHookHeader();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventHookHeader();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

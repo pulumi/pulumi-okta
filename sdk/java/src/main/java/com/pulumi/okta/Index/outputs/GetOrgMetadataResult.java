@@ -107,12 +107,12 @@ public final class GetOrgMetadataResult {
             return this;
         }
         public GetOrgMetadataResult build() {
-            final var o = new GetOrgMetadataResult();
-            o.domains = domains;
-            o.id = id;
-            o.pipeline = pipeline;
-            o.settings = settings;
-            return o;
+            final var _resultValue = new GetOrgMetadataResult();
+            _resultValue.domains = domains;
+            _resultValue.id = id;
+            _resultValue.pipeline = pipeline;
+            _resultValue.settings = settings;
+            return _resultValue;
         }
     }
 }

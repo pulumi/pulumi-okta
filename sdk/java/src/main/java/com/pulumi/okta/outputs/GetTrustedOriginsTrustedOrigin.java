@@ -87,13 +87,13 @@ public final class GetTrustedOriginsTrustedOrigin {
             return scopes(List.of(scopes));
         }
         public GetTrustedOriginsTrustedOrigin build() {
-            final var o = new GetTrustedOriginsTrustedOrigin();
-            o.active = active;
-            o.id = id;
-            o.name = name;
-            o.origin = origin;
-            o.scopes = scopes;
-            return o;
+            final var _resultValue = new GetTrustedOriginsTrustedOrigin();
+            _resultValue.active = active;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.origin = origin;
+            _resultValue.scopes = scopes;
+            return _resultValue;
         }
     }
 }

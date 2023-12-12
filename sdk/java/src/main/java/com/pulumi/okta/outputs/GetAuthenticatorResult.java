@@ -258,20 +258,20 @@ public final class GetAuthenticatorResult {
             return this;
         }
         public GetAuthenticatorResult build() {
-            final var o = new GetAuthenticatorResult();
-            o.id = id;
-            o.key = key;
-            o.name = name;
-            o.providerAuthPort = providerAuthPort;
-            o.providerHostname = providerHostname;
-            o.providerInstanceId = providerInstanceId;
-            o.providerJson = providerJson;
-            o.providerType = providerType;
-            o.providerUserNameTemplate = providerUserNameTemplate;
-            o.settings = settings;
-            o.status = status;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetAuthenticatorResult();
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.name = name;
+            _resultValue.providerAuthPort = providerAuthPort;
+            _resultValue.providerHostname = providerHostname;
+            _resultValue.providerInstanceId = providerInstanceId;
+            _resultValue.providerJson = providerJson;
+            _resultValue.providerType = providerType;
+            _resultValue.providerUserNameTemplate = providerUserNameTemplate;
+            _resultValue.settings = settings;
+            _resultValue.status = status;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

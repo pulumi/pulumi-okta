@@ -75,12 +75,12 @@ public final class GetDomainDnsRecord {
             return values(List.of(values));
         }
         public GetDomainDnsRecord build() {
-            final var o = new GetDomainDnsRecord();
-            o.expiration = expiration;
-            o.fqdn = fqdn;
-            o.recordType = recordType;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetDomainDnsRecord();
+            _resultValue.expiration = expiration;
+            _resultValue.fqdn = fqdn;
+            _resultValue.recordType = recordType;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

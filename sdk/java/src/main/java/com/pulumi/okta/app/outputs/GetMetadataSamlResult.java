@@ -201,17 +201,17 @@ public final class GetMetadataSamlResult {
             return this;
         }
         public GetMetadataSamlResult build() {
-            final var o = new GetMetadataSamlResult();
-            o.appId = appId;
-            o.certificate = certificate;
-            o.entityId = entityId;
-            o.httpPostBinding = httpPostBinding;
-            o.httpRedirectBinding = httpRedirectBinding;
-            o.id = id;
-            o.keyId = keyId;
-            o.metadata = metadata;
-            o.wantAuthnRequestsSigned = wantAuthnRequestsSigned;
-            return o;
+            final var _resultValue = new GetMetadataSamlResult();
+            _resultValue.appId = appId;
+            _resultValue.certificate = certificate;
+            _resultValue.entityId = entityId;
+            _resultValue.httpPostBinding = httpPostBinding;
+            _resultValue.httpRedirectBinding = httpRedirectBinding;
+            _resultValue.id = id;
+            _resultValue.keyId = keyId;
+            _resultValue.metadata = metadata;
+            _resultValue.wantAuthnRequestsSigned = wantAuthnRequestsSigned;
+            return _resultValue;
         }
     }
 }

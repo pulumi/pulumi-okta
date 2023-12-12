@@ -65,10 +65,10 @@ public final class AppUserSchemaPropertyArrayOneOf {
             return this;
         }
         public AppUserSchemaPropertyArrayOneOf build() {
-            final var o = new AppUserSchemaPropertyArrayOneOf();
-            o.const_ = const_;
-            o.title = title;
-            return o;
+            final var _resultValue = new AppUserSchemaPropertyArrayOneOf();
+            _resultValue.const_ = const_;
+            _resultValue.title = title;
+            return _resultValue;
         }
     }
 }

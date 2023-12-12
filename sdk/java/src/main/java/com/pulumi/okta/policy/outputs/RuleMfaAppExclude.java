@@ -70,11 +70,11 @@ public final class RuleMfaAppExclude {
             return this;
         }
         public RuleMfaAppExclude build() {
-            final var o = new RuleMfaAppExclude();
-            o.id = id;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new RuleMfaAppExclude();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

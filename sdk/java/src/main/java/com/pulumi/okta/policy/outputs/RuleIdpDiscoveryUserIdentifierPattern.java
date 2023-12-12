@@ -51,10 +51,10 @@ public final class RuleIdpDiscoveryUserIdentifierPattern {
             return this;
         }
         public RuleIdpDiscoveryUserIdentifierPattern build() {
-            final var o = new RuleIdpDiscoveryUserIdentifierPattern();
-            o.matchType = matchType;
-            o.value = value;
-            return o;
+            final var _resultValue = new RuleIdpDiscoveryUserIdentifierPattern();
+            _resultValue.matchType = matchType;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

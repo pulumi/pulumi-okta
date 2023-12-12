@@ -49,10 +49,10 @@ public final class GetTemplatesEmailTemplate {
             return this;
         }
         public GetTemplatesEmailTemplate build() {
-            final var o = new GetTemplatesEmailTemplate();
-            o.links = links;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetTemplatesEmailTemplate();
+            _resultValue.links = links;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -85,12 +85,12 @@ public final class EmailDomainDnsValidationRecord {
             return this;
         }
         public EmailDomainDnsValidationRecord build() {
-            final var o = new EmailDomainDnsValidationRecord();
-            o.expiration = expiration;
-            o.fqdn = fqdn;
-            o.recordType = recordType;
-            o.value = value;
-            return o;
+            final var _resultValue = new EmailDomainDnsValidationRecord();
+            _resultValue.expiration = expiration;
+            _resultValue.fqdn = fqdn;
+            _resultValue.recordType = recordType;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

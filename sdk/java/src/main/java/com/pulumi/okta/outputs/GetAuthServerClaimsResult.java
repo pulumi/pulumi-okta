@@ -89,11 +89,11 @@ public final class GetAuthServerClaimsResult {
             return this;
         }
         public GetAuthServerClaimsResult build() {
-            final var o = new GetAuthServerClaimsResult();
-            o.authServerId = authServerId;
-            o.claims = claims;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetAuthServerClaimsResult();
+            _resultValue.authServerId = authServerId;
+            _resultValue.claims = claims;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

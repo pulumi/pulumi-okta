@@ -89,11 +89,11 @@ public final class GetServerScopesResult {
             return scopes(List.of(scopes));
         }
         public GetServerScopesResult build() {
-            final var o = new GetServerScopesResult();
-            o.authServerId = authServerId;
-            o.id = id;
-            o.scopes = scopes;
-            return o;
+            final var _resultValue = new GetServerScopesResult();
+            _resultValue.authServerId = authServerId;
+            _resultValue.id = id;
+            _resultValue.scopes = scopes;
+            return _resultValue;
         }
     }
 }

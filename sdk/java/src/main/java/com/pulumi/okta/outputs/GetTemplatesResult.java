@@ -89,11 +89,11 @@ public final class GetTemplatesResult {
             return this;
         }
         public GetTemplatesResult build() {
-            final var o = new GetTemplatesResult();
-            o.brandId = brandId;
-            o.emailTemplates = emailTemplates;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetTemplatesResult();
+            _resultValue.brandId = brandId;
+            _resultValue.emailTemplates = emailTemplates;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class GetEveryoneGroupResult {
             return this;
         }
         public GetEveryoneGroupResult build() {
-            final var o = new GetEveryoneGroupResult();
-            o.description = description;
-            o.id = id;
-            o.includeUsers = includeUsers;
-            return o;
+            final var _resultValue = new GetEveryoneGroupResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.includeUsers = includeUsers;
+            return _resultValue;
         }
     }
 }

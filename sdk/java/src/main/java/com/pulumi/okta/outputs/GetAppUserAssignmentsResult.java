@@ -69,10 +69,10 @@ public final class GetAppUserAssignmentsResult {
             return users(List.of(users));
         }
         public GetAppUserAssignmentsResult build() {
-            final var o = new GetAppUserAssignmentsResult();
-            o.id = id;
-            o.users = users;
-            return o;
+            final var _resultValue = new GetAppUserAssignmentsResult();
+            _resultValue.id = id;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

@@ -139,14 +139,14 @@ public final class SamlAttributeStatement {
             return values(List.of(values));
         }
         public SamlAttributeStatement build() {
-            final var o = new SamlAttributeStatement();
-            o.filterType = filterType;
-            o.filterValue = filterValue;
-            o.name = name;
-            o.namespace = namespace;
-            o.type = type;
-            o.values = values;
-            return o;
+            final var _resultValue = new SamlAttributeStatement();
+            _resultValue.filterType = filterType;
+            _resultValue.filterValue = filterValue;
+            _resultValue.name = name;
+            _resultValue.namespace = namespace;
+            _resultValue.type = type;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

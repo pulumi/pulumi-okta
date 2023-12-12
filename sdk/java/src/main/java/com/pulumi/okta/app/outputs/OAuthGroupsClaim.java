@@ -124,13 +124,13 @@ public final class OAuthGroupsClaim {
             return this;
         }
         public OAuthGroupsClaim build() {
-            final var o = new OAuthGroupsClaim();
-            o.filterType = filterType;
-            o.issuerMode = issuerMode;
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new OAuthGroupsClaim();
+            _resultValue.filterType = filterType;
+            _resultValue.issuerMode = issuerMode;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

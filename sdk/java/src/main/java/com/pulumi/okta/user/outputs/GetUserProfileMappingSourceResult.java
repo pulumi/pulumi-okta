@@ -84,11 +84,11 @@ public final class GetUserProfileMappingSourceResult {
             return this;
         }
         public GetUserProfileMappingSourceResult build() {
-            final var o = new GetUserProfileMappingSourceResult();
-            o.id = id;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetUserProfileMappingSourceResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

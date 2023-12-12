@@ -70,11 +70,11 @@ public final class RuleIdpDiscoveryAppInclude {
             return this;
         }
         public RuleIdpDiscoveryAppInclude build() {
-            final var o = new RuleIdpDiscoveryAppInclude();
-            o.id = id;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new RuleIdpDiscoveryAppInclude();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -125,13 +125,13 @@ public final class GetBehaviourResult {
             return this;
         }
         public GetBehaviourResult build() {
-            final var o = new GetBehaviourResult();
-            o.id = id;
-            o.name = name;
-            o.settings = settings;
-            o.status = status;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetBehaviourResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.settings = settings;
+            _resultValue.status = status;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

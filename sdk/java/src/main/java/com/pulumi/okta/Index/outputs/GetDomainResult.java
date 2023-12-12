@@ -166,15 +166,15 @@ public final class GetDomainResult {
             return this;
         }
         public GetDomainResult build() {
-            final var o = new GetDomainResult();
-            o.certificateSourceType = certificateSourceType;
-            o.dnsRecords = dnsRecords;
-            o.domain = domain;
-            o.domainIdOrName = domainIdOrName;
-            o.id = id;
-            o.publicCertificate = publicCertificate;
-            o.validationStatus = validationStatus;
-            return o;
+            final var _resultValue = new GetDomainResult();
+            _resultValue.certificateSourceType = certificateSourceType;
+            _resultValue.dnsRecords = dnsRecords;
+            _resultValue.domain = domain;
+            _resultValue.domainIdOrName = domainIdOrName;
+            _resultValue.id = id;
+            _resultValue.publicCertificate = publicCertificate;
+            _resultValue.validationStatus = validationStatus;
+            return _resultValue;
         }
     }
 }

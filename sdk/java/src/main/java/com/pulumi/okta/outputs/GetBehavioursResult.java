@@ -83,11 +83,11 @@ public final class GetBehavioursResult {
             return this;
         }
         public GetBehavioursResult build() {
-            final var o = new GetBehavioursResult();
-            o.behaviors = behaviors;
-            o.id = id;
-            o.q = q;
-            return o;
+            final var _resultValue = new GetBehavioursResult();
+            _resultValue.behaviors = behaviors;
+            _resultValue.id = id;
+            _resultValue.q = q;
+            return _resultValue;
         }
     }
 }

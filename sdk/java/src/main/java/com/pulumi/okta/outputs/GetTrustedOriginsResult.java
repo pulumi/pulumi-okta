@@ -83,11 +83,11 @@ public final class GetTrustedOriginsResult {
             return trustedOrigins(List.of(trustedOrigins));
         }
         public GetTrustedOriginsResult build() {
-            final var o = new GetTrustedOriginsResult();
-            o.filter = filter;
-            o.id = id;
-            o.trustedOrigins = trustedOrigins;
-            return o;
+            final var _resultValue = new GetTrustedOriginsResult();
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.trustedOrigins = trustedOrigins;
+            return _resultValue;
         }
     }
 }

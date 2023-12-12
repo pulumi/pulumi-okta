@@ -65,10 +65,10 @@ public final class GetOrgMetadataDomains {
             return this;
         }
         public GetOrgMetadataDomains build() {
-            final var o = new GetOrgMetadataDomains();
-            o.alternate = alternate;
-            o.organization = organization;
-            return o;
+            final var _resultValue = new GetOrgMetadataDomains();
+            _resultValue.alternate = alternate;
+            _resultValue.organization = organization;
+            return _resultValue;
         }
     }
 }

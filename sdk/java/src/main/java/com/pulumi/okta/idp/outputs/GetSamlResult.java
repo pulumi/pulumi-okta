@@ -299,22 +299,22 @@ public final class GetSamlResult {
             return this;
         }
         public GetSamlResult build() {
-            final var o = new GetSamlResult();
-            o.acsBinding = acsBinding;
-            o.acsType = acsType;
-            o.audience = audience;
-            o.id = id;
-            o.issuer = issuer;
-            o.issuerMode = issuerMode;
-            o.kid = kid;
-            o.name = name;
-            o.ssoBinding = ssoBinding;
-            o.ssoDestination = ssoDestination;
-            o.ssoUrl = ssoUrl;
-            o.subjectFilter = subjectFilter;
-            o.subjectFormats = subjectFormats;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetSamlResult();
+            _resultValue.acsBinding = acsBinding;
+            _resultValue.acsType = acsType;
+            _resultValue.audience = audience;
+            _resultValue.id = id;
+            _resultValue.issuer = issuer;
+            _resultValue.issuerMode = issuerMode;
+            _resultValue.kid = kid;
+            _resultValue.name = name;
+            _resultValue.ssoBinding = ssoBinding;
+            _resultValue.ssoDestination = ssoDestination;
+            _resultValue.ssoUrl = ssoUrl;
+            _resultValue.subjectFilter = subjectFilter;
+            _resultValue.subjectFormats = subjectFormats;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }
