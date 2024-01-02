@@ -4,6 +4,7 @@
 package com.pulumi.okta.app.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -232,12 +233,16 @@ public final class GetAppResult {
 
         @CustomType.Setter
         public Builder activeOnly(@Nullable Boolean activeOnly) {
+
             this.activeOnly = activeOnly;
             return this;
         }
         @CustomType.Setter
         public Builder groups(List<String> groups) {
-            this.groups = Objects.requireNonNull(groups);
+            if (groups == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "groups");
+            }
+            this.groups = groups;
             return this;
         }
         public Builder groups(String... groups) {
@@ -245,47 +250,64 @@ public final class GetAppResult {
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder labelPrefix(@Nullable String labelPrefix) {
+
             this.labelPrefix = labelPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder links(String links) {
-            this.links = Objects.requireNonNull(links);
+            if (links == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "links");
+            }
+            this.links = links;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder skipGroups(@Nullable Boolean skipGroups) {
+
             this.skipGroups = skipGroups;
             return this;
         }
         @CustomType.Setter
         public Builder skipUsers(@Nullable Boolean skipUsers) {
+
             this.skipUsers = skipUsers;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder users(List<String> users) {
-            this.users = Objects.requireNonNull(users);
+            if (users == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "users");
+            }
+            this.users = users;
             return this;
         }
         public Builder users(String... users) {

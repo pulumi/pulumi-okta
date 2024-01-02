@@ -4,6 +4,7 @@
 package com.pulumi.okta.policy.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.policy.outputs.RuleSignonFactorSequenceSecondaryCriteria;
 import java.lang.String;
 import java.util.List;
@@ -65,16 +66,23 @@ public final class RuleSignonFactorSequence {
 
         @CustomType.Setter
         public Builder primaryCriteriaFactorType(String primaryCriteriaFactorType) {
-            this.primaryCriteriaFactorType = Objects.requireNonNull(primaryCriteriaFactorType);
+            if (primaryCriteriaFactorType == null) {
+              throw new MissingRequiredPropertyException("RuleSignonFactorSequence", "primaryCriteriaFactorType");
+            }
+            this.primaryCriteriaFactorType = primaryCriteriaFactorType;
             return this;
         }
         @CustomType.Setter
         public Builder primaryCriteriaProvider(String primaryCriteriaProvider) {
-            this.primaryCriteriaProvider = Objects.requireNonNull(primaryCriteriaProvider);
+            if (primaryCriteriaProvider == null) {
+              throw new MissingRequiredPropertyException("RuleSignonFactorSequence", "primaryCriteriaProvider");
+            }
+            this.primaryCriteriaProvider = primaryCriteriaProvider;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryCriterias(@Nullable List<RuleSignonFactorSequenceSecondaryCriteria> secondaryCriterias) {
+
             this.secondaryCriterias = secondaryCriterias;
             return this;
         }

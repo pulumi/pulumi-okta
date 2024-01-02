@@ -5,6 +5,7 @@ package com.pulumi.okta.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetUserSecurityQuestionsArgs extends com.pulumi.resources.Inv
         }
 
         public GetUserSecurityQuestionsArgs build() {
-            $.userId = Objects.requireNonNull($.userId, "expected parameter 'userId' to be non-null");
+            if ($.userId == null) {
+                throw new MissingRequiredPropertyException("GetUserSecurityQuestionsArgs", "userId");
+            }
             return $;
         }
     }

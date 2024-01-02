@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class UserFactorQuestionArgs extends com.pulumi.resources.ResourceA
         }
 
         public UserFactorQuestionArgs build() {
-            $.answer = Objects.requireNonNull($.answer, "expected parameter 'answer' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.userId = Objects.requireNonNull($.userId, "expected parameter 'userId' to be non-null");
+            if ($.answer == null) {
+                throw new MissingRequiredPropertyException("UserFactorQuestionArgs", "answer");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("UserFactorQuestionArgs", "key");
+            }
+            if ($.userId == null) {
+                throw new MissingRequiredPropertyException("UserFactorQuestionArgs", "userId");
+            }
             return $;
         }
     }

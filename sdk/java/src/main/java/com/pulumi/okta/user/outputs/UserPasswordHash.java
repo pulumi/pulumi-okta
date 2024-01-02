@@ -4,6 +4,7 @@
 package com.pulumi.okta.user.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -101,26 +102,35 @@ public final class UserPasswordHash {
 
         @CustomType.Setter
         public Builder algorithm(String algorithm) {
-            this.algorithm = Objects.requireNonNull(algorithm);
+            if (algorithm == null) {
+              throw new MissingRequiredPropertyException("UserPasswordHash", "algorithm");
+            }
+            this.algorithm = algorithm;
             return this;
         }
         @CustomType.Setter
         public Builder salt(@Nullable String salt) {
+
             this.salt = salt;
             return this;
         }
         @CustomType.Setter
         public Builder saltOrder(@Nullable String saltOrder) {
+
             this.saltOrder = saltOrder;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("UserPasswordHash", "value");
+            }
+            this.value = value;
             return this;
         }
         @CustomType.Setter
         public Builder workFactor(@Nullable Integer workFactor) {
+
             this.workFactor = workFactor;
             return this;
         }

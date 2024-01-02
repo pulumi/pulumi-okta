@@ -5,6 +5,7 @@ package com.pulumi.okta.auth;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -707,10 +708,18 @@ public final class ServerPolicyClaimArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ServerPolicyClaimArgs build() {
-            $.authServerId = Objects.requireNonNull($.authServerId, "expected parameter 'authServerId' to be non-null");
-            $.grantTypeWhitelists = Objects.requireNonNull($.grantTypeWhitelists, "expected parameter 'grantTypeWhitelists' to be non-null");
-            $.policyId = Objects.requireNonNull($.policyId, "expected parameter 'policyId' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
+            if ($.authServerId == null) {
+                throw new MissingRequiredPropertyException("ServerPolicyClaimArgs", "authServerId");
+            }
+            if ($.grantTypeWhitelists == null) {
+                throw new MissingRequiredPropertyException("ServerPolicyClaimArgs", "grantTypeWhitelists");
+            }
+            if ($.policyId == null) {
+                throw new MissingRequiredPropertyException("ServerPolicyClaimArgs", "policyId");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("ServerPolicyClaimArgs", "priority");
+            }
             return $;
         }
     }

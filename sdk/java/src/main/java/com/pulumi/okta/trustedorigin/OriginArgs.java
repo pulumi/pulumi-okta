@@ -5,6 +5,7 @@ package com.pulumi.okta.trustedorigin;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -199,8 +200,12 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OriginArgs build() {
-            $.origin = Objects.requireNonNull($.origin, "expected parameter 'origin' to be non-null");
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
+            if ($.origin == null) {
+                throw new MissingRequiredPropertyException("OriginArgs", "origin");
+            }
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("OriginArgs", "scopes");
+            }
             return $;
         }
     }

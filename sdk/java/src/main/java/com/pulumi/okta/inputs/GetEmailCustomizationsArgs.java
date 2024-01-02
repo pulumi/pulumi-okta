@@ -5,6 +5,7 @@ package com.pulumi.okta.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GetEmailCustomizationsArgs extends com.pulumi.resources.Invok
         }
 
         public GetEmailCustomizationsArgs build() {
-            $.brandId = Objects.requireNonNull($.brandId, "expected parameter 'brandId' to be non-null");
-            $.templateName = Objects.requireNonNull($.templateName, "expected parameter 'templateName' to be non-null");
+            if ($.brandId == null) {
+                throw new MissingRequiredPropertyException("GetEmailCustomizationsArgs", "brandId");
+            }
+            if ($.templateName == null) {
+                throw new MissingRequiredPropertyException("GetEmailCustomizationsArgs", "templateName");
+            }
             return $;
         }
     }

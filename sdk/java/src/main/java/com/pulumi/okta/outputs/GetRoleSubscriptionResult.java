@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class GetRoleSubscriptionResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRoleSubscriptionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder notificationType(String notificationType) {
-            this.notificationType = Objects.requireNonNull(notificationType);
+            if (notificationType == null) {
+              throw new MissingRequiredPropertyException("GetRoleSubscriptionResult", "notificationType");
+            }
+            this.notificationType = notificationType;
             return this;
         }
         @CustomType.Setter
         public Builder roleType(String roleType) {
-            this.roleType = Objects.requireNonNull(roleType);
+            if (roleType == null) {
+              throw new MissingRequiredPropertyException("GetRoleSubscriptionResult", "roleType");
+            }
+            this.roleType = roleType;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetRoleSubscriptionResult", "status");
+            }
+            this.status = status;
             return this;
         }
         public GetRoleSubscriptionResult build() {

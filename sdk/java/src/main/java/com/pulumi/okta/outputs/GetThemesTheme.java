@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -106,67 +107,106 @@ public final class GetThemesTheme {
 
         @CustomType.Setter
         public Builder backgroundImageUrl(String backgroundImageUrl) {
-            this.backgroundImageUrl = Objects.requireNonNull(backgroundImageUrl);
+            if (backgroundImageUrl == null) {
+              throw new MissingRequiredPropertyException("GetThemesTheme", "backgroundImageUrl");
+            }
+            this.backgroundImageUrl = backgroundImageUrl;
             return this;
         }
         @CustomType.Setter
         public Builder emailTemplateTouchPointVariant(String emailTemplateTouchPointVariant) {
-            this.emailTemplateTouchPointVariant = Objects.requireNonNull(emailTemplateTouchPointVariant);
+            if (emailTemplateTouchPointVariant == null) {
+              throw new MissingRequiredPropertyException("GetThemesTheme", "emailTemplateTouchPointVariant");
+            }
+            this.emailTemplateTouchPointVariant = emailTemplateTouchPointVariant;
             return this;
         }
         @CustomType.Setter
         public Builder endUserDashboardTouchPointVariant(String endUserDashboardTouchPointVariant) {
-            this.endUserDashboardTouchPointVariant = Objects.requireNonNull(endUserDashboardTouchPointVariant);
+            if (endUserDashboardTouchPointVariant == null) {
+              throw new MissingRequiredPropertyException("GetThemesTheme", "endUserDashboardTouchPointVariant");
+            }
+            this.endUserDashboardTouchPointVariant = endUserDashboardTouchPointVariant;
             return this;
         }
         @CustomType.Setter
         public Builder errorPageTouchPointVariant(String errorPageTouchPointVariant) {
-            this.errorPageTouchPointVariant = Objects.requireNonNull(errorPageTouchPointVariant);
+            if (errorPageTouchPointVariant == null) {
+              throw new MissingRequiredPropertyException("GetThemesTheme", "errorPageTouchPointVariant");
+            }
+            this.errorPageTouchPointVariant = errorPageTouchPointVariant;
             return this;
         }
         @CustomType.Setter
         public Builder faviconUrl(String faviconUrl) {
-            this.faviconUrl = Objects.requireNonNull(faviconUrl);
+            if (faviconUrl == null) {
+              throw new MissingRequiredPropertyException("GetThemesTheme", "faviconUrl");
+            }
+            this.faviconUrl = faviconUrl;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetThemesTheme", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder links(String links) {
-            this.links = Objects.requireNonNull(links);
+            if (links == null) {
+              throw new MissingRequiredPropertyException("GetThemesTheme", "links");
+            }
+            this.links = links;
             return this;
         }
         @CustomType.Setter
         public Builder logoUrl(String logoUrl) {
-            this.logoUrl = Objects.requireNonNull(logoUrl);
+            if (logoUrl == null) {
+              throw new MissingRequiredPropertyException("GetThemesTheme", "logoUrl");
+            }
+            this.logoUrl = logoUrl;
             return this;
         }
         @CustomType.Setter
         public Builder primaryColorContrastHex(String primaryColorContrastHex) {
-            this.primaryColorContrastHex = Objects.requireNonNull(primaryColorContrastHex);
+            if (primaryColorContrastHex == null) {
+              throw new MissingRequiredPropertyException("GetThemesTheme", "primaryColorContrastHex");
+            }
+            this.primaryColorContrastHex = primaryColorContrastHex;
             return this;
         }
         @CustomType.Setter
         public Builder primaryColorHex(String primaryColorHex) {
-            this.primaryColorHex = Objects.requireNonNull(primaryColorHex);
+            if (primaryColorHex == null) {
+              throw new MissingRequiredPropertyException("GetThemesTheme", "primaryColorHex");
+            }
+            this.primaryColorHex = primaryColorHex;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryColorContrastHex(String secondaryColorContrastHex) {
-            this.secondaryColorContrastHex = Objects.requireNonNull(secondaryColorContrastHex);
+            if (secondaryColorContrastHex == null) {
+              throw new MissingRequiredPropertyException("GetThemesTheme", "secondaryColorContrastHex");
+            }
+            this.secondaryColorContrastHex = secondaryColorContrastHex;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryColorHex(String secondaryColorHex) {
-            this.secondaryColorHex = Objects.requireNonNull(secondaryColorHex);
+            if (secondaryColorHex == null) {
+              throw new MissingRequiredPropertyException("GetThemesTheme", "secondaryColorHex");
+            }
+            this.secondaryColorHex = secondaryColorHex;
             return this;
         }
         @CustomType.Setter
         public Builder signInPageTouchPointVariant(String signInPageTouchPointVariant) {
-            this.signInPageTouchPointVariant = Objects.requireNonNull(signInPageTouchPointVariant);
+            if (signInPageTouchPointVariant == null) {
+              throw new MissingRequiredPropertyException("GetThemesTheme", "signInPageTouchPointVariant");
+            }
+            this.signInPageTouchPointVariant = signInPageTouchPointVariant;
             return this;
         }
         public GetThemesTheme build() {

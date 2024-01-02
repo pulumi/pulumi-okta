@@ -5,6 +5,7 @@ package com.pulumi.okta.group;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -214,8 +215,12 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RuleArgs build() {
-            $.expressionValue = Objects.requireNonNull($.expressionValue, "expected parameter 'expressionValue' to be non-null");
-            $.groupAssignments = Objects.requireNonNull($.groupAssignments, "expected parameter 'groupAssignments' to be non-null");
+            if ($.expressionValue == null) {
+                throw new MissingRequiredPropertyException("RuleArgs", "expressionValue");
+            }
+            if ($.groupAssignments == null) {
+                throw new MissingRequiredPropertyException("RuleArgs", "groupAssignments");
+            }
             return $;
         }
     }

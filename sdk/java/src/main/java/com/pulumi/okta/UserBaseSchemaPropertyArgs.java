@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -336,9 +337,15 @@ public final class UserBaseSchemaPropertyArgs extends com.pulumi.resources.Resou
         }
 
         public UserBaseSchemaPropertyArgs build() {
-            $.index = Objects.requireNonNull($.index, "expected parameter 'index' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.index == null) {
+                throw new MissingRequiredPropertyException("UserBaseSchemaPropertyArgs", "index");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("UserBaseSchemaPropertyArgs", "title");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("UserBaseSchemaPropertyArgs", "type");
+            }
             return $;
         }
     }

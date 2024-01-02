@@ -5,6 +5,7 @@ package com.pulumi.okta.app;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class OAuthRedirectUriArgs extends com.pulumi.resources.ResourceArg
         }
 
         public OAuthRedirectUriArgs build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
-            $.uri = Objects.requireNonNull($.uri, "expected parameter 'uri' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("OAuthRedirectUriArgs", "appId");
+            }
+            if ($.uri == null) {
+                throw new MissingRequiredPropertyException("OAuthRedirectUriArgs", "uri");
+            }
             return $;
         }
     }

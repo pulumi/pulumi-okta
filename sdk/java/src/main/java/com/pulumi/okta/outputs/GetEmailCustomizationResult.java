@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -155,47 +156,74 @@ public final class GetEmailCustomizationResult {
 
         @CustomType.Setter
         public Builder body(String body) {
-            this.body = Objects.requireNonNull(body);
+            if (body == null) {
+              throw new MissingRequiredPropertyException("GetEmailCustomizationResult", "body");
+            }
+            this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder brandId(String brandId) {
-            this.brandId = Objects.requireNonNull(brandId);
+            if (brandId == null) {
+              throw new MissingRequiredPropertyException("GetEmailCustomizationResult", "brandId");
+            }
+            this.brandId = brandId;
             return this;
         }
         @CustomType.Setter
         public Builder customizationId(String customizationId) {
-            this.customizationId = Objects.requireNonNull(customizationId);
+            if (customizationId == null) {
+              throw new MissingRequiredPropertyException("GetEmailCustomizationResult", "customizationId");
+            }
+            this.customizationId = customizationId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEmailCustomizationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder isDefault(Boolean isDefault) {
-            this.isDefault = Objects.requireNonNull(isDefault);
+            if (isDefault == null) {
+              throw new MissingRequiredPropertyException("GetEmailCustomizationResult", "isDefault");
+            }
+            this.isDefault = isDefault;
             return this;
         }
         @CustomType.Setter
         public Builder language(String language) {
-            this.language = Objects.requireNonNull(language);
+            if (language == null) {
+              throw new MissingRequiredPropertyException("GetEmailCustomizationResult", "language");
+            }
+            this.language = language;
             return this;
         }
         @CustomType.Setter
         public Builder links(String links) {
-            this.links = Objects.requireNonNull(links);
+            if (links == null) {
+              throw new MissingRequiredPropertyException("GetEmailCustomizationResult", "links");
+            }
+            this.links = links;
             return this;
         }
         @CustomType.Setter
         public Builder subject(String subject) {
-            this.subject = Objects.requireNonNull(subject);
+            if (subject == null) {
+              throw new MissingRequiredPropertyException("GetEmailCustomizationResult", "subject");
+            }
+            this.subject = subject;
             return this;
         }
         @CustomType.Setter
         public Builder templateName(String templateName) {
-            this.templateName = Objects.requireNonNull(templateName);
+            if (templateName == null) {
+              throw new MissingRequiredPropertyException("GetEmailCustomizationResult", "templateName");
+            }
+            this.templateName = templateName;
             return this;
         }
         public GetEmailCustomizationResult build() {

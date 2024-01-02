@@ -4,6 +4,7 @@
 package com.pulumi.okta.idp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -227,67 +228,102 @@ public final class GetSamlResult {
 
         @CustomType.Setter
         public Builder acsBinding(String acsBinding) {
-            this.acsBinding = Objects.requireNonNull(acsBinding);
+            if (acsBinding == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "acsBinding");
+            }
+            this.acsBinding = acsBinding;
             return this;
         }
         @CustomType.Setter
         public Builder acsType(String acsType) {
-            this.acsType = Objects.requireNonNull(acsType);
+            if (acsType == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "acsType");
+            }
+            this.acsType = acsType;
             return this;
         }
         @CustomType.Setter
         public Builder audience(String audience) {
-            this.audience = Objects.requireNonNull(audience);
+            if (audience == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "audience");
+            }
+            this.audience = audience;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+            if (issuer == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "issuer");
+            }
+            this.issuer = issuer;
             return this;
         }
         @CustomType.Setter
         public Builder issuerMode(String issuerMode) {
-            this.issuerMode = Objects.requireNonNull(issuerMode);
+            if (issuerMode == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "issuerMode");
+            }
+            this.issuerMode = issuerMode;
             return this;
         }
         @CustomType.Setter
         public Builder kid(String kid) {
-            this.kid = Objects.requireNonNull(kid);
+            if (kid == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "kid");
+            }
+            this.kid = kid;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ssoBinding(String ssoBinding) {
-            this.ssoBinding = Objects.requireNonNull(ssoBinding);
+            if (ssoBinding == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "ssoBinding");
+            }
+            this.ssoBinding = ssoBinding;
             return this;
         }
         @CustomType.Setter
         public Builder ssoDestination(String ssoDestination) {
-            this.ssoDestination = Objects.requireNonNull(ssoDestination);
+            if (ssoDestination == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "ssoDestination");
+            }
+            this.ssoDestination = ssoDestination;
             return this;
         }
         @CustomType.Setter
         public Builder ssoUrl(String ssoUrl) {
-            this.ssoUrl = Objects.requireNonNull(ssoUrl);
+            if (ssoUrl == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "ssoUrl");
+            }
+            this.ssoUrl = ssoUrl;
             return this;
         }
         @CustomType.Setter
         public Builder subjectFilter(String subjectFilter) {
-            this.subjectFilter = Objects.requireNonNull(subjectFilter);
+            if (subjectFilter == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "subjectFilter");
+            }
+            this.subjectFilter = subjectFilter;
             return this;
         }
         @CustomType.Setter
         public Builder subjectFormats(List<String> subjectFormats) {
-            this.subjectFormats = Objects.requireNonNull(subjectFormats);
+            if (subjectFormats == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "subjectFormats");
+            }
+            this.subjectFormats = subjectFormats;
             return this;
         }
         public Builder subjectFormats(String... subjectFormats) {
@@ -295,7 +331,10 @@ public final class GetSamlResult {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetSamlResult build() {

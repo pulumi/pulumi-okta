@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,24 @@ public final class AppGroupAssignmentsGroup {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("AppGroupAssignmentsGroup", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder profile(String profile) {
-            this.profile = Objects.requireNonNull(profile);
+            if (profile == null) {
+              throw new MissingRequiredPropertyException("AppGroupAssignmentsGroup", "profile");
+            }
+            this.profile = profile;
             return this;
         }
         public AppGroupAssignmentsGroup build() {

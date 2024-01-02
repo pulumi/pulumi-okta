@@ -5,6 +5,7 @@ package com.pulumi.okta.app;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -1039,13 +1040,27 @@ public final class ThreeFieldArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ThreeFieldArgs build() {
-            $.buttonSelector = Objects.requireNonNull($.buttonSelector, "expected parameter 'buttonSelector' to be non-null");
-            $.extraFieldSelector = Objects.requireNonNull($.extraFieldSelector, "expected parameter 'extraFieldSelector' to be non-null");
-            $.extraFieldValue = Objects.requireNonNull($.extraFieldValue, "expected parameter 'extraFieldValue' to be non-null");
-            $.label = Objects.requireNonNull($.label, "expected parameter 'label' to be non-null");
-            $.passwordSelector = Objects.requireNonNull($.passwordSelector, "expected parameter 'passwordSelector' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
-            $.usernameSelector = Objects.requireNonNull($.usernameSelector, "expected parameter 'usernameSelector' to be non-null");
+            if ($.buttonSelector == null) {
+                throw new MissingRequiredPropertyException("ThreeFieldArgs", "buttonSelector");
+            }
+            if ($.extraFieldSelector == null) {
+                throw new MissingRequiredPropertyException("ThreeFieldArgs", "extraFieldSelector");
+            }
+            if ($.extraFieldValue == null) {
+                throw new MissingRequiredPropertyException("ThreeFieldArgs", "extraFieldValue");
+            }
+            if ($.label == null) {
+                throw new MissingRequiredPropertyException("ThreeFieldArgs", "label");
+            }
+            if ($.passwordSelector == null) {
+                throw new MissingRequiredPropertyException("ThreeFieldArgs", "passwordSelector");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("ThreeFieldArgs", "url");
+            }
+            if ($.usernameSelector == null) {
+                throw new MissingRequiredPropertyException("ThreeFieldArgs", "usernameSelector");
+            }
             return $;
         }
     }

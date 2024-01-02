@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.inputs.AppSignonPolicyRulePlatformIncludeArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -1052,7 +1053,9 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         public AppSignonPolicyRuleArgs build() {
-            $.policyId = Objects.requireNonNull($.policyId, "expected parameter 'policyId' to be non-null");
+            if ($.policyId == null) {
+                throw new MissingRequiredPropertyException("AppSignonPolicyRuleArgs", "policyId");
+            }
             return $;
         }
     }

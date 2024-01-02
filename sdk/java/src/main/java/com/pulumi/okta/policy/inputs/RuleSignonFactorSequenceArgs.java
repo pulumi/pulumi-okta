@@ -5,6 +5,7 @@ package com.pulumi.okta.policy.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.policy.inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs;
 import java.lang.String;
 import java.util.List;
@@ -136,8 +137,12 @@ public final class RuleSignonFactorSequenceArgs extends com.pulumi.resources.Res
         }
 
         public RuleSignonFactorSequenceArgs build() {
-            $.primaryCriteriaFactorType = Objects.requireNonNull($.primaryCriteriaFactorType, "expected parameter 'primaryCriteriaFactorType' to be non-null");
-            $.primaryCriteriaProvider = Objects.requireNonNull($.primaryCriteriaProvider, "expected parameter 'primaryCriteriaProvider' to be non-null");
+            if ($.primaryCriteriaFactorType == null) {
+                throw new MissingRequiredPropertyException("RuleSignonFactorSequenceArgs", "primaryCriteriaFactorType");
+            }
+            if ($.primaryCriteriaProvider == null) {
+                throw new MissingRequiredPropertyException("RuleSignonFactorSequenceArgs", "primaryCriteriaProvider");
+            }
             return $;
         }
     }

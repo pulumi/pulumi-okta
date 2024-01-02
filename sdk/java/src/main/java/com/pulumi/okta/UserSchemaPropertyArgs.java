@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.inputs.UserSchemaPropertyArrayOneOfArgs;
 import com.pulumi.okta.inputs.UserSchemaPropertyMasterOverridePriorityArgs;
 import com.pulumi.okta.inputs.UserSchemaPropertyOneOfArgs;
@@ -826,9 +827,15 @@ public final class UserSchemaPropertyArgs extends com.pulumi.resources.ResourceA
         }
 
         public UserSchemaPropertyArgs build() {
-            $.index = Objects.requireNonNull($.index, "expected parameter 'index' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.index == null) {
+                throw new MissingRequiredPropertyException("UserSchemaPropertyArgs", "index");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("UserSchemaPropertyArgs", "title");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("UserSchemaPropertyArgs", "type");
+            }
             return $;
         }
     }

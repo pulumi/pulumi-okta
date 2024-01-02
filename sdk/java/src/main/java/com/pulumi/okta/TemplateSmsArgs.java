@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.inputs.TemplateSmsTranslationArgs;
 import java.lang.String;
 import java.util.List;
@@ -136,8 +137,12 @@ public final class TemplateSmsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TemplateSmsArgs build() {
-            $.template = Objects.requireNonNull($.template, "expected parameter 'template' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.template == null) {
+                throw new MissingRequiredPropertyException("TemplateSmsArgs", "template");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("TemplateSmsArgs", "type");
+            }
             return $;
         }
     }

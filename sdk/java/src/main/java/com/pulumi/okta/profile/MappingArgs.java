@@ -5,6 +5,7 @@ package com.pulumi.okta.profile;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.profile.inputs.MappingMappingArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -211,8 +212,12 @@ public final class MappingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MappingArgs build() {
-            $.sourceId = Objects.requireNonNull($.sourceId, "expected parameter 'sourceId' to be non-null");
-            $.targetId = Objects.requireNonNull($.targetId, "expected parameter 'targetId' to be non-null");
+            if ($.sourceId == null) {
+                throw new MissingRequiredPropertyException("MappingArgs", "sourceId");
+            }
+            if ($.targetId == null) {
+                throw new MissingRequiredPropertyException("MappingArgs", "targetId");
+            }
             return $;
         }
     }

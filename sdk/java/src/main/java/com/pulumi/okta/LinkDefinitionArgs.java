@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -259,12 +260,24 @@ public final class LinkDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public LinkDefinitionArgs build() {
-            $.associatedDescription = Objects.requireNonNull($.associatedDescription, "expected parameter 'associatedDescription' to be non-null");
-            $.associatedName = Objects.requireNonNull($.associatedName, "expected parameter 'associatedName' to be non-null");
-            $.associatedTitle = Objects.requireNonNull($.associatedTitle, "expected parameter 'associatedTitle' to be non-null");
-            $.primaryDescription = Objects.requireNonNull($.primaryDescription, "expected parameter 'primaryDescription' to be non-null");
-            $.primaryName = Objects.requireNonNull($.primaryName, "expected parameter 'primaryName' to be non-null");
-            $.primaryTitle = Objects.requireNonNull($.primaryTitle, "expected parameter 'primaryTitle' to be non-null");
+            if ($.associatedDescription == null) {
+                throw new MissingRequiredPropertyException("LinkDefinitionArgs", "associatedDescription");
+            }
+            if ($.associatedName == null) {
+                throw new MissingRequiredPropertyException("LinkDefinitionArgs", "associatedName");
+            }
+            if ($.associatedTitle == null) {
+                throw new MissingRequiredPropertyException("LinkDefinitionArgs", "associatedTitle");
+            }
+            if ($.primaryDescription == null) {
+                throw new MissingRequiredPropertyException("LinkDefinitionArgs", "primaryDescription");
+            }
+            if ($.primaryName == null) {
+                throw new MissingRequiredPropertyException("LinkDefinitionArgs", "primaryName");
+            }
+            if ($.primaryTitle == null) {
+                throw new MissingRequiredPropertyException("LinkDefinitionArgs", "primaryTitle");
+            }
             return $;
         }
     }

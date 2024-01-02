@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.outputs.GetTrustedOriginsTrustedOrigin;
 import java.lang.String;
 import java.util.List;
@@ -66,17 +67,24 @@ public final class GetTrustedOriginsResult {
 
         @CustomType.Setter
         public Builder filter(@Nullable String filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTrustedOriginsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder trustedOrigins(List<GetTrustedOriginsTrustedOrigin> trustedOrigins) {
-            this.trustedOrigins = Objects.requireNonNull(trustedOrigins);
+            if (trustedOrigins == null) {
+              throw new MissingRequiredPropertyException("GetTrustedOriginsResult", "trustedOrigins");
+            }
+            this.trustedOrigins = trustedOrigins;
             return this;
         }
         public Builder trustedOrigins(GetTrustedOriginsTrustedOrigin... trustedOrigins) {

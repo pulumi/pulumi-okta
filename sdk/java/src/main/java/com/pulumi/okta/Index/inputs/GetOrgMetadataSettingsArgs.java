@@ -5,6 +5,7 @@ package com.pulumi.okta.Index.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -108,9 +109,15 @@ public final class GetOrgMetadataSettingsArgs extends com.pulumi.resources.Resou
         }
 
         public GetOrgMetadataSettingsArgs build() {
-            $.analyticsCollectionEnabled = Objects.requireNonNull($.analyticsCollectionEnabled, "expected parameter 'analyticsCollectionEnabled' to be non-null");
-            $.bugReportingEnabled = Objects.requireNonNull($.bugReportingEnabled, "expected parameter 'bugReportingEnabled' to be non-null");
-            $.omEnabled = Objects.requireNonNull($.omEnabled, "expected parameter 'omEnabled' to be non-null");
+            if ($.analyticsCollectionEnabled == null) {
+                throw new MissingRequiredPropertyException("GetOrgMetadataSettingsArgs", "analyticsCollectionEnabled");
+            }
+            if ($.bugReportingEnabled == null) {
+                throw new MissingRequiredPropertyException("GetOrgMetadataSettingsArgs", "bugReportingEnabled");
+            }
+            if ($.omEnabled == null) {
+                throw new MissingRequiredPropertyException("GetOrgMetadataSettingsArgs", "omEnabled");
+            }
             return $;
         }
     }

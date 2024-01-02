@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -208,8 +209,12 @@ public final class AdminRoleTargetsArgs extends com.pulumi.resources.ResourceArg
         }
 
         public AdminRoleTargetsArgs build() {
-            $.roleType = Objects.requireNonNull($.roleType, "expected parameter 'roleType' to be non-null");
-            $.userId = Objects.requireNonNull($.userId, "expected parameter 'userId' to be non-null");
+            if ($.roleType == null) {
+                throw new MissingRequiredPropertyException("AdminRoleTargetsArgs", "roleType");
+            }
+            if ($.userId == null) {
+                throw new MissingRequiredPropertyException("AdminRoleTargetsArgs", "userId");
+            }
             return $;
         }
     }

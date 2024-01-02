@@ -5,6 +5,7 @@ package com.pulumi.okta.idp;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -688,9 +689,15 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SamlArgs build() {
-            $.issuer = Objects.requireNonNull($.issuer, "expected parameter 'issuer' to be non-null");
-            $.kid = Objects.requireNonNull($.kid, "expected parameter 'kid' to be non-null");
-            $.ssoUrl = Objects.requireNonNull($.ssoUrl, "expected parameter 'ssoUrl' to be non-null");
+            if ($.issuer == null) {
+                throw new MissingRequiredPropertyException("SamlArgs", "issuer");
+            }
+            if ($.kid == null) {
+                throw new MissingRequiredPropertyException("SamlArgs", "kid");
+            }
+            if ($.ssoUrl == null) {
+                throw new MissingRequiredPropertyException("SamlArgs", "ssoUrl");
+            }
             return $;
         }
     }

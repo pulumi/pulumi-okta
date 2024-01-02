@@ -4,6 +4,7 @@
 package com.pulumi.okta.idp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -411,12 +412,18 @@ public final class GetSocialResult {
 
         @CustomType.Setter
         public Builder accountLinkAction(String accountLinkAction) {
-            this.accountLinkAction = Objects.requireNonNull(accountLinkAction);
+            if (accountLinkAction == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "accountLinkAction");
+            }
+            this.accountLinkAction = accountLinkAction;
             return this;
         }
         @CustomType.Setter
         public Builder accountLinkGroupIncludes(List<String> accountLinkGroupIncludes) {
-            this.accountLinkGroupIncludes = Objects.requireNonNull(accountLinkGroupIncludes);
+            if (accountLinkGroupIncludes == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "accountLinkGroupIncludes");
+            }
+            this.accountLinkGroupIncludes = accountLinkGroupIncludes;
             return this;
         }
         public Builder accountLinkGroupIncludes(String... accountLinkGroupIncludes) {
@@ -424,37 +431,58 @@ public final class GetSocialResult {
         }
         @CustomType.Setter
         public Builder authorizationBinding(String authorizationBinding) {
-            this.authorizationBinding = Objects.requireNonNull(authorizationBinding);
+            if (authorizationBinding == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "authorizationBinding");
+            }
+            this.authorizationBinding = authorizationBinding;
             return this;
         }
         @CustomType.Setter
         public Builder authorizationUrl(String authorizationUrl) {
-            this.authorizationUrl = Objects.requireNonNull(authorizationUrl);
+            if (authorizationUrl == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "authorizationUrl");
+            }
+            this.authorizationUrl = authorizationUrl;
             return this;
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
-            this.clientSecret = Objects.requireNonNull(clientSecret);
+            if (clientSecret == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "clientSecret");
+            }
+            this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder deprovisionedAction(String deprovisionedAction) {
-            this.deprovisionedAction = Objects.requireNonNull(deprovisionedAction);
+            if (deprovisionedAction == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "deprovisionedAction");
+            }
+            this.deprovisionedAction = deprovisionedAction;
             return this;
         }
         @CustomType.Setter
         public Builder groupsAction(String groupsAction) {
-            this.groupsAction = Objects.requireNonNull(groupsAction);
+            if (groupsAction == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "groupsAction");
+            }
+            this.groupsAction = groupsAction;
             return this;
         }
         @CustomType.Setter
         public Builder groupsAssignments(List<String> groupsAssignments) {
-            this.groupsAssignments = Objects.requireNonNull(groupsAssignments);
+            if (groupsAssignments == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "groupsAssignments");
+            }
+            this.groupsAssignments = groupsAssignments;
             return this;
         }
         public Builder groupsAssignments(String... groupsAssignments) {
@@ -462,12 +490,18 @@ public final class GetSocialResult {
         }
         @CustomType.Setter
         public Builder groupsAttribute(String groupsAttribute) {
-            this.groupsAttribute = Objects.requireNonNull(groupsAttribute);
+            if (groupsAttribute == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "groupsAttribute");
+            }
+            this.groupsAttribute = groupsAttribute;
             return this;
         }
         @CustomType.Setter
         public Builder groupsFilters(List<String> groupsFilters) {
-            this.groupsFilters = Objects.requireNonNull(groupsFilters);
+            if (groupsFilters == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "groupsFilters");
+            }
+            this.groupsFilters = groupsFilters;
             return this;
         }
         public Builder groupsFilters(String... groupsFilters) {
@@ -475,42 +509,62 @@ public final class GetSocialResult {
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder issuerMode(String issuerMode) {
-            this.issuerMode = Objects.requireNonNull(issuerMode);
+            if (issuerMode == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "issuerMode");
+            }
+            this.issuerMode = issuerMode;
             return this;
         }
         @CustomType.Setter
         public Builder maxClockSkew(Integer maxClockSkew) {
-            this.maxClockSkew = Objects.requireNonNull(maxClockSkew);
+            if (maxClockSkew == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "maxClockSkew");
+            }
+            this.maxClockSkew = maxClockSkew;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder profileMaster(Boolean profileMaster) {
-            this.profileMaster = Objects.requireNonNull(profileMaster);
+            if (profileMaster == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "profileMaster");
+            }
+            this.profileMaster = profileMaster;
             return this;
         }
         @CustomType.Setter
         public Builder protocolType(String protocolType) {
-            this.protocolType = Objects.requireNonNull(protocolType);
+            if (protocolType == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "protocolType");
+            }
+            this.protocolType = protocolType;
             return this;
         }
         @CustomType.Setter
         public Builder provisioningAction(String provisioningAction) {
-            this.provisioningAction = Objects.requireNonNull(provisioningAction);
+            if (provisioningAction == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "provisioningAction");
+            }
+            this.provisioningAction = provisioningAction;
             return this;
         }
         @CustomType.Setter
         public Builder scopes(List<String> scopes) {
-            this.scopes = Objects.requireNonNull(scopes);
+            if (scopes == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "scopes");
+            }
+            this.scopes = scopes;
             return this;
         }
         public Builder scopes(String... scopes) {
@@ -518,42 +572,66 @@ public final class GetSocialResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder subjectMatchAttribute(String subjectMatchAttribute) {
-            this.subjectMatchAttribute = Objects.requireNonNull(subjectMatchAttribute);
+            if (subjectMatchAttribute == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "subjectMatchAttribute");
+            }
+            this.subjectMatchAttribute = subjectMatchAttribute;
             return this;
         }
         @CustomType.Setter
         public Builder subjectMatchType(String subjectMatchType) {
-            this.subjectMatchType = Objects.requireNonNull(subjectMatchType);
+            if (subjectMatchType == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "subjectMatchType");
+            }
+            this.subjectMatchType = subjectMatchType;
             return this;
         }
         @CustomType.Setter
         public Builder suspendedAction(String suspendedAction) {
-            this.suspendedAction = Objects.requireNonNull(suspendedAction);
+            if (suspendedAction == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "suspendedAction");
+            }
+            this.suspendedAction = suspendedAction;
             return this;
         }
         @CustomType.Setter
         public Builder tokenBinding(String tokenBinding) {
-            this.tokenBinding = Objects.requireNonNull(tokenBinding);
+            if (tokenBinding == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "tokenBinding");
+            }
+            this.tokenBinding = tokenBinding;
             return this;
         }
         @CustomType.Setter
         public Builder tokenUrl(String tokenUrl) {
-            this.tokenUrl = Objects.requireNonNull(tokenUrl);
+            if (tokenUrl == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "tokenUrl");
+            }
+            this.tokenUrl = tokenUrl;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder usernameTemplate(String usernameTemplate) {
-            this.usernameTemplate = Objects.requireNonNull(usernameTemplate);
+            if (usernameTemplate == null) {
+              throw new MissingRequiredPropertyException("GetSocialResult", "usernameTemplate");
+            }
+            this.usernameTemplate = usernameTemplate;
             return this;
         }
         public GetSocialResult build() {

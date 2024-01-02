@@ -4,6 +4,7 @@
 package com.pulumi.okta.Index.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.Index.outputs.GetDomainDnsRecord;
 import java.lang.String;
 import java.util.List;
@@ -129,12 +130,18 @@ public final class GetDomainResult {
 
         @CustomType.Setter
         public Builder certificateSourceType(String certificateSourceType) {
-            this.certificateSourceType = Objects.requireNonNull(certificateSourceType);
+            if (certificateSourceType == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "certificateSourceType");
+            }
+            this.certificateSourceType = certificateSourceType;
             return this;
         }
         @CustomType.Setter
         public Builder dnsRecords(List<GetDomainDnsRecord> dnsRecords) {
-            this.dnsRecords = Objects.requireNonNull(dnsRecords);
+            if (dnsRecords == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "dnsRecords");
+            }
+            this.dnsRecords = dnsRecords;
             return this;
         }
         public Builder dnsRecords(GetDomainDnsRecord... dnsRecords) {
@@ -142,27 +149,42 @@ public final class GetDomainResult {
         }
         @CustomType.Setter
         public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "domain");
+            }
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder domainIdOrName(String domainIdOrName) {
-            this.domainIdOrName = Objects.requireNonNull(domainIdOrName);
+            if (domainIdOrName == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "domainIdOrName");
+            }
+            this.domainIdOrName = domainIdOrName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder publicCertificate(Map<String,String> publicCertificate) {
-            this.publicCertificate = Objects.requireNonNull(publicCertificate);
+            if (publicCertificate == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "publicCertificate");
+            }
+            this.publicCertificate = publicCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder validationStatus(String validationStatus) {
-            this.validationStatus = Objects.requireNonNull(validationStatus);
+            if (validationStatus == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "validationStatus");
+            }
+            this.validationStatus = validationStatus;
             return this;
         }
         public GetDomainResult build() {

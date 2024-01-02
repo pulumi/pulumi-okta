@@ -5,6 +5,7 @@ package com.pulumi.okta.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class PolicyRuleProfileEnrollmentProfileAttributeArgs extends com.p
         }
 
         public PolicyRuleProfileEnrollmentProfileAttributeArgs build() {
-            $.label = Objects.requireNonNull($.label, "expected parameter 'label' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.label == null) {
+                throw new MissingRequiredPropertyException("PolicyRuleProfileEnrollmentProfileAttributeArgs", "label");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("PolicyRuleProfileEnrollmentProfileAttributeArgs", "name");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.okta.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GetThemeArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetThemeArgs build() {
-            $.brandId = Objects.requireNonNull($.brandId, "expected parameter 'brandId' to be non-null");
-            $.themeId = Objects.requireNonNull($.themeId, "expected parameter 'themeId' to be non-null");
+            if ($.brandId == null) {
+                throw new MissingRequiredPropertyException("GetThemeArgs", "brandId");
+            }
+            if ($.themeId == null) {
+                throw new MissingRequiredPropertyException("GetThemeArgs", "themeId");
+            }
             return $;
         }
     }
