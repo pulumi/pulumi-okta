@@ -4,6 +4,7 @@
 package com.pulumi.okta.auth.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -183,7 +184,10 @@ public final class GetServerResult {
 
         @CustomType.Setter
         public Builder audiences(List<String> audiences) {
-            this.audiences = Objects.requireNonNull(audiences);
+            if (audiences == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "audiences");
+            }
+            this.audiences = audiences;
             return this;
         }
         public Builder audiences(String... audiences) {
@@ -191,52 +195,82 @@ public final class GetServerResult {
         }
         @CustomType.Setter
         public Builder credentialsLastRotated(String credentialsLastRotated) {
-            this.credentialsLastRotated = Objects.requireNonNull(credentialsLastRotated);
+            if (credentialsLastRotated == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "credentialsLastRotated");
+            }
+            this.credentialsLastRotated = credentialsLastRotated;
             return this;
         }
         @CustomType.Setter
         public Builder credentialsNextRotation(String credentialsNextRotation) {
-            this.credentialsNextRotation = Objects.requireNonNull(credentialsNextRotation);
+            if (credentialsNextRotation == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "credentialsNextRotation");
+            }
+            this.credentialsNextRotation = credentialsNextRotation;
             return this;
         }
         @CustomType.Setter
         public Builder credentialsRotationMode(String credentialsRotationMode) {
-            this.credentialsRotationMode = Objects.requireNonNull(credentialsRotationMode);
+            if (credentialsRotationMode == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "credentialsRotationMode");
+            }
+            this.credentialsRotationMode = credentialsRotationMode;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+            if (issuer == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "issuer");
+            }
+            this.issuer = issuer;
             return this;
         }
         @CustomType.Setter
         public Builder issuerMode(String issuerMode) {
-            this.issuerMode = Objects.requireNonNull(issuerMode);
+            if (issuerMode == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "issuerMode");
+            }
+            this.issuerMode = issuerMode;
             return this;
         }
         @CustomType.Setter
         public Builder kid(String kid) {
-            this.kid = Objects.requireNonNull(kid);
+            if (kid == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "kid");
+            }
+            this.kid = kid;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "status");
+            }
+            this.status = status;
             return this;
         }
         public GetServerResult build() {

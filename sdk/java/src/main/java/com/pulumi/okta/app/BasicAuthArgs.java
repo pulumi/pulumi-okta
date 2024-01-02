@@ -5,6 +5,7 @@ package com.pulumi.okta.app;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -558,9 +559,15 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BasicAuthArgs build() {
-            $.authUrl = Objects.requireNonNull($.authUrl, "expected parameter 'authUrl' to be non-null");
-            $.label = Objects.requireNonNull($.label, "expected parameter 'label' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.authUrl == null) {
+                throw new MissingRequiredPropertyException("BasicAuthArgs", "authUrl");
+            }
+            if ($.label == null) {
+                throw new MissingRequiredPropertyException("BasicAuthArgs", "label");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("BasicAuthArgs", "url");
+            }
             return $;
         }
     }

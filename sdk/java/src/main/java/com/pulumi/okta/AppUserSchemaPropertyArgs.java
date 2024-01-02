@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.inputs.AppUserSchemaPropertyArrayOneOfArgs;
 import com.pulumi.okta.inputs.AppUserSchemaPropertyOneOfArgs;
 import java.lang.Boolean;
@@ -861,10 +862,18 @@ public final class AppUserSchemaPropertyArgs extends com.pulumi.resources.Resour
         }
 
         public AppUserSchemaPropertyArgs build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
-            $.index = Objects.requireNonNull($.index, "expected parameter 'index' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("AppUserSchemaPropertyArgs", "appId");
+            }
+            if ($.index == null) {
+                throw new MissingRequiredPropertyException("AppUserSchemaPropertyArgs", "index");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("AppUserSchemaPropertyArgs", "title");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("AppUserSchemaPropertyArgs", "type");
+            }
             return $;
         }
     }

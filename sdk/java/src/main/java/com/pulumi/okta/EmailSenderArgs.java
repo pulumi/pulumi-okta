@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class EmailSenderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EmailSenderArgs build() {
-            $.fromAddress = Objects.requireNonNull($.fromAddress, "expected parameter 'fromAddress' to be non-null");
-            $.fromName = Objects.requireNonNull($.fromName, "expected parameter 'fromName' to be non-null");
-            $.subdomain = Objects.requireNonNull($.subdomain, "expected parameter 'subdomain' to be non-null");
+            if ($.fromAddress == null) {
+                throw new MissingRequiredPropertyException("EmailSenderArgs", "fromAddress");
+            }
+            if ($.fromName == null) {
+                throw new MissingRequiredPropertyException("EmailSenderArgs", "fromName");
+            }
+            if ($.subdomain == null) {
+                throw new MissingRequiredPropertyException("EmailSenderArgs", "subdomain");
+            }
             return $;
         }
     }

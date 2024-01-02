@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,9 @@ public final class PolicyProfileEnrollmentAppsArgs extends com.pulumi.resources.
         }
 
         public PolicyProfileEnrollmentAppsArgs build() {
-            $.policyId = Objects.requireNonNull($.policyId, "expected parameter 'policyId' to be non-null");
+            if ($.policyId == null) {
+                throw new MissingRequiredPropertyException("PolicyProfileEnrollmentAppsArgs", "policyId");
+            }
             return $;
         }
     }

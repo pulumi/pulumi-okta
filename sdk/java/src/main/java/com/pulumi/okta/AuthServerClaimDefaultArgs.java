@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class AuthServerClaimDefaultArgs extends com.pulumi.resources.Resou
         }
 
         public AuthServerClaimDefaultArgs build() {
-            $.authServerId = Objects.requireNonNull($.authServerId, "expected parameter 'authServerId' to be non-null");
+            if ($.authServerId == null) {
+                throw new MissingRequiredPropertyException("AuthServerClaimDefaultArgs", "authServerId");
+            }
             return $;
         }
     }

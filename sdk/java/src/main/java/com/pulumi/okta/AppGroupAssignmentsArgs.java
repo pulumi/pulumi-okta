@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.inputs.AppGroupAssignmentsGroupArgs;
 import java.lang.String;
 import java.util.List;
@@ -123,8 +124,12 @@ public final class AppGroupAssignmentsArgs extends com.pulumi.resources.Resource
         }
 
         public AppGroupAssignmentsArgs build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
-            $.groups = Objects.requireNonNull($.groups, "expected parameter 'groups' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("AppGroupAssignmentsArgs", "appId");
+            }
+            if ($.groups == null) {
+                throw new MissingRequiredPropertyException("AppGroupAssignmentsArgs", "groups");
+            }
             return $;
         }
     }

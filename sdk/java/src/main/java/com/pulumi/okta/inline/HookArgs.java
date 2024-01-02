@@ -5,6 +5,7 @@ package com.pulumi.okta.inline;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.inline.inputs.HookHeaderArgs;
 import java.lang.String;
 import java.util.List;
@@ -165,9 +166,15 @@ public final class HookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public HookArgs build() {
-            $.channel = Objects.requireNonNull($.channel, "expected parameter 'channel' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.channel == null) {
+                throw new MissingRequiredPropertyException("HookArgs", "channel");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("HookArgs", "type");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("HookArgs", "version");
+            }
             return $;
         }
     }

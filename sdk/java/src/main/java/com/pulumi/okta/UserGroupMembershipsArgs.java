@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class UserGroupMembershipsArgs extends com.pulumi.resources.Resourc
         }
 
         public UserGroupMembershipsArgs build() {
-            $.groups = Objects.requireNonNull($.groups, "expected parameter 'groups' to be non-null");
-            $.userId = Objects.requireNonNull($.userId, "expected parameter 'userId' to be non-null");
+            if ($.groups == null) {
+                throw new MissingRequiredPropertyException("UserGroupMembershipsArgs", "groups");
+            }
+            if ($.userId == null) {
+                throw new MissingRequiredPropertyException("UserGroupMembershipsArgs", "userId");
+            }
             return $;
         }
     }

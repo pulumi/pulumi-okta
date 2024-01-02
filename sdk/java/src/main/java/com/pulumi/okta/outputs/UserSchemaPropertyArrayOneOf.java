@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class UserSchemaPropertyArrayOneOf {
 
         @CustomType.Setter("const")
         public Builder const_(String const_) {
-            this.const_ = Objects.requireNonNull(const_);
+            if (const_ == null) {
+              throw new MissingRequiredPropertyException("UserSchemaPropertyArrayOneOf", "const_");
+            }
+            this.const_ = const_;
             return this;
         }
         @CustomType.Setter
         public Builder title(String title) {
-            this.title = Objects.requireNonNull(title);
+            if (title == null) {
+              throw new MissingRequiredPropertyException("UserSchemaPropertyArrayOneOf", "title");
+            }
+            this.title = title;
             return this;
         }
         public UserSchemaPropertyArrayOneOf build() {

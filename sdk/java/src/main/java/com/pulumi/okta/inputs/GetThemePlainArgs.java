@@ -4,6 +4,7 @@
 package com.pulumi.okta.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetThemePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetThemePlainArgs build() {
-            $.brandId = Objects.requireNonNull($.brandId, "expected parameter 'brandId' to be non-null");
-            $.themeId = Objects.requireNonNull($.themeId, "expected parameter 'themeId' to be non-null");
+            if ($.brandId == null) {
+                throw new MissingRequiredPropertyException("GetThemePlainArgs", "brandId");
+            }
+            if ($.themeId == null) {
+                throw new MissingRequiredPropertyException("GetThemePlainArgs", "themeId");
+            }
             return $;
         }
     }

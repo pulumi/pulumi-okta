@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -171,7 +172,10 @@ public final class GetNetworkZoneResult {
 
         @CustomType.Setter
         public Builder asns(List<String> asns) {
-            this.asns = Objects.requireNonNull(asns);
+            if (asns == null) {
+              throw new MissingRequiredPropertyException("GetNetworkZoneResult", "asns");
+            }
+            this.asns = asns;
             return this;
         }
         public Builder asns(String... asns) {
@@ -179,7 +183,10 @@ public final class GetNetworkZoneResult {
         }
         @CustomType.Setter
         public Builder dynamicLocations(List<String> dynamicLocations) {
-            this.dynamicLocations = Objects.requireNonNull(dynamicLocations);
+            if (dynamicLocations == null) {
+              throw new MissingRequiredPropertyException("GetNetworkZoneResult", "dynamicLocations");
+            }
+            this.dynamicLocations = dynamicLocations;
             return this;
         }
         public Builder dynamicLocations(String... dynamicLocations) {
@@ -187,12 +194,18 @@ public final class GetNetworkZoneResult {
         }
         @CustomType.Setter
         public Builder dynamicProxyType(String dynamicProxyType) {
-            this.dynamicProxyType = Objects.requireNonNull(dynamicProxyType);
+            if (dynamicProxyType == null) {
+              throw new MissingRequiredPropertyException("GetNetworkZoneResult", "dynamicProxyType");
+            }
+            this.dynamicProxyType = dynamicProxyType;
             return this;
         }
         @CustomType.Setter
         public Builder gateways(List<String> gateways) {
-            this.gateways = Objects.requireNonNull(gateways);
+            if (gateways == null) {
+              throw new MissingRequiredPropertyException("GetNetworkZoneResult", "gateways");
+            }
+            this.gateways = gateways;
             return this;
         }
         public Builder gateways(String... gateways) {
@@ -200,17 +213,22 @@ public final class GetNetworkZoneResult {
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder proxies(List<String> proxies) {
-            this.proxies = Objects.requireNonNull(proxies);
+            if (proxies == null) {
+              throw new MissingRequiredPropertyException("GetNetworkZoneResult", "proxies");
+            }
+            this.proxies = proxies;
             return this;
         }
         public Builder proxies(String... proxies) {
@@ -218,17 +236,26 @@ public final class GetNetworkZoneResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetNetworkZoneResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetNetworkZoneResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder usage(String usage) {
-            this.usage = Objects.requireNonNull(usage);
+            if (usage == null) {
+              throw new MissingRequiredPropertyException("GetNetworkZoneResult", "usage");
+            }
+            this.usage = usage;
             return this;
         }
         public GetNetworkZoneResult build() {

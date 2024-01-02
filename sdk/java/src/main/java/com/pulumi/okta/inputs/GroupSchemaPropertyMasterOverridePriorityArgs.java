@@ -5,6 +5,7 @@ package com.pulumi.okta.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,7 +74,9 @@ public final class GroupSchemaPropertyMasterOverridePriorityArgs extends com.pul
         }
 
         public GroupSchemaPropertyMasterOverridePriorityArgs build() {
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("GroupSchemaPropertyMasterOverridePriorityArgs", "value");
+            }
             return $;
         }
     }

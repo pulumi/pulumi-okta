@@ -4,6 +4,7 @@
 package com.pulumi.okta.app.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -107,31 +108,39 @@ public final class SamlAttributeStatement {
 
         @CustomType.Setter
         public Builder filterType(@Nullable String filterType) {
+
             this.filterType = filterType;
             return this;
         }
         @CustomType.Setter
         public Builder filterValue(@Nullable String filterValue) {
+
             this.filterValue = filterValue;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("SamlAttributeStatement", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespace(@Nullable String namespace) {
+
             this.namespace = namespace;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
+
             this.values = values;
             return this;
         }

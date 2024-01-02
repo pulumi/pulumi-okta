@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.outputs.GetBehavioursBehavior;
 import java.lang.String;
 import java.util.List;
@@ -66,7 +67,10 @@ public final class GetBehavioursResult {
 
         @CustomType.Setter
         public Builder behaviors(List<GetBehavioursBehavior> behaviors) {
-            this.behaviors = Objects.requireNonNull(behaviors);
+            if (behaviors == null) {
+              throw new MissingRequiredPropertyException("GetBehavioursResult", "behaviors");
+            }
+            this.behaviors = behaviors;
             return this;
         }
         public Builder behaviors(GetBehavioursBehavior... behaviors) {
@@ -74,11 +78,15 @@ public final class GetBehavioursResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBehavioursResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder q(@Nullable String q) {
+
             this.q = q;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.okta.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AppUserSchemaPropertyArrayOneOfArgs extends com.pulumi.resour
         }
 
         public AppUserSchemaPropertyArrayOneOfArgs build() {
-            $.const_ = Objects.requireNonNull($.const_, "expected parameter 'const' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
+            if ($.const_ == null) {
+                throw new MissingRequiredPropertyException("AppUserSchemaPropertyArrayOneOfArgs", "const_");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("AppUserSchemaPropertyArrayOneOfArgs", "title");
+            }
             return $;
         }
     }

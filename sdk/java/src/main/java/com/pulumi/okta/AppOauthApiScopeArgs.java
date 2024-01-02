@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -159,9 +160,15 @@ public final class AppOauthApiScopeArgs extends com.pulumi.resources.ResourceArg
         }
 
         public AppOauthApiScopeArgs build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
-            $.issuer = Objects.requireNonNull($.issuer, "expected parameter 'issuer' to be non-null");
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("AppOauthApiScopeArgs", "appId");
+            }
+            if ($.issuer == null) {
+                throw new MissingRequiredPropertyException("AppOauthApiScopeArgs", "issuer");
+            }
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("AppOauthApiScopeArgs", "scopes");
+            }
             return $;
         }
     }

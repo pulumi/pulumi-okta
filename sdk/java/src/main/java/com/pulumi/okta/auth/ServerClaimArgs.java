@@ -5,6 +5,7 @@ package com.pulumi.okta.auth;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -364,9 +365,15 @@ public final class ServerClaimArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServerClaimArgs build() {
-            $.authServerId = Objects.requireNonNull($.authServerId, "expected parameter 'authServerId' to be non-null");
-            $.claimType = Objects.requireNonNull($.claimType, "expected parameter 'claimType' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.authServerId == null) {
+                throw new MissingRequiredPropertyException("ServerClaimArgs", "authServerId");
+            }
+            if ($.claimType == null) {
+                throw new MissingRequiredPropertyException("ServerClaimArgs", "claimType");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("ServerClaimArgs", "value");
+            }
             return $;
         }
     }

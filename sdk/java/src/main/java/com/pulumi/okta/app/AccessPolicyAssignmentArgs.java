@@ -5,6 +5,7 @@ package com.pulumi.okta.app;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AccessPolicyAssignmentArgs extends com.pulumi.resources.Resou
         }
 
         public AccessPolicyAssignmentArgs build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
-            $.policyId = Objects.requireNonNull($.policyId, "expected parameter 'policyId' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("AccessPolicyAssignmentArgs", "appId");
+            }
+            if ($.policyId == null) {
+                throw new MissingRequiredPropertyException("AccessPolicyAssignmentArgs", "policyId");
+            }
             return $;
         }
     }

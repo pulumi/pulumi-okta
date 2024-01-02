@@ -4,6 +4,7 @@
 package com.pulumi.okta.Index.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -54,17 +55,26 @@ public final class GetOrgMetadataSettings {
 
         @CustomType.Setter
         public Builder analyticsCollectionEnabled(Boolean analyticsCollectionEnabled) {
-            this.analyticsCollectionEnabled = Objects.requireNonNull(analyticsCollectionEnabled);
+            if (analyticsCollectionEnabled == null) {
+              throw new MissingRequiredPropertyException("GetOrgMetadataSettings", "analyticsCollectionEnabled");
+            }
+            this.analyticsCollectionEnabled = analyticsCollectionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder bugReportingEnabled(Boolean bugReportingEnabled) {
-            this.bugReportingEnabled = Objects.requireNonNull(bugReportingEnabled);
+            if (bugReportingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetOrgMetadataSettings", "bugReportingEnabled");
+            }
+            this.bugReportingEnabled = bugReportingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder omEnabled(Boolean omEnabled) {
-            this.omEnabled = Objects.requireNonNull(omEnabled);
+            if (omEnabled == null) {
+              throw new MissingRequiredPropertyException("GetOrgMetadataSettings", "omEnabled");
+            }
+            this.omEnabled = omEnabled;
             return this;
         }
         public GetOrgMetadataSettings build() {

@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -199,62 +200,92 @@ public final class GetAuthenticatorResult {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder providerAuthPort(Integer providerAuthPort) {
-            this.providerAuthPort = Objects.requireNonNull(providerAuthPort);
+            if (providerAuthPort == null) {
+              throw new MissingRequiredPropertyException("GetAuthenticatorResult", "providerAuthPort");
+            }
+            this.providerAuthPort = providerAuthPort;
             return this;
         }
         @CustomType.Setter
         public Builder providerHostname(String providerHostname) {
-            this.providerHostname = Objects.requireNonNull(providerHostname);
+            if (providerHostname == null) {
+              throw new MissingRequiredPropertyException("GetAuthenticatorResult", "providerHostname");
+            }
+            this.providerHostname = providerHostname;
             return this;
         }
         @CustomType.Setter
         public Builder providerInstanceId(String providerInstanceId) {
-            this.providerInstanceId = Objects.requireNonNull(providerInstanceId);
+            if (providerInstanceId == null) {
+              throw new MissingRequiredPropertyException("GetAuthenticatorResult", "providerInstanceId");
+            }
+            this.providerInstanceId = providerInstanceId;
             return this;
         }
         @CustomType.Setter
         public Builder providerJson(String providerJson) {
-            this.providerJson = Objects.requireNonNull(providerJson);
+            if (providerJson == null) {
+              throw new MissingRequiredPropertyException("GetAuthenticatorResult", "providerJson");
+            }
+            this.providerJson = providerJson;
             return this;
         }
         @CustomType.Setter
         public Builder providerType(String providerType) {
-            this.providerType = Objects.requireNonNull(providerType);
+            if (providerType == null) {
+              throw new MissingRequiredPropertyException("GetAuthenticatorResult", "providerType");
+            }
+            this.providerType = providerType;
             return this;
         }
         @CustomType.Setter
         public Builder providerUserNameTemplate(String providerUserNameTemplate) {
-            this.providerUserNameTemplate = Objects.requireNonNull(providerUserNameTemplate);
+            if (providerUserNameTemplate == null) {
+              throw new MissingRequiredPropertyException("GetAuthenticatorResult", "providerUserNameTemplate");
+            }
+            this.providerUserNameTemplate = providerUserNameTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder settings(String settings) {
-            this.settings = Objects.requireNonNull(settings);
+            if (settings == null) {
+              throw new MissingRequiredPropertyException("GetAuthenticatorResult", "settings");
+            }
+            this.settings = settings;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetAuthenticatorResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetAuthenticatorResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetAuthenticatorResult build() {

@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.outputs.GetUserSecurityQuestionsQuestion;
 import java.lang.String;
 import java.util.List;
@@ -64,12 +65,18 @@ public final class GetUserSecurityQuestionsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserSecurityQuestionsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder questions(List<GetUserSecurityQuestionsQuestion> questions) {
-            this.questions = Objects.requireNonNull(questions);
+            if (questions == null) {
+              throw new MissingRequiredPropertyException("GetUserSecurityQuestionsResult", "questions");
+            }
+            this.questions = questions;
             return this;
         }
         public Builder questions(GetUserSecurityQuestionsQuestion... questions) {
@@ -77,7 +84,10 @@ public final class GetUserSecurityQuestionsResult {
         }
         @CustomType.Setter
         public Builder userId(String userId) {
-            this.userId = Objects.requireNonNull(userId);
+            if (userId == null) {
+              throw new MissingRequiredPropertyException("GetUserSecurityQuestionsResult", "userId");
+            }
+            this.userId = userId;
             return this;
         }
         public GetUserSecurityQuestionsResult build() {

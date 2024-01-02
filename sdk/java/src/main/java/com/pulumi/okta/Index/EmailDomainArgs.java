@@ -5,6 +5,7 @@ package com.pulumi.okta.Index;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class EmailDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EmailDomainArgs build() {
-            $.brandId = Objects.requireNonNull($.brandId, "expected parameter 'brandId' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");
-            $.userName = Objects.requireNonNull($.userName, "expected parameter 'userName' to be non-null");
+            if ($.brandId == null) {
+                throw new MissingRequiredPropertyException("EmailDomainArgs", "brandId");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("EmailDomainArgs", "displayName");
+            }
+            if ($.domain == null) {
+                throw new MissingRequiredPropertyException("EmailDomainArgs", "domain");
+            }
+            if ($.userName == null) {
+                throw new MissingRequiredPropertyException("EmailDomainArgs", "userName");
+            }
             return $;
         }
     }

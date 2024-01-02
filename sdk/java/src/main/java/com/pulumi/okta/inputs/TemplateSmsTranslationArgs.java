@@ -5,6 +5,7 @@ package com.pulumi.okta.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -71,8 +72,12 @@ public final class TemplateSmsTranslationArgs extends com.pulumi.resources.Resou
         }
 
         public TemplateSmsTranslationArgs build() {
-            $.language = Objects.requireNonNull($.language, "expected parameter 'language' to be non-null");
-            $.template = Objects.requireNonNull($.template, "expected parameter 'template' to be non-null");
+            if ($.language == null) {
+                throw new MissingRequiredPropertyException("TemplateSmsTranslationArgs", "language");
+            }
+            if ($.template == null) {
+                throw new MissingRequiredPropertyException("TemplateSmsTranslationArgs", "template");
+            }
             return $;
         }
     }

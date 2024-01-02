@@ -5,6 +5,7 @@ package com.pulumi.okta.Index.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetDomainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetDomainArgs build() {
-            $.domainIdOrName = Objects.requireNonNull($.domainIdOrName, "expected parameter 'domainIdOrName' to be non-null");
+            if ($.domainIdOrName == null) {
+                throw new MissingRequiredPropertyException("GetDomainArgs", "domainIdOrName");
+            }
             return $;
         }
     }

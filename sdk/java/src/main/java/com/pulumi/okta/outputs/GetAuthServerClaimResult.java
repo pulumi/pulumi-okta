@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -158,32 +159,46 @@ public final class GetAuthServerClaimResult {
 
         @CustomType.Setter
         public Builder alwaysIncludeInToken(Boolean alwaysIncludeInToken) {
-            this.alwaysIncludeInToken = Objects.requireNonNull(alwaysIncludeInToken);
+            if (alwaysIncludeInToken == null) {
+              throw new MissingRequiredPropertyException("GetAuthServerClaimResult", "alwaysIncludeInToken");
+            }
+            this.alwaysIncludeInToken = alwaysIncludeInToken;
             return this;
         }
         @CustomType.Setter
         public Builder authServerId(String authServerId) {
-            this.authServerId = Objects.requireNonNull(authServerId);
+            if (authServerId == null) {
+              throw new MissingRequiredPropertyException("GetAuthServerClaimResult", "authServerId");
+            }
+            this.authServerId = authServerId;
             return this;
         }
         @CustomType.Setter
         public Builder claimType(String claimType) {
-            this.claimType = Objects.requireNonNull(claimType);
+            if (claimType == null) {
+              throw new MissingRequiredPropertyException("GetAuthServerClaimResult", "claimType");
+            }
+            this.claimType = claimType;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder scopes(List<String> scopes) {
-            this.scopes = Objects.requireNonNull(scopes);
+            if (scopes == null) {
+              throw new MissingRequiredPropertyException("GetAuthServerClaimResult", "scopes");
+            }
+            this.scopes = scopes;
             return this;
         }
         public Builder scopes(String... scopes) {
@@ -191,17 +206,26 @@ public final class GetAuthServerClaimResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetAuthServerClaimResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetAuthServerClaimResult", "value");
+            }
+            this.value = value;
             return this;
         }
         @CustomType.Setter
         public Builder valueType(String valueType) {
-            this.valueType = Objects.requireNonNull(valueType);
+            if (valueType == null) {
+              throw new MissingRequiredPropertyException("GetAuthServerClaimResult", "valueType");
+            }
+            this.valueType = valueType;
             return this;
         }
         public GetAuthServerClaimResult build() {

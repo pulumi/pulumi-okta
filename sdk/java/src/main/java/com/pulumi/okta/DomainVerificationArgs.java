@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class DomainVerificationArgs extends com.pulumi.resources.ResourceA
         }
 
         public DomainVerificationArgs build() {
-            $.domainId = Objects.requireNonNull($.domainId, "expected parameter 'domainId' to be non-null");
+            if ($.domainId == null) {
+                throw new MissingRequiredPropertyException("DomainVerificationArgs", "domainId");
+            }
             return $;
         }
     }

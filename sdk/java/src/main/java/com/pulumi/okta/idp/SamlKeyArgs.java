@@ -5,6 +5,7 @@ package com.pulumi.okta.idp;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SamlKeyArgs build() {
-            $.x5cs = Objects.requireNonNull($.x5cs, "expected parameter 'x5cs' to be non-null");
+            if ($.x5cs == null) {
+                throw new MissingRequiredPropertyException("SamlKeyArgs", "x5cs");
+            }
             return $;
         }
     }

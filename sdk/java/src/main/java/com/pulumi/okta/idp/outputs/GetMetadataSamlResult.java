@@ -4,6 +4,7 @@
 package com.pulumi.okta.idp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -171,52 +172,80 @@ public final class GetMetadataSamlResult {
 
         @CustomType.Setter
         public Builder assertionsSigned(Boolean assertionsSigned) {
-            this.assertionsSigned = Objects.requireNonNull(assertionsSigned);
+            if (assertionsSigned == null) {
+              throw new MissingRequiredPropertyException("GetMetadataSamlResult", "assertionsSigned");
+            }
+            this.assertionsSigned = assertionsSigned;
             return this;
         }
         @CustomType.Setter
         public Builder authnRequestSigned(Boolean authnRequestSigned) {
-            this.authnRequestSigned = Objects.requireNonNull(authnRequestSigned);
+            if (authnRequestSigned == null) {
+              throw new MissingRequiredPropertyException("GetMetadataSamlResult", "authnRequestSigned");
+            }
+            this.authnRequestSigned = authnRequestSigned;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionCertificate(String encryptionCertificate) {
-            this.encryptionCertificate = Objects.requireNonNull(encryptionCertificate);
+            if (encryptionCertificate == null) {
+              throw new MissingRequiredPropertyException("GetMetadataSamlResult", "encryptionCertificate");
+            }
+            this.encryptionCertificate = encryptionCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder entityId(String entityId) {
-            this.entityId = Objects.requireNonNull(entityId);
+            if (entityId == null) {
+              throw new MissingRequiredPropertyException("GetMetadataSamlResult", "entityId");
+            }
+            this.entityId = entityId;
             return this;
         }
         @CustomType.Setter
         public Builder httpPostBinding(String httpPostBinding) {
-            this.httpPostBinding = Objects.requireNonNull(httpPostBinding);
+            if (httpPostBinding == null) {
+              throw new MissingRequiredPropertyException("GetMetadataSamlResult", "httpPostBinding");
+            }
+            this.httpPostBinding = httpPostBinding;
             return this;
         }
         @CustomType.Setter
         public Builder httpRedirectBinding(String httpRedirectBinding) {
-            this.httpRedirectBinding = Objects.requireNonNull(httpRedirectBinding);
+            if (httpRedirectBinding == null) {
+              throw new MissingRequiredPropertyException("GetMetadataSamlResult", "httpRedirectBinding");
+            }
+            this.httpRedirectBinding = httpRedirectBinding;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetMetadataSamlResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder idpId(@Nullable String idpId) {
+
             this.idpId = idpId;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(String metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("GetMetadataSamlResult", "metadata");
+            }
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder signingCertificate(String signingCertificate) {
-            this.signingCertificate = Objects.requireNonNull(signingCertificate);
+            if (signingCertificate == null) {
+              throw new MissingRequiredPropertyException("GetMetadataSamlResult", "signingCertificate");
+            }
+            this.signingCertificate = signingCertificate;
             return this;
         }
         public GetMetadataSamlResult build() {

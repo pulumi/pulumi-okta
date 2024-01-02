@@ -4,6 +4,7 @@
 package com.pulumi.okta.app.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -92,7 +93,9 @@ public final class GetMetadataSamlPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         public GetMetadataSamlPlainArgs build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("GetMetadataSamlPlainArgs", "appId");
+            }
             return $;
         }
     }

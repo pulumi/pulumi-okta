@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class RateLimitingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RateLimitingArgs build() {
-            $.authorize = Objects.requireNonNull($.authorize, "expected parameter 'authorize' to be non-null");
-            $.login = Objects.requireNonNull($.login, "expected parameter 'login' to be non-null");
+            if ($.authorize == null) {
+                throw new MissingRequiredPropertyException("RateLimitingArgs", "authorize");
+            }
+            if ($.login == null) {
+                throw new MissingRequiredPropertyException("RateLimitingArgs", "login");
+            }
             return $;
         }
     }

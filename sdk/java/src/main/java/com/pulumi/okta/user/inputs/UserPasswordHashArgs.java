@@ -5,6 +5,7 @@ package com.pulumi.okta.user.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,8 +226,12 @@ public final class UserPasswordHashArgs extends com.pulumi.resources.ResourceArg
         }
 
         public UserPasswordHashArgs build() {
-            $.algorithm = Objects.requireNonNull($.algorithm, "expected parameter 'algorithm' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.algorithm == null) {
+                throw new MissingRequiredPropertyException("UserPasswordHashArgs", "algorithm");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("UserPasswordHashArgs", "value");
+            }
             return $;
         }
     }
