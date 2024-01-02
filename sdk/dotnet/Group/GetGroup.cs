@@ -12,7 +12,7 @@ namespace Pulumi.Okta.Group
     public static class GetGroup
     {
         /// <summary>
-        /// Get a group from Okta.
+        /// Use this data source to retrieve a group from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -40,7 +40,7 @@ namespace Pulumi.Okta.Group
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("okta:group/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a group from Okta.
+        /// Use this data source to retrieve a group from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -78,23 +78,29 @@ namespace Pulumi.Okta.Group
         public string? DelayReadSeconds { get; set; }
 
         /// <summary>
-        /// ID of group.
+        /// ID of the group. Conflicts with `"name"` and `"type"`.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Fetch group users, having default off cuts down on API calls.
+        /// whether to retrieve all member ids.
         /// </summary>
         [Input("includeUsers")]
         public bool? IncludeUsers { get; set; }
 
         /// <summary>
-        /// Name of group.
+        /// name of group to retrieve. 
+        /// 
+        /// &gt; Okta API treats `name` as a starts with query. Therefore a name argument "My" will match any group starting with "My" such as "My Group" and "My Office"
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+        /// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+        /// </summary>
         [Input("type")]
         public string? Type { get; set; }
 
@@ -113,23 +119,29 @@ namespace Pulumi.Okta.Group
         public Input<string>? DelayReadSeconds { get; set; }
 
         /// <summary>
-        /// ID of group.
+        /// ID of the group. Conflicts with `"name"` and `"type"`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Fetch group users, having default off cuts down on API calls.
+        /// whether to retrieve all member ids.
         /// </summary>
         [Input("includeUsers")]
         public Input<bool>? IncludeUsers { get; set; }
 
         /// <summary>
-        /// Name of group.
+        /// name of group to retrieve. 
+        /// 
+        /// &gt; Okta API treats `name` as a starts with query. Therefore a name argument "My" will match any group starting with "My" such as "My Group" and "My Office"
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+        /// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -143,29 +155,26 @@ namespace Pulumi.Okta.Group
     [OutputType]
     public sealed class GetGroupResult
     {
-        /// <summary>
-        /// Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
-        /// </summary>
         public readonly string? DelayReadSeconds;
         /// <summary>
-        /// Description of group.
+        /// description of group.
         /// </summary>
         public readonly string Description;
         /// <summary>
         /// ID of group.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Fetch group users, having default off cuts down on API calls.
-        /// </summary>
         public readonly bool? IncludeUsers;
         /// <summary>
-        /// Name of group.
+        /// name of group.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// type of group.
+        /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// Users associated with the group. This can also be done per user.
+        /// user ids that are members of this group, only included if `include_users` is set to `true`.
         /// </summary>
         public readonly ImmutableArray<string> Users;
 

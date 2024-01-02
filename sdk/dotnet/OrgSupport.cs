@@ -9,6 +9,32 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// This resource allows you to temporarily allow Okta Support to access your org as an administrator. By default,
+    /// access will be granted for eight hours. Removing this resource will revoke Okta Support access to your org.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.OrgSupport("example", new()
+    ///     {
+    ///         ExtendBy = 1,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// This resource does not support importing.
+    /// </summary>
     [OktaResourceType("okta:index/orgSupport:OrgSupport")]
     public partial class OrgSupport : global::Pulumi.CustomResource
     {
@@ -19,7 +45,7 @@ namespace Pulumi.Okta
         public Output<string> Expiration { get; private set; } = null!;
 
         /// <summary>
-        /// Number of days the support should be extended by
+        /// Number of days the support should be extended by in addition to the standard eight hours.
         /// </summary>
         [Output("extendBy")]
         public Output<int?> ExtendBy { get; private set; } = null!;
@@ -77,7 +103,7 @@ namespace Pulumi.Okta
     public sealed class OrgSupportArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Number of days the support should be extended by
+        /// Number of days the support should be extended by in addition to the standard eight hours.
         /// </summary>
         [Input("extendBy")]
         public Input<int>? ExtendBy { get; set; }
@@ -97,7 +123,7 @@ namespace Pulumi.Okta
         public Input<string>? Expiration { get; set; }
 
         /// <summary>
-        /// Number of days the support should be extended by
+        /// Number of days the support should be extended by in addition to the standard eight hours.
         /// </summary>
         [Input("extendBy")]
         public Input<int>? ExtendBy { get; set; }

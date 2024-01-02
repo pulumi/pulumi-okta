@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class TemplateSmsTranslation {
+    /**
+     * @return The language to map the template to.
+     * 
+     */
     private String language;
+    /**
+     * @return The SMS message.
+     * 
+     */
     private String template;
 
     private TemplateSmsTranslation() {}
+    /**
+     * @return The language to map the template to.
+     * 
+     */
     public String language() {
         return this.language;
     }
+    /**
+     * @return The SMS message.
+     * 
+     */
     public String template() {
         return this.template;
     }

@@ -33,7 +33,7 @@ class GetAppGroupAssignmentsResult:
     @pulumi.getter
     def groups(self) -> Sequence[str]:
         """
-        List of groups IDs assigned to the app
+        List of groups IDs assigned to the application.
         """
         return pulumi.get(self, "groups")
 
@@ -41,7 +41,7 @@ class GetAppGroupAssignmentsResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        ID of the Okta App being queried for groups
+        ID of application.
         """
         return pulumi.get(self, "id")
 
@@ -59,7 +59,7 @@ class AwaitableGetAppGroupAssignmentsResult(GetAppGroupAssignmentsResult):
 def get_app_group_assignments(id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppGroupAssignmentsResult:
     """
-    Get a set of groups assigned to an Okta application.
+    Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
 
     ## Example Usage
 
@@ -71,7 +71,7 @@ def get_app_group_assignments(id: Optional[str] = None,
     ```
 
 
-    :param str id: ID of the Okta App being queried for groups
+    :param str id: The ID of the Okta application you want to retrieve the groups for.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -87,7 +87,7 @@ def get_app_group_assignments(id: Optional[str] = None,
 def get_app_group_assignments_output(id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppGroupAssignmentsResult]:
     """
-    Get a set of groups assigned to an Okta application.
+    Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
 
     ## Example Usage
 
@@ -99,6 +99,6 @@ def get_app_group_assignments_output(id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str id: ID of the Okta App being queried for groups
+    :param str id: The ID of the Okta application you want to retrieve the groups for.
     """
     ...

@@ -16,30 +16,90 @@ public final class RuleIdpDiscoveryPlatformIncludeArgs extends com.pulumi.resour
     public static final RuleIdpDiscoveryPlatformIncludeArgs Empty = new RuleIdpDiscoveryPlatformIncludeArgs();
 
     /**
-     * Only available with OTHER OS type
+     * Only available when using `os_type = &#34;OTHER&#34;`
      * 
      */
     @Import(name="osExpression")
     private @Nullable Output<String> osExpression;
 
     /**
-     * @return Only available with OTHER OS type
+     * @return Only available when using `os_type = &#34;OTHER&#34;`
      * 
      */
     public Optional<Output<String>> osExpression() {
         return Optional.ofNullable(this.osExpression);
     }
 
+    /**
+     * One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
+     * 
+     */
     @Import(name="osType")
     private @Nullable Output<String> osType;
 
+    /**
+     * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
+     * 
+     */
     public Optional<Output<String>> osType() {
         return Optional.ofNullable(this.osType);
     }
 
+    /**
+     * One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -71,7 +131,7 @@ public final class RuleIdpDiscoveryPlatformIncludeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param osExpression Only available with OTHER OS type
+         * @param osExpression Only available when using `os_type = &#34;OTHER&#34;`
          * 
          * @return builder
          * 
@@ -82,7 +142,7 @@ public final class RuleIdpDiscoveryPlatformIncludeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param osExpression Only available with OTHER OS type
+         * @param osExpression Only available when using `os_type = &#34;OTHER&#34;`
          * 
          * @return builder
          * 
@@ -91,20 +151,88 @@ public final class RuleIdpDiscoveryPlatformIncludeArgs extends com.pulumi.resour
             return osExpression(Output.of(osExpression));
         }
 
+        /**
+         * @param osType One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
+         * 
+         * @return builder
+         * 
+         */
         public Builder osType(@Nullable Output<String> osType) {
             $.osType = osType;
             return this;
         }
 
+        /**
+         * @param osType One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
+         * 
+         * @return builder
+         * 
+         */
         public Builder osType(String osType) {
             return osType(Output.of(osType));
         }
 
+        /**
+         * @param type One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

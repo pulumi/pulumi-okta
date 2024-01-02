@@ -21,14 +21,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     public static final SamlArgs Empty = new SamlArgs();
 
     /**
-     * Custom error page URL
+     * Custom error page URL.
      * 
      */
     @Import(name="accessibilityErrorRedirectUrl")
     private @Nullable Output<String> accessibilityErrorRedirectUrl;
 
     /**
-     * @return Custom error page URL
+     * @return Custom error page URL.
      * 
      */
     public Optional<Output<String>> accessibilityErrorRedirectUrl() {
@@ -36,14 +36,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Custom login page URL
+     * Custom login page for this application.
      * 
      */
     @Import(name="accessibilityLoginRedirectUrl")
     private @Nullable Output<String> accessibilityLoginRedirectUrl;
 
     /**
-     * @return Custom login page URL
+     * @return Custom login page for this application.
      * 
      */
     public Optional<Output<String>> accessibilityLoginRedirectUrl() {
@@ -51,14 +51,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable self service
+     * Enable self-service. Default is: `false`.
      * 
      */
     @Import(name="accessibilitySelfService")
     private @Nullable Output<Boolean> accessibilitySelfService;
 
     /**
-     * @return Enable self service
+     * @return Enable self-service. Default is: `false`.
      * 
      */
     public Optional<Output<Boolean>> accessibilitySelfService() {
@@ -66,14 +66,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of ACS endpoints for this SAML application
+     * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
      * 
      */
     @Import(name="acsEndpoints")
     private @Nullable Output<List<String>> acsEndpoints;
 
     /**
-     * @return List of ACS endpoints for this SAML application
+     * @return An array of ACS endpoints. You can configure a maximum of 100 endpoints.
      * 
      */
     public Optional<Output<List<String>>> acsEndpoints() {
@@ -96,14 +96,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
     @Import(name="appLinksJson")
     private @Nullable Output<String> appLinksJson;
 
     /**
-     * @return Displays specific appLinks for the app
+     * @return Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
     public Optional<Output<String>> appLinksJson() {
@@ -111,14 +111,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Application settings in JSON format
+     * Application settings in JSON format.
      * 
      */
     @Import(name="appSettingsJson")
     private @Nullable Output<String> appSettingsJson;
 
     /**
-     * @return Application settings in JSON format
+     * @return Application settings in JSON format.
      * 
      */
     public Optional<Output<String>> appSettingsJson() {
@@ -126,23 +126,31 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines whether the SAML assertion is digitally signed
+     * Determines whether the SAML assertion is digitally signed.
      * 
      */
     @Import(name="assertionSigned")
     private @Nullable Output<Boolean> assertionSigned;
 
     /**
-     * @return Determines whether the SAML assertion is digitally signed
+     * @return Determines whether the SAML assertion is digitally signed.
      * 
      */
     public Optional<Output<Boolean>> assertionSigned() {
         return Optional.ofNullable(this.assertionSigned);
     }
 
+    /**
+     * List of SAML Attribute statements.
+     * 
+     */
     @Import(name="attributeStatements")
     private @Nullable Output<List<SamlAttributeStatementArgs>> attributeStatements;
 
+    /**
+     * @return List of SAML Attribute statements.
+     * 
+     */
     public Optional<Output<List<SamlAttributeStatementArgs>>> attributeStatements() {
         return Optional.ofNullable(this.attributeStatements);
     }
@@ -163,14 +171,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Id of this apps authentication policy
+     * The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
      * 
      */
     @Import(name="authenticationPolicy")
     private @Nullable Output<String> authenticationPolicy;
 
     /**
-     * @return Id of this apps authentication policy
+     * @return The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
      * 
      */
     public Optional<Output<String>> authenticationPolicy() {
@@ -193,14 +201,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar. Default is: `false`
      * 
      */
     @Import(name="autoSubmitToolbar")
     private @Nullable Output<Boolean> autoSubmitToolbar;
 
     /**
-     * @return Display auto submit toolbar
+     * @return Display auto submit toolbar. Default is: `false`
      * 
      */
     public Optional<Output<Boolean>> autoSubmitToolbar() {
@@ -268,14 +276,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app. Default is: `false`
      * 
      */
     @Import(name="hideIos")
     private @Nullable Output<Boolean> hideIos;
 
     /**
-     * @return Do not display application icon on mobile app
+     * @return Do not display application icon on mobile app. Default is: `false`
      * 
      */
     public Optional<Output<Boolean>> hideIos() {
@@ -283,14 +291,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users. Default is: `false`
      * 
      */
     @Import(name="hideWeb")
     private @Nullable Output<Boolean> hideWeb;
 
     /**
-     * @return Do not display application icon to users
+     * @return Do not display application icon to users. Default is: `false`
      * 
      */
     public Optional<Output<Boolean>> hideWeb() {
@@ -298,14 +306,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Prompt user to re-authenticate if SP asks for it
+     * Prompt user to re-authenticate if SP asks for it. Default is: `false`
      * 
      */
     @Import(name="honorForceAuthn")
     private @Nullable Output<Boolean> honorForceAuthn;
 
     /**
-     * @return Prompt user to re-authenticate if SP asks for it
+     * @return Prompt user to re-authenticate if SP asks for it. Default is: `false`
      * 
      */
     public Optional<Output<Boolean>> honorForceAuthn() {
@@ -313,14 +321,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SAML issuer ID
+     * SAML issuer ID.
      * 
      */
     @Import(name="idpIssuer")
     private @Nullable Output<String> idpIssuer;
 
     /**
-     * @return SAML issuer ID
+     * @return SAML issuer ID.
      * 
      */
     public Optional<Output<String>> idpIssuer() {
@@ -328,14 +336,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * *Early Access Property*. Enable Federation Broker Mode.
+     * _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
      * 
      */
     @Import(name="implicitAssignment")
     private @Nullable Output<Boolean> implicitAssignment;
 
     /**
-     * @return *Early Access Property*. Enable Federation Broker Mode.
+     * @return _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
      * 
      */
     public Optional<Output<Boolean>> implicitAssignment() {
@@ -343,14 +351,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Saml Inline Hook setting
+     * Saml Inline Hook associated with the application.
      * 
      */
     @Import(name="inlineHookId")
     private @Nullable Output<String> inlineHookId;
 
     /**
-     * @return Saml Inline Hook setting
+     * @return Saml Inline Hook associated with the application.
      * 
      */
     public Optional<Output<String>> inlineHookId() {
@@ -358,14 +366,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Certificate name. This modulates the rotation of keys. New name == new key.
+     * Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
      * 
      */
     @Import(name="keyName")
     private @Nullable Output<String> keyName;
 
     /**
-     * @return Certificate name. This modulates the rotation of keys. New name == new key.
+     * @return Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
      * 
      */
     public Optional<Output<String>> keyName() {
@@ -373,14 +381,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of years the certificate is valid.
+     * Number of years the certificate is valid (2 - 10 years).
      * 
      */
     @Import(name="keyYearsValid")
     private @Nullable Output<Integer> keyYearsValid;
 
     /**
-     * @return Number of years the certificate is valid.
+     * @return Number of years the certificate is valid (2 - 10 years).
      * 
      */
     public Optional<Output<Integer>> keyYearsValid() {
@@ -388,14 +396,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Pretty name of app.
+     * label of application.
      * 
      */
     @Import(name="label", required=true)
     private Output<String> label;
 
     /**
-     * @return Pretty name of app.
+     * @return label of application.
      * 
      */
     public Output<String> label() {
@@ -403,14 +411,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Local path to logo of the application.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     @Import(name="logo")
     private @Nullable Output<String> logo;
 
     /**
-     * @return Local path to logo of the application.
+     * @return Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     public Optional<Output<String>> logo() {
@@ -418,14 +426,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of preexisting SAML application. For instance &#39;slack&#39;
+     * name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
      * 
      */
     @Import(name="preconfiguredApp")
     private @Nullable Output<String> preconfiguredApp;
 
     /**
-     * @return Name of preexisting SAML application. For instance &#39;slack&#39;
+     * @return name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
      * 
      */
     public Optional<Output<String>> preconfiguredApp() {
@@ -433,14 +441,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The location where the app may present the SAML assertion
+     * The location where the app may present the SAML assertion.
      * 
      */
     @Import(name="recipient")
     private @Nullable Output<String> recipient;
 
     /**
-     * @return The location where the app may present the SAML assertion
+     * @return The location where the app may present the SAML assertion.
      * 
      */
     public Optional<Output<String>> recipient() {
@@ -463,14 +471,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines whether the SAML auth response message is digitally signed
+     * Determines whether the SAML auth response message is digitally signed.
      * 
      */
     @Import(name="responseSigned")
     private @Nullable Output<Boolean> responseSigned;
 
     /**
-     * @return Determines whether the SAML auth response message is digitally signed
+     * @return Determines whether the SAML auth response message is digitally signed.
      * 
      */
     public Optional<Output<Boolean>> responseSigned() {
@@ -493,14 +501,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SAML version for the app&#39;s sign-on mode
+     * SAML version for the app&#39;s sign-on mode. Valid values are: `&#34;2.0&#34;` or `&#34;1.1&#34;`. Default is `&#34;2.0&#34;`.
      * 
      */
     @Import(name="samlVersion")
     private @Nullable Output<String> samlVersion;
 
     /**
-     * @return SAML version for the app&#39;s sign-on mode
+     * @return SAML version for the app&#39;s sign-on mode. Valid values are: `&#34;2.0&#34;` or `&#34;1.1&#34;`. Default is `&#34;2.0&#34;`.
      * 
      */
     public Optional<Output<String>> samlVersion() {
@@ -508,14 +516,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Signature algorithm used ot digitally sign the assertion and response
+     * Signature algorithm used ot digitally sign the assertion and response.
      * 
      */
     @Import(name="signatureAlgorithm")
     private @Nullable Output<String> signatureAlgorithm;
 
     /**
-     * @return Signature algorithm used ot digitally sign the assertion and response
+     * @return Signature algorithm used ot digitally sign the assertion and response.
      * 
      */
     public Optional<Output<String>> signatureAlgorithm() {
@@ -523,14 +531,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      * 
      */
     @Import(name="singleLogoutCertificate")
     private @Nullable Output<String> singleLogoutCertificate;
 
     /**
-     * @return x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+     * @return x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      * 
      */
     public Optional<Output<String>> singleLogoutCertificate() {
@@ -538,14 +546,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The issuer of the Service Provider that generates the Single Logout request
+     * The issuer of the Service Provider that generates the Single Logout request.
      * 
      */
     @Import(name="singleLogoutIssuer")
     private @Nullable Output<String> singleLogoutIssuer;
 
     /**
-     * @return The issuer of the Service Provider that generates the Single Logout request
+     * @return The issuer of the Service Provider that generates the Single Logout request.
      * 
      */
     public Optional<Output<String>> singleLogoutIssuer() {
@@ -553,14 +561,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The location where the logout response is sent
+     * The location where the logout response is sent.
      * 
      */
     @Import(name="singleLogoutUrl")
     private @Nullable Output<String> singleLogoutUrl;
 
     /**
-     * @return The location where the logout response is sent
+     * @return The location where the logout response is sent.
      * 
      */
     public Optional<Output<String>> singleLogoutUrl() {
@@ -568,14 +576,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SAML SP issuer ID
+     * SAML service provider issuer.
      * 
      */
     @Import(name="spIssuer")
     private @Nullable Output<String> spIssuer;
 
     /**
-     * @return SAML SP issuer ID
+     * @return SAML service provider issuer.
      * 
      */
     public Optional<Output<String>> spIssuer() {
@@ -583,14 +591,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Single Sign On URL
+     * Single Sign-on Url.
      * 
      */
     @Import(name="ssoUrl")
     private @Nullable Output<String> ssoUrl;
 
     /**
-     * @return Single Sign On URL
+     * @return Single Sign-on Url.
      * 
      */
     public Optional<Output<String>> ssoUrl() {
@@ -598,14 +606,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of application.
+     * status of application.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of application.
+     * @return status of application.
      * 
      */
     public Optional<Output<String>> status() {
@@ -628,14 +636,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Template for app user&#39;s username when a user is assigned to the app
+     * Template for app user&#39;s username when a user is assigned to the app.
      * 
      */
     @Import(name="subjectNameIdTemplate")
     private @Nullable Output<String> subjectNameIdTemplate;
 
     /**
-     * @return Template for app user&#39;s username when a user is assigned to the app
+     * @return Template for app user&#39;s username when a user is assigned to the app.
      * 
      */
     public Optional<Output<String>> subjectNameIdTemplate() {
@@ -643,14 +651,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username template
+     * Username template. Default is: `&#34;${source.login}&#34;`
      * 
      */
     @Import(name="userNameTemplate")
     private @Nullable Output<String> userNameTemplate;
 
     /**
-     * @return Username template
+     * @return Username template. Default is: `&#34;${source.login}&#34;`
      * 
      */
     public Optional<Output<String>> userNameTemplate() {
@@ -658,14 +666,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Push username on update
+     * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
     @Import(name="userNameTemplatePushStatus")
     private @Nullable Output<String> userNameTemplatePushStatus;
 
     /**
-     * @return Push username on update
+     * @return Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
     public Optional<Output<String>> userNameTemplatePushStatus() {
@@ -673,14 +681,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username template suffix
+     * Username template suffix.
      * 
      */
     @Import(name="userNameTemplateSuffix")
     private @Nullable Output<String> userNameTemplateSuffix;
 
     /**
-     * @return Username template suffix
+     * @return Username template suffix.
      * 
      */
     public Optional<Output<String>> userNameTemplateSuffix() {
@@ -688,14 +696,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username template type
+     * Username template type. Default is: `&#34;BUILT_IN&#34;`.
      * 
      */
     @Import(name="userNameTemplateType")
     private @Nullable Output<String> userNameTemplateType;
 
     /**
-     * @return Username template type
+     * @return Username template type. Default is: `&#34;BUILT_IN&#34;`.
      * 
      */
     public Optional<Output<String>> userNameTemplateType() {
@@ -772,7 +780,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL
+         * @param accessibilityErrorRedirectUrl Custom error page URL.
          * 
          * @return builder
          * 
@@ -783,7 +791,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL
+         * @param accessibilityErrorRedirectUrl Custom error page URL.
          * 
          * @return builder
          * 
@@ -793,7 +801,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page URL
+         * @param accessibilityLoginRedirectUrl Custom login page for this application.
          * 
          * @return builder
          * 
@@ -804,7 +812,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page URL
+         * @param accessibilityLoginRedirectUrl Custom login page for this application.
          * 
          * @return builder
          * 
@@ -814,7 +822,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilitySelfService Enable self service
+         * @param accessibilitySelfService Enable self-service. Default is: `false`.
          * 
          * @return builder
          * 
@@ -825,7 +833,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilitySelfService Enable self service
+         * @param accessibilitySelfService Enable self-service. Default is: `false`.
          * 
          * @return builder
          * 
@@ -835,7 +843,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acsEndpoints List of ACS endpoints for this SAML application
+         * @param acsEndpoints An array of ACS endpoints. You can configure a maximum of 100 endpoints.
          * 
          * @return builder
          * 
@@ -846,7 +854,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acsEndpoints List of ACS endpoints for this SAML application
+         * @param acsEndpoints An array of ACS endpoints. You can configure a maximum of 100 endpoints.
          * 
          * @return builder
          * 
@@ -856,7 +864,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acsEndpoints List of ACS endpoints for this SAML application
+         * @param acsEndpoints An array of ACS endpoints. You can configure a maximum of 100 endpoints.
          * 
          * @return builder
          * 
@@ -887,7 +895,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appLinksJson Displays specific appLinks for the app
+         * @param appLinksJson Displays specific appLinks for the app. The value for each application link should be boolean.
          * 
          * @return builder
          * 
@@ -898,7 +906,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appLinksJson Displays specific appLinks for the app
+         * @param appLinksJson Displays specific appLinks for the app. The value for each application link should be boolean.
          * 
          * @return builder
          * 
@@ -908,7 +916,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appSettingsJson Application settings in JSON format
+         * @param appSettingsJson Application settings in JSON format.
          * 
          * @return builder
          * 
@@ -919,7 +927,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appSettingsJson Application settings in JSON format
+         * @param appSettingsJson Application settings in JSON format.
          * 
          * @return builder
          * 
@@ -929,7 +937,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assertionSigned Determines whether the SAML assertion is digitally signed
+         * @param assertionSigned Determines whether the SAML assertion is digitally signed.
          * 
          * @return builder
          * 
@@ -940,7 +948,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assertionSigned Determines whether the SAML assertion is digitally signed
+         * @param assertionSigned Determines whether the SAML assertion is digitally signed.
          * 
          * @return builder
          * 
@@ -949,15 +957,33 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
             return assertionSigned(Output.of(assertionSigned));
         }
 
+        /**
+         * @param attributeStatements List of SAML Attribute statements.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attributeStatements(@Nullable Output<List<SamlAttributeStatementArgs>> attributeStatements) {
             $.attributeStatements = attributeStatements;
             return this;
         }
 
+        /**
+         * @param attributeStatements List of SAML Attribute statements.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attributeStatements(List<SamlAttributeStatementArgs> attributeStatements) {
             return attributeStatements(Output.of(attributeStatements));
         }
 
+        /**
+         * @param attributeStatements List of SAML Attribute statements.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attributeStatements(SamlAttributeStatementArgs... attributeStatements) {
             return attributeStatements(List.of(attributeStatements));
         }
@@ -984,7 +1010,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationPolicy Id of this apps authentication policy
+         * @param authenticationPolicy The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
          * 
          * @return builder
          * 
@@ -995,7 +1021,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationPolicy Id of this apps authentication policy
+         * @param authenticationPolicy The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
          * 
          * @return builder
          * 
@@ -1026,7 +1052,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar
+         * @param autoSubmitToolbar Display auto submit toolbar. Default is: `false`
          * 
          * @return builder
          * 
@@ -1037,7 +1063,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar
+         * @param autoSubmitToolbar Display auto submit toolbar. Default is: `false`
          * 
          * @return builder
          * 
@@ -1131,7 +1157,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app
+         * @param hideIos Do not display application icon on mobile app. Default is: `false`
          * 
          * @return builder
          * 
@@ -1142,7 +1168,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app
+         * @param hideIos Do not display application icon on mobile app. Default is: `false`
          * 
          * @return builder
          * 
@@ -1152,7 +1178,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideWeb Do not display application icon to users
+         * @param hideWeb Do not display application icon to users. Default is: `false`
          * 
          * @return builder
          * 
@@ -1163,7 +1189,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideWeb Do not display application icon to users
+         * @param hideWeb Do not display application icon to users. Default is: `false`
          * 
          * @return builder
          * 
@@ -1173,7 +1199,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param honorForceAuthn Prompt user to re-authenticate if SP asks for it
+         * @param honorForceAuthn Prompt user to re-authenticate if SP asks for it. Default is: `false`
          * 
          * @return builder
          * 
@@ -1184,7 +1210,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param honorForceAuthn Prompt user to re-authenticate if SP asks for it
+         * @param honorForceAuthn Prompt user to re-authenticate if SP asks for it. Default is: `false`
          * 
          * @return builder
          * 
@@ -1194,7 +1220,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param idpIssuer SAML issuer ID
+         * @param idpIssuer SAML issuer ID.
          * 
          * @return builder
          * 
@@ -1205,7 +1231,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param idpIssuer SAML issuer ID
+         * @param idpIssuer SAML issuer ID.
          * 
          * @return builder
          * 
@@ -1215,7 +1241,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param implicitAssignment *Early Access Property*. Enable Federation Broker Mode.
+         * @param implicitAssignment _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
          * 
          * @return builder
          * 
@@ -1226,7 +1252,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param implicitAssignment *Early Access Property*. Enable Federation Broker Mode.
+         * @param implicitAssignment _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
          * 
          * @return builder
          * 
@@ -1236,7 +1262,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inlineHookId Saml Inline Hook setting
+         * @param inlineHookId Saml Inline Hook associated with the application.
          * 
          * @return builder
          * 
@@ -1247,7 +1273,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inlineHookId Saml Inline Hook setting
+         * @param inlineHookId Saml Inline Hook associated with the application.
          * 
          * @return builder
          * 
@@ -1257,7 +1283,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyName Certificate name. This modulates the rotation of keys. New name == new key.
+         * @param keyName Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
          * 
          * @return builder
          * 
@@ -1268,7 +1294,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyName Certificate name. This modulates the rotation of keys. New name == new key.
+         * @param keyName Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
          * 
          * @return builder
          * 
@@ -1278,7 +1304,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyYearsValid Number of years the certificate is valid.
+         * @param keyYearsValid Number of years the certificate is valid (2 - 10 years).
          * 
          * @return builder
          * 
@@ -1289,7 +1315,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyYearsValid Number of years the certificate is valid.
+         * @param keyYearsValid Number of years the certificate is valid (2 - 10 years).
          * 
          * @return builder
          * 
@@ -1299,7 +1325,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param label Pretty name of app.
+         * @param label label of application.
          * 
          * @return builder
          * 
@@ -1310,7 +1336,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param label Pretty name of app.
+         * @param label label of application.
          * 
          * @return builder
          * 
@@ -1320,7 +1346,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logo Local path to logo of the application.
+         * @param logo Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
          * 
          * @return builder
          * 
@@ -1331,7 +1357,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logo Local path to logo of the application.
+         * @param logo Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
          * 
          * @return builder
          * 
@@ -1341,7 +1367,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preconfiguredApp Name of preexisting SAML application. For instance &#39;slack&#39;
+         * @param preconfiguredApp name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
          * 
          * @return builder
          * 
@@ -1352,7 +1378,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preconfiguredApp Name of preexisting SAML application. For instance &#39;slack&#39;
+         * @param preconfiguredApp name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
          * 
          * @return builder
          * 
@@ -1362,7 +1388,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recipient The location where the app may present the SAML assertion
+         * @param recipient The location where the app may present the SAML assertion.
          * 
          * @return builder
          * 
@@ -1373,7 +1399,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recipient The location where the app may present the SAML assertion
+         * @param recipient The location where the app may present the SAML assertion.
          * 
          * @return builder
          * 
@@ -1404,7 +1430,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseSigned Determines whether the SAML auth response message is digitally signed
+         * @param responseSigned Determines whether the SAML auth response message is digitally signed.
          * 
          * @return builder
          * 
@@ -1415,7 +1441,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseSigned Determines whether the SAML auth response message is digitally signed
+         * @param responseSigned Determines whether the SAML auth response message is digitally signed.
          * 
          * @return builder
          * 
@@ -1446,7 +1472,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param samlVersion SAML version for the app&#39;s sign-on mode
+         * @param samlVersion SAML version for the app&#39;s sign-on mode. Valid values are: `&#34;2.0&#34;` or `&#34;1.1&#34;`. Default is `&#34;2.0&#34;`.
          * 
          * @return builder
          * 
@@ -1457,7 +1483,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param samlVersion SAML version for the app&#39;s sign-on mode
+         * @param samlVersion SAML version for the app&#39;s sign-on mode. Valid values are: `&#34;2.0&#34;` or `&#34;1.1&#34;`. Default is `&#34;2.0&#34;`.
          * 
          * @return builder
          * 
@@ -1467,7 +1493,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signatureAlgorithm Signature algorithm used ot digitally sign the assertion and response
+         * @param signatureAlgorithm Signature algorithm used ot digitally sign the assertion and response.
          * 
          * @return builder
          * 
@@ -1478,7 +1504,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signatureAlgorithm Signature algorithm used ot digitally sign the assertion and response
+         * @param signatureAlgorithm Signature algorithm used ot digitally sign the assertion and response.
          * 
          * @return builder
          * 
@@ -1488,7 +1514,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param singleLogoutCertificate x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+         * @param singleLogoutCertificate x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
          * 
          * @return builder
          * 
@@ -1499,7 +1525,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param singleLogoutCertificate x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+         * @param singleLogoutCertificate x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
          * 
          * @return builder
          * 
@@ -1509,7 +1535,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param singleLogoutIssuer The issuer of the Service Provider that generates the Single Logout request
+         * @param singleLogoutIssuer The issuer of the Service Provider that generates the Single Logout request.
          * 
          * @return builder
          * 
@@ -1520,7 +1546,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param singleLogoutIssuer The issuer of the Service Provider that generates the Single Logout request
+         * @param singleLogoutIssuer The issuer of the Service Provider that generates the Single Logout request.
          * 
          * @return builder
          * 
@@ -1530,7 +1556,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param singleLogoutUrl The location where the logout response is sent
+         * @param singleLogoutUrl The location where the logout response is sent.
          * 
          * @return builder
          * 
@@ -1541,7 +1567,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param singleLogoutUrl The location where the logout response is sent
+         * @param singleLogoutUrl The location where the logout response is sent.
          * 
          * @return builder
          * 
@@ -1551,7 +1577,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spIssuer SAML SP issuer ID
+         * @param spIssuer SAML service provider issuer.
          * 
          * @return builder
          * 
@@ -1562,7 +1588,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spIssuer SAML SP issuer ID
+         * @param spIssuer SAML service provider issuer.
          * 
          * @return builder
          * 
@@ -1572,7 +1598,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ssoUrl Single Sign On URL
+         * @param ssoUrl Single Sign-on Url.
          * 
          * @return builder
          * 
@@ -1583,7 +1609,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ssoUrl Single Sign On URL
+         * @param ssoUrl Single Sign-on Url.
          * 
          * @return builder
          * 
@@ -1593,7 +1619,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of application.
+         * @param status status of application.
          * 
          * @return builder
          * 
@@ -1604,7 +1630,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of application.
+         * @param status status of application.
          * 
          * @return builder
          * 
@@ -1635,7 +1661,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectNameIdTemplate Template for app user&#39;s username when a user is assigned to the app
+         * @param subjectNameIdTemplate Template for app user&#39;s username when a user is assigned to the app.
          * 
          * @return builder
          * 
@@ -1646,7 +1672,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectNameIdTemplate Template for app user&#39;s username when a user is assigned to the app
+         * @param subjectNameIdTemplate Template for app user&#39;s username when a user is assigned to the app.
          * 
          * @return builder
          * 
@@ -1656,7 +1682,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplate Username template
+         * @param userNameTemplate Username template. Default is: `&#34;${source.login}&#34;`
          * 
          * @return builder
          * 
@@ -1667,7 +1693,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplate Username template
+         * @param userNameTemplate Username template. Default is: `&#34;${source.login}&#34;`
          * 
          * @return builder
          * 
@@ -1677,7 +1703,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplatePushStatus Push username on update
+         * @param userNameTemplatePushStatus Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
          * 
          * @return builder
          * 
@@ -1688,7 +1714,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplatePushStatus Push username on update
+         * @param userNameTemplatePushStatus Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
          * 
          * @return builder
          * 
@@ -1698,7 +1724,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateSuffix Username template suffix
+         * @param userNameTemplateSuffix Username template suffix.
          * 
          * @return builder
          * 
@@ -1709,7 +1735,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateSuffix Username template suffix
+         * @param userNameTemplateSuffix Username template suffix.
          * 
          * @return builder
          * 
@@ -1719,7 +1745,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateType Username template type
+         * @param userNameTemplateType Username template type. Default is: `&#34;BUILT_IN&#34;`.
          * 
          * @return builder
          * 
@@ -1730,7 +1756,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateType Username template type
+         * @param userNameTemplateType Username template type. Default is: `&#34;BUILT_IN&#34;`.
          * 
          * @return builder
          * 

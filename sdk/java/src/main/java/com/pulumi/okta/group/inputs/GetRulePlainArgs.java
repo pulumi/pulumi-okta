@@ -15,14 +15,14 @@ public final class GetRulePlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetRulePlainArgs Empty = new GetRulePlainArgs();
 
     /**
-     * The ID of the Group Rule.
+     * The ID of the group rule to retrieve.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return The ID of the Group Rule.
+     * @return The ID of the group rule to retrieve.
      * 
      */
     public Optional<String> id() {
@@ -30,23 +30,31 @@ public final class GetRulePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the Group Rule.
+     * The name of the Group Rule to retrieve.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The name of the Group Rule.
+     * @return The name of the Group Rule to retrieve.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The status of the group rule.
+     * 
+     */
     @Import(name="status")
     private @Nullable String status;
 
+    /**
+     * @return The status of the group rule.
+     * 
+     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
@@ -78,7 +86,7 @@ public final class GetRulePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the Group Rule.
+         * @param id The ID of the group rule to retrieve.
          * 
          * @return builder
          * 
@@ -89,7 +97,7 @@ public final class GetRulePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the Group Rule.
+         * @param name The name of the Group Rule to retrieve.
          * 
          * @return builder
          * 
@@ -99,6 +107,12 @@ public final class GetRulePlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
+        /**
+         * @param status The status of the group rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable String status) {
             $.status = status;
             return this;

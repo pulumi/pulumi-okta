@@ -4,6 +4,59 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Link value operations allow you to create relationships between primary and associated users.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const padishah = new okta.LinkDefinition("padishah", {
+ *     primaryName: "emperor",
+ *     primaryTitle: "Emperor",
+ *     primaryDescription: "Hereditary ruler of the Imperium and the Known Universe",
+ *     associatedName: "sardaukar",
+ *     associatedTitle: "Sardaukar",
+ *     associatedDescription: "Elite military force member",
+ * });
+ * const emperor = new okta.user.User("emperor", {
+ *     firstName: "Shaddam",
+ *     lastName: "Corrino IV",
+ *     login: "shaddam.corrino.iv@salusa-secundus.planet",
+ *     email: "shaddam.corrino.iv@salusa-secundus.planet",
+ * });
+ * const sardaukars: okta.user.User[] = [];
+ * for (const range = {value: 0}; range.value < 5; range.value++) {
+ *     sardaukars.push(new okta.user.User(`sardaukars-${range.value}`, {
+ *         firstName: "Amrit",
+ *         lastName: `Sardaukar_${range.value}`,
+ *         login: `amritsardaukar_${range.value}@salusa-secundus.planet`,
+ *         email: `amritsardaukar_${range.value}@salusa-secundus.planet`,
+ *     }));
+ * }
+ * const example = new okta.LinkValue("example", {
+ *     primaryName: padishah.primaryName,
+ *     primaryUserId: emperor.id,
+ *     associatedUserIds: [
+ *         sardaukars[0].id,
+ *         sardaukars[1].id,
+ *         sardaukars[2].id,
+ *         sardaukars[3].id,
+ *         sardaukars[4].id,
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Okta Link Value can be imported via Primary Name and Primary User ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/linkValue:LinkValue example &#60;primary_name&#62;/&#60;primary_user_id&#62;
+ * ```
+ */
 export class LinkValue extends pulumi.CustomResource {
     /**
      * Get an existing LinkValue resource's state with the given name, ID, and optional extra
@@ -37,11 +90,11 @@ export class LinkValue extends pulumi.CustomResource {
      */
     public readonly associatedUserIds!: pulumi.Output<string[] | undefined>;
     /**
-     * Name of the 'primary' relationship being assigned.
+     * Name of the `primary` relationship being assigned.
      */
     public readonly primaryName!: pulumi.Output<string>;
     /**
-     * User ID to be assigned to 'primary' for the 'associated' user in the specified relationship.
+     * User ID to be assigned to `primary` for the `associated` user in the specified relationship.
      */
     public readonly primaryUserId!: pulumi.Output<string>;
 
@@ -87,11 +140,11 @@ export interface LinkValueState {
      */
     associatedUserIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the 'primary' relationship being assigned.
+     * Name of the `primary` relationship being assigned.
      */
     primaryName?: pulumi.Input<string>;
     /**
-     * User ID to be assigned to 'primary' for the 'associated' user in the specified relationship.
+     * User ID to be assigned to `primary` for the `associated` user in the specified relationship.
      */
     primaryUserId?: pulumi.Input<string>;
 }
@@ -105,11 +158,11 @@ export interface LinkValueArgs {
      */
     associatedUserIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the 'primary' relationship being assigned.
+     * Name of the `primary` relationship being assigned.
      */
     primaryName: pulumi.Input<string>;
     /**
-     * User ID to be assigned to 'primary' for the 'associated' user in the specified relationship.
+     * User ID to be assigned to `primary` for the `associated` user in the specified relationship.
      */
     primaryUserId: pulumi.Input<string>;
 }

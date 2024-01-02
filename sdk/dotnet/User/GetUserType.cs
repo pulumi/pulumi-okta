@@ -12,7 +12,7 @@ namespace Pulumi.Okta.User
     public static class GetUserType
     {
         /// <summary>
-        /// Get a user type from Okta.
+        /// Use this data source to retrieve a user type from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -40,7 +40,7 @@ namespace Pulumi.Okta.User
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserTypeResult>("okta:user/getUserType:getUserType", args ?? new GetUserTypeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a user type from Okta.
+        /// Use this data source to retrieve a user type from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -72,7 +72,7 @@ namespace Pulumi.Okta.User
     public sealed class GetUserTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of user type to retrieve.
+        /// name of user type to retrieve.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Okta.User
     public sealed class GetUserTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of user type to retrieve.
+        /// name of user type to retrieve.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -102,11 +102,11 @@ namespace Pulumi.Okta.User
     public sealed class GetUserTypeResult
     {
         /// <summary>
-        /// Description of user type.
+        /// description of user type.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Display name of user type.
+        /// display name of user type.
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
@@ -114,7 +114,7 @@ namespace Pulumi.Okta.User
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of user type to retrieve.
+        /// name of user type.
         /// </summary>
         public readonly string Name;
 

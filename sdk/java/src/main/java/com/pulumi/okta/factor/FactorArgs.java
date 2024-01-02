@@ -18,14 +18,14 @@ public final class FactorArgs extends com.pulumi.resources.ResourceArgs {
     public static final FactorArgs Empty = new FactorArgs();
 
     /**
-     * Is this provider active?
+     * Whether to activate the provider, by default, it is set to `true`.
      * 
      */
     @Import(name="active")
     private @Nullable Output<Boolean> active;
 
     /**
-     * @return Is this provider active?
+     * @return Whether to activate the provider, by default, it is set to `true`.
      * 
      */
     public Optional<Output<Boolean>> active() {
@@ -33,14 +33,16 @@ public final class FactorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Factor provider ID
+     * The MFA provider name.
+     * Allowed values are `&#34;duo&#34;`, `&#34;fido_u2f&#34;`, `&#34;fido_webauthn&#34;`, `&#34;google_otp&#34;`, `&#34;okta_call&#34;`, `&#34;okta_otp&#34;`, `&#34;okta_password&#34;`, `&#34;okta_push&#34;`, `&#34;okta_question&#34;`, `&#34;okta_sms&#34;`, `&#34;okta_email&#34;`, `&#34;rsa_token&#34;`, `&#34;symantec_vip&#34;`, `&#34;yubikey_token&#34;`, or `&#34;hotp&#34;`.
      * 
      */
     @Import(name="providerId", required=true)
     private Output<String> providerId;
 
     /**
-     * @return Factor provider ID
+     * @return The MFA provider name.
+     * Allowed values are `&#34;duo&#34;`, `&#34;fido_u2f&#34;`, `&#34;fido_webauthn&#34;`, `&#34;google_otp&#34;`, `&#34;okta_call&#34;`, `&#34;okta_otp&#34;`, `&#34;okta_password&#34;`, `&#34;okta_push&#34;`, `&#34;okta_question&#34;`, `&#34;okta_sms&#34;`, `&#34;okta_email&#34;`, `&#34;rsa_token&#34;`, `&#34;symantec_vip&#34;`, `&#34;yubikey_token&#34;`, or `&#34;hotp&#34;`.
      * 
      */
     public Output<String> providerId() {
@@ -73,7 +75,7 @@ public final class FactorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param active Is this provider active?
+         * @param active Whether to activate the provider, by default, it is set to `true`.
          * 
          * @return builder
          * 
@@ -84,7 +86,7 @@ public final class FactorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param active Is this provider active?
+         * @param active Whether to activate the provider, by default, it is set to `true`.
          * 
          * @return builder
          * 
@@ -94,7 +96,8 @@ public final class FactorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param providerId Factor provider ID
+         * @param providerId The MFA provider name.
+         * Allowed values are `&#34;duo&#34;`, `&#34;fido_u2f&#34;`, `&#34;fido_webauthn&#34;`, `&#34;google_otp&#34;`, `&#34;okta_call&#34;`, `&#34;okta_otp&#34;`, `&#34;okta_password&#34;`, `&#34;okta_push&#34;`, `&#34;okta_question&#34;`, `&#34;okta_sms&#34;`, `&#34;okta_email&#34;`, `&#34;rsa_token&#34;`, `&#34;symantec_vip&#34;`, `&#34;yubikey_token&#34;`, or `&#34;hotp&#34;`.
          * 
          * @return builder
          * 
@@ -105,7 +108,8 @@ public final class FactorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param providerId Factor provider ID
+         * @param providerId The MFA provider name.
+         * Allowed values are `&#34;duo&#34;`, `&#34;fido_u2f&#34;`, `&#34;fido_webauthn&#34;`, `&#34;google_otp&#34;`, `&#34;okta_call&#34;`, `&#34;okta_otp&#34;`, `&#34;okta_password&#34;`, `&#34;okta_push&#34;`, `&#34;okta_question&#34;`, `&#34;okta_sms&#34;`, `&#34;okta_email&#34;`, `&#34;rsa_token&#34;`, `&#34;symantec_vip&#34;`, `&#34;yubikey_token&#34;`, or `&#34;hotp&#34;`.
          * 
          * @return builder
          * 

@@ -13,9 +13,21 @@ namespace Pulumi.Okta.Index.Outputs
     [OutputType]
     public sealed class GetDomainDnsRecordResult
     {
+        /// <summary>
+        /// TXT record expiration.
+        /// </summary>
         public readonly string Expiration;
+        /// <summary>
+        /// DNS record name.
+        /// </summary>
         public readonly string Fqdn;
+        /// <summary>
+        /// Record type can be TXT or CNAME.
+        /// </summary>
         public readonly string RecordType;
+        /// <summary>
+        /// DNS verification value
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

@@ -15,17 +15,64 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates an Authorization Server.
+ * 
+ * This resource allows you to create and configure an Authorization Server.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.auth.Server;
+ * import com.pulumi.okta.auth.ServerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
+ *             .audiences(&#34;api://example&#34;)
+ *             .description(&#34;My Example Auth Server&#34;)
+ *             .issuerMode(&#34;CUSTOM_URL&#34;)
+ *             .status(&#34;ACTIVE&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Authorization Server can be imported via the Okta ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:auth/server:Server example &amp;#60;auth server id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:auth/server:Server")
 public class Server extends com.pulumi.resources.CustomResource {
     /**
-     * Currently Okta only supports a single value here
+     * The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
      * 
      */
     @Export(name="audiences", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> audiences;
 
     /**
-     * @return Currently Okta only supports a single value here
+     * @return The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
      * 
      */
     public Output<List<String>> audiences() {
@@ -46,28 +93,28 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.credentialsLastRotated;
     }
     /**
-     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
+     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `&#34;AUTO&#34;`.
      * 
      */
     @Export(name="credentialsNextRotation", refs={String.class}, tree="[0]")
     private Output<String> credentialsNextRotation;
 
     /**
-     * @return The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
+     * @return The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `&#34;AUTO&#34;`.
      * 
      */
     public Output<String> credentialsNextRotation() {
         return this.credentialsNextRotation;
     }
     /**
-     * Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
+     * The key rotation mode for the authorization server. Can be `&#34;AUTO&#34;` or `&#34;MANUAL&#34;`.
      * 
      */
     @Export(name="credentialsRotationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> credentialsRotationMode;
 
     /**
-     * @return Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
+     * @return The key rotation mode for the authorization server. Can be `&#34;AUTO&#34;` or `&#34;MANUAL&#34;`.
      * 
      */
     public Output<Optional<String>> credentialsRotationMode() {
@@ -88,28 +135,28 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * allows you to use a custom issuer URL
+     * The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
      * 
      */
     @Export(name="issuer", refs={String.class}, tree="[0]")
     private Output<String> issuer;
 
     /**
-     * @return allows you to use a custom issuer URL
+     * @return The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
      * 
      */
     public Output<String> issuer() {
         return this.issuer;
     }
     /**
-     * *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
+     * Allows you to use a custom issuer URL. It can be set to `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`.
      * 
      */
     @Export(name="issuerMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerMode;
 
     /**
-     * @return *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
+     * @return Allows you to use a custom issuer URL. It can be set to `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`.
      * 
      */
     public Output<Optional<String>> issuerMode() {
@@ -143,9 +190,17 @@ public class Server extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The status of the auth server. It defaults to `&#34;ACTIVE&#34;`
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
+    /**
+     * @return The status of the auth server. It defaults to `&#34;ACTIVE&#34;`
+     * 
+     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }

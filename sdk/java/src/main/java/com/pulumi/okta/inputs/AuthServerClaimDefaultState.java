@@ -33,14 +33,14 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Auth server ID
+     * ID of the authorization server.
      * 
      */
     @Import(name="authServerId")
     private @Nullable Output<String> authServerId;
 
     /**
-     * @return Auth server ID
+     * @return ID of the authorization server.
      * 
      */
     public Optional<Output<String>> authServerId() {
@@ -48,14 +48,14 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+     * Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
      * 
      */
     @Import(name="claimType")
     private @Nullable Output<String> claimType;
 
     /**
-     * @return Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+     * @return Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
      * 
      */
     public Optional<Output<String>> claimType() {
@@ -63,14 +63,18 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Default auth server claim name
+     * The name of the claim. Can be set to `&#34;sub&#34;`, `&#34;address&#34;`, `&#34;birthdate&#34;`, `&#34;email&#34;`,
+     * `&#34;email_verified&#34;`, `&#34;family_name&#34;`, `&#34;gender&#34;`, `&#34;given_name&#34;`, `&#34;locale&#34;`, `&#34;middle_name&#34;`, `&#34;name&#34;`, `&#34;nickname&#34;`,
+     * `&#34;phone_number&#34;`, `&#34;picture&#34;`, `&#34;preferred_username&#34;`, `&#34;profile&#34;`, `&#34;updated_at&#34;`, `&#34;website&#34;`, `&#34;zoneinfo&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Default auth server claim name
+     * @return The name of the claim. Can be set to `&#34;sub&#34;`, `&#34;address&#34;`, `&#34;birthdate&#34;`, `&#34;email&#34;`,
+     * `&#34;email_verified&#34;`, `&#34;family_name&#34;`, `&#34;gender&#34;`, `&#34;given_name&#34;`, `&#34;locale&#34;`, `&#34;middle_name&#34;`, `&#34;name&#34;`, `&#34;nickname&#34;`,
+     * `&#34;phone_number&#34;`, `&#34;picture&#34;`, `&#34;preferred_username&#34;`, `&#34;profile&#34;`, `&#34;updated_at&#34;`, `&#34;website&#34;`, `&#34;zoneinfo&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -78,14 +82,14 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Auth server claim list of scopes
+     * The list of scopes the auth server claim is tied to.
      * 
      */
     @Import(name="scopes")
     private @Nullable Output<List<String>> scopes;
 
     /**
-     * @return Auth server claim list of scopes
+     * @return The list of scopes the auth server claim is tied to.
      * 
      */
     public Optional<Output<List<String>>> scopes() {
@@ -108,14 +112,14 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The value of the claim.
+     * The value of the claim. Only required for `&#34;sub&#34;` claim.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The value of the claim.
+     * @return The value of the claim. Only required for `&#34;sub&#34;` claim.
      * 
      */
     public Optional<Output<String>> value() {
@@ -190,7 +194,7 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authServerId Auth server ID
+         * @param authServerId ID of the authorization server.
          * 
          * @return builder
          * 
@@ -201,7 +205,7 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authServerId Auth server ID
+         * @param authServerId ID of the authorization server.
          * 
          * @return builder
          * 
@@ -211,7 +215,7 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param claimType Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+         * @param claimType Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
          * 
          * @return builder
          * 
@@ -222,7 +226,7 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param claimType Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+         * @param claimType Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
          * 
          * @return builder
          * 
@@ -232,7 +236,9 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Default auth server claim name
+         * @param name The name of the claim. Can be set to `&#34;sub&#34;`, `&#34;address&#34;`, `&#34;birthdate&#34;`, `&#34;email&#34;`,
+         * `&#34;email_verified&#34;`, `&#34;family_name&#34;`, `&#34;gender&#34;`, `&#34;given_name&#34;`, `&#34;locale&#34;`, `&#34;middle_name&#34;`, `&#34;name&#34;`, `&#34;nickname&#34;`,
+         * `&#34;phone_number&#34;`, `&#34;picture&#34;`, `&#34;preferred_username&#34;`, `&#34;profile&#34;`, `&#34;updated_at&#34;`, `&#34;website&#34;`, `&#34;zoneinfo&#34;`.
          * 
          * @return builder
          * 
@@ -243,7 +249,9 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Default auth server claim name
+         * @param name The name of the claim. Can be set to `&#34;sub&#34;`, `&#34;address&#34;`, `&#34;birthdate&#34;`, `&#34;email&#34;`,
+         * `&#34;email_verified&#34;`, `&#34;family_name&#34;`, `&#34;gender&#34;`, `&#34;given_name&#34;`, `&#34;locale&#34;`, `&#34;middle_name&#34;`, `&#34;name&#34;`, `&#34;nickname&#34;`,
+         * `&#34;phone_number&#34;`, `&#34;picture&#34;`, `&#34;preferred_username&#34;`, `&#34;profile&#34;`, `&#34;updated_at&#34;`, `&#34;website&#34;`, `&#34;zoneinfo&#34;`.
          * 
          * @return builder
          * 
@@ -253,7 +261,7 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param scopes Auth server claim list of scopes
+         * @param scopes The list of scopes the auth server claim is tied to.
          * 
          * @return builder
          * 
@@ -264,7 +272,7 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param scopes Auth server claim list of scopes
+         * @param scopes The list of scopes the auth server claim is tied to.
          * 
          * @return builder
          * 
@@ -274,7 +282,7 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param scopes Auth server claim list of scopes
+         * @param scopes The list of scopes the auth server claim is tied to.
          * 
          * @return builder
          * 
@@ -305,7 +313,7 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param value The value of the claim.
+         * @param value The value of the claim. Only required for `&#34;sub&#34;` claim.
          * 
          * @return builder
          * 
@@ -316,7 +324,7 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param value The value of the claim.
+         * @param value The value of the claim. Only required for `&#34;sub&#34;` claim.
          * 
          * @return builder
          * 

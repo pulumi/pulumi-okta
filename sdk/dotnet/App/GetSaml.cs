@@ -12,7 +12,7 @@ namespace Pulumi.Okta.App
     public static class GetSaml
     {
         /// <summary>
-        /// Get a SAML application from Okta.
+        /// Use this data source to retrieve an SAML application from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -40,7 +40,7 @@ namespace Pulumi.Okta.App
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:app/getSaml:getSaml", args ?? new GetSamlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a SAML application from Okta.
+        /// Use this data source to retrieve an SAML application from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -72,28 +72,28 @@ namespace Pulumi.Okta.App
     public sealed class GetSamlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Search only ACTIVE applications.
+        /// tells the provider to query for only `ACTIVE` applications.
         /// </summary>
         [Input("activeOnly")]
         public bool? ActiveOnly { get; set; }
 
         /// <summary>
-        /// Id of application to retrieve, conflicts with label and label_prefix.
+        /// `id` of application to retrieve, conflicts with `label` and `label_prefix`.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The label of the app to retrieve, conflicts with label_prefix and id. Label
-        /// 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-        /// 			this searches both name and label. This is used to avoid paginating through all applications.
+        /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
+        /// the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+        /// and `label`. This is used to avoid paginating through all applications.
         /// </summary>
         [Input("label")]
         public string? Label { get; set; }
 
         /// <summary>
-        /// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-        /// 			provider to do a starts with query as opposed to an equals query.
+        /// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+        /// provider to do a `starts with` query as opposed to an `equals` query.
         /// </summary>
         [Input("labelPrefix")]
         public string? LabelPrefix { get; set; }
@@ -104,15 +104,9 @@ namespace Pulumi.Okta.App
         [Input("requestCompressed")]
         public bool? RequestCompressed { get; set; }
 
-        /// <summary>
-        /// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
-        /// </summary>
         [Input("skipGroups")]
         public bool? SkipGroups { get; set; }
 
-        /// <summary>
-        /// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
-        /// </summary>
         [Input("skipUsers")]
         public bool? SkipUsers { get; set; }
 
@@ -125,28 +119,28 @@ namespace Pulumi.Okta.App
     public sealed class GetSamlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Search only ACTIVE applications.
+        /// tells the provider to query for only `ACTIVE` applications.
         /// </summary>
         [Input("activeOnly")]
         public Input<bool>? ActiveOnly { get; set; }
 
         /// <summary>
-        /// Id of application to retrieve, conflicts with label and label_prefix.
+        /// `id` of application to retrieve, conflicts with `label` and `label_prefix`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The label of the app to retrieve, conflicts with label_prefix and id. Label
-        /// 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-        /// 			this searches both name and label. This is used to avoid paginating through all applications.
+        /// The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
+        /// the `?q=&lt;label&gt;` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+        /// and `label`. This is used to avoid paginating through all applications.
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-        /// 			provider to do a starts with query as opposed to an equals query.
+        /// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+        /// provider to do a `starts with` query as opposed to an `equals` query.
         /// </summary>
         [Input("labelPrefix")]
         public Input<string>? LabelPrefix { get; set; }
@@ -157,15 +151,9 @@ namespace Pulumi.Okta.App
         [Input("requestCompressed")]
         public Input<bool>? RequestCompressed { get; set; }
 
-        /// <summary>
-        /// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
-        /// </summary>
         [Input("skipGroups")]
         public Input<bool>? SkipGroups { get; set; }
 
-        /// <summary>
-        /// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
-        /// </summary>
         [Input("skipUsers")]
         public Input<bool>? SkipUsers { get; set; }
 
@@ -180,44 +168,44 @@ namespace Pulumi.Okta.App
     public sealed class GetSamlResult
     {
         /// <summary>
-        /// Custom error page URL
+        /// Custom error page URL.
         /// </summary>
         public readonly string AccessibilityErrorRedirectUrl;
         /// <summary>
-        /// Custom login page URL
+        /// Custom login page URL.
         /// </summary>
         public readonly string AccessibilityLoginRedirectUrl;
         /// <summary>
-        /// Enable self service
+        /// Enable self-service.
         /// </summary>
         public readonly bool AccessibilitySelfService;
         /// <summary>
-        /// List of ACS endpoints for this SAML application
+        /// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         /// </summary>
         public readonly ImmutableArray<string> AcsEndpoints;
-        /// <summary>
-        /// Search only ACTIVE applications.
-        /// </summary>
         public readonly bool? ActiveOnly;
         /// <summary>
-        /// Application settings in JSON format
+        /// Application settings in JSON format.
         /// </summary>
         public readonly string AppSettingsJson;
         /// <summary>
-        /// Determines whether the SAML assertion is digitally signed
+        /// Determines whether the SAML assertion is digitally signed.
         /// </summary>
         public readonly bool AssertionSigned;
+        /// <summary>
+        /// List of SAML Attribute statements.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetSamlAttributeStatementResult> AttributeStatements;
         /// <summary>
-        /// Audience Restriction
+        /// Audience restriction.
         /// </summary>
         public readonly string Audience;
         /// <summary>
-        /// Identifies the SAML authentication context class for the assertion’s authentication statement
+        /// Identifies the SAML authentication context class for the assertion’s authentication statement.
         /// </summary>
         public readonly string AuthnContextClassRef;
         /// <summary>
-        /// Display auto submit toolbar
+        /// Display auto submit toolbar.
         /// </summary>
         public readonly bool AutoSubmitToolbar;
         /// <summary>
@@ -225,23 +213,23 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string DefaultRelayState;
         /// <summary>
-        /// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+        /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         /// </summary>
         public readonly string Destination;
         /// <summary>
-        /// Determines the digest algorithm used to digitally sign the SAML assertion and response
+        /// Determines the digest algorithm used to digitally sign the SAML assertion and response.
         /// </summary>
         public readonly string DigestAlgorithm;
         /// <summary>
-        /// features to enable
+        /// features enabled.
         /// </summary>
         public readonly ImmutableArray<string> Features;
         /// <summary>
-        /// Groups associated with the application
+        /// List of groups IDs assigned to the application.
         /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
-        /// Do not display application icon on mobile app
+        /// Do not display application icon on mobile app.
         /// </summary>
         public readonly bool HideIos;
         /// <summary>
@@ -249,46 +237,40 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly bool HideWeb;
         /// <summary>
-        /// Prompt user to re-authenticate if SP asks for it
+        /// Prompt user to re-authenticate if SP asks for it.
         /// </summary>
         public readonly bool HonorForceAuthn;
         /// <summary>
-        /// Id of application to retrieve, conflicts with label and label_prefix.
+        /// id of application.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// SAML issuer ID
+        /// SAML issuer ID.
         /// </summary>
         public readonly string IdpIssuer;
         /// <summary>
-        /// Saml Inline Hook setting
+        /// Saml Inline Hook associated with the application.
         /// </summary>
         public readonly string InlineHookId;
         /// <summary>
-        /// Certificate ID
+        /// Certificate key ID.
         /// </summary>
         public readonly string KeyId;
         /// <summary>
-        /// The label of the app to retrieve, conflicts with label_prefix and id. Label
-        /// 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-        /// 			this searches both name and label. This is used to avoid paginating through all applications.
+        /// label of application.
         /// </summary>
         public readonly string? Label;
-        /// <summary>
-        /// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-        /// 			provider to do a starts with query as opposed to an equals query.
-        /// </summary>
         public readonly string? LabelPrefix;
         /// <summary>
-        /// Discoverable resources related to the app
+        /// Generic JSON containing discoverable resources related to the app.
         /// </summary>
         public readonly string Links;
         /// <summary>
-        /// Name of application.
+        /// name of application.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The location where the app may present the SAML assertion
+        /// The location where the app may present the SAML assertion.
         /// </summary>
         public readonly string Recipient;
         /// <summary>
@@ -296,7 +278,7 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly bool? RequestCompressed;
         /// <summary>
-        /// Determines whether the SAML auth response message is digitally signed
+        /// Determines whether the SAML auth response message is digitally signed.
         /// </summary>
         public readonly bool ResponseSigned;
         /// <summary>
@@ -304,39 +286,33 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly bool SamlSignedRequestEnabled;
         /// <summary>
-        /// Signature algorithm used ot digitally sign the assertion and response
+        /// Signature algorithm used ot digitally sign the assertion and response.
         /// </summary>
         public readonly string SignatureAlgorithm;
         /// <summary>
-        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+        /// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
         /// </summary>
         public readonly string SingleLogoutCertificate;
         /// <summary>
-        /// The issuer of the Service Provider that generates the Single Logout request
+        /// The issuer of the Service Provider that generates the Single Logout request.
         /// </summary>
         public readonly string SingleLogoutIssuer;
         /// <summary>
-        /// The location where the logout response is sent
+        /// The location where the logout response is sent.
         /// </summary>
         public readonly string SingleLogoutUrl;
-        /// <summary>
-        /// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
-        /// </summary>
         public readonly bool? SkipGroups;
-        /// <summary>
-        /// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
-        /// </summary>
         public readonly bool? SkipUsers;
         /// <summary>
-        /// SAML SP issuer ID
+        /// SAML service provider issuer.
         /// </summary>
         public readonly string SpIssuer;
         /// <summary>
-        /// Single Sign On URL
+        /// Single Sign-on Url.
         /// </summary>
         public readonly string SsoUrl;
         /// <summary>
-        /// Status of application.
+        /// status of application.
         /// </summary>
         public readonly string Status;
         /// <summary>
@@ -344,28 +320,25 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string SubjectNameIdFormat;
         /// <summary>
-        /// Template for app user's username when a user is assigned to the app
+        /// Template for app user's username when a user is assigned to the app.
         /// </summary>
         public readonly string SubjectNameIdTemplate;
         /// <summary>
-        /// Username template
+        /// Username template.
         /// </summary>
         public readonly string UserNameTemplate;
         /// <summary>
-        /// Push username on update
+        /// Push username on update.
         /// </summary>
         public readonly string UserNameTemplatePushStatus;
         /// <summary>
-        /// Username template suffix
+        /// Username template suffix.
         /// </summary>
         public readonly string UserNameTemplateSuffix;
         /// <summary>
-        /// Username template type
+        /// Username template type.
         /// </summary>
         public readonly string UserNameTemplateType;
-        /// <summary>
-        /// Users associated with the application
-        /// </summary>
         public readonly ImmutableArray<string> Users;
 
         [OutputConstructor]

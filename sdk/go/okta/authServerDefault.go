@@ -11,27 +11,70 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Configures Default Authorization Server.
+//
+// This resource allows you to configure Default Authorization Server.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewAuthServerDefault(ctx, "example", &okta.AuthServerDefaultArgs{
+//				Audiences: pulumi.StringArray{
+//					pulumi.String("api://default"),
+//				},
+//				Description: pulumi.String("Default Authorization Server for your Applications"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Authorization Server can be imported via the Okta ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;default&#62;
+//
+// ```
 type AuthServerDefault struct {
 	pulumi.CustomResourceState
 
-	// Currently Okta only supports a single value here
+	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
 	Audiences pulumi.StringArrayOutput `pulumi:"audiences"`
 	// The timestamp when the authorization server started to use the `kid` for signing tokens.
 	CredentialsLastRotated pulumi.StringOutput `pulumi:"credentialsLastRotated"`
-	// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
+	// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `"AUTO"`.
 	CredentialsNextRotation pulumi.StringOutput `pulumi:"credentialsNextRotation"`
-	// Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
+	// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
 	CredentialsRotationMode pulumi.StringPtrOutput `pulumi:"credentialsRotationMode"`
 	// The description of the authorization server.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// allows you to use a custom issuer URL
+	// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
 	Issuer pulumi.StringOutput `pulumi:"issuer"`
-	// *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
+	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
 	Kid pulumi.StringOutput `pulumi:"kid"`
 	// The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
-	Name   pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The status of the auth server.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
@@ -65,46 +108,48 @@ func GetAuthServerDefault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AuthServerDefault resources.
 type authServerDefaultState struct {
-	// Currently Okta only supports a single value here
+	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
 	Audiences []string `pulumi:"audiences"`
 	// The timestamp when the authorization server started to use the `kid` for signing tokens.
 	CredentialsLastRotated *string `pulumi:"credentialsLastRotated"`
-	// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
+	// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `"AUTO"`.
 	CredentialsNextRotation *string `pulumi:"credentialsNextRotation"`
-	// Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
+	// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
 	CredentialsRotationMode *string `pulumi:"credentialsRotationMode"`
 	// The description of the authorization server.
 	Description *string `pulumi:"description"`
-	// allows you to use a custom issuer URL
+	// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
 	Issuer *string `pulumi:"issuer"`
-	// *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
+	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
 	IssuerMode *string `pulumi:"issuerMode"`
 	// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
 	Kid *string `pulumi:"kid"`
 	// The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The status of the auth server.
 	Status *string `pulumi:"status"`
 }
 
 type AuthServerDefaultState struct {
-	// Currently Okta only supports a single value here
+	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
 	Audiences pulumi.StringArrayInput
 	// The timestamp when the authorization server started to use the `kid` for signing tokens.
 	CredentialsLastRotated pulumi.StringPtrInput
-	// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
+	// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `"AUTO"`.
 	CredentialsNextRotation pulumi.StringPtrInput
-	// Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
+	// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
 	CredentialsRotationMode pulumi.StringPtrInput
 	// The description of the authorization server.
 	Description pulumi.StringPtrInput
-	// allows you to use a custom issuer URL
+	// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
 	Issuer pulumi.StringPtrInput
-	// *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
+	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
 	IssuerMode pulumi.StringPtrInput
 	// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
 	Kid pulumi.StringPtrInput
 	// The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The status of the auth server.
 	Status pulumi.StringPtrInput
 }
 
@@ -113,31 +158,33 @@ func (AuthServerDefaultState) ElementType() reflect.Type {
 }
 
 type authServerDefaultArgs struct {
-	// Currently Okta only supports a single value here
+	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
 	Audiences []string `pulumi:"audiences"`
-	// Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
+	// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
 	CredentialsRotationMode *string `pulumi:"credentialsRotationMode"`
 	// The description of the authorization server.
 	Description *string `pulumi:"description"`
-	// *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
+	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
 	IssuerMode *string `pulumi:"issuerMode"`
 	// The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The status of the auth server.
 	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a AuthServerDefault resource.
 type AuthServerDefaultArgs struct {
-	// Currently Okta only supports a single value here
+	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
 	Audiences pulumi.StringArrayInput
-	// Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
+	// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
 	CredentialsRotationMode pulumi.StringPtrInput
 	// The description of the authorization server.
 	Description pulumi.StringPtrInput
-	// *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
+	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
 	IssuerMode pulumi.StringPtrInput
 	// The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The status of the auth server.
 	Status pulumi.StringPtrInput
 }
 
@@ -228,7 +275,7 @@ func (o AuthServerDefaultOutput) ToAuthServerDefaultOutputWithContext(ctx contex
 	return o
 }
 
-// Currently Okta only supports a single value here
+// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
 func (o AuthServerDefaultOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AuthServerDefault) pulumi.StringArrayOutput { return v.Audiences }).(pulumi.StringArrayOutput)
 }
@@ -238,12 +285,12 @@ func (o AuthServerDefaultOutput) CredentialsLastRotated() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthServerDefault) pulumi.StringOutput { return v.CredentialsLastRotated }).(pulumi.StringOutput)
 }
 
-// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
+// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `"AUTO"`.
 func (o AuthServerDefaultOutput) CredentialsNextRotation() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthServerDefault) pulumi.StringOutput { return v.CredentialsNextRotation }).(pulumi.StringOutput)
 }
 
-// Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
+// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
 func (o AuthServerDefaultOutput) CredentialsRotationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthServerDefault) pulumi.StringPtrOutput { return v.CredentialsRotationMode }).(pulumi.StringPtrOutput)
 }
@@ -253,12 +300,12 @@ func (o AuthServerDefaultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthServerDefault) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// allows you to use a custom issuer URL
+// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
 func (o AuthServerDefaultOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthServerDefault) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
+// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
 func (o AuthServerDefaultOutput) IssuerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthServerDefault) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
 }
@@ -273,6 +320,7 @@ func (o AuthServerDefaultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthServerDefault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The status of the auth server.
 func (o AuthServerDefaultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthServerDefault) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }

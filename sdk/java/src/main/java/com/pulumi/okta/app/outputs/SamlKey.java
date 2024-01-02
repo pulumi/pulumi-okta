@@ -12,45 +12,125 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SamlKey {
+    /**
+     * @return Date created.
+     * 
+     */
     private @Nullable String created;
+    /**
+     * @return RSA exponent.
+     * 
+     */
     private @Nullable String e;
+    /**
+     * @return Date the key expires.
+     * 
+     */
     private @Nullable String expiresAt;
+    /**
+     * @return Key ID.
+     * 
+     */
     private @Nullable String kid;
+    /**
+     * @return Identifies the cryptographic algorithm family used with the key.
+     * 
+     */
     private @Nullable String kty;
+    /**
+     * @return Date the key was last updated.
+     * 
+     */
     private @Nullable String lastUpdated;
+    /**
+     * @return RSA modulus.
+     * 
+     */
     private @Nullable String n;
+    /**
+     * @return Intended use of the public key.
+     * 
+     */
     private @Nullable String use;
+    /**
+     * @return X.509 certificate chain.
+     * 
+     */
     private @Nullable List<String> x5cs;
+    /**
+     * @return X.509 certificate SHA-256 thumbprint.
+     * 
+     */
     private @Nullable String x5tS256;
 
     private SamlKey() {}
+    /**
+     * @return Date created.
+     * 
+     */
     public Optional<String> created() {
         return Optional.ofNullable(this.created);
     }
+    /**
+     * @return RSA exponent.
+     * 
+     */
     public Optional<String> e() {
         return Optional.ofNullable(this.e);
     }
+    /**
+     * @return Date the key expires.
+     * 
+     */
     public Optional<String> expiresAt() {
         return Optional.ofNullable(this.expiresAt);
     }
+    /**
+     * @return Key ID.
+     * 
+     */
     public Optional<String> kid() {
         return Optional.ofNullable(this.kid);
     }
+    /**
+     * @return Identifies the cryptographic algorithm family used with the key.
+     * 
+     */
     public Optional<String> kty() {
         return Optional.ofNullable(this.kty);
     }
+    /**
+     * @return Date the key was last updated.
+     * 
+     */
     public Optional<String> lastUpdated() {
         return Optional.ofNullable(this.lastUpdated);
     }
+    /**
+     * @return RSA modulus.
+     * 
+     */
     public Optional<String> n() {
         return Optional.ofNullable(this.n);
     }
+    /**
+     * @return Intended use of the public key.
+     * 
+     */
     public Optional<String> use() {
         return Optional.ofNullable(this.use);
     }
+    /**
+     * @return X.509 certificate chain.
+     * 
+     */
     public List<String> x5cs() {
         return this.x5cs == null ? List.of() : this.x5cs;
     }
+    /**
+     * @return X.509 certificate SHA-256 thumbprint.
+     * 
+     */
     public Optional<String> x5tS256() {
         return Optional.ofNullable(this.x5tS256);
     }

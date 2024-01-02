@@ -4,6 +4,42 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.Domain("example", {});
+ * const test = new okta.DomainCertificate("test", {
+ *     domainId: okta_domain.test.id,
+ *     type: "PEM",
+ *     certificate: `-----BEGIN CERTIFICATE-----
+ * MIIFNzCCBB+gAwIBAgISBAXomJWRama3ypu8TIxdA9wzMA0GCSqGSIb3DQEBCwUA
+ * ...
+ * NSgRtSXq11j8O4JONi8EXe7cEtvzUiLR5PL3itsK2svtrZ9jIwQ95wOPaA==
+ * -----END CERTIFICATE-----
+ * `,
+ *     certificateChain: `-----BEGIN CERTIFICATE-----
+ * MIIFFjCCAv6gAwIBAgIRAJErCErPDBinU/bWLiWnX1owDQYJKoZIhvcNAQELBQAw
+ * ...
+ * Dfvp7OOGAN6dEOM4+qR9sdjoSYKEBpsr6GtPAQw4dy753ec5
+ * -----END CERTIFICATE-----
+ * `,
+ *     privateKey: `-----BEGIN PRIVATE KEY-----
+ * MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC5cyk6x63iBJSW
+ * ...
+ * nUFLNE8pXSnsqb0eOL74f3uQ
+ * -----END PRIVATE KEY-----
+ * `,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * This resource does not support importing.
+ */
 export class DomainCertificate extends pulumi.CustomResource {
     /**
      * Get an existing DomainCertificate resource's state with the given name, ID, and optional extra
@@ -33,23 +69,23 @@ export class DomainCertificate extends pulumi.CustomResource {
     }
 
     /**
-     * Certificate content
+     * Certificate content.
      */
     public readonly certificate!: pulumi.Output<string>;
     /**
-     * Certificate chain
+     * Certificate certificate chain.
      */
     public readonly certificateChain!: pulumi.Output<string>;
     /**
-     * Domain's ID
+     * Domain ID.
      */
     public readonly domainId!: pulumi.Output<string>;
     /**
-     * Certificate private key
+     * Certificate private key.
      */
     public readonly privateKey!: pulumi.Output<string>;
     /**
-     * Certificate type
+     * Certificate type. Valid value is `"PEM"`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -104,23 +140,23 @@ export class DomainCertificate extends pulumi.CustomResource {
  */
 export interface DomainCertificateState {
     /**
-     * Certificate content
+     * Certificate content.
      */
     certificate?: pulumi.Input<string>;
     /**
-     * Certificate chain
+     * Certificate certificate chain.
      */
     certificateChain?: pulumi.Input<string>;
     /**
-     * Domain's ID
+     * Domain ID.
      */
     domainId?: pulumi.Input<string>;
     /**
-     * Certificate private key
+     * Certificate private key.
      */
     privateKey?: pulumi.Input<string>;
     /**
-     * Certificate type
+     * Certificate type. Valid value is `"PEM"`.
      */
     type?: pulumi.Input<string>;
 }
@@ -130,23 +166,23 @@ export interface DomainCertificateState {
  */
 export interface DomainCertificateArgs {
     /**
-     * Certificate content
+     * Certificate content.
      */
     certificate: pulumi.Input<string>;
     /**
-     * Certificate chain
+     * Certificate certificate chain.
      */
     certificateChain: pulumi.Input<string>;
     /**
-     * Domain's ID
+     * Domain ID.
      */
     domainId: pulumi.Input<string>;
     /**
-     * Certificate private key
+     * Certificate private key.
      */
     privateKey: pulumi.Input<string>;
     /**
-     * Certificate type
+     * Certificate type. Valid value is `"PEM"`.
      */
     type: pulumi.Input<string>;
 }

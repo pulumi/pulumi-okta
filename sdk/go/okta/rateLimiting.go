@@ -12,14 +12,59 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to configure the client-based rate limit and rate limiting communications settings.
+//
+// > **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
+//
+// > **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewRateLimiting(ctx, "example", &okta.RateLimitingArgs{
+//				Authorize:             pulumi.String("ENFORCE"),
+//				CommunicationsEnabled: pulumi.Bool(true),
+//				Login:                 pulumi.String("ENFORCE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Rate limit settings can be imported without any parameters.
+//
+// ```sh
+//
+//	$ pulumi import okta:index/rateLimiting:RateLimiting example .
+//
+// ```
 type RateLimiting struct {
 	pulumi.CustomResourceState
 
-	// Called during authentication.
+	// Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
+	// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
 	Authorize pulumi.StringOutput `pulumi:"authorize"`
-	// Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+	// Enable or disable rate limiting communications. By default, it is `true`.
 	CommunicationsEnabled pulumi.BoolPtrOutput `pulumi:"communicationsEnabled"`
-	// Called when accessing the Okta hosted login page.
+	// Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and
+	// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
 	Login pulumi.StringOutput `pulumi:"login"`
 }
 
@@ -59,20 +104,24 @@ func GetRateLimiting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RateLimiting resources.
 type rateLimitingState struct {
-	// Called during authentication.
+	// Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
+	// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
 	Authorize *string `pulumi:"authorize"`
-	// Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+	// Enable or disable rate limiting communications. By default, it is `true`.
 	CommunicationsEnabled *bool `pulumi:"communicationsEnabled"`
-	// Called when accessing the Okta hosted login page.
+	// Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and
+	// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
 	Login *string `pulumi:"login"`
 }
 
 type RateLimitingState struct {
-	// Called during authentication.
+	// Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
+	// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
 	Authorize pulumi.StringPtrInput
-	// Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+	// Enable or disable rate limiting communications. By default, it is `true`.
 	CommunicationsEnabled pulumi.BoolPtrInput
-	// Called when accessing the Okta hosted login page.
+	// Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and
+	// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
 	Login pulumi.StringPtrInput
 }
 
@@ -81,21 +130,25 @@ func (RateLimitingState) ElementType() reflect.Type {
 }
 
 type rateLimitingArgs struct {
-	// Called during authentication.
+	// Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
+	// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
 	Authorize string `pulumi:"authorize"`
-	// Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+	// Enable or disable rate limiting communications. By default, it is `true`.
 	CommunicationsEnabled *bool `pulumi:"communicationsEnabled"`
-	// Called when accessing the Okta hosted login page.
+	// Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and
+	// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
 	Login string `pulumi:"login"`
 }
 
 // The set of arguments for constructing a RateLimiting resource.
 type RateLimitingArgs struct {
-	// Called during authentication.
+	// Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
+	// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
 	Authorize pulumi.StringInput
-	// Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+	// Enable or disable rate limiting communications. By default, it is `true`.
 	CommunicationsEnabled pulumi.BoolPtrInput
-	// Called when accessing the Okta hosted login page.
+	// Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and
+	// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
 	Login pulumi.StringInput
 }
 
@@ -186,17 +239,19 @@ func (o RateLimitingOutput) ToRateLimitingOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Called during authentication.
+// Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
+// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
 func (o RateLimitingOutput) Authorize() pulumi.StringOutput {
 	return o.ApplyT(func(v *RateLimiting) pulumi.StringOutput { return v.Authorize }).(pulumi.StringOutput)
 }
 
-// Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+// Enable or disable rate limiting communications. By default, it is `true`.
 func (o RateLimitingOutput) CommunicationsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RateLimiting) pulumi.BoolPtrOutput { return v.CommunicationsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Called when accessing the Okta hosted login page.
+// Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and
+// log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
 func (o RateLimitingOutput) Login() pulumi.StringOutput {
 	return o.ApplyT(func(v *RateLimiting) pulumi.StringOutput { return v.Login }).(pulumi.StringOutput)
 }

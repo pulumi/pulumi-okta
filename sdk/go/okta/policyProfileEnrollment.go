@@ -11,12 +11,51 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+//
+// This resource allows you to create and configure a Profile Enrollment Policy.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewPolicyProfileEnrollment(ctx, "example", &okta.PolicyProfileEnrollmentArgs{
+//				Status: pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// A Profile Enrollment Policy can be imported via the Okta ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &#60;policy id&#62;
+//
+// ```
 type PolicyProfileEnrollment struct {
 	pulumi.CustomResourceState
 
-	// Name of the policy
+	// Policy Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Status of the policy
+	// Status of the policy.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
@@ -50,16 +89,16 @@ func GetPolicyProfileEnrollment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyProfileEnrollment resources.
 type policyProfileEnrollmentState struct {
-	// Name of the policy
+	// Policy Name.
 	Name *string `pulumi:"name"`
-	// Status of the policy
+	// Status of the policy.
 	Status *string `pulumi:"status"`
 }
 
 type PolicyProfileEnrollmentState struct {
-	// Name of the policy
+	// Policy Name.
 	Name pulumi.StringPtrInput
-	// Status of the policy
+	// Status of the policy.
 	Status pulumi.StringPtrInput
 }
 
@@ -68,17 +107,17 @@ func (PolicyProfileEnrollmentState) ElementType() reflect.Type {
 }
 
 type policyProfileEnrollmentArgs struct {
-	// Name of the policy
+	// Policy Name.
 	Name *string `pulumi:"name"`
-	// Status of the policy
+	// Status of the policy.
 	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a PolicyProfileEnrollment resource.
 type PolicyProfileEnrollmentArgs struct {
-	// Name of the policy
+	// Policy Name.
 	Name pulumi.StringPtrInput
-	// Status of the policy
+	// Status of the policy.
 	Status pulumi.StringPtrInput
 }
 
@@ -169,12 +208,12 @@ func (o PolicyProfileEnrollmentOutput) ToPolicyProfileEnrollmentOutputWithContex
 	return o
 }
 
-// Name of the policy
+// Policy Name.
 func (o PolicyProfileEnrollmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyProfileEnrollment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Status of the policy
+// Status of the policy.
 func (o PolicyProfileEnrollmentOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyProfileEnrollment) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }

@@ -15,45 +15,96 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to create and configure a Three Field Application.
+ * 
+ * &gt; During an apply if there is change in `status` the app will first be
+ * activated or deactivated in accordance with the `status` change. Then, all
+ * other arguments that changed will be applied.
+ * 
+ * ## Example Usage
+ * 
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.ThreeField;
+ * import com.pulumi.okta.app.ThreeFieldArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ThreeField(&#34;example&#34;, ThreeFieldArgs.builder()        
+ *             .credentialsScheme(&#34;EDIT_USERNAME_AND_PASSWORD&#34;)
+ *             .label(&#34;Example App&#34;)
+ *             .revealPassword(true)
+ *             .signOnRedirectUrl(&#34;https://example.com&#34;)
+ *             .signOnUrl(&#34;https://example.com/login.html&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * A Three Field App can be imported via the Okta ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:app/threeField:ThreeField example &amp;#60;app id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:app/threeField:ThreeField")
 public class ThreeField extends com.pulumi.resources.CustomResource {
     /**
-     * Custom error page URL
+     * Custom error page URL.
      * 
      */
     @Export(name="accessibilityErrorRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityErrorRedirectUrl;
 
     /**
-     * @return Custom error page URL
+     * @return Custom error page URL.
      * 
      */
     public Output<Optional<String>> accessibilityErrorRedirectUrl() {
         return Codegen.optional(this.accessibilityErrorRedirectUrl);
     }
     /**
-     * Custom login page URL
+     * Custom login page for this application.
      * 
      */
     @Export(name="accessibilityLoginRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityLoginRedirectUrl;
 
     /**
-     * @return Custom login page URL
+     * @return Custom login page for this application.
      * 
      */
     public Output<Optional<String>> accessibilityLoginRedirectUrl() {
         return Codegen.optional(this.accessibilityLoginRedirectUrl);
     }
     /**
-     * Enable self service
+     * Enable self-service. By default, it is `false`.
      * 
      */
     @Export(name="accessibilitySelfService", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessibilitySelfService;
 
     /**
-     * @return Enable self service
+     * @return Enable self-service. By default, it is `false`.
      * 
      */
     public Output<Optional<Boolean>> accessibilitySelfService() {
@@ -88,42 +139,42 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appLinksJson);
     }
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      * 
      */
     @Export(name="autoSubmitToolbar", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoSubmitToolbar;
 
     /**
-     * @return Display auto submit toolbar
+     * @return Display auto submit toolbar.
      * 
      */
     public Output<Optional<Boolean>> autoSubmitToolbar() {
         return Codegen.optional(this.autoSubmitToolbar);
     }
     /**
-     * Login button field CSS selector
+     * Login button field CSS selector.
      * 
      */
     @Export(name="buttonSelector", refs={String.class}, tree="[0]")
     private Output<String> buttonSelector;
 
     /**
-     * @return Login button field CSS selector
+     * @return Login button field CSS selector.
      * 
      */
     public Output<String> buttonSelector() {
         return this.buttonSelector;
     }
     /**
-     * Application credentials scheme
+     * Application credentials scheme. Can be set to `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
      * 
      */
     @Export(name="credentialsScheme", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> credentialsScheme;
 
     /**
-     * @return Application credentials scheme
+     * @return Application credentials scheme. Can be set to `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
      * 
      */
     public Output<Optional<String>> credentialsScheme() {
@@ -144,140 +195,140 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enduserNote);
     }
     /**
-     * Extra field CSS selector
+     * Extra field CSS selector.
      * 
      */
     @Export(name="extraFieldSelector", refs={String.class}, tree="[0]")
     private Output<String> extraFieldSelector;
 
     /**
-     * @return Extra field CSS selector
+     * @return Extra field CSS selector.
      * 
      */
     public Output<String> extraFieldSelector() {
         return this.extraFieldSelector;
     }
     /**
-     * Value for extra form field
+     * Value for extra form field.
      * 
      */
     @Export(name="extraFieldValue", refs={String.class}, tree="[0]")
     private Output<String> extraFieldValue;
 
     /**
-     * @return Value for extra form field
+     * @return Value for extra form field.
      * 
      */
     public Output<String> extraFieldValue() {
         return this.extraFieldValue;
     }
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      * 
      */
     @Export(name="hideIos", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideIos;
 
     /**
-     * @return Do not display application icon on mobile app
+     * @return Do not display application icon on mobile app.
      * 
      */
     public Output<Optional<Boolean>> hideIos() {
         return Codegen.optional(this.hideIos);
     }
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      * 
      */
     @Export(name="hideWeb", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideWeb;
 
     /**
-     * @return Do not display application icon to users
+     * @return Do not display application icon to users.
      * 
      */
     public Output<Optional<Boolean>> hideWeb() {
         return Codegen.optional(this.hideWeb);
     }
     /**
-     * Pretty name of app.
+     * The display name of the Application.
      * 
      */
     @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
-     * @return Pretty name of app.
+     * @return The display name of the Application.
      * 
      */
     public Output<String> label() {
         return this.label;
     }
     /**
-     * Local path to logo of the application.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
-     * @return Local path to logo of the application.
+     * @return Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     public Output<Optional<String>> logo() {
         return Codegen.optional(this.logo);
     }
     /**
-     * URL of the application&#39;s logo
+     * Direct link of application logo.
      * 
      */
     @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
-     * @return URL of the application&#39;s logo
+     * @return Direct link of application logo.
      * 
      */
     public Output<String> logoUrl() {
         return this.logoUrl;
     }
     /**
-     * Name of the app.
+     * Name assigned to the application by Okta.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the app.
+     * @return Name assigned to the application by Okta.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Login password field CSS selector
+     * Login password field CSS selector.
      * 
      */
     @Export(name="passwordSelector", refs={String.class}, tree="[0]")
     private Output<String> passwordSelector;
 
     /**
-     * @return Login password field CSS selector
+     * @return Login password field CSS selector.
      * 
      */
     public Output<String> passwordSelector() {
         return this.passwordSelector;
     }
     /**
-     * Allow user to reveal password
+     * Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
      * 
      */
     @Export(name="revealPassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> revealPassword;
 
     /**
-     * @return Allow user to reveal password
+     * @return Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
      * 
      */
     public Output<Optional<Boolean>> revealPassword() {
@@ -312,126 +363,126 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sharedUsername);
     }
     /**
-     * Sign on mode of application.
+     * Sign-on mode of application.
      * 
      */
     @Export(name="signOnMode", refs={String.class}, tree="[0]")
     private Output<String> signOnMode;
 
     /**
-     * @return Sign on mode of application.
+     * @return Sign-on mode of application.
      * 
      */
     public Output<String> signOnMode() {
         return this.signOnMode;
     }
     /**
-     * Status of application.
+     * Status of application. By default, it is `&#34;ACTIVE&#34;`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Status of application.
+     * @return Status of application. By default, it is `&#34;ACTIVE&#34;`.
      * 
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * Login URL
+     * Login URL.
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
-     * @return Login URL
+     * @return Login URL.
      * 
      */
     public Output<String> url() {
         return this.url;
     }
     /**
-     * A regex that further restricts URL to the specified regex
+     * A regex that further restricts URL to the specified regex.
      * 
      */
     @Export(name="urlRegex", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> urlRegex;
 
     /**
-     * @return A regex that further restricts URL to the specified regex
+     * @return A regex that further restricts URL to the specified regex.
      * 
      */
     public Output<Optional<String>> urlRegex() {
         return Codegen.optional(this.urlRegex);
     }
     /**
-     * Username template
+     * Username template. Default: `&#34;${source.login}&#34;`
      * 
      */
     @Export(name="userNameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplate;
 
     /**
-     * @return Username template
+     * @return Username template. Default: `&#34;${source.login}&#34;`
      * 
      */
     public Output<Optional<String>> userNameTemplate() {
         return Codegen.optional(this.userNameTemplate);
     }
     /**
-     * Push username on update
+     * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
     @Export(name="userNameTemplatePushStatus", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplatePushStatus;
 
     /**
-     * @return Push username on update
+     * @return Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
     public Output<Optional<String>> userNameTemplatePushStatus() {
         return Codegen.optional(this.userNameTemplatePushStatus);
     }
     /**
-     * Username template suffix
+     * Username template suffix.
      * 
      */
     @Export(name="userNameTemplateSuffix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateSuffix;
 
     /**
-     * @return Username template suffix
+     * @return Username template suffix.
      * 
      */
     public Output<Optional<String>> userNameTemplateSuffix() {
         return Codegen.optional(this.userNameTemplateSuffix);
     }
     /**
-     * Username template type
+     * Username template type. Default: `&#34;BUILT_IN&#34;`.
      * 
      */
     @Export(name="userNameTemplateType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateType;
 
     /**
-     * @return Username template type
+     * @return Username template type. Default: `&#34;BUILT_IN&#34;`.
      * 
      */
     public Output<Optional<String>> userNameTemplateType() {
         return Codegen.optional(this.userNameTemplateType);
     }
     /**
-     * Login username field CSS selector
+     * Login username field CSS selector.
      * 
      */
     @Export(name="usernameSelector", refs={String.class}, tree="[0]")
     private Output<String> usernameSelector;
 
     /**
-     * @return Login username field CSS selector
+     * @return Login username field CSS selector.
      * 
      */
     public Output<String> usernameSelector() {

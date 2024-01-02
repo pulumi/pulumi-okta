@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get a OIDC IdP from Okta.
+// Use this data source to retrieve a OIDC IdP from Okta.
 //
 // ## Example Usage
 //
@@ -50,9 +50,9 @@ func LookupOidc(ctx *pulumi.Context, args *LookupOidcArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getOidc.
 type LookupOidcArgs struct {
-	// Id of idp.
+	// The id of the idp to retrieve, conflicts with `name`.
 	Id *string `pulumi:"id"`
-	// Name of the idp.
+	// The name of the idp to retrieve, conflicts with `id`.
 	Name *string `pulumi:"name"`
 }
 
@@ -66,7 +66,7 @@ type LookupOidcResult struct {
 	ClientId string `pulumi:"clientId"`
 	// Client secret issued by AS for the Okta IdP instance.
 	ClientSecret string `pulumi:"clientSecret"`
-	// Id of idp.
+	// id of idp.
 	Id *string `pulumi:"id"`
 	// Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic.
 	IssuerMode string `pulumi:"issuerMode"`
@@ -78,7 +78,7 @@ type LookupOidcResult struct {
 	JwksUrl string `pulumi:"jwksUrl"`
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew int `pulumi:"maxClockSkew"`
-	// Name of the idp.
+	// name of the idp.
 	Name *string `pulumi:"name"`
 	// The type of protocol to use.
 	ProtocolType string `pulumi:"protocolType"`
@@ -88,7 +88,7 @@ type LookupOidcResult struct {
 	TokenBinding string `pulumi:"tokenBinding"`
 	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
 	TokenUrl string `pulumi:"tokenUrl"`
-	// Type of idp.
+	// type of idp.
 	Type string `pulumi:"type"`
 	// The method of making a user info request.
 	UserInfoBinding string `pulumi:"userInfoBinding"`
@@ -111,9 +111,9 @@ func LookupOidcOutput(ctx *pulumi.Context, args LookupOidcOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getOidc.
 type LookupOidcOutputArgs struct {
-	// Id of idp.
+	// The id of the idp to retrieve, conflicts with `name`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the idp.
+	// The name of the idp to retrieve, conflicts with `id`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -156,7 +156,7 @@ func (o LookupOidcResultOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOidcResult) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-// Id of idp.
+// id of idp.
 func (o LookupOidcResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOidcResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -186,7 +186,7 @@ func (o LookupOidcResultOutput) MaxClockSkew() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupOidcResult) int { return v.MaxClockSkew }).(pulumi.IntOutput)
 }
 
-// Name of the idp.
+// name of the idp.
 func (o LookupOidcResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOidcResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -211,7 +211,7 @@ func (o LookupOidcResultOutput) TokenUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOidcResult) string { return v.TokenUrl }).(pulumi.StringOutput)
 }
 
-// Type of idp.
+// type of idp.
 func (o LookupOidcResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOidcResult) string { return v.Type }).(pulumi.StringOutput)
 }

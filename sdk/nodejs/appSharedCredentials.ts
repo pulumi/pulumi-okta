@@ -4,6 +4,49 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * This resource allows you to create and configure SWA shared credentials app.
+ *
+ * > During an apply if there is change in `status` the app will first be
+ * activated or deactivated in accordance with the `status` change. Then, all
+ * other arguments that changed will be applied.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.AppSharedCredentials("example", {
+ *     accessibilityErrorRedirectUrl: "https://example.com/redirect_url_1",
+ *     accessibilityLoginRedirectUrl: "https://example.com/redirect_url_2",
+ *     accessibilitySelfService: true,
+ *     autoSubmitToolbar: true,
+ *     buttonField: "btn-login",
+ *     checkbox: "checkbox_red",
+ *     hideIos: true,
+ *     label: "Example App",
+ *     passwordField: "txtbox-password",
+ *     redirectUrl: "https://example.com/redirect_url",
+ *     sharedPassword: "sharedpass",
+ *     sharedUsername: "sharedusername",
+ *     status: "ACTIVE",
+ *     url: "https://example.com/login.html",
+ *     userNameTemplate: "user.firstName",
+ *     userNameTemplateSuffix: "hello",
+ *     userNameTemplateType: "CUSTOM",
+ *     usernameField: "txtbox-username",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Okta SWA Shared Credentials App can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;
+ * ```
+ */
 export class AppSharedCredentials extends pulumi.CustomResource {
     /**
      * Get an existing AppSharedCredentials resource's state with the given name, ID, and optional extra
@@ -33,15 +76,15 @@ export class AppSharedCredentials extends pulumi.CustomResource {
     }
 
     /**
-     * Custom error page URL
+     * Custom error page URL.
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Custom login page URL
+     * Custom login page for this application.
      */
     public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Enable self service
+     * Enable self-service. By default, it is `false`.
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
@@ -49,19 +92,19 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
     /**
-     * Login button field
+     * CSS selector for the Sign-In button in the sign-in form.
      */
     public readonly buttonField!: pulumi.Output<string | undefined>;
     /**
-     * CSS selector for the checkbox
+     * CSS selector for the checkbox.
      */
     public readonly checkbox!: pulumi.Output<string | undefined>;
     /**
@@ -69,39 +112,39 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      */
     public readonly hideIos!: pulumi.Output<boolean | undefined>;
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      */
     public readonly hideWeb!: pulumi.Output<boolean | undefined>;
     /**
-     * Pretty name of app.
+     * The Application's display name.
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * Local path to logo of the application.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
-     * URL of the application's logo
+     * Direct link of application logo.
      */
     public /*out*/ readonly logoUrl!: pulumi.Output<string>;
     /**
-     * Name of the app.
+     * Name assigned to the application by Okta.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Login password field
+     * CSS selector for the Password field in the sign-in form.
      */
     public readonly passwordField!: pulumi.Output<string | undefined>;
     /**
-     * Preconfigured app name
+     * name of application from the Okta Integration Network, if not included a custom app will be created.
      */
     public readonly preconfiguredApp!: pulumi.Output<string | undefined>;
     /**
-     * Secondary URL of the sign-in page for this app
+     * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
      */
     public readonly redirectUrl!: pulumi.Output<string | undefined>;
     /**
@@ -113,39 +156,39 @@ export class AppSharedCredentials extends pulumi.CustomResource {
      */
     public readonly sharedUsername!: pulumi.Output<string | undefined>;
     /**
-     * Sign on mode of application.
+     * Authentication mode of app.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Status of application.
+     * The status of the application, by default, it is `"ACTIVE"`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Login URL
+     * The URL of the sign-in page for this app.
      */
     public readonly url!: pulumi.Output<string | undefined>;
     /**
-     * A regex that further restricts URL to the specified regex
+     * A regular expression that further restricts url to the specified regular expression.
      */
     public readonly urlRegex!: pulumi.Output<string | undefined>;
     /**
-     * Username template
+     * Username template. Default: `"${source.login}"`
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
     /**
-     * Push username on update
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
      */
     public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
     /**
-     * Username template suffix
+     * Username template suffix.
      */
     public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
     /**
-     * Username template type
+     * Username template type. Default: `"BUILT_IN"`.
      */
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
-     * Login username field
+     * CSS selector for the username field.
      */
     public readonly usernameField!: pulumi.Output<string | undefined>;
 
@@ -236,15 +279,15 @@ export class AppSharedCredentials extends pulumi.CustomResource {
  */
 export interface AppSharedCredentialsState {
     /**
-     * Custom error page URL
+     * Custom error page URL.
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Custom login page URL
+     * Custom login page for this application.
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self service
+     * Enable self-service. By default, it is `false`.
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -252,19 +295,19 @@ export interface AppSharedCredentialsState {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * Login button field
+     * CSS selector for the Sign-In button in the sign-in form.
      */
     buttonField?: pulumi.Input<string>;
     /**
-     * CSS selector for the checkbox
+     * CSS selector for the checkbox.
      */
     checkbox?: pulumi.Input<string>;
     /**
@@ -272,39 +315,39 @@ export interface AppSharedCredentialsState {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      */
     hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
-     * Pretty name of app.
+     * The Application's display name.
      */
     label?: pulumi.Input<string>;
     /**
-     * Local path to logo of the application.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     logo?: pulumi.Input<string>;
     /**
-     * URL of the application's logo
+     * Direct link of application logo.
      */
     logoUrl?: pulumi.Input<string>;
     /**
-     * Name of the app.
+     * Name assigned to the application by Okta.
      */
     name?: pulumi.Input<string>;
     /**
-     * Login password field
+     * CSS selector for the Password field in the sign-in form.
      */
     passwordField?: pulumi.Input<string>;
     /**
-     * Preconfigured app name
+     * name of application from the Okta Integration Network, if not included a custom app will be created.
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
-     * Secondary URL of the sign-in page for this app
+     * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
      */
     redirectUrl?: pulumi.Input<string>;
     /**
@@ -316,39 +359,39 @@ export interface AppSharedCredentialsState {
      */
     sharedUsername?: pulumi.Input<string>;
     /**
-     * Sign on mode of application.
+     * Authentication mode of app.
      */
     signOnMode?: pulumi.Input<string>;
     /**
-     * Status of application.
+     * The status of the application, by default, it is `"ACTIVE"`.
      */
     status?: pulumi.Input<string>;
     /**
-     * Login URL
+     * The URL of the sign-in page for this app.
      */
     url?: pulumi.Input<string>;
     /**
-     * A regex that further restricts URL to the specified regex
+     * A regular expression that further restricts url to the specified regular expression.
      */
     urlRegex?: pulumi.Input<string>;
     /**
-     * Username template
+     * Username template. Default: `"${source.login}"`
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
-     * Push username on update
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
      */
     userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
-     * Username template suffix
+     * Username template suffix.
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type
+     * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
-     * Login username field
+     * CSS selector for the username field.
      */
     usernameField?: pulumi.Input<string>;
 }
@@ -358,15 +401,15 @@ export interface AppSharedCredentialsState {
  */
 export interface AppSharedCredentialsArgs {
     /**
-     * Custom error page URL
+     * Custom error page URL.
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Custom login page URL
+     * Custom login page for this application.
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self service
+     * Enable self-service. By default, it is `false`.
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -374,19 +417,19 @@ export interface AppSharedCredentialsArgs {
      */
     adminNote?: pulumi.Input<string>;
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * Login button field
+     * CSS selector for the Sign-In button in the sign-in form.
      */
     buttonField?: pulumi.Input<string>;
     /**
-     * CSS selector for the checkbox
+     * CSS selector for the checkbox.
      */
     checkbox?: pulumi.Input<string>;
     /**
@@ -394,31 +437,31 @@ export interface AppSharedCredentialsArgs {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      */
     hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
-     * Pretty name of app.
+     * The Application's display name.
      */
     label: pulumi.Input<string>;
     /**
-     * Local path to logo of the application.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     logo?: pulumi.Input<string>;
     /**
-     * Login password field
+     * CSS selector for the Password field in the sign-in form.
      */
     passwordField?: pulumi.Input<string>;
     /**
-     * Preconfigured app name
+     * name of application from the Okta Integration Network, if not included a custom app will be created.
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
-     * Secondary URL of the sign-in page for this app
+     * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
      */
     redirectUrl?: pulumi.Input<string>;
     /**
@@ -430,35 +473,35 @@ export interface AppSharedCredentialsArgs {
      */
     sharedUsername?: pulumi.Input<string>;
     /**
-     * Status of application.
+     * The status of the application, by default, it is `"ACTIVE"`.
      */
     status?: pulumi.Input<string>;
     /**
-     * Login URL
+     * The URL of the sign-in page for this app.
      */
     url?: pulumi.Input<string>;
     /**
-     * A regex that further restricts URL to the specified regex
+     * A regular expression that further restricts url to the specified regular expression.
      */
     urlRegex?: pulumi.Input<string>;
     /**
-     * Username template
+     * Username template. Default: `"${source.login}"`
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
-     * Push username on update
+     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
      */
     userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
-     * Username template suffix
+     * Username template suffix.
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type
+     * Username template type. Default: `"BUILT_IN"`.
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
-     * Login username field
+     * CSS selector for the username field.
      */
     usernameField?: pulumi.Input<string>;
 }

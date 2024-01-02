@@ -6,6 +6,41 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Creates an Okta SMS Template.
+ *
+ * This resource allows you to create and configure an Okta SMS Template.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.TemplateSms("example", {
+ *     template: "Your ${org.name} code is: ${code}",
+ *     translations: [
+ *         {
+ *             language: "en",
+ *             template: "Your ${org.name} code is: ${code}",
+ *         },
+ *         {
+ *             language: "es",
+ *             template: "Tu código de ${org.name} es: ${code}.",
+ *         },
+ *     ],
+ *     type: "SMS_VERIFY_CODE",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An Okta SMS Template can be imported via the template type.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/templateSms:TemplateSms example &#60;template type&#62;
+ * ```
+ */
 export class TemplateSms extends pulumi.CustomResource {
     /**
      * Get an existing TemplateSms resource's state with the given name, ID, and optional extra
@@ -35,9 +70,12 @@ export class TemplateSms extends pulumi.CustomResource {
     }
 
     /**
-     * SMS default template
+     * The SMS message.
      */
     public readonly template!: pulumi.Output<string>;
+    /**
+     * Set of translations for a particular template.
+     */
     public readonly translations!: pulumi.Output<outputs.TemplateSmsTranslation[] | undefined>;
     /**
      * SMS template type
@@ -82,9 +120,12 @@ export class TemplateSms extends pulumi.CustomResource {
  */
 export interface TemplateSmsState {
     /**
-     * SMS default template
+     * The SMS message.
      */
     template?: pulumi.Input<string>;
+    /**
+     * Set of translations for a particular template.
+     */
     translations?: pulumi.Input<pulumi.Input<inputs.TemplateSmsTranslation>[]>;
     /**
      * SMS template type
@@ -97,9 +138,12 @@ export interface TemplateSmsState {
  */
 export interface TemplateSmsArgs {
     /**
-     * SMS default template
+     * The SMS message.
      */
     template: pulumi.Input<string>;
+    /**
+     * Set of translations for a particular template.
+     */
     translations?: pulumi.Input<pulumi.Input<inputs.TemplateSmsTranslation>[]>;
     /**
      * SMS template type

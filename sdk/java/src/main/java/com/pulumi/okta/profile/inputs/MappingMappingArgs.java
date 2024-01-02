@@ -16,31 +16,47 @@ public final class MappingMappingArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final MappingMappingArgs Empty = new MappingMappingArgs();
 
+    /**
+     * Combination or single source properties that will be mapped to the target property.
+     * 
+     */
     @Import(name="expression", required=true)
     private Output<String> expression;
 
+    /**
+     * @return Combination or single source properties that will be mapped to the target property.
+     * 
+     */
     public Output<String> expression() {
         return this.expression;
     }
 
     /**
-     * The mapping property key.
+     * Key of mapping.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The mapping property key.
+     * @return Key of mapping.
      * 
      */
     public Output<String> id() {
         return this.id;
     }
 
+    /**
+     * Whether to update target properties on user create &amp; update or just on create.
+     * 
+     */
     @Import(name="pushStatus")
     private @Nullable Output<String> pushStatus;
 
+    /**
+     * @return Whether to update target properties on user create &amp; update or just on create.
+     * 
+     */
     public Optional<Output<String>> pushStatus() {
         return Optional.ofNullable(this.pushStatus);
     }
@@ -71,17 +87,29 @@ public final class MappingMappingArgs extends com.pulumi.resources.ResourceArgs 
             $ = new MappingMappingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param expression Combination or single source properties that will be mapped to the target property.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expression(Output<String> expression) {
             $.expression = expression;
             return this;
         }
 
+        /**
+         * @param expression Combination or single source properties that will be mapped to the target property.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
         }
 
         /**
-         * @param id The mapping property key.
+         * @param id Key of mapping.
          * 
          * @return builder
          * 
@@ -92,7 +120,7 @@ public final class MappingMappingArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param id The mapping property key.
+         * @param id Key of mapping.
          * 
          * @return builder
          * 
@@ -101,11 +129,23 @@ public final class MappingMappingArgs extends com.pulumi.resources.ResourceArgs 
             return id(Output.of(id));
         }
 
+        /**
+         * @param pushStatus Whether to update target properties on user create &amp; update or just on create.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pushStatus(@Nullable Output<String> pushStatus) {
             $.pushStatus = pushStatus;
             return this;
         }
 
+        /**
+         * @param pushStatus Whether to update target properties on user create &amp; update or just on create.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pushStatus(String pushStatus) {
             return pushStatus(Output.of(pushStatus));
         }

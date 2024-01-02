@@ -70,10 +70,6 @@ public final class GetSocialResult {
      * 
      */
     private List<String> groupsFilters;
-    /**
-     * @return The id of the social idp to retrieve, conflicts with `name`.
-     * 
-     */
     private @Nullable String id;
     /**
      * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.
@@ -85,10 +81,6 @@ public final class GetSocialResult {
      * 
      */
     private Integer maxClockSkew;
-    /**
-     * @return The name of the social idp to retrieve, conflicts with `id`.
-     * 
-     */
     private @Nullable String name;
     /**
      * @return Determines if the IdP should act as a source of truth for user profile attributes.
@@ -229,10 +221,6 @@ public final class GetSocialResult {
     public List<String> groupsFilters() {
         return this.groupsFilters;
     }
-    /**
-     * @return The id of the social idp to retrieve, conflicts with `name`.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -250,10 +238,6 @@ public final class GetSocialResult {
     public Integer maxClockSkew() {
         return this.maxClockSkew;
     }
-    /**
-     * @return The name of the social idp to retrieve, conflicts with `id`.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

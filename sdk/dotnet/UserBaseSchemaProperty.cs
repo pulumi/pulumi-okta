@@ -9,53 +9,103 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// Manages a User Base Schema property.
+    /// 
+    /// This resource allows you to configure a base user schema property.
+    /// 
+    /// ## IMPORTANT NOTE:
+    /// 
+    /// Based on the [official documentation](https://developer.okta.com/docs/reference/api/schemas/#user-profile-base-subschema)
+    /// base properties can not be modified, except to update permissions, to change the nullability of `firstName` and
+    /// `lastName` (`required` property) or to specify a `pattern` for `login`. Currently, `title` and `type` are required, so
+    /// they should be set to the current values of the base property. This will be fixed in the future releases, as this is
+    /// a breaking change.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.UserBaseSchemaProperty("example", new()
+    ///     {
+    ///         Index = "firstName",
+    ///         Master = "OKTA",
+    ///         Required = true,
+    ///         Title = "First name",
+    ///         Type = "string",
+    ///         UserType = data.Okta_user_type.Example.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// User schema property of default user type can be imported via the property index.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &amp;#60;property name&amp;#62;
+    /// ```
+    /// 
+    ///  User schema property of custom user type can be imported via user type id and property index
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &amp;#60;user type id&amp;#62;.&amp;#60;property name&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/userBaseSchemaProperty:UserBaseSchemaProperty")]
     public partial class UserBaseSchemaProperty : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Subschema unique string identifier
+        /// The property name.
         /// </summary>
         [Output("index")]
         public Output<string> Index { get; private set; } = null!;
 
         /// <summary>
-        /// SubSchema profile manager, if not set it will inherit its setting.
+        /// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
         /// </summary>
         [Output("master")]
         public Output<string?> Master { get; private set; } = null!;
 
         /// <summary>
-        /// The validation pattern to use for the subschema. Must be in form of '.+', or '[\n\n]+' if present.'
+        /// The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[&lt;pattern&gt;]+`.
         /// </summary>
         [Output("pattern")]
         public Output<string?> Pattern { get; private set; } = null!;
 
         /// <summary>
-        /// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+        /// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         /// </summary>
         [Output("permissions")]
         public Output<string?> Permissions { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the subschema is required
+        /// Whether the property is required for this application's users.
         /// </summary>
         [Output("required")]
         public Output<bool?> Required { get; private set; } = null!;
 
         /// <summary>
-        /// Subschema title (display name)
+        /// The property display name.
         /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
-        /// Subschema type: string, boolean, number, integer, array, or object
+        /// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Custom subschema user type
+        /// User type ID.
         /// </summary>
         [Output("userType")]
         public Output<string?> UserType { get; private set; } = null!;
@@ -107,49 +157,49 @@ namespace Pulumi.Okta
     public sealed class UserBaseSchemaPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Subschema unique string identifier
+        /// The property name.
         /// </summary>
         [Input("index", required: true)]
         public Input<string> Index { get; set; } = null!;
 
         /// <summary>
-        /// SubSchema profile manager, if not set it will inherit its setting.
+        /// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
         /// </summary>
         [Input("master")]
         public Input<string>? Master { get; set; }
 
         /// <summary>
-        /// The validation pattern to use for the subschema. Must be in form of '.+', or '[\n\n]+' if present.'
+        /// The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[&lt;pattern&gt;]+`.
         /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+        /// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         /// </summary>
         [Input("permissions")]
         public Input<string>? Permissions { get; set; }
 
         /// <summary>
-        /// Whether the subschema is required
+        /// Whether the property is required for this application's users.
         /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }
 
         /// <summary>
-        /// Subschema title (display name)
+        /// The property display name.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
         /// <summary>
-        /// Subschema type: string, boolean, number, integer, array, or object
+        /// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Custom subschema user type
+        /// User type ID.
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }
@@ -163,49 +213,49 @@ namespace Pulumi.Okta
     public sealed class UserBaseSchemaPropertyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Subschema unique string identifier
+        /// The property name.
         /// </summary>
         [Input("index")]
         public Input<string>? Index { get; set; }
 
         /// <summary>
-        /// SubSchema profile manager, if not set it will inherit its setting.
+        /// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
         /// </summary>
         [Input("master")]
         public Input<string>? Master { get; set; }
 
         /// <summary>
-        /// The validation pattern to use for the subschema. Must be in form of '.+', or '[\n\n]+' if present.'
+        /// The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[&lt;pattern&gt;]+`.
         /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+        /// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         /// </summary>
         [Input("permissions")]
         public Input<string>? Permissions { get; set; }
 
         /// <summary>
-        /// Whether the subschema is required
+        /// Whether the property is required for this application's users.
         /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }
 
         /// <summary>
-        /// Subschema title (display name)
+        /// The property display name.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// Subschema type: string, boolean, number, integer, array, or object
+        /// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Custom subschema user type
+        /// User type ID.
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }

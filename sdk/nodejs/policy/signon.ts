@@ -4,6 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Creates a Sign On Policy.
+ *
+ * This resource allows you to create and configure a Sign On Policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.policy.Signon("example", {
+ *     description: "Example",
+ *     groupsIncludeds: [data.okta_group.everyone.id],
+ *     status: "ACTIVE",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * A Sign On Policy can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:policy/signon:Signon example &#60;policy id&#62;
+ * ```
+ */
 export class Signon extends pulumi.CustomResource {
     /**
      * Get an existing Signon resource's state with the given name, ID, and optional extra
@@ -33,23 +59,23 @@ export class Signon extends pulumi.CustomResource {
     }
 
     /**
-     * Policy Description
+     * Policy Description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * List of Group IDs to Include
+     * List of Group IDs to Include.
      */
     public readonly groupsIncludeds!: pulumi.Output<string[] | undefined>;
     /**
-     * Policy Name
+     * Policy Name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * Priority of the policy.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
-     * Policy Status: ACTIVE or INACTIVE.
+     * Policy Status: `"ACTIVE"` or `"INACTIVE"`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
 
@@ -89,23 +115,23 @@ export class Signon extends pulumi.CustomResource {
  */
 export interface SignonState {
     /**
-     * Policy Description
+     * Policy Description.
      */
     description?: pulumi.Input<string>;
     /**
-     * List of Group IDs to Include
+     * List of Group IDs to Include.
      */
     groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Policy Name
+     * Policy Name.
      */
     name?: pulumi.Input<string>;
     /**
-     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * Priority of the policy.
      */
     priority?: pulumi.Input<number>;
     /**
-     * Policy Status: ACTIVE or INACTIVE.
+     * Policy Status: `"ACTIVE"` or `"INACTIVE"`.
      */
     status?: pulumi.Input<string>;
 }
@@ -115,23 +141,23 @@ export interface SignonState {
  */
 export interface SignonArgs {
     /**
-     * Policy Description
+     * Policy Description.
      */
     description?: pulumi.Input<string>;
     /**
-     * List of Group IDs to Include
+     * List of Group IDs to Include.
      */
     groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Policy Name
+     * Policy Name.
      */
     name?: pulumi.Input<string>;
     /**
-     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * Priority of the policy.
      */
     priority?: pulumi.Input<number>;
     /**
-     * Policy Status: ACTIVE or INACTIVE.
+     * Policy Status: `"ACTIVE"` or `"INACTIVE"`.
      */
     status?: pulumi.Input<string>;
 }

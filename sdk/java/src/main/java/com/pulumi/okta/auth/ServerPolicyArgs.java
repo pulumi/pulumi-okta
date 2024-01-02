@@ -34,14 +34,14 @@ public final class ServerPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+     * The clients to whitelist the policy for. `[&#34;ALL_CLIENTS&#34;]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
      * 
      */
     @Import(name="clientWhitelists", required=true)
     private Output<List<String>> clientWhitelists;
 
     /**
-     * @return The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+     * @return The clients to whitelist the policy for. `[&#34;ALL_CLIENTS&#34;]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
      * 
      */
     public Output<List<String>> clientWhitelists() {
@@ -79,23 +79,31 @@ public final class ServerPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Priority of the auth server policy
+     * The priority of the Auth Server Policy.
      * 
      */
     @Import(name="priority", required=true)
     private Output<Integer> priority;
 
     /**
-     * @return Priority of the auth server policy
+     * @return The priority of the Auth Server Policy.
      * 
      */
     public Output<Integer> priority() {
         return this.priority;
     }
 
+    /**
+     * The status of the Auth Server Policy.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return The status of the Auth Server Policy.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -151,7 +159,7 @@ public final class ServerPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientWhitelists The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+         * @param clientWhitelists The clients to whitelist the policy for. `[&#34;ALL_CLIENTS&#34;]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
          * 
          * @return builder
          * 
@@ -162,7 +170,7 @@ public final class ServerPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientWhitelists The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+         * @param clientWhitelists The clients to whitelist the policy for. `[&#34;ALL_CLIENTS&#34;]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
          * 
          * @return builder
          * 
@@ -172,7 +180,7 @@ public final class ServerPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientWhitelists The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+         * @param clientWhitelists The clients to whitelist the policy for. `[&#34;ALL_CLIENTS&#34;]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
          * 
          * @return builder
          * 
@@ -224,7 +232,7 @@ public final class ServerPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Priority of the auth server policy
+         * @param priority The priority of the Auth Server Policy.
          * 
          * @return builder
          * 
@@ -235,7 +243,7 @@ public final class ServerPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Priority of the auth server policy
+         * @param priority The priority of the Auth Server Policy.
          * 
          * @return builder
          * 
@@ -244,11 +252,23 @@ public final class ServerPolicyArgs extends com.pulumi.resources.ResourceArgs {
             return priority(Output.of(priority));
         }
 
+        /**
+         * @param status The status of the Auth Server Policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status The status of the Auth Server Policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

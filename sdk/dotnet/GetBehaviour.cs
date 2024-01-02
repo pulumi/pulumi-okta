@@ -12,13 +12,13 @@ namespace Pulumi.Okta
     public static class GetBehaviour
     {
         /// <summary>
-        /// Get a behavior by name or ID.
+        /// Use this data source to retrieve a behavior from Okta.
         /// </summary>
         public static Task<GetBehaviourResult> InvokeAsync(GetBehaviourArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBehaviourResult>("okta:index/getBehaviour:getBehaviour", args ?? new GetBehaviourArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a behavior by name or ID.
+        /// Use this data source to retrieve a behavior from Okta.
         /// </summary>
         public static Output<GetBehaviourResult> Invoke(GetBehaviourInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBehaviourResult>("okta:index/getBehaviour:getBehaviour", args ?? new GetBehaviourInvokeArgs(), options.WithDefaults());
@@ -28,13 +28,14 @@ namespace Pulumi.Okta
     public sealed class GetBehaviourArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Behavior ID.
+        /// `id` of behavior to retrieve, conflicts with `name`.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Behavior name.
+        /// The name of the behavior to retrieve. Name uses the `?q=&lt;name&gt;` query parameter exposed by 
+        /// Okta's API.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -48,13 +49,14 @@ namespace Pulumi.Okta
     public sealed class GetBehaviourInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Behavior ID.
+        /// `id` of behavior to retrieve, conflicts with `name`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Behavior name.
+        /// The name of the behavior to retrieve. Name uses the `?q=&lt;name&gt;` query parameter exposed by 
+        /// Okta's API.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

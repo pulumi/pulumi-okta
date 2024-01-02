@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type HookHeader struct {
-	Key   *string `pulumi:"key"`
+	// Key to use for authentication, usually the header name, for example `"Authorization"`.
+	Key *string `pulumi:"key"`
+	// Authentication secret.
 	Value *string `pulumi:"value"`
 }
 
@@ -30,7 +32,9 @@ type HookHeaderInput interface {
 }
 
 type HookHeaderArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// Key to use for authentication, usually the header name, for example `"Authorization"`.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Authentication secret.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -85,10 +89,12 @@ func (o HookHeaderOutput) ToHookHeaderOutputWithContext(ctx context.Context) Hoo
 	return o
 }
 
+// Key to use for authentication, usually the header name, for example `"Authorization"`.
 func (o HookHeaderOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HookHeader) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// Authentication secret.
 func (o HookHeaderOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HookHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

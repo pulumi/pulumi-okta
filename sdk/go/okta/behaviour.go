@@ -12,22 +12,97 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and configure a behavior.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewBehaviour(ctx, "myLocation", &okta.BehaviourArgs{
+//				LocationGranularityType: pulumi.String("LAT_LONG"),
+//				NumberOfAuthentications: pulumi.Int(50),
+//				RadiusFromLocation:      pulumi.Int(20),
+//				Type:                    pulumi.String("ANOMALOUS_LOCATION"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewBehaviour(ctx, "myCity", &okta.BehaviourArgs{
+//				LocationGranularityType: pulumi.String("CITY"),
+//				NumberOfAuthentications: pulumi.Int(50),
+//				Type:                    pulumi.String("ANOMALOUS_LOCATION"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewBehaviour(ctx, "myDevice", &okta.BehaviourArgs{
+//				NumberOfAuthentications: pulumi.Int(50),
+//				Type:                    pulumi.String("ANOMALOUS_DEVICE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewBehaviour(ctx, "myIp", &okta.BehaviourArgs{
+//				NumberOfAuthentications: pulumi.Int(50),
+//				Type:                    pulumi.String("ANOMALOUS_IP"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewBehaviour(ctx, "myVelocity", &okta.BehaviourArgs{
+//				Type:     pulumi.String("VELOCITY"),
+//				Velocity: pulumi.Int(25),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Behavior can be imported via the Okta ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:index/behaviour:Behaviour example &#60;behavior id&#62;
+//
+// ```
 type Behaviour struct {
 	pulumi.CustomResourceState
 
 	// Determines the method and level of detail used to evaluate the behavior.
+	// Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
+	// or `"SUBDIVISION"`.
 	LocationGranularityType pulumi.StringPtrOutput `pulumi:"locationGranularityType"`
-	// Name of the behavior
+	// Name of the behavior.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of recent authentications used to evaluate the behavior.
+	// The number of recent authentications used to evaluate the behavior. Required
+	// for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
 	NumberOfAuthentications pulumi.IntPtrOutput `pulumi:"numberOfAuthentications"`
-	// Radius from location (in kilometers)
+	// Radius from location (in kilometers). Should be at least 5. Required
+	// when `locationGranularityType` is set to `"LAT_LONG"`.
 	RadiusFromLocation pulumi.IntPtrOutput `pulumi:"radiusFromLocation"`
-	// Behavior status: ACTIVE or INACTIVE.
+	// The status of the behavior. By default, it is`"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Behavior type
+	// Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
+	// or `"VELOCITY"`. Resource will be recreated when the type changes.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Velocity (in kilometers per hour).
+	// Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
+	// type.
 	Velocity pulumi.IntPtrOutput `pulumi:"velocity"`
 }
 
@@ -65,35 +140,47 @@ func GetBehaviour(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Behaviour resources.
 type behaviourState struct {
 	// Determines the method and level of detail used to evaluate the behavior.
+	// Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
+	// or `"SUBDIVISION"`.
 	LocationGranularityType *string `pulumi:"locationGranularityType"`
-	// Name of the behavior
+	// Name of the behavior.
 	Name *string `pulumi:"name"`
-	// The number of recent authentications used to evaluate the behavior.
+	// The number of recent authentications used to evaluate the behavior. Required
+	// for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
 	NumberOfAuthentications *int `pulumi:"numberOfAuthentications"`
-	// Radius from location (in kilometers)
+	// Radius from location (in kilometers). Should be at least 5. Required
+	// when `locationGranularityType` is set to `"LAT_LONG"`.
 	RadiusFromLocation *int `pulumi:"radiusFromLocation"`
-	// Behavior status: ACTIVE or INACTIVE.
+	// The status of the behavior. By default, it is`"ACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Behavior type
+	// Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
+	// or `"VELOCITY"`. Resource will be recreated when the type changes.
 	Type *string `pulumi:"type"`
-	// Velocity (in kilometers per hour).
+	// Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
+	// type.
 	Velocity *int `pulumi:"velocity"`
 }
 
 type BehaviourState struct {
 	// Determines the method and level of detail used to evaluate the behavior.
+	// Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
+	// or `"SUBDIVISION"`.
 	LocationGranularityType pulumi.StringPtrInput
-	// Name of the behavior
+	// Name of the behavior.
 	Name pulumi.StringPtrInput
-	// The number of recent authentications used to evaluate the behavior.
+	// The number of recent authentications used to evaluate the behavior. Required
+	// for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
 	NumberOfAuthentications pulumi.IntPtrInput
-	// Radius from location (in kilometers)
+	// Radius from location (in kilometers). Should be at least 5. Required
+	// when `locationGranularityType` is set to `"LAT_LONG"`.
 	RadiusFromLocation pulumi.IntPtrInput
-	// Behavior status: ACTIVE or INACTIVE.
+	// The status of the behavior. By default, it is`"ACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Behavior type
+	// Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
+	// or `"VELOCITY"`. Resource will be recreated when the type changes.
 	Type pulumi.StringPtrInput
-	// Velocity (in kilometers per hour).
+	// Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
+	// type.
 	Velocity pulumi.IntPtrInput
 }
 
@@ -103,36 +190,48 @@ func (BehaviourState) ElementType() reflect.Type {
 
 type behaviourArgs struct {
 	// Determines the method and level of detail used to evaluate the behavior.
+	// Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
+	// or `"SUBDIVISION"`.
 	LocationGranularityType *string `pulumi:"locationGranularityType"`
-	// Name of the behavior
+	// Name of the behavior.
 	Name *string `pulumi:"name"`
-	// The number of recent authentications used to evaluate the behavior.
+	// The number of recent authentications used to evaluate the behavior. Required
+	// for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
 	NumberOfAuthentications *int `pulumi:"numberOfAuthentications"`
-	// Radius from location (in kilometers)
+	// Radius from location (in kilometers). Should be at least 5. Required
+	// when `locationGranularityType` is set to `"LAT_LONG"`.
 	RadiusFromLocation *int `pulumi:"radiusFromLocation"`
-	// Behavior status: ACTIVE or INACTIVE.
+	// The status of the behavior. By default, it is`"ACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Behavior type
+	// Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
+	// or `"VELOCITY"`. Resource will be recreated when the type changes.
 	Type string `pulumi:"type"`
-	// Velocity (in kilometers per hour).
+	// Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
+	// type.
 	Velocity *int `pulumi:"velocity"`
 }
 
 // The set of arguments for constructing a Behaviour resource.
 type BehaviourArgs struct {
 	// Determines the method and level of detail used to evaluate the behavior.
+	// Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
+	// or `"SUBDIVISION"`.
 	LocationGranularityType pulumi.StringPtrInput
-	// Name of the behavior
+	// Name of the behavior.
 	Name pulumi.StringPtrInput
-	// The number of recent authentications used to evaluate the behavior.
+	// The number of recent authentications used to evaluate the behavior. Required
+	// for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
 	NumberOfAuthentications pulumi.IntPtrInput
-	// Radius from location (in kilometers)
+	// Radius from location (in kilometers). Should be at least 5. Required
+	// when `locationGranularityType` is set to `"LAT_LONG"`.
 	RadiusFromLocation pulumi.IntPtrInput
-	// Behavior status: ACTIVE or INACTIVE.
+	// The status of the behavior. By default, it is`"ACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Behavior type
+	// Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
+	// or `"VELOCITY"`. Resource will be recreated when the type changes.
 	Type pulumi.StringInput
-	// Velocity (in kilometers per hour).
+	// Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
+	// type.
 	Velocity pulumi.IntPtrInput
 }
 
@@ -224,36 +323,42 @@ func (o BehaviourOutput) ToBehaviourOutputWithContext(ctx context.Context) Behav
 }
 
 // Determines the method and level of detail used to evaluate the behavior.
+// Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
+// or `"SUBDIVISION"`.
 func (o BehaviourOutput) LocationGranularityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Behaviour) pulumi.StringPtrOutput { return v.LocationGranularityType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the behavior
+// Name of the behavior.
 func (o BehaviourOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Behaviour) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of recent authentications used to evaluate the behavior.
+// The number of recent authentications used to evaluate the behavior. Required
+// for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
 func (o BehaviourOutput) NumberOfAuthentications() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Behaviour) pulumi.IntPtrOutput { return v.NumberOfAuthentications }).(pulumi.IntPtrOutput)
 }
 
-// Radius from location (in kilometers)
+// Radius from location (in kilometers). Should be at least 5. Required
+// when `locationGranularityType` is set to `"LAT_LONG"`.
 func (o BehaviourOutput) RadiusFromLocation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Behaviour) pulumi.IntPtrOutput { return v.RadiusFromLocation }).(pulumi.IntPtrOutput)
 }
 
-// Behavior status: ACTIVE or INACTIVE.
+// The status of the behavior. By default, it is`"ACTIVE"`.
 func (o BehaviourOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Behaviour) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Behavior type
+// Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
+// or `"VELOCITY"`. Resource will be recreated when the type changes.
 func (o BehaviourOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Behaviour) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Velocity (in kilometers per hour).
+// Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
+// type.
 func (o BehaviourOutput) Velocity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Behaviour) pulumi.IntPtrOutput { return v.Velocity }).(pulumi.IntPtrOutput)
 }

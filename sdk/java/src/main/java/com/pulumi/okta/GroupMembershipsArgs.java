@@ -19,14 +19,14 @@ public final class GroupMembershipsArgs extends com.pulumi.resources.ResourceArg
     public static final GroupMembershipsArgs Empty = new GroupMembershipsArgs();
 
     /**
-     * ID of a Okta group.
+     * Okta group ID.
      * 
      */
     @Import(name="groupId", required=true)
     private Output<String> groupId;
 
     /**
-     * @return ID of a Okta group.
+     * @return Okta group ID.
      * 
      */
     public Output<String> groupId() {
@@ -34,14 +34,14 @@ public final class GroupMembershipsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
+     * The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
      * 
      */
     @Import(name="trackAllUsers")
     private @Nullable Output<Boolean> trackAllUsers;
 
     /**
-     * @return The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
+     * @return The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
      * 
      */
     public Optional<Output<Boolean>> trackAllUsers() {
@@ -90,7 +90,7 @@ public final class GroupMembershipsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groupId ID of a Okta group.
+         * @param groupId Okta group ID.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GroupMembershipsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groupId ID of a Okta group.
+         * @param groupId Okta group ID.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class GroupMembershipsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param trackAllUsers The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
+         * @param trackAllUsers The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class GroupMembershipsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param trackAllUsers The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
+         * @param trackAllUsers The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
          * 
          * @return builder
          * 

@@ -12,16 +12,57 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+//
+// This resource allows you to create and configure a CAPTCHA.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewCaptcha(ctx, "example", &okta.CaptchaArgs{
+//				SecretKey: pulumi.String("some_secret_key"),
+//				SiteKey:   pulumi.String("some_key"),
+//				Type:      pulumi.String("HCAPTCHA"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Behavior can be imported via the Okta ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:index/captcha:Captcha example &#60;captcha id&#62;
+//
+// ```
 type Captcha struct {
 	pulumi.CustomResourceState
 
-	// Name of the CAPTCHA
+	// Name of the captcha.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
+	// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
 	SecretKey pulumi.StringOutput `pulumi:"secretKey"`
-	// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
+	// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
 	SiteKey pulumi.StringOutput `pulumi:"siteKey"`
-	// Captcha type
+	// Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -71,24 +112,24 @@ func GetCaptcha(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Captcha resources.
 type captchaState struct {
-	// Name of the CAPTCHA
+	// Name of the captcha.
 	Name *string `pulumi:"name"`
-	// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
+	// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
 	SecretKey *string `pulumi:"secretKey"`
-	// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
+	// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
 	SiteKey *string `pulumi:"siteKey"`
-	// Captcha type
+	// Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
 	Type *string `pulumi:"type"`
 }
 
 type CaptchaState struct {
-	// Name of the CAPTCHA
+	// Name of the captcha.
 	Name pulumi.StringPtrInput
-	// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
+	// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
 	SecretKey pulumi.StringPtrInput
-	// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
+	// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
 	SiteKey pulumi.StringPtrInput
-	// Captcha type
+	// Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
 	Type pulumi.StringPtrInput
 }
 
@@ -97,25 +138,25 @@ func (CaptchaState) ElementType() reflect.Type {
 }
 
 type captchaArgs struct {
-	// Name of the CAPTCHA
+	// Name of the captcha.
 	Name *string `pulumi:"name"`
-	// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
+	// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
 	SecretKey string `pulumi:"secretKey"`
-	// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
+	// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
 	SiteKey string `pulumi:"siteKey"`
-	// Captcha type
+	// Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
 	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Captcha resource.
 type CaptchaArgs struct {
-	// Name of the CAPTCHA
+	// Name of the captcha.
 	Name pulumi.StringPtrInput
-	// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
+	// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
 	SecretKey pulumi.StringInput
-	// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
+	// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
 	SiteKey pulumi.StringInput
-	// Captcha type
+	// Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
 	Type pulumi.StringInput
 }
 
@@ -206,22 +247,22 @@ func (o CaptchaOutput) ToCaptchaOutputWithContext(ctx context.Context) CaptchaOu
 	return o
 }
 
-// Name of the CAPTCHA
+// Name of the captcha.
 func (o CaptchaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Captcha) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
+// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token.
 func (o CaptchaOutput) SecretKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Captcha) pulumi.StringOutput { return v.SecretKey }).(pulumi.StringOutput)
 }
 
-// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
+// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page.
 func (o CaptchaOutput) SiteKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Captcha) pulumi.StringOutput { return v.SiteKey }).(pulumi.StringOutput)
 }
 
-// Captcha type
+// Type of the captcha. Valid values: `"HCAPTCHA"`, `"RECAPTCHA_V2"`.
 func (o CaptchaOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Captcha) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

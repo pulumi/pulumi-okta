@@ -12,13 +12,17 @@ namespace Pulumi.Okta
     public static class GetTemplates
     {
         /// <summary>
-        /// Get the email templates belonging to a brand in an Okta organization.
+        /// Use this data source to retrieve the [email
+        /// templates](https://developer.okta.com/docs/reference/api/brands/#email-template)
+        /// of a brand in an Okta organization.
         /// </summary>
         public static Task<GetTemplatesResult> InvokeAsync(GetTemplatesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTemplatesResult>("okta:index/getTemplates:getTemplates", args ?? new GetTemplatesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get the email templates belonging to a brand in an Okta organization.
+        /// Use this data source to retrieve the [email
+        /// templates](https://developer.okta.com/docs/reference/api/brands/#email-template)
+        /// of a brand in an Okta organization.
         /// </summary>
         public static Output<GetTemplatesResult> Invoke(GetTemplatesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplatesResult>("okta:index/getTemplates:getTemplates", args ?? new GetTemplatesInvokeArgs(), options.WithDefaults());
@@ -57,12 +61,9 @@ namespace Pulumi.Okta
     [OutputType]
     public sealed class GetTemplatesResult
     {
-        /// <summary>
-        /// Brand ID
-        /// </summary>
         public readonly string BrandId;
         /// <summary>
-        /// List of `okta.getTemplate` belonging to a brand in the organization
+        /// List of `okta.getTemplate` belonging to the brand
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTemplatesEmailTemplateResult> EmailTemplates;
         /// <summary>

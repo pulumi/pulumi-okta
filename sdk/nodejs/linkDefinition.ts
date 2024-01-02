@@ -4,6 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Link definition operations allow you to manage the creation and removal of the link definitions. If you remove a link
+ * definition, links based on that definition are unavailable. Note that this resource is immutable, thus can not be modified.
+ *
+ * > **NOTE:** Links reappear if you recreate the definition. However, Okta is likely to change this behavior so that links don't reappear. Don't rely on this behavior in production environments.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.LinkDefinition("example", {
+ *     associatedDescription: "Elite military force member",
+ *     associatedName: "sardaukar",
+ *     associatedTitle: "Sardaukar",
+ *     primaryDescription: "Hereditary ruler of the Imperium and the Known Universe",
+ *     primaryName: "emperor",
+ *     primaryTitle: "Emperor",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Okta Link Definition can be imported via the Okta Primary Link Name.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
+ * ```
+ */
 export class LinkDefinition extends pulumi.CustomResource {
     /**
      * Get an existing LinkDefinition resource's state with the given name, ID, and optional extra

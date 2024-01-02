@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get a SAML IdP from Okta.
+// Use this data source to retrieve a SAML IdP from Okta.
 //
 // ## Example Usage
 //
@@ -50,41 +50,40 @@ func LookupSaml(ctx *pulumi.Context, args *LookupSamlArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getSaml.
 type LookupSamlArgs struct {
-	// Id of idp.
+	// The id of the idp to retrieve, conflicts with `name`.
 	Id *string `pulumi:"id"`
-	// Name of the idp.
+	// The name of the idp to retrieve, conflicts with `id`.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getSaml.
 type LookupSamlResult struct {
-	// ACS binding
 	AcsBinding string `pulumi:"acsBinding"`
 	// Determines whether to publish an instance-specific (trust) or organization (shared) ACS endpoint in the SAML metadata.
 	AcsType string `pulumi:"acsType"`
 	// URI that identifies the target Okta IdP instance (SP)
 	Audience string `pulumi:"audience"`
-	// Id of idp.
+	// id of idp.
 	Id *string `pulumi:"id"`
 	// URI that identifies the issuer (IdP).
 	Issuer string `pulumi:"issuer"`
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
+	// indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
 	IssuerMode string `pulumi:"issuerMode"`
 	// Key ID reference to the IdP's X.509 signature certificate.
 	Kid string `pulumi:"kid"`
-	// Name of the idp.
+	// name of the idp.
 	Name *string `pulumi:"name"`
-	// Single sign-on binding.
+	// single sign-on binding.
 	SsoBinding string `pulumi:"ssoBinding"`
 	// SSO request binding, HTTP-POST or HTTP-REDIRECT.
 	SsoDestination string `pulumi:"ssoDestination"`
-	// Single sign-on url.
+	// single sign-on url.
 	SsoUrl string `pulumi:"ssoUrl"`
-	// Regular expression pattern used to filter untrusted IdP usernames.
+	// regular expression pattern used to filter untrusted IdP usernames.
 	SubjectFilter string `pulumi:"subjectFilter"`
 	// Expression to generate or transform a unique username for the IdP user.
 	SubjectFormats []string `pulumi:"subjectFormats"`
-	// Type of idp.
+	// type of idp.
 	Type string `pulumi:"type"`
 }
 
@@ -103,9 +102,9 @@ func LookupSamlOutput(ctx *pulumi.Context, args LookupSamlOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getSaml.
 type LookupSamlOutputArgs struct {
-	// Id of idp.
+	// The id of the idp to retrieve, conflicts with `name`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the idp.
+	// The name of the idp to retrieve, conflicts with `id`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -128,7 +127,6 @@ func (o LookupSamlResultOutput) ToLookupSamlResultOutputWithContext(ctx context.
 	return o
 }
 
-// ACS binding
 func (o LookupSamlResultOutput) AcsBinding() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.AcsBinding }).(pulumi.StringOutput)
 }
@@ -143,7 +141,7 @@ func (o LookupSamlResultOutput) Audience() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.Audience }).(pulumi.StringOutput)
 }
 
-// Id of idp.
+// id of idp.
 func (o LookupSamlResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSamlResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -153,7 +151,7 @@ func (o LookupSamlResultOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
+// indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
 func (o LookupSamlResultOutput) IssuerMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.IssuerMode }).(pulumi.StringOutput)
 }
@@ -163,12 +161,12 @@ func (o LookupSamlResultOutput) Kid() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.Kid }).(pulumi.StringOutput)
 }
 
-// Name of the idp.
+// name of the idp.
 func (o LookupSamlResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSamlResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Single sign-on binding.
+// single sign-on binding.
 func (o LookupSamlResultOutput) SsoBinding() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.SsoBinding }).(pulumi.StringOutput)
 }
@@ -178,12 +176,12 @@ func (o LookupSamlResultOutput) SsoDestination() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.SsoDestination }).(pulumi.StringOutput)
 }
 
-// Single sign-on url.
+// single sign-on url.
 func (o LookupSamlResultOutput) SsoUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.SsoUrl }).(pulumi.StringOutput)
 }
 
-// Regular expression pattern used to filter untrusted IdP usernames.
+// regular expression pattern used to filter untrusted IdP usernames.
 func (o LookupSamlResultOutput) SubjectFilter() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.SubjectFilter }).(pulumi.StringOutput)
 }
@@ -193,7 +191,7 @@ func (o LookupSamlResultOutput) SubjectFormats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSamlResult) []string { return v.SubjectFormats }).(pulumi.StringArrayOutput)
 }
 
-// Type of idp.
+// type of idp.
 func (o LookupSamlResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.Type }).(pulumi.StringOutput)
 }

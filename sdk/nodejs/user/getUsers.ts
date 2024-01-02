@@ -7,26 +7,33 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Get a list of users from Okta.
+ * Use this data source to retrieve a list of users from Okta.
  *
  * ## Example Usage
- *
  * ### Lookup Users by Search Criteria
  *
- * data "okta.user.getUsers" "example" {
- *   search {
- *     name       = "profile.company"
- *     value      = "Articulate"
- *     comparison = "sw"
- *   }
- * }
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
  *
- * # Search for multiple users based on a raw search expression string
- * data "okta.user.getUsers" "example" {
- *   search {
- *     expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")"
- *   }
- * }
+ * const example = okta.user.getUsers({
+ *     searches: [{
+ *         expression: "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
+ *     }],
+ * });
+ * ```
+ * ### Lookup Users by Group Membership
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleGroup = new okta.group.Group("exampleGroup", {});
+ * const exampleUsers = okta.user.getUsersOutput({
+ *     groupId: exampleGroup.id,
+ *     includeGroups: true,
+ *     includeRoles: true,
+ * });
+ * ```
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
@@ -47,27 +54,27 @@ export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Prom
  */
 export interface GetUsersArgs {
     /**
-     * Search operator used when joining mulitple search clauses
+     * Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
      */
     compoundSearchOperator?: string;
     /**
-     * Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
+     * Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
      */
     delayReadSeconds?: string;
     /**
-     * Find users based on group membership using the id of the group.
+     * Id of group used to find users based on membership.
      */
     groupId?: string;
     /**
-     * Fetch group memberships for each user
+     * Fetch each user's group memberships. Defaults to `false`, in which case the `groupMemberships` user attribute will be empty.
      */
     includeGroups?: boolean;
     /**
-     * Fetch user roles for each user
+     * Fetch each user's administrator roles. Defaults to `false`, in which case the `adminRoles` user attribute will be empty.
      */
     includeRoles?: boolean;
     /**
-     * Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+     * Map of search criteria. It supports the following properties.
      */
     searches?: inputs.user.GetUsersSearch[];
 }
@@ -76,60 +83,49 @@ export interface GetUsersArgs {
  * A collection of values returned by getUsers.
  */
 export interface GetUsersResult {
-    /**
-     * Search operator used when joining mulitple search clauses
-     */
     readonly compoundSearchOperator?: string;
-    /**
-     * Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
-     */
     readonly delayReadSeconds?: string;
-    /**
-     * Find users based on group membership using the id of the group.
-     */
     readonly groupId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Fetch group memberships for each user
-     */
     readonly includeGroups?: boolean;
-    /**
-     * Fetch user roles for each user
-     */
     readonly includeRoles?: boolean;
-    /**
-     * Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
-     */
     readonly searches?: outputs.user.GetUsersSearch[];
     /**
-     * collection of users retrieved from Okta.
+     * collection of users retrieved from Okta with the following properties.
      */
     readonly users: outputs.user.GetUsersUser[];
 }
 /**
- * Get a list of users from Okta.
+ * Use this data source to retrieve a list of users from Okta.
  *
  * ## Example Usage
- *
  * ### Lookup Users by Search Criteria
  *
- * data "okta.user.getUsers" "example" {
- *   search {
- *     name       = "profile.company"
- *     value      = "Articulate"
- *     comparison = "sw"
- *   }
- * }
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
  *
- * # Search for multiple users based on a raw search expression string
- * data "okta.user.getUsers" "example" {
- *   search {
- *     expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")"
- *   }
- * }
+ * const example = okta.user.getUsers({
+ *     searches: [{
+ *         expression: "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
+ *     }],
+ * });
+ * ```
+ * ### Lookup Users by Group Membership
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleGroup = new okta.group.Group("exampleGroup", {});
+ * const exampleUsers = okta.user.getUsersOutput({
+ *     groupId: exampleGroup.id,
+ *     includeGroups: true,
+ *     includeRoles: true,
+ * });
+ * ```
  */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
     return pulumi.output(args).apply((a: any) => getUsers(a, opts))
@@ -140,27 +136,27 @@ export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOp
  */
 export interface GetUsersOutputArgs {
     /**
-     * Search operator used when joining mulitple search clauses
+     * Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
      */
     compoundSearchOperator?: pulumi.Input<string>;
     /**
-     * Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
+     * Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
      */
     delayReadSeconds?: pulumi.Input<string>;
     /**
-     * Find users based on group membership using the id of the group.
+     * Id of group used to find users based on membership.
      */
     groupId?: pulumi.Input<string>;
     /**
-     * Fetch group memberships for each user
+     * Fetch each user's group memberships. Defaults to `false`, in which case the `groupMemberships` user attribute will be empty.
      */
     includeGroups?: pulumi.Input<boolean>;
     /**
-     * Fetch user roles for each user
+     * Fetch each user's administrator roles. Defaults to `false`, in which case the `adminRoles` user attribute will be empty.
      */
     includeRoles?: pulumi.Input<boolean>;
     /**
-     * Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+     * Map of search criteria. It supports the following properties.
      */
     searches?: pulumi.Input<pulumi.Input<inputs.user.GetUsersSearchArgs>[]>;
 }

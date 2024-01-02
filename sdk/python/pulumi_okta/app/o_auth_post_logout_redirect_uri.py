@@ -18,7 +18,7 @@ class OAuthPostLogoutRedirectUriArgs:
                  uri: pulumi.Input[str]):
         """
         The set of arguments for constructing a OAuthPostLogoutRedirectUri resource.
-        :param pulumi.Input[str] app_id: OAuth application ID.
+        :param pulumi.Input[str] app_id: OAuth application ID. Note: `app_id` can not be changed once set.
         :param pulumi.Input[str] uri: Post Logout Redirect URI to append to Okta OIDC application.
         """
         pulumi.set(__self__, "app_id", app_id)
@@ -28,7 +28,7 @@ class OAuthPostLogoutRedirectUriArgs:
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Input[str]:
         """
-        OAuth application ID.
+        OAuth application ID. Note: `app_id` can not be changed once set.
         """
         return pulumi.get(self, "app_id")
 
@@ -56,7 +56,7 @@ class _OAuthPostLogoutRedirectUriState:
                  uri: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OAuthPostLogoutRedirectUri resources.
-        :param pulumi.Input[str] app_id: OAuth application ID.
+        :param pulumi.Input[str] app_id: OAuth application ID. Note: `app_id` can not be changed once set.
         :param pulumi.Input[str] uri: Post Logout Redirect URI to append to Okta OIDC application.
         """
         if app_id is not None:
@@ -68,7 +68,7 @@ class _OAuthPostLogoutRedirectUriState:
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[pulumi.Input[str]]:
         """
-        OAuth application ID.
+        OAuth application ID. Note: `app_id` can not be changed once set.
         """
         return pulumi.get(self, "app_id")
 
@@ -98,10 +98,41 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a OAuthPostLogoutRedirectUri resource with the given unique name, props, and options.
+        This resource allows you to manage post logout redirection URI for use in redirect-based flows.
+
+        > `app.OAuthPostLogoutRedirectUri` has been marked deprecated and will
+        be removed in the v5 release of the provider. Operators should manage the post
+        logout redirect URIs for an oauth app directly on that resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test_o_auth = okta.app.OAuth("testOAuth",
+            label="testAcc_replace_with_uuid",
+            type="web",
+            grant_types=["authorization_code"],
+            response_types=["code"],
+            redirect_uris=["myapp://callback"],
+            post_logout_redirect_uris=["https://www.example.com"])
+        test_o_auth_post_logout_redirect_uri = okta.app.OAuthPostLogoutRedirectUri("testOAuthPostLogoutRedirectUri",
+            app_id=test_o_auth.id,
+            uri="https://www.example.com")
+        ```
+
+        ## Import
+
+        A post logout redirect URI can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &#60;app id&#62;/&#60;uri&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: OAuth application ID.
+        :param pulumi.Input[str] app_id: OAuth application ID. Note: `app_id` can not be changed once set.
         :param pulumi.Input[str] uri: Post Logout Redirect URI to append to Okta OIDC application.
         """
         ...
@@ -111,7 +142,38 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
                  args: OAuthPostLogoutRedirectUriArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a OAuthPostLogoutRedirectUri resource with the given unique name, props, and options.
+        This resource allows you to manage post logout redirection URI for use in redirect-based flows.
+
+        > `app.OAuthPostLogoutRedirectUri` has been marked deprecated and will
+        be removed in the v5 release of the provider. Operators should manage the post
+        logout redirect URIs for an oauth app directly on that resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test_o_auth = okta.app.OAuth("testOAuth",
+            label="testAcc_replace_with_uuid",
+            type="web",
+            grant_types=["authorization_code"],
+            response_types=["code"],
+            redirect_uris=["myapp://callback"],
+            post_logout_redirect_uris=["https://www.example.com"])
+        test_o_auth_post_logout_redirect_uri = okta.app.OAuthPostLogoutRedirectUri("testOAuthPostLogoutRedirectUri",
+            app_id=test_o_auth.id,
+            uri="https://www.example.com")
+        ```
+
+        ## Import
+
+        A post logout redirect URI can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &#60;app id&#62;/&#60;uri&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param OAuthPostLogoutRedirectUriArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +225,7 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: OAuth application ID.
+        :param pulumi.Input[str] app_id: OAuth application ID. Note: `app_id` can not be changed once set.
         :param pulumi.Input[str] uri: Post Logout Redirect URI to append to Okta OIDC application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -178,7 +240,7 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[str]:
         """
-        OAuth application ID.
+        OAuth application ID. Note: `app_id` can not be changed once set.
         """
         return pulumi.get(self, "app_id")
 

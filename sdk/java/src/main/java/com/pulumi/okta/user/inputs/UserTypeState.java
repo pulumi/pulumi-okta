@@ -16,14 +16,14 @@ public final class UserTypeState extends com.pulumi.resources.ResourceArgs {
     public static final UserTypeState Empty = new UserTypeState();
 
     /**
-     * A human-readable description of the User type
+     * Description of the User Type.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A human-readable description of the User type
+     * @return Description of the User Type.
      * 
      */
     public Optional<Output<String>> description() {
@@ -31,14 +31,14 @@ public final class UserTypeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The display name of the user type
+     * Display Name of the User Type.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return The display name of the user type
+     * @return Display Name of the User Type.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -46,14 +46,14 @@ public final class UserTypeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the user type
+     * Name of the User Type.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the user type
+     * @return Name of the User Type.
      * 
      */
     public Optional<Output<String>> name() {
@@ -87,7 +87,7 @@ public final class UserTypeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A human-readable description of the User type
+         * @param description Description of the User Type.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class UserTypeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A human-readable description of the User type
+         * @param description Description of the User Type.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class UserTypeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName The display name of the user type
+         * @param displayName Display Name of the User Type.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class UserTypeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName The display name of the user type
+         * @param displayName Display Name of the User Type.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class UserTypeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the user type
+         * @param name Name of the User Type.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class UserTypeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the user type
+         * @param name Name of the User Type.
          * 
          * @return builder
          * 

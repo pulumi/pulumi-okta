@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get a single Brand from Okta.
+// Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
 func LookupBrand(ctx *pulumi.Context, args *LookupBrandArgs, opts ...pulumi.InvokeOption) (*LookupBrandResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBrandResult
@@ -24,23 +24,22 @@ func LookupBrand(ctx *pulumi.Context, args *LookupBrandArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getBrand.
 type LookupBrandArgs struct {
-	// Brand ID
+	// Brand ID. Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
 	BrandId string `pulumi:"brandId"`
 }
 
 // A collection of values returned by getBrand.
 type LookupBrandResult struct {
-	// Brand ID
 	BrandId string `pulumi:"brandId"`
 	// Custom privacy policy URL
 	CustomPrivacyPolicyUrl string `pulumi:"customPrivacyPolicyUrl"`
-	// The ID of the Brand
+	// Brand ID
 	Id string `pulumi:"id"`
 	// Link relations for this object - JSON HAL - Discoverable resources related to the brand
 	Links string `pulumi:"links"`
 	// Brand name
 	Name string `pulumi:"name"`
-	// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+	// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
 	RemovePoweredByOkta bool `pulumi:"removePoweredByOkta"`
 }
 
@@ -59,7 +58,7 @@ func LookupBrandOutput(ctx *pulumi.Context, args LookupBrandOutputArgs, opts ...
 
 // A collection of arguments for invoking getBrand.
 type LookupBrandOutputArgs struct {
-	// Brand ID
+	// Brand ID. Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
 	BrandId pulumi.StringInput `pulumi:"brandId"`
 }
 
@@ -82,7 +81,6 @@ func (o LookupBrandResultOutput) ToLookupBrandResultOutputWithContext(ctx contex
 	return o
 }
 
-// Brand ID
 func (o LookupBrandResultOutput) BrandId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrandResult) string { return v.BrandId }).(pulumi.StringOutput)
 }
@@ -92,7 +90,7 @@ func (o LookupBrandResultOutput) CustomPrivacyPolicyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrandResult) string { return v.CustomPrivacyPolicyUrl }).(pulumi.StringOutput)
 }
 
-// The ID of the Brand
+// Brand ID
 func (o LookupBrandResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrandResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -107,7 +105,7 @@ func (o LookupBrandResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrandResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
 func (o LookupBrandResultOutput) RemovePoweredByOkta() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupBrandResult) bool { return v.RemovePoweredByOkta }).(pulumi.BoolOutput)
 }

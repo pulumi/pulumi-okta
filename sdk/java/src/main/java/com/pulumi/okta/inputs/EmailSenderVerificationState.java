@@ -16,14 +16,14 @@ public final class EmailSenderVerificationState extends com.pulumi.resources.Res
     public static final EmailSenderVerificationState Empty = new EmailSenderVerificationState();
 
     /**
-     * Email sender ID
+     * Email sender ID.
      * 
      */
     @Import(name="senderId")
     private @Nullable Output<String> senderId;
 
     /**
-     * @return Email sender ID
+     * @return Email sender ID.
      * 
      */
     public Optional<Output<String>> senderId() {
@@ -55,7 +55,7 @@ public final class EmailSenderVerificationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param senderId Email sender ID
+         * @param senderId Email sender ID.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class EmailSenderVerificationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param senderId Email sender ID
+         * @param senderId Email sender ID.
          * 
          * @return builder
          * 

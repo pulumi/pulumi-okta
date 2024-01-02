@@ -18,14 +18,14 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetUsersPlainArgs Empty = new GetUsersPlainArgs();
 
     /**
-     * Search operator used when joining mulitple search clauses
+     * Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
      * 
      */
     @Import(name="compoundSearchOperator")
     private @Nullable String compoundSearchOperator;
 
     /**
-     * @return Search operator used when joining mulitple search clauses
+     * @return Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
      * 
      */
     public Optional<String> compoundSearchOperator() {
@@ -33,14 +33,14 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
+     * Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
      * 
      */
     @Import(name="delayReadSeconds")
     private @Nullable String delayReadSeconds;
 
     /**
-     * @return Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
+     * @return Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
      * 
      */
     public Optional<String> delayReadSeconds() {
@@ -48,14 +48,14 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Find users based on group membership using the id of the group.
+     * Id of group used to find users based on membership.
      * 
      */
     @Import(name="groupId")
     private @Nullable String groupId;
 
     /**
-     * @return Find users based on group membership using the id of the group.
+     * @return Id of group used to find users based on membership.
      * 
      */
     public Optional<String> groupId() {
@@ -63,14 +63,14 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Fetch group memberships for each user
+     * Fetch each user&#39;s group memberships. Defaults to `false`, in which case the `group_memberships` user attribute will be empty.
      * 
      */
     @Import(name="includeGroups")
     private @Nullable Boolean includeGroups;
 
     /**
-     * @return Fetch group memberships for each user
+     * @return Fetch each user&#39;s group memberships. Defaults to `false`, in which case the `group_memberships` user attribute will be empty.
      * 
      */
     public Optional<Boolean> includeGroups() {
@@ -78,14 +78,14 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Fetch user roles for each user
+     * Fetch each user&#39;s administrator roles. Defaults to `false`, in which case the `admin_roles` user attribute will be empty.
      * 
      */
     @Import(name="includeRoles")
     private @Nullable Boolean includeRoles;
 
     /**
-     * @return Fetch user roles for each user
+     * @return Fetch each user&#39;s administrator roles. Defaults to `false`, in which case the `admin_roles` user attribute will be empty.
      * 
      */
     public Optional<Boolean> includeRoles() {
@@ -93,14 +93,14 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+     * Map of search criteria. It supports the following properties.
      * 
      */
     @Import(name="searches")
     private @Nullable List<GetUsersSearch> searches;
 
     /**
-     * @return Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+     * @return Map of search criteria. It supports the following properties.
      * 
      */
     public Optional<List<GetUsersSearch>> searches() {
@@ -137,7 +137,7 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param compoundSearchOperator Search operator used when joining mulitple search clauses
+         * @param compoundSearchOperator Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param delayReadSeconds Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
+         * @param delayReadSeconds Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for; for instance, when administrator roles are known to have been applied.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param groupId Find users based on group membership using the id of the group.
+         * @param groupId Id of group used to find users based on membership.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param includeGroups Fetch group memberships for each user
+         * @param includeGroups Fetch each user&#39;s group memberships. Defaults to `false`, in which case the `group_memberships` user attribute will be empty.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param includeRoles Fetch user roles for each user
+         * @param includeRoles Fetch each user&#39;s administrator roles. Defaults to `false`, in which case the `admin_roles` user attribute will be empty.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param searches Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+         * @param searches Map of search criteria. It supports the following properties.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param searches Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+         * @param searches Map of search criteria. It supports the following properties.
          * 
          * @return builder
          * 

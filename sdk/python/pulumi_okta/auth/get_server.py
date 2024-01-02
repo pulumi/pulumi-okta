@@ -60,7 +60,7 @@ class GetServerResult:
     @pulumi.getter
     def audiences(self) -> Sequence[str]:
         """
-        Description of Authorization server.
+        array of audiences.
         """
         return pulumi.get(self, "audiences")
 
@@ -68,7 +68,7 @@ class GetServerResult:
     @pulumi.getter(name="credentialsLastRotated")
     def credentials_last_rotated(self) -> str:
         """
-        Last time credentials were rotated.
+        last time credentials were rotated.
         """
         return pulumi.get(self, "credentials_last_rotated")
 
@@ -76,7 +76,7 @@ class GetServerResult:
     @pulumi.getter(name="credentialsNextRotation")
     def credentials_next_rotation(self) -> str:
         """
-        Next time credentials will be rotated
+        next time credentials will be rotated
         """
         return pulumi.get(self, "credentials_next_rotation")
 
@@ -84,7 +84,7 @@ class GetServerResult:
     @pulumi.getter(name="credentialsRotationMode")
     def credentials_rotation_mode(self) -> str:
         """
-        Mode of credential rotation, auto or manual.
+        mode of credential rotation, auto or manual.
         """
         return pulumi.get(self, "credentials_rotation_mode")
 
@@ -92,7 +92,7 @@ class GetServerResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        Description of Authorization server.
+        description of Authorization server.
         """
         return pulumi.get(self, "description")
 
@@ -116,7 +116,7 @@ class GetServerResult:
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> str:
         """
-        Can be set to `CUSTOM_URL` or `ORG_URL`
+        Can be set to `"CUSTOM_URL"` or `"ORG_URL"`
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -124,7 +124,7 @@ class GetServerResult:
     @pulumi.getter
     def kid(self) -> str:
         """
-        Auth server key id.
+        auth server key id.
         """
         return pulumi.get(self, "kid")
 
@@ -132,7 +132,7 @@ class GetServerResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the auth server to retrieve.
+        The name of the auth server.
         """
         return pulumi.get(self, "name")
 
@@ -140,7 +140,7 @@ class GetServerResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The activation status of the authorization server.
+        the activation status of the authorization server.
         """
         return pulumi.get(self, "status")
 
@@ -167,7 +167,7 @@ class AwaitableGetServerResult(GetServerResult):
 def get_server(name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
-    Get an auth server from Okta.
+    Use this data source to retrieve an auth server from Okta.
 
     ## Example Usage
 
@@ -204,7 +204,7 @@ def get_server(name: Optional[str] = None,
 def get_server_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
     """
-    Get an auth server from Okta.
+    Use this data source to retrieve an auth server from Okta.
 
     ## Example Usage
 

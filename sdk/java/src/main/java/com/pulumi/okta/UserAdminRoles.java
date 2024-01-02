@@ -17,48 +17,100 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource to manage a set of administrator roles for a specific user.
+ * Resource to manage a set of admin roles for a specific user.
+ * 
+ * This resource allows you to manage admin roles for a single user, independent of the user schema itself.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.user.User;
+ * import com.pulumi.okta.user.UserArgs;
+ * import com.pulumi.okta.UserAdminRoles;
+ * import com.pulumi.okta.UserAdminRolesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testUser = new User(&#34;testUser&#34;, UserArgs.builder()        
+ *             .firstName(&#34;TestAcc&#34;)
+ *             .lastName(&#34;Smith&#34;)
+ *             .login(&#34;testAcc-replace_with_uuid@example.com&#34;)
+ *             .email(&#34;testAcc-replace_with_uuid@example.com&#34;)
+ *             .build());
+ * 
+ *         var testUserAdminRoles = new UserAdminRoles(&#34;testUserAdminRoles&#34;, UserAdminRolesArgs.builder()        
+ *             .userId(testUser.id())
+ *             .adminRoles(&#34;APP_ADMIN&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Existing user admin roles can be imported via the Okta User ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/userAdminRoles:UserAdminRoles example &amp;#60;user id&amp;#62;
+ * ```
  * 
  */
 @ResourceType(type="okta:index/userAdminRoles:UserAdminRoles")
 public class UserAdminRoles extends com.pulumi.resources.CustomResource {
     /**
-     * User Okta admin roles - ie. [&#39;APP*ADMIN&#39;, &#39;USER*ADMIN&#39;]
+     * The list of Okta user admin roles, e.g. `[&#34;APP_ADMIN&#34;, &#34;USER_ADMIN&#34;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     @Export(name="adminRoles", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> adminRoles;
 
     /**
-     * @return User Okta admin roles - ie. [&#39;APP*ADMIN&#39;, &#39;USER*ADMIN&#39;]
+     * @return The list of Okta user admin roles, e.g. `[&#34;APP_ADMIN&#34;, &#34;USER_ADMIN&#34;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     public Output<List<String>> adminRoles() {
         return this.adminRoles;
     }
     /**
-     * When this setting is enabled, the admins won&#39;t receive any of the default Okta administrator emails
+     * When this setting is enabled, the admins won&#39;t receive any of the default Okta
+     * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
      * 
      */
     @Export(name="disableNotifications", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableNotifications;
 
     /**
-     * @return When this setting is enabled, the admins won&#39;t receive any of the default Okta administrator emails
+     * @return When this setting is enabled, the admins won&#39;t receive any of the default Okta
+     * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
      * 
      */
     public Output<Optional<Boolean>> disableNotifications() {
         return Codegen.optional(this.disableNotifications);
     }
     /**
-     * ID of a Okta User
+     * Okta user ID.
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
-     * @return ID of a Okta User
+     * @return Okta user ID.
      * 
      */
     public Output<String> userId() {

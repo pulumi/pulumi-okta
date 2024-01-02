@@ -12,107 +12,272 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and configure an OIDC Application.
+//
+// > During an apply if there is change in `status` the app will first be
+// activated or deactivated in accordance with the `status` change. Then, all
+// other arguments that changed will be applied.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewOAuth(ctx, "example", &app.OAuthArgs{
+//				GrantTypes: pulumi.StringArray{
+//					pulumi.String("authorization_code"),
+//				},
+//				Label: pulumi.String("example"),
+//				RedirectUris: pulumi.StringArray{
+//					pulumi.String("https://example.com/"),
+//				},
+//				ResponseTypes: pulumi.StringArray{
+//					pulumi.String("code"),
+//				},
+//				Type: pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With JWKS value
+//
+// See also Advanced PEM secrets and JWKS example.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewOAuth(ctx, "example", &app.OAuthArgs{
+//				GrantTypes: pulumi.StringArray{
+//					pulumi.String("client_credentials"),
+//				},
+//				Jwks: app.OAuthJwkArray{
+//					&app.OAuthJwkArgs{
+//						E:   pulumi.String("AQAB"),
+//						Kid: pulumi.String("SIGNING_KEY_RSA"),
+//						Kty: pulumi.String("RSA"),
+//						N:   pulumi.String("xyz"),
+//					},
+//					&app.OAuthJwkArgs{
+//						Kid: pulumi.String("SIGNING_KEY_EC"),
+//						Kty: pulumi.String("EC"),
+//						X:   pulumi.String("K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I"),
+//						Y:   pulumi.String("8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo"),
+//					},
+//				},
+//				Label: pulumi.String("example"),
+//				ResponseTypes: pulumi.StringArray{
+//					pulumi.String("token"),
+//				},
+//				TokenEndpointAuthMethod: pulumi.String("private_key_jwt"),
+//				Type:                    pulumi.String("service"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Etc.
+//
+// ### Resetting client secret
+//
+// If the client secret needs to be reset run an apply with `omitSecret` set to
+// true in the resource. This causes `clientSecret` to be set to blank. Remove
+// `omitSecret` and run apply again. The resource will set a new `clientSecret`
+// for the app.
+//
+// ### Private Keys
+//
+// The private key format that an Okta OAuth app expects is PKCS#8 (unencrypted).
+// The operator either uploads their own private key or Okta can generate one in
+// the Admin UI Panel under the apps Client Credentials. PKCS#8 format can be
+// identified by a header that starts with `-----BEGIN PRIVATE KEY-----`. If the
+// operator has a PKCS#1 (unencrypted) format private key (the header starts with
+// `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
+// key with `openssl`:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// An OIDC Application can be imported via the Okta ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;
+//
+// ```
 type OAuth struct {
 	pulumi.CustomResourceState
 
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
-	// Application settings in JSON format
+	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
-	// Id of this apps authentication policy
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 	AuthenticationPolicy pulumi.StringPtrOutput `pulumi:"authenticationPolicy"`
-	// Requested key rotation mode.
+	// Requested key rotation mode.  If
+	// `autoKeyRotation` isn't specified, the client automatically opts in for Okta's
+	// key rotation. You can update this property via the API or via the administrator
+	// UI.
+	// See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	AutoKeyRotation pulumi.BoolPtrOutput `pulumi:"autoKeyRotation"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
-	// OAuth client secret key, this can be set when token*endpoint*auth*method is client*secret_basic.
+	// OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
 	ClientBasicSecret pulumi.StringPtrOutput `pulumi:"clientBasicSecret"`
-	// OAuth client ID. If set during creation, app is created with this id.
+	// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	// OAuth client secret key. This will be in plain text in your statefile unless you set omitSecret above.
+	// The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
 	// URI to a web page providing information about the client.
 	ClientUri pulumi.StringPtrOutput `pulumi:"clientUri"`
-	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod pulumi.StringPtrOutput `pulumi:"consentMethod"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
-	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
+	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"interactionCode"` (*OIE only*).
 	GrantTypes pulumi.StringArrayOutput `pulumi:"grantTypes"`
-	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
 	GroupsClaim OAuthGroupsClaimPtrOutput `pulumi:"groupsClaim"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
-	// *Early Access Property*. Enable Federation Broker Mode.
+	// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment pulumi.BoolPtrOutput `pulumi:"implicitAssignment"`
-	// Issuer mode inherited from OAuth App
+	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
-	Jwks       OAuthJwkArrayOutput    `pulumi:"jwks"`
-	// URL reference to JWKS
+	// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
+	Jwks OAuthJwkArrayOutput `pulumi:"jwks"`
+	// URL of the custom authorization server's JSON Web Key Set document.
 	JwksUri pulumi.StringPtrOutput `pulumi:"jwksUri"`
-	// Pretty name of app.
+	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// The type of Idp-Initiated login that the client supports, if any
+	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
 	LoginMode pulumi.StringPtrOutput `pulumi:"loginMode"`
-	// List of scopes to use for the request
+	// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `loginMode` is NOT `DISABLED`.
 	LoginScopes pulumi.StringArrayOutput `pulumi:"loginScopes"`
-	// URI that initiates login.
+	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri pulumi.StringPtrOutput `pulumi:"loginUri"`
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrOutput `pulumi:"logoUri"`
-	// URL of the application's logo
+	// Direct link of application logo.
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
 	// Name of the claim that will be used in the token.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
+	// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
 	OmitSecret pulumi.BoolPtrOutput `pulumi:"omitSecret"`
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+	// Require Proof Key for Code Exchange (PKCE) for
+	// additional verification.  If `pkceRequired` isn't specified when adding a new
+	// application, Okta sets it to `true` by default for `"browser"` and `"native"`
+	// application types.
+	// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired pulumi.BoolPtrOutput `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrOutput `pulumi:"policyUri"`
-	// List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
+	// List of URIs for redirection after logout.
 	PostLogoutRedirectUris pulumi.StringArrayOutput `pulumi:"postLogoutRedirectUris"`
-	// Custom JSON that represents an OAuth application's profile
+	// Custom JSON that represents an OAuth application's profile.
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
-	// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
+	// List of URIs for use in the redirect-based flow. This is required for all application types except service.
 	RedirectUris pulumi.StringArrayOutput `pulumi:"redirectUris"`
-	// *Early Access Property* Grace period for token rotation
+	// Grace period for token rotation. Valid values: 0 to 60 seconds.
 	RefreshTokenLeeway pulumi.IntPtrOutput `pulumi:"refreshTokenLeeway"`
-	// *Early Access Property* Refresh token rotation behavior
+	// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
 	RefreshTokenRotation pulumi.StringPtrOutput `pulumi:"refreshTokenRotation"`
-	// List of OAuth 2.0 response type strings.
+	// List of OAuth 2.0 response type strings. Array
+	// values of `"code"`, `"token"`, `"idToken"`. The `grantTypes` and `responseTypes`
+	// values described are partially orthogonal, as they refer to arguments
+	// passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+	// However, they are related in that the `grantTypes` available to a client
+	// influence the `responseTypes` that the client is allowed to use, and vice versa.
+	// For instance, a grantTypes value that includes authorizationCode implies a
+	// `responseTypes` value that includes code, as both values are defined as part of
+	// the OAuth 2.0 authorization code grant.
+	// See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
 	ResponseTypes pulumi.StringArrayOutput `pulumi:"responseTypes"`
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Status of application.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Requested authentication method for the token endpoint.
+	// Requested authentication method for
+	// the token endpoint. It can be set to `"none"`, `"clientSecretPost"`,
+	// `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.  Use
+	// `pkceRequired` to require PKCE for your confidential clients using the
+	// Authorization Code flow. If `"tokenEndpointAuthMethod"` is `"none"`,
+	// `pkceRequired` needs to be `true`. If `pkceRequired` isn't specified when
+	// adding a new application, Okta sets it to `true` by default for `"browser"` and
+	// `"native"` application types.
+	// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	TokenEndpointAuthMethod pulumi.StringPtrOutput `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrOutput `pulumi:"tosUri"`
-	// Groups claim type.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
-	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
 	WildcardRedirect pulumi.StringPtrOutput `pulumi:"wildcardRedirect"`
 }
 
@@ -160,206 +325,266 @@ func GetOAuth(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OAuth resources.
 type oauthState struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
-	// Application settings in JSON format
+	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
-	// Id of this apps authentication policy
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
-	// Requested key rotation mode.
+	// Requested key rotation mode.  If
+	// `autoKeyRotation` isn't specified, the client automatically opts in for Okta's
+	// key rotation. You can update this property via the API or via the administrator
+	// UI.
+	// See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// OAuth client secret key, this can be set when token*endpoint*auth*method is client*secret_basic.
+	// OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
 	ClientBasicSecret *string `pulumi:"clientBasicSecret"`
-	// OAuth client ID. If set during creation, app is created with this id.
+	// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientId *string `pulumi:"clientId"`
-	// OAuth client secret key. This will be in plain text in your statefile unless you set omitSecret above.
+	// The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientSecret *string `pulumi:"clientSecret"`
 	// URI to a web page providing information about the client.
 	ClientUri *string `pulumi:"clientUri"`
-	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod *string `pulumi:"consentMethod"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
+	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"interactionCode"` (*OIE only*).
 	GrantTypes []string `pulumi:"grantTypes"`
-	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
-	// *Early Access Property*. Enable Federation Broker Mode.
+	// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
-	// Issuer mode inherited from OAuth App
-	IssuerMode *string    `pulumi:"issuerMode"`
-	Jwks       []OAuthJwk `pulumi:"jwks"`
-	// URL reference to JWKS
+	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+	IssuerMode *string `pulumi:"issuerMode"`
+	// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
+	Jwks []OAuthJwk `pulumi:"jwks"`
+	// URL of the custom authorization server's JSON Web Key Set document.
 	JwksUri *string `pulumi:"jwksUri"`
-	// Pretty name of app.
+	// The Application's display name.
 	Label *string `pulumi:"label"`
-	// The type of Idp-Initiated login that the client supports, if any
+	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
 	LoginMode *string `pulumi:"loginMode"`
-	// List of scopes to use for the request
+	// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `loginMode` is NOT `DISABLED`.
 	LoginScopes []string `pulumi:"loginScopes"`
-	// URI that initiates login.
+	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri *string `pulumi:"loginUri"`
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// URI that references a logo for the client.
 	LogoUri *string `pulumi:"logoUri"`
-	// URL of the application's logo
+	// Direct link of application logo.
 	LogoUrl *string `pulumi:"logoUrl"`
 	// Name of the claim that will be used in the token.
 	Name *string `pulumi:"name"`
-	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
+	// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
 	OmitSecret *bool `pulumi:"omitSecret"`
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+	// Require Proof Key for Code Exchange (PKCE) for
+	// additional verification.  If `pkceRequired` isn't specified when adding a new
+	// application, Okta sets it to `true` by default for `"browser"` and `"native"`
+	// application types.
+	// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired *bool `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
-	// List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
+	// List of URIs for redirection after logout.
 	PostLogoutRedirectUris []string `pulumi:"postLogoutRedirectUris"`
-	// Custom JSON that represents an OAuth application's profile
+	// Custom JSON that represents an OAuth application's profile.
 	Profile *string `pulumi:"profile"`
-	// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
+	// List of URIs for use in the redirect-based flow. This is required for all application types except service.
 	RedirectUris []string `pulumi:"redirectUris"`
-	// *Early Access Property* Grace period for token rotation
+	// Grace period for token rotation. Valid values: 0 to 60 seconds.
 	RefreshTokenLeeway *int `pulumi:"refreshTokenLeeway"`
-	// *Early Access Property* Refresh token rotation behavior
+	// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
 	RefreshTokenRotation *string `pulumi:"refreshTokenRotation"`
-	// List of OAuth 2.0 response type strings.
+	// List of OAuth 2.0 response type strings. Array
+	// values of `"code"`, `"token"`, `"idToken"`. The `grantTypes` and `responseTypes`
+	// values described are partially orthogonal, as they refer to arguments
+	// passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+	// However, they are related in that the `grantTypes` available to a client
+	// influence the `responseTypes` that the client is allowed to use, and vice versa.
+	// For instance, a grantTypes value that includes authorizationCode implies a
+	// `responseTypes` value that includes code, as both values are defined as part of
+	// the OAuth 2.0 authorization code grant.
+	// See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
 	ResponseTypes []string `pulumi:"responseTypes"`
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Status of application.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Requested authentication method for the token endpoint.
+	// Requested authentication method for
+	// the token endpoint. It can be set to `"none"`, `"clientSecretPost"`,
+	// `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.  Use
+	// `pkceRequired` to require PKCE for your confidential clients using the
+	// Authorization Code flow. If `"tokenEndpointAuthMethod"` is `"none"`,
+	// `pkceRequired` needs to be `true`. If `pkceRequired` isn't specified when
+	// adding a new application, Okta sets it to `true` by default for `"browser"` and
+	// `"native"` application types.
+	// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
-	// Groups claim type.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
 	Type *string `pulumi:"type"`
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
 	WildcardRedirect *string `pulumi:"wildcardRedirect"`
 }
 
 type OAuthState struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
-	// Application settings in JSON format
+	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
-	// Id of this apps authentication policy
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 	AuthenticationPolicy pulumi.StringPtrInput
-	// Requested key rotation mode.
+	// Requested key rotation mode.  If
+	// `autoKeyRotation` isn't specified, the client automatically opts in for Okta's
+	// key rotation. You can update this property via the API or via the administrator
+	// UI.
+	// See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	AutoKeyRotation pulumi.BoolPtrInput
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// OAuth client secret key, this can be set when token*endpoint*auth*method is client*secret_basic.
+	// OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
 	ClientBasicSecret pulumi.StringPtrInput
-	// OAuth client ID. If set during creation, app is created with this id.
+	// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientId pulumi.StringPtrInput
-	// OAuth client secret key. This will be in plain text in your statefile unless you set omitSecret above.
+	// The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientSecret pulumi.StringPtrInput
 	// URI to a web page providing information about the client.
 	ClientUri pulumi.StringPtrInput
-	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
+	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"interactionCode"` (*OIE only*).
 	GrantTypes pulumi.StringArrayInput
-	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
 	GroupsClaim OAuthGroupsClaimPtrInput
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
-	// *Early Access Property*. Enable Federation Broker Mode.
+	// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment pulumi.BoolPtrInput
-	// Issuer mode inherited from OAuth App
+	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode pulumi.StringPtrInput
-	Jwks       OAuthJwkArrayInput
-	// URL reference to JWKS
+	// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
+	Jwks OAuthJwkArrayInput
+	// URL of the custom authorization server's JSON Web Key Set document.
 	JwksUri pulumi.StringPtrInput
-	// Pretty name of app.
+	// The Application's display name.
 	Label pulumi.StringPtrInput
-	// The type of Idp-Initiated login that the client supports, if any
+	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
 	LoginMode pulumi.StringPtrInput
-	// List of scopes to use for the request
+	// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `loginMode` is NOT `DISABLED`.
 	LoginScopes pulumi.StringArrayInput
-	// URI that initiates login.
+	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri pulumi.StringPtrInput
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrInput
-	// URL of the application's logo
+	// Direct link of application logo.
 	LogoUrl pulumi.StringPtrInput
 	// Name of the claim that will be used in the token.
 	Name pulumi.StringPtrInput
-	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
+	// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
 	OmitSecret pulumi.BoolPtrInput
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+	// Require Proof Key for Code Exchange (PKCE) for
+	// additional verification.  If `pkceRequired` isn't specified when adding a new
+	// application, Okta sets it to `true` by default for `"browser"` and `"native"`
+	// application types.
+	// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
-	// List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
+	// List of URIs for redirection after logout.
 	PostLogoutRedirectUris pulumi.StringArrayInput
-	// Custom JSON that represents an OAuth application's profile
+	// Custom JSON that represents an OAuth application's profile.
 	Profile pulumi.StringPtrInput
-	// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
+	// List of URIs for use in the redirect-based flow. This is required for all application types except service.
 	RedirectUris pulumi.StringArrayInput
-	// *Early Access Property* Grace period for token rotation
+	// Grace period for token rotation. Valid values: 0 to 60 seconds.
 	RefreshTokenLeeway pulumi.IntPtrInput
-	// *Early Access Property* Refresh token rotation behavior
+	// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
 	RefreshTokenRotation pulumi.StringPtrInput
-	// List of OAuth 2.0 response type strings.
+	// List of OAuth 2.0 response type strings. Array
+	// values of `"code"`, `"token"`, `"idToken"`. The `grantTypes` and `responseTypes`
+	// values described are partially orthogonal, as they refer to arguments
+	// passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+	// However, they are related in that the `grantTypes` available to a client
+	// influence the `responseTypes` that the client is allowed to use, and vice versa.
+	// For instance, a grantTypes value that includes authorizationCode implies a
+	// `responseTypes` value that includes code, as both values are defined as part of
+	// the OAuth 2.0 authorization code grant.
+	// See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
 	ResponseTypes pulumi.StringArrayInput
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Status of application.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Requested authentication method for the token endpoint.
+	// Requested authentication method for
+	// the token endpoint. It can be set to `"none"`, `"clientSecretPost"`,
+	// `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.  Use
+	// `pkceRequired` to require PKCE for your confidential clients using the
+	// Authorization Code flow. If `"tokenEndpointAuthMethod"` is `"none"`,
+	// `pkceRequired` needs to be `true`. If `pkceRequired` isn't specified when
+	// adding a new application, Okta sets it to `true` by default for `"browser"` and
+	// `"native"` application types.
+	// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	TokenEndpointAuthMethod pulumi.StringPtrInput
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
-	// Groups claim type.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
 	Type pulumi.StringPtrInput
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus pulumi.StringPtrInput
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
-	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
 	WildcardRedirect pulumi.StringPtrInput
 }
 
@@ -368,191 +593,251 @@ func (OAuthState) ElementType() reflect.Type {
 }
 
 type oauthArgs struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
-	// Application settings in JSON format
+	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
-	// Id of this apps authentication policy
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
-	// Requested key rotation mode.
+	// Requested key rotation mode.  If
+	// `autoKeyRotation` isn't specified, the client automatically opts in for Okta's
+	// key rotation. You can update this property via the API or via the administrator
+	// UI.
+	// See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// OAuth client secret key, this can be set when token*endpoint*auth*method is client*secret_basic.
+	// OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
 	ClientBasicSecret *string `pulumi:"clientBasicSecret"`
-	// OAuth client ID. If set during creation, app is created with this id.
+	// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientId *string `pulumi:"clientId"`
 	// URI to a web page providing information about the client.
 	ClientUri *string `pulumi:"clientUri"`
-	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod *string `pulumi:"consentMethod"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
+	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"interactionCode"` (*OIE only*).
 	GrantTypes []string `pulumi:"grantTypes"`
-	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
-	// *Early Access Property*. Enable Federation Broker Mode.
+	// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
-	// Issuer mode inherited from OAuth App
-	IssuerMode *string    `pulumi:"issuerMode"`
-	Jwks       []OAuthJwk `pulumi:"jwks"`
-	// URL reference to JWKS
+	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+	IssuerMode *string `pulumi:"issuerMode"`
+	// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
+	Jwks []OAuthJwk `pulumi:"jwks"`
+	// URL of the custom authorization server's JSON Web Key Set document.
 	JwksUri *string `pulumi:"jwksUri"`
-	// Pretty name of app.
+	// The Application's display name.
 	Label string `pulumi:"label"`
-	// The type of Idp-Initiated login that the client supports, if any
+	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
 	LoginMode *string `pulumi:"loginMode"`
-	// List of scopes to use for the request
+	// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `loginMode` is NOT `DISABLED`.
 	LoginScopes []string `pulumi:"loginScopes"`
-	// URI that initiates login.
+	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri *string `pulumi:"loginUri"`
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// URI that references a logo for the client.
 	LogoUri *string `pulumi:"logoUri"`
-	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
+	// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
 	OmitSecret *bool `pulumi:"omitSecret"`
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+	// Require Proof Key for Code Exchange (PKCE) for
+	// additional verification.  If `pkceRequired` isn't specified when adding a new
+	// application, Okta sets it to `true` by default for `"browser"` and `"native"`
+	// application types.
+	// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired *bool `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
-	// List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
+	// List of URIs for redirection after logout.
 	PostLogoutRedirectUris []string `pulumi:"postLogoutRedirectUris"`
-	// Custom JSON that represents an OAuth application's profile
+	// Custom JSON that represents an OAuth application's profile.
 	Profile *string `pulumi:"profile"`
-	// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
+	// List of URIs for use in the redirect-based flow. This is required for all application types except service.
 	RedirectUris []string `pulumi:"redirectUris"`
-	// *Early Access Property* Grace period for token rotation
+	// Grace period for token rotation. Valid values: 0 to 60 seconds.
 	RefreshTokenLeeway *int `pulumi:"refreshTokenLeeway"`
-	// *Early Access Property* Refresh token rotation behavior
+	// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
 	RefreshTokenRotation *string `pulumi:"refreshTokenRotation"`
-	// List of OAuth 2.0 response type strings.
+	// List of OAuth 2.0 response type strings. Array
+	// values of `"code"`, `"token"`, `"idToken"`. The `grantTypes` and `responseTypes`
+	// values described are partially orthogonal, as they refer to arguments
+	// passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+	// However, they are related in that the `grantTypes` available to a client
+	// influence the `responseTypes` that the client is allowed to use, and vice versa.
+	// For instance, a grantTypes value that includes authorizationCode implies a
+	// `responseTypes` value that includes code, as both values are defined as part of
+	// the OAuth 2.0 authorization code grant.
+	// See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
 	ResponseTypes []string `pulumi:"responseTypes"`
-	// Status of application.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Requested authentication method for the token endpoint.
+	// Requested authentication method for
+	// the token endpoint. It can be set to `"none"`, `"clientSecretPost"`,
+	// `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.  Use
+	// `pkceRequired` to require PKCE for your confidential clients using the
+	// Authorization Code flow. If `"tokenEndpointAuthMethod"` is `"none"`,
+	// `pkceRequired` needs to be `true`. If `pkceRequired` isn't specified when
+	// adding a new application, Okta sets it to `true` by default for `"browser"` and
+	// `"native"` application types.
+	// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
-	// Groups claim type.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
 	Type string `pulumi:"type"`
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
 	WildcardRedirect *string `pulumi:"wildcardRedirect"`
 }
 
 // The set of arguments for constructing a OAuth resource.
 type OAuthArgs struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
-	// Application settings in JSON format
+	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
-	// Id of this apps authentication policy
+	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 	AuthenticationPolicy pulumi.StringPtrInput
-	// Requested key rotation mode.
+	// Requested key rotation mode.  If
+	// `autoKeyRotation` isn't specified, the client automatically opts in for Okta's
+	// key rotation. You can update this property via the API or via the administrator
+	// UI.
+	// See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	AutoKeyRotation pulumi.BoolPtrInput
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// OAuth client secret key, this can be set when token*endpoint*auth*method is client*secret_basic.
+	// OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
 	ClientBasicSecret pulumi.StringPtrInput
-	// OAuth client ID. If set during creation, app is created with this id.
+	// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientId pulumi.StringPtrInput
 	// URI to a web page providing information about the client.
 	ClientUri pulumi.StringPtrInput
-	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+	// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 	ConsentMethod pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
+	// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"interactionCode"` (*OIE only*).
 	GrantTypes pulumi.StringArrayInput
-	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+	// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
 	GroupsClaim OAuthGroupsClaimPtrInput
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
-	// *Early Access Property*. Enable Federation Broker Mode.
+	// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 	ImplicitAssignment pulumi.BoolPtrInput
-	// Issuer mode inherited from OAuth App
+	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode pulumi.StringPtrInput
-	Jwks       OAuthJwkArrayInput
-	// URL reference to JWKS
+	// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
+	Jwks OAuthJwkArrayInput
+	// URL of the custom authorization server's JSON Web Key Set document.
 	JwksUri pulumi.StringPtrInput
-	// Pretty name of app.
+	// The Application's display name.
 	Label pulumi.StringInput
-	// The type of Idp-Initiated login that the client supports, if any
+	// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
 	LoginMode pulumi.StringPtrInput
-	// List of scopes to use for the request
+	// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `loginMode` is NOT `DISABLED`.
 	LoginScopes pulumi.StringArrayInput
-	// URI that initiates login.
+	// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 	LoginUri pulumi.StringPtrInput
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrInput
-	// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
+	// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
 	OmitSecret pulumi.BoolPtrInput
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+	// Require Proof Key for Code Exchange (PKCE) for
+	// additional verification.  If `pkceRequired` isn't specified when adding a new
+	// application, Okta sets it to `true` by default for `"browser"` and `"native"`
+	// application types.
+	// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
-	// List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
+	// List of URIs for redirection after logout.
 	PostLogoutRedirectUris pulumi.StringArrayInput
-	// Custom JSON that represents an OAuth application's profile
+	// Custom JSON that represents an OAuth application's profile.
 	Profile pulumi.StringPtrInput
-	// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
+	// List of URIs for use in the redirect-based flow. This is required for all application types except service.
 	RedirectUris pulumi.StringArrayInput
-	// *Early Access Property* Grace period for token rotation
+	// Grace period for token rotation. Valid values: 0 to 60 seconds.
 	RefreshTokenLeeway pulumi.IntPtrInput
-	// *Early Access Property* Refresh token rotation behavior
+	// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
 	RefreshTokenRotation pulumi.StringPtrInput
-	// List of OAuth 2.0 response type strings.
+	// List of OAuth 2.0 response type strings. Array
+	// values of `"code"`, `"token"`, `"idToken"`. The `grantTypes` and `responseTypes`
+	// values described are partially orthogonal, as they refer to arguments
+	// passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+	// However, they are related in that the `grantTypes` available to a client
+	// influence the `responseTypes` that the client is allowed to use, and vice versa.
+	// For instance, a grantTypes value that includes authorizationCode implies a
+	// `responseTypes` value that includes code, as both values are defined as part of
+	// the OAuth 2.0 authorization code grant.
+	// See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
 	ResponseTypes pulumi.StringArrayInput
-	// Status of application.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Requested authentication method for the token endpoint.
+	// Requested authentication method for
+	// the token endpoint. It can be set to `"none"`, `"clientSecretPost"`,
+	// `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.  Use
+	// `pkceRequired` to require PKCE for your confidential clients using the
+	// Authorization Code flow. If `"tokenEndpointAuthMethod"` is `"none"`,
+	// `pkceRequired` needs to be `true`. If `pkceRequired` isn't specified when
+	// adding a new application, Okta sets it to `true` by default for `"browser"` and
+	// `"native"` application types.
+	// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	TokenEndpointAuthMethod pulumi.StringPtrInput
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
-	// Groups claim type.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
 	Type pulumi.StringInput
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus pulumi.StringPtrInput
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
-	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
 	WildcardRedirect pulumi.StringPtrInput
 }
 
@@ -643,17 +928,17 @@ func (o OAuthOutput) ToOAuthOutputWithContext(ctx context.Context) OAuthOutput {
 	return o
 }
 
-// Custom error page URL
+// Custom error page URL.
 func (o OAuthOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// Custom login page URL
+// Custom login page for this application.
 func (o OAuthOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// Enable self service
+// Enable self-service. By default, it is `false`.
 func (o OAuthOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
 }
@@ -663,42 +948,46 @@ func (o OAuthOutput) AdminNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
 }
 
-// Displays specific appLinks for the app
+// Displays specific appLinks for the app. The value for each application link should be boolean.
 func (o OAuthOutput) AppLinksJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
 }
 
-// Application settings in JSON format
+// Application settings in JSON format.
 func (o OAuthOutput) AppSettingsJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.AppSettingsJson }).(pulumi.StringPtrOutput)
 }
 
-// Id of this apps authentication policy
+// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 func (o OAuthOutput) AuthenticationPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.AuthenticationPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Requested key rotation mode.
+// Requested key rotation mode.  If
+// `autoKeyRotation` isn't specified, the client automatically opts in for Okta's
+// key rotation. You can update this property via the API or via the administrator
+// UI.
+// See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 func (o OAuthOutput) AutoKeyRotation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.AutoKeyRotation }).(pulumi.BoolPtrOutput)
 }
 
-// Display auto submit toolbar
+// Display auto submit toolbar.
 func (o OAuthOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
 }
 
-// OAuth client secret key, this can be set when token*endpoint*auth*method is client*secret_basic.
+// OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
 func (o OAuthOutput) ClientBasicSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.ClientBasicSecret }).(pulumi.StringPtrOutput)
 }
 
-// OAuth client ID. If set during creation, app is created with this id.
+// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 func (o OAuthOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// OAuth client secret key. This will be in plain text in your statefile unless you set omitSecret above.
+// The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 func (o OAuthOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
 }
@@ -708,7 +997,7 @@ func (o OAuthOutput) ClientUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.ClientUri }).(pulumi.StringPtrOutput)
 }
 
-// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+// Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
 func (o OAuthOutput) ConsentMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.ConsentMethod }).(pulumi.StringPtrOutput)
 }
@@ -718,66 +1007,71 @@ func (o OAuthOutput) EnduserNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
 }
 
-// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+// List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
+// Defaults to minimum requirements per app type. Valid values: `"authorizationCode"`, `"implicit"`, `"password"`, `"refreshToken"`, `"clientCredentials"`,
+// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+// `"interactionCode"` (*OIE only*).
 func (o OAuthOutput) GrantTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.GrantTypes }).(pulumi.StringArrayOutput)
 }
 
-// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+// Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
 func (o OAuthOutput) GroupsClaim() OAuthGroupsClaimPtrOutput {
 	return o.ApplyT(func(v *OAuth) OAuthGroupsClaimPtrOutput { return v.GroupsClaim }).(OAuthGroupsClaimPtrOutput)
 }
 
-// Do not display application icon on mobile app
+// Do not display application icon on mobile app.
 func (o OAuthOutput) HideIos() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
 }
 
-// Do not display application icon to users
+// Do not display application icon to users.
 func (o OAuthOutput) HideWeb() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
 }
 
-// *Early Access Property*. Enable Federation Broker Mode.
+// *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
 func (o OAuthOutput) ImplicitAssignment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.ImplicitAssignment }).(pulumi.BoolPtrOutput)
 }
 
-// Issuer mode inherited from OAuth App
+// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 func (o OAuthOutput) IssuerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
 }
 
+// JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
 func (o OAuthOutput) Jwks() OAuthJwkArrayOutput {
 	return o.ApplyT(func(v *OAuth) OAuthJwkArrayOutput { return v.Jwks }).(OAuthJwkArrayOutput)
 }
 
-// URL reference to JWKS
+// URL of the custom authorization server's JSON Web Key Set document.
 func (o OAuthOutput) JwksUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.JwksUri }).(pulumi.StringPtrOutput)
 }
 
-// Pretty name of app.
+// The Application's display name.
 func (o OAuthOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
 }
 
-// The type of Idp-Initiated login that the client supports, if any
+// The type of Idp-Initiated login that the client supports, if any. Valid values: `"DISABLED"`, `"SPEC"`, `"OKTA"`. Default is `"DISABLED"`.
 func (o OAuthOutput) LoginMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.LoginMode }).(pulumi.StringPtrOutput)
 }
 
-// List of scopes to use for the request
+// List of scopes to use for the request. Valid values: `"openid"`, `"profile"`, `"email"`, `"address"`, `"phone"`. Required when `loginMode` is NOT `DISABLED`.
 func (o OAuthOutput) LoginScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.LoginScopes }).(pulumi.StringArrayOutput)
 }
 
-// URI that initiates login.
+// URI that initiates login. Required when `loginMode` is NOT `DISABLED`.
 func (o OAuthOutput) LoginUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.LoginUri }).(pulumi.StringPtrOutput)
 }
 
-// Local path to logo of the application.
+// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 func (o OAuthOutput) Logo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
 }
@@ -787,7 +1081,7 @@ func (o OAuthOutput) LogoUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.LogoUri }).(pulumi.StringPtrOutput)
 }
 
-// URL of the application's logo
+// Direct link of application logo.
 func (o OAuthOutput) LogoUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
 }
@@ -797,12 +1091,16 @@ func (o OAuthOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// This tells the provider not to persist the application's secret to state. If this is ever changes from true => false your app will be recreated.
+// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
 func (o OAuthOutput) OmitSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.OmitSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+// Require Proof Key for Code Exchange (PKCE) for
+// additional verification.  If `pkceRequired` isn't specified when adding a new
+// application, Okta sets it to `true` by default for `"browser"` and `"native"`
+// application types.
+// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 func (o OAuthOutput) PkceRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.PkceRequired }).(pulumi.BoolPtrOutput)
 }
@@ -812,47 +1110,64 @@ func (o OAuthOutput) PolicyUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.PolicyUri }).(pulumi.StringPtrOutput)
 }
 
-// List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
+// List of URIs for redirection after logout.
 func (o OAuthOutput) PostLogoutRedirectUris() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.PostLogoutRedirectUris }).(pulumi.StringArrayOutput)
 }
 
-// Custom JSON that represents an OAuth application's profile
+// Custom JSON that represents an OAuth application's profile.
 func (o OAuthOutput) Profile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
-// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
+// List of URIs for use in the redirect-based flow. This is required for all application types except service.
 func (o OAuthOutput) RedirectUris() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.RedirectUris }).(pulumi.StringArrayOutput)
 }
 
-// *Early Access Property* Grace period for token rotation
+// Grace period for token rotation. Valid values: 0 to 60 seconds.
 func (o OAuthOutput) RefreshTokenLeeway() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.IntPtrOutput { return v.RefreshTokenLeeway }).(pulumi.IntPtrOutput)
 }
 
-// *Early Access Property* Refresh token rotation behavior
+// Refresh token rotation behavior. Valid values: `"STATIC"` or `"ROTATE"`.
 func (o OAuthOutput) RefreshTokenRotation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.RefreshTokenRotation }).(pulumi.StringPtrOutput)
 }
 
-// List of OAuth 2.0 response type strings.
+// List of OAuth 2.0 response type strings. Array
+// values of `"code"`, `"token"`, `"idToken"`. The `grantTypes` and `responseTypes`
+// values described are partially orthogonal, as they refer to arguments
+// passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+// However, they are related in that the `grantTypes` available to a client
+// influence the `responseTypes` that the client is allowed to use, and vice versa.
+// For instance, a grantTypes value that includes authorizationCode implies a
+// `responseTypes` value that includes code, as both values are defined as part of
+// the OAuth 2.0 authorization code grant.
+// See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
 func (o OAuthOutput) ResponseTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.ResponseTypes }).(pulumi.StringArrayOutput)
 }
 
-// Sign on mode of application.
+// Sign-on mode of application.
 func (o OAuthOutput) SignOnMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
 }
 
-// Status of application.
+// The status of the application, by default, it is `"ACTIVE"`.
 func (o OAuthOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Requested authentication method for the token endpoint.
+// Requested authentication method for
+// the token endpoint. It can be set to `"none"`, `"clientSecretPost"`,
+// `"clientSecretBasic"`, `"clientSecretJwt"`, `"privateKeyJwt"`.  Use
+// `pkceRequired` to require PKCE for your confidential clients using the
+// Authorization Code flow. If `"tokenEndpointAuthMethod"` is `"none"`,
+// `pkceRequired` needs to be `true`. If `pkceRequired` isn't specified when
+// adding a new application, Okta sets it to `true` by default for `"browser"` and
+// `"native"` application types.
+// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 func (o OAuthOutput) TokenEndpointAuthMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.TokenEndpointAuthMethod }).(pulumi.StringPtrOutput)
 }
@@ -862,32 +1177,32 @@ func (o OAuthOutput) TosUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.TosUri }).(pulumi.StringPtrOutput)
 }
 
-// Groups claim type.
+// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
 func (o OAuthOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Username template
+// Username template. Default: `"${source.login}"`
 func (o OAuthOutput) UserNameTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
 }
 
-// Push username on update
+// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 func (o OAuthOutput) UserNameTemplatePushStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.UserNameTemplatePushStatus }).(pulumi.StringPtrOutput)
 }
 
-// Username template suffix
+// Username template suffix.
 func (o OAuthOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.UserNameTemplateSuffix }).(pulumi.StringPtrOutput)
 }
 
-// Username template type
+// Username template type. Default: `"BUILT_IN"`.
 func (o OAuthOutput) UserNameTemplateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
 }
 
-// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirectUris`. Valid values: `"DISABLED"`, `"SUBDOMAIN"`. Default value is `"DISABLED"`.
 func (o OAuthOutput) WildcardRedirect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.WildcardRedirect }).(pulumi.StringPtrOutput)
 }

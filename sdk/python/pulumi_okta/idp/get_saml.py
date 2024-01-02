@@ -68,9 +68,6 @@ class GetSamlResult:
     @property
     @pulumi.getter(name="acsBinding")
     def acs_binding(self) -> str:
-        """
-        ACS binding
-        """
         return pulumi.get(self, "acs_binding")
 
     @property
@@ -93,7 +90,7 @@ class GetSamlResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Id of idp.
+        id of idp.
         """
         return pulumi.get(self, "id")
 
@@ -109,7 +106,7 @@ class GetSamlResult:
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> str:
         """
-        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
+        indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -125,7 +122,7 @@ class GetSamlResult:
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the idp.
+        name of the idp.
         """
         return pulumi.get(self, "name")
 
@@ -133,7 +130,7 @@ class GetSamlResult:
     @pulumi.getter(name="ssoBinding")
     def sso_binding(self) -> str:
         """
-        Single sign-on binding.
+        single sign-on binding.
         """
         return pulumi.get(self, "sso_binding")
 
@@ -149,7 +146,7 @@ class GetSamlResult:
     @pulumi.getter(name="ssoUrl")
     def sso_url(self) -> str:
         """
-        Single sign-on url.
+        single sign-on url.
         """
         return pulumi.get(self, "sso_url")
 
@@ -157,7 +154,7 @@ class GetSamlResult:
     @pulumi.getter(name="subjectFilter")
     def subject_filter(self) -> str:
         """
-        Regular expression pattern used to filter untrusted IdP usernames.
+        regular expression pattern used to filter untrusted IdP usernames.
         """
         return pulumi.get(self, "subject_filter")
 
@@ -173,7 +170,7 @@ class GetSamlResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of idp.
+        type of idp.
         """
         return pulumi.get(self, "type")
 
@@ -204,7 +201,7 @@ def get_saml(id: Optional[str] = None,
              name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSamlResult:
     """
-    Get a SAML IdP from Okta.
+    Use this data source to retrieve a SAML IdP from Okta.
 
     ## Example Usage
 
@@ -216,8 +213,8 @@ def get_saml(id: Optional[str] = None,
     ```
 
 
-    :param str id: Id of idp.
-    :param str name: Name of the idp.
+    :param str id: The id of the idp to retrieve, conflicts with `name`.
+    :param str name: The name of the idp to retrieve, conflicts with `id`.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -247,7 +244,7 @@ def get_saml_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamlResult]:
     """
-    Get a SAML IdP from Okta.
+    Use this data source to retrieve a SAML IdP from Okta.
 
     ## Example Usage
 
@@ -259,7 +256,7 @@ def get_saml_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str id: Id of idp.
-    :param str name: Name of the idp.
+    :param str id: The id of the idp to retrieve, conflicts with `name`.
+    :param str name: The name of the idp to retrieve, conflicts with `id`.
     """
     ...

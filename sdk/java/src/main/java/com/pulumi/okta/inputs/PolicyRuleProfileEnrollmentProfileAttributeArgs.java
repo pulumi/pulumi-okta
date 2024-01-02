@@ -48,14 +48,14 @@ public final class PolicyRuleProfileEnrollmentProfileAttributeArgs extends com.p
     }
 
     /**
-     * Indicates if this property is required for enrollment
+     * Indicates if this property is required for enrollment. Default is `false`.
      * 
      */
     @Import(name="required")
     private @Nullable Output<Boolean> required;
 
     /**
-     * @return Indicates if this property is required for enrollment
+     * @return Indicates if this property is required for enrollment. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> required() {
@@ -131,7 +131,7 @@ public final class PolicyRuleProfileEnrollmentProfileAttributeArgs extends com.p
         }
 
         /**
-         * @param required Indicates if this property is required for enrollment
+         * @param required Indicates if this property is required for enrollment. Default is `false`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class PolicyRuleProfileEnrollmentProfileAttributeArgs extends com.p
         }
 
         /**
-         * @param required Indicates if this property is required for enrollment
+         * @param required Indicates if this property is required for enrollment. Default is `false`.
          * 
          * @return builder
          * 

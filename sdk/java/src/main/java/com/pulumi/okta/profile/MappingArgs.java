@@ -22,6 +22,10 @@ public final class MappingArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
      * 
+     * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+     * 
+     * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+     * 
      */
     @Import(name="alwaysApply")
     private @Nullable Output<Boolean> alwaysApply;
@@ -29,42 +33,54 @@ public final class MappingArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether apply the changes to all users with this profile after updating or creating the these mappings.
      * 
+     * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+     * 
+     * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+     * 
      */
     public Optional<Output<Boolean>> alwaysApply() {
         return Optional.ofNullable(this.alwaysApply);
     }
 
     /**
-     * When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
+     * Tells the provider whether to attempt to delete missing mappings under profile mapping.
      * 
      */
     @Import(name="deleteWhenAbsent")
     private @Nullable Output<Boolean> deleteWhenAbsent;
 
     /**
-     * @return When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
+     * @return Tells the provider whether to attempt to delete missing mappings under profile mapping.
      * 
      */
     public Optional<Output<Boolean>> deleteWhenAbsent() {
         return Optional.ofNullable(this.deleteWhenAbsent);
     }
 
+    /**
+     * Priority of the policy.
+     * 
+     */
     @Import(name="mappings")
     private @Nullable Output<List<MappingMappingArgs>> mappings;
 
+    /**
+     * @return Priority of the policy.
+     * 
+     */
     public Optional<Output<List<MappingMappingArgs>>> mappings() {
         return Optional.ofNullable(this.mappings);
     }
 
     /**
-     * The source id of the mapping to manage.
+     * Source id of the profile mapping.
      * 
      */
     @Import(name="sourceId", required=true)
     private Output<String> sourceId;
 
     /**
-     * @return The source id of the mapping to manage.
+     * @return Source id of the profile mapping.
      * 
      */
     public Output<String> sourceId() {
@@ -72,14 +88,14 @@ public final class MappingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The target id of the mapping to manage.
+     * ID of the mapping target.
      * 
      */
     @Import(name="targetId", required=true)
     private Output<String> targetId;
 
     /**
-     * @return The target id of the mapping to manage.
+     * @return ID of the mapping target.
      * 
      */
     public Output<String> targetId() {
@@ -117,6 +133,10 @@ public final class MappingArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param alwaysApply Whether apply the changes to all users with this profile after updating or creating the these mappings.
          * 
+         * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+         * 
+         * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+         * 
          * @return builder
          * 
          */
@@ -128,6 +148,10 @@ public final class MappingArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param alwaysApply Whether apply the changes to all users with this profile after updating or creating the these mappings.
          * 
+         * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+         * 
+         * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+         * 
          * @return builder
          * 
          */
@@ -136,7 +160,7 @@ public final class MappingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteWhenAbsent When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
+         * @param deleteWhenAbsent Tells the provider whether to attempt to delete missing mappings under profile mapping.
          * 
          * @return builder
          * 
@@ -147,7 +171,7 @@ public final class MappingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteWhenAbsent When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
+         * @param deleteWhenAbsent Tells the provider whether to attempt to delete missing mappings under profile mapping.
          * 
          * @return builder
          * 
@@ -156,21 +180,39 @@ public final class MappingArgs extends com.pulumi.resources.ResourceArgs {
             return deleteWhenAbsent(Output.of(deleteWhenAbsent));
         }
 
+        /**
+         * @param mappings Priority of the policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mappings(@Nullable Output<List<MappingMappingArgs>> mappings) {
             $.mappings = mappings;
             return this;
         }
 
+        /**
+         * @param mappings Priority of the policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mappings(List<MappingMappingArgs> mappings) {
             return mappings(Output.of(mappings));
         }
 
+        /**
+         * @param mappings Priority of the policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mappings(MappingMappingArgs... mappings) {
             return mappings(List.of(mappings));
         }
 
         /**
-         * @param sourceId The source id of the mapping to manage.
+         * @param sourceId Source id of the profile mapping.
          * 
          * @return builder
          * 
@@ -181,7 +223,7 @@ public final class MappingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceId The source id of the mapping to manage.
+         * @param sourceId Source id of the profile mapping.
          * 
          * @return builder
          * 
@@ -191,7 +233,7 @@ public final class MappingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetId The target id of the mapping to manage.
+         * @param targetId ID of the mapping target.
          * 
          * @return builder
          * 
@@ -202,7 +244,7 @@ public final class MappingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetId The target id of the mapping to manage.
+         * @param targetId ID of the mapping target.
          * 
          * @return builder
          * 

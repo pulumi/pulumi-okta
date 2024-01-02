@@ -24,7 +24,7 @@ public final class PolicyRuleProfileEnrollmentProfileAttribute {
      */
     private String name;
     /**
-     * @return Indicates if this property is required for enrollment
+     * @return Indicates if this property is required for enrollment. Default is `false`.
      * 
      */
     private @Nullable Boolean required;
@@ -45,7 +45,7 @@ public final class PolicyRuleProfileEnrollmentProfileAttribute {
         return this.name;
     }
     /**
-     * @return Indicates if this property is required for enrollment
+     * @return Indicates if this property is required for enrollment. Default is `false`.
      * 
      */
     public Optional<Boolean> required() {

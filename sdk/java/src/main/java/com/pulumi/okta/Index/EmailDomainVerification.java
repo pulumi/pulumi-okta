@@ -13,17 +13,64 @@ import com.pulumi.okta.Utilities;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Verifies the email domain. The resource won&#39;t be created if the email domain could not be verified.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.Index.EmailDomain;
+ * import com.pulumi.okta.Index.EmailDomainArgs;
+ * import com.pulumi.okta.Index.EmailDomainVerification;
+ * import com.pulumi.okta.Index.EmailDomainVerificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleEmailDomain = new EmailDomain(&#34;exampleEmailDomain&#34;, EmailDomainArgs.builder()        
+ *             .brandId(&#34;abc123&#34;)
+ *             .domain(&#34;example.com&#34;)
+ *             .displayName(&#34;test&#34;)
+ *             .userName(&#34;paul_atreides&#34;)
+ *             .build());
+ * 
+ *         var exampleEmailDomainVerification = new EmailDomainVerification(&#34;exampleEmailDomainVerification&#34;, EmailDomainVerificationArgs.builder()        
+ *             .emailDomainId(okta_email_domain.valid().id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * This resource does not support importing.
+ * 
+ */
 @ResourceType(type="okta:Index/emailDomainVerification:EmailDomainVerification")
 public class EmailDomainVerification extends com.pulumi.resources.CustomResource {
     /**
-     * Email domain ID
+     * Email domain ID.
      * 
      */
     @Export(name="emailDomainId", refs={String.class}, tree="[0]")
     private Output<String> emailDomainId;
 
     /**
-     * @return Email domain ID
+     * @return Email domain ID.
      * 
      */
     public Output<String> emailDomainId() {

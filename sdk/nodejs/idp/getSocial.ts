@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Get a social IdP from Okta.
+ * Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
  *
  * ## Example Usage
  *
@@ -90,9 +90,6 @@ export interface GetSocialResult {
      * Whitelist of Okta Group identifiers.
      */
     readonly groupsFilters: string[];
-    /**
-     * The id of the social idp to retrieve, conflicts with `name`.
-     */
     readonly id?: string;
     /**
      * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.
@@ -102,9 +99,6 @@ export interface GetSocialResult {
      * Maximum allowable clock-skew when processing messages from the IdP.
      */
     readonly maxClockSkew: number;
-    /**
-     * The name of the social idp to retrieve, conflicts with `id`.
-     */
     readonly name?: string;
     /**
      * Determines if the IdP should act as a source of truth for user profile attributes.
@@ -156,7 +150,7 @@ export interface GetSocialResult {
     readonly usernameTemplate: string;
 }
 /**
- * Get a social IdP from Okta.
+ * Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
  *
  * ## Example Usage
  *

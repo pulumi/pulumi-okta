@@ -14,8 +14,18 @@ namespace Pulumi.Okta.Index.Outputs
     public sealed class EmailDomainDnsValidationRecord
     {
         public readonly string? Expiration;
+        /// <summary>
+        /// DNS record name.
+        /// </summary>
         public readonly string? Fqdn;
+        /// <summary>
+        /// Record type can be TXT or cname.
+        /// </summary>
         public readonly string? RecordType;
+        /// <summary>
+        /// DNS record value
+        /// - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

@@ -46,10 +46,11 @@ class OAuthGroupsClaim(dict):
                  issuer_mode: Optional[str] = None):
         """
         :param str name: Name of the claim that will be used in the token.
-        :param str type: Groups claim type.
+        :param str type: The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         :param str value: Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
-        :param str filter_type: Groups claim filter. Can only be set if type is FILTER.
-        :param str issuer_mode: Issuer mode inherited from OAuth App
+        :param str filter_type: Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
+        :param str issuer_mode: Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+               Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -71,7 +72,7 @@ class OAuthGroupsClaim(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Groups claim type.
+        The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
         """
         return pulumi.get(self, "type")
 
@@ -87,7 +88,7 @@ class OAuthGroupsClaim(dict):
     @pulumi.getter(name="filterType")
     def filter_type(self) -> Optional[str]:
         """
-        Groups claim filter. Can only be set if type is FILTER.
+        Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
         """
         return pulumi.get(self, "filter_type")
 
@@ -95,7 +96,8 @@ class OAuthGroupsClaim(dict):
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> Optional[str]:
         """
-        Issuer mode inherited from OAuth App
+        Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+        Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -109,12 +111,6 @@ class OAuthJwk(dict):
                  n: Optional[str] = None,
                  x: Optional[str] = None,
                  y: Optional[str] = None):
-        """
-        :param str kid: Key ID
-        :param str kty: Key type
-        :param str e: RSA Exponent
-        :param str n: RSA Modulus
-        """
         pulumi.set(__self__, "kid", kid)
         pulumi.set(__self__, "kty", kty)
         if e is not None:
@@ -129,33 +125,21 @@ class OAuthJwk(dict):
     @property
     @pulumi.getter
     def kid(self) -> str:
-        """
-        Key ID
-        """
         return pulumi.get(self, "kid")
 
     @property
     @pulumi.getter
     def kty(self) -> str:
-        """
-        Key type
-        """
         return pulumi.get(self, "kty")
 
     @property
     @pulumi.getter
     def e(self) -> Optional[str]:
-        """
-        RSA Exponent
-        """
         return pulumi.get(self, "e")
 
     @property
     @pulumi.getter
     def n(self) -> Optional[str]:
-        """
-        RSA Modulus
-        """
         return pulumi.get(self, "n")
 
     @property
@@ -198,11 +182,12 @@ class SamlAttributeStatement(dict):
                  type: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
         """
-        :param str name: The reference name of the attribute statement
-        :param str filter_type: Type of group attribute filter
-        :param str filter_value: Filter value to use
-        :param str namespace: The name format of the attribute
-        :param str type: The type of attribute statements object
+        :param str name: The name of the attribute statement.
+        :param str filter_type: Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
+        :param str filter_value: Filter value to use.
+        :param str namespace: The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
+        :param str type: The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
+        :param Sequence[str] values: Array of values to use.
         """
         pulumi.set(__self__, "name", name)
         if filter_type is not None:
@@ -220,7 +205,7 @@ class SamlAttributeStatement(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The reference name of the attribute statement
+        The name of the attribute statement.
         """
         return pulumi.get(self, "name")
 
@@ -228,7 +213,7 @@ class SamlAttributeStatement(dict):
     @pulumi.getter(name="filterType")
     def filter_type(self) -> Optional[str]:
         """
-        Type of group attribute filter
+        Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
         """
         return pulumi.get(self, "filter_type")
 
@@ -236,7 +221,7 @@ class SamlAttributeStatement(dict):
     @pulumi.getter(name="filterValue")
     def filter_value(self) -> Optional[str]:
         """
-        Filter value to use
+        Filter value to use.
         """
         return pulumi.get(self, "filter_value")
 
@@ -244,7 +229,7 @@ class SamlAttributeStatement(dict):
     @pulumi.getter
     def namespace(self) -> Optional[str]:
         """
-        The name format of the attribute
+        The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
         """
         return pulumi.get(self, "namespace")
 
@@ -252,13 +237,16 @@ class SamlAttributeStatement(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of attribute statements object
+        The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
         """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
+        """
+        Array of values to use.
+        """
         return pulumi.get(self, "values")
 
 
@@ -296,6 +284,18 @@ class SamlKey(dict):
                  use: Optional[str] = None,
                  x5cs: Optional[Sequence[str]] = None,
                  x5t_s256: Optional[str] = None):
+        """
+        :param str created: Date created.
+        :param str e: RSA exponent.
+        :param str expires_at: Date the key expires.
+        :param str kid: Key ID.
+        :param str kty: Identifies the cryptographic algorithm family used with the key.
+        :param str last_updated: Date the key was last updated.
+        :param str n: RSA modulus.
+        :param str use: Intended use of the public key.
+        :param Sequence[str] x5cs: X.509 certificate chain.
+        :param str x5t_s256: X.509 certificate SHA-256 thumbprint.
+        """
         if created is not None:
             pulumi.set(__self__, "created", created)
         if e is not None:
@@ -320,51 +320,81 @@ class SamlKey(dict):
     @property
     @pulumi.getter
     def created(self) -> Optional[str]:
+        """
+        Date created.
+        """
         return pulumi.get(self, "created")
 
     @property
     @pulumi.getter
     def e(self) -> Optional[str]:
+        """
+        RSA exponent.
+        """
         return pulumi.get(self, "e")
 
     @property
     @pulumi.getter(name="expiresAt")
     def expires_at(self) -> Optional[str]:
+        """
+        Date the key expires.
+        """
         return pulumi.get(self, "expires_at")
 
     @property
     @pulumi.getter
     def kid(self) -> Optional[str]:
+        """
+        Key ID.
+        """
         return pulumi.get(self, "kid")
 
     @property
     @pulumi.getter
     def kty(self) -> Optional[str]:
+        """
+        Identifies the cryptographic algorithm family used with the key.
+        """
         return pulumi.get(self, "kty")
 
     @property
     @pulumi.getter(name="lastUpdated")
     def last_updated(self) -> Optional[str]:
+        """
+        Date the key was last updated.
+        """
         return pulumi.get(self, "last_updated")
 
     @property
     @pulumi.getter
     def n(self) -> Optional[str]:
+        """
+        RSA modulus.
+        """
         return pulumi.get(self, "n")
 
     @property
     @pulumi.getter
     def use(self) -> Optional[str]:
+        """
+        Intended use of the public key.
+        """
         return pulumi.get(self, "use")
 
     @property
     @pulumi.getter
     def x5cs(self) -> Optional[Sequence[str]]:
+        """
+        X.509 certificate chain.
+        """
         return pulumi.get(self, "x5cs")
 
     @property
     @pulumi.getter(name="x5tS256")
     def x5t_s256(self) -> Optional[str]:
+        """
+        X.509 certificate SHA-256 thumbprint.
+        """
         return pulumi.get(self, "x5t_s256")
 
 
@@ -377,6 +407,14 @@ class GetSamlAttributeStatementResult(dict):
                  namespace: str,
                  type: str,
                  values: Sequence[str]):
+        """
+        :param str filter_type: Type of group attribute filter.
+        :param str filter_value: Filter value to use.
+        :param str name: name of application.
+        :param str namespace: The attribute namespace.
+        :param str type: The type of attribute statement value.
+        :param Sequence[str] values: Array of values to use.
+        """
         pulumi.set(__self__, "filter_type", filter_type)
         pulumi.set(__self__, "filter_value", filter_value)
         pulumi.set(__self__, "name", name)
@@ -387,31 +425,49 @@ class GetSamlAttributeStatementResult(dict):
     @property
     @pulumi.getter(name="filterType")
     def filter_type(self) -> str:
+        """
+        Type of group attribute filter.
+        """
         return pulumi.get(self, "filter_type")
 
     @property
     @pulumi.getter(name="filterValue")
     def filter_value(self) -> str:
+        """
+        Filter value to use.
+        """
         return pulumi.get(self, "filter_value")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        name of application.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def namespace(self) -> str:
+        """
+        The attribute namespace.
+        """
         return pulumi.get(self, "namespace")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The type of attribute statement value.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        Array of values to use.
+        """
         return pulumi.get(self, "values")
 
 

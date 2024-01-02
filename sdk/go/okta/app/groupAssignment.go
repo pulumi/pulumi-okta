@@ -12,12 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// An application group assignment can be imported via the `app_id` and the `group_id`.
+//
+// ```sh
+//
+//	$ pulumi import okta:app/groupAssignment:GroupAssignment example &#60;app_id&#62;/&#60;group_id&#62;
+//
+// ```
 type GroupAssignment struct {
 	pulumi.CustomResourceState
 
-	// App to associate group with
+	// The ID of the application to assign a group to.
 	AppId pulumi.StringOutput `pulumi:"appId"`
-	// Group associated with the application
+	// The ID of the group to assign the app to.
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
 	// Priority of group assignment.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
@@ -63,9 +72,9 @@ func GetGroupAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupAssignment resources.
 type groupAssignmentState struct {
-	// App to associate group with
+	// The ID of the application to assign a group to.
 	AppId *string `pulumi:"appId"`
-	// Group associated with the application
+	// The ID of the group to assign the app to.
 	GroupId *string `pulumi:"groupId"`
 	// Priority of group assignment.
 	Priority *int `pulumi:"priority"`
@@ -76,9 +85,9 @@ type groupAssignmentState struct {
 }
 
 type GroupAssignmentState struct {
-	// App to associate group with
+	// The ID of the application to assign a group to.
 	AppId pulumi.StringPtrInput
-	// Group associated with the application
+	// The ID of the group to assign the app to.
 	GroupId pulumi.StringPtrInput
 	// Priority of group assignment.
 	Priority pulumi.IntPtrInput
@@ -93,9 +102,9 @@ func (GroupAssignmentState) ElementType() reflect.Type {
 }
 
 type groupAssignmentArgs struct {
-	// App to associate group with
+	// The ID of the application to assign a group to.
 	AppId string `pulumi:"appId"`
-	// Group associated with the application
+	// The ID of the group to assign the app to.
 	GroupId string `pulumi:"groupId"`
 	// Priority of group assignment.
 	Priority *int `pulumi:"priority"`
@@ -107,9 +116,9 @@ type groupAssignmentArgs struct {
 
 // The set of arguments for constructing a GroupAssignment resource.
 type GroupAssignmentArgs struct {
-	// App to associate group with
+	// The ID of the application to assign a group to.
 	AppId pulumi.StringInput
-	// Group associated with the application
+	// The ID of the group to assign the app to.
 	GroupId pulumi.StringInput
 	// Priority of group assignment.
 	Priority pulumi.IntPtrInput
@@ -206,12 +215,12 @@ func (o GroupAssignmentOutput) ToGroupAssignmentOutputWithContext(ctx context.Co
 	return o
 }
 
-// App to associate group with
+// The ID of the application to assign a group to.
 func (o GroupAssignmentOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupAssignment) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }
 
-// Group associated with the application
+// The ID of the group to assign the app to.
 func (o GroupAssignmentOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupAssignment) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }

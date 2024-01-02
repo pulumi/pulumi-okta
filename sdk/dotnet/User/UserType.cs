@@ -9,23 +9,55 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.User
 {
+    /// <summary>
+    /// Creates a User type.
+    /// 
+    /// This resource allows you to create and configure a User Type.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.User.UserType("example", new()
+    ///     {
+    ///         Description = "example",
+    ///         DisplayName = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// A User Type can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:user/userType:UserType example &amp;#60;user type id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:user/userType:UserType")]
     public partial class UserType : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A human-readable description of the User type
+        /// Description of the User Type.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The display name of the user type
+        /// Display Name of the User Type.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the user type
+        /// Name of the User Type.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -77,19 +109,19 @@ namespace Pulumi.Okta.User
     public sealed class UserTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A human-readable description of the User type
+        /// Description of the User Type.
         /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
-        /// The display name of the user type
+        /// Display Name of the User Type.
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the user type
+        /// Name of the User Type.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -103,19 +135,19 @@ namespace Pulumi.Okta.User
     public sealed class UserTypeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A human-readable description of the User type
+        /// Description of the User Type.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The display name of the user type
+        /// Display Name of the User Type.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Name of the user type
+        /// Name of the User Type.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

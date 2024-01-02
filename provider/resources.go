@@ -15,11 +15,13 @@
 package okta
 
 import (
+	"bytes"
 	"context"
 	"fmt"
 	"path/filepath"
 	"strings"
 	"unicode"
+
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
 
@@ -99,6 +101,9 @@ func Provider() tfbridge.ProviderInfo {
 		UpstreamRepoPath:  "./upstream",
 		Version:           version.Version,
 		TFProviderVersion: okta.OktaTerraformProviderVersion,
+		DocRules: &tfbridge.DocRuleInfo{
+			EditRules: editRules,
+		},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// App Resources
 			"okta_app_oauth":                          {Tok: makeResource(appMod, "OAuth")},
@@ -323,10 +328,18 @@ func Provider() tfbridge.ProviderInfo {
 		"okta_policy_device_assurance_macos",
 		"okta_policy_device_assurance_windows",
 	} {
-		prov.Resources[r].Docs = noDocs
+		prov.Resources[r].Docs = &tfbridge.DocInfo{AllowMissing: true}
 	}
 
 	return prov
 }
 
-var noDocs = &tfbridge.DocInfo{Markdown: []byte{' '}}
+func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
+	return append(defaults, tfbridge.DocsEdit{
+		Path: "*",
+		Edit: func(_ string, content []byte) ([]byte, error) {
+			b := bytes.ReplaceAll(content, []byte("terraform state"), []byte("pulumi state"))
+			return b, nil
+		},
+	})
+}

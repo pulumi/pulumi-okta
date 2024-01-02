@@ -36,7 +36,7 @@ class GetUserProfileMappingSourceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        ID of the source
+        id of the source.
         """
         return pulumi.get(self, "id")
 
@@ -44,7 +44,7 @@ class GetUserProfileMappingSourceResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of source.
+        name of source.
         """
         return pulumi.get(self, "name")
 
@@ -52,7 +52,7 @@ class GetUserProfileMappingSourceResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of source.
+        type of source.
         """
         return pulumi.get(self, "type")
 
@@ -70,10 +70,9 @@ class AwaitableGetUserProfileMappingSourceResult(GetUserProfileMappingSourceResu
 
 def get_user_profile_mapping_source(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserProfileMappingSourceResult:
     """
-    Get the base user Profile Mapping source or target from Okta.
+    Use this data source to retrieve the base user Profile Mapping source or target from Okta.
 
-    > **NOTE:** If using this resource with OAuth2 scopes, this resource
-    requires `okta.profileMappings.read` scope.
+    > **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
 
     ## Example Usage
 
@@ -97,10 +96,9 @@ def get_user_profile_mapping_source(opts: Optional[pulumi.InvokeOptions] = None)
 @_utilities.lift_output_func(get_user_profile_mapping_source)
 def get_user_profile_mapping_source_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserProfileMappingSourceResult]:
     """
-    Get the base user Profile Mapping source or target from Okta.
+    Use this data source to retrieve the base user Profile Mapping source or target from Okta.
 
-    > **NOTE:** If using this resource with OAuth2 scopes, this resource
-    requires `okta.profileMappings.read` scope.
+    > **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
 
     ## Example Usage
 

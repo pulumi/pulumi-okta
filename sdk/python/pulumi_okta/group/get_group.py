@@ -47,16 +47,13 @@ class GetGroupResult:
     @property
     @pulumi.getter(name="delayReadSeconds")
     def delay_read_seconds(self) -> Optional[str]:
-        """
-        Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
-        """
         return pulumi.get(self, "delay_read_seconds")
 
     @property
     @pulumi.getter
     def description(self) -> str:
         """
-        Description of group.
+        description of group.
         """
         return pulumi.get(self, "description")
 
@@ -71,29 +68,29 @@ class GetGroupResult:
     @property
     @pulumi.getter(name="includeUsers")
     def include_users(self) -> Optional[bool]:
-        """
-        Fetch group users, having default off cuts down on API calls.
-        """
         return pulumi.get(self, "include_users")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of group.
+        name of group.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        type of group.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def users(self) -> Sequence[str]:
         """
-        Users associated with the group. This can also be done per user.
+        user ids that are members of this group, only included if `include_users` is set to `true`.
         """
         return pulumi.get(self, "users")
 
@@ -120,7 +117,7 @@ def get_group(delay_read_seconds: Optional[str] = None,
               type: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
-    Get a group from Okta.
+    Use this data source to retrieve a group from Okta.
 
     ## Example Usage
 
@@ -133,9 +130,13 @@ def get_group(delay_read_seconds: Optional[str] = None,
 
 
     :param str delay_read_seconds: Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
-    :param str id: ID of group.
-    :param bool include_users: Fetch group users, having default off cuts down on API calls.
-    :param str name: Name of group.
+    :param str id: ID of the group. Conflicts with `"name"` and `"type"`.
+    :param bool include_users: whether to retrieve all member ids.
+    :param str name: name of group to retrieve. 
+           
+           > Okta API treats `name` as a starts with query. Therefore a name argument "My" will match any group starting with "My" such as "My Group" and "My Office"
+    :param str type: type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+           (Imported App Groups), or `BUILT_IN` (Okta System Groups).
     """
     __args__ = dict()
     __args__['delayReadSeconds'] = delay_read_seconds
@@ -164,7 +165,7 @@ def get_group_output(delay_read_seconds: Optional[pulumi.Input[Optional[str]]] =
                      type: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
-    Get a group from Okta.
+    Use this data source to retrieve a group from Okta.
 
     ## Example Usage
 
@@ -177,8 +178,12 @@ def get_group_output(delay_read_seconds: Optional[pulumi.Input[Optional[str]]] =
 
 
     :param str delay_read_seconds: Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
-    :param str id: ID of group.
-    :param bool include_users: Fetch group users, having default off cuts down on API calls.
-    :param str name: Name of group.
+    :param str id: ID of the group. Conflicts with `"name"` and `"type"`.
+    :param bool include_users: whether to retrieve all member ids.
+    :param str name: name of group to retrieve. 
+           
+           > Okta API treats `name` as a starts with query. Therefore a name argument "My" will match any group starting with "My" such as "My Group" and "My Office"
+    :param str type: type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+           (Imported App Groups), or `BUILT_IN` (Okta System Groups).
     """
     ...

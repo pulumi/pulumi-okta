@@ -11,8 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve the `Everyone` group from Okta. The
-// same can be achieved with the `group.Group` data
+// Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `group.Group` data
 // source with `name = "Everyone"`. This is simply a shortcut.
 //
 // ## Example Usage
@@ -50,18 +49,17 @@ func GetEveryoneGroup(ctx *pulumi.Context, args *GetEveryoneGroupArgs, opts ...p
 
 // A collection of arguments for invoking getEveryoneGroup.
 type GetEveryoneGroupArgs struct {
-	// Fetch group users, having default off cuts down on API calls.
+	// whether to retrieve all member ids.
 	IncludeUsers *bool `pulumi:"includeUsers"`
 }
 
 // A collection of values returned by getEveryoneGroup.
 type GetEveryoneGroupResult struct {
-	// Description of group.
+	// description of group.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Fetch group users, having default off cuts down on API calls.
-	IncludeUsers *bool `pulumi:"includeUsers"`
+	Id           string `pulumi:"id"`
+	IncludeUsers *bool  `pulumi:"includeUsers"`
 }
 
 func GetEveryoneGroupOutput(ctx *pulumi.Context, args GetEveryoneGroupOutputArgs, opts ...pulumi.InvokeOption) GetEveryoneGroupResultOutput {
@@ -79,7 +77,7 @@ func GetEveryoneGroupOutput(ctx *pulumi.Context, args GetEveryoneGroupOutputArgs
 
 // A collection of arguments for invoking getEveryoneGroup.
 type GetEveryoneGroupOutputArgs struct {
-	// Fetch group users, having default off cuts down on API calls.
+	// whether to retrieve all member ids.
 	IncludeUsers pulumi.BoolPtrInput `pulumi:"includeUsers"`
 }
 
@@ -102,7 +100,7 @@ func (o GetEveryoneGroupResultOutput) ToGetEveryoneGroupResultOutputWithContext(
 	return o
 }
 
-// Description of group.
+// description of group.
 func (o GetEveryoneGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEveryoneGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -112,7 +110,6 @@ func (o GetEveryoneGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEveryoneGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Fetch group users, having default off cuts down on API calls.
 func (o GetEveryoneGroupResultOutput) IncludeUsers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetEveryoneGroupResult) *bool { return v.IncludeUsers }).(pulumi.BoolPtrOutput)
 }

@@ -29,14 +29,14 @@ public final class GetEmailCustomizationPlainArgs extends com.pulumi.resources.I
     }
 
     /**
-     * The ID of the customization
+     * Customization ID
      * 
      */
     @Import(name="customizationId", required=true)
     private String customizationId;
 
     /**
-     * @return The ID of the customization
+     * @return Customization ID
      * 
      */
     public String customizationId() {
@@ -96,7 +96,7 @@ public final class GetEmailCustomizationPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param customizationId The ID of the customization
+         * @param customizationId Customization ID
          * 
          * @return builder
          * 

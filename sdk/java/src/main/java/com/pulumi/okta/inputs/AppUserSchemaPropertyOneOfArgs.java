@@ -15,14 +15,14 @@ public final class AppUserSchemaPropertyOneOfArgs extends com.pulumi.resources.R
     public static final AppUserSchemaPropertyOneOfArgs Empty = new AppUserSchemaPropertyOneOfArgs();
 
     /**
-     * Enum value
+     * value mapping to member of `array_enum`.
      * 
      */
     @Import(name="const", required=true)
     private Output<String> const_;
 
     /**
-     * @return Enum value
+     * @return value mapping to member of `array_enum`.
      * 
      */
     public Output<String> const_() {
@@ -30,14 +30,14 @@ public final class AppUserSchemaPropertyOneOfArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Enum title
+     * display name for the enum value.
      * 
      */
     @Import(name="title", required=true)
     private Output<String> title;
 
     /**
-     * @return Enum title
+     * @return display name for the enum value.
      * 
      */
     public Output<String> title() {
@@ -70,7 +70,7 @@ public final class AppUserSchemaPropertyOneOfArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param const_ Enum value
+         * @param const_ value mapping to member of `array_enum`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class AppUserSchemaPropertyOneOfArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param const_ Enum value
+         * @param const_ value mapping to member of `array_enum`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class AppUserSchemaPropertyOneOfArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param title Enum title
+         * @param title display name for the enum value.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class AppUserSchemaPropertyOneOfArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param title Enum title
+         * @param title display name for the enum value.
          * 
          * @return builder
          * 

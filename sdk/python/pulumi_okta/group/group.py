@@ -20,9 +20,9 @@ class GroupArgs:
                  skip_users: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Group resource.
-        :param pulumi.Input[str] custom_profile_attributes: JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
-        :param pulumi.Input[str] description: Group description
-        :param pulumi.Input[str] name: Group name
+        :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
+        :param pulumi.Input[str] description: The description of the Okta Group.
+        :param pulumi.Input[str] name: The name of the Okta Group.
         :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
         if custom_profile_attributes is not None:
@@ -41,7 +41,7 @@ class GroupArgs:
     @pulumi.getter(name="customProfileAttributes")
     def custom_profile_attributes(self) -> Optional[pulumi.Input[str]]:
         """
-        JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
+        raw JSON containing all custom profile attributes.
         """
         return pulumi.get(self, "custom_profile_attributes")
 
@@ -53,7 +53,7 @@ class GroupArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Group description
+        The description of the Okta Group.
         """
         return pulumi.get(self, "description")
 
@@ -65,7 +65,7 @@ class GroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Group name
+        The name of the Okta Group.
         """
         return pulumi.get(self, "name")
 
@@ -98,9 +98,9 @@ class _GroupState:
                  skip_users: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Group resources.
-        :param pulumi.Input[str] custom_profile_attributes: JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
-        :param pulumi.Input[str] description: Group description
-        :param pulumi.Input[str] name: Group name
+        :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
+        :param pulumi.Input[str] description: The description of the Okta Group.
+        :param pulumi.Input[str] name: The name of the Okta Group.
         :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
         if custom_profile_attributes is not None:
@@ -119,7 +119,7 @@ class _GroupState:
     @pulumi.getter(name="customProfileAttributes")
     def custom_profile_attributes(self) -> Optional[pulumi.Input[str]]:
         """
-        JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
+        raw JSON containing all custom profile attributes.
         """
         return pulumi.get(self, "custom_profile_attributes")
 
@@ -131,7 +131,7 @@ class _GroupState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Group description
+        The description of the Okta Group.
         """
         return pulumi.get(self, "description")
 
@@ -143,7 +143,7 @@ class _GroupState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Group name
+        The name of the Okta Group.
         """
         return pulumi.get(self, "name")
 
@@ -178,12 +178,47 @@ class Group(pulumi.CustomResource):
                  skip_users: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a Group resource with the given unique name, props, and options.
+        Creates an Okta Group.
+
+        This resource allows you to create and configure an Okta Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.group.Group("example", description="My Example Group")
+        ```
+
+        Custom profile attributes
+        ```python
+        import pulumi
+        import json
+        import pulumi_okta as okta
+
+        example = okta.group.Group("example",
+            description="My Example Group",
+            custom_profile_attributes=json.dumps({
+                "example1": "testing1234",
+                "example2": True,
+                "example3": 54321,
+            }))
+        ```
+
+        ## Import
+
+        An Okta Group can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:group/group:Group example &#60;group id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] custom_profile_attributes: JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
-        :param pulumi.Input[str] description: Group description
-        :param pulumi.Input[str] name: Group name
+        :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
+        :param pulumi.Input[str] description: The description of the Okta Group.
+        :param pulumi.Input[str] name: The name of the Okta Group.
         :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
         ...
@@ -193,7 +228,42 @@ class Group(pulumi.CustomResource):
                  args: Optional[GroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Group resource with the given unique name, props, and options.
+        Creates an Okta Group.
+
+        This resource allows you to create and configure an Okta Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.group.Group("example", description="My Example Group")
+        ```
+
+        Custom profile attributes
+        ```python
+        import pulumi
+        import json
+        import pulumi_okta as okta
+
+        example = okta.group.Group("example",
+            description="My Example Group",
+            custom_profile_attributes=json.dumps({
+                "example1": "testing1234",
+                "example2": True,
+                "example3": 54321,
+            }))
+        ```
+
+        ## Import
+
+        An Okta Group can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:group/group:Group example &#60;group id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -247,9 +317,9 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] custom_profile_attributes: JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
-        :param pulumi.Input[str] description: Group description
-        :param pulumi.Input[str] name: Group name
+        :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
+        :param pulumi.Input[str] description: The description of the Okta Group.
+        :param pulumi.Input[str] name: The name of the Okta Group.
         :param pulumi.Input[bool] skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -266,7 +336,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="customProfileAttributes")
     def custom_profile_attributes(self) -> pulumi.Output[Optional[str]]:
         """
-        JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
+        raw JSON containing all custom profile attributes.
         """
         return pulumi.get(self, "custom_profile_attributes")
 
@@ -274,7 +344,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Group description
+        The description of the Okta Group.
         """
         return pulumi.get(self, "description")
 
@@ -282,7 +352,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Group name
+        The name of the Okta Group.
         """
         return pulumi.get(self, "name")
 

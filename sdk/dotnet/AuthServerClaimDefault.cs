@@ -9,6 +9,44 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// Configures Default Authorization Server Claim.
+    /// 
+    /// This resource allows you to configure Default Authorization Server Claims.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.AuthServerClaimDefault("example", new()
+    ///     {
+    ///         AuthServerId = "&lt;auth server id&gt;",
+    ///         Value = "(appuser != null) ? appuser.userName : app.clientId",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Authorization Server Claim can be imported via the Auth Server ID and Claim ID or Claim Name.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim id&amp;#62;
+    /// ```
+    /// 
+    ///  or
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim name&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/authServerClaimDefault:AuthServerClaimDefault")]
     public partial class AuthServerClaimDefault : global::Pulumi.CustomResource
     {
@@ -19,25 +57,27 @@ namespace Pulumi.Okta
         public Output<bool> AlwaysIncludeInToken { get; private set; } = null!;
 
         /// <summary>
-        /// Auth server ID
+        /// ID of the authorization server.
         /// </summary>
         [Output("authServerId")]
         public Output<string> AuthServerId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+        /// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
         /// </summary>
         [Output("claimType")]
         public Output<string> ClaimType { get; private set; } = null!;
 
         /// <summary>
-        /// Default auth server claim name
+        /// The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
+        /// `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
+        /// `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Auth server claim list of scopes
+        /// The list of scopes the auth server claim is tied to.
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
@@ -49,7 +89,7 @@ namespace Pulumi.Okta
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the claim.
+        /// The value of the claim. Only required for `"sub"` claim.
         /// </summary>
         [Output("value")]
         public Output<string?> Value { get; private set; } = null!;
@@ -113,19 +153,21 @@ namespace Pulumi.Okta
         public Input<bool>? AlwaysIncludeInToken { get; set; }
 
         /// <summary>
-        /// Auth server ID
+        /// ID of the authorization server.
         /// </summary>
         [Input("authServerId", required: true)]
         public Input<string> AuthServerId { get; set; } = null!;
 
         /// <summary>
-        /// Default auth server claim name
+        /// The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
+        /// `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
+        /// `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The value of the claim.
+        /// The value of the claim. Only required for `"sub"` claim.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
@@ -145,19 +187,21 @@ namespace Pulumi.Okta
         public Input<bool>? AlwaysIncludeInToken { get; set; }
 
         /// <summary>
-        /// Auth server ID
+        /// ID of the authorization server.
         /// </summary>
         [Input("authServerId")]
         public Input<string>? AuthServerId { get; set; }
 
         /// <summary>
-        /// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+        /// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
         /// </summary>
         [Input("claimType")]
         public Input<string>? ClaimType { get; set; }
 
         /// <summary>
-        /// Default auth server claim name
+        /// The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
+        /// `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
+        /// `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -166,7 +210,7 @@ namespace Pulumi.Okta
         private InputList<string>? _scopes;
 
         /// <summary>
-        /// Auth server claim list of scopes
+        /// The list of scopes the auth server claim is tied to.
         /// </summary>
         public InputList<string> Scopes
         {
@@ -181,7 +225,7 @@ namespace Pulumi.Okta
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The value of the claim.
+        /// The value of the claim. Only required for `"sub"` claim.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

@@ -18,8 +18,9 @@ class FactorArgs:
                  active: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Factor resource.
-        :param pulumi.Input[str] provider_id: Factor provider ID
-        :param pulumi.Input[bool] active: Is this provider active?
+        :param pulumi.Input[str] provider_id: The MFA provider name.
+               Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_password"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"okta_email"`, `"rsa_token"`, `"symantec_vip"`, `"yubikey_token"`, or `"hotp"`.
+        :param pulumi.Input[bool] active: Whether to activate the provider, by default, it is set to `true`.
         """
         pulumi.set(__self__, "provider_id", provider_id)
         if active is not None:
@@ -29,7 +30,8 @@ class FactorArgs:
     @pulumi.getter(name="providerId")
     def provider_id(self) -> pulumi.Input[str]:
         """
-        Factor provider ID
+        The MFA provider name.
+        Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_password"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"okta_email"`, `"rsa_token"`, `"symantec_vip"`, `"yubikey_token"`, or `"hotp"`.
         """
         return pulumi.get(self, "provider_id")
 
@@ -41,7 +43,7 @@ class FactorArgs:
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is this provider active?
+        Whether to activate the provider, by default, it is set to `true`.
         """
         return pulumi.get(self, "active")
 
@@ -57,8 +59,9 @@ class _FactorState:
                  provider_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Factor resources.
-        :param pulumi.Input[bool] active: Is this provider active?
-        :param pulumi.Input[str] provider_id: Factor provider ID
+        :param pulumi.Input[bool] active: Whether to activate the provider, by default, it is set to `true`.
+        :param pulumi.Input[str] provider_id: The MFA provider name.
+               Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_password"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"okta_email"`, `"rsa_token"`, `"symantec_vip"`, `"yubikey_token"`, or `"hotp"`.
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
@@ -69,7 +72,7 @@ class _FactorState:
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is this provider active?
+        Whether to activate the provider, by default, it is set to `true`.
         """
         return pulumi.get(self, "active")
 
@@ -81,7 +84,8 @@ class _FactorState:
     @pulumi.getter(name="providerId")
     def provider_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Factor provider ID
+        The MFA provider name.
+        Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_password"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"okta_email"`, `"rsa_token"`, `"symantec_vip"`, `"yubikey_token"`, or `"hotp"`.
         """
         return pulumi.get(self, "provider_id")
 
@@ -99,11 +103,24 @@ class Factor(pulumi.CustomResource):
                  provider_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Factor resource with the given unique name, props, and options.
+        Allows you to manage the activation of Okta MFA methods.
+
+        This resource allows you to manage Okta MFA methods.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.factor.Factor("example", provider_id="google_otp")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] active: Is this provider active?
-        :param pulumi.Input[str] provider_id: Factor provider ID
+        :param pulumi.Input[bool] active: Whether to activate the provider, by default, it is set to `true`.
+        :param pulumi.Input[str] provider_id: The MFA provider name.
+               Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_password"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"okta_email"`, `"rsa_token"`, `"symantec_vip"`, `"yubikey_token"`, or `"hotp"`.
         """
         ...
     @overload
@@ -112,7 +129,19 @@ class Factor(pulumi.CustomResource):
                  args: FactorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Factor resource with the given unique name, props, and options.
+        Allows you to manage the activation of Okta MFA methods.
+
+        This resource allows you to manage Okta MFA methods.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.factor.Factor("example", provider_id="google_otp")
+        ```
+
         :param str resource_name: The name of the resource.
         :param FactorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,8 +191,9 @@ class Factor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] active: Is this provider active?
-        :param pulumi.Input[str] provider_id: Factor provider ID
+        :param pulumi.Input[bool] active: Whether to activate the provider, by default, it is set to `true`.
+        :param pulumi.Input[str] provider_id: The MFA provider name.
+               Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_password"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"okta_email"`, `"rsa_token"`, `"symantec_vip"`, `"yubikey_token"`, or `"hotp"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -177,7 +207,7 @@ class Factor(pulumi.CustomResource):
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is this provider active?
+        Whether to activate the provider, by default, it is set to `true`.
         """
         return pulumi.get(self, "active")
 
@@ -185,7 +215,8 @@ class Factor(pulumi.CustomResource):
     @pulumi.getter(name="providerId")
     def provider_id(self) -> pulumi.Output[str]:
         """
-        Factor provider ID
+        The MFA provider name.
+        Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_password"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"okta_email"`, `"rsa_token"`, `"symantec_vip"`, `"yubikey_token"`, or `"hotp"`.
         """
         return pulumi.get(self, "provider_id")
 

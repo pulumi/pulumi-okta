@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get a social IdP from Okta.
+// Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
 //
 // ## Example Usage
 //
@@ -80,14 +80,12 @@ type LookupSocialResult struct {
 	GroupsAttribute string `pulumi:"groupsAttribute"`
 	// Whitelist of Okta Group identifiers.
 	GroupsFilters []string `pulumi:"groupsFilters"`
-	// The id of the social idp to retrieve, conflicts with `name`.
-	Id *string `pulumi:"id"`
+	Id            *string  `pulumi:"id"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL.
 	IssuerMode string `pulumi:"issuerMode"`
 	// Maximum allowable clock-skew when processing messages from the IdP.
-	MaxClockSkew int `pulumi:"maxClockSkew"`
-	// The name of the social idp to retrieve, conflicts with `id`.
-	Name *string `pulumi:"name"`
+	MaxClockSkew int     `pulumi:"maxClockSkew"`
+	Name         *string `pulumi:"name"`
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster bool `pulumi:"profileMaster"`
 	// The type of protocol to use.
@@ -209,7 +207,6 @@ func (o LookupSocialResultOutput) GroupsFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSocialResult) []string { return v.GroupsFilters }).(pulumi.StringArrayOutput)
 }
 
-// The id of the social idp to retrieve, conflicts with `name`.
 func (o LookupSocialResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSocialResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -224,7 +221,6 @@ func (o LookupSocialResultOutput) MaxClockSkew() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupSocialResult) int { return v.MaxClockSkew }).(pulumi.IntOutput)
 }
 
-// The name of the social idp to retrieve, conflicts with `id`.
 func (o LookupSocialResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSocialResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

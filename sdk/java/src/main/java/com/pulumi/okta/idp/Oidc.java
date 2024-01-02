@@ -17,211 +17,467 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates an OIDC Identity Provider.
+ * 
+ * This resource allows you to create and configure an OIDC Identity Provider.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.idp.Oidc;
+ * import com.pulumi.okta.idp.OidcArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Oidc(&#34;example&#34;, OidcArgs.builder()        
+ *             .authorizationBinding(&#34;HTTP-REDIRECT&#34;)
+ *             .authorizationUrl(&#34;https://idp.example.com/authorize&#34;)
+ *             .clientId(&#34;efg456&#34;)
+ *             .clientSecret(&#34;efg456&#34;)
+ *             .issuerUrl(&#34;https://id.example.com&#34;)
+ *             .jwksBinding(&#34;HTTP-REDIRECT&#34;)
+ *             .jwksUrl(&#34;https://idp.example.com/keys&#34;)
+ *             .scopes(&#34;openid&#34;)
+ *             .tokenBinding(&#34;HTTP-POST&#34;)
+ *             .tokenUrl(&#34;https://idp.example.com/token&#34;)
+ *             .userInfoBinding(&#34;HTTP-REDIRECT&#34;)
+ *             .userInfoUrl(&#34;https://idp.example.com/userinfo&#34;)
+ *             .usernameTemplate(&#34;idpuser.email&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * An OIDC IdP can be imported via the Okta ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:idp/oidc:Oidc example &amp;#60;idp id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:idp/oidc:Oidc")
 public class Oidc extends com.pulumi.resources.CustomResource {
+    /**
+     * Specifies the account linking action for an IdP user.
+     * 
+     */
     @Export(name="accountLinkAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountLinkAction;
 
+    /**
+     * @return Specifies the account linking action for an IdP user.
+     * 
+     */
     public Output<Optional<String>> accountLinkAction() {
         return Codegen.optional(this.accountLinkAction);
     }
+    /**
+     * Group memberships to determine link candidates.
+     * 
+     */
     @Export(name="accountLinkGroupIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> accountLinkGroupIncludes;
 
+    /**
+     * @return Group memberships to determine link candidates.
+     * 
+     */
     public Output<Optional<List<String>>> accountLinkGroupIncludes() {
         return Codegen.optional(this.accountLinkGroupIncludes);
     }
+    /**
+     * The method of making an authorization request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * 
+     */
     @Export(name="authorizationBinding", refs={String.class}, tree="[0]")
     private Output<String> authorizationBinding;
 
+    /**
+     * @return The method of making an authorization request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * 
+     */
     public Output<String> authorizationBinding() {
         return this.authorizationBinding;
     }
+    /**
+     * IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
+     * 
+     */
     @Export(name="authorizationUrl", refs={String.class}, tree="[0]")
     private Output<String> authorizationUrl;
 
+    /**
+     * @return IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
+     * 
+     */
     public Output<String> authorizationUrl() {
         return this.authorizationUrl;
     }
+    /**
+     * Unique identifier issued by AS for the Okta IdP instance.
+     * 
+     */
     @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output<String> clientId;
 
+    /**
+     * @return Unique identifier issued by AS for the Okta IdP instance.
+     * 
+     */
     public Output<String> clientId() {
         return this.clientId;
     }
+    /**
+     * Client secret issued by AS for the Okta IdP instance.
+     * 
+     */
     @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output<String> clientSecret;
 
+    /**
+     * @return Client secret issued by AS for the Okta IdP instance.
+     * 
+     */
     public Output<String> clientSecret() {
         return this.clientSecret;
     }
+    /**
+     * Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+     * 
+     */
     @Export(name="deprovisionedAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deprovisionedAction;
 
+    /**
+     * @return Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+     * 
+     */
     public Output<Optional<String>> deprovisionedAction() {
         return Codegen.optional(this.deprovisionedAction);
     }
+    /**
+     * Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+     * 
+     */
     @Export(name="groupsAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupsAction;
 
+    /**
+     * @return Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+     * 
+     */
     public Output<Optional<String>> groupsAction() {
         return Codegen.optional(this.groupsAction);
     }
+    /**
+     * List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+     * 
+     */
     @Export(name="groupsAssignments", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupsAssignments;
 
+    /**
+     * @return List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+     * 
+     */
     public Output<Optional<List<String>>> groupsAssignments() {
         return Codegen.optional(this.groupsAssignments);
     }
+    /**
+     * IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+     * 
+     */
     @Export(name="groupsAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupsAttribute;
 
+    /**
+     * @return IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+     * 
+     */
     public Output<Optional<String>> groupsAttribute() {
         return Codegen.optional(this.groupsAttribute);
     }
+    /**
+     * Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+     * 
+     */
     @Export(name="groupsFilters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupsFilters;
 
+    /**
+     * @return Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+     * 
+     */
     public Output<Optional<List<String>>> groupsFilters() {
         return Codegen.optional(this.groupsFilters);
     }
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
+     * Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `&#34;ORG_URL&#34;`, `&#34;CUSTOM_URL&#34;`, or `&#34;DYNAMIC&#34;`.
      * 
      */
     @Export(name="issuerMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerMode;
 
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, custom domain URL, or dynamic. See Identity Provider attributes - issuerMode - https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes
+     * @return Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `&#34;ORG_URL&#34;`, `&#34;CUSTOM_URL&#34;`, or `&#34;DYNAMIC&#34;`.
      * 
      */
     public Output<Optional<String>> issuerMode() {
         return Codegen.optional(this.issuerMode);
     }
+    /**
+     * URI that identifies the issuer.
+     * 
+     */
     @Export(name="issuerUrl", refs={String.class}, tree="[0]")
     private Output<String> issuerUrl;
 
+    /**
+     * @return URI that identifies the issuer.
+     * 
+     */
     public Output<String> issuerUrl() {
         return this.issuerUrl;
     }
+    /**
+     * The method of making a request for the OIDC JWKS. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * 
+     */
     @Export(name="jwksBinding", refs={String.class}, tree="[0]")
     private Output<String> jwksBinding;
 
+    /**
+     * @return The method of making a request for the OIDC JWKS. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * 
+     */
     public Output<String> jwksBinding() {
         return this.jwksBinding;
     }
+    /**
+     * Endpoint where the keys signer publishes its keys in a JWK Set.
+     * 
+     */
     @Export(name="jwksUrl", refs={String.class}, tree="[0]")
     private Output<String> jwksUrl;
 
+    /**
+     * @return Endpoint where the keys signer publishes its keys in a JWK Set.
+     * 
+     */
     public Output<String> jwksUrl() {
         return this.jwksUrl;
     }
+    /**
+     * Maximum allowable clock-skew when processing messages from the IdP.
+     * 
+     */
     @Export(name="maxClockSkew", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxClockSkew;
 
+    /**
+     * @return Maximum allowable clock-skew when processing messages from the IdP.
+     * 
+     */
     public Output<Optional<Integer>> maxClockSkew() {
         return Codegen.optional(this.maxClockSkew);
     }
     /**
-     * Name of the IdP
+     * The Application&#39;s display name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the IdP
+     * @return The Application&#39;s display name.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Determines if the IdP should act as a source of truth for user profile attributes.
+     * 
+     */
     @Export(name="profileMaster", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> profileMaster;
 
+    /**
+     * @return Determines if the IdP should act as a source of truth for user profile attributes.
+     * 
+     */
     public Output<Optional<Boolean>> profileMaster() {
         return Codegen.optional(this.profileMaster);
     }
+    /**
+     * The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+     * 
+     */
     @Export(name="protocolType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protocolType;
 
+    /**
+     * @return The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+     * 
+     */
     public Output<Optional<String>> protocolType() {
         return Codegen.optional(this.protocolType);
     }
+    /**
+     * Provisioning action for an IdP user during authentication.
+     * 
+     */
     @Export(name="provisioningAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> provisioningAction;
 
+    /**
+     * @return Provisioning action for an IdP user during authentication.
+     * 
+     */
     public Output<Optional<String>> provisioningAction() {
         return Codegen.optional(this.provisioningAction);
     }
     /**
-     * The HMAC Signature Algorithm used when signing an authorization request
+     * The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
      * 
      */
     @Export(name="requestSignatureAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestSignatureAlgorithm;
 
     /**
-     * @return The HMAC Signature Algorithm used when signing an authorization request
+     * @return The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
      * 
      */
     public Output<Optional<String>> requestSignatureAlgorithm() {
         return Codegen.optional(this.requestSignatureAlgorithm);
     }
     /**
-     * Specifies whether to digitally sign an authorization request to the IdP
+     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
      * 
      */
     @Export(name="requestSignatureScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestSignatureScope;
 
     /**
-     * @return Specifies whether to digitally sign an authorization request to the IdP
+     * @return Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
      * 
      */
     public Output<Optional<String>> requestSignatureScope() {
         return Codegen.optional(this.requestSignatureScope);
     }
+    /**
+     * The scopes of the IdP.
+     * 
+     */
     @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopes;
 
+    /**
+     * @return The scopes of the IdP.
+     * 
+     */
     public Output<List<String>> scopes() {
         return this.scopes;
     }
+    /**
+     * Status of the IdP.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
+    /**
+     * @return Status of the IdP.
+     * 
+     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
+    /**
+     * Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * 
+     */
     @Export(name="subjectMatchAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectMatchAttribute;
 
+    /**
+     * @return Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * 
+     */
     public Output<Optional<String>> subjectMatchAttribute() {
         return Codegen.optional(this.subjectMatchAttribute);
     }
+    /**
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * 
+     */
     @Export(name="subjectMatchType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectMatchType;
 
+    /**
+     * @return Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * 
+     */
     public Output<Optional<String>> subjectMatchType() {
         return Codegen.optional(this.subjectMatchType);
     }
+    /**
+     * Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+     * 
+     */
     @Export(name="suspendedAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> suspendedAction;
 
+    /**
+     * @return Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+     * 
+     */
     public Output<Optional<String>> suspendedAction() {
         return Codegen.optional(this.suspendedAction);
     }
+    /**
+     * The method of making a token request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * 
+     */
     @Export(name="tokenBinding", refs={String.class}, tree="[0]")
     private Output<String> tokenBinding;
 
+    /**
+     * @return The method of making a token request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * 
+     */
     public Output<String> tokenBinding() {
         return this.tokenBinding;
     }
+    /**
+     * IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
+     * 
+     */
     @Export(name="tokenUrl", refs={String.class}, tree="[0]")
     private Output<String> tokenUrl;
 
+    /**
+     * @return IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
+     * 
+     */
     public Output<String> tokenUrl() {
         return this.tokenUrl;
     }
@@ -245,21 +501,45 @@ public class Oidc extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> userInfoBinding() {
         return Codegen.optional(this.userInfoBinding);
     }
+    /**
+     * Protected resource endpoint that returns claims about the authenticated user.
+     * 
+     */
     @Export(name="userInfoUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userInfoUrl;
 
+    /**
+     * @return Protected resource endpoint that returns claims about the authenticated user.
+     * 
+     */
     public Output<Optional<String>> userInfoUrl() {
         return Codegen.optional(this.userInfoUrl);
     }
+    /**
+     * User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
+     * 
+     */
     @Export(name="userTypeId", refs={String.class}, tree="[0]")
     private Output<String> userTypeId;
 
+    /**
+     * @return User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
+     * 
+     */
     public Output<String> userTypeId() {
         return this.userTypeId;
     }
+    /**
+     * Okta EL Expression to generate or transform a unique username for the IdP user.
+     * 
+     */
     @Export(name="usernameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> usernameTemplate;
 
+    /**
+     * @return Okta EL Expression to generate or transform a unique username for the IdP user.
+     * 
+     */
     public Output<Optional<String>> usernameTemplate() {
         return Codegen.optional(this.usernameTemplate);
     }

@@ -16,18 +16,10 @@ public final class GetEmailCustomizationResult {
      * 
      */
     private String body;
-    /**
-     * @return Brand ID
-     * 
-     */
     private String brandId;
-    /**
-     * @return The ID of the customization
-     * 
-     */
     private String customizationId;
     /**
-     * @return The ID of the customization
+     * @return Customization ID
      * 
      */
     private String id;
@@ -51,10 +43,6 @@ public final class GetEmailCustomizationResult {
      * 
      */
     private String subject;
-    /**
-     * @return Template Name
-     * 
-     */
     private String templateName;
 
     private GetEmailCustomizationResult() {}
@@ -65,22 +53,14 @@ public final class GetEmailCustomizationResult {
     public String body() {
         return this.body;
     }
-    /**
-     * @return Brand ID
-     * 
-     */
     public String brandId() {
         return this.brandId;
     }
-    /**
-     * @return The ID of the customization
-     * 
-     */
     public String customizationId() {
         return this.customizationId;
     }
     /**
-     * @return The ID of the customization
+     * @return Customization ID
      * 
      */
     public String id() {
@@ -114,10 +94,6 @@ public final class GetEmailCustomizationResult {
     public String subject() {
         return this.subject;
     }
-    /**
-     * @return Template Name
-     * 
-     */
     public String templateName() {
         return this.templateName;
     }

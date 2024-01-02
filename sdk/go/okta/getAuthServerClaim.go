@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get authorization server claim from Okta.
+// Use this data source to retrieve authorization server claim from Okta.
 //
 // ## Example Usage
 //
@@ -51,9 +51,9 @@ func GetAuthServerClaim(ctx *pulumi.Context, args *GetAuthServerClaimArgs, opts 
 
 // A collection of arguments for invoking getAuthServerClaim.
 type GetAuthServerClaimArgs struct {
-	// Auth server ID
+	// Auth server ID.
 	AuthServerId string `pulumi:"authServerId"`
-	// Name of the claim. Conflicts with `name`.
+	// ID of the claim. Conflicts with `name`.
 	Id *string `pulumi:"id"`
 	// Name of the claim. Conflicts with `id`.
 	Name *string `pulumi:"name"`
@@ -62,22 +62,21 @@ type GetAuthServerClaimArgs struct {
 // A collection of values returned by getAuthServerClaim.
 type GetAuthServerClaimResult struct {
 	// Specifies whether to include Claims in the token.
-	AlwaysIncludeInToken bool `pulumi:"alwaysIncludeInToken"`
-	// Auth server ID
-	AuthServerId string `pulumi:"authServerId"`
-	// Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`).
+	AlwaysIncludeInToken bool   `pulumi:"alwaysIncludeInToken"`
+	AuthServerId         string `pulumi:"authServerId"`
+	// Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
 	ClaimType string `pulumi:"claimType"`
-	// Name of the claim. Conflicts with `name`.
+	// ID of the claim.
 	Id *string `pulumi:"id"`
-	// Name of the claim. Conflicts with `id`.
+	// Name of the claim.
 	Name *string `pulumi:"name"`
-	// Auth server claim list of scopes
+	// Specifies the scopes for this Claim.
 	Scopes []string `pulumi:"scopes"`
 	// Status of the claim.
 	Status string `pulumi:"status"`
-	// Value of the claim.
+	// Value of the claim
 	Value string `pulumi:"value"`
-	// Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
+	// Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
 	ValueType string `pulumi:"valueType"`
 }
 
@@ -96,9 +95,9 @@ func GetAuthServerClaimOutput(ctx *pulumi.Context, args GetAuthServerClaimOutput
 
 // A collection of arguments for invoking getAuthServerClaim.
 type GetAuthServerClaimOutputArgs struct {
-	// Auth server ID
+	// Auth server ID.
 	AuthServerId pulumi.StringInput `pulumi:"authServerId"`
-	// Name of the claim. Conflicts with `name`.
+	// ID of the claim. Conflicts with `name`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the claim. Conflicts with `id`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -128,27 +127,26 @@ func (o GetAuthServerClaimResultOutput) AlwaysIncludeInToken() pulumi.BoolOutput
 	return o.ApplyT(func(v GetAuthServerClaimResult) bool { return v.AlwaysIncludeInToken }).(pulumi.BoolOutput)
 }
 
-// Auth server ID
 func (o GetAuthServerClaimResultOutput) AuthServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimResult) string { return v.AuthServerId }).(pulumi.StringOutput)
 }
 
-// Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`).
+// Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
 func (o GetAuthServerClaimResultOutput) ClaimType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimResult) string { return v.ClaimType }).(pulumi.StringOutput)
 }
 
-// Name of the claim. Conflicts with `name`.
+// ID of the claim.
 func (o GetAuthServerClaimResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAuthServerClaimResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Name of the claim. Conflicts with `id`.
+// Name of the claim.
 func (o GetAuthServerClaimResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAuthServerClaimResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Auth server claim list of scopes
+// Specifies the scopes for this Claim.
 func (o GetAuthServerClaimResultOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAuthServerClaimResult) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
@@ -158,12 +156,12 @@ func (o GetAuthServerClaimResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Value of the claim.
+// Value of the claim
 func (o GetAuthServerClaimResultOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimResult) string { return v.Value }).(pulumi.StringOutput)
 }
 
-// Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
+// Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
 func (o GetAuthServerClaimResultOutput) ValueType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimResult) string { return v.ValueType }).(pulumi.StringOutput)
 }

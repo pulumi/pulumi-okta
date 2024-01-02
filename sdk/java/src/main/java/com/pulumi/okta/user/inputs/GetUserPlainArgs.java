@@ -18,14 +18,14 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetUserPlainArgs Empty = new GetUserPlainArgs();
 
     /**
-     * Search operator used when joining mulitple search clauses
+     * Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
      * 
      */
     @Import(name="compoundSearchOperator")
     private @Nullable String compoundSearchOperator;
 
     /**
-     * @return Search operator used when joining mulitple search clauses
+     * @return Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
      * 
      */
     public Optional<String> compoundSearchOperator() {
@@ -48,59 +48,43 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+     * Map of search criteria. It supports the following properties.
      * 
      */
     @Import(name="searches")
     private @Nullable List<GetUserSearch> searches;
 
     /**
-     * @return Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+     * @return Map of search criteria. It supports the following properties.
      * 
      */
     public Optional<List<GetUserSearch>> searches() {
         return Optional.ofNullable(this.searches);
     }
 
-    /**
-     * Do not populate user groups information (prevents additional API call)
-     * 
-     */
     @Import(name="skipGroups")
     private @Nullable Boolean skipGroups;
 
-    /**
-     * @return Do not populate user groups information (prevents additional API call)
-     * 
-     */
     public Optional<Boolean> skipGroups() {
         return Optional.ofNullable(this.skipGroups);
     }
 
-    /**
-     * Do not populate user roles information (prevents additional API call)
-     * 
-     */
     @Import(name="skipRoles")
     private @Nullable Boolean skipRoles;
 
-    /**
-     * @return Do not populate user roles information (prevents additional API call)
-     * 
-     */
     public Optional<Boolean> skipRoles() {
         return Optional.ofNullable(this.skipRoles);
     }
 
     /**
-     * Retrieve a single user based on their id
+     * String representing a specific user&#39;s id value
      * 
      */
     @Import(name="userId")
     private @Nullable String userId;
 
     /**
-     * @return Retrieve a single user based on their id
+     * @return String representing a specific user&#39;s id value
      * 
      */
     public Optional<String> userId() {
@@ -137,7 +121,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param compoundSearchOperator Search operator used when joining mulitple search clauses
+         * @param compoundSearchOperator Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
          * 
          * @return builder
          * 
@@ -159,7 +143,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param searches Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+         * @param searches Map of search criteria. It supports the following properties.
          * 
          * @return builder
          * 
@@ -170,7 +154,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param searches Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+         * @param searches Map of search criteria. It supports the following properties.
          * 
          * @return builder
          * 
@@ -179,30 +163,18 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
             return searches(List.of(searches));
         }
 
-        /**
-         * @param skipGroups Do not populate user groups information (prevents additional API call)
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipGroups(@Nullable Boolean skipGroups) {
             $.skipGroups = skipGroups;
             return this;
         }
 
-        /**
-         * @param skipRoles Do not populate user roles information (prevents additional API call)
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipRoles(@Nullable Boolean skipRoles) {
             $.skipRoles = skipRoles;
             return this;
         }
 
         /**
-         * @param userId Retrieve a single user based on their id
+         * @param userId String representing a specific user&#39;s id value
          * 
          * @return builder
          * 

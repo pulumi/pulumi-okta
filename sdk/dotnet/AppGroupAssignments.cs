@@ -9,6 +9,55 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// Assigns groups to an application.
+    /// 
+    /// This resource allows you to create multiple App Group assignments.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.AppGroupAssignments("example", new()
+    ///     {
+    ///         AppId = "&lt;app id&gt;",
+    ///         Groups = new[]
+    ///         {
+    ///             new Okta.Inputs.AppGroupAssignmentsGroupArgs
+    ///             {
+    ///                 Id = "&lt;group id&gt;",
+    ///                 Priority = 1,
+    ///             },
+    ///             new Okta.Inputs.AppGroupAssignmentsGroupArgs
+    ///             {
+    ///                 Id = "&lt;another group id&gt;",
+    ///                 Priority = 2,
+    ///                 Profile = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["application profile field"] = "application profile value",
+    ///                 }),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An application's group assignments can be imported via `app_id`.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &amp;#60;app_id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/appGroupAssignments:AppGroupAssignments")]
     public partial class AppGroupAssignments : global::Pulumi.CustomResource
     {
@@ -19,7 +68,7 @@ namespace Pulumi.Okta
         public Output<string> AppId { get; private set; } = null!;
 
         /// <summary>
-        /// A group to assign to this application
+        /// A group to assign the app to.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<Outputs.AppGroupAssignmentsGroup>> Groups { get; private set; } = null!;
@@ -80,7 +129,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.AppGroupAssignmentsGroupArgs>? _groups;
 
         /// <summary>
-        /// A group to assign to this application
+        /// A group to assign the app to.
         /// </summary>
         public InputList<Inputs.AppGroupAssignmentsGroupArgs> Groups
         {
@@ -106,7 +155,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.AppGroupAssignmentsGroupGetArgs>? _groups;
 
         /// <summary>
-        /// A group to assign to this application
+        /// A group to assign the app to.
         /// </summary>
         public InputList<Inputs.AppGroupAssignmentsGroupGetArgs> Groups
         {

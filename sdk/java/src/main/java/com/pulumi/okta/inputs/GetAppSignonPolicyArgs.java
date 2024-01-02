@@ -15,14 +15,14 @@ public final class GetAppSignonPolicyArgs extends com.pulumi.resources.InvokeArg
     public static final GetAppSignonPolicyArgs Empty = new GetAppSignonPolicyArgs();
 
     /**
-     * App ID
+     * The application ID.
      * 
      */
     @Import(name="appId", required=true)
     private Output<String> appId;
 
     /**
-     * @return App ID
+     * @return The application ID.
      * 
      */
     public Output<String> appId() {
@@ -54,7 +54,7 @@ public final class GetAppSignonPolicyArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param appId App ID
+         * @param appId The application ID.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GetAppSignonPolicyArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param appId App ID
+         * @param appId The application ID.
          * 
          * @return builder
          * 

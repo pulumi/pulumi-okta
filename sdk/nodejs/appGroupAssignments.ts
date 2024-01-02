@@ -6,6 +6,43 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Assigns groups to an application.
+ *
+ * This resource allows you to create multiple App Group assignments.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.AppGroupAssignments("example", {
+ *     appId: "<app id>",
+ *     groups: [
+ *         {
+ *             id: "<group id>",
+ *             priority: 1,
+ *         },
+ *         {
+ *             id: "<another group id>",
+ *             priority: 2,
+ *             profile: JSON.stringify({
+ *                 "application profile field": "application profile value",
+ *             }),
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An application's group assignments can be imported via `app_id`.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
+ * ```
+ */
 export class AppGroupAssignments extends pulumi.CustomResource {
     /**
      * Get an existing AppGroupAssignments resource's state with the given name, ID, and optional extra
@@ -39,7 +76,7 @@ export class AppGroupAssignments extends pulumi.CustomResource {
      */
     public readonly appId!: pulumi.Output<string>;
     /**
-     * A group to assign to this application
+     * A group to assign the app to.
      */
     public readonly groups!: pulumi.Output<outputs.AppGroupAssignmentsGroup[]>;
 
@@ -83,7 +120,7 @@ export interface AppGroupAssignmentsState {
      */
     appId?: pulumi.Input<string>;
     /**
-     * A group to assign to this application
+     * A group to assign the app to.
      */
     groups?: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[]>;
 }
@@ -97,7 +134,7 @@ export interface AppGroupAssignmentsArgs {
      */
     appId: pulumi.Input<string>;
     /**
-     * A group to assign to this application
+     * A group to assign the app to.
      */
     groups: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[]>;
 }

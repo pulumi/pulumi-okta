@@ -45,23 +45,20 @@ class GetServerPolicyResult:
     @pulumi.getter(name="assignedClients")
     def assigned_clients(self) -> Sequence[str]:
         """
-        List of clients this policy is assigned to. `[ALL_CLIENTS]` is a special value when policy is assigned to all clients.
+        list of clients this policy is assigned to. `["ALL_CLIENTS"]` is a special value when policy is assigned to all clients.
         """
         return pulumi.get(self, "assigned_clients")
 
     @property
     @pulumi.getter(name="authServerId")
     def auth_server_id(self) -> str:
-        """
-        Auth server ID
-        """
         return pulumi.get(self, "auth_server_id")
 
     @property
     @pulumi.getter
     def description(self) -> str:
         """
-        Description of authorization server policy.
+        description of authorization server policy.
         """
         return pulumi.get(self, "description")
 
@@ -76,16 +73,13 @@ class GetServerPolicyResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the policy
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def priority(self) -> int:
         """
-        Priority of the auth server policy
+        the priority of the Auth Server Policy.
         """
         return pulumi.get(self, "priority")
 
@@ -108,7 +102,7 @@ def get_server_policy(auth_server_id: Optional[str] = None,
                       name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerPolicyResult:
     """
-    Get an authorization server policy from Okta.
+    Use this data source to retrieve an authorization server policy from Okta.
 
     ## Example Usage
 
@@ -121,8 +115,8 @@ def get_server_policy(auth_server_id: Optional[str] = None,
     ```
 
 
-    :param str auth_server_id: Auth server ID
-    :param str name: Name of the policy
+    :param str auth_server_id: The ID of the Auth Server.
+    :param str name: Name of policy to retrieve.
     """
     __args__ = dict()
     __args__['authServerId'] = auth_server_id
@@ -144,7 +138,7 @@ def get_server_policy_output(auth_server_id: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerPolicyResult]:
     """
-    Get an authorization server policy from Okta.
+    Use this data source to retrieve an authorization server policy from Okta.
 
     ## Example Usage
 
@@ -157,7 +151,7 @@ def get_server_policy_output(auth_server_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str auth_server_id: Auth server ID
-    :param str name: Name of the policy
+    :param str auth_server_id: The ID of the Auth Server.
+    :param str name: Name of policy to retrieve.
     """
     ...

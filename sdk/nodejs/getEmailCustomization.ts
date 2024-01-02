@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Get the email customization of an email template belonging to a brand in an Okta organization.
+ * Use this data source to retrieve the [email
+ * customization](https://developer.okta.com/docs/reference/api/brands/#get-email-customization)
+ * of an email template belonging to a brand in an Okta organization.
  */
 export function getEmailCustomization(args: GetEmailCustomizationArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailCustomizationResult> {
 
@@ -26,7 +28,7 @@ export interface GetEmailCustomizationArgs {
      */
     brandId: string;
     /**
-     * The ID of the customization
+     * Customization ID
      */
     customizationId: string;
     /**
@@ -43,16 +45,10 @@ export interface GetEmailCustomizationResult {
      * The body of the customization
      */
     readonly body: string;
-    /**
-     * Brand ID
-     */
     readonly brandId: string;
-    /**
-     * The ID of the customization
-     */
     readonly customizationId: string;
     /**
-     * The ID of the customization
+     * Customization ID
      */
     readonly id: string;
     /**
@@ -71,13 +67,12 @@ export interface GetEmailCustomizationResult {
      * The subject of the customization
      */
     readonly subject: string;
-    /**
-     * Template Name
-     */
     readonly templateName: string;
 }
 /**
- * Get the email customization of an email template belonging to a brand in an Okta organization.
+ * Use this data source to retrieve the [email
+ * customization](https://developer.okta.com/docs/reference/api/brands/#get-email-customization)
+ * of an email template belonging to a brand in an Okta organization.
  */
 export function getEmailCustomizationOutput(args: GetEmailCustomizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailCustomizationResult> {
     return pulumi.output(args).apply((a: any) => getEmailCustomization(a, opts))
@@ -92,7 +87,7 @@ export interface GetEmailCustomizationOutputArgs {
      */
     brandId: pulumi.Input<string>;
     /**
-     * The ID of the customization
+     * Customization ID
      */
     customizationId: pulumi.Input<string>;
     /**

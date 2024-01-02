@@ -16,73 +16,119 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a Sign On Policy.
+ * 
+ * This resource allows you to create and configure a Sign On Policy.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.policy.Signon;
+ * import com.pulumi.okta.policy.SignonArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Signon(&#34;example&#34;, SignonArgs.builder()        
+ *             .description(&#34;Example&#34;)
+ *             .groupsIncludeds(data.okta_group().everyone().id())
+ *             .status(&#34;ACTIVE&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * A Sign On Policy can be imported via the Okta ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:policy/signon:Signon example &amp;#60;policy id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:policy/signon:Signon")
 public class Signon extends com.pulumi.resources.CustomResource {
     /**
-     * Policy Description
+     * Policy Description.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Policy Description
+     * @return Policy Description.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * List of Group IDs to Include
+     * List of Group IDs to Include.
      * 
      */
     @Export(name="groupsIncludeds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupsIncludeds;
 
     /**
-     * @return List of Group IDs to Include
+     * @return List of Group IDs to Include.
      * 
      */
     public Output<Optional<List<String>>> groupsIncludeds() {
         return Codegen.optional(this.groupsIncludeds);
     }
     /**
-     * Policy Name
+     * Policy Name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Policy Name
+     * @return Policy Name.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * Priority of the policy.
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> priority;
 
     /**
-     * @return Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * @return Priority of the policy.
      * 
      */
     public Output<Optional<Integer>> priority() {
         return Codegen.optional(this.priority);
     }
     /**
-     * Policy Status: ACTIVE or INACTIVE.
+     * Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Policy Status: ACTIVE or INACTIVE.
+     * @return Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
      * 
      */
     public Output<Optional<String>> status() {

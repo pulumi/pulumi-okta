@@ -4,6 +4,43 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Creates an Okta Group.
+ *
+ * This resource allows you to create and configure an Okta Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.group.Group("example", {description: "My Example Group"});
+ * ```
+ *
+ * Custom profile attributes
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.group.Group("example", {
+ *     description: "My Example Group",
+ *     customProfileAttributes: JSON.stringify({
+ *         example1: "testing1234",
+ *         example2: true,
+ *         example3: 54321,
+ *     }),
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An Okta Group can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:group/group:Group example &#60;group id&#62;
+ * ```
+ */
 export class Group extends pulumi.CustomResource {
     /**
      * Get an existing Group resource's state with the given name, ID, and optional extra
@@ -33,15 +70,15 @@ export class Group extends pulumi.CustomResource {
     }
 
     /**
-     * JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
+     * raw JSON containing all custom profile attributes.
      */
     public readonly customProfileAttributes!: pulumi.Output<string | undefined>;
     /**
-     * Group description
+     * The description of the Okta Group.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Group name
+     * The name of the Okta Group.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -85,15 +122,15 @@ export class Group extends pulumi.CustomResource {
  */
 export interface GroupState {
     /**
-     * JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
+     * raw JSON containing all custom profile attributes.
      */
     customProfileAttributes?: pulumi.Input<string>;
     /**
-     * Group description
+     * The description of the Okta Group.
      */
     description?: pulumi.Input<string>;
     /**
-     * Group name
+     * The name of the Okta Group.
      */
     name?: pulumi.Input<string>;
     /**
@@ -109,15 +146,15 @@ export interface GroupState {
  */
 export interface GroupArgs {
     /**
-     * JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
+     * raw JSON containing all custom profile attributes.
      */
     customProfileAttributes?: pulumi.Input<string>;
     /**
-     * Group description
+     * The description of the Okta Group.
      */
     description?: pulumi.Input<string>;
     /**
-     * Group name
+     * The name of the Okta Group.
      */
     name?: pulumi.Input<string>;
     /**

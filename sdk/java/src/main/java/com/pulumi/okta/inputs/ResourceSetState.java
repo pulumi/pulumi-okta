@@ -17,14 +17,14 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
     public static final ResourceSetState Empty = new ResourceSetState();
 
     /**
-     * A description of the Resource Set
+     * A description of the Resource Set.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the Resource Set
+     * @return A description of the Resource Set.
      * 
      */
     public Optional<Output<String>> description() {
@@ -32,14 +32,14 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Unique name given to the Resource Set
+     * Unique name given to the Resource Set.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return Unique name given to the Resource Set
+     * @return Unique name given to the Resource Set.
      * 
      */
     public Optional<Output<String>> label() {
@@ -47,14 +47,16 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The endpoints that reference the resources to be included in the new Resource Set
+     * The endpoints that reference the resources to be included in the new Resource Set. At least one
+     * endpoint must be specified when creating resource set.
      * 
      */
     @Import(name="resources")
     private @Nullable Output<List<String>> resources;
 
     /**
-     * @return The endpoints that reference the resources to be included in the new Resource Set
+     * @return The endpoints that reference the resources to be included in the new Resource Set. At least one
+     * endpoint must be specified when creating resource set.
      * 
      */
     public Optional<Output<List<String>>> resources() {
@@ -88,7 +90,7 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the Resource Set
+         * @param description A description of the Resource Set.
          * 
          * @return builder
          * 
@@ -99,7 +101,7 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the Resource Set
+         * @param description A description of the Resource Set.
          * 
          * @return builder
          * 
@@ -109,7 +111,7 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param label Unique name given to the Resource Set
+         * @param label Unique name given to the Resource Set.
          * 
          * @return builder
          * 
@@ -120,7 +122,7 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param label Unique name given to the Resource Set
+         * @param label Unique name given to the Resource Set.
          * 
          * @return builder
          * 
@@ -130,7 +132,8 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resources The endpoints that reference the resources to be included in the new Resource Set
+         * @param resources The endpoints that reference the resources to be included in the new Resource Set. At least one
+         * endpoint must be specified when creating resource set.
          * 
          * @return builder
          * 
@@ -141,7 +144,8 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resources The endpoints that reference the resources to be included in the new Resource Set
+         * @param resources The endpoints that reference the resources to be included in the new Resource Set. At least one
+         * endpoint must be specified when creating resource set.
          * 
          * @return builder
          * 
@@ -151,7 +155,8 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resources The endpoints that reference the resources to be included in the new Resource Set
+         * @param resources The endpoints that reference the resources to be included in the new Resource Set. At least one
+         * endpoint must be specified when creating resource set.
          * 
          * @return builder
          * 

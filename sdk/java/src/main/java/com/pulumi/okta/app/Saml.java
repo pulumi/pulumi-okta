@@ -19,59 +19,306 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to create and configure a SAML Application.
+ * 
+ * &gt; During an apply if there is change in `status` the app will first be
+ * activated or deactivated in accordance with the `status` change. Then, all
+ * other arguments that changed will be applied.
+ * 
+ * &gt; If you receive the error `You do not have permission to access the feature
+ * you are requesting` contact support and
+ * request feature flag `ADVANCED_SSO` be applied to your org.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.Saml;
+ * import com.pulumi.okta.app.SamlArgs;
+ * import com.pulumi.okta.app.inputs.SamlAttributeStatementArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Saml(&#34;example&#34;, SamlArgs.builder()        
+ *             .attributeStatements(SamlAttributeStatementArgs.builder()
+ *                 .filterType(&#34;REGEX&#34;)
+ *                 .filterValue(&#34;.*&#34;)
+ *                 .name(&#34;groups&#34;)
+ *                 .type(&#34;GROUP&#34;)
+ *                 .build())
+ *             .audience(&#34;https://example.com/audience&#34;)
+ *             .authnContextClassRef(&#34;urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport&#34;)
+ *             .destination(&#34;https://example.com&#34;)
+ *             .digestAlgorithm(&#34;SHA256&#34;)
+ *             .honorForceAuthn(false)
+ *             .label(&#34;example&#34;)
+ *             .recipient(&#34;https://example.com&#34;)
+ *             .responseSigned(true)
+ *             .signatureAlgorithm(&#34;RSA_SHA256&#34;)
+ *             .ssoUrl(&#34;https://example.com&#34;)
+ *             .subjectNameIdFormat(&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&#34;)
+ *             .subjectNameIdTemplate(&#34;${user.userName}&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With inline hook
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.inline.Hook;
+ * import com.pulumi.okta.inline.HookArgs;
+ * import com.pulumi.okta.app.Saml;
+ * import com.pulumi.okta.app.SamlArgs;
+ * import com.pulumi.okta.app.inputs.SamlAttributeStatementArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testHook = new Hook(&#34;testHook&#34;, HookArgs.builder()        
+ *             .status(&#34;ACTIVE&#34;)
+ *             .type(&#34;com.okta.saml.tokens.transform&#34;)
+ *             .version(&#34;1.0.2&#34;)
+ *             .channel(Map.ofEntries(
+ *                 Map.entry(&#34;type&#34;, &#34;HTTP&#34;),
+ *                 Map.entry(&#34;version&#34;, &#34;1.0.0&#34;),
+ *                 Map.entry(&#34;uri&#34;, &#34;https://example.com/test1&#34;),
+ *                 Map.entry(&#34;method&#34;, &#34;POST&#34;)
+ *             ))
+ *             .auth(Map.ofEntries(
+ *                 Map.entry(&#34;key&#34;, &#34;Authorization&#34;),
+ *                 Map.entry(&#34;type&#34;, &#34;HEADER&#34;),
+ *                 Map.entry(&#34;value&#34;, &#34;secret&#34;)
+ *             ))
+ *             .build());
+ * 
+ *         var testSaml = new Saml(&#34;testSaml&#34;, SamlArgs.builder()        
+ *             .label(&#34;testAcc_replace_with_uuid&#34;)
+ *             .ssoUrl(&#34;https://google.com&#34;)
+ *             .recipient(&#34;https://here.com&#34;)
+ *             .destination(&#34;https://its-about-the-journey.com&#34;)
+ *             .audience(&#34;https://audience.com&#34;)
+ *             .subjectNameIdTemplate(&#34;${user.userName}&#34;)
+ *             .subjectNameIdFormat(&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&#34;)
+ *             .responseSigned(true)
+ *             .signatureAlgorithm(&#34;RSA_SHA256&#34;)
+ *             .digestAlgorithm(&#34;SHA256&#34;)
+ *             .honorForceAuthn(false)
+ *             .authnContextClassRef(&#34;urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport&#34;)
+ *             .inlineHookId(testHook.id())
+ *             .attributeStatements(SamlAttributeStatementArgs.builder()
+ *                 .type(&#34;GROUP&#34;)
+ *                 .name(&#34;groups&#34;)
+ *                 .filterType(&#34;REGEX&#34;)
+ *                 .filterValue(&#34;.*&#34;)
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(testHook)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Pre-configured app with SAML 1.1 sign-on mode
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.Saml;
+ * import com.pulumi.okta.app.SamlArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Saml(&#34;test&#34;, SamlArgs.builder()        
+ *             .appSettingsJson(&#34;&#34;&#34;
+ * {
+ *     &#34;groupFilter&#34;: &#34;app1.*&#34;,
+ *     &#34;siteURL&#34;: &#34;https://www.okta.com&#34;
+ * }
+ * 
+ *             &#34;&#34;&#34;)
+ *             .label(&#34;SharePoint (On-Premise)&#34;)
+ *             .preconfiguredApp(&#34;sharepoint_onpremise&#34;)
+ *             .samlVersion(&#34;1.1&#34;)
+ *             .status(&#34;ACTIVE&#34;)
+ *             .userNameTemplate(&#34;${source.login}&#34;)
+ *             .userNameTemplateType(&#34;BUILT_IN&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Pre-configured app with SAML 1.1 sign-on mode, `app_settings_json` and `app_links_json`
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.Saml;
+ * import com.pulumi.okta.app.SamlArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var office365 = new Saml(&#34;office365&#34;, SamlArgs.builder()        
+ *             .appLinksJson(&#34;&#34;&#34;
+ *   {
+ *       &#34;calendar&#34;: false,
+ *       &#34;crm&#34;: false,
+ *       &#34;delve&#34;: false,
+ *       &#34;excel&#34;: false,
+ *       &#34;forms&#34;: false,
+ *       &#34;mail&#34;: false,
+ *       &#34;newsfeed&#34;: false,
+ *       &#34;onedrive&#34;: false,
+ *       &#34;people&#34;: false,
+ *       &#34;planner&#34;: false,
+ *       &#34;powerbi&#34;: false,
+ *       &#34;powerpoint&#34;: false,
+ *       &#34;sites&#34;: false,
+ *       &#34;sway&#34;: false,
+ *       &#34;tasks&#34;: false,
+ *       &#34;teams&#34;: false,
+ *       &#34;video&#34;: false,
+ *       &#34;word&#34;: false,
+ *       &#34;yammer&#34;: false,
+ *       &#34;login&#34;: true
+ *   }
+ * 
+ *             &#34;&#34;&#34;)
+ *             .appSettingsJson(&#34;&#34;&#34;
+ *     {
+ *        &#34;wsFedConfigureType&#34;: &#34;AUTO&#34;,
+ *        &#34;windowsTransportEnabled&#34;: false,
+ *        &#34;domain&#34;: &#34;okta.com&#34;,
+ *        &#34;msftTenant&#34;: &#34;okta&#34;,
+ *        &#34;domains&#34;: [],
+ *        &#34;requireAdminConsent&#34;: false
+ *     }
+ * 
+ *             &#34;&#34;&#34;)
+ *             .label(&#34;Microsoft Office 365&#34;)
+ *             .preconfiguredApp(&#34;office365&#34;)
+ *             .samlVersion(&#34;1.1&#34;)
+ *             .status(&#34;ACTIVE&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * A SAML App can be imported via the Okta ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:app/saml:Saml")
 public class Saml extends com.pulumi.resources.CustomResource {
     /**
-     * Custom error page URL
+     * Custom error page URL.
      * 
      */
     @Export(name="accessibilityErrorRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityErrorRedirectUrl;
 
     /**
-     * @return Custom error page URL
+     * @return Custom error page URL.
      * 
      */
     public Output<Optional<String>> accessibilityErrorRedirectUrl() {
         return Codegen.optional(this.accessibilityErrorRedirectUrl);
     }
     /**
-     * Custom login page URL
+     * Custom login page for this application.
      * 
      */
     @Export(name="accessibilityLoginRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityLoginRedirectUrl;
 
     /**
-     * @return Custom login page URL
+     * @return Custom login page for this application.
      * 
      */
     public Output<Optional<String>> accessibilityLoginRedirectUrl() {
         return Codegen.optional(this.accessibilityLoginRedirectUrl);
     }
     /**
-     * Enable self service
+     * Enable self-service. Default is: `false`.
      * 
      */
     @Export(name="accessibilitySelfService", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessibilitySelfService;
 
     /**
-     * @return Enable self service
+     * @return Enable self-service. Default is: `false`.
      * 
      */
     public Output<Optional<Boolean>> accessibilitySelfService() {
         return Codegen.optional(this.accessibilitySelfService);
     }
     /**
-     * List of ACS endpoints for this SAML application
+     * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
      * 
      */
     @Export(name="acsEndpoints", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> acsEndpoints;
 
     /**
-     * @return List of ACS endpoints for this SAML application
+     * @return An array of ACS endpoints. You can configure a maximum of 100 endpoints.
      * 
      */
     public Output<Optional<List<String>>> acsEndpoints() {
@@ -92,50 +339,58 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.adminNote);
     }
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
     @Export(name="appLinksJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appLinksJson;
 
     /**
-     * @return Displays specific appLinks for the app
+     * @return Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
     public Output<Optional<String>> appLinksJson() {
         return Codegen.optional(this.appLinksJson);
     }
     /**
-     * Application settings in JSON format
+     * Application settings in JSON format.
      * 
      */
     @Export(name="appSettingsJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appSettingsJson;
 
     /**
-     * @return Application settings in JSON format
+     * @return Application settings in JSON format.
      * 
      */
     public Output<Optional<String>> appSettingsJson() {
         return Codegen.optional(this.appSettingsJson);
     }
     /**
-     * Determines whether the SAML assertion is digitally signed
+     * Determines whether the SAML assertion is digitally signed.
      * 
      */
     @Export(name="assertionSigned", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> assertionSigned;
 
     /**
-     * @return Determines whether the SAML assertion is digitally signed
+     * @return Determines whether the SAML assertion is digitally signed.
      * 
      */
     public Output<Optional<Boolean>> assertionSigned() {
         return Codegen.optional(this.assertionSigned);
     }
+    /**
+     * List of SAML Attribute statements.
+     * 
+     */
     @Export(name="attributeStatements", refs={List.class,SamlAttributeStatement.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SamlAttributeStatement>> attributeStatements;
 
+    /**
+     * @return List of SAML Attribute statements.
+     * 
+     */
     public Output<Optional<List<SamlAttributeStatement>>> attributeStatements() {
         return Codegen.optional(this.attributeStatements);
     }
@@ -154,14 +409,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.audience);
     }
     /**
-     * Id of this apps authentication policy
+     * The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
      * 
      */
     @Export(name="authenticationPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authenticationPolicy;
 
     /**
-     * @return Id of this apps authentication policy
+     * @return The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
      * 
      */
     public Output<Optional<String>> authenticationPolicy() {
@@ -182,28 +437,28 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authnContextClassRef);
     }
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar. Default is: `false`
      * 
      */
     @Export(name="autoSubmitToolbar", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoSubmitToolbar;
 
     /**
-     * @return Display auto submit toolbar
+     * @return Display auto submit toolbar. Default is: `false`
      * 
      */
     public Output<Optional<Boolean>> autoSubmitToolbar() {
         return Codegen.optional(this.autoSubmitToolbar);
     }
     /**
-     * cert from SAML XML metadata payload
+     * The raw signing certificate.
      * 
      */
     @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
     /**
-     * @return cert from SAML XML metadata payload
+     * @return The raw signing certificate.
      * 
      */
     public Output<String> certificate() {
@@ -252,14 +507,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.digestAlgorithm);
     }
     /**
-     * The url that can be used to embed this application in other portals.
+     * Url that can be used to embed this application into another portal.
      * 
      */
     @Export(name="embedUrl", refs={String.class}, tree="[0]")
     private Output<String> embedUrl;
 
     /**
-     * @return The url that can be used to embed this application in other portals.
+     * @return Url that can be used to embed this application into another portal.
      * 
      */
     public Output<String> embedUrl() {
@@ -280,322 +535,322 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enduserNote);
     }
     /**
-     * Entity ID, the ID portion of the entity_url
+     * Entity ID, the ID portion of the `entity_url`.
      * 
      */
     @Export(name="entityKey", refs={String.class}, tree="[0]")
     private Output<String> entityKey;
 
     /**
-     * @return Entity ID, the ID portion of the entity_url
+     * @return Entity ID, the ID portion of the `entity_url`.
      * 
      */
     public Output<String> entityKey() {
         return this.entityKey;
     }
     /**
-     * Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+     * Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
      * 
      */
     @Export(name="entityUrl", refs={String.class}, tree="[0]")
     private Output<String> entityUrl;
 
     /**
-     * @return Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+     * @return Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
      * 
      */
     public Output<String> entityUrl() {
         return this.entityUrl;
     }
     /**
-     * features to enable
+     * features enabled. Notice: you can&#39;t currently configure provisioning features via the API.
      * 
      */
     @Export(name="features", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> features;
 
     /**
-     * @return features to enable
+     * @return features enabled. Notice: you can&#39;t currently configure provisioning features via the API.
      * 
      */
     public Output<List<String>> features() {
         return this.features;
     }
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app. Default is: `false`
      * 
      */
     @Export(name="hideIos", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideIos;
 
     /**
-     * @return Do not display application icon on mobile app
+     * @return Do not display application icon on mobile app. Default is: `false`
      * 
      */
     public Output<Optional<Boolean>> hideIos() {
         return Codegen.optional(this.hideIos);
     }
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users. Default is: `false`
      * 
      */
     @Export(name="hideWeb", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideWeb;
 
     /**
-     * @return Do not display application icon to users
+     * @return Do not display application icon to users. Default is: `false`
      * 
      */
     public Output<Optional<Boolean>> hideWeb() {
         return Codegen.optional(this.hideWeb);
     }
     /**
-     * Prompt user to re-authenticate if SP asks for it
+     * Prompt user to re-authenticate if SP asks for it. Default is: `false`
      * 
      */
     @Export(name="honorForceAuthn", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> honorForceAuthn;
 
     /**
-     * @return Prompt user to re-authenticate if SP asks for it
+     * @return Prompt user to re-authenticate if SP asks for it. Default is: `false`
      * 
      */
     public Output<Optional<Boolean>> honorForceAuthn() {
         return Codegen.optional(this.honorForceAuthn);
     }
     /**
-     * urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
+     * `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
      * 
      */
     @Export(name="httpPostBinding", refs={String.class}, tree="[0]")
     private Output<String> httpPostBinding;
 
     /**
-     * @return urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
+     * @return `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
      * 
      */
     public Output<String> httpPostBinding() {
         return this.httpPostBinding;
     }
     /**
-     * urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
+     * `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
      * 
      */
     @Export(name="httpRedirectBinding", refs={String.class}, tree="[0]")
     private Output<String> httpRedirectBinding;
 
     /**
-     * @return urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
+     * @return `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
      * 
      */
     public Output<String> httpRedirectBinding() {
         return this.httpRedirectBinding;
     }
     /**
-     * SAML issuer ID
+     * SAML issuer ID.
      * 
      */
     @Export(name="idpIssuer", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> idpIssuer;
 
     /**
-     * @return SAML issuer ID
+     * @return SAML issuer ID.
      * 
      */
     public Output<Optional<String>> idpIssuer() {
         return Codegen.optional(this.idpIssuer);
     }
     /**
-     * *Early Access Property*. Enable Federation Broker Mode.
+     * _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
      * 
      */
     @Export(name="implicitAssignment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> implicitAssignment;
 
     /**
-     * @return *Early Access Property*. Enable Federation Broker Mode.
+     * @return _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
      * 
      */
     public Output<Optional<Boolean>> implicitAssignment() {
         return Codegen.optional(this.implicitAssignment);
     }
     /**
-     * Saml Inline Hook setting
+     * Saml Inline Hook associated with the application.
      * 
      */
     @Export(name="inlineHookId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inlineHookId;
 
     /**
-     * @return Saml Inline Hook setting
+     * @return Saml Inline Hook associated with the application.
      * 
      */
     public Output<Optional<String>> inlineHookId() {
         return Codegen.optional(this.inlineHookId);
     }
     /**
-     * Certificate ID
+     * Certificate key ID.
      * 
      */
     @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
     /**
-     * @return Certificate ID
+     * @return Certificate key ID.
      * 
      */
     public Output<String> keyId() {
         return this.keyId;
     }
     /**
-     * Certificate name. This modulates the rotation of keys. New name == new key.
+     * Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
      * 
      */
     @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyName;
 
     /**
-     * @return Certificate name. This modulates the rotation of keys. New name == new key.
+     * @return Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
      * 
      */
     public Output<Optional<String>> keyName() {
         return Codegen.optional(this.keyName);
     }
     /**
-     * Number of years the certificate is valid.
+     * Number of years the certificate is valid (2 - 10 years).
      * 
      */
     @Export(name="keyYearsValid", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> keyYearsValid;
 
     /**
-     * @return Number of years the certificate is valid.
+     * @return Number of years the certificate is valid (2 - 10 years).
      * 
      */
     public Output<Optional<Integer>> keyYearsValid() {
         return Codegen.optional(this.keyYearsValid);
     }
     /**
-     * Application keys
+     * An array of all key credentials for the application. Format of each entry is as follows:
      * 
      */
     @Export(name="keys", refs={List.class,SamlKey.class}, tree="[0,1]")
     private Output<List<SamlKey>> keys;
 
     /**
-     * @return Application keys
+     * @return An array of all key credentials for the application. Format of each entry is as follows:
      * 
      */
     public Output<List<SamlKey>> keys() {
         return this.keys;
     }
     /**
-     * Pretty name of app.
+     * label of application.
      * 
      */
     @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
-     * @return Pretty name of app.
+     * @return label of application.
      * 
      */
     public Output<String> label() {
         return this.label;
     }
     /**
-     * Local path to logo of the application.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
-     * @return Local path to logo of the application.
+     * @return Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     public Output<Optional<String>> logo() {
         return Codegen.optional(this.logo);
     }
     /**
-     * URL of the application&#39;s logo
+     * Direct link of application logo.
      * 
      */
     @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
-     * @return URL of the application&#39;s logo
+     * @return Direct link of application logo.
      * 
      */
     public Output<String> logoUrl() {
         return this.logoUrl;
     }
     /**
-     * SAML xml metadata payload
+     * The raw SAML metadata in XML.
      * 
      */
     @Export(name="metadata", refs={String.class}, tree="[0]")
     private Output<String> metadata;
 
     /**
-     * @return SAML xml metadata payload
+     * @return The raw SAML metadata in XML.
      * 
      */
     public Output<String> metadata() {
         return this.metadata;
     }
     /**
-     * SAML xml metadata URL
+     * SAML xml metadata URL.
      * 
      */
     @Export(name="metadataUrl", refs={String.class}, tree="[0]")
     private Output<String> metadataUrl;
 
     /**
-     * @return SAML xml metadata URL
+     * @return SAML xml metadata URL.
      * 
      */
     public Output<String> metadataUrl() {
         return this.metadataUrl;
     }
     /**
-     * The reference name of the attribute statement
+     * The name of the attribute statement.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The reference name of the attribute statement
+     * @return The name of the attribute statement.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Name of preexisting SAML application. For instance &#39;slack&#39;
+     * name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
      * 
      */
     @Export(name="preconfiguredApp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> preconfiguredApp;
 
     /**
-     * @return Name of preexisting SAML application. For instance &#39;slack&#39;
+     * @return name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
      * 
      */
     public Output<Optional<String>> preconfiguredApp() {
         return Codegen.optional(this.preconfiguredApp);
     }
     /**
-     * The location where the app may present the SAML assertion
+     * The location where the app may present the SAML assertion.
      * 
      */
     @Export(name="recipient", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> recipient;
 
     /**
-     * @return The location where the app may present the SAML assertion
+     * @return The location where the app may present the SAML assertion.
      * 
      */
     public Output<Optional<String>> recipient() {
@@ -616,14 +871,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.requestCompressed);
     }
     /**
-     * Determines whether the SAML auth response message is digitally signed
+     * Determines whether the SAML auth response message is digitally signed.
      * 
      */
     @Export(name="responseSigned", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> responseSigned;
 
     /**
-     * @return Determines whether the SAML auth response message is digitally signed
+     * @return Determines whether the SAML auth response message is digitally signed.
      * 
      */
     public Output<Optional<Boolean>> responseSigned() {
@@ -644,126 +899,126 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.samlSignedRequestEnabled);
     }
     /**
-     * SAML version for the app&#39;s sign-on mode
+     * SAML version for the app&#39;s sign-on mode. Valid values are: `&#34;2.0&#34;` or `&#34;1.1&#34;`. Default is `&#34;2.0&#34;`.
      * 
      */
     @Export(name="samlVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> samlVersion;
 
     /**
-     * @return SAML version for the app&#39;s sign-on mode
+     * @return SAML version for the app&#39;s sign-on mode. Valid values are: `&#34;2.0&#34;` or `&#34;1.1&#34;`. Default is `&#34;2.0&#34;`.
      * 
      */
     public Output<Optional<String>> samlVersion() {
         return Codegen.optional(this.samlVersion);
     }
     /**
-     * Sign on mode of application.
+     * Sign-on mode of application.
      * 
      */
     @Export(name="signOnMode", refs={String.class}, tree="[0]")
     private Output<String> signOnMode;
 
     /**
-     * @return Sign on mode of application.
+     * @return Sign-on mode of application.
      * 
      */
     public Output<String> signOnMode() {
         return this.signOnMode;
     }
     /**
-     * Signature algorithm used ot digitally sign the assertion and response
+     * Signature algorithm used ot digitally sign the assertion and response.
      * 
      */
     @Export(name="signatureAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signatureAlgorithm;
 
     /**
-     * @return Signature algorithm used ot digitally sign the assertion and response
+     * @return Signature algorithm used ot digitally sign the assertion and response.
      * 
      */
     public Output<Optional<String>> signatureAlgorithm() {
         return Codegen.optional(this.signatureAlgorithm);
     }
     /**
-     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      * 
      */
     @Export(name="singleLogoutCertificate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> singleLogoutCertificate;
 
     /**
-     * @return x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+     * @return x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      * 
      */
     public Output<Optional<String>> singleLogoutCertificate() {
         return Codegen.optional(this.singleLogoutCertificate);
     }
     /**
-     * The issuer of the Service Provider that generates the Single Logout request
+     * The issuer of the Service Provider that generates the Single Logout request.
      * 
      */
     @Export(name="singleLogoutIssuer", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> singleLogoutIssuer;
 
     /**
-     * @return The issuer of the Service Provider that generates the Single Logout request
+     * @return The issuer of the Service Provider that generates the Single Logout request.
      * 
      */
     public Output<Optional<String>> singleLogoutIssuer() {
         return Codegen.optional(this.singleLogoutIssuer);
     }
     /**
-     * The location where the logout response is sent
+     * The location where the logout response is sent.
      * 
      */
     @Export(name="singleLogoutUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> singleLogoutUrl;
 
     /**
-     * @return The location where the logout response is sent
+     * @return The location where the logout response is sent.
      * 
      */
     public Output<Optional<String>> singleLogoutUrl() {
         return Codegen.optional(this.singleLogoutUrl);
     }
     /**
-     * SAML SP issuer ID
+     * SAML service provider issuer.
      * 
      */
     @Export(name="spIssuer", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> spIssuer;
 
     /**
-     * @return SAML SP issuer ID
+     * @return SAML service provider issuer.
      * 
      */
     public Output<Optional<String>> spIssuer() {
         return Codegen.optional(this.spIssuer);
     }
     /**
-     * Single Sign On URL
+     * Single Sign-on Url.
      * 
      */
     @Export(name="ssoUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ssoUrl;
 
     /**
-     * @return Single Sign On URL
+     * @return Single Sign-on Url.
      * 
      */
     public Output<Optional<String>> ssoUrl() {
         return Codegen.optional(this.ssoUrl);
     }
     /**
-     * Status of application.
+     * status of application.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Status of application.
+     * @return status of application.
      * 
      */
     public Output<Optional<String>> status() {
@@ -784,70 +1039,70 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.subjectNameIdFormat);
     }
     /**
-     * Template for app user&#39;s username when a user is assigned to the app
+     * Template for app user&#39;s username when a user is assigned to the app.
      * 
      */
     @Export(name="subjectNameIdTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectNameIdTemplate;
 
     /**
-     * @return Template for app user&#39;s username when a user is assigned to the app
+     * @return Template for app user&#39;s username when a user is assigned to the app.
      * 
      */
     public Output<Optional<String>> subjectNameIdTemplate() {
         return Codegen.optional(this.subjectNameIdTemplate);
     }
     /**
-     * Username template
+     * Username template. Default is: `&#34;${source.login}&#34;`
      * 
      */
     @Export(name="userNameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplate;
 
     /**
-     * @return Username template
+     * @return Username template. Default is: `&#34;${source.login}&#34;`
      * 
      */
     public Output<Optional<String>> userNameTemplate() {
         return Codegen.optional(this.userNameTemplate);
     }
     /**
-     * Push username on update
+     * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
     @Export(name="userNameTemplatePushStatus", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplatePushStatus;
 
     /**
-     * @return Push username on update
+     * @return Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
     public Output<Optional<String>> userNameTemplatePushStatus() {
         return Codegen.optional(this.userNameTemplatePushStatus);
     }
     /**
-     * Username template suffix
+     * Username template suffix.
      * 
      */
     @Export(name="userNameTemplateSuffix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateSuffix;
 
     /**
-     * @return Username template suffix
+     * @return Username template suffix.
      * 
      */
     public Output<Optional<String>> userNameTemplateSuffix() {
         return Codegen.optional(this.userNameTemplateSuffix);
     }
     /**
-     * Username template type
+     * Username template type. Default is: `&#34;BUILT_IN&#34;`.
      * 
      */
     @Export(name="userNameTemplateType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateType;
 
     /**
-     * @return Username template type
+     * @return Username template type. Default is: `&#34;BUILT_IN&#34;`.
      * 
      */
     public Output<Optional<String>> userNameTemplateType() {

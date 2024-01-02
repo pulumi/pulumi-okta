@@ -15,6 +15,65 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * Assigns groups to an application.
+ * 
+ * This resource allows you to create multiple App Group assignments.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.AppGroupAssignments;
+ * import com.pulumi.okta.AppGroupAssignmentsArgs;
+ * import com.pulumi.okta.inputs.AppGroupAssignmentsGroupArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AppGroupAssignments(&#34;example&#34;, AppGroupAssignmentsArgs.builder()        
+ *             .appId(&#34;&lt;app id&gt;&#34;)
+ *             .groups(            
+ *                 AppGroupAssignmentsGroupArgs.builder()
+ *                     .id(&#34;&lt;group id&gt;&#34;)
+ *                     .priority(1)
+ *                     .build(),
+ *                 AppGroupAssignmentsGroupArgs.builder()
+ *                     .id(&#34;&lt;another group id&gt;&#34;)
+ *                     .priority(2)
+ *                     .profile(serializeJson(
+ *                         jsonObject(
+ *                             jsonProperty(&#34;application profile field&#34;, &#34;application profile value&#34;)
+ *                         )))
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * An application&#39;s group assignments can be imported via `app_id`.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &amp;#60;app_id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/appGroupAssignments:AppGroupAssignments")
 public class AppGroupAssignments extends com.pulumi.resources.CustomResource {
     /**
@@ -32,14 +91,14 @@ public class AppGroupAssignments extends com.pulumi.resources.CustomResource {
         return this.appId;
     }
     /**
-     * A group to assign to this application
+     * A group to assign the app to.
      * 
      */
     @Export(name="groups", refs={List.class,AppGroupAssignmentsGroup.class}, tree="[0,1]")
     private Output<List<AppGroupAssignmentsGroup>> groups;
 
     /**
-     * @return A group to assign to this application
+     * @return A group to assign the app to.
      * 
      */
     public Output<List<AppGroupAssignmentsGroup>> groups() {

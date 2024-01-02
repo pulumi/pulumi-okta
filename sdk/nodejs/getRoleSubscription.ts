@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Get subscriptions of a Role with a specific type
+ * Use this data source to retrieve role subscription with a specific type.
  *
  * ## Example Usage
  *
@@ -33,11 +33,25 @@ export function getRoleSubscription(args: GetRoleSubscriptionArgs, opts?: pulumi
  */
 export interface GetRoleSubscriptionArgs {
     /**
-     * Type of the notification
+     * Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`, 
+     * `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
+     * `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
      */
     notificationType: string;
     /**
-     * Type of the role
+     * Type of the role. Valid values:
+     * `"API_ADMIN"`,
+     * `"APP_ADMIN"`,
+     * `"CUSTOM"`,
+     * `"GROUP_MEMBERSHIP_ADMIN"`,
+     * `"HELP_DESK_ADMIN"`,
+     * `"MOBILE_ADMIN"`,
+     * `"ORG_ADMIN"`,
+     * `"READ_ONLY_ADMIN"`,
+     * `"REPORT_ADMIN"`,
+     * `"SUPER_ADMIN"`,
+     * `"USER_ADMIN"`
+     * .
      */
     roleType: string;
 }
@@ -50,21 +64,15 @@ export interface GetRoleSubscriptionResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Type of the notification
-     */
     readonly notificationType: string;
-    /**
-     * Type of the role
-     */
     readonly roleType: string;
     /**
-     * Status of subscription
+     * Subscription status.
      */
     readonly status: string;
 }
 /**
- * Get subscriptions of a Role with a specific type
+ * Use this data source to retrieve role subscription with a specific type.
  *
  * ## Example Usage
  *
@@ -87,11 +95,25 @@ export function getRoleSubscriptionOutput(args: GetRoleSubscriptionOutputArgs, o
  */
 export interface GetRoleSubscriptionOutputArgs {
     /**
-     * Type of the notification
+     * Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`, 
+     * `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
+     * `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
      */
     notificationType: pulumi.Input<string>;
     /**
-     * Type of the role
+     * Type of the role. Valid values:
+     * `"API_ADMIN"`,
+     * `"APP_ADMIN"`,
+     * `"CUSTOM"`,
+     * `"GROUP_MEMBERSHIP_ADMIN"`,
+     * `"HELP_DESK_ADMIN"`,
+     * `"MOBILE_ADMIN"`,
+     * `"ORG_ADMIN"`,
+     * `"READ_ONLY_ADMIN"`,
+     * `"REPORT_ADMIN"`,
+     * `"SUPER_ADMIN"`,
+     * `"USER_ADMIN"`
+     * .
      */
     roleType: pulumi.Input<string>;
 }

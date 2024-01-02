@@ -7,7 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Get the email customizations of an email template belonging to a brand in an Okta organization.
+ * Use this data source to retrieve the [email
+ * customizations](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations)
+ * of an email template belonging to a brand in an Okta organization.
  */
 export function getEmailCustomizations(args: GetEmailCustomizationsArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailCustomizationsResult> {
 
@@ -27,7 +29,7 @@ export interface GetEmailCustomizationsArgs {
      */
     brandId: string;
     /**
-     * Template Name
+     * Name of an Email Template
      */
     templateName: string;
 }
@@ -36,25 +38,21 @@ export interface GetEmailCustomizationsArgs {
  * A collection of values returned by getEmailCustomizations.
  */
 export interface GetEmailCustomizationsResult {
-    /**
-     * Brand ID
-     */
     readonly brandId: string;
     /**
-     * List of `okta.EmailCustomization` belonging to the named email template of the brand in the organization
+     * List of `okta.EmailCustomization` belonging to the named email template of the brand
      */
     readonly emailCustomizations: outputs.GetEmailCustomizationsEmailCustomization[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Template Name
-     */
     readonly templateName: string;
 }
 /**
- * Get the email customizations of an email template belonging to a brand in an Okta organization.
+ * Use this data source to retrieve the [email
+ * customizations](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations)
+ * of an email template belonging to a brand in an Okta organization.
  */
 export function getEmailCustomizationsOutput(args: GetEmailCustomizationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailCustomizationsResult> {
     return pulumi.output(args).apply((a: any) => getEmailCustomizations(a, opts))
@@ -69,7 +67,7 @@ export interface GetEmailCustomizationsOutputArgs {
      */
     brandId: pulumi.Input<string>;
     /**
-     * Template Name
+     * Name of an Email Template
      */
     templateName: pulumi.Input<string>;
 }

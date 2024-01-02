@@ -22,14 +22,58 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     public static final RuleIdpDiscoveryArgs Empty = new RuleIdpDiscoveryArgs();
 
     /**
-     * Applications to exclude in discovery rule
+     * Applications to exclude in discovery. See `app_include` for details.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
      * 
      */
     @Import(name="appExcludes")
     private @Nullable Output<List<RuleIdpDiscoveryAppExcludeArgs>> appExcludes;
 
     /**
-     * @return Applications to exclude in discovery rule
+     * @return Applications to exclude in discovery. See `app_include` for details.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
      * 
      */
     public Optional<Output<List<RuleIdpDiscoveryAppExcludeArgs>>> appExcludes() {
@@ -37,43 +81,59 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Applications to include in discovery rule
+     * Applications to include in discovery rule.
      * 
      */
     @Import(name="appIncludes")
     private @Nullable Output<List<RuleIdpDiscoveryAppIncludeArgs>> appIncludes;
 
     /**
-     * @return Applications to include in discovery rule
+     * @return Applications to include in discovery rule.
      * 
      */
     public Optional<Output<List<RuleIdpDiscoveryAppIncludeArgs>>> appIncludes() {
         return Optional.ofNullable(this.appIncludes);
     }
 
+    /**
+     * The identifier for the Idp the rule should route to if all conditions are met.
+     * 
+     */
     @Import(name="idpId")
     private @Nullable Output<String> idpId;
 
+    /**
+     * @return The identifier for the Idp the rule should route to if all conditions are met.
+     * 
+     */
     public Optional<Output<String>> idpId() {
         return Optional.ofNullable(this.idpId);
     }
 
+    /**
+     * Type of Idp. One of: `&#34;SAML2&#34;`, `&#34;IWA&#34;`, `&#34;AgentlessDSSO&#34;`, `&#34;X509&#34;`, `&#34;FACEBOOK&#34;`, `&#34;GOOGLE&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;OIDC&#34;`
+     * 
+     */
     @Import(name="idpType")
     private @Nullable Output<String> idpType;
 
+    /**
+     * @return Type of Idp. One of: `&#34;SAML2&#34;`, `&#34;IWA&#34;`, `&#34;AgentlessDSSO&#34;`, `&#34;X509&#34;`, `&#34;FACEBOOK&#34;`, `&#34;GOOGLE&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;OIDC&#34;`
+     * 
+     */
     public Optional<Output<String>> idpType() {
         return Optional.ofNullable(this.idpType);
     }
 
     /**
-     * Policy Rule Name
+     * Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Policy Rule Name
+     * @return Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
      * 
      */
     public Optional<Output<String>> name() {
@@ -81,14 +141,14 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+     * The network selection mode. One of `&#34;ANYWEHRE&#34;` or `&#34;ZONE&#34;`.
      * 
      */
     @Import(name="networkConnection")
     private @Nullable Output<String> networkConnection;
 
     /**
-     * @return Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+     * @return The network selection mode. One of `&#34;ANYWEHRE&#34;` or `&#34;ZONE&#34;`.
      * 
      */
     public Optional<Output<String>> networkConnection() {
@@ -96,14 +156,14 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The zones to exclude
+     * Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to exclude.
      * 
      */
     @Import(name="networkExcludes")
     private @Nullable Output<List<String>> networkExcludes;
 
     /**
-     * @return The zones to exclude
+     * @return Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to exclude.
      * 
      */
     public Optional<Output<List<String>>> networkExcludes() {
@@ -111,14 +171,14 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The zones to include
+     * Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to include.
      * 
      */
     @Import(name="networkIncludes")
     private @Nullable Output<List<String>> networkIncludes;
 
     /**
-     * @return The zones to include
+     * @return Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to include.
      * 
      */
     public Optional<Output<List<String>>> networkIncludes() {
@@ -133,14 +193,14 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Policy ID of the Rule
+     * Policy ID.
      * 
      */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
     /**
-     * @return Policy ID of the Rule
+     * @return Policy ID.
      * 
      */
     public Optional<Output<String>> policyId() {
@@ -148,14 +208,14 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * @return Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -163,37 +223,61 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Policy Rule Status: ACTIVE or INACTIVE.
+     * Idp rule status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. By default, it is `&#34;ACTIVE&#34;`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Policy Rule Status: ACTIVE or INACTIVE.
+     * @return Idp rule status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. By default, it is `&#34;ACTIVE&#34;`.
      * 
      */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
+    /**
+     * Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+     * 
+     */
     @Import(name="userIdentifierAttribute")
     private @Nullable Output<String> userIdentifierAttribute;
 
+    /**
+     * @return Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+     * 
+     */
     public Optional<Output<String>> userIdentifierAttribute() {
         return Optional.ofNullable(this.userIdentifierAttribute);
     }
 
+    /**
+     * Specifies a User Identifier pattern condition to match against. If `match_type` of `&#34;EXPRESSION&#34;` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+     * 
+     */
     @Import(name="userIdentifierPatterns")
     private @Nullable Output<List<RuleIdpDiscoveryUserIdentifierPatternArgs>> userIdentifierPatterns;
 
+    /**
+     * @return Specifies a User Identifier pattern condition to match against. If `match_type` of `&#34;EXPRESSION&#34;` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+     * 
+     */
     public Optional<Output<List<RuleIdpDiscoveryUserIdentifierPatternArgs>>> userIdentifierPatterns() {
         return Optional.ofNullable(this.userIdentifierPatterns);
     }
 
+    /**
+     * One of: `&#34;IDENTIFIER&#34;`, `&#34;ATTRIBUTE&#34;`
+     * 
+     */
     @Import(name="userIdentifierType")
     private @Nullable Output<String> userIdentifierType;
 
+    /**
+     * @return One of: `&#34;IDENTIFIER&#34;`, `&#34;ATTRIBUTE&#34;`
+     * 
+     */
     public Optional<Output<String>> userIdentifierType() {
         return Optional.ofNullable(this.userIdentifierType);
     }
@@ -237,7 +321,29 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appExcludes Applications to exclude in discovery rule
+         * @param appExcludes Applications to exclude in discovery. See `app_include` for details.
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 
@@ -248,7 +354,29 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appExcludes Applications to exclude in discovery rule
+         * @param appExcludes Applications to exclude in discovery. See `app_include` for details.
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 
@@ -258,7 +386,29 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appExcludes Applications to exclude in discovery rule
+         * @param appExcludes Applications to exclude in discovery. See `app_include` for details.
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 
@@ -268,7 +418,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appIncludes Applications to include in discovery rule
+         * @param appIncludes Applications to include in discovery rule.
          * 
          * @return builder
          * 
@@ -279,7 +429,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appIncludes Applications to include in discovery rule
+         * @param appIncludes Applications to include in discovery rule.
          * 
          * @return builder
          * 
@@ -289,7 +439,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appIncludes Applications to include in discovery rule
+         * @param appIncludes Applications to include in discovery rule.
          * 
          * @return builder
          * 
@@ -298,26 +448,50 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
             return appIncludes(List.of(appIncludes));
         }
 
+        /**
+         * @param idpId The identifier for the Idp the rule should route to if all conditions are met.
+         * 
+         * @return builder
+         * 
+         */
         public Builder idpId(@Nullable Output<String> idpId) {
             $.idpId = idpId;
             return this;
         }
 
+        /**
+         * @param idpId The identifier for the Idp the rule should route to if all conditions are met.
+         * 
+         * @return builder
+         * 
+         */
         public Builder idpId(String idpId) {
             return idpId(Output.of(idpId));
         }
 
+        /**
+         * @param idpType Type of Idp. One of: `&#34;SAML2&#34;`, `&#34;IWA&#34;`, `&#34;AgentlessDSSO&#34;`, `&#34;X509&#34;`, `&#34;FACEBOOK&#34;`, `&#34;GOOGLE&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;OIDC&#34;`
+         * 
+         * @return builder
+         * 
+         */
         public Builder idpType(@Nullable Output<String> idpType) {
             $.idpType = idpType;
             return this;
         }
 
+        /**
+         * @param idpType Type of Idp. One of: `&#34;SAML2&#34;`, `&#34;IWA&#34;`, `&#34;AgentlessDSSO&#34;`, `&#34;X509&#34;`, `&#34;FACEBOOK&#34;`, `&#34;GOOGLE&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;OIDC&#34;`
+         * 
+         * @return builder
+         * 
+         */
         public Builder idpType(String idpType) {
             return idpType(Output.of(idpType));
         }
 
         /**
-         * @param name Policy Rule Name
+         * @param name Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
          * 
          * @return builder
          * 
@@ -328,7 +502,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Policy Rule Name
+         * @param name Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
          * 
          * @return builder
          * 
@@ -338,7 +512,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkConnection Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+         * @param networkConnection The network selection mode. One of `&#34;ANYWEHRE&#34;` or `&#34;ZONE&#34;`.
          * 
          * @return builder
          * 
@@ -349,7 +523,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkConnection Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+         * @param networkConnection The network selection mode. One of `&#34;ANYWEHRE&#34;` or `&#34;ZONE&#34;`.
          * 
          * @return builder
          * 
@@ -359,7 +533,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkExcludes The zones to exclude
+         * @param networkExcludes Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -370,7 +544,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkExcludes The zones to exclude
+         * @param networkExcludes Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -380,7 +554,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkExcludes The zones to exclude
+         * @param networkExcludes Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -390,7 +564,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkIncludes The zones to include
+         * @param networkIncludes Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -401,7 +575,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkIncludes The zones to include
+         * @param networkIncludes Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -411,7 +585,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkIncludes The zones to include
+         * @param networkIncludes Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -434,7 +608,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param policyId Policy ID of the Rule
+         * @param policyId Policy ID.
          * 
          * @return builder
          * 
@@ -445,7 +619,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param policyId Policy ID of the Rule
+         * @param policyId Policy ID.
          * 
          * @return builder
          * 
@@ -455,7 +629,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param priority Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+         * @param priority Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
          * 
          * @return builder
          * 
@@ -466,7 +640,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param priority Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+         * @param priority Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
          * 
          * @return builder
          * 
@@ -476,7 +650,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param status Policy Rule Status: ACTIVE or INACTIVE.
+         * @param status Idp rule status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. By default, it is `&#34;ACTIVE&#34;`.
          * 
          * @return builder
          * 
@@ -487,7 +661,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param status Policy Rule Status: ACTIVE or INACTIVE.
+         * @param status Idp rule status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. By default, it is `&#34;ACTIVE&#34;`.
          * 
          * @return builder
          * 
@@ -496,33 +670,75 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
             return status(Output.of(status));
         }
 
+        /**
+         * @param userIdentifierAttribute Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userIdentifierAttribute(@Nullable Output<String> userIdentifierAttribute) {
             $.userIdentifierAttribute = userIdentifierAttribute;
             return this;
         }
 
+        /**
+         * @param userIdentifierAttribute Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userIdentifierAttribute(String userIdentifierAttribute) {
             return userIdentifierAttribute(Output.of(userIdentifierAttribute));
         }
 
+        /**
+         * @param userIdentifierPatterns Specifies a User Identifier pattern condition to match against. If `match_type` of `&#34;EXPRESSION&#34;` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userIdentifierPatterns(@Nullable Output<List<RuleIdpDiscoveryUserIdentifierPatternArgs>> userIdentifierPatterns) {
             $.userIdentifierPatterns = userIdentifierPatterns;
             return this;
         }
 
+        /**
+         * @param userIdentifierPatterns Specifies a User Identifier pattern condition to match against. If `match_type` of `&#34;EXPRESSION&#34;` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userIdentifierPatterns(List<RuleIdpDiscoveryUserIdentifierPatternArgs> userIdentifierPatterns) {
             return userIdentifierPatterns(Output.of(userIdentifierPatterns));
         }
 
+        /**
+         * @param userIdentifierPatterns Specifies a User Identifier pattern condition to match against. If `match_type` of `&#34;EXPRESSION&#34;` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userIdentifierPatterns(RuleIdpDiscoveryUserIdentifierPatternArgs... userIdentifierPatterns) {
             return userIdentifierPatterns(List.of(userIdentifierPatterns));
         }
 
+        /**
+         * @param userIdentifierType One of: `&#34;IDENTIFIER&#34;`, `&#34;ATTRIBUTE&#34;`
+         * 
+         * @return builder
+         * 
+         */
         public Builder userIdentifierType(@Nullable Output<String> userIdentifierType) {
             $.userIdentifierType = userIdentifierType;
             return this;
         }
 
+        /**
+         * @param userIdentifierType One of: `&#34;IDENTIFIER&#34;`, `&#34;ATTRIBUTE&#34;`
+         * 
+         * @return builder
+         * 
+         */
         public Builder userIdentifierType(String userIdentifierType) {
             return userIdentifierType(Output.of(userIdentifierType));
         }

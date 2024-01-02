@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GroupSchemaPropertyOneOf {
     /**
-     * @return Enum value
+     * @return value mapping to member of `enum`.
      * 
      */
     private String const_;
     /**
-     * @return Enum title
+     * @return display name for the enum value.
      * 
      */
     private String title;
 
     private GroupSchemaPropertyOneOf() {}
     /**
-     * @return Enum value
+     * @return value mapping to member of `enum`.
      * 
      */
     public String const_() {
         return this.const_;
     }
     /**
-     * @return Enum title
+     * @return display name for the enum value.
      * 
      */
     public String title() {

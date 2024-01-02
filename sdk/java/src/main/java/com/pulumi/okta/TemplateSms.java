@@ -16,25 +16,88 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates an Okta SMS Template.
+ * 
+ * This resource allows you to create and configure an Okta SMS Template.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.TemplateSms;
+ * import com.pulumi.okta.TemplateSmsArgs;
+ * import com.pulumi.okta.inputs.TemplateSmsTranslationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TemplateSms(&#34;example&#34;, TemplateSmsArgs.builder()        
+ *             .template(&#34;Your ${org.name} code is: ${code}&#34;)
+ *             .translations(            
+ *                 TemplateSmsTranslationArgs.builder()
+ *                     .language(&#34;en&#34;)
+ *                     .template(&#34;Your ${org.name} code is: ${code}&#34;)
+ *                     .build(),
+ *                 TemplateSmsTranslationArgs.builder()
+ *                     .language(&#34;es&#34;)
+ *                     .template(&#34;Tu código de ${org.name} es: ${code}.&#34;)
+ *                     .build())
+ *             .type(&#34;SMS_VERIFY_CODE&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * An Okta SMS Template can be imported via the template type.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/templateSms:TemplateSms example &amp;#60;template type&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/templateSms:TemplateSms")
 public class TemplateSms extends com.pulumi.resources.CustomResource {
     /**
-     * SMS default template
+     * The SMS message.
      * 
      */
     @Export(name="template", refs={String.class}, tree="[0]")
     private Output<String> template;
 
     /**
-     * @return SMS default template
+     * @return The SMS message.
      * 
      */
     public Output<String> template() {
         return this.template;
     }
+    /**
+     * Set of translations for a particular template.
+     * 
+     */
     @Export(name="translations", refs={List.class,TemplateSmsTranslation.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TemplateSmsTranslation>> translations;
 
+    /**
+     * @return Set of translations for a particular template.
+     * 
+     */
     public Output<Optional<List<TemplateSmsTranslation>>> translations() {
         return Codegen.optional(this.translations);
     }

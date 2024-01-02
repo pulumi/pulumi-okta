@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Gets Okta Network Zone.
+ * Use this data source to retrieve a network zone from Okta.
  *
  * ## Example Usage
  *
@@ -47,48 +47,48 @@ export interface GetNetworkZoneArgs {
  */
 export interface GetNetworkZoneResult {
     /**
-     * Format of each array value: a string representation of an ASN numeric value
+     * Array of Autonomous System Numbers.
      */
     readonly asns: string[];
     /**
-     * Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+     * Array of locations.
      */
     readonly dynamicLocations: string[];
     /**
-     * Type of proxy being controlled by this network zone
+     * Type of proxy being controlled by this dynamic network zone.
      */
     readonly dynamicProxyType: string;
     /**
-     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+     * Array of values in CIDR/range form.
      */
     readonly gateways: string[];
     /**
-     * ID of the network zone to retrieve, conflicts with `name`.
+     * ID of the network zone.
      */
     readonly id?: string;
     /**
-     * Name of the network zone to retrieve, conflicts with `id`.
+     * Name of the network zone.
      */
     readonly name?: string;
     /**
-     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+     * Array of values in CIDR/range form.
      */
     readonly proxies: string[];
     /**
-     * Network Status - can either be ACTIVE or INACTIVE only
+     * Network Status - can either be ACTIVE or INACTIVE only.
      */
     readonly status: string;
     /**
-     * Type of the Network Zone - can either be IP or DYNAMIC only
+     * Type of the Network Zone.
      */
     readonly type: string;
     /**
-     * Zone's purpose: POLICY or BLOCKLIST
+     * Usage of the Network Zone.
      */
     readonly usage: string;
 }
 /**
- * Gets Okta Network Zone.
+ * Use this data source to retrieve a network zone from Okta.
  *
  * ## Example Usage
  *

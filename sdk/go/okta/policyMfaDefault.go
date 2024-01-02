@@ -11,41 +11,126 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Configures default MFA Policy.
+//
+// This resource allows you to configure default MFA Policy.
+//
+// > Requires Org Feature Flag `OKTA_MFA_POLICY`. Contact support to have this feature flag ***enabled***.
+//
+// > Unless Org Feature Flag `ENG_ENABLE_OPTIONAL_PASSWORD_ENROLLMENT` is ***disabled*** `oktaPassword` or `oktaEmail` must be present and its `enroll` value set to `REQUIRED`. Contact support to have this feature flag ***disabled***.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewPolicyMfaDefault(ctx, "classicExample", &okta.PolicyMfaDefaultArgs{
+//				IsOie: pulumi.Bool(false),
+//				OktaOtp: pulumi.StringMap{
+//					"enroll": pulumi.String("REQUIRED"),
+//				},
+//				OktaPassword: pulumi.StringMap{
+//					"enroll": pulumi.String("REQUIRED"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewPolicyMfaDefault(ctx, "oieExample", &okta.PolicyMfaDefaultArgs{
+//				IsOie: pulumi.Bool(true),
+//				OktaPassword: pulumi.StringMap{
+//					"enroll": pulumi.String("REQUIRED"),
+//				},
+//				OktaVerify: pulumi.StringMap{
+//					"enroll": pulumi.String("REQUIRED"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > If the `PolicyMfaDefault` is used in conjunction with `policy.Mfa` resources, ensure to use a `dependsOn` attribute for the default policy to ensure that all other policies are created/updated first such that the `priority` field can be appropriately computed on the first plan/apply.
+//
+// ## Import
+//
+// Default MFA Policy can be imported without providing Okta ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:index/policyMfaDefault:PolicyMfaDefault example .
+//
+// ```
 type PolicyMfaDefault struct {
 	pulumi.CustomResourceState
 
-	// Default group ID (always included)
+	// ID of the default Okta group.
 	DefaultIncludedGroupId pulumi.StringOutput `pulumi:"defaultIncludedGroupId"`
-	// Default policy description
-	Description  pulumi.StringOutput    `pulumi:"description"`
-	Duo          pulumi.StringMapOutput `pulumi:"duo"`
-	ExternalIdp  pulumi.StringMapOutput `pulumi:"externalIdp"`
-	FidoU2f      pulumi.StringMapOutput `pulumi:"fidoU2f"`
+	// Default policy description.
+	Description pulumi.StringOutput `pulumi:"description"`
+	// DUO MFA policy settings (✓ Classic, ✓ OIE).
+	Duo pulumi.StringMapOutput `pulumi:"duo"`
+	// External IDP MFA policy settings (✓ OIE).
+	ExternalIdp pulumi.StringMapOutput `pulumi:"externalIdp"`
+	// Fido U2F MFA policy settings (✓ Classic).
+	FidoU2f pulumi.StringMapOutput `pulumi:"fidoU2f"`
+	// Fido Web Authn MFA policy settings (✓ Classic).
 	FidoWebauthn pulumi.StringMapOutput `pulumi:"fidoWebauthn"`
-	GoogleOtp    pulumi.StringMapOutput `pulumi:"googleOtp"`
-	Hotp         pulumi.StringMapOutput `pulumi:"hotp"`
-	// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
+	// Google OTP MFA policy settings (✓ Classic, ✓ OIE).
+	GoogleOtp pulumi.StringMapOutput `pulumi:"googleOtp"`
+	// HMAC-based One-Time Password MFA policy settings (✓ Classic).
+	Hotp pulumi.StringMapOutput `pulumi:"hotp"`
+	// Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+	// > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
 	IsOie pulumi.BoolPtrOutput `pulumi:"isOie"`
-	// Default policy name
-	Name         pulumi.StringOutput    `pulumi:"name"`
-	OktaCall     pulumi.StringMapOutput `pulumi:"oktaCall"`
-	OktaEmail    pulumi.StringMapOutput `pulumi:"oktaEmail"`
-	OktaOtp      pulumi.StringMapOutput `pulumi:"oktaOtp"`
+	// Default policy name.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Okta Call MFA policy settings (✓ Classic).
+	OktaCall pulumi.StringMapOutput `pulumi:"oktaCall"`
+	// Okta Email MFA policy settings (✓ Classic, ✓ OIE).
+	OktaEmail pulumi.StringMapOutput `pulumi:"oktaEmail"`
+	// Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
+	OktaOtp pulumi.StringMapOutput `pulumi:"oktaOtp"`
+	// Okta Password MFA policy settings (✓ Classic, ✓ OIE).
 	OktaPassword pulumi.StringMapOutput `pulumi:"oktaPassword"`
-	OktaPush     pulumi.StringMapOutput `pulumi:"oktaPush"`
+	// Okta Push MFA policy settings (✓ Classic).
+	OktaPush pulumi.StringMapOutput `pulumi:"oktaPush"`
+	// Okta Question MFA policy settings (✓ Classic).
 	OktaQuestion pulumi.StringMapOutput `pulumi:"oktaQuestion"`
-	OktaSms      pulumi.StringMapOutput `pulumi:"oktaSms"`
-	OktaVerify   pulumi.StringMapOutput `pulumi:"oktaVerify"`
-	OnpremMfa    pulumi.StringMapOutput `pulumi:"onpremMfa"`
-	PhoneNumber  pulumi.StringMapOutput `pulumi:"phoneNumber"`
-	// Default policy priority
-	Priority         pulumi.IntOutput       `pulumi:"priority"`
-	RsaToken         pulumi.StringMapOutput `pulumi:"rsaToken"`
+	// Okta SMS MFA policy settings (✓ Classic).
+	OktaSms pulumi.StringMapOutput `pulumi:"oktaSms"`
+	// Okta Verify MFA policy settings (✓ OIE).
+	OktaVerify pulumi.StringMapOutput `pulumi:"oktaVerify"`
+	// On-Prem MFA MFA policy settings (✓ OIE).
+	OnpremMfa pulumi.StringMapOutput `pulumi:"onpremMfa"`
+	// Phone Number MFA policy settings (✓ OIE).
+	PhoneNumber pulumi.StringMapOutput `pulumi:"phoneNumber"`
+	// Default policy priority.
+	Priority pulumi.IntOutput `pulumi:"priority"`
+	// RSA Token MFA policy settings (✓ Classic, ✓ OIE).
+	RsaToken pulumi.StringMapOutput `pulumi:"rsaToken"`
+	// Security Question MFA policy settings (✓ OIE).
 	SecurityQuestion pulumi.StringMapOutput `pulumi:"securityQuestion"`
-	// Default policy status
-	Status       pulumi.StringOutput    `pulumi:"status"`
-	SymantecVip  pulumi.StringMapOutput `pulumi:"symantecVip"`
-	Webauthn     pulumi.StringMapOutput `pulumi:"webauthn"`
+	// Default policy status.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Symantec VIP MFA policy settings (✓ Classic).
+	SymantecVip pulumi.StringMapOutput `pulumi:"symantecVip"`
+	// FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
+	Webauthn pulumi.StringMapOutput `pulumi:"webauthn"`
+	// Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
 	YubikeyToken pulumi.StringMapOutput `pulumi:"yubikeyToken"`
 }
 
@@ -79,74 +164,118 @@ func GetPolicyMfaDefault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyMfaDefault resources.
 type policyMfaDefaultState struct {
-	// Default group ID (always included)
+	// ID of the default Okta group.
 	DefaultIncludedGroupId *string `pulumi:"defaultIncludedGroupId"`
-	// Default policy description
-	Description  *string           `pulumi:"description"`
-	Duo          map[string]string `pulumi:"duo"`
-	ExternalIdp  map[string]string `pulumi:"externalIdp"`
-	FidoU2f      map[string]string `pulumi:"fidoU2f"`
+	// Default policy description.
+	Description *string `pulumi:"description"`
+	// DUO MFA policy settings (✓ Classic, ✓ OIE).
+	Duo map[string]string `pulumi:"duo"`
+	// External IDP MFA policy settings (✓ OIE).
+	ExternalIdp map[string]string `pulumi:"externalIdp"`
+	// Fido U2F MFA policy settings (✓ Classic).
+	FidoU2f map[string]string `pulumi:"fidoU2f"`
+	// Fido Web Authn MFA policy settings (✓ Classic).
 	FidoWebauthn map[string]string `pulumi:"fidoWebauthn"`
-	GoogleOtp    map[string]string `pulumi:"googleOtp"`
-	Hotp         map[string]string `pulumi:"hotp"`
-	// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
+	// Google OTP MFA policy settings (✓ Classic, ✓ OIE).
+	GoogleOtp map[string]string `pulumi:"googleOtp"`
+	// HMAC-based One-Time Password MFA policy settings (✓ Classic).
+	Hotp map[string]string `pulumi:"hotp"`
+	// Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+	// > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
 	IsOie *bool `pulumi:"isOie"`
-	// Default policy name
-	Name         *string           `pulumi:"name"`
-	OktaCall     map[string]string `pulumi:"oktaCall"`
-	OktaEmail    map[string]string `pulumi:"oktaEmail"`
-	OktaOtp      map[string]string `pulumi:"oktaOtp"`
+	// Default policy name.
+	Name *string `pulumi:"name"`
+	// Okta Call MFA policy settings (✓ Classic).
+	OktaCall map[string]string `pulumi:"oktaCall"`
+	// Okta Email MFA policy settings (✓ Classic, ✓ OIE).
+	OktaEmail map[string]string `pulumi:"oktaEmail"`
+	// Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
+	OktaOtp map[string]string `pulumi:"oktaOtp"`
+	// Okta Password MFA policy settings (✓ Classic, ✓ OIE).
 	OktaPassword map[string]string `pulumi:"oktaPassword"`
-	OktaPush     map[string]string `pulumi:"oktaPush"`
+	// Okta Push MFA policy settings (✓ Classic).
+	OktaPush map[string]string `pulumi:"oktaPush"`
+	// Okta Question MFA policy settings (✓ Classic).
 	OktaQuestion map[string]string `pulumi:"oktaQuestion"`
-	OktaSms      map[string]string `pulumi:"oktaSms"`
-	OktaVerify   map[string]string `pulumi:"oktaVerify"`
-	OnpremMfa    map[string]string `pulumi:"onpremMfa"`
-	PhoneNumber  map[string]string `pulumi:"phoneNumber"`
-	// Default policy priority
-	Priority         *int              `pulumi:"priority"`
-	RsaToken         map[string]string `pulumi:"rsaToken"`
+	// Okta SMS MFA policy settings (✓ Classic).
+	OktaSms map[string]string `pulumi:"oktaSms"`
+	// Okta Verify MFA policy settings (✓ OIE).
+	OktaVerify map[string]string `pulumi:"oktaVerify"`
+	// On-Prem MFA MFA policy settings (✓ OIE).
+	OnpremMfa map[string]string `pulumi:"onpremMfa"`
+	// Phone Number MFA policy settings (✓ OIE).
+	PhoneNumber map[string]string `pulumi:"phoneNumber"`
+	// Default policy priority.
+	Priority *int `pulumi:"priority"`
+	// RSA Token MFA policy settings (✓ Classic, ✓ OIE).
+	RsaToken map[string]string `pulumi:"rsaToken"`
+	// Security Question MFA policy settings (✓ OIE).
 	SecurityQuestion map[string]string `pulumi:"securityQuestion"`
-	// Default policy status
-	Status       *string           `pulumi:"status"`
-	SymantecVip  map[string]string `pulumi:"symantecVip"`
-	Webauthn     map[string]string `pulumi:"webauthn"`
+	// Default policy status.
+	Status *string `pulumi:"status"`
+	// Symantec VIP MFA policy settings (✓ Classic).
+	SymantecVip map[string]string `pulumi:"symantecVip"`
+	// FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
+	Webauthn map[string]string `pulumi:"webauthn"`
+	// Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
 	YubikeyToken map[string]string `pulumi:"yubikeyToken"`
 }
 
 type PolicyMfaDefaultState struct {
-	// Default group ID (always included)
+	// ID of the default Okta group.
 	DefaultIncludedGroupId pulumi.StringPtrInput
-	// Default policy description
-	Description  pulumi.StringPtrInput
-	Duo          pulumi.StringMapInput
-	ExternalIdp  pulumi.StringMapInput
-	FidoU2f      pulumi.StringMapInput
+	// Default policy description.
+	Description pulumi.StringPtrInput
+	// DUO MFA policy settings (✓ Classic, ✓ OIE).
+	Duo pulumi.StringMapInput
+	// External IDP MFA policy settings (✓ OIE).
+	ExternalIdp pulumi.StringMapInput
+	// Fido U2F MFA policy settings (✓ Classic).
+	FidoU2f pulumi.StringMapInput
+	// Fido Web Authn MFA policy settings (✓ Classic).
 	FidoWebauthn pulumi.StringMapInput
-	GoogleOtp    pulumi.StringMapInput
-	Hotp         pulumi.StringMapInput
-	// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
+	// Google OTP MFA policy settings (✓ Classic, ✓ OIE).
+	GoogleOtp pulumi.StringMapInput
+	// HMAC-based One-Time Password MFA policy settings (✓ Classic).
+	Hotp pulumi.StringMapInput
+	// Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+	// > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
 	IsOie pulumi.BoolPtrInput
-	// Default policy name
-	Name         pulumi.StringPtrInput
-	OktaCall     pulumi.StringMapInput
-	OktaEmail    pulumi.StringMapInput
-	OktaOtp      pulumi.StringMapInput
+	// Default policy name.
+	Name pulumi.StringPtrInput
+	// Okta Call MFA policy settings (✓ Classic).
+	OktaCall pulumi.StringMapInput
+	// Okta Email MFA policy settings (✓ Classic, ✓ OIE).
+	OktaEmail pulumi.StringMapInput
+	// Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
+	OktaOtp pulumi.StringMapInput
+	// Okta Password MFA policy settings (✓ Classic, ✓ OIE).
 	OktaPassword pulumi.StringMapInput
-	OktaPush     pulumi.StringMapInput
+	// Okta Push MFA policy settings (✓ Classic).
+	OktaPush pulumi.StringMapInput
+	// Okta Question MFA policy settings (✓ Classic).
 	OktaQuestion pulumi.StringMapInput
-	OktaSms      pulumi.StringMapInput
-	OktaVerify   pulumi.StringMapInput
-	OnpremMfa    pulumi.StringMapInput
-	PhoneNumber  pulumi.StringMapInput
-	// Default policy priority
-	Priority         pulumi.IntPtrInput
-	RsaToken         pulumi.StringMapInput
+	// Okta SMS MFA policy settings (✓ Classic).
+	OktaSms pulumi.StringMapInput
+	// Okta Verify MFA policy settings (✓ OIE).
+	OktaVerify pulumi.StringMapInput
+	// On-Prem MFA MFA policy settings (✓ OIE).
+	OnpremMfa pulumi.StringMapInput
+	// Phone Number MFA policy settings (✓ OIE).
+	PhoneNumber pulumi.StringMapInput
+	// Default policy priority.
+	Priority pulumi.IntPtrInput
+	// RSA Token MFA policy settings (✓ Classic, ✓ OIE).
+	RsaToken pulumi.StringMapInput
+	// Security Question MFA policy settings (✓ OIE).
 	SecurityQuestion pulumi.StringMapInput
-	// Default policy status
-	Status       pulumi.StringPtrInput
-	SymantecVip  pulumi.StringMapInput
-	Webauthn     pulumi.StringMapInput
+	// Default policy status.
+	Status pulumi.StringPtrInput
+	// Symantec VIP MFA policy settings (✓ Classic).
+	SymantecVip pulumi.StringMapInput
+	// FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
+	Webauthn pulumi.StringMapInput
+	// Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
 	YubikeyToken pulumi.StringMapInput
 }
 
@@ -155,56 +284,100 @@ func (PolicyMfaDefaultState) ElementType() reflect.Type {
 }
 
 type policyMfaDefaultArgs struct {
-	Duo          map[string]string `pulumi:"duo"`
-	ExternalIdp  map[string]string `pulumi:"externalIdp"`
-	FidoU2f      map[string]string `pulumi:"fidoU2f"`
+	// DUO MFA policy settings (✓ Classic, ✓ OIE).
+	Duo map[string]string `pulumi:"duo"`
+	// External IDP MFA policy settings (✓ OIE).
+	ExternalIdp map[string]string `pulumi:"externalIdp"`
+	// Fido U2F MFA policy settings (✓ Classic).
+	FidoU2f map[string]string `pulumi:"fidoU2f"`
+	// Fido Web Authn MFA policy settings (✓ Classic).
 	FidoWebauthn map[string]string `pulumi:"fidoWebauthn"`
-	GoogleOtp    map[string]string `pulumi:"googleOtp"`
-	Hotp         map[string]string `pulumi:"hotp"`
-	// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
-	IsOie            *bool             `pulumi:"isOie"`
-	OktaCall         map[string]string `pulumi:"oktaCall"`
-	OktaEmail        map[string]string `pulumi:"oktaEmail"`
-	OktaOtp          map[string]string `pulumi:"oktaOtp"`
-	OktaPassword     map[string]string `pulumi:"oktaPassword"`
-	OktaPush         map[string]string `pulumi:"oktaPush"`
-	OktaQuestion     map[string]string `pulumi:"oktaQuestion"`
-	OktaSms          map[string]string `pulumi:"oktaSms"`
-	OktaVerify       map[string]string `pulumi:"oktaVerify"`
-	OnpremMfa        map[string]string `pulumi:"onpremMfa"`
-	PhoneNumber      map[string]string `pulumi:"phoneNumber"`
-	RsaToken         map[string]string `pulumi:"rsaToken"`
+	// Google OTP MFA policy settings (✓ Classic, ✓ OIE).
+	GoogleOtp map[string]string `pulumi:"googleOtp"`
+	// HMAC-based One-Time Password MFA policy settings (✓ Classic).
+	Hotp map[string]string `pulumi:"hotp"`
+	// Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+	// > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
+	IsOie *bool `pulumi:"isOie"`
+	// Okta Call MFA policy settings (✓ Classic).
+	OktaCall map[string]string `pulumi:"oktaCall"`
+	// Okta Email MFA policy settings (✓ Classic, ✓ OIE).
+	OktaEmail map[string]string `pulumi:"oktaEmail"`
+	// Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
+	OktaOtp map[string]string `pulumi:"oktaOtp"`
+	// Okta Password MFA policy settings (✓ Classic, ✓ OIE).
+	OktaPassword map[string]string `pulumi:"oktaPassword"`
+	// Okta Push MFA policy settings (✓ Classic).
+	OktaPush map[string]string `pulumi:"oktaPush"`
+	// Okta Question MFA policy settings (✓ Classic).
+	OktaQuestion map[string]string `pulumi:"oktaQuestion"`
+	// Okta SMS MFA policy settings (✓ Classic).
+	OktaSms map[string]string `pulumi:"oktaSms"`
+	// Okta Verify MFA policy settings (✓ OIE).
+	OktaVerify map[string]string `pulumi:"oktaVerify"`
+	// On-Prem MFA MFA policy settings (✓ OIE).
+	OnpremMfa map[string]string `pulumi:"onpremMfa"`
+	// Phone Number MFA policy settings (✓ OIE).
+	PhoneNumber map[string]string `pulumi:"phoneNumber"`
+	// RSA Token MFA policy settings (✓ Classic, ✓ OIE).
+	RsaToken map[string]string `pulumi:"rsaToken"`
+	// Security Question MFA policy settings (✓ OIE).
 	SecurityQuestion map[string]string `pulumi:"securityQuestion"`
-	SymantecVip      map[string]string `pulumi:"symantecVip"`
-	Webauthn         map[string]string `pulumi:"webauthn"`
-	YubikeyToken     map[string]string `pulumi:"yubikeyToken"`
+	// Symantec VIP MFA policy settings (✓ Classic).
+	SymantecVip map[string]string `pulumi:"symantecVip"`
+	// FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
+	Webauthn map[string]string `pulumi:"webauthn"`
+	// Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
+	YubikeyToken map[string]string `pulumi:"yubikeyToken"`
 }
 
 // The set of arguments for constructing a PolicyMfaDefault resource.
 type PolicyMfaDefaultArgs struct {
-	Duo          pulumi.StringMapInput
-	ExternalIdp  pulumi.StringMapInput
-	FidoU2f      pulumi.StringMapInput
+	// DUO MFA policy settings (✓ Classic, ✓ OIE).
+	Duo pulumi.StringMapInput
+	// External IDP MFA policy settings (✓ OIE).
+	ExternalIdp pulumi.StringMapInput
+	// Fido U2F MFA policy settings (✓ Classic).
+	FidoU2f pulumi.StringMapInput
+	// Fido Web Authn MFA policy settings (✓ Classic).
 	FidoWebauthn pulumi.StringMapInput
-	GoogleOtp    pulumi.StringMapInput
-	Hotp         pulumi.StringMapInput
-	// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
-	IsOie            pulumi.BoolPtrInput
-	OktaCall         pulumi.StringMapInput
-	OktaEmail        pulumi.StringMapInput
-	OktaOtp          pulumi.StringMapInput
-	OktaPassword     pulumi.StringMapInput
-	OktaPush         pulumi.StringMapInput
-	OktaQuestion     pulumi.StringMapInput
-	OktaSms          pulumi.StringMapInput
-	OktaVerify       pulumi.StringMapInput
-	OnpremMfa        pulumi.StringMapInput
-	PhoneNumber      pulumi.StringMapInput
-	RsaToken         pulumi.StringMapInput
+	// Google OTP MFA policy settings (✓ Classic, ✓ OIE).
+	GoogleOtp pulumi.StringMapInput
+	// HMAC-based One-Time Password MFA policy settings (✓ Classic).
+	Hotp pulumi.StringMapInput
+	// Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+	// > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
+	IsOie pulumi.BoolPtrInput
+	// Okta Call MFA policy settings (✓ Classic).
+	OktaCall pulumi.StringMapInput
+	// Okta Email MFA policy settings (✓ Classic, ✓ OIE).
+	OktaEmail pulumi.StringMapInput
+	// Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
+	OktaOtp pulumi.StringMapInput
+	// Okta Password MFA policy settings (✓ Classic, ✓ OIE).
+	OktaPassword pulumi.StringMapInput
+	// Okta Push MFA policy settings (✓ Classic).
+	OktaPush pulumi.StringMapInput
+	// Okta Question MFA policy settings (✓ Classic).
+	OktaQuestion pulumi.StringMapInput
+	// Okta SMS MFA policy settings (✓ Classic).
+	OktaSms pulumi.StringMapInput
+	// Okta Verify MFA policy settings (✓ OIE).
+	OktaVerify pulumi.StringMapInput
+	// On-Prem MFA MFA policy settings (✓ OIE).
+	OnpremMfa pulumi.StringMapInput
+	// Phone Number MFA policy settings (✓ OIE).
+	PhoneNumber pulumi.StringMapInput
+	// RSA Token MFA policy settings (✓ Classic, ✓ OIE).
+	RsaToken pulumi.StringMapInput
+	// Security Question MFA policy settings (✓ OIE).
 	SecurityQuestion pulumi.StringMapInput
-	SymantecVip      pulumi.StringMapInput
-	Webauthn         pulumi.StringMapInput
-	YubikeyToken     pulumi.StringMapInput
+	// Symantec VIP MFA policy settings (✓ Classic).
+	SymantecVip pulumi.StringMapInput
+	// FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
+	Webauthn pulumi.StringMapInput
+	// Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
+	YubikeyToken pulumi.StringMapInput
 }
 
 func (PolicyMfaDefaultArgs) ElementType() reflect.Type {
@@ -294,116 +467,138 @@ func (o PolicyMfaDefaultOutput) ToPolicyMfaDefaultOutputWithContext(ctx context.
 	return o
 }
 
-// Default group ID (always included)
+// ID of the default Okta group.
 func (o PolicyMfaDefaultOutput) DefaultIncludedGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringOutput { return v.DefaultIncludedGroupId }).(pulumi.StringOutput)
 }
 
-// Default policy description
+// Default policy description.
 func (o PolicyMfaDefaultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// DUO MFA policy settings (✓ Classic, ✓ OIE).
 func (o PolicyMfaDefaultOutput) Duo() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.Duo }).(pulumi.StringMapOutput)
 }
 
+// External IDP MFA policy settings (✓ OIE).
 func (o PolicyMfaDefaultOutput) ExternalIdp() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.ExternalIdp }).(pulumi.StringMapOutput)
 }
 
+// Fido U2F MFA policy settings (✓ Classic).
 func (o PolicyMfaDefaultOutput) FidoU2f() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.FidoU2f }).(pulumi.StringMapOutput)
 }
 
+// Fido Web Authn MFA policy settings (✓ Classic).
 func (o PolicyMfaDefaultOutput) FidoWebauthn() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.FidoWebauthn }).(pulumi.StringMapOutput)
 }
 
+// Google OTP MFA policy settings (✓ Classic, ✓ OIE).
 func (o PolicyMfaDefaultOutput) GoogleOtp() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.GoogleOtp }).(pulumi.StringMapOutput)
 }
 
+// HMAC-based One-Time Password MFA policy settings (✓ Classic).
 func (o PolicyMfaDefaultOutput) Hotp() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.Hotp }).(pulumi.StringMapOutput)
 }
 
-// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
+// Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+// > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
 func (o PolicyMfaDefaultOutput) IsOie() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.BoolPtrOutput { return v.IsOie }).(pulumi.BoolPtrOutput)
 }
 
-// Default policy name
+// Default policy name.
 func (o PolicyMfaDefaultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Okta Call MFA policy settings (✓ Classic).
 func (o PolicyMfaDefaultOutput) OktaCall() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.OktaCall }).(pulumi.StringMapOutput)
 }
 
+// Okta Email MFA policy settings (✓ Classic, ✓ OIE).
 func (o PolicyMfaDefaultOutput) OktaEmail() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.OktaEmail }).(pulumi.StringMapOutput)
 }
 
+// Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
 func (o PolicyMfaDefaultOutput) OktaOtp() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.OktaOtp }).(pulumi.StringMapOutput)
 }
 
+// Okta Password MFA policy settings (✓ Classic, ✓ OIE).
 func (o PolicyMfaDefaultOutput) OktaPassword() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.OktaPassword }).(pulumi.StringMapOutput)
 }
 
+// Okta Push MFA policy settings (✓ Classic).
 func (o PolicyMfaDefaultOutput) OktaPush() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.OktaPush }).(pulumi.StringMapOutput)
 }
 
+// Okta Question MFA policy settings (✓ Classic).
 func (o PolicyMfaDefaultOutput) OktaQuestion() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.OktaQuestion }).(pulumi.StringMapOutput)
 }
 
+// Okta SMS MFA policy settings (✓ Classic).
 func (o PolicyMfaDefaultOutput) OktaSms() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.OktaSms }).(pulumi.StringMapOutput)
 }
 
+// Okta Verify MFA policy settings (✓ OIE).
 func (o PolicyMfaDefaultOutput) OktaVerify() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.OktaVerify }).(pulumi.StringMapOutput)
 }
 
+// On-Prem MFA MFA policy settings (✓ OIE).
 func (o PolicyMfaDefaultOutput) OnpremMfa() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.OnpremMfa }).(pulumi.StringMapOutput)
 }
 
+// Phone Number MFA policy settings (✓ OIE).
 func (o PolicyMfaDefaultOutput) PhoneNumber() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.PhoneNumber }).(pulumi.StringMapOutput)
 }
 
-// Default policy priority
+// Default policy priority.
 func (o PolicyMfaDefaultOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
+// RSA Token MFA policy settings (✓ Classic, ✓ OIE).
 func (o PolicyMfaDefaultOutput) RsaToken() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.RsaToken }).(pulumi.StringMapOutput)
 }
 
+// Security Question MFA policy settings (✓ OIE).
 func (o PolicyMfaDefaultOutput) SecurityQuestion() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.SecurityQuestion }).(pulumi.StringMapOutput)
 }
 
-// Default policy status
+// Default policy status.
 func (o PolicyMfaDefaultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Symantec VIP MFA policy settings (✓ Classic).
 func (o PolicyMfaDefaultOutput) SymantecVip() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.SymantecVip }).(pulumi.StringMapOutput)
 }
 
+// FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
 func (o PolicyMfaDefaultOutput) Webauthn() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.Webauthn }).(pulumi.StringMapOutput)
 }
 
+// Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
 func (o PolicyMfaDefaultOutput) YubikeyToken() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.YubikeyToken }).(pulumi.StringMapOutput)
 }

@@ -16,14 +16,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     public static final DomainArgs Empty = new DomainArgs();
 
     /**
-     * Brand id of the domain
+     * The Brand ID of the domain
      * 
      */
     @Import(name="brandId")
     private @Nullable Output<String> brandId;
 
     /**
-     * @return Brand id of the domain
+     * @return The Brand ID of the domain
      * 
      */
     public Optional<Output<String>> brandId() {
@@ -31,14 +31,18 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Optional. Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: MANUAL, OKTA*MANAGED. Warning: Use of OKTA*MANAGED requires a feature flag to be enabled. Default value = MANUAL
+     * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+     * 
+     * &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
      * 
      */
     @Import(name="certificateSourceType")
     private @Nullable Output<String> certificateSourceType;
 
     /**
-     * @return Optional. Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: MANUAL, OKTA*MANAGED. Warning: Use of OKTA*MANAGED requires a feature flag to be enabled. Default value = MANUAL
+     * @return Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+     * 
+     * &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
      * 
      */
     public Optional<Output<String>> certificateSourceType() {
@@ -46,14 +50,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Custom Domain name
+     * Custom Domain name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Custom Domain name
+     * @return Custom Domain name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -87,7 +91,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brandId Brand id of the domain
+         * @param brandId The Brand ID of the domain
          * 
          * @return builder
          * 
@@ -98,7 +102,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brandId Brand id of the domain
+         * @param brandId The Brand ID of the domain
          * 
          * @return builder
          * 
@@ -108,7 +112,9 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateSourceType Optional. Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: MANUAL, OKTA*MANAGED. Warning: Use of OKTA*MANAGED requires a feature flag to be enabled. Default value = MANUAL
+         * @param certificateSourceType Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+         * 
+         * &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
          * 
          * @return builder
          * 
@@ -119,7 +125,9 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateSourceType Optional. Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: MANUAL, OKTA*MANAGED. Warning: Use of OKTA*MANAGED requires a feature flag to be enabled. Default value = MANUAL
+         * @param certificateSourceType Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
+         * 
+         * &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
          * 
          * @return builder
          * 
@@ -129,7 +137,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Custom Domain name
+         * @param name Custom Domain name.
          * 
          * @return builder
          * 
@@ -140,7 +148,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Custom Domain name
+         * @param name Custom Domain name.
          * 
          * @return builder
          * 

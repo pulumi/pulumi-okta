@@ -12,24 +12,84 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RuleIdpDiscoveryPlatformInclude {
     /**
-     * @return Only available with OTHER OS type
+     * @return Only available when using `os_type = &#34;OTHER&#34;`
      * 
      */
     private @Nullable String osExpression;
+    /**
+     * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
+     * 
+     */
     private @Nullable String osType;
+    /**
+     * @return One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
+     * 
+     */
     private @Nullable String type;
 
     private RuleIdpDiscoveryPlatformInclude() {}
     /**
-     * @return Only available with OTHER OS type
+     * @return Only available when using `os_type = &#34;OTHER&#34;`
      * 
      */
     public Optional<String> osExpression() {
         return Optional.ofNullable(this.osExpression);
     }
+    /**
+     * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
+     * 
+     */
     public Optional<String> osType() {
         return Optional.ofNullable(this.osType);
     }
+    /**
+     * @return One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

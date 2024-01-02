@@ -15,14 +15,14 @@ public final class DomainVerificationArgs extends com.pulumi.resources.ResourceA
     public static final DomainVerificationArgs Empty = new DomainVerificationArgs();
 
     /**
-     * Domain&#39;s ID
+     * Domain ID.
      * 
      */
     @Import(name="domainId", required=true)
     private Output<String> domainId;
 
     /**
-     * @return Domain&#39;s ID
+     * @return Domain ID.
      * 
      */
     public Output<String> domainId() {
@@ -54,7 +54,7 @@ public final class DomainVerificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param domainId Domain&#39;s ID
+         * @param domainId Domain ID.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class DomainVerificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param domainId Domain&#39;s ID
+         * @param domainId Domain ID.
          * 
          * @return builder
          * 

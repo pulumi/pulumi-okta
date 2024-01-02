@@ -14,19 +14,23 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBehavioursResult {
+    /**
+     * @return List of behaviors.
+     * 
+     */
     private List<GetBehavioursBehavior> behaviors;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Searches the name property of behaviors for matching value
-     * 
-     */
     private @Nullable String q;
 
     private GetBehavioursResult() {}
+    /**
+     * @return List of behaviors.
+     * 
+     */
     public List<GetBehavioursBehavior> behaviors() {
         return this.behaviors;
     }
@@ -37,10 +41,6 @@ public final class GetBehavioursResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Searches the name property of behaviors for matching value
-     * 
-     */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }

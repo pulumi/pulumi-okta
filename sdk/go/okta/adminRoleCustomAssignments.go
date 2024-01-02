@@ -12,15 +12,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource to manage the assignment and unassignment of Custom Roles
+// This resource allows the assignment and unassignment of Custom Roles. The `members` field supports these type of resources:
+//   - Groups
+//   - Users
+//
+// > **NOTE:** This an `Early Access` feature.
+//
+// ## Import
+//
+// Okta Custom Admin Role Assignments can be imported via the Okta ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example &#60;resource_set_id&#62;/&#60;custom_role_id&#62;
+//
+// ```
 type AdminRoleCustomAssignments struct {
 	pulumi.CustomResourceState
 
-	// ID of the Custom Role
+	// ID of the Custom Role.
 	CustomRoleId pulumi.StringOutput `pulumi:"customRoleId"`
-	// The hrefs that point to User(s) and/or Group(s) that receive the Role
+	// The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+	// permission must be specified when creating custom role.
 	Members pulumi.StringArrayOutput `pulumi:"members"`
-	// ID of the target Resource Set
+	// ID of the target Resource Set.
 	ResourceSetId pulumi.StringOutput `pulumi:"resourceSetId"`
 }
 
@@ -60,20 +75,22 @@ func GetAdminRoleCustomAssignments(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AdminRoleCustomAssignments resources.
 type adminRoleCustomAssignmentsState struct {
-	// ID of the Custom Role
+	// ID of the Custom Role.
 	CustomRoleId *string `pulumi:"customRoleId"`
-	// The hrefs that point to User(s) and/or Group(s) that receive the Role
+	// The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+	// permission must be specified when creating custom role.
 	Members []string `pulumi:"members"`
-	// ID of the target Resource Set
+	// ID of the target Resource Set.
 	ResourceSetId *string `pulumi:"resourceSetId"`
 }
 
 type AdminRoleCustomAssignmentsState struct {
-	// ID of the Custom Role
+	// ID of the Custom Role.
 	CustomRoleId pulumi.StringPtrInput
-	// The hrefs that point to User(s) and/or Group(s) that receive the Role
+	// The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+	// permission must be specified when creating custom role.
 	Members pulumi.StringArrayInput
-	// ID of the target Resource Set
+	// ID of the target Resource Set.
 	ResourceSetId pulumi.StringPtrInput
 }
 
@@ -82,21 +99,23 @@ func (AdminRoleCustomAssignmentsState) ElementType() reflect.Type {
 }
 
 type adminRoleCustomAssignmentsArgs struct {
-	// ID of the Custom Role
+	// ID of the Custom Role.
 	CustomRoleId string `pulumi:"customRoleId"`
-	// The hrefs that point to User(s) and/or Group(s) that receive the Role
+	// The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+	// permission must be specified when creating custom role.
 	Members []string `pulumi:"members"`
-	// ID of the target Resource Set
+	// ID of the target Resource Set.
 	ResourceSetId string `pulumi:"resourceSetId"`
 }
 
 // The set of arguments for constructing a AdminRoleCustomAssignments resource.
 type AdminRoleCustomAssignmentsArgs struct {
-	// ID of the Custom Role
+	// ID of the Custom Role.
 	CustomRoleId pulumi.StringInput
-	// The hrefs that point to User(s) and/or Group(s) that receive the Role
+	// The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+	// permission must be specified when creating custom role.
 	Members pulumi.StringArrayInput
-	// ID of the target Resource Set
+	// ID of the target Resource Set.
 	ResourceSetId pulumi.StringInput
 }
 
@@ -187,17 +206,18 @@ func (o AdminRoleCustomAssignmentsOutput) ToAdminRoleCustomAssignmentsOutputWith
 	return o
 }
 
-// ID of the Custom Role
+// ID of the Custom Role.
 func (o AdminRoleCustomAssignmentsOutput) CustomRoleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminRoleCustomAssignments) pulumi.StringOutput { return v.CustomRoleId }).(pulumi.StringOutput)
 }
 
-// The hrefs that point to User(s) and/or Group(s) that receive the Role
+// The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+// permission must be specified when creating custom role.
 func (o AdminRoleCustomAssignmentsOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AdminRoleCustomAssignments) pulumi.StringArrayOutput { return v.Members }).(pulumi.StringArrayOutput)
 }
 
-// ID of the target Resource Set
+// ID of the target Resource Set.
 func (o AdminRoleCustomAssignmentsOutput) ResourceSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminRoleCustomAssignments) pulumi.StringOutput { return v.ResourceSetId }).(pulumi.StringOutput)
 }

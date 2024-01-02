@@ -18,14 +18,14 @@ public final class AdminRoleCustomArgs extends com.pulumi.resources.ResourceArgs
     public static final AdminRoleCustomArgs Empty = new AdminRoleCustomArgs();
 
     /**
-     * A human-readable description of the new Role
+     * A human-readable description of the new Role.
      * 
      */
     @Import(name="description", required=true)
     private Output<String> description;
 
     /**
-     * @return A human-readable description of the new Role
+     * @return A human-readable description of the new Role.
      * 
      */
     public Output<String> description() {
@@ -33,14 +33,14 @@ public final class AdminRoleCustomArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name given to the new Role
+     * The name given to the new Role.
      * 
      */
     @Import(name="label", required=true)
     private Output<String> label;
 
     /**
-     * @return The name given to the new Role
+     * @return The name given to the new Role.
      * 
      */
     public Output<String> label() {
@@ -48,14 +48,78 @@ public final class AdminRoleCustomArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The permissions that the new Role grants.
+     * The permissions that the new Role grants. At least one
+     * permission must be specified when creating custom role. Valid values: `&#34;okta.authzServers.manage&#34;`,
+     * `&#34;okta.authzServers.read&#34;`,
+     * `&#34;okta.apps.assignment.manage&#34;`,
+     * `&#34;okta.apps.manage&#34;`,
+     * `&#34;okta.apps.read&#34;`,
+     * `&#34;okta.customizations.manage&#34;`,
+     * `&#34;okta.customizations.read&#34;`,
+     * `&#34;okta.groups.appAssignment.manage&#34;`,
+     * `&#34;okta.groups.create&#34;`,
+     * `&#34;okta.groups.manage&#34;`,
+     * `&#34;okta.groups.members.manage&#34;`,
+     * `&#34;okta.groups.read&#34;`,
+     * `&#34;okta.profilesources.import.run&#34;`,
+     * `&#34;okta.users.appAssignment.manage&#34;`,
+     * `&#34;okta.users.create&#34;`,
+     * `&#34;okta.users.credentials.expirePassword&#34;`,
+     * `&#34;okta.users.credentials.manage&#34;`,
+     * `&#34;okta.users.credentials.resetFactors&#34;`,
+     * `&#34;okta.users.credentials.resetPassword&#34;`,
+     * `&#34;okta.users.groupMembership.manage&#34;`,
+     * `&#34;okta.users.lifecycle.activate&#34;`,
+     * `&#34;okta.users.lifecycle.clearSessions&#34;`,
+     * `&#34;okta.users.lifecycle.deactivate&#34;`,
+     * `&#34;okta.users.lifecycle.delete&#34;`,
+     * `&#34;okta.users.lifecycle.manage&#34;`,
+     * `&#34;okta.users.lifecycle.suspend&#34;`,
+     * `&#34;okta.users.lifecycle.unlock&#34;`,
+     * `&#34;okta.users.lifecycle.unsuspend&#34;`,
+     * `&#34;okta.users.manage&#34;`,
+     * `&#34;okta.users.read&#34;`,
+     * `&#34;okta.users.userprofile.manage&#34;`,
+     * `&#34;okta.workflows.invoke&#34;`.,
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<List<String>> permissions;
 
     /**
-     * @return The permissions that the new Role grants.
+     * @return The permissions that the new Role grants. At least one
+     * permission must be specified when creating custom role. Valid values: `&#34;okta.authzServers.manage&#34;`,
+     * `&#34;okta.authzServers.read&#34;`,
+     * `&#34;okta.apps.assignment.manage&#34;`,
+     * `&#34;okta.apps.manage&#34;`,
+     * `&#34;okta.apps.read&#34;`,
+     * `&#34;okta.customizations.manage&#34;`,
+     * `&#34;okta.customizations.read&#34;`,
+     * `&#34;okta.groups.appAssignment.manage&#34;`,
+     * `&#34;okta.groups.create&#34;`,
+     * `&#34;okta.groups.manage&#34;`,
+     * `&#34;okta.groups.members.manage&#34;`,
+     * `&#34;okta.groups.read&#34;`,
+     * `&#34;okta.profilesources.import.run&#34;`,
+     * `&#34;okta.users.appAssignment.manage&#34;`,
+     * `&#34;okta.users.create&#34;`,
+     * `&#34;okta.users.credentials.expirePassword&#34;`,
+     * `&#34;okta.users.credentials.manage&#34;`,
+     * `&#34;okta.users.credentials.resetFactors&#34;`,
+     * `&#34;okta.users.credentials.resetPassword&#34;`,
+     * `&#34;okta.users.groupMembership.manage&#34;`,
+     * `&#34;okta.users.lifecycle.activate&#34;`,
+     * `&#34;okta.users.lifecycle.clearSessions&#34;`,
+     * `&#34;okta.users.lifecycle.deactivate&#34;`,
+     * `&#34;okta.users.lifecycle.delete&#34;`,
+     * `&#34;okta.users.lifecycle.manage&#34;`,
+     * `&#34;okta.users.lifecycle.suspend&#34;`,
+     * `&#34;okta.users.lifecycle.unlock&#34;`,
+     * `&#34;okta.users.lifecycle.unsuspend&#34;`,
+     * `&#34;okta.users.manage&#34;`,
+     * `&#34;okta.users.read&#34;`,
+     * `&#34;okta.users.userprofile.manage&#34;`,
+     * `&#34;okta.workflows.invoke&#34;`.,
      * 
      */
     public Optional<Output<List<String>>> permissions() {
@@ -89,7 +153,7 @@ public final class AdminRoleCustomArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description A human-readable description of the new Role
+         * @param description A human-readable description of the new Role.
          * 
          * @return builder
          * 
@@ -100,7 +164,7 @@ public final class AdminRoleCustomArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description A human-readable description of the new Role
+         * @param description A human-readable description of the new Role.
          * 
          * @return builder
          * 
@@ -110,7 +174,7 @@ public final class AdminRoleCustomArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param label The name given to the new Role
+         * @param label The name given to the new Role.
          * 
          * @return builder
          * 
@@ -121,7 +185,7 @@ public final class AdminRoleCustomArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param label The name given to the new Role
+         * @param label The name given to the new Role.
          * 
          * @return builder
          * 
@@ -131,7 +195,39 @@ public final class AdminRoleCustomArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param permissions The permissions that the new Role grants.
+         * @param permissions The permissions that the new Role grants. At least one
+         * permission must be specified when creating custom role. Valid values: `&#34;okta.authzServers.manage&#34;`,
+         * `&#34;okta.authzServers.read&#34;`,
+         * `&#34;okta.apps.assignment.manage&#34;`,
+         * `&#34;okta.apps.manage&#34;`,
+         * `&#34;okta.apps.read&#34;`,
+         * `&#34;okta.customizations.manage&#34;`,
+         * `&#34;okta.customizations.read&#34;`,
+         * `&#34;okta.groups.appAssignment.manage&#34;`,
+         * `&#34;okta.groups.create&#34;`,
+         * `&#34;okta.groups.manage&#34;`,
+         * `&#34;okta.groups.members.manage&#34;`,
+         * `&#34;okta.groups.read&#34;`,
+         * `&#34;okta.profilesources.import.run&#34;`,
+         * `&#34;okta.users.appAssignment.manage&#34;`,
+         * `&#34;okta.users.create&#34;`,
+         * `&#34;okta.users.credentials.expirePassword&#34;`,
+         * `&#34;okta.users.credentials.manage&#34;`,
+         * `&#34;okta.users.credentials.resetFactors&#34;`,
+         * `&#34;okta.users.credentials.resetPassword&#34;`,
+         * `&#34;okta.users.groupMembership.manage&#34;`,
+         * `&#34;okta.users.lifecycle.activate&#34;`,
+         * `&#34;okta.users.lifecycle.clearSessions&#34;`,
+         * `&#34;okta.users.lifecycle.deactivate&#34;`,
+         * `&#34;okta.users.lifecycle.delete&#34;`,
+         * `&#34;okta.users.lifecycle.manage&#34;`,
+         * `&#34;okta.users.lifecycle.suspend&#34;`,
+         * `&#34;okta.users.lifecycle.unlock&#34;`,
+         * `&#34;okta.users.lifecycle.unsuspend&#34;`,
+         * `&#34;okta.users.manage&#34;`,
+         * `&#34;okta.users.read&#34;`,
+         * `&#34;okta.users.userprofile.manage&#34;`,
+         * `&#34;okta.workflows.invoke&#34;`.,
          * 
          * @return builder
          * 
@@ -142,7 +238,39 @@ public final class AdminRoleCustomArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param permissions The permissions that the new Role grants.
+         * @param permissions The permissions that the new Role grants. At least one
+         * permission must be specified when creating custom role. Valid values: `&#34;okta.authzServers.manage&#34;`,
+         * `&#34;okta.authzServers.read&#34;`,
+         * `&#34;okta.apps.assignment.manage&#34;`,
+         * `&#34;okta.apps.manage&#34;`,
+         * `&#34;okta.apps.read&#34;`,
+         * `&#34;okta.customizations.manage&#34;`,
+         * `&#34;okta.customizations.read&#34;`,
+         * `&#34;okta.groups.appAssignment.manage&#34;`,
+         * `&#34;okta.groups.create&#34;`,
+         * `&#34;okta.groups.manage&#34;`,
+         * `&#34;okta.groups.members.manage&#34;`,
+         * `&#34;okta.groups.read&#34;`,
+         * `&#34;okta.profilesources.import.run&#34;`,
+         * `&#34;okta.users.appAssignment.manage&#34;`,
+         * `&#34;okta.users.create&#34;`,
+         * `&#34;okta.users.credentials.expirePassword&#34;`,
+         * `&#34;okta.users.credentials.manage&#34;`,
+         * `&#34;okta.users.credentials.resetFactors&#34;`,
+         * `&#34;okta.users.credentials.resetPassword&#34;`,
+         * `&#34;okta.users.groupMembership.manage&#34;`,
+         * `&#34;okta.users.lifecycle.activate&#34;`,
+         * `&#34;okta.users.lifecycle.clearSessions&#34;`,
+         * `&#34;okta.users.lifecycle.deactivate&#34;`,
+         * `&#34;okta.users.lifecycle.delete&#34;`,
+         * `&#34;okta.users.lifecycle.manage&#34;`,
+         * `&#34;okta.users.lifecycle.suspend&#34;`,
+         * `&#34;okta.users.lifecycle.unlock&#34;`,
+         * `&#34;okta.users.lifecycle.unsuspend&#34;`,
+         * `&#34;okta.users.manage&#34;`,
+         * `&#34;okta.users.read&#34;`,
+         * `&#34;okta.users.userprofile.manage&#34;`,
+         * `&#34;okta.workflows.invoke&#34;`.,
          * 
          * @return builder
          * 
@@ -152,7 +280,39 @@ public final class AdminRoleCustomArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param permissions The permissions that the new Role grants.
+         * @param permissions The permissions that the new Role grants. At least one
+         * permission must be specified when creating custom role. Valid values: `&#34;okta.authzServers.manage&#34;`,
+         * `&#34;okta.authzServers.read&#34;`,
+         * `&#34;okta.apps.assignment.manage&#34;`,
+         * `&#34;okta.apps.manage&#34;`,
+         * `&#34;okta.apps.read&#34;`,
+         * `&#34;okta.customizations.manage&#34;`,
+         * `&#34;okta.customizations.read&#34;`,
+         * `&#34;okta.groups.appAssignment.manage&#34;`,
+         * `&#34;okta.groups.create&#34;`,
+         * `&#34;okta.groups.manage&#34;`,
+         * `&#34;okta.groups.members.manage&#34;`,
+         * `&#34;okta.groups.read&#34;`,
+         * `&#34;okta.profilesources.import.run&#34;`,
+         * `&#34;okta.users.appAssignment.manage&#34;`,
+         * `&#34;okta.users.create&#34;`,
+         * `&#34;okta.users.credentials.expirePassword&#34;`,
+         * `&#34;okta.users.credentials.manage&#34;`,
+         * `&#34;okta.users.credentials.resetFactors&#34;`,
+         * `&#34;okta.users.credentials.resetPassword&#34;`,
+         * `&#34;okta.users.groupMembership.manage&#34;`,
+         * `&#34;okta.users.lifecycle.activate&#34;`,
+         * `&#34;okta.users.lifecycle.clearSessions&#34;`,
+         * `&#34;okta.users.lifecycle.deactivate&#34;`,
+         * `&#34;okta.users.lifecycle.delete&#34;`,
+         * `&#34;okta.users.lifecycle.manage&#34;`,
+         * `&#34;okta.users.lifecycle.suspend&#34;`,
+         * `&#34;okta.users.lifecycle.unlock&#34;`,
+         * `&#34;okta.users.lifecycle.unsuspend&#34;`,
+         * `&#34;okta.users.manage&#34;`,
+         * `&#34;okta.users.read&#34;`,
+         * `&#34;okta.users.userprofile.manage&#34;`,
+         * `&#34;okta.workflows.invoke&#34;`.,
          * 
          * @return builder
          * 

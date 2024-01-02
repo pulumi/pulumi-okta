@@ -14,11 +14,11 @@ namespace Pulumi.Okta.Outputs
     public sealed class GroupSchemaPropertyArrayOneOf
     {
         /// <summary>
-        /// Enum value
+        /// value mapping to member of `enum`.
         /// </summary>
         public readonly string Const;
         /// <summary>
-        /// Enum title
+        /// display name for the enum value.
         /// </summary>
         public readonly string Title;
 

@@ -13,42 +13,147 @@ namespace Pulumi.Okta.User.Outputs
     [OutputType]
     public sealed class GetUsersUserResult
     {
+        /// <summary>
+        /// Administrator roles assigned to user.
+        /// </summary>
         public readonly ImmutableArray<string> AdminRoles;
+        /// <summary>
+        /// City or locality component of user's address.
+        /// </summary>
         public readonly string City;
+        /// <summary>
+        /// Name of a cost center assigned to user.
+        /// </summary>
         public readonly string CostCenter;
+        /// <summary>
+        /// Country name component of user's address.
+        /// </summary>
         public readonly string CountryCode;
+        /// <summary>
+        /// Raw JSON containing all custom profile attributes.
+        /// </summary>
         public readonly string CustomProfileAttributes;
+        /// <summary>
+        /// Name of user's department.
+        /// </summary>
         public readonly string Department;
+        /// <summary>
+        /// Name of the user, suitable for display to end users.
+        /// </summary>
         public readonly string DisplayName;
+        /// <summary>
+        /// Name of user's division.
+        /// </summary>
         public readonly string Division;
+        /// <summary>
+        /// Primary email address of user.
+        /// </summary>
         public readonly string Email;
+        /// <summary>
+        /// Organization or company assigned unique identifier for the user.
+        /// </summary>
         public readonly string EmployeeNumber;
+        /// <summary>
+        /// Given name of the user.
+        /// </summary>
         public readonly string FirstName;
+        /// <summary>
+        /// Groups user belongs to.
+        /// </summary>
         public readonly ImmutableArray<string> GroupMemberships;
+        /// <summary>
+        /// Honorific prefix(es) of the user, or title in most Western languages.
+        /// </summary>
         public readonly string HonorificPrefix;
+        /// <summary>
+        /// Honorific suffix(es) of the user.
+        /// </summary>
         public readonly string HonorificSuffix;
         public readonly string Id;
+        /// <summary>
+        /// Family name of the user.
+        /// </summary>
         public readonly string LastName;
+        /// <summary>
+        /// User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
+        /// </summary>
         public readonly string Locale;
+        /// <summary>
+        /// Unique identifier for the user.
+        /// </summary>
         public readonly string Login;
+        /// <summary>
+        /// Display name of the user's manager.
+        /// </summary>
         public readonly string Manager;
+        /// <summary>
+        /// `id` of a user's manager.
+        /// </summary>
         public readonly string ManagerId;
+        /// <summary>
+        /// Middle name(s) of the user.
+        /// </summary>
         public readonly string MiddleName;
+        /// <summary>
+        /// Mobile phone number of user.
+        /// </summary>
         public readonly string MobilePhone;
+        /// <summary>
+        /// Casual way to address the user in real life.
+        /// </summary>
         public readonly string NickName;
+        /// <summary>
+        /// Name of user's organization.
+        /// </summary>
         public readonly string Organization;
+        /// <summary>
+        /// Mailing address component of user's address.
+        /// </summary>
         public readonly string PostalAddress;
+        /// <summary>
+        /// User's preferred written or spoken languages.
+        /// </summary>
         public readonly string PreferredLanguage;
+        /// <summary>
+        /// Primary phone number of user such as home number.
+        /// </summary>
         public readonly string PrimaryPhone;
+        /// <summary>
+        /// URL of user's online profile (e.g. a web page).
+        /// </summary>
         public readonly string ProfileUrl;
         public readonly ImmutableArray<string> Roles;
+        /// <summary>
+        /// Secondary email address of user typically used for account recovery.
+        /// </summary>
         public readonly string SecondEmail;
+        /// <summary>
+        /// State or region component of user's address (region).
+        /// </summary>
         public readonly string State;
+        /// <summary>
+        /// Current status of user.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Full street address component of user's address.
+        /// </summary>
         public readonly string StreetAddress;
+        /// <summary>
+        /// User's time zone.
+        /// </summary>
         public readonly string Timezone;
+        /// <summary>
+        /// User's title, such as "Vice President".
+        /// </summary>
         public readonly string Title;
+        /// <summary>
+        /// Used to describe the organization to user relationship such as "Employee" or "Contractor".
+        /// </summary>
         public readonly string UserType;
+        /// <summary>
+        /// Zipcode or postal code component of user's address (postalCode)
+        /// </summary>
         public readonly string ZipCode;
 
         [OutputConstructor]

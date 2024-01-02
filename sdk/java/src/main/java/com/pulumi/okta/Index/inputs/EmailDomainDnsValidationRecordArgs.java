@@ -34,23 +34,49 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.expiration);
     }
 
+    /**
+     * DNS record name.
+     * 
+     */
     @Import(name="fqdn")
     private @Nullable Output<String> fqdn;
 
+    /**
+     * @return DNS record name.
+     * 
+     */
     public Optional<Output<String>> fqdn() {
         return Optional.ofNullable(this.fqdn);
     }
 
+    /**
+     * Record type can be TXT or cname.
+     * 
+     */
     @Import(name="recordType")
     private @Nullable Output<String> recordType;
 
+    /**
+     * @return Record type can be TXT or cname.
+     * 
+     */
     public Optional<Output<String>> recordType() {
         return Optional.ofNullable(this.recordType);
     }
 
+    /**
+     * DNS record value
+     * - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
+     * 
+     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
+    /**
+     * @return DNS record value
+     * - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
+     * 
+     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -107,29 +133,67 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
             return expiration(Output.of(expiration));
         }
 
+        /**
+         * @param fqdn DNS record name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fqdn(@Nullable Output<String> fqdn) {
             $.fqdn = fqdn;
             return this;
         }
 
+        /**
+         * @param fqdn DNS record name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fqdn(String fqdn) {
             return fqdn(Output.of(fqdn));
         }
 
+        /**
+         * @param recordType Record type can be TXT or cname.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recordType(@Nullable Output<String> recordType) {
             $.recordType = recordType;
             return this;
         }
 
+        /**
+         * @param recordType Record type can be TXT or cname.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recordType(String recordType) {
             return recordType(Output.of(recordType));
         }
 
+        /**
+         * @param value DNS record value
+         * - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value DNS record value
+         * - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

@@ -15,14 +15,14 @@ public final class GetAppUserAssignmentsArgs extends com.pulumi.resources.Invoke
     public static final GetAppUserAssignmentsArgs Empty = new GetAppUserAssignmentsArgs();
 
     /**
-     * ID of the Okta App being queried for groups
+     * The ID of the Okta application you want to retrieve the groups for.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return ID of the Okta App being queried for groups
+     * @return The ID of the Okta application you want to retrieve the groups for.
      * 
      */
     public Output<String> id() {
@@ -54,7 +54,7 @@ public final class GetAppUserAssignmentsArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param id ID of the Okta App being queried for groups
+         * @param id The ID of the Okta application you want to retrieve the groups for.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GetAppUserAssignmentsArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param id ID of the Okta App being queried for groups
+         * @param id The ID of the Okta application you want to retrieve the groups for.
          * 
          * @return builder
          * 

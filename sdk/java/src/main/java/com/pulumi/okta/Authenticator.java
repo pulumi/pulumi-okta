@@ -16,73 +16,133 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+ * 
+ * This resource allows you to configure different authenticators.
+ * 
+ * &gt; **Create:** The Okta API has an odd notion of create for authenticators. If
+ * the authenticator doesn&#39;t exist then a one time `POST /api/v1/authenticators` to
+ * create the authenticator (hard create) will be performed. Thereafter, that
+ * authenticator is never deleted, it is only deactivated (soft delete). Therefore,
+ * if the authenticator already exists create is just a soft import of an existing
+ * authenticator.
+ * 
+ * &gt; **Delete:** Authenticators can not be truly deleted therefore delete is soft.
+ * Delete will attempt to deativate the authenticator. An authenticator can only be
+ * deactivated if it&#39;s not in use by any other policy.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.Authenticator;
+ * import com.pulumi.okta.AuthenticatorArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Authenticator(&#34;test&#34;, AuthenticatorArgs.builder()        
+ *             .key(&#34;security_question&#34;)
+ *             .settings(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;allowedFor&#34;, &#34;recovery&#34;)
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Okta authenticator can be imported via the Okta ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/authenticator:Authenticator example &amp;#60;authenticator_id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/authenticator:Authenticator")
 public class Authenticator extends com.pulumi.resources.CustomResource {
     /**
-     * A human-readable string that identifies the Authenticator
+     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
-     * @return A human-readable string that identifies the Authenticator
+     * @return A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * Display name of the Authenticator
+     * Name of the authenticator.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Display name of the Authenticator
+     * @return Name of the authenticator.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured
+     * The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `&#34;security_key&#34;`.  Conflicts with `provider_json` argument.
      * 
      */
     @Export(name="providerAuthPort", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> providerAuthPort;
 
     /**
-     * @return The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured
+     * @return The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `&#34;security_key&#34;`.  Conflicts with `provider_json` argument.
      * 
      */
     public Output<Optional<Integer>> providerAuthPort() {
         return Codegen.optional(this.providerAuthPort);
     }
     /**
-     * The Duo Security API hostname
+     * (DUO specific) - The Duo Security API hostname&#34;. Conflicts with `provider_json` argument.
      * 
      */
     @Export(name="providerHost", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerHost;
 
     /**
-     * @return The Duo Security API hostname
+     * @return (DUO specific) - The Duo Security API hostname&#34;. Conflicts with `provider_json` argument.
      * 
      */
     public Output<Optional<String>> providerHost() {
         return Codegen.optional(this.providerHost);
     }
     /**
-     * Server host name or IP address
+     * Server host name or IP address. Default is `&#34;localhost&#34;`. Used only for authenticators with type `&#34;security_key&#34;`.  Conflicts with `provider_json` argument.
      * 
      */
     @Export(name="providerHostname", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerHostname;
 
     /**
-     * @return Server host name or IP address
+     * @return Server host name or IP address. Default is `&#34;localhost&#34;`. Used only for authenticators with type `&#34;security_key&#34;`.  Conflicts with `provider_json` argument.
      * 
      */
     public Output<Optional<String>> providerHostname() {
@@ -103,56 +163,68 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
         return this.providerInstanceId;
     }
     /**
-     * The Duo Security integration key
+     * (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
      * 
      */
     @Export(name="providerIntegrationKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerIntegrationKey;
 
     /**
-     * @return The Duo Security integration key
+     * @return (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
      * 
      */
     public Output<Optional<String>> providerIntegrationKey() {
         return Codegen.optional(this.providerIntegrationKey);
     }
     /**
-     * Provider in JSON format
+     * Provider JSON allows for expressive provider
+     * values. This argument conflicts with the other `provider_xxx` arguments.  The
+     * [Create
+     * Provider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request)
+     * illustrates detailed provider values for a Duo authenticator.  [Provider
+     * values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)
+     * are listed in Okta API.
      * 
      */
     @Export(name="providerJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerJson;
 
     /**
-     * @return Provider in JSON format
+     * @return Provider JSON allows for expressive provider
+     * values. This argument conflicts with the other `provider_xxx` arguments.  The
+     * [Create
+     * Provider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request)
+     * illustrates detailed provider values for a Duo authenticator.  [Provider
+     * values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)
+     * are listed in Okta API.
      * 
      */
     public Output<Optional<String>> providerJson() {
         return Codegen.optional(this.providerJson);
     }
     /**
-     * The Duo Security secret key
+     * (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
      * 
      */
     @Export(name="providerSecretKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerSecretKey;
 
     /**
-     * @return The Duo Security secret key
+     * @return (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
      * 
      */
     public Output<Optional<String>> providerSecretKey() {
         return Codegen.optional(this.providerSecretKey);
     }
     /**
-     * An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server.
+     * An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `&#34;security_key&#34;`.  Conflicts with `provider_json` argument.
      * 
      */
     @Export(name="providerSharedSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerSharedSecret;
 
     /**
-     * @return An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server.
+     * @return An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `&#34;security_key&#34;`.  Conflicts with `provider_json` argument.
      * 
      */
     public Output<Optional<String>> providerSharedSecret() {
@@ -173,56 +245,56 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
         return this.providerType;
     }
     /**
-     * Format expected by the provider
+     * Username template expected by the provider. Used only for authenticators with type `&#34;security_key&#34;`.  Conflicts with `provider_json` argument.
      * 
      */
     @Export(name="providerUserNameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerUserNameTemplate;
 
     /**
-     * @return Format expected by the provider
+     * @return Username template expected by the provider. Used only for authenticators with type `&#34;security_key&#34;`.  Conflicts with `provider_json` argument.
      * 
      */
     public Output<Optional<String>> providerUserNameTemplate() {
         return Codegen.optional(this.providerUserNameTemplate);
     }
     /**
-     * Authenticator settings in JSON format
+     * Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `&#34;security_key&#34;`.
      * 
      */
     @Export(name="settings", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> settings;
 
     /**
-     * @return Authenticator settings in JSON format
+     * @return Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `&#34;security_key&#34;`.
      * 
      */
     public Output<Optional<String>> settings() {
         return Codegen.optional(this.settings);
     }
     /**
-     * Authenticator status: ACTIVE or INACTIVE
+     * Status of the authenticator. Default is `ACTIVE`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Authenticator status: ACTIVE or INACTIVE
+     * @return Status of the authenticator. Default is `ACTIVE`.
      * 
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * The type of Authenticator
+     * The type of Authenticator. Values include: `&#34;password&#34;`, `&#34;security_question&#34;`, `&#34;phone&#34;`, `&#34;email&#34;`, `&#34;app&#34;`, `&#34;federated&#34;`, and `&#34;security_key&#34;`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of Authenticator
+     * @return The type of Authenticator. Values include: `&#34;password&#34;`, `&#34;security_question&#34;`, `&#34;phone&#34;`, `&#34;email&#34;`, `&#34;app&#34;`, `&#34;federated&#34;`, and `&#34;security_key&#34;`.
      * 
      */
     public Output<String> type() {

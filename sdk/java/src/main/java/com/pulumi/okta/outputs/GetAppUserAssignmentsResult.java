@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class GetAppUserAssignmentsResult {
     /**
-     * @return ID of the Okta App being queried for groups
+     * @return ID of application.
      * 
      */
     private String id;
     /**
-     * @return List of user IDs assigned to the app
+     * @return List of user IDs assigned to the application.
      * 
      */
     private List<String> users;
 
     private GetAppUserAssignmentsResult() {}
     /**
-     * @return ID of the Okta App being queried for groups
+     * @return ID of application.
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return List of user IDs assigned to the app
+     * @return List of user IDs assigned to the application.
      * 
      */
     public List<String> users() {

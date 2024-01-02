@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserSecurityQuestionsQuestion {
+    /**
+     * @return Security question unique key.
+     * 
+     */
     private String key;
+    /**
+     * @return Display text for security question.
+     * 
+     */
     private String text;
 
     private GetUserSecurityQuestionsQuestion() {}
+    /**
+     * @return Security question unique key.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return Display text for security question.
+     * 
+     */
     public String text() {
         return this.text;
     }

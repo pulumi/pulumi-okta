@@ -9,23 +9,104 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+    /// 
+    /// A [profile enrollment
+    /// policy](https://developer.okta.com/docs/reference/api/policy/#profile-enrollment-policy)
+    /// is limited to one default rule. This resource does not create a rule for an
+    /// enrollment policy, it allows the default policy rule to be updated.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var examplePolicyProfileEnrollment = new Okta.PolicyProfileEnrollment("examplePolicyProfileEnrollment");
+    /// 
+    ///     var exampleHook = new Okta.Inline.Hook("exampleHook", new()
+    ///     {
+    ///         Status = "ACTIVE",
+    ///         Type = "com.okta.user.pre-registration",
+    ///         Version = "1.0.3",
+    ///         Channel = 
+    ///         {
+    ///             { "type", "HTTP" },
+    ///             { "version", "1.0.0" },
+    ///             { "uri", "https://example.com/test2" },
+    ///             { "method", "POST" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleGroup = new Okta.Group.Group("exampleGroup", new()
+    ///     {
+    ///         Description = "Group of some users",
+    ///     });
+    /// 
+    ///     var examplePolicyRuleProfileEnrollment = new Okta.PolicyRuleProfileEnrollment("examplePolicyRuleProfileEnrollment", new()
+    ///     {
+    ///         PolicyId = examplePolicyProfileEnrollment.Id,
+    ///         InlineHookId = exampleHook.Id,
+    ///         TargetGroupId = exampleGroup.Id,
+    ///         UnknownUserAction = "REGISTER",
+    ///         EmailVerification = true,
+    ///         Access = "ALLOW",
+    ///         ProfileAttributes = new[]
+    ///         {
+    ///             new Okta.Inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs
+    ///             {
+    ///                 Name = "email",
+    ///                 Label = "Email",
+    ///                 Required = true,
+    ///             },
+    ///             new Okta.Inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs
+    ///             {
+    ///                 Name = "name",
+    ///                 Label = "Name",
+    ///                 Required = true,
+    ///             },
+    ///             new Okta.Inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs
+    ///             {
+    ///                 Name = "t-shirt",
+    ///                 Label = "T-Shirt Size",
+    ///                 Required = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// A Policy Rule can be imported via the Policy and Rule ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment")]
     public partial class PolicyRuleProfileEnrollment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: ALLOW or DENY
+        /// Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
         /// </summary>
         [Output("access")]
         public Output<string?> Access { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether email verification should occur before access is granted
+        /// Indicates whether email verification should occur before access is granted. Default is `true`.
         /// </summary>
         [Output("emailVerification")]
         public Output<bool?> EmailVerification { get; private set; } = null!;
 
         /// <summary>
-        /// ID of a Registration Inline Hook
+        /// ID of a Registration Inline Hook.
         /// </summary>
         [Output("inlineHookId")]
         public Output<string?> InlineHookId { get; private set; } = null!;
@@ -37,31 +118,31 @@ namespace Pulumi.Okta
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the policy
+        /// Policy ID.
         /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of attributes to prompt the user during registration or progressive profiling
+        /// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         /// </summary>
         [Output("profileAttributes")]
         public Output<ImmutableArray<Outputs.PolicyRuleProfileEnrollmentProfileAttribute>> ProfileAttributes { get; private set; } = null!;
 
         /// <summary>
-        /// Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+        /// Enabled or disabled progressive profiling action rule conditions. Valid values are: `"ENABLED"`, `"DISABLED"`. Default is `"DISABLED"`.
         /// </summary>
         [Output("progressiveProfilingAction")]
         public Output<string?> ProgressiveProfilingAction { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the rule
+        /// Status of the Rule.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a Group that this User should be added to
+        /// The ID of a Group that this User should be added to.
         /// </summary>
         [Output("targetGroupId")]
         public Output<string?> TargetGroupId { get; private set; } = null!;
@@ -73,7 +154,7 @@ namespace Pulumi.Okta
         public Output<string?> UiSchemaId { get; private set; } = null!;
 
         /// <summary>
-        /// Which action should be taken if this User is new
+        /// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
         /// </summary>
         [Output("unknownUserAction")]
         public Output<string> UnknownUserAction { get; private set; } = null!;
@@ -125,25 +206,25 @@ namespace Pulumi.Okta
     public sealed class PolicyRuleProfileEnrollmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: ALLOW or DENY
+        /// Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
         /// </summary>
         [Input("access")]
         public Input<string>? Access { get; set; }
 
         /// <summary>
-        /// Indicates whether email verification should occur before access is granted
+        /// Indicates whether email verification should occur before access is granted. Default is `true`.
         /// </summary>
         [Input("emailVerification")]
         public Input<bool>? EmailVerification { get; set; }
 
         /// <summary>
-        /// ID of a Registration Inline Hook
+        /// ID of a Registration Inline Hook.
         /// </summary>
         [Input("inlineHookId")]
         public Input<string>? InlineHookId { get; set; }
 
         /// <summary>
-        /// ID of the policy
+        /// Policy ID.
         /// </summary>
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;
@@ -152,7 +233,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs>? _profileAttributes;
 
         /// <summary>
-        /// A list of attributes to prompt the user during registration or progressive profiling
+        /// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         /// </summary>
         public InputList<Inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs> ProfileAttributes
         {
@@ -161,13 +242,13 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+        /// Enabled or disabled progressive profiling action rule conditions. Valid values are: `"ENABLED"`, `"DISABLED"`. Default is `"DISABLED"`.
         /// </summary>
         [Input("progressiveProfilingAction")]
         public Input<string>? ProgressiveProfilingAction { get; set; }
 
         /// <summary>
-        /// The ID of a Group that this User should be added to
+        /// The ID of a Group that this User should be added to.
         /// </summary>
         [Input("targetGroupId")]
         public Input<string>? TargetGroupId { get; set; }
@@ -179,7 +260,7 @@ namespace Pulumi.Okta
         public Input<string>? UiSchemaId { get; set; }
 
         /// <summary>
-        /// Which action should be taken if this User is new
+        /// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
         /// </summary>
         [Input("unknownUserAction", required: true)]
         public Input<string> UnknownUserAction { get; set; } = null!;
@@ -193,19 +274,19 @@ namespace Pulumi.Okta
     public sealed class PolicyRuleProfileEnrollmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: ALLOW or DENY
+        /// Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
         /// </summary>
         [Input("access")]
         public Input<string>? Access { get; set; }
 
         /// <summary>
-        /// Indicates whether email verification should occur before access is granted
+        /// Indicates whether email verification should occur before access is granted. Default is `true`.
         /// </summary>
         [Input("emailVerification")]
         public Input<bool>? EmailVerification { get; set; }
 
         /// <summary>
-        /// ID of a Registration Inline Hook
+        /// ID of a Registration Inline Hook.
         /// </summary>
         [Input("inlineHookId")]
         public Input<string>? InlineHookId { get; set; }
@@ -217,7 +298,7 @@ namespace Pulumi.Okta
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// ID of the policy
+        /// Policy ID.
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
@@ -226,7 +307,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.PolicyRuleProfileEnrollmentProfileAttributeGetArgs>? _profileAttributes;
 
         /// <summary>
-        /// A list of attributes to prompt the user during registration or progressive profiling
+        /// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         /// </summary>
         public InputList<Inputs.PolicyRuleProfileEnrollmentProfileAttributeGetArgs> ProfileAttributes
         {
@@ -235,19 +316,19 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Enabled or disabled progressive profiling action rule conditions: ENABLED or DISABLED
+        /// Enabled or disabled progressive profiling action rule conditions. Valid values are: `"ENABLED"`, `"DISABLED"`. Default is `"DISABLED"`.
         /// </summary>
         [Input("progressiveProfilingAction")]
         public Input<string>? ProgressiveProfilingAction { get; set; }
 
         /// <summary>
-        /// Status of the rule
+        /// Status of the Rule.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The ID of a Group that this User should be added to
+        /// The ID of a Group that this User should be added to.
         /// </summary>
         [Input("targetGroupId")]
         public Input<string>? TargetGroupId { get; set; }
@@ -259,7 +340,7 @@ namespace Pulumi.Okta
         public Input<string>? UiSchemaId { get; set; }
 
         /// <summary>
-        /// Which action should be taken if this User is new
+        /// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
         /// </summary>
         [Input("unknownUserAction")]
         public Input<string>? UnknownUserAction { get; set; }

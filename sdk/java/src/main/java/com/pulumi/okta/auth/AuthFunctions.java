@@ -21,7 +21,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class AuthFunctions {
     /**
-     * Get an auth server from Okta.
+     * Use this data source to retrieve an auth server from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -58,7 +58,7 @@ public final class AuthFunctions {
         return getServer(args, InvokeOptions.Empty);
     }
     /**
-     * Get an auth server from Okta.
+     * Use this data source to retrieve an auth server from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -95,7 +95,7 @@ public final class AuthFunctions {
         return getServerPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get an auth server from Okta.
+     * Use this data source to retrieve an auth server from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -132,7 +132,7 @@ public final class AuthFunctions {
         return Deployment.getInstance().invoke("okta:auth/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get an auth server from Okta.
+     * Use this data source to retrieve an auth server from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -169,7 +169,7 @@ public final class AuthFunctions {
         return Deployment.getInstance().invokeAsync("okta:auth/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get an authorization server policy from Okta.
+     * Use this data source to retrieve an authorization server policy from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -207,7 +207,7 @@ public final class AuthFunctions {
         return getServerPolicy(args, InvokeOptions.Empty);
     }
     /**
-     * Get an authorization server policy from Okta.
+     * Use this data source to retrieve an authorization server policy from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -245,7 +245,7 @@ public final class AuthFunctions {
         return getServerPolicyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get an authorization server policy from Okta.
+     * Use this data source to retrieve an authorization server policy from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -283,7 +283,7 @@ public final class AuthFunctions {
         return Deployment.getInstance().invoke("okta:auth/getServerPolicy:getServerPolicy", TypeShape.of(GetServerPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get an authorization server policy from Okta.
+     * Use this data source to retrieve an authorization server policy from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -321,7 +321,7 @@ public final class AuthFunctions {
         return Deployment.getInstance().invokeAsync("okta:auth/getServerPolicy:getServerPolicy", TypeShape.of(GetServerPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a list of authorization server scopes from Okta.
+     * Use this data source to retrieve a list of authorization server scopes from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -358,7 +358,7 @@ public final class AuthFunctions {
         return getServerScopes(args, InvokeOptions.Empty);
     }
     /**
-     * Get a list of authorization server scopes from Okta.
+     * Use this data source to retrieve a list of authorization server scopes from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -395,7 +395,7 @@ public final class AuthFunctions {
         return getServerScopesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a list of authorization server scopes from Okta.
+     * Use this data source to retrieve a list of authorization server scopes from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -432,7 +432,7 @@ public final class AuthFunctions {
         return Deployment.getInstance().invoke("okta:auth/getServerScopes:getServerScopes", TypeShape.of(GetServerScopesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a list of authorization server scopes from Okta.
+     * Use this data source to retrieve a list of authorization server scopes from Okta.
      * 
      * ## Example Usage
      * ```java

@@ -17,14 +17,16 @@ public final class RateLimitingState extends com.pulumi.resources.ResourceArgs {
     public static final RateLimitingState Empty = new RateLimitingState();
 
     /**
-     * Called during authentication.
+     * Called during authentication. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
+     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
      * 
      */
     @Import(name="authorize")
     private @Nullable Output<String> authorize;
 
     /**
-     * @return Called during authentication.
+     * @return Called during authentication. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
+     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
      * 
      */
     public Optional<Output<String>> authorize() {
@@ -32,14 +34,14 @@ public final class RateLimitingState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+     * Enable or disable rate limiting communications. By default, it is `true`.
      * 
      */
     @Import(name="communicationsEnabled")
     private @Nullable Output<Boolean> communicationsEnabled;
 
     /**
-     * @return Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+     * @return Enable or disable rate limiting communications. By default, it is `true`.
      * 
      */
     public Optional<Output<Boolean>> communicationsEnabled() {
@@ -47,14 +49,16 @@ public final class RateLimitingState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Called when accessing the Okta hosted login page.
+     * Called when accessing the Okta hosted login page. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
+     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
      * 
      */
     @Import(name="login")
     private @Nullable Output<String> login;
 
     /**
-     * @return Called when accessing the Okta hosted login page.
+     * @return Called when accessing the Okta hosted login page. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
+     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
      * 
      */
     public Optional<Output<String>> login() {
@@ -88,7 +92,8 @@ public final class RateLimitingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorize Called during authentication.
+         * @param authorize Called during authentication. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
+         * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
          * 
          * @return builder
          * 
@@ -99,7 +104,8 @@ public final class RateLimitingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorize Called during authentication.
+         * @param authorize Called during authentication. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
+         * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
          * 
          * @return builder
          * 
@@ -109,7 +115,7 @@ public final class RateLimitingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param communicationsEnabled Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+         * @param communicationsEnabled Enable or disable rate limiting communications. By default, it is `true`.
          * 
          * @return builder
          * 
@@ -120,7 +126,7 @@ public final class RateLimitingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param communicationsEnabled Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+         * @param communicationsEnabled Enable or disable rate limiting communications. By default, it is `true`.
          * 
          * @return builder
          * 
@@ -130,7 +136,8 @@ public final class RateLimitingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param login Called when accessing the Okta hosted login page.
+         * @param login Called when accessing the Okta hosted login page. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
+         * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
          * 
          * @return builder
          * 
@@ -141,7 +148,8 @@ public final class RateLimitingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param login Called when accessing the Okta hosted login page.
+         * @param login Called when accessing the Okta hosted login page. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
+         * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
          * 
          * @return builder
          * 

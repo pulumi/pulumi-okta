@@ -31,14 +31,14 @@ public final class UserGroupMembershipsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * ID of a Okta User
+     * Okta user ID.
      * 
      */
     @Import(name="userId", required=true)
     private Output<String> userId;
 
     /**
-     * @return ID of a Okta User
+     * @return Okta user ID.
      * 
      */
     public Output<String> userId() {
@@ -102,7 +102,7 @@ public final class UserGroupMembershipsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userId ID of a Okta User
+         * @param userId Okta user ID.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class UserGroupMembershipsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userId ID of a Okta User
+         * @param userId Okta user ID.
          * 
          * @return builder
          * 

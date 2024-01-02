@@ -15,45 +15,97 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to configure the client-based rate limit and rate limiting communications settings.
+ * 
+ * &gt; **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
+ * 
+ * &gt; **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.RateLimiting;
+ * import com.pulumi.okta.RateLimitingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RateLimiting(&#34;example&#34;, RateLimitingArgs.builder()        
+ *             .authorize(&#34;ENFORCE&#34;)
+ *             .communicationsEnabled(true)
+ *             .login(&#34;ENFORCE&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Rate limit settings can be imported without any parameters.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/rateLimiting:RateLimiting example .
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/rateLimiting:RateLimiting")
 public class RateLimiting extends com.pulumi.resources.CustomResource {
     /**
-     * Called during authentication.
+     * Called during authentication. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
+     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
      * 
      */
     @Export(name="authorize", refs={String.class}, tree="[0]")
     private Output<String> authorize;
 
     /**
-     * @return Called during authentication.
+     * @return Called during authentication. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
+     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
      * 
      */
     public Output<String> authorize() {
         return this.authorize;
     }
     /**
-     * Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+     * Enable or disable rate limiting communications. By default, it is `true`.
      * 
      */
     @Export(name="communicationsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> communicationsEnabled;
 
     /**
-     * @return Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+     * @return Enable or disable rate limiting communications. By default, it is `true`.
      * 
      */
     public Output<Optional<Boolean>> communicationsEnabled() {
         return Codegen.optional(this.communicationsEnabled);
     }
     /**
-     * Called when accessing the Okta hosted login page.
+     * Called when accessing the Okta hosted login page. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
+     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
      * 
      */
     @Export(name="login", refs={String.class}, tree="[0]")
     private Output<String> login;
 
     /**
-     * @return Called when accessing the Okta hosted login page.
+     * @return Called when accessing the Okta hosted login page. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
+     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
      * 
      */
     public Output<String> login() {

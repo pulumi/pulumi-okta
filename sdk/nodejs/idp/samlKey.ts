@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * A SAML IdP Signing Key can be imported via the key id.
+ *
+ * ```sh
+ *  $ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
+ * ```
+ */
 export class SamlKey extends pulumi.CustomResource {
     /**
      * Get an existing SamlKey resource's state with the given name, ID, and optional extra
@@ -32,15 +41,33 @@ export class SamlKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === SamlKey.__pulumiType;
     }
 
+    /**
+     * Date created.
+     */
     public /*out*/ readonly created!: pulumi.Output<string>;
+    /**
+     * Date the cert expires.
+     */
     public /*out*/ readonly expiresAt!: pulumi.Output<string>;
+    /**
+     * Key ID.
+     */
     public /*out*/ readonly kid!: pulumi.Output<string>;
+    /**
+     * Identifies the cryptographic algorithm family used with the key.
+     */
     public /*out*/ readonly kty!: pulumi.Output<string>;
+    /**
+     * Intended use of the public key.
+     */
     public /*out*/ readonly use!: pulumi.Output<string>;
     /**
-     * base64-encoded X.509 certificate chain with DER encoding
+     * base64-encoded X.509 certificate chain with DER encoding.
      */
     public readonly x5cs!: pulumi.Output<string[]>;
+    /**
+     * base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
+     */
     public /*out*/ readonly x5tS256!: pulumi.Output<string>;
 
     /**
@@ -85,15 +112,33 @@ export class SamlKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SamlKey resources.
  */
 export interface SamlKeyState {
+    /**
+     * Date created.
+     */
     created?: pulumi.Input<string>;
+    /**
+     * Date the cert expires.
+     */
     expiresAt?: pulumi.Input<string>;
+    /**
+     * Key ID.
+     */
     kid?: pulumi.Input<string>;
+    /**
+     * Identifies the cryptographic algorithm family used with the key.
+     */
     kty?: pulumi.Input<string>;
+    /**
+     * Intended use of the public key.
+     */
     use?: pulumi.Input<string>;
     /**
-     * base64-encoded X.509 certificate chain with DER encoding
+     * base64-encoded X.509 certificate chain with DER encoding.
      */
     x5cs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
+     */
     x5tS256?: pulumi.Input<string>;
 }
 
@@ -102,7 +147,7 @@ export interface SamlKeyState {
  */
 export interface SamlKeyArgs {
     /**
-     * base64-encoded X.509 certificate chain with DER encoding
+     * base64-encoded X.509 certificate chain with DER encoding.
      */
     x5cs: pulumi.Input<pulumi.Input<string>[]>;
 }

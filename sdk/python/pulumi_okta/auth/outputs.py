@@ -25,6 +25,16 @@ class GetServerScopesScopeResult(dict):
                  name: str,
                  optional: bool,
                  system: bool):
+        """
+        :param str consent: Indicates whether a consent dialog is needed for the Scope
+        :param bool default: Whether the Scope is a default Scope
+        :param str description: Description of the Scope
+        :param str display_name: Name of the end user displayed in a consent dialog box
+        :param str id: ID of the Scope
+        :param str metadata_publish: Whether the Scope should be included in the metadata
+        :param str name: Name of the Scope
+        :param bool system: Whether Okta created the Scope
+        """
         pulumi.set(__self__, "consent", consent)
         pulumi.set(__self__, "default", default)
         pulumi.set(__self__, "description", description)
@@ -38,36 +48,57 @@ class GetServerScopesScopeResult(dict):
     @property
     @pulumi.getter
     def consent(self) -> str:
+        """
+        Indicates whether a consent dialog is needed for the Scope
+        """
         return pulumi.get(self, "consent")
 
     @property
     @pulumi.getter
     def default(self) -> bool:
+        """
+        Whether the Scope is a default Scope
+        """
         return pulumi.get(self, "default")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the Scope
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
+        """
+        Name of the end user displayed in a consent dialog box
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        ID of the Scope
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="metadataPublish")
     def metadata_publish(self) -> str:
+        """
+        Whether the Scope should be included in the metadata
+        """
         return pulumi.get(self, "metadata_publish")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the Scope
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -78,6 +109,9 @@ class GetServerScopesScopeResult(dict):
     @property
     @pulumi.getter
     def system(self) -> bool:
+        """
+        Whether Okta created the Scope
+        """
         return pulumi.get(self, "system")
 
 

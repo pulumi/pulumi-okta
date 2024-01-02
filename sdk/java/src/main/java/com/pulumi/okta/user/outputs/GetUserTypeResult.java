@@ -11,12 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class GetUserTypeResult {
     /**
-     * @return Description of user type.
+     * @return description of user type.
      * 
      */
     private String description;
     /**
-     * @return Display name of user type.
+     * @return display name of user type.
      * 
      */
     private String displayName;
@@ -26,21 +26,21 @@ public final class GetUserTypeResult {
      */
     private String id;
     /**
-     * @return Name of user type to retrieve.
+     * @return name of user type.
      * 
      */
     private String name;
 
     private GetUserTypeResult() {}
     /**
-     * @return Description of user type.
+     * @return description of user type.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return Display name of user type.
+     * @return display name of user type.
      * 
      */
     public String displayName() {
@@ -54,7 +54,7 @@ public final class GetUserTypeResult {
         return this.id;
     }
     /**
-     * @return Name of user type to retrieve.
+     * @return name of user type.
      * 
      */
     public String name() {

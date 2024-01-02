@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get a list of authorization server scopes from Okta.
+// Use this data source to retrieve a list of authorization server scopes from Okta.
 //
 // ## Example Usage
 //
@@ -50,17 +50,16 @@ func GetServerScopes(ctx *pulumi.Context, args *GetServerScopesArgs, opts ...pul
 
 // A collection of arguments for invoking getServerScopes.
 type GetServerScopesArgs struct {
-	// Auth server ID
+	// Auth server ID.
 	AuthServerId string `pulumi:"authServerId"`
 }
 
 // A collection of values returned by getServerScopes.
 type GetServerScopesResult struct {
-	// Auth server ID
 	AuthServerId string `pulumi:"authServerId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Collection of authorization server scopes retrieved from Okta with the following properties.
+	// collection of authorization server scopes retrieved from Okta with the following properties.
 	Scopes []GetServerScopesScope `pulumi:"scopes"`
 }
 
@@ -79,7 +78,7 @@ func GetServerScopesOutput(ctx *pulumi.Context, args GetServerScopesOutputArgs, 
 
 // A collection of arguments for invoking getServerScopes.
 type GetServerScopesOutputArgs struct {
-	// Auth server ID
+	// Auth server ID.
 	AuthServerId pulumi.StringInput `pulumi:"authServerId"`
 }
 
@@ -102,7 +101,6 @@ func (o GetServerScopesResultOutput) ToGetServerScopesResultOutputWithContext(ct
 	return o
 }
 
-// Auth server ID
 func (o GetServerScopesResultOutput) AuthServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerScopesResult) string { return v.AuthServerId }).(pulumi.StringOutput)
 }
@@ -112,7 +110,7 @@ func (o GetServerScopesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerScopesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Collection of authorization server scopes retrieved from Okta with the following properties.
+// collection of authorization server scopes retrieved from Okta with the following properties.
 func (o GetServerScopesResultOutput) Scopes() GetServerScopesScopeArrayOutput {
 	return o.ApplyT(func(v GetServerScopesResult) []GetServerScopesScope { return v.Scopes }).(GetServerScopesScopeArrayOutput)
 }

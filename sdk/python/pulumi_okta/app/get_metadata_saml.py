@@ -53,16 +53,13 @@ class GetMetadataSamlResult:
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> str:
-        """
-        The application ID.
-        """
         return pulumi.get(self, "app_id")
 
     @property
     @pulumi.getter
     def certificate(self) -> str:
         """
-        Public certificate from application metadata.
+        public certificate from application metadata.
         """
         return pulumi.get(self, "certificate")
 
@@ -70,7 +67,7 @@ class GetMetadataSamlResult:
     @pulumi.getter(name="entityId")
     def entity_id(self) -> str:
         """
-        Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
+        Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
         """
         return pulumi.get(self, "entity_id")
 
@@ -101,16 +98,13 @@ class GetMetadataSamlResult:
     @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[str]:
-        """
-        Certificate Key ID.
-        """
         return pulumi.get(self, "key_id")
 
     @property
     @pulumi.getter
     def metadata(self) -> str:
         """
-        Raw metadata of application.
+        raw metadata of application.
         """
         return pulumi.get(self, "metadata")
 
@@ -144,7 +138,7 @@ def get_metadata_saml(app_id: Optional[str] = None,
                       key_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetadataSamlResult:
     """
-    Get a SAML application's metadata from Okta.
+    Use this data source to retrieve the metadata for SAML application from Okta.
 
     ## Example Usage
 
@@ -183,7 +177,7 @@ def get_metadata_saml_output(app_id: Optional[pulumi.Input[str]] = None,
                              key_id: Optional[pulumi.Input[Optional[str]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetadataSamlResult]:
     """
-    Get a SAML application's metadata from Okta.
+    Use this data source to retrieve the metadata for SAML application from Okta.
 
     ## Example Usage
 

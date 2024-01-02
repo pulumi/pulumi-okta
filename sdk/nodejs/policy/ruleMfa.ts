@@ -6,6 +6,17 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * This resource allows you to create and configure an MFA Policy Rule.
+ *
+ * ## Import
+ *
+ * A Policy Rule can be imported via the Policy and Rule ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:policy/ruleMfa:RuleMfa example &#60;policy id&#62;/&#60;rule id&#62;
+ * ```
+ */
 export class RuleMfa extends pulumi.CustomResource {
     /**
      * Get an existing RuleMfa resource's state with the given name, ID, and optional extra
@@ -39,31 +50,31 @@ export class RuleMfa extends pulumi.CustomResource {
      */
     public readonly appExcludes!: pulumi.Output<outputs.policy.RuleMfaAppExclude[] | undefined>;
     /**
-     * Applications to include
+     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
      */
     public readonly appIncludes!: pulumi.Output<outputs.policy.RuleMfaAppInclude[] | undefined>;
     /**
-     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
+     * When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
      */
     public readonly enroll!: pulumi.Output<string | undefined>;
     /**
-     * Policy Rule Name
+     * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+     * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
      */
     public readonly networkConnection!: pulumi.Output<string | undefined>;
     /**
-     * The zones to exclude
+     * The network zones to exclude. Conflicts with `networkIncludes`.
      */
     public readonly networkExcludes!: pulumi.Output<string[] | undefined>;
     /**
-     * The zones to include
+     * The network zones to include. Conflicts with `networkExcludes`.
      */
     public readonly networkIncludes!: pulumi.Output<string[] | undefined>;
     /**
-     * Policy ID of the Rule
+     * Policy ID.
      */
     public readonly policyId!: pulumi.Output<string | undefined>;
     /**
@@ -71,7 +82,7 @@ export class RuleMfa extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
-     * Policy Rule Status: ACTIVE or INACTIVE.
+     * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
@@ -131,31 +142,31 @@ export interface RuleMfaState {
      */
     appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppExclude>[]>;
     /**
-     * Applications to include
+     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
      */
     appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppInclude>[]>;
     /**
-     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
+     * When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
      */
     enroll?: pulumi.Input<string>;
     /**
-     * Policy Rule Name
+     * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
      */
     name?: pulumi.Input<string>;
     /**
-     * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+     * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
      */
     networkConnection?: pulumi.Input<string>;
     /**
-     * The zones to exclude
+     * The network zones to exclude. Conflicts with `networkIncludes`.
      */
     networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The zones to include
+     * The network zones to include. Conflicts with `networkExcludes`.
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Policy ID of the Rule
+     * Policy ID.
      */
     policyId?: pulumi.Input<string>;
     /**
@@ -163,7 +174,7 @@ export interface RuleMfaState {
      */
     priority?: pulumi.Input<number>;
     /**
-     * Policy Rule Status: ACTIVE or INACTIVE.
+     * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
      */
     status?: pulumi.Input<string>;
     /**
@@ -181,31 +192,31 @@ export interface RuleMfaArgs {
      */
     appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppExclude>[]>;
     /**
-     * Applications to include
+     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
      */
     appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppInclude>[]>;
     /**
-     * Should the user be enrolled the first time they LOGIN, the next time they are CHALLENGED, or NEVER?
+     * When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
      */
     enroll?: pulumi.Input<string>;
     /**
-     * Policy Rule Name
+     * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
      */
     name?: pulumi.Input<string>;
     /**
-     * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+     * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
      */
     networkConnection?: pulumi.Input<string>;
     /**
-     * The zones to exclude
+     * The network zones to exclude. Conflicts with `networkIncludes`.
      */
     networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The zones to include
+     * The network zones to include. Conflicts with `networkExcludes`.
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Policy ID of the Rule
+     * Policy ID.
      */
     policyId?: pulumi.Input<string>;
     /**
@@ -213,7 +224,7 @@ export interface RuleMfaArgs {
      */
     priority?: pulumi.Input<number>;
     /**
-     * Policy Rule Status: ACTIVE or INACTIVE.
+     * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
      */
     status?: pulumi.Input<string>;
     /**

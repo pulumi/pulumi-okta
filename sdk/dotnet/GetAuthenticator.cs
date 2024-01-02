@@ -12,11 +12,9 @@ namespace Pulumi.Okta
     public static class GetAuthenticator
     {
         /// <summary>
-        /// Get an authenticator by key, name of ID.
+        /// &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
         /// 
-        /// &gt; **WARNING:** This feature is only available as a part of the 
-        /// Identity Engine. Contact support 
-        /// for further information.
+        /// Use this data source to retrieve an authenticator.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -32,12 +30,23 @@ namespace Pulumi.Okta
         /// {
         ///     var test = Okta.GetAuthenticator.Invoke(new()
         ///     {
-        ///         Key = "security_question",
+        ///         Name = "Security Question",
         ///     });
         /// 
-        ///     var test1 = Okta.GetAuthenticator.Invoke(new()
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetAuthenticator.Invoke(new()
         ///     {
-        ///         Name = "Okta Verify",
+        ///         Key = "okta_email",
         ///     });
         /// 
         /// });
@@ -49,11 +58,9 @@ namespace Pulumi.Okta
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthenticatorResult>("okta:index/getAuthenticator:getAuthenticator", args ?? new GetAuthenticatorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get an authenticator by key, name of ID.
+        /// &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
         /// 
-        /// &gt; **WARNING:** This feature is only available as a part of the 
-        /// Identity Engine. Contact support 
-        /// for further information.
+        /// Use this data source to retrieve an authenticator.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -69,12 +76,23 @@ namespace Pulumi.Okta
         /// {
         ///     var test = Okta.GetAuthenticator.Invoke(new()
         ///     {
-        ///         Key = "security_question",
+        ///         Name = "Security Question",
         ///     });
         /// 
-        ///     var test1 = Okta.GetAuthenticator.Invoke(new()
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetAuthenticator.Invoke(new()
         ///     {
-        ///         Name = "Okta Verify",
+        ///         Key = "okta_email",
         ///     });
         /// 
         /// });
@@ -147,29 +165,23 @@ namespace Pulumi.Okta
         /// ID of the authenticator.
         /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// A human-readable string that identifies the authenticator.
-        /// </summary>
         public readonly string? Key;
         /// <summary>
         /// Name of the authenticator.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured
+        /// (Specific to `security_key`) The provider server port (for example 1812).
         /// </summary>
         public readonly int ProviderAuthPort;
         /// <summary>
-        /// Server host name or IP address
+        /// (Specific to `security_key`) Server host name or IP address.
         /// </summary>
         public readonly string ProviderHostname;
         /// <summary>
         /// (Specific to `security_key`) App Instance ID.
         /// </summary>
         public readonly string ProviderInstanceId;
-        /// <summary>
-        /// Authenticator Provider in JSON format
-        /// </summary>
         public readonly string ProviderJson;
         /// <summary>
         /// Provider type.
@@ -180,7 +192,7 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly string ProviderUserNameTemplate;
         /// <summary>
-        /// Authenticator settings in JSON format
+        /// Settings for the authenticator (expressed in JSON).
         /// </summary>
         public readonly string Settings;
         /// <summary>
@@ -188,7 +200,7 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Type of the authenticator
+        /// The type of Authenticator.
         /// </summary>
         public readonly string Type;
 

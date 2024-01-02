@@ -15,22 +15,30 @@ public final class GetUserSearchArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GetUserSearchArgs Empty = new GetUserSearchArgs();
 
+    /**
+     * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
+     * 
+     */
     @Import(name="comparison")
     private @Nullable Output<String> comparison;
 
+    /**
+     * @return Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
+     * 
+     */
     public Optional<Output<String>> comparison() {
         return Optional.ofNullable(this.comparison);
     }
 
     /**
-     * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+     * A raw search expression string. If present it will override name/comparison/value.
      * 
      */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
     /**
-     * @return A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+     * @return A raw search expression string. If present it will override name/comparison/value.
      * 
      */
     public Optional<Output<String>> expression() {
@@ -38,23 +46,31 @@ public final class GetUserSearchArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+     * Name of property to search against.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+     * @return Name of property to search against.
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Value to compare with.
+     * 
+     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
+    /**
+     * @return Value to compare with.
+     * 
+     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -86,17 +102,29 @@ public final class GetUserSearchArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GetUserSearchArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param comparison Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
+         * 
+         * @return builder
+         * 
+         */
         public Builder comparison(@Nullable Output<String> comparison) {
             $.comparison = comparison;
             return this;
         }
 
+        /**
+         * @param comparison Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
+         * 
+         * @return builder
+         * 
+         */
         public Builder comparison(String comparison) {
             return comparison(Output.of(comparison));
         }
 
         /**
-         * @param expression A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * @param expression A raw search expression string. If present it will override name/comparison/value.
          * 
          * @return builder
          * 
@@ -107,7 +135,7 @@ public final class GetUserSearchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expression A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * @param expression A raw search expression string. If present it will override name/comparison/value.
          * 
          * @return builder
          * 
@@ -117,7 +145,7 @@ public final class GetUserSearchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * @param name Name of property to search against.
          * 
          * @return builder
          * 
@@ -128,7 +156,7 @@ public final class GetUserSearchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * @param name Name of property to search against.
          * 
          * @return builder
          * 
@@ -137,11 +165,23 @@ public final class GetUserSearchArgs extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param value Value to compare with.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Value to compare with.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

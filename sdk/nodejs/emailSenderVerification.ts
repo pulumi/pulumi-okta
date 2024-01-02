@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * > **DEPRECATED** use `okta.Index.EmailDomainVerification` instead.
+ *
+ * Verifies the email sender. The resource won't be created if the email sender could not be verified.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleEmailSender = new okta.EmailSender("exampleEmailSender", {
+ *     fromName: "Paul Atreides",
+ *     fromAddress: "no-reply@caladan.planet",
+ *     subdomain: "mail",
+ * });
+ * const exampleEmailSenderVerification = new okta.EmailSenderVerification("exampleEmailSenderVerification", {senderId: okta_email_sender.valid.id});
+ * ```
+ *
+ * ## Import
+ *
+ * This resource does not support importing.
+ */
 export class EmailSenderVerification extends pulumi.CustomResource {
     /**
      * Get an existing EmailSenderVerification resource's state with the given name, ID, and optional extra
@@ -33,7 +56,7 @@ export class EmailSenderVerification extends pulumi.CustomResource {
     }
 
     /**
-     * Email sender ID
+     * Email sender ID.
      */
     public readonly senderId!: pulumi.Output<string>;
 
@@ -68,7 +91,7 @@ export class EmailSenderVerification extends pulumi.CustomResource {
  */
 export interface EmailSenderVerificationState {
     /**
-     * Email sender ID
+     * Email sender ID.
      */
     senderId?: pulumi.Input<string>;
 }
@@ -78,7 +101,7 @@ export interface EmailSenderVerificationState {
  */
 export interface EmailSenderVerificationArgs {
     /**
-     * Email sender ID
+     * Email sender ID.
      */
     senderId: pulumi.Input<string>;
 }

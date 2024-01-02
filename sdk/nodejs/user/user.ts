@@ -6,6 +6,77 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Creates an Okta User.
+ *
+ * This resource allows you to create and configure an Okta User.
+ *
+ * ## Example Usage
+ *
+ * Full profile:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.user.User("example", {
+ *     city: "New York",
+ *     costCenter: "10",
+ *     countryCode: "US",
+ *     department: "IT",
+ *     displayName: "Dr. John Smith",
+ *     division: "Acquisitions",
+ *     email: "john.smith@example.com",
+ *     employeeNumber: "111111",
+ *     firstName: "John",
+ *     honorificPrefix: "Dr.",
+ *     honorificSuffix: "Jr.",
+ *     lastName: "Smith",
+ *     locale: "en_US",
+ *     login: "john.smith@example.com",
+ *     manager: "Jimbo",
+ *     managerId: "222222",
+ *     middleName: "John",
+ *     mobilePhone: "1112223333",
+ *     nickName: "Johnny",
+ *     organization: "Testing Inc.",
+ *     postalAddress: "1234 Testing St.",
+ *     preferredLanguage: "en-us",
+ *     primaryPhone: "4445556666",
+ *     profileUrl: "https://www.example.com/profile",
+ *     secondEmail: "john.smith.fun@example.com",
+ *     state: "NY",
+ *     streetAddress: "5678 Testing Ave.",
+ *     timezone: "America/New_York",
+ *     title: "Director",
+ *     userType: "Employee",
+ *     zipCode: "11111",
+ * });
+ * ```
+ *
+ * With Password Inline Hook:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test2 = new okta.user.User("test2", {
+ *     email: "example@example.com",
+ *     firstName: "John",
+ *     lastName: "Smith",
+ *     login: "example@example.com",
+ *     passwordInlineHook: "default",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An Okta User can be imported via the ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:user/user:User example &#60;user id&#62;
+ * ```
+ */
 export class User extends pulumi.CustomResource {
     /**
      * Get an existing User resource's state with the given name, ID, and optional extra
@@ -35,19 +106,19 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
-     * User city
+     * User profile property.
      */
     public readonly city!: pulumi.Output<string | undefined>;
     /**
-     * User cost center
+     * User profile property.
      */
     public readonly costCenter!: pulumi.Output<string | undefined>;
     /**
-     * User country code
+     * User profile property.
      */
     public readonly countryCode!: pulumi.Output<string | undefined>;
     /**
-     * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+     * raw JSON containing all custom profile attributes.
      */
     public readonly customProfileAttributes!: pulumi.Output<string>;
     /**
@@ -55,83 +126,86 @@ export class User extends pulumi.CustomResource {
      */
     public readonly customProfileAttributesToIgnores!: pulumi.Output<string[] | undefined>;
     /**
-     * User department
+     * User profile property.
      */
     public readonly department!: pulumi.Output<string | undefined>;
     /**
-     * User display name, suitable to show end users
+     * User profile property.
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
-     * User division
+     * User profile property.
      */
     public readonly division!: pulumi.Output<string | undefined>;
     /**
-     * User primary email address
+     * User profile property.
      */
     public readonly email!: pulumi.Output<string>;
     /**
-     * User employee number
+     * User profile property.
      */
     public readonly employeeNumber!: pulumi.Output<string | undefined>;
     /**
-     * If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set
+     * If set to `true`, the user will have to change the password at the next login. This property will be used
+     * when user is being created and works only when `password` field is set. Default is `false`.
      */
     public readonly expirePasswordOnCreate!: pulumi.Output<boolean | undefined>;
     /**
-     * User first name
+     * User's First Name, required by default.
      */
     public readonly firstName!: pulumi.Output<string>;
     /**
-     * User honorific prefix
+     * User profile property.
      */
     public readonly honorificPrefix!: pulumi.Output<string | undefined>;
     /**
-     * User honorific suffix
+     * User profile property.
      */
     public readonly honorificSuffix!: pulumi.Output<string | undefined>;
     /**
-     * User last name
+     * User's Last Name, required by default.
      */
     public readonly lastName!: pulumi.Output<string>;
     /**
-     * User default location
+     * User profile property.
      */
     public readonly locale!: pulumi.Output<string | undefined>;
     /**
-     * User Okta login
+     * User profile property.
      */
     public readonly login!: pulumi.Output<string>;
     /**
-     * Manager of User
+     * User profile property.
      */
     public readonly manager!: pulumi.Output<string | undefined>;
     /**
-     * Manager ID of User
+     * User profile property.
      */
     public readonly managerId!: pulumi.Output<string | undefined>;
     /**
-     * User middle name
+     * User profile property.
      */
     public readonly middleName!: pulumi.Output<string | undefined>;
     /**
-     * User mobile phone number
+     * User profile property.
      */
     public readonly mobilePhone!: pulumi.Output<string | undefined>;
     /**
-     * User nickname
+     * User profile property.
      */
     public readonly nickName!: pulumi.Output<string | undefined>;
     /**
-     * Old User Password. Should be only set in case the password was not changed using the provider
+     * Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
+     * outside the provider. After successful password change this field should be removed and `password` field should be used
+     * for further changes.
      */
     public readonly oldPassword!: pulumi.Output<string | undefined>;
     /**
-     * User organization
+     * User profile property.
      */
     public readonly organization!: pulumi.Output<string | undefined>;
     /**
-     * User Password
+     * User password.
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
@@ -139,23 +213,26 @@ export class User extends pulumi.CustomResource {
      */
     public readonly passwordHash!: pulumi.Output<outputs.user.UserPasswordHash | undefined>;
     /**
-     * When specified, the Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to sign in
+     * Specifies that a Password Import Inline Hook should be triggered to handle verification
+     * of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+     * from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+     * field should not be specified when using Password Import Inline Hook.
      */
     public readonly passwordInlineHook!: pulumi.Output<string | undefined>;
     /**
-     * User mailing address
+     * User profile property.
      */
     public readonly postalAddress!: pulumi.Output<string | undefined>;
     /**
-     * User preferred language
+     * User profile property.
      */
     public readonly preferredLanguage!: pulumi.Output<string | undefined>;
     /**
-     * User primary phone number
+     * User profile property.
      */
     public readonly primaryPhone!: pulumi.Output<string | undefined>;
     /**
-     * User online profile (web page)
+     * User profile property.
      */
     public readonly profileUrl!: pulumi.Output<string | undefined>;
     /**
@@ -163,15 +240,18 @@ export class User extends pulumi.CustomResource {
      */
     public /*out*/ readonly rawStatus!: pulumi.Output<string>;
     /**
-     * User Password Recovery Answer
+     * User password recovery answer.
+     *
+     * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+     * - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
      */
     public readonly recoveryAnswer!: pulumi.Output<string | undefined>;
     /**
-     * User Password Recovery Question
+     * User password recovery question.
      */
     public readonly recoveryQuestion!: pulumi.Output<string | undefined>;
     /**
-     * User secondary email address, used for account recovery
+     * User profile property.
      */
     public readonly secondEmail!: pulumi.Output<string | undefined>;
     /**
@@ -181,31 +261,31 @@ export class User extends pulumi.CustomResource {
      */
     public readonly skipRoles!: pulumi.Output<boolean | undefined>;
     /**
-     * User state or region
+     * User profile property.
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
-     * The status of the User in Okta - remove to set user back to active/provisioned
+     * User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * User street address
+     * User profile property.
      */
     public readonly streetAddress!: pulumi.Output<string | undefined>;
     /**
-     * User default timezone
+     * User profile property.
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
     /**
-     * User title
+     * User profile property.
      */
     public readonly title!: pulumi.Output<string | undefined>;
     /**
-     * User employee type
+     * User profile property.
      */
     public readonly userType!: pulumi.Output<string | undefined>;
     /**
-     * User zipcode or postal code
+     * User profile property.
      */
     public readonly zipCode!: pulumi.Output<string | undefined>;
 
@@ -335,19 +415,19 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserState {
     /**
-     * User city
+     * User profile property.
      */
     city?: pulumi.Input<string>;
     /**
-     * User cost center
+     * User profile property.
      */
     costCenter?: pulumi.Input<string>;
     /**
-     * User country code
+     * User profile property.
      */
     countryCode?: pulumi.Input<string>;
     /**
-     * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+     * raw JSON containing all custom profile attributes.
      */
     customProfileAttributes?: pulumi.Input<string>;
     /**
@@ -355,83 +435,86 @@ export interface UserState {
      */
     customProfileAttributesToIgnores?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * User department
+     * User profile property.
      */
     department?: pulumi.Input<string>;
     /**
-     * User display name, suitable to show end users
+     * User profile property.
      */
     displayName?: pulumi.Input<string>;
     /**
-     * User division
+     * User profile property.
      */
     division?: pulumi.Input<string>;
     /**
-     * User primary email address
+     * User profile property.
      */
     email?: pulumi.Input<string>;
     /**
-     * User employee number
+     * User profile property.
      */
     employeeNumber?: pulumi.Input<string>;
     /**
-     * If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set
+     * If set to `true`, the user will have to change the password at the next login. This property will be used
+     * when user is being created and works only when `password` field is set. Default is `false`.
      */
     expirePasswordOnCreate?: pulumi.Input<boolean>;
     /**
-     * User first name
+     * User's First Name, required by default.
      */
     firstName?: pulumi.Input<string>;
     /**
-     * User honorific prefix
+     * User profile property.
      */
     honorificPrefix?: pulumi.Input<string>;
     /**
-     * User honorific suffix
+     * User profile property.
      */
     honorificSuffix?: pulumi.Input<string>;
     /**
-     * User last name
+     * User's Last Name, required by default.
      */
     lastName?: pulumi.Input<string>;
     /**
-     * User default location
+     * User profile property.
      */
     locale?: pulumi.Input<string>;
     /**
-     * User Okta login
+     * User profile property.
      */
     login?: pulumi.Input<string>;
     /**
-     * Manager of User
+     * User profile property.
      */
     manager?: pulumi.Input<string>;
     /**
-     * Manager ID of User
+     * User profile property.
      */
     managerId?: pulumi.Input<string>;
     /**
-     * User middle name
+     * User profile property.
      */
     middleName?: pulumi.Input<string>;
     /**
-     * User mobile phone number
+     * User profile property.
      */
     mobilePhone?: pulumi.Input<string>;
     /**
-     * User nickname
+     * User profile property.
      */
     nickName?: pulumi.Input<string>;
     /**
-     * Old User Password. Should be only set in case the password was not changed using the provider
+     * Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
+     * outside the provider. After successful password change this field should be removed and `password` field should be used
+     * for further changes.
      */
     oldPassword?: pulumi.Input<string>;
     /**
-     * User organization
+     * User profile property.
      */
     organization?: pulumi.Input<string>;
     /**
-     * User Password
+     * User password.
      */
     password?: pulumi.Input<string>;
     /**
@@ -439,23 +522,26 @@ export interface UserState {
      */
     passwordHash?: pulumi.Input<inputs.user.UserPasswordHash>;
     /**
-     * When specified, the Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to sign in
+     * Specifies that a Password Import Inline Hook should be triggered to handle verification
+     * of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+     * from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+     * field should not be specified when using Password Import Inline Hook.
      */
     passwordInlineHook?: pulumi.Input<string>;
     /**
-     * User mailing address
+     * User profile property.
      */
     postalAddress?: pulumi.Input<string>;
     /**
-     * User preferred language
+     * User profile property.
      */
     preferredLanguage?: pulumi.Input<string>;
     /**
-     * User primary phone number
+     * User profile property.
      */
     primaryPhone?: pulumi.Input<string>;
     /**
-     * User online profile (web page)
+     * User profile property.
      */
     profileUrl?: pulumi.Input<string>;
     /**
@@ -463,15 +549,18 @@ export interface UserState {
      */
     rawStatus?: pulumi.Input<string>;
     /**
-     * User Password Recovery Answer
+     * User password recovery answer.
+     *
+     * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+     * - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
      */
     recoveryAnswer?: pulumi.Input<string>;
     /**
-     * User Password Recovery Question
+     * User password recovery question.
      */
     recoveryQuestion?: pulumi.Input<string>;
     /**
-     * User secondary email address, used for account recovery
+     * User profile property.
      */
     secondEmail?: pulumi.Input<string>;
     /**
@@ -481,31 +570,31 @@ export interface UserState {
      */
     skipRoles?: pulumi.Input<boolean>;
     /**
-     * User state or region
+     * User profile property.
      */
     state?: pulumi.Input<string>;
     /**
-     * The status of the User in Okta - remove to set user back to active/provisioned
+     * User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
      */
     status?: pulumi.Input<string>;
     /**
-     * User street address
+     * User profile property.
      */
     streetAddress?: pulumi.Input<string>;
     /**
-     * User default timezone
+     * User profile property.
      */
     timezone?: pulumi.Input<string>;
     /**
-     * User title
+     * User profile property.
      */
     title?: pulumi.Input<string>;
     /**
-     * User employee type
+     * User profile property.
      */
     userType?: pulumi.Input<string>;
     /**
-     * User zipcode or postal code
+     * User profile property.
      */
     zipCode?: pulumi.Input<string>;
 }
@@ -515,19 +604,19 @@ export interface UserState {
  */
 export interface UserArgs {
     /**
-     * User city
+     * User profile property.
      */
     city?: pulumi.Input<string>;
     /**
-     * User cost center
+     * User profile property.
      */
     costCenter?: pulumi.Input<string>;
     /**
-     * User country code
+     * User profile property.
      */
     countryCode?: pulumi.Input<string>;
     /**
-     * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+     * raw JSON containing all custom profile attributes.
      */
     customProfileAttributes?: pulumi.Input<string>;
     /**
@@ -535,83 +624,86 @@ export interface UserArgs {
      */
     customProfileAttributesToIgnores?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * User department
+     * User profile property.
      */
     department?: pulumi.Input<string>;
     /**
-     * User display name, suitable to show end users
+     * User profile property.
      */
     displayName?: pulumi.Input<string>;
     /**
-     * User division
+     * User profile property.
      */
     division?: pulumi.Input<string>;
     /**
-     * User primary email address
+     * User profile property.
      */
     email: pulumi.Input<string>;
     /**
-     * User employee number
+     * User profile property.
      */
     employeeNumber?: pulumi.Input<string>;
     /**
-     * If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set
+     * If set to `true`, the user will have to change the password at the next login. This property will be used
+     * when user is being created and works only when `password` field is set. Default is `false`.
      */
     expirePasswordOnCreate?: pulumi.Input<boolean>;
     /**
-     * User first name
+     * User's First Name, required by default.
      */
     firstName: pulumi.Input<string>;
     /**
-     * User honorific prefix
+     * User profile property.
      */
     honorificPrefix?: pulumi.Input<string>;
     /**
-     * User honorific suffix
+     * User profile property.
      */
     honorificSuffix?: pulumi.Input<string>;
     /**
-     * User last name
+     * User's Last Name, required by default.
      */
     lastName: pulumi.Input<string>;
     /**
-     * User default location
+     * User profile property.
      */
     locale?: pulumi.Input<string>;
     /**
-     * User Okta login
+     * User profile property.
      */
     login: pulumi.Input<string>;
     /**
-     * Manager of User
+     * User profile property.
      */
     manager?: pulumi.Input<string>;
     /**
-     * Manager ID of User
+     * User profile property.
      */
     managerId?: pulumi.Input<string>;
     /**
-     * User middle name
+     * User profile property.
      */
     middleName?: pulumi.Input<string>;
     /**
-     * User mobile phone number
+     * User profile property.
      */
     mobilePhone?: pulumi.Input<string>;
     /**
-     * User nickname
+     * User profile property.
      */
     nickName?: pulumi.Input<string>;
     /**
-     * Old User Password. Should be only set in case the password was not changed using the provider
+     * Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
+     * outside the provider. After successful password change this field should be removed and `password` field should be used
+     * for further changes.
      */
     oldPassword?: pulumi.Input<string>;
     /**
-     * User organization
+     * User profile property.
      */
     organization?: pulumi.Input<string>;
     /**
-     * User Password
+     * User password.
      */
     password?: pulumi.Input<string>;
     /**
@@ -619,35 +711,41 @@ export interface UserArgs {
      */
     passwordHash?: pulumi.Input<inputs.user.UserPasswordHash>;
     /**
-     * When specified, the Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to sign in
+     * Specifies that a Password Import Inline Hook should be triggered to handle verification
+     * of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
+     * from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+     * field should not be specified when using Password Import Inline Hook.
      */
     passwordInlineHook?: pulumi.Input<string>;
     /**
-     * User mailing address
+     * User profile property.
      */
     postalAddress?: pulumi.Input<string>;
     /**
-     * User preferred language
+     * User profile property.
      */
     preferredLanguage?: pulumi.Input<string>;
     /**
-     * User primary phone number
+     * User profile property.
      */
     primaryPhone?: pulumi.Input<string>;
     /**
-     * User online profile (web page)
+     * User profile property.
      */
     profileUrl?: pulumi.Input<string>;
     /**
-     * User Password Recovery Answer
+     * User password recovery answer.
+     *
+     * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+     * - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
      */
     recoveryAnswer?: pulumi.Input<string>;
     /**
-     * User Password Recovery Question
+     * User password recovery question.
      */
     recoveryQuestion?: pulumi.Input<string>;
     /**
-     * User secondary email address, used for account recovery
+     * User profile property.
      */
     secondEmail?: pulumi.Input<string>;
     /**
@@ -657,31 +755,31 @@ export interface UserArgs {
      */
     skipRoles?: pulumi.Input<boolean>;
     /**
-     * User state or region
+     * User profile property.
      */
     state?: pulumi.Input<string>;
     /**
-     * The status of the User in Okta - remove to set user back to active/provisioned
+     * User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
      */
     status?: pulumi.Input<string>;
     /**
-     * User street address
+     * User profile property.
      */
     streetAddress?: pulumi.Input<string>;
     /**
-     * User default timezone
+     * User profile property.
      */
     timezone?: pulumi.Input<string>;
     /**
-     * User title
+     * User profile property.
      */
     title?: pulumi.Input<string>;
     /**
-     * User employee type
+     * User profile property.
      */
     userType?: pulumi.Input<string>;
     /**
-     * User zipcode or postal code
+     * User profile property.
      */
     zipCode?: pulumi.Input<string>;
 }

@@ -20,7 +20,9 @@ class MappingMappingArgs:
                  id: pulumi.Input[str],
                  push_status: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: The mapping property key.
+        :param pulumi.Input[str] expression: Combination or single source properties that will be mapped to the target property.
+        :param pulumi.Input[str] id: Key of mapping.
+        :param pulumi.Input[str] push_status: Whether to update target properties on user create & update or just on create.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "id", id)
@@ -30,6 +32,9 @@ class MappingMappingArgs:
     @property
     @pulumi.getter
     def expression(self) -> pulumi.Input[str]:
+        """
+        Combination or single source properties that will be mapped to the target property.
+        """
         return pulumi.get(self, "expression")
 
     @expression.setter
@@ -40,7 +45,7 @@ class MappingMappingArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The mapping property key.
+        Key of mapping.
         """
         return pulumi.get(self, "id")
 
@@ -51,6 +56,9 @@ class MappingMappingArgs:
     @property
     @pulumi.getter(name="pushStatus")
     def push_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to update target properties on user create & update or just on create.
+        """
         return pulumi.get(self, "push_status")
 
     @push_status.setter

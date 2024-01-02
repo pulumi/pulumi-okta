@@ -23,10 +23,11 @@ class ServerPolicyArgs:
         """
         The set of arguments for constructing a ServerPolicy resource.
         :param pulumi.Input[str] auth_server_id: The ID of the Auth Server.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_whitelists: The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_whitelists: The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
         :param pulumi.Input[str] description: The description of the Auth Server Policy.
-        :param pulumi.Input[int] priority: Priority of the auth server policy
+        :param pulumi.Input[int] priority: The priority of the Auth Server Policy.
         :param pulumi.Input[str] name: The name of the Auth Server Policy.
+        :param pulumi.Input[str] status: The status of the Auth Server Policy.
         """
         pulumi.set(__self__, "auth_server_id", auth_server_id)
         pulumi.set(__self__, "client_whitelists", client_whitelists)
@@ -53,7 +54,7 @@ class ServerPolicyArgs:
     @pulumi.getter(name="clientWhitelists")
     def client_whitelists(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+        The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
         """
         return pulumi.get(self, "client_whitelists")
 
@@ -77,7 +78,7 @@ class ServerPolicyArgs:
     @pulumi.getter
     def priority(self) -> pulumi.Input[int]:
         """
-        Priority of the auth server policy
+        The priority of the Auth Server Policy.
         """
         return pulumi.get(self, "priority")
 
@@ -100,6 +101,9 @@ class ServerPolicyArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the Auth Server Policy.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -119,10 +123,11 @@ class _ServerPolicyState:
         """
         Input properties used for looking up and filtering ServerPolicy resources.
         :param pulumi.Input[str] auth_server_id: The ID of the Auth Server.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_whitelists: The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_whitelists: The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
         :param pulumi.Input[str] description: The description of the Auth Server Policy.
         :param pulumi.Input[str] name: The name of the Auth Server Policy.
-        :param pulumi.Input[int] priority: Priority of the auth server policy
+        :param pulumi.Input[int] priority: The priority of the Auth Server Policy.
+        :param pulumi.Input[str] status: The status of the Auth Server Policy.
         """
         if auth_server_id is not None:
             pulumi.set(__self__, "auth_server_id", auth_server_id)
@@ -153,7 +158,7 @@ class _ServerPolicyState:
     @pulumi.getter(name="clientWhitelists")
     def client_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+        The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
         """
         return pulumi.get(self, "client_whitelists")
 
@@ -189,7 +194,7 @@ class _ServerPolicyState:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        Priority of the auth server policy
+        The priority of the Auth Server Policy.
         """
         return pulumi.get(self, "priority")
 
@@ -200,6 +205,9 @@ class _ServerPolicyState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the Auth Server Policy.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -220,14 +228,40 @@ class ServerPolicy(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ServerPolicy resource with the given unique name, props, and options.
+        Creates an Authorization Server Policy.
+
+        This resource allows you to create and configure an Authorization Server Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.auth.ServerPolicy("example",
+            auth_server_id="<auth server id>",
+            client_whitelists=["ALL_CLIENTS"],
+            description="example",
+            priority=1,
+            status="ACTIVE")
+        ```
+
+        ## Import
+
+        Authorization Server Policy can be imported via the Auth Server ID and Policy ID.
+
+        ```sh
+         $ pulumi import okta:auth/serverPolicy:ServerPolicy example &#60;auth server id&#62;/&#60;policy id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_server_id: The ID of the Auth Server.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_whitelists: The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_whitelists: The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
         :param pulumi.Input[str] description: The description of the Auth Server Policy.
         :param pulumi.Input[str] name: The name of the Auth Server Policy.
-        :param pulumi.Input[int] priority: Priority of the auth server policy
+        :param pulumi.Input[int] priority: The priority of the Auth Server Policy.
+        :param pulumi.Input[str] status: The status of the Auth Server Policy.
         """
         ...
     @overload
@@ -236,7 +270,32 @@ class ServerPolicy(pulumi.CustomResource):
                  args: ServerPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ServerPolicy resource with the given unique name, props, and options.
+        Creates an Authorization Server Policy.
+
+        This resource allows you to create and configure an Authorization Server Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.auth.ServerPolicy("example",
+            auth_server_id="<auth server id>",
+            client_whitelists=["ALL_CLIENTS"],
+            description="example",
+            priority=1,
+            status="ACTIVE")
+        ```
+
+        ## Import
+
+        Authorization Server Policy can be imported via the Auth Server ID and Policy ID.
+
+        ```sh
+         $ pulumi import okta:auth/serverPolicy:ServerPolicy example &#60;auth server id&#62;/&#60;policy id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param ServerPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -305,10 +364,11 @@ class ServerPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_server_id: The ID of the Auth Server.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_whitelists: The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_whitelists: The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
         :param pulumi.Input[str] description: The description of the Auth Server Policy.
         :param pulumi.Input[str] name: The name of the Auth Server Policy.
-        :param pulumi.Input[int] priority: Priority of the auth server policy
+        :param pulumi.Input[int] priority: The priority of the Auth Server Policy.
+        :param pulumi.Input[str] status: The status of the Auth Server Policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -334,7 +394,7 @@ class ServerPolicy(pulumi.CustomResource):
     @pulumi.getter(name="clientWhitelists")
     def client_whitelists(self) -> pulumi.Output[Sequence[str]]:
         """
-        The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+        The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
         """
         return pulumi.get(self, "client_whitelists")
 
@@ -358,12 +418,15 @@ class ServerPolicy(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[int]:
         """
-        Priority of the auth server policy
+        The priority of the Auth Server Policy.
         """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
+        """
+        The status of the Auth Server Policy.
+        """
         return pulumi.get(self, "status")
 

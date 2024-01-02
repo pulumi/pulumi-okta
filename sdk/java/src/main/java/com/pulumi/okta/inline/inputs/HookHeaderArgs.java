@@ -15,16 +15,32 @@ public final class HookHeaderArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final HookHeaderArgs Empty = new HookHeaderArgs();
 
+    /**
+     * Key to use for authentication, usually the header name, for example `&#34;Authorization&#34;`.
+     * 
+     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
+    /**
+     * @return Key to use for authentication, usually the header name, for example `&#34;Authorization&#34;`.
+     * 
+     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
 
+    /**
+     * Authentication secret.
+     * 
+     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
+    /**
+     * @return Authentication secret.
+     * 
+     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -54,20 +70,44 @@ public final class HookHeaderArgs extends com.pulumi.resources.ResourceArgs {
             $ = new HookHeaderArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key Key to use for authentication, usually the header name, for example `&#34;Authorization&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key Key to use for authentication, usually the header name, for example `&#34;Authorization&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param value Authentication secret.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Authentication secret.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

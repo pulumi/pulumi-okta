@@ -12,13 +12,13 @@ namespace Pulumi.Okta
     public static class GetBrand
     {
         /// <summary>
-        /// Get a single Brand from Okta.
+        /// Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
         /// </summary>
         public static Task<GetBrandResult> InvokeAsync(GetBrandArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrandResult>("okta:index/getBrand:getBrand", args ?? new GetBrandArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a single Brand from Okta.
+        /// Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
         /// </summary>
         public static Output<GetBrandResult> Invoke(GetBrandInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrandResult>("okta:index/getBrand:getBrand", args ?? new GetBrandInvokeArgs(), options.WithDefaults());
@@ -28,7 +28,7 @@ namespace Pulumi.Okta
     public sealed class GetBrandArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Brand ID
+        /// Brand ID. Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         /// </summary>
         [Input("brandId", required: true)]
         public string BrandId { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.Okta
     public sealed class GetBrandInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Brand ID
+        /// Brand ID. Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
         /// </summary>
         [Input("brandId", required: true)]
         public Input<string> BrandId { get; set; } = null!;
@@ -57,16 +57,13 @@ namespace Pulumi.Okta
     [OutputType]
     public sealed class GetBrandResult
     {
-        /// <summary>
-        /// Brand ID
-        /// </summary>
         public readonly string BrandId;
         /// <summary>
         /// Custom privacy policy URL
         /// </summary>
         public readonly string CustomPrivacyPolicyUrl;
         /// <summary>
-        /// The ID of the Brand
+        /// Brand ID
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -78,7 +75,7 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        /// Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         /// </summary>
         public readonly bool RemovePoweredByOkta;
 

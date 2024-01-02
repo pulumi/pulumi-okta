@@ -4,6 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+ *
+ * This resource allows you to create and configure a Profile Enrollment Policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.PolicyProfileEnrollment("example", {status: "ACTIVE"});
+ * ```
+ *
+ * ## Import
+ *
+ * A Profile Enrollment Policy can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &#60;policy id&#62;
+ * ```
+ */
 export class PolicyProfileEnrollment extends pulumi.CustomResource {
     /**
      * Get an existing PolicyProfileEnrollment resource's state with the given name, ID, and optional extra
@@ -33,11 +55,11 @@ export class PolicyProfileEnrollment extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the policy
+     * Policy Name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Status of the policy
+     * Status of the policy.
      */
     public readonly status!: pulumi.Output<string | undefined>;
 
@@ -71,11 +93,11 @@ export class PolicyProfileEnrollment extends pulumi.CustomResource {
  */
 export interface PolicyProfileEnrollmentState {
     /**
-     * Name of the policy
+     * Policy Name.
      */
     name?: pulumi.Input<string>;
     /**
-     * Status of the policy
+     * Status of the policy.
      */
     status?: pulumi.Input<string>;
 }
@@ -85,11 +107,11 @@ export interface PolicyProfileEnrollmentState {
  */
 export interface PolicyProfileEnrollmentArgs {
     /**
-     * Name of the policy
+     * Policy Name.
      */
     name?: pulumi.Input<string>;
     /**
-     * Status of the policy
+     * Status of the policy.
      */
     status?: pulumi.Input<string>;
 }

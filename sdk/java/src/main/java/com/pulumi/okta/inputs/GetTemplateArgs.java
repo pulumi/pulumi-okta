@@ -30,14 +30,14 @@ public final class GetTemplateArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the email template
+     * Template Name
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the email template
+     * @return Template Name
      * 
      */
     public Output<String> name() {
@@ -91,7 +91,7 @@ public final class GetTemplateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the email template
+         * @param name Template Name
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetTemplateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the email template
+         * @param name Template Name
          * 
          * @return builder
          * 

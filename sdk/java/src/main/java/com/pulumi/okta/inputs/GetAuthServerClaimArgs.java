@@ -17,14 +17,14 @@ public final class GetAuthServerClaimArgs extends com.pulumi.resources.InvokeArg
     public static final GetAuthServerClaimArgs Empty = new GetAuthServerClaimArgs();
 
     /**
-     * Auth server ID
+     * Auth server ID.
      * 
      */
     @Import(name="authServerId", required=true)
     private Output<String> authServerId;
 
     /**
-     * @return Auth server ID
+     * @return Auth server ID.
      * 
      */
     public Output<String> authServerId() {
@@ -32,14 +32,14 @@ public final class GetAuthServerClaimArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Name of the claim. Conflicts with `name`.
+     * ID of the claim. Conflicts with `name`.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return Name of the claim. Conflicts with `name`.
+     * @return ID of the claim. Conflicts with `name`.
      * 
      */
     public Optional<Output<String>> id() {
@@ -88,7 +88,7 @@ public final class GetAuthServerClaimArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param authServerId Auth server ID
+         * @param authServerId Auth server ID.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetAuthServerClaimArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param authServerId Auth server ID
+         * @param authServerId Auth server ID.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetAuthServerClaimArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param id Name of the claim. Conflicts with `name`.
+         * @param id ID of the claim. Conflicts with `name`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetAuthServerClaimArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param id Name of the claim. Conflicts with `name`.
+         * @param id ID of the claim. Conflicts with `name`.
          * 
          * @return builder
          * 

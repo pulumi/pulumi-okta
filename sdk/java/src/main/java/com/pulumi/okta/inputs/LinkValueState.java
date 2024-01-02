@@ -32,14 +32,14 @@ public final class LinkValueState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the &#39;primary&#39; relationship being assigned.
+     * Name of the `primary` relationship being assigned.
      * 
      */
     @Import(name="primaryName")
     private @Nullable Output<String> primaryName;
 
     /**
-     * @return Name of the &#39;primary&#39; relationship being assigned.
+     * @return Name of the `primary` relationship being assigned.
      * 
      */
     public Optional<Output<String>> primaryName() {
@@ -47,14 +47,14 @@ public final class LinkValueState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User ID to be assigned to &#39;primary&#39; for the &#39;associated&#39; user in the specified relationship.
+     * User ID to be assigned to `primary` for the `associated` user in the specified relationship.
      * 
      */
     @Import(name="primaryUserId")
     private @Nullable Output<String> primaryUserId;
 
     /**
-     * @return User ID to be assigned to &#39;primary&#39; for the &#39;associated&#39; user in the specified relationship.
+     * @return User ID to be assigned to `primary` for the `associated` user in the specified relationship.
      * 
      */
     public Optional<Output<String>> primaryUserId() {
@@ -119,7 +119,7 @@ public final class LinkValueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryName Name of the &#39;primary&#39; relationship being assigned.
+         * @param primaryName Name of the `primary` relationship being assigned.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class LinkValueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryName Name of the &#39;primary&#39; relationship being assigned.
+         * @param primaryName Name of the `primary` relationship being assigned.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class LinkValueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryUserId User ID to be assigned to &#39;primary&#39; for the &#39;associated&#39; user in the specified relationship.
+         * @param primaryUserId User ID to be assigned to `primary` for the `associated` user in the specified relationship.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class LinkValueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryUserId User ID to be assigned to &#39;primary&#39; for the &#39;associated&#39; user in the specified relationship.
+         * @param primaryUserId User ID to be assigned to `primary` for the `associated` user in the specified relationship.
          * 
          * @return builder
          * 

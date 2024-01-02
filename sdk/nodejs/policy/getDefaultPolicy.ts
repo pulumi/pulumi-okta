@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve a default policy from Okta. This
- * same thing can be achieved using the `okta.policy.getPolicy` with default
- * names, this is simply a shortcut.
+ * Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `okta.policy.getPolicy` with default names, this is simply a shortcut.
  *
  * ## Example Usage
  *
@@ -33,7 +31,8 @@ export function getDefaultPolicy(args: GetDefaultPolicyArgs, opts?: pulumi.Invok
  */
 export interface GetDefaultPolicyArgs {
     /**
-     * Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
+     * Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+     * `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
      */
     type: string;
 }
@@ -47,14 +46,12 @@ export interface GetDefaultPolicyResult {
      */
     readonly id: string;
     /**
-     * Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
+     * type of policy.
      */
     readonly type: string;
 }
 /**
- * Use this data source to retrieve a default policy from Okta. This
- * same thing can be achieved using the `okta.policy.getPolicy` with default
- * names, this is simply a shortcut.
+ * Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `okta.policy.getPolicy` with default names, this is simply a shortcut.
  *
  * ## Example Usage
  *
@@ -76,7 +73,8 @@ export function getDefaultPolicyOutput(args: GetDefaultPolicyOutputArgs, opts?: 
  */
 export interface GetDefaultPolicyOutputArgs {
     /**
-     * Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
+     * Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+     * `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
      */
     type: pulumi.Input<string>;
 }

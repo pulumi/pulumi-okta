@@ -15,45 +15,133 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to create and configure an Auto Login Okta Application.
+ * 
+ * &gt; During an apply if there is change in `status` the app will first be
+ * activated or deactivated in accordance with the `status` change. Then, all
+ * other arguments that changed will be applied.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.AutoLogin;
+ * import com.pulumi.okta.app.AutoLoginArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AutoLogin(&#34;example&#34;, AutoLoginArgs.builder()        
+ *             .credentialsScheme(&#34;EDIT_USERNAME_AND_PASSWORD&#34;)
+ *             .label(&#34;Example App&#34;)
+ *             .revealPassword(true)
+ *             .signOnRedirectUrl(&#34;https://example.com&#34;)
+ *             .signOnUrl(&#34;https://example.com/login.html&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Pre-configured application
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.AutoLogin;
+ * import com.pulumi.okta.app.AutoLoginArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AutoLogin(&#34;example&#34;, AutoLoginArgs.builder()        
+ *             .appSettingsJson(&#34;&#34;&#34;
+ * {
+ *     &#34;domain&#34;: &#34;okta&#34;,
+ *     &#34;afwOnly&#34;: false
+ * }
+ * 
+ *             &#34;&#34;&#34;)
+ *             .label(&#34;Google Example App&#34;)
+ *             .preconfiguredApp(&#34;google&#34;)
+ *             .status(&#34;ACTIVE&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Okta Auto Login App can be imported via the Okta ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:app/autoLogin:AutoLogin example &amp;#60;app id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:app/autoLogin:AutoLogin")
 public class AutoLogin extends com.pulumi.resources.CustomResource {
     /**
-     * Custom error page URL
+     * Custom error page URL.
      * 
      */
     @Export(name="accessibilityErrorRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityErrorRedirectUrl;
 
     /**
-     * @return Custom error page URL
+     * @return Custom error page URL.
      * 
      */
     public Output<Optional<String>> accessibilityErrorRedirectUrl() {
         return Codegen.optional(this.accessibilityErrorRedirectUrl);
     }
     /**
-     * Custom login page URL
+     * Custom login page for this application.
      * 
      */
     @Export(name="accessibilityLoginRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityLoginRedirectUrl;
 
     /**
-     * @return Custom login page URL
+     * @return Custom login page for this application.
      * 
      */
     public Output<Optional<String>> accessibilityLoginRedirectUrl() {
         return Codegen.optional(this.accessibilityLoginRedirectUrl);
     }
     /**
-     * Enable self service
+     * Enable self-service. By default, it is `false`.
      * 
      */
     @Export(name="accessibilitySelfService", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessibilitySelfService;
 
     /**
-     * @return Enable self service
+     * @return Enable self-service. By default, it is `false`.
      * 
      */
     public Output<Optional<Boolean>> accessibilitySelfService() {
@@ -74,56 +162,56 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.adminNote);
     }
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
     @Export(name="appLinksJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appLinksJson;
 
     /**
-     * @return Displays specific appLinks for the app
+     * @return Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
     public Output<Optional<String>> appLinksJson() {
         return Codegen.optional(this.appLinksJson);
     }
     /**
-     * Application settings in JSON format
+     * Application settings in JSON format.
      * 
      */
     @Export(name="appSettingsJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appSettingsJson;
 
     /**
-     * @return Application settings in JSON format
+     * @return Application settings in JSON format.
      * 
      */
     public Output<Optional<String>> appSettingsJson() {
         return Codegen.optional(this.appSettingsJson);
     }
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      * 
      */
     @Export(name="autoSubmitToolbar", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoSubmitToolbar;
 
     /**
-     * @return Display auto submit toolbar
+     * @return Display auto submit toolbar.
      * 
      */
     public Output<Optional<Boolean>> autoSubmitToolbar() {
         return Codegen.optional(this.autoSubmitToolbar);
     }
     /**
-     * Application credentials scheme
+     * One of: `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
      * 
      */
     @Export(name="credentialsScheme", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> credentialsScheme;
 
     /**
-     * @return Application credentials scheme
+     * @return One of: `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
      * 
      */
     public Output<Optional<String>> credentialsScheme() {
@@ -144,252 +232,252 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enduserNote);
     }
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      * 
      */
     @Export(name="hideIos", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideIos;
 
     /**
-     * @return Do not display application icon on mobile app
+     * @return Do not display application icon on mobile app.
      * 
      */
     public Output<Optional<Boolean>> hideIos() {
         return Codegen.optional(this.hideIos);
     }
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      * 
      */
     @Export(name="hideWeb", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideWeb;
 
     /**
-     * @return Do not display application icon to users
+     * @return Do not display application icon to users.
      * 
      */
     public Output<Optional<Boolean>> hideWeb() {
         return Codegen.optional(this.hideWeb);
     }
     /**
-     * Pretty name of app.
+     * The Application&#39;s display name.
      * 
      */
     @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
-     * @return Pretty name of app.
+     * @return The Application&#39;s display name.
      * 
      */
     public Output<String> label() {
         return this.label;
     }
     /**
-     * Local path to logo of the application.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
-     * @return Local path to logo of the application.
+     * @return Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     public Output<Optional<String>> logo() {
         return Codegen.optional(this.logo);
     }
     /**
-     * URL of the application&#39;s logo
+     * Direct link of application logo.
      * 
      */
     @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
-     * @return URL of the application&#39;s logo
+     * @return Direct link of application logo.
      * 
      */
     public Output<String> logoUrl() {
         return this.logoUrl;
     }
     /**
-     * Name of the app.
+     * Name assigned to the application by Okta.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the app.
+     * @return Name assigned to the application by Okta.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Preconfigured app name
+     * Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
      * 
      */
     @Export(name="preconfiguredApp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> preconfiguredApp;
 
     /**
-     * @return Preconfigured app name
+     * @return Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
      * 
      */
     public Output<Optional<String>> preconfiguredApp() {
         return Codegen.optional(this.preconfiguredApp);
     }
     /**
-     * Allow user to reveal password
+     * Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
      * 
      */
     @Export(name="revealPassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> revealPassword;
 
     /**
-     * @return Allow user to reveal password
+     * @return Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
      * 
      */
     public Output<Optional<Boolean>> revealPassword() {
         return Codegen.optional(this.revealPassword);
     }
     /**
-     * Shared password, required for certain schemes.
+     * Shared password, required for certain schemes
      * 
      */
     @Export(name="sharedPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedPassword;
 
     /**
-     * @return Shared password, required for certain schemes.
+     * @return Shared password, required for certain schemes
      * 
      */
     public Output<Optional<String>> sharedPassword() {
         return Codegen.optional(this.sharedPassword);
     }
     /**
-     * Shared username, required for certain schemes.
+     * Shared username, required for certain schemes
      * 
      */
     @Export(name="sharedUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedUsername;
 
     /**
-     * @return Shared username, required for certain schemes.
+     * @return Shared username, required for certain schemes
      * 
      */
     public Output<Optional<String>> sharedUsername() {
         return Codegen.optional(this.sharedUsername);
     }
     /**
-     * Sign on mode of application.
+     * Sign-on mode of the application.
      * 
      */
     @Export(name="signOnMode", refs={String.class}, tree="[0]")
     private Output<String> signOnMode;
 
     /**
-     * @return Sign on mode of application.
+     * @return Sign-on mode of the application.
      * 
      */
     public Output<String> signOnMode() {
         return this.signOnMode;
     }
     /**
-     * Post login redirect URL
+     * Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
      * 
      */
     @Export(name="signOnRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signOnRedirectUrl;
 
     /**
-     * @return Post login redirect URL
+     * @return Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
      * 
      */
     public Output<Optional<String>> signOnRedirectUrl() {
         return Codegen.optional(this.signOnRedirectUrl);
     }
     /**
-     * Login URL
+     * App login page URL
      * 
      */
     @Export(name="signOnUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signOnUrl;
 
     /**
-     * @return Login URL
+     * @return App login page URL
      * 
      */
     public Output<Optional<String>> signOnUrl() {
         return Codegen.optional(this.signOnUrl);
     }
     /**
-     * Status of application.
+     * The status of the application, by default, it is `&#34;ACTIVE&#34;`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Status of application.
+     * @return The status of the application, by default, it is `&#34;ACTIVE&#34;`.
      * 
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * Username template
+     * Username template. Default: `&#34;${source.login}&#34;`
      * 
      */
     @Export(name="userNameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplate;
 
     /**
-     * @return Username template
+     * @return Username template. Default: `&#34;${source.login}&#34;`
      * 
      */
     public Output<Optional<String>> userNameTemplate() {
         return Codegen.optional(this.userNameTemplate);
     }
     /**
-     * Push username on update
+     * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
     @Export(name="userNameTemplatePushStatus", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplatePushStatus;
 
     /**
-     * @return Push username on update
+     * @return Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
     public Output<Optional<String>> userNameTemplatePushStatus() {
         return Codegen.optional(this.userNameTemplatePushStatus);
     }
     /**
-     * Username template suffix
+     * Username template suffix.
      * 
      */
     @Export(name="userNameTemplateSuffix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateSuffix;
 
     /**
-     * @return Username template suffix
+     * @return Username template suffix.
      * 
      */
     public Output<Optional<String>> userNameTemplateSuffix() {
         return Codegen.optional(this.userNameTemplateSuffix);
     }
     /**
-     * Username template type
+     * Username template type. Default: `&#34;BUILT_IN&#34;`.
      * 
      */
     @Export(name="userNameTemplateType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateType;
 
     /**
-     * @return Username template type
+     * @return Username template type. Default: `&#34;BUILT_IN&#34;`.
      * 
      */
     public Output<Optional<String>> userNameTemplateType() {

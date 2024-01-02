@@ -11,9 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve a default policy from Okta. This
-// same thing can be achieved using the `policy.getPolicy` with default
-// names, this is simply a shortcut.
+// Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `policy.getPolicy` with default names, this is simply a shortcut.
 //
 // ## Example Usage
 //
@@ -52,7 +50,8 @@ func GetDefaultPolicy(ctx *pulumi.Context, args *GetDefaultPolicyArgs, opts ...p
 
 // A collection of arguments for invoking getDefaultPolicy.
 type GetDefaultPolicyArgs struct {
-	// Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
+	// Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+	// `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
 	Type string `pulumi:"type"`
 }
 
@@ -60,7 +59,7 @@ type GetDefaultPolicyArgs struct {
 type GetDefaultPolicyResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
+	// type of policy.
 	Type string `pulumi:"type"`
 }
 
@@ -79,7 +78,8 @@ func GetDefaultPolicyOutput(ctx *pulumi.Context, args GetDefaultPolicyOutputArgs
 
 // A collection of arguments for invoking getDefaultPolicy.
 type GetDefaultPolicyOutputArgs struct {
-	// Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
+	// Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+	// `"IDP_DISCOVERY"`, `"ACCESS_POLICY"` (**only available as a part of the Identity Engine**), `"PROFILE_ENROLLMENT"` (**only available as a part of the Identity Engine**)
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -107,7 +107,7 @@ func (o GetDefaultPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDefaultPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
+// type of policy.
 func (o GetDefaultPolicyResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDefaultPolicyResult) string { return v.Type }).(pulumi.StringOutput)
 }

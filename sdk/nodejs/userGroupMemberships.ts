@@ -5,7 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Resource to manage a set of group memberships for a specific user.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const testUser = new okta.user.User("testUser", {
+ *     firstName: "TestAcc",
+ *     lastName: "Smith",
+ *     login: "testAcc-replace_with_uuid@example.com",
+ *     email: "testAcc-replace_with_uuid@example.com",
+ * });
+ * const testUserGroupMemberships = new okta.UserGroupMemberships("testUserGroupMemberships", {
+ *     userId: testUser.id,
+ *     groups: [
+ *         okta_group.test_1.id,
+ *         okta_group.test_2.id,
+ *     ],
+ * });
+ * ```
  */
 export class UserGroupMemberships extends pulumi.CustomResource {
     /**
@@ -40,7 +59,7 @@ export class UserGroupMemberships extends pulumi.CustomResource {
      */
     public readonly groups!: pulumi.Output<string[]>;
     /**
-     * ID of a Okta User
+     * Okta user ID.
      */
     public readonly userId!: pulumi.Output<string>;
 
@@ -84,7 +103,7 @@ export interface UserGroupMembershipsState {
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * ID of a Okta User
+     * Okta user ID.
      */
     userId?: pulumi.Input<string>;
 }
@@ -98,7 +117,7 @@ export interface UserGroupMembershipsArgs {
      */
     groups: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * ID of a Okta User
+     * Okta user ID.
      */
     userId: pulumi.Input<string>;
 }

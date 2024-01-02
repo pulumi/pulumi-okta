@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 
 export interface AppGroupAssignmentsGroup {
     /**
-     * A group to associate with the application
+     * ID of the group to assign.
      */
     id: pulumi.Input<string>;
     /**
@@ -22,76 +22,115 @@ export interface AppGroupAssignmentsGroup {
 
 export interface AppSignonPolicyRulePlatformInclude {
     /**
-     * Only available with OTHER OS type
+     * Only available and required when using `osType = "OTHER"`
      */
     osExpression?: pulumi.Input<string>;
+    /**
+     * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+     */
     osType?: pulumi.Input<string>;
+    /**
+     * The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+     */
     type?: pulumi.Input<string>;
 }
 
 export interface AppUserSchemaPropertyArrayOneOf {
     /**
-     * Enum value
+     * value mapping to member of `arrayEnum`.
      */
     const: pulumi.Input<string>;
     /**
-     * Enum title
+     * display name for the enum value.
      */
     title: pulumi.Input<string>;
 }
 
 export interface AppUserSchemaPropertyOneOf {
     /**
-     * Enum value
+     * value mapping to member of `arrayEnum`.
      */
     const: pulumi.Input<string>;
     /**
-     * Enum title
+     * display name for the enum value.
      */
     title: pulumi.Input<string>;
 }
 
 export interface DomainDnsRecord {
+    /**
+     * TXT record expiration.
+     */
     expiration?: pulumi.Input<string>;
+    /**
+     * DNS record name.
+     */
     fqdn?: pulumi.Input<string>;
+    /**
+     * Record type can be TXT or CNAME.
+     */
     recordType?: pulumi.Input<string>;
+    /**
+     * DNS verification value
+     */
     values?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface EmailSenderDnsRecord {
+    /**
+     * DNS record name.
+     */
     fqdn?: pulumi.Input<string>;
+    /**
+     * Record type can be TXT or CNAME.
+     */
     recordType?: pulumi.Input<string>;
+    /**
+     * DNS verification value
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface EventHookHeader {
+    /**
+     * Key to use for authentication, usually the header name, for example `"Authorization"`.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Authentication secret.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface GroupSchemaPropertyArrayOneOf {
     /**
-     * Enum value
+     * value mapping to member of `enum`.
      */
     const: pulumi.Input<string>;
     /**
-     * Enum title
+     * display name for the enum value.
      */
     title: pulumi.Input<string>;
 }
 
 export interface GroupSchemaPropertyMasterOverridePriority {
+    /**
+     * Type of profile source.
+     */
     type?: pulumi.Input<string>;
+    /**
+     * ID of profile source.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface GroupSchemaPropertyOneOf {
     /**
-     * Enum value
+     * value mapping to member of `enum`.
      */
     const: pulumi.Input<string>;
     /**
-     * Enum title
+     * display name for the enum value.
      */
     title: pulumi.Input<string>;
 }
@@ -106,39 +145,51 @@ export interface PolicyRuleProfileEnrollmentProfileAttribute {
      */
     name: pulumi.Input<string>;
     /**
-     * Indicates if this property is required for enrollment
+     * Indicates if this property is required for enrollment. Default is `false`.
      */
     required?: pulumi.Input<boolean>;
 }
 
 export interface TemplateSmsTranslation {
+    /**
+     * The language to map the template to.
+     */
     language: pulumi.Input<string>;
+    /**
+     * The SMS message.
+     */
     template: pulumi.Input<string>;
 }
 
 export interface UserSchemaPropertyArrayOneOf {
     /**
-     * Enum value
+     * value mapping to member of `enum`.
      */
     const: pulumi.Input<string>;
     /**
-     * Enum title
+     * display name for the enum value.
      */
     title: pulumi.Input<string>;
 }
 
 export interface UserSchemaPropertyMasterOverridePriority {
+    /**
+     * Type of profile source.
+     */
     type?: pulumi.Input<string>;
+    /**
+     * ID of profile source.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface UserSchemaPropertyOneOf {
     /**
-     * Enum value
+     * value mapping to member of `enum`.
      */
     const: pulumi.Input<string>;
     /**
-     * Enum title
+     * display name for the enum value.
      */
     title: pulumi.Input<string>;
 }
@@ -148,8 +199,18 @@ export namespace Index {
          * @deprecated This field has been removed in the newest go sdk version and has become noop
          */
         expiration?: pulumi.Input<string>;
+        /**
+         * DNS record name.
+         */
         fqdn?: pulumi.Input<string>;
+        /**
+         * Record type can be TXT or cname.
+         */
         recordType?: pulumi.Input<string>;
+        /**
+         * DNS record value
+         * - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
+         */
         value?: pulumi.Input<string>;
     }
 
@@ -197,11 +258,12 @@ export namespace Index {
 export namespace app {
     export interface OAuthGroupsClaim {
         /**
-         * Groups claim filter. Can only be set if type is FILTER.
+         * Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
          */
         filterType?: pulumi.Input<string>;
         /**
-         * Issuer mode inherited from OAuth App
+         * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+         * Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
          */
         issuerMode?: pulumi.Input<string>;
         /**
@@ -209,7 +271,7 @@ export namespace app {
          */
         name: pulumi.Input<string>;
         /**
-         * Groups claim type.
+         * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
          */
         type: pulumi.Input<string>;
         /**
@@ -219,21 +281,9 @@ export namespace app {
     }
 
     export interface OAuthJwk {
-        /**
-         * RSA Exponent
-         */
         e?: pulumi.Input<string>;
-        /**
-         * Key ID
-         */
         kid: pulumi.Input<string>;
-        /**
-         * Key type
-         */
         kty: pulumi.Input<string>;
-        /**
-         * RSA Modulus
-         */
         n?: pulumi.Input<string>;
         x?: pulumi.Input<string>;
         y?: pulumi.Input<string>;
@@ -241,38 +291,71 @@ export namespace app {
 
     export interface SamlAttributeStatement {
         /**
-         * Type of group attribute filter
+         * Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
          */
         filterType?: pulumi.Input<string>;
         /**
-         * Filter value to use
+         * Filter value to use.
          */
         filterValue?: pulumi.Input<string>;
         /**
-         * The reference name of the attribute statement
+         * The name of the attribute statement.
          */
         name: pulumi.Input<string>;
         /**
-         * The name format of the attribute
+         * The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
          */
         namespace?: pulumi.Input<string>;
         /**
-         * The type of attribute statements object
+         * The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
          */
         type?: pulumi.Input<string>;
+        /**
+         * Array of values to use.
+         */
         values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface SamlKey {
+        /**
+         * Date created.
+         */
         created?: pulumi.Input<string>;
+        /**
+         * RSA exponent.
+         */
         e?: pulumi.Input<string>;
+        /**
+         * Date the key expires.
+         */
         expiresAt?: pulumi.Input<string>;
+        /**
+         * Key ID.
+         */
         kid?: pulumi.Input<string>;
+        /**
+         * Identifies the cryptographic algorithm family used with the key.
+         */
         kty?: pulumi.Input<string>;
+        /**
+         * Date the key was last updated.
+         */
         lastUpdated?: pulumi.Input<string>;
+        /**
+         * RSA modulus.
+         */
         n?: pulumi.Input<string>;
+        /**
+         * Intended use of the public key.
+         */
         use?: pulumi.Input<string>;
+        /**
+         * X.509 certificate chain.
+         */
         x5cs?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * X.509 certificate SHA-256 thumbprint.
+         */
         x5tS256?: pulumi.Input<string>;
     }
 }
@@ -282,7 +365,13 @@ export namespace auth {
 
 export namespace inline {
     export interface HookHeader {
+        /**
+         * Key to use for authentication, usually the header name, for example `"Authorization"`.
+         */
         key?: pulumi.Input<string>;
+        /**
+         * Authentication secret.
+         */
         value?: pulumi.Input<string>;
     }
 }
@@ -290,73 +379,120 @@ export namespace inline {
 export namespace policy {
     export interface RuleIdpDiscoveryAppExclude {
         /**
-         * The ID of this resource.
+         * Use if `type` is `"APP"` to indicate the application id to include.
          */
         id?: pulumi.Input<string>;
+        /**
+         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+         */
         name?: pulumi.Input<string>;
+        /**
+         * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+         */
         type: pulumi.Input<string>;
     }
 
     export interface RuleIdpDiscoveryAppInclude {
         /**
-         * The ID of this resource.
+         * Use if `type` is `"APP"` to indicate the application id to include.
          */
         id?: pulumi.Input<string>;
+        /**
+         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+         */
         name?: pulumi.Input<string>;
+        /**
+         * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+         */
         type: pulumi.Input<string>;
     }
 
     export interface RuleIdpDiscoveryPlatformInclude {
         /**
-         * Only available with OTHER OS type
+         * Only available when using `osType = "OTHER"`
          */
         osExpression?: pulumi.Input<string>;
+        /**
+         * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
+         */
         osType?: pulumi.Input<string>;
+        /**
+         * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+         */
         type?: pulumi.Input<string>;
     }
 
     export interface RuleIdpDiscoveryUserIdentifierPattern {
+        /**
+         * The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
+         */
         matchType?: pulumi.Input<string>;
+        /**
+         * The regex or simple match string to match against.
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
+         */
         value?: pulumi.Input<string>;
     }
 
     export interface RuleMfaAppExclude {
         /**
-         * The ID of this resource.
+         * Use if `type` is `"APP"` to indicate the application id to include.
          */
         id?: pulumi.Input<string>;
+        /**
+         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+         */
         name?: pulumi.Input<string>;
+        /**
+         * One of: `"APP"`, `"APP_TYPE"`
+         */
         type: pulumi.Input<string>;
     }
 
     export interface RuleMfaAppInclude {
         /**
-         * The ID of this resource.
+         * Use if `type` is `"APP"` to indicate the application id to include.
          */
         id?: pulumi.Input<string>;
+        /**
+         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+         */
         name?: pulumi.Input<string>;
+        /**
+         * One of: `"APP"`, `"APP_TYPE"`
+         */
         type: pulumi.Input<string>;
     }
 
     export interface RuleSignonFactorSequence {
         /**
-         * Type of a Factor
+         * Primary factor type of the auth section.
          */
         primaryCriteriaFactorType: pulumi.Input<string>;
         /**
-         * Factor provider
+         * Primary provider of the auth section.
          */
         primaryCriteriaProvider: pulumi.Input<string>;
+        /**
+         * Additional authentication steps.
+         */
         secondaryCriterias?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequenceSecondaryCriteria>[]>;
     }
 
     export interface RuleSignonFactorSequenceSecondaryCriteria {
         /**
-         * Type of a Factor
+         * Factor type of the additional authentication step.
          */
         factorType: pulumi.Input<string>;
         /**
-         * Factor provider
+         * Provider of the additional authentication step.
          */
         provider: pulumi.Input<string>;
     }
@@ -364,87 +500,118 @@ export namespace policy {
 
 export namespace profile {
     export interface MappingMapping {
+        /**
+         * Combination or single source properties that will be mapped to the target property.
+         */
         expression: pulumi.Input<string>;
         /**
-         * The mapping property key.
+         * Key of mapping.
          */
         id: pulumi.Input<string>;
+        /**
+         * Whether to update target properties on user create & update or just on create.
+         */
         pushStatus?: pulumi.Input<string>;
     }
 }
 
 export namespace user {
     export interface GetUserSearch {
+        /**
+         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
+         */
         comparison?: string;
         /**
-         * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * A raw search expression string. If present it will override name/comparison/value.
          */
         expression?: string;
         /**
-         * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * Name of property to search against.
          */
         name?: string;
+        /**
+         * Value to compare with.
+         */
         value?: string;
     }
 
     export interface GetUserSearchArgs {
+        /**
+         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
+         */
         comparison?: pulumi.Input<string>;
         /**
-         * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * A raw search expression string. If present it will override name/comparison/value.
          */
         expression?: pulumi.Input<string>;
         /**
-         * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * Name of property to search against.
          */
         name?: pulumi.Input<string>;
+        /**
+         * Value to compare with.
+         */
         value?: pulumi.Input<string>;
     }
 
     export interface GetUsersSearch {
+        /**
+         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
+         */
         comparison?: string;
         /**
-         * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * A raw search expression string. If present it will override name/comparison/value.
          */
         expression?: string;
         /**
-         * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * Name of property to search against.
          */
         name?: string;
+        /**
+         * Value to compare with.
+         */
         value?: string;
     }
 
     export interface GetUsersSearchArgs {
+        /**
+         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
+         */
         comparison?: pulumi.Input<string>;
         /**
-         * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * A raw search expression string. If present it will override name/comparison/value.
          */
         expression?: pulumi.Input<string>;
         /**
-         * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * Name of property to search against.
          */
         name?: pulumi.Input<string>;
+        /**
+         * Value to compare with.
+         */
         value?: pulumi.Input<string>;
     }
 
     export interface UserPasswordHash {
-        /**
-         * The algorithm used to generate the hash using the password
-         */
         algorithm: pulumi.Input<string>;
         /**
-         * Only required for salted hashes
+         * Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
+         * the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
          */
         salt?: pulumi.Input<string>;
         /**
-         * Specifies whether salt was pre- or postfixed to the password before hashing
+         * Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
          */
         saltOrder?: pulumi.Input<string>;
         /**
-         * For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+         * For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
+         * This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
+         * the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
+         * the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
          */
         value: pulumi.Input<string>;
         /**
-         * Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
+         * Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
          */
         workFactor?: pulumi.Input<number>;
     }

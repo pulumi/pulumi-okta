@@ -9,17 +9,26 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.App
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// An application group assignment can be imported via the `app_id` and the `group_id`.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/groupAssignment:GroupAssignment example &amp;#60;app_id&amp;#62;/&amp;#60;group_id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:app/groupAssignment:GroupAssignment")]
     public partial class GroupAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// App to associate group with
+        /// The ID of the application to assign a group to.
         /// </summary>
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
 
         /// <summary>
-        /// Group associated with the application
+        /// The ID of the group to assign the app to.
         /// </summary>
         [Output("groupId")]
         public Output<string> GroupId { get; private set; } = null!;
@@ -89,13 +98,13 @@ namespace Pulumi.Okta.App
     public sealed class GroupAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// App to associate group with
+        /// The ID of the application to assign a group to.
         /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
         /// <summary>
-        /// Group associated with the application
+        /// The ID of the group to assign the app to.
         /// </summary>
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
@@ -127,13 +136,13 @@ namespace Pulumi.Okta.App
     public sealed class GroupAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// App to associate group with
+        /// The ID of the application to assign a group to.
         /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }
 
         /// <summary>
-        /// Group associated with the application
+        /// The ID of the group to assign the app to.
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }

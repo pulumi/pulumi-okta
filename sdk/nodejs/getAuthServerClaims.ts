@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Get a list of authorization server claims from Okta.
+ * Use this data source to retrieve a list of authorization server claims from Okta.
  *
  * ## Example Usage
  *
@@ -33,7 +33,7 @@ export function getAuthServerClaims(args: GetAuthServerClaimsArgs, opts?: pulumi
  */
 export interface GetAuthServerClaimsArgs {
     /**
-     * Auth server ID
+     * Auth server ID.
      */
     authServerId: string;
 }
@@ -42,12 +42,9 @@ export interface GetAuthServerClaimsArgs {
  * A collection of values returned by getAuthServerClaims.
  */
 export interface GetAuthServerClaimsResult {
-    /**
-     * Auth server ID
-     */
     readonly authServerId: string;
     /**
-     * Collection of authorization server claims retrieved from Okta with the following properties.
+     * collection of authorization server claims retrieved from Okta with the following properties.
      */
     readonly claims: outputs.GetAuthServerClaimsClaim[];
     /**
@@ -56,7 +53,7 @@ export interface GetAuthServerClaimsResult {
     readonly id: string;
 }
 /**
- * Get a list of authorization server claims from Okta.
+ * Use this data source to retrieve a list of authorization server claims from Okta.
  *
  * ## Example Usage
  *
@@ -78,7 +75,7 @@ export function getAuthServerClaimsOutput(args: GetAuthServerClaimsOutputArgs, o
  */
 export interface GetAuthServerClaimsOutputArgs {
     /**
-     * Auth server ID
+     * Auth server ID.
      */
     authServerId: pulumi.Input<string>;
 }

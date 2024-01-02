@@ -9,29 +9,64 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.TrustedOrigin
 {
+    /// <summary>
+    /// Creates a Trusted Origin.
+    /// 
+    /// This resource allows you to create and configure a Trusted Origin.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.TrustedOrigin.Origin("example", new()
+    ///     {
+    ///         OriginName = "https://example.com",
+    ///         Scopes = new[]
+    ///         {
+    ///             "CORS",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// A Trusted Origin can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:trustedorigin/origin:Origin example &amp;#60;trusted origin id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:trustedorigin/origin:Origin")]
     public partial class Origin : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether the Trusted Origin is active or not - can only be issued post-creation
+        /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
         /// </summary>
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
 
         /// <summary>
-        /// Unique name for this trusted origin
+        /// Unique name for this trusted origin.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Unique origin URL for this trusted origin
+        /// Unique origin URL for this trusted origin.
         /// </summary>
         [Output("origin")]
         public Output<string> OriginName { get; private set; } = null!;
 
         /// <summary>
-        /// Scopes of the Trusted Origin - can either be CORS or REDIRECT only
+        /// Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
@@ -83,19 +118,19 @@ namespace Pulumi.Okta.TrustedOrigin
     public sealed class OriginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the Trusted Origin is active or not - can only be issued post-creation
+        /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// Unique name for this trusted origin
+        /// Unique name for this trusted origin.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Unique origin URL for this trusted origin
+        /// Unique origin URL for this trusted origin.
         /// </summary>
         [Input("origin", required: true)]
         public Input<string> OriginName { get; set; } = null!;
@@ -104,7 +139,7 @@ namespace Pulumi.Okta.TrustedOrigin
         private InputList<string>? _scopes;
 
         /// <summary>
-        /// Scopes of the Trusted Origin - can either be CORS or REDIRECT only
+        /// Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
         /// </summary>
         public InputList<string> Scopes
         {
@@ -121,19 +156,19 @@ namespace Pulumi.Okta.TrustedOrigin
     public sealed class OriginState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the Trusted Origin is active or not - can only be issued post-creation
+        /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is 'true'.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// Unique name for this trusted origin
+        /// Unique name for this trusted origin.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Unique origin URL for this trusted origin
+        /// Unique origin URL for this trusted origin.
         /// </summary>
         [Input("origin")]
         public Input<string>? OriginName { get; set; }
@@ -142,7 +177,7 @@ namespace Pulumi.Okta.TrustedOrigin
         private InputList<string>? _scopes;
 
         /// <summary>
-        /// Scopes of the Trusted Origin - can either be CORS or REDIRECT only
+        /// Scopes of the Trusted Origin - can be `"CORS"` and/or `"REDIRECT"`.
         /// </summary>
         public InputList<string> Scopes
         {

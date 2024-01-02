@@ -9,6 +9,74 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// Link value operations allow you to create relationships between primary and associated users.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var padishah = new Okta.LinkDefinition("padishah", new()
+    ///     {
+    ///         PrimaryName = "emperor",
+    ///         PrimaryTitle = "Emperor",
+    ///         PrimaryDescription = "Hereditary ruler of the Imperium and the Known Universe",
+    ///         AssociatedName = "sardaukar",
+    ///         AssociatedTitle = "Sardaukar",
+    ///         AssociatedDescription = "Elite military force member",
+    ///     });
+    /// 
+    ///     var emperor = new Okta.User.User("emperor", new()
+    ///     {
+    ///         FirstName = "Shaddam",
+    ///         LastName = "Corrino IV",
+    ///         Login = "shaddam.corrino.iv@salusa-secundus.planet",
+    ///         Email = "shaddam.corrino.iv@salusa-secundus.planet",
+    ///     });
+    /// 
+    ///     var sardaukars = new List&lt;Okta.User.User&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         sardaukars.Add(new Okta.User.User($"sardaukars-{range.Value}", new()
+    ///         {
+    ///             FirstName = "Amrit",
+    ///             LastName = $"Sardaukar_{range.Value}",
+    ///             Login = $"amritsardaukar_{range.Value}@salusa-secundus.planet",
+    ///             Email = $"amritsardaukar_{range.Value}@salusa-secundus.planet",
+    ///         }));
+    ///     }
+    ///     var example = new Okta.LinkValue("example", new()
+    ///     {
+    ///         PrimaryName = padishah.PrimaryName,
+    ///         PrimaryUserId = emperor.Id,
+    ///         AssociatedUserIds = new[]
+    ///         {
+    ///             sardaukars[0].Id,
+    ///             sardaukars[1].Id,
+    ///             sardaukars[2].Id,
+    ///             sardaukars[3].Id,
+    ///             sardaukars[4].Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Okta Link Value can be imported via Primary Name and Primary User ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/linkValue:LinkValue example &amp;#60;primary_name&amp;#62;/&amp;#60;primary_user_id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/linkValue:LinkValue")]
     public partial class LinkValue : global::Pulumi.CustomResource
     {
@@ -19,13 +87,13 @@ namespace Pulumi.Okta
         public Output<ImmutableArray<string>> AssociatedUserIds { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the 'primary' relationship being assigned.
+        /// Name of the `primary` relationship being assigned.
         /// </summary>
         [Output("primaryName")]
         public Output<string> PrimaryName { get; private set; } = null!;
 
         /// <summary>
-        /// User ID to be assigned to 'primary' for the 'associated' user in the specified relationship.
+        /// User ID to be assigned to `primary` for the `associated` user in the specified relationship.
         /// </summary>
         [Output("primaryUserId")]
         public Output<string> PrimaryUserId { get; private set; } = null!;
@@ -89,13 +157,13 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Name of the 'primary' relationship being assigned.
+        /// Name of the `primary` relationship being assigned.
         /// </summary>
         [Input("primaryName", required: true)]
         public Input<string> PrimaryName { get; set; } = null!;
 
         /// <summary>
-        /// User ID to be assigned to 'primary' for the 'associated' user in the specified relationship.
+        /// User ID to be assigned to `primary` for the `associated` user in the specified relationship.
         /// </summary>
         [Input("primaryUserId", required: true)]
         public Input<string> PrimaryUserId { get; set; } = null!;
@@ -121,13 +189,13 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Name of the 'primary' relationship being assigned.
+        /// Name of the `primary` relationship being assigned.
         /// </summary>
         [Input("primaryName")]
         public Input<string>? PrimaryName { get; set; }
 
         /// <summary>
-        /// User ID to be assigned to 'primary' for the 'associated' user in the specified relationship.
+        /// User ID to be assigned to `primary` for the `associated` user in the specified relationship.
         /// </summary>
         [Input("primaryUserId")]
         public Input<string>? PrimaryUserId { get; set; }

@@ -12,17 +12,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// A SAML IdP Signing Key can be imported via the key id.
+//
+// ```sh
+//
+//	$ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
+//
+// ```
 type SamlKey struct {
 	pulumi.CustomResourceState
 
-	Created   pulumi.StringOutput `pulumi:"created"`
+	// Date created.
+	Created pulumi.StringOutput `pulumi:"created"`
+	// Date the cert expires.
 	ExpiresAt pulumi.StringOutput `pulumi:"expiresAt"`
-	Kid       pulumi.StringOutput `pulumi:"kid"`
-	Kty       pulumi.StringOutput `pulumi:"kty"`
-	Use       pulumi.StringOutput `pulumi:"use"`
-	// base64-encoded X.509 certificate chain with DER encoding
-	X5cs    pulumi.StringArrayOutput `pulumi:"x5cs"`
-	X5tS256 pulumi.StringOutput      `pulumi:"x5tS256"`
+	// Key ID.
+	Kid pulumi.StringOutput `pulumi:"kid"`
+	// Identifies the cryptographic algorithm family used with the key.
+	Kty pulumi.StringOutput `pulumi:"kty"`
+	// Intended use of the public key.
+	Use pulumi.StringOutput `pulumi:"use"`
+	// base64-encoded X.509 certificate chain with DER encoding.
+	X5cs pulumi.StringArrayOutput `pulumi:"x5cs"`
+	// base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
+	X5tS256 pulumi.StringOutput `pulumi:"x5tS256"`
 }
 
 // NewSamlKey registers a new resource with the given unique name, arguments, and options.
@@ -58,24 +73,36 @@ func GetSamlKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SamlKey resources.
 type samlKeyState struct {
-	Created   *string `pulumi:"created"`
+	// Date created.
+	Created *string `pulumi:"created"`
+	// Date the cert expires.
 	ExpiresAt *string `pulumi:"expiresAt"`
-	Kid       *string `pulumi:"kid"`
-	Kty       *string `pulumi:"kty"`
-	Use       *string `pulumi:"use"`
-	// base64-encoded X.509 certificate chain with DER encoding
-	X5cs    []string `pulumi:"x5cs"`
-	X5tS256 *string  `pulumi:"x5tS256"`
+	// Key ID.
+	Kid *string `pulumi:"kid"`
+	// Identifies the cryptographic algorithm family used with the key.
+	Kty *string `pulumi:"kty"`
+	// Intended use of the public key.
+	Use *string `pulumi:"use"`
+	// base64-encoded X.509 certificate chain with DER encoding.
+	X5cs []string `pulumi:"x5cs"`
+	// base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
+	X5tS256 *string `pulumi:"x5tS256"`
 }
 
 type SamlKeyState struct {
-	Created   pulumi.StringPtrInput
+	// Date created.
+	Created pulumi.StringPtrInput
+	// Date the cert expires.
 	ExpiresAt pulumi.StringPtrInput
-	Kid       pulumi.StringPtrInput
-	Kty       pulumi.StringPtrInput
-	Use       pulumi.StringPtrInput
-	// base64-encoded X.509 certificate chain with DER encoding
-	X5cs    pulumi.StringArrayInput
+	// Key ID.
+	Kid pulumi.StringPtrInput
+	// Identifies the cryptographic algorithm family used with the key.
+	Kty pulumi.StringPtrInput
+	// Intended use of the public key.
+	Use pulumi.StringPtrInput
+	// base64-encoded X.509 certificate chain with DER encoding.
+	X5cs pulumi.StringArrayInput
+	// base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
 	X5tS256 pulumi.StringPtrInput
 }
 
@@ -84,13 +111,13 @@ func (SamlKeyState) ElementType() reflect.Type {
 }
 
 type samlKeyArgs struct {
-	// base64-encoded X.509 certificate chain with DER encoding
+	// base64-encoded X.509 certificate chain with DER encoding.
 	X5cs []string `pulumi:"x5cs"`
 }
 
 // The set of arguments for constructing a SamlKey resource.
 type SamlKeyArgs struct {
-	// base64-encoded X.509 certificate chain with DER encoding
+	// base64-encoded X.509 certificate chain with DER encoding.
 	X5cs pulumi.StringArrayInput
 }
 
@@ -181,31 +208,37 @@ func (o SamlKeyOutput) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOu
 	return o
 }
 
+// Date created.
 func (o SamlKeyOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamlKey) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
 }
 
+// Date the cert expires.
 func (o SamlKeyOutput) ExpiresAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamlKey) pulumi.StringOutput { return v.ExpiresAt }).(pulumi.StringOutput)
 }
 
+// Key ID.
 func (o SamlKeyOutput) Kid() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamlKey) pulumi.StringOutput { return v.Kid }).(pulumi.StringOutput)
 }
 
+// Identifies the cryptographic algorithm family used with the key.
 func (o SamlKeyOutput) Kty() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamlKey) pulumi.StringOutput { return v.Kty }).(pulumi.StringOutput)
 }
 
+// Intended use of the public key.
 func (o SamlKeyOutput) Use() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamlKey) pulumi.StringOutput { return v.Use }).(pulumi.StringOutput)
 }
 
-// base64-encoded X.509 certificate chain with DER encoding
+// base64-encoded X.509 certificate chain with DER encoding.
 func (o SamlKeyOutput) X5cs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SamlKey) pulumi.StringArrayOutput { return v.X5cs }).(pulumi.StringArrayOutput)
 }
 
+// base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
 func (o SamlKeyOutput) X5tS256() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamlKey) pulumi.StringOutput { return v.X5tS256 }).(pulumi.StringOutput)
 }

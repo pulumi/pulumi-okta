@@ -46,24 +46,18 @@ class GetRoleSubscriptionResult:
     @property
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> str:
-        """
-        Type of the notification
-        """
         return pulumi.get(self, "notification_type")
 
     @property
     @pulumi.getter(name="roleType")
     def role_type(self) -> str:
-        """
-        Type of the role
-        """
         return pulumi.get(self, "role_type")
 
     @property
     @pulumi.getter
     def status(self) -> str:
         """
-        Status of subscription
+        Subscription status.
         """
         return pulumi.get(self, "status")
 
@@ -84,7 +78,7 @@ def get_role_subscription(notification_type: Optional[str] = None,
                           role_type: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleSubscriptionResult:
     """
-    Get subscriptions of a Role with a specific type
+    Use this data source to retrieve role subscription with a specific type.
 
     ## Example Usage
 
@@ -97,8 +91,22 @@ def get_role_subscription(notification_type: Optional[str] = None,
     ```
 
 
-    :param str notification_type: Type of the notification
-    :param str role_type: Type of the role
+    :param str notification_type: Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`, 
+           `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
+           `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
+    :param str role_type: Type of the role. Valid values:
+           `"API_ADMIN"`,
+           `"APP_ADMIN"`,
+           `"CUSTOM"`,
+           `"GROUP_MEMBERSHIP_ADMIN"`,
+           `"HELP_DESK_ADMIN"`,
+           `"MOBILE_ADMIN"`,
+           `"ORG_ADMIN"`,
+           `"READ_ONLY_ADMIN"`,
+           `"REPORT_ADMIN"`,
+           `"SUPER_ADMIN"`,
+           `"USER_ADMIN"`
+           .
     """
     __args__ = dict()
     __args__['notificationType'] = notification_type
@@ -118,7 +126,7 @@ def get_role_subscription_output(notification_type: Optional[pulumi.Input[str]] 
                                  role_type: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleSubscriptionResult]:
     """
-    Get subscriptions of a Role with a specific type
+    Use this data source to retrieve role subscription with a specific type.
 
     ## Example Usage
 
@@ -131,7 +139,21 @@ def get_role_subscription_output(notification_type: Optional[pulumi.Input[str]] 
     ```
 
 
-    :param str notification_type: Type of the notification
-    :param str role_type: Type of the role
+    :param str notification_type: Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`, 
+           `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
+           `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
+    :param str role_type: Type of the role. Valid values:
+           `"API_ADMIN"`,
+           `"APP_ADMIN"`,
+           `"CUSTOM"`,
+           `"GROUP_MEMBERSHIP_ADMIN"`,
+           `"HELP_DESK_ADMIN"`,
+           `"MOBILE_ADMIN"`,
+           `"ORG_ADMIN"`,
+           `"READ_ONLY_ADMIN"`,
+           `"REPORT_ADMIN"`,
+           `"SUPER_ADMIN"`,
+           `"USER_ADMIN"`
+           .
     """
     ...

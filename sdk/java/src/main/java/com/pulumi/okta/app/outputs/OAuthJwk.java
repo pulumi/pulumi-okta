@@ -12,55 +12,23 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OAuthJwk {
-    /**
-     * @return RSA Exponent
-     * 
-     */
     private @Nullable String e;
-    /**
-     * @return Key ID
-     * 
-     */
     private String kid;
-    /**
-     * @return Key type
-     * 
-     */
     private String kty;
-    /**
-     * @return RSA Modulus
-     * 
-     */
     private @Nullable String n;
     private @Nullable String x;
     private @Nullable String y;
 
     private OAuthJwk() {}
-    /**
-     * @return RSA Exponent
-     * 
-     */
     public Optional<String> e() {
         return Optional.ofNullable(this.e);
     }
-    /**
-     * @return Key ID
-     * 
-     */
     public String kid() {
         return this.kid;
     }
-    /**
-     * @return Key type
-     * 
-     */
     public String kty() {
         return this.kty;
     }
-    /**
-     * @return RSA Modulus
-     * 
-     */
     public Optional<String> n() {
         return Optional.ofNullable(this.n);
     }

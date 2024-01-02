@@ -36,16 +36,13 @@ class GetTemplatesResult:
     @property
     @pulumi.getter(name="brandId")
     def brand_id(self) -> str:
-        """
-        Brand ID
-        """
         return pulumi.get(self, "brand_id")
 
     @property
     @pulumi.getter(name="emailTemplates")
     def email_templates(self) -> Sequence['outputs.GetTemplatesEmailTemplateResult']:
         """
-        List of `get_template` belonging to a brand in the organization
+        List of `get_template` belonging to the brand
         """
         return pulumi.get(self, "email_templates")
 
@@ -72,7 +69,9 @@ class AwaitableGetTemplatesResult(GetTemplatesResult):
 def get_templates(brand_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplatesResult:
     """
-    Get the email templates belonging to a brand in an Okta organization.
+    Use this data source to retrieve the [email
+    templates](https://developer.okta.com/docs/reference/api/brands/#email-template)
+    of a brand in an Okta organization.
 
 
     :param str brand_id: Brand ID
@@ -92,7 +91,9 @@ def get_templates(brand_id: Optional[str] = None,
 def get_templates_output(brand_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplatesResult]:
     """
-    Get the email templates belonging to a brand in an Okta organization.
+    Use this data source to retrieve the [email
+    templates](https://developer.okta.com/docs/reference/api/brands/#email-template)
+    of a brand in an Okta organization.
 
 
     :param str brand_id: Brand ID

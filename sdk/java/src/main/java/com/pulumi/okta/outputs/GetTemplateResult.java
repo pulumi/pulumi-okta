@@ -10,10 +10,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTemplateResult {
-    /**
-     * @return Brand ID
-     * 
-     */
     private String brandId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -25,17 +21,9 @@ public final class GetTemplateResult {
      * 
      */
     private String links;
-    /**
-     * @return The name of the email template
-     * 
-     */
     private String name;
 
     private GetTemplateResult() {}
-    /**
-     * @return Brand ID
-     * 
-     */
     public String brandId() {
         return this.brandId;
     }
@@ -53,10 +41,6 @@ public final class GetTemplateResult {
     public String links() {
         return this.links;
     }
-    /**
-     * @return The name of the email template
-     * 
-     */
     public String name() {
         return this.name;
     }

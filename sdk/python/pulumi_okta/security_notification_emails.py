@@ -21,11 +21,11 @@ class SecurityNotificationEmailsArgs:
                  send_email_for_password_changed_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SecurityNotificationEmails resource.
-        :param pulumi.Input[bool] report_suspicious_activity_enabled: Notifies end users about suspicious or unrecognized activity from their account
-        :param pulumi.Input[bool] send_email_for_factor_enrollment_enabled: Notifies end users of any activity on their account related to MFA factor enrollment
-        :param pulumi.Input[bool] send_email_for_factor_reset_enabled: Notifies end users that one or more factors have been reset for their account
-        :param pulumi.Input[bool] send_email_for_new_device_enabled: Notifies end users about new sign-on activity
-        :param pulumi.Input[bool] send_email_for_password_changed_enabled: Notifies end users that the password for their account has changed
+        :param pulumi.Input[bool] report_suspicious_activity_enabled: Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_factor_enrollment_enabled: Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_factor_reset_enabled: Notifies end users that one or more factors have been reset for their account. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_new_device_enabled: Notifies end users about new sign-on activity. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_password_changed_enabled: Notifies end users that the password for their account has changed. Default is `true`.
         """
         if report_suspicious_activity_enabled is not None:
             pulumi.set(__self__, "report_suspicious_activity_enabled", report_suspicious_activity_enabled)
@@ -42,7 +42,7 @@ class SecurityNotificationEmailsArgs:
     @pulumi.getter(name="reportSuspiciousActivityEnabled")
     def report_suspicious_activity_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Notifies end users about suspicious or unrecognized activity from their account
+        Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
         """
         return pulumi.get(self, "report_suspicious_activity_enabled")
 
@@ -54,7 +54,7 @@ class SecurityNotificationEmailsArgs:
     @pulumi.getter(name="sendEmailForFactorEnrollmentEnabled")
     def send_email_for_factor_enrollment_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Notifies end users of any activity on their account related to MFA factor enrollment
+        Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_factor_enrollment_enabled")
 
@@ -66,7 +66,7 @@ class SecurityNotificationEmailsArgs:
     @pulumi.getter(name="sendEmailForFactorResetEnabled")
     def send_email_for_factor_reset_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Notifies end users that one or more factors have been reset for their account
+        Notifies end users that one or more factors have been reset for their account. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_factor_reset_enabled")
 
@@ -78,7 +78,7 @@ class SecurityNotificationEmailsArgs:
     @pulumi.getter(name="sendEmailForNewDeviceEnabled")
     def send_email_for_new_device_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Notifies end users about new sign-on activity
+        Notifies end users about new sign-on activity. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_new_device_enabled")
 
@@ -90,7 +90,7 @@ class SecurityNotificationEmailsArgs:
     @pulumi.getter(name="sendEmailForPasswordChangedEnabled")
     def send_email_for_password_changed_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Notifies end users that the password for their account has changed
+        Notifies end users that the password for their account has changed. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_password_changed_enabled")
 
@@ -109,11 +109,11 @@ class _SecurityNotificationEmailsState:
                  send_email_for_password_changed_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering SecurityNotificationEmails resources.
-        :param pulumi.Input[bool] report_suspicious_activity_enabled: Notifies end users about suspicious or unrecognized activity from their account
-        :param pulumi.Input[bool] send_email_for_factor_enrollment_enabled: Notifies end users of any activity on their account related to MFA factor enrollment
-        :param pulumi.Input[bool] send_email_for_factor_reset_enabled: Notifies end users that one or more factors have been reset for their account
-        :param pulumi.Input[bool] send_email_for_new_device_enabled: Notifies end users about new sign-on activity
-        :param pulumi.Input[bool] send_email_for_password_changed_enabled: Notifies end users that the password for their account has changed
+        :param pulumi.Input[bool] report_suspicious_activity_enabled: Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_factor_enrollment_enabled: Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_factor_reset_enabled: Notifies end users that one or more factors have been reset for their account. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_new_device_enabled: Notifies end users about new sign-on activity. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_password_changed_enabled: Notifies end users that the password for their account has changed. Default is `true`.
         """
         if report_suspicious_activity_enabled is not None:
             pulumi.set(__self__, "report_suspicious_activity_enabled", report_suspicious_activity_enabled)
@@ -130,7 +130,7 @@ class _SecurityNotificationEmailsState:
     @pulumi.getter(name="reportSuspiciousActivityEnabled")
     def report_suspicious_activity_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Notifies end users about suspicious or unrecognized activity from their account
+        Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
         """
         return pulumi.get(self, "report_suspicious_activity_enabled")
 
@@ -142,7 +142,7 @@ class _SecurityNotificationEmailsState:
     @pulumi.getter(name="sendEmailForFactorEnrollmentEnabled")
     def send_email_for_factor_enrollment_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Notifies end users of any activity on their account related to MFA factor enrollment
+        Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_factor_enrollment_enabled")
 
@@ -154,7 +154,7 @@ class _SecurityNotificationEmailsState:
     @pulumi.getter(name="sendEmailForFactorResetEnabled")
     def send_email_for_factor_reset_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Notifies end users that one or more factors have been reset for their account
+        Notifies end users that one or more factors have been reset for their account. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_factor_reset_enabled")
 
@@ -166,7 +166,7 @@ class _SecurityNotificationEmailsState:
     @pulumi.getter(name="sendEmailForNewDeviceEnabled")
     def send_email_for_new_device_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Notifies end users about new sign-on activity
+        Notifies end users about new sign-on activity. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_new_device_enabled")
 
@@ -178,7 +178,7 @@ class _SecurityNotificationEmailsState:
     @pulumi.getter(name="sendEmailForPasswordChangedEnabled")
     def send_email_for_password_changed_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Notifies end users that the password for their account has changed
+        Notifies end users that the password for their account has changed. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_password_changed_enabled")
 
@@ -199,14 +199,41 @@ class SecurityNotificationEmails(pulumi.CustomResource):
                  send_email_for_password_changed_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a SecurityNotificationEmails resource with the given unique name, props, and options.
+        This resource allows you to configure Security Notification Emails.
+
+        > **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
+
+        > **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.SecurityNotificationEmails("example",
+            report_suspicious_activity_enabled=True,
+            send_email_for_factor_enrollment_enabled=True,
+            send_email_for_factor_reset_enabled=True,
+            send_email_for_new_device_enabled=True,
+            send_email_for_password_changed_enabled=True)
+        ```
+
+        ## Import
+
+        Security Notification Emails can be imported without any parameters.
+
+        ```sh
+         $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] report_suspicious_activity_enabled: Notifies end users about suspicious or unrecognized activity from their account
-        :param pulumi.Input[bool] send_email_for_factor_enrollment_enabled: Notifies end users of any activity on their account related to MFA factor enrollment
-        :param pulumi.Input[bool] send_email_for_factor_reset_enabled: Notifies end users that one or more factors have been reset for their account
-        :param pulumi.Input[bool] send_email_for_new_device_enabled: Notifies end users about new sign-on activity
-        :param pulumi.Input[bool] send_email_for_password_changed_enabled: Notifies end users that the password for their account has changed
+        :param pulumi.Input[bool] report_suspicious_activity_enabled: Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_factor_enrollment_enabled: Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_factor_reset_enabled: Notifies end users that one or more factors have been reset for their account. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_new_device_enabled: Notifies end users about new sign-on activity. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_password_changed_enabled: Notifies end users that the password for their account has changed. Default is `true`.
         """
         ...
     @overload
@@ -215,7 +242,34 @@ class SecurityNotificationEmails(pulumi.CustomResource):
                  args: Optional[SecurityNotificationEmailsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SecurityNotificationEmails resource with the given unique name, props, and options.
+        This resource allows you to configure Security Notification Emails.
+
+        > **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
+
+        > **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.SecurityNotificationEmails("example",
+            report_suspicious_activity_enabled=True,
+            send_email_for_factor_enrollment_enabled=True,
+            send_email_for_factor_reset_enabled=True,
+            send_email_for_new_device_enabled=True,
+            send_email_for_password_changed_enabled=True)
+        ```
+
+        ## Import
+
+        Security Notification Emails can be imported without any parameters.
+
+        ```sh
+         $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
+        ```
+
         :param str resource_name: The name of the resource.
         :param SecurityNotificationEmailsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -272,11 +326,11 @@ class SecurityNotificationEmails(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] report_suspicious_activity_enabled: Notifies end users about suspicious or unrecognized activity from their account
-        :param pulumi.Input[bool] send_email_for_factor_enrollment_enabled: Notifies end users of any activity on their account related to MFA factor enrollment
-        :param pulumi.Input[bool] send_email_for_factor_reset_enabled: Notifies end users that one or more factors have been reset for their account
-        :param pulumi.Input[bool] send_email_for_new_device_enabled: Notifies end users about new sign-on activity
-        :param pulumi.Input[bool] send_email_for_password_changed_enabled: Notifies end users that the password for their account has changed
+        :param pulumi.Input[bool] report_suspicious_activity_enabled: Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_factor_enrollment_enabled: Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_factor_reset_enabled: Notifies end users that one or more factors have been reset for their account. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_new_device_enabled: Notifies end users about new sign-on activity. Default is `true`.
+        :param pulumi.Input[bool] send_email_for_password_changed_enabled: Notifies end users that the password for their account has changed. Default is `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -293,7 +347,7 @@ class SecurityNotificationEmails(pulumi.CustomResource):
     @pulumi.getter(name="reportSuspiciousActivityEnabled")
     def report_suspicious_activity_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Notifies end users about suspicious or unrecognized activity from their account
+        Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
         """
         return pulumi.get(self, "report_suspicious_activity_enabled")
 
@@ -301,7 +355,7 @@ class SecurityNotificationEmails(pulumi.CustomResource):
     @pulumi.getter(name="sendEmailForFactorEnrollmentEnabled")
     def send_email_for_factor_enrollment_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Notifies end users of any activity on their account related to MFA factor enrollment
+        Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_factor_enrollment_enabled")
 
@@ -309,7 +363,7 @@ class SecurityNotificationEmails(pulumi.CustomResource):
     @pulumi.getter(name="sendEmailForFactorResetEnabled")
     def send_email_for_factor_reset_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Notifies end users that one or more factors have been reset for their account
+        Notifies end users that one or more factors have been reset for their account. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_factor_reset_enabled")
 
@@ -317,7 +371,7 @@ class SecurityNotificationEmails(pulumi.CustomResource):
     @pulumi.getter(name="sendEmailForNewDeviceEnabled")
     def send_email_for_new_device_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Notifies end users about new sign-on activity
+        Notifies end users about new sign-on activity. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_new_device_enabled")
 
@@ -325,7 +379,7 @@ class SecurityNotificationEmails(pulumi.CustomResource):
     @pulumi.getter(name="sendEmailForPasswordChangedEnabled")
     def send_email_for_password_changed_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Notifies end users that the password for their account has changed
+        Notifies end users that the password for their account has changed. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_password_changed_enabled")
 

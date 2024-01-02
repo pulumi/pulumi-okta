@@ -12,27 +12,27 @@ import java.util.Objects;
 @CustomType
 public final class GetServerResult {
     /**
-     * @return Description of Authorization server.
+     * @return array of audiences.
      * 
      */
     private List<String> audiences;
     /**
-     * @return Last time credentials were rotated.
+     * @return last time credentials were rotated.
      * 
      */
     private String credentialsLastRotated;
     /**
-     * @return Next time credentials will be rotated
+     * @return next time credentials will be rotated
      * 
      */
     private String credentialsNextRotation;
     /**
-     * @return Mode of credential rotation, auto or manual.
+     * @return mode of credential rotation, auto or manual.
      * 
      */
     private String credentialsRotationMode;
     /**
-     * @return Description of Authorization server.
+     * @return description of Authorization server.
      * 
      */
     private String description;
@@ -47,57 +47,57 @@ public final class GetServerResult {
      */
     private String issuer;
     /**
-     * @return Can be set to `CUSTOM_URL` or `ORG_URL`
+     * @return Can be set to `&#34;CUSTOM_URL&#34;` or `&#34;ORG_URL&#34;`
      * 
      */
     private String issuerMode;
     /**
-     * @return Auth server key id.
+     * @return auth server key id.
      * 
      */
     private String kid;
     /**
-     * @return The name of the auth server to retrieve.
+     * @return The name of the auth server.
      * 
      */
     private String name;
     /**
-     * @return The activation status of the authorization server.
+     * @return the activation status of the authorization server.
      * 
      */
     private String status;
 
     private GetServerResult() {}
     /**
-     * @return Description of Authorization server.
+     * @return array of audiences.
      * 
      */
     public List<String> audiences() {
         return this.audiences;
     }
     /**
-     * @return Last time credentials were rotated.
+     * @return last time credentials were rotated.
      * 
      */
     public String credentialsLastRotated() {
         return this.credentialsLastRotated;
     }
     /**
-     * @return Next time credentials will be rotated
+     * @return next time credentials will be rotated
      * 
      */
     public String credentialsNextRotation() {
         return this.credentialsNextRotation;
     }
     /**
-     * @return Mode of credential rotation, auto or manual.
+     * @return mode of credential rotation, auto or manual.
      * 
      */
     public String credentialsRotationMode() {
         return this.credentialsRotationMode;
     }
     /**
-     * @return Description of Authorization server.
+     * @return description of Authorization server.
      * 
      */
     public String description() {
@@ -118,28 +118,28 @@ public final class GetServerResult {
         return this.issuer;
     }
     /**
-     * @return Can be set to `CUSTOM_URL` or `ORG_URL`
+     * @return Can be set to `&#34;CUSTOM_URL&#34;` or `&#34;ORG_URL&#34;`
      * 
      */
     public String issuerMode() {
         return this.issuerMode;
     }
     /**
-     * @return Auth server key id.
+     * @return auth server key id.
      * 
      */
     public String kid() {
         return this.kid;
     }
     /**
-     * @return The name of the auth server to retrieve.
+     * @return The name of the auth server.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The activation status of the authorization server.
+     * @return the activation status of the authorization server.
      * 
      */
     public String status() {

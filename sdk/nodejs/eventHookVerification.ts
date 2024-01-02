@@ -4,6 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Verifies the Event Hook. The resource won't be created unless the URI provided in the event hook returns a valid
+ * JSON object with verification. See [Event Hooks](https://developer.okta.com/docs/concepts/event-hooks/#one-time-verification-request)
+ * documentation for details.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleEventHook = new okta.EventHook("exampleEventHook", {
+ *     events: [
+ *         "user.lifecycle.create",
+ *         "user.lifecycle.delete.initiated",
+ *     ],
+ *     channel: {
+ *         type: "HTTP",
+ *         version: "1.0.0",
+ *         uri: "https://example.com/test",
+ *     },
+ *     auth: {
+ *         type: "HEADER",
+ *         key: "Authorization",
+ *         value: "123",
+ *     },
+ * });
+ * const exampleEventHookVerification = new okta.EventHookVerification("exampleEventHookVerification", {eventHookId: exampleEventHook.id});
+ * ```
+ *
+ * ## Import
+ *
+ * This resource does not support importing.
+ */
 export class EventHookVerification extends pulumi.CustomResource {
     /**
      * Get an existing EventHookVerification resource's state with the given name, ID, and optional extra
@@ -33,7 +67,7 @@ export class EventHookVerification extends pulumi.CustomResource {
     }
 
     /**
-     * Event hook ID
+     * Event Hook ID.
      */
     public readonly eventHookId!: pulumi.Output<string>;
 
@@ -68,7 +102,7 @@ export class EventHookVerification extends pulumi.CustomResource {
  */
 export interface EventHookVerificationState {
     /**
-     * Event hook ID
+     * Event Hook ID.
      */
     eventHookId?: pulumi.Input<string>;
 }
@@ -78,7 +112,7 @@ export interface EventHookVerificationState {
  */
 export interface EventHookVerificationArgs {
     /**
-     * Event hook ID
+     * Event Hook ID.
      */
     eventHookId: pulumi.Input<string>;
 }

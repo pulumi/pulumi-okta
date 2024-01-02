@@ -19,14 +19,14 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
     public static final OriginArgs Empty = new OriginArgs();
 
     /**
-     * Whether the Trusted Origin is active or not - can only be issued post-creation
+     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is &#39;true&#39;.
      * 
      */
     @Import(name="active")
     private @Nullable Output<Boolean> active;
 
     /**
-     * @return Whether the Trusted Origin is active or not - can only be issued post-creation
+     * @return Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is &#39;true&#39;.
      * 
      */
     public Optional<Output<Boolean>> active() {
@@ -34,14 +34,14 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Unique name for this trusted origin
+     * Unique name for this trusted origin.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Unique name for this trusted origin
+     * @return Unique name for this trusted origin.
      * 
      */
     public Optional<Output<String>> name() {
@@ -49,14 +49,14 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Unique origin URL for this trusted origin
+     * Unique origin URL for this trusted origin.
      * 
      */
     @Import(name="origin", required=true)
     private Output<String> origin;
 
     /**
-     * @return Unique origin URL for this trusted origin
+     * @return Unique origin URL for this trusted origin.
      * 
      */
     public Output<String> origin() {
@@ -64,14 +64,14 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Scopes of the Trusted Origin - can either be CORS or REDIRECT only
+     * Scopes of the Trusted Origin - can be `&#34;CORS&#34;` and/or `&#34;REDIRECT&#34;`.
      * 
      */
     @Import(name="scopes", required=true)
     private Output<List<String>> scopes;
 
     /**
-     * @return Scopes of the Trusted Origin - can either be CORS or REDIRECT only
+     * @return Scopes of the Trusted Origin - can be `&#34;CORS&#34;` and/or `&#34;REDIRECT&#34;`.
      * 
      */
     public Output<List<String>> scopes() {
@@ -106,7 +106,7 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param active Whether the Trusted Origin is active or not - can only be issued post-creation
+         * @param active Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is &#39;true&#39;.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param active Whether the Trusted Origin is active or not - can only be issued post-creation
+         * @param active Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is &#39;true&#39;.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Unique name for this trusted origin
+         * @param name Unique name for this trusted origin.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Unique name for this trusted origin
+         * @param name Unique name for this trusted origin.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origin Unique origin URL for this trusted origin
+         * @param origin Unique origin URL for this trusted origin.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origin Unique origin URL for this trusted origin
+         * @param origin Unique origin URL for this trusted origin.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopes Scopes of the Trusted Origin - can either be CORS or REDIRECT only
+         * @param scopes Scopes of the Trusted Origin - can be `&#34;CORS&#34;` and/or `&#34;REDIRECT&#34;`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopes Scopes of the Trusted Origin - can either be CORS or REDIRECT only
+         * @param scopes Scopes of the Trusted Origin - can be `&#34;CORS&#34;` and/or `&#34;REDIRECT&#34;`.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopes Scopes of the Trusted Origin - can either be CORS or REDIRECT only
+         * @param scopes Scopes of the Trusted Origin - can be `&#34;CORS&#34;` and/or `&#34;REDIRECT&#34;`.
          * 
          * @return builder
          * 

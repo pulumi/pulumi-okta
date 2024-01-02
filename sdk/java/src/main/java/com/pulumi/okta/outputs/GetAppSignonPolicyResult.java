@@ -10,27 +10,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAppSignonPolicyResult {
-    /**
-     * @return App ID
-     * 
-     */
     private String appId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Policy name
-     * 
-     */
     private String name;
 
     private GetAppSignonPolicyResult() {}
-    /**
-     * @return App ID
-     * 
-     */
     public String appId() {
         return this.appId;
     }
@@ -41,10 +29,6 @@ public final class GetAppSignonPolicyResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Policy name
-     * 
-     */
     public String name() {
         return this.name;
     }

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get SAML IdP metadata from Okta.
+// Use this data source to retrieve SAML IdP metadata from Okta.
 //
 // ## Example Usage
 //
@@ -56,23 +56,22 @@ type GetMetadataSamlArgs struct {
 
 // A collection of values returned by getMetadataSaml.
 type GetMetadataSamlResult struct {
-	// Whether assertions are signed.
+	// whether assertions are signed.
 	AssertionsSigned bool `pulumi:"assertionsSigned"`
-	// Whether authn requests are signed.
+	// whether authn requests are signed.
 	AuthnRequestSigned bool `pulumi:"authnRequestSigned"`
 	// SAML request encryption certificate.
 	EncryptionCertificate string `pulumi:"encryptionCertificate"`
-	// Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
+	// Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
 	EntityId string `pulumi:"entityId"`
 	// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
 	HttpPostBinding string `pulumi:"httpPostBinding"`
 	// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
 	HttpRedirectBinding string `pulumi:"httpRedirectBinding"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The id of the IdP to retrieve metadata for.
+	Id    string  `pulumi:"id"`
 	IdpId *string `pulumi:"idpId"`
-	// Raw IdP metadata.
+	// raw IdP metadata.
 	Metadata string `pulumi:"metadata"`
 	// SAML request signing certificate.
 	SigningCertificate string `pulumi:"signingCertificate"`
@@ -116,12 +115,12 @@ func (o GetMetadataSamlResultOutput) ToGetMetadataSamlResultOutputWithContext(ct
 	return o
 }
 
-// Whether assertions are signed.
+// whether assertions are signed.
 func (o GetMetadataSamlResultOutput) AssertionsSigned() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetMetadataSamlResult) bool { return v.AssertionsSigned }).(pulumi.BoolOutput)
 }
 
-// Whether authn requests are signed.
+// whether authn requests are signed.
 func (o GetMetadataSamlResultOutput) AuthnRequestSigned() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetMetadataSamlResult) bool { return v.AuthnRequestSigned }).(pulumi.BoolOutput)
 }
@@ -131,7 +130,7 @@ func (o GetMetadataSamlResultOutput) EncryptionCertificate() pulumi.StringOutput
 	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.EncryptionCertificate }).(pulumi.StringOutput)
 }
 
-// Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
+// Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
 func (o GetMetadataSamlResultOutput) EntityId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.EntityId }).(pulumi.StringOutput)
 }
@@ -151,12 +150,11 @@ func (o GetMetadataSamlResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The id of the IdP to retrieve metadata for.
 func (o GetMetadataSamlResultOutput) IdpId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetMetadataSamlResult) *string { return v.IdpId }).(pulumi.StringPtrOutput)
 }
 
-// Raw IdP metadata.
+// raw IdP metadata.
 func (o GetMetadataSamlResultOutput) Metadata() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.Metadata }).(pulumi.StringOutput)
 }

@@ -560,7 +560,29 @@ class OrgConfiguration(pulumi.CustomResource):
                  website: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a OrgConfiguration resource with the given unique name, props, and options.
+        This resource allows you manage org settings, logo, support and communication options.
+
+        > **IMPORTANT:** You must specify all Org Setting properties when you update an org's profile. Any property not specified in the script will be deleted.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.OrgConfiguration("example",
+            company_name="Umbrella Corporation",
+            website="https://terraform.io")
+        ```
+
+        ## Import
+
+        Okta Org Configuration can be imported even without specifying the Org ID.
+
+        ```sh
+         $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address1: Primary address of org
@@ -586,7 +608,29 @@ class OrgConfiguration(pulumi.CustomResource):
                  args: OrgConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a OrgConfiguration resource with the given unique name, props, and options.
+        This resource allows you manage org settings, logo, support and communication options.
+
+        > **IMPORTANT:** You must specify all Org Setting properties when you update an org's profile. Any property not specified in the script will be deleted.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.OrgConfiguration("example",
+            company_name="Umbrella Corporation",
+            website="https://terraform.io")
+        ```
+
+        ## Import
+
+        Okta Org Configuration can be imported even without specifying the Org ID.
+
+        ```sh
+         $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
+        ```
+
         :param str resource_name: The name of the resource.
         :param OrgConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

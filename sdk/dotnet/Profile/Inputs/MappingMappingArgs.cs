@@ -12,15 +12,21 @@ namespace Pulumi.Okta.Profile.Inputs
 
     public sealed class MappingMappingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Combination or single source properties that will be mapped to the target property.
+        /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 
         /// <summary>
-        /// The mapping property key.
+        /// Key of mapping.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to update target properties on user create &amp; update or just on create.
+        /// </summary>
         [Input("pushStatus")]
         public Input<string>? PushStatus { get; set; }
 

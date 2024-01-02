@@ -12,22 +12,63 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates an Authorization Server Scope.
+//
+// This resource allows you to create and configure an Authorization Server Scope.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/auth"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := auth.NewServerScope(ctx, "example", &auth.ServerScopeArgs{
+//				AuthServerId:    pulumi.String("<auth server id>"),
+//				Consent:         pulumi.String("IMPLICIT"),
+//				MetadataPublish: pulumi.String("NO_CLIENTS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Okta Auth Server Scope can be imported via the Auth Server ID and Scope ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:auth/serverScope:ServerScope example &#60;auth server id&#62;/&#60;scope id&#62;
+//
+// ```
 type ServerScope struct {
 	pulumi.CustomResourceState
 
-	// Auth server ID
+	// Auth Server ID.
 	AuthServerId pulumi.StringOutput `pulumi:"authServerId"`
-	// EA Feature and thus it is simply ignored if the feature is off
+	// Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
 	Consent pulumi.StringPtrOutput `pulumi:"consent"`
 	// A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
 	Default pulumi.BoolPtrOutput `pulumi:"default"`
 	// Description of the Auth Server Scope.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the end user displayed in a consent dialog box
+	// Name of the end user displayed in a consent dialog box.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
+	// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
 	MetadataPublish pulumi.StringPtrOutput `pulumi:"metadataPublish"`
-	// Auth server scope name
+	// Auth Server scope name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether the scope optional
 	Optional pulumi.BoolPtrOutput `pulumi:"optional"`
@@ -68,19 +109,19 @@ func GetServerScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerScope resources.
 type serverScopeState struct {
-	// Auth server ID
+	// Auth Server ID.
 	AuthServerId *string `pulumi:"authServerId"`
-	// EA Feature and thus it is simply ignored if the feature is off
+	// Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
 	Consent *string `pulumi:"consent"`
 	// A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
 	Default *bool `pulumi:"default"`
 	// Description of the Auth Server Scope.
 	Description *string `pulumi:"description"`
-	// Name of the end user displayed in a consent dialog box
+	// Name of the end user displayed in a consent dialog box.
 	DisplayName *string `pulumi:"displayName"`
-	// Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
+	// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
 	MetadataPublish *string `pulumi:"metadataPublish"`
-	// Auth server scope name
+	// Auth Server scope name.
 	Name *string `pulumi:"name"`
 	// Whether the scope optional
 	Optional *bool `pulumi:"optional"`
@@ -89,19 +130,19 @@ type serverScopeState struct {
 }
 
 type ServerScopeState struct {
-	// Auth server ID
+	// Auth Server ID.
 	AuthServerId pulumi.StringPtrInput
-	// EA Feature and thus it is simply ignored if the feature is off
+	// Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
 	Consent pulumi.StringPtrInput
 	// A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
 	Default pulumi.BoolPtrInput
 	// Description of the Auth Server Scope.
 	Description pulumi.StringPtrInput
-	// Name of the end user displayed in a consent dialog box
+	// Name of the end user displayed in a consent dialog box.
 	DisplayName pulumi.StringPtrInput
-	// Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
+	// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
 	MetadataPublish pulumi.StringPtrInput
-	// Auth server scope name
+	// Auth Server scope name.
 	Name pulumi.StringPtrInput
 	// Whether the scope optional
 	Optional pulumi.BoolPtrInput
@@ -114,19 +155,19 @@ func (ServerScopeState) ElementType() reflect.Type {
 }
 
 type serverScopeArgs struct {
-	// Auth server ID
+	// Auth Server ID.
 	AuthServerId string `pulumi:"authServerId"`
-	// EA Feature and thus it is simply ignored if the feature is off
+	// Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
 	Consent *string `pulumi:"consent"`
 	// A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
 	Default *bool `pulumi:"default"`
 	// Description of the Auth Server Scope.
 	Description *string `pulumi:"description"`
-	// Name of the end user displayed in a consent dialog box
+	// Name of the end user displayed in a consent dialog box.
 	DisplayName *string `pulumi:"displayName"`
-	// Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
+	// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
 	MetadataPublish *string `pulumi:"metadataPublish"`
-	// Auth server scope name
+	// Auth Server scope name.
 	Name *string `pulumi:"name"`
 	// Whether the scope optional
 	Optional *bool `pulumi:"optional"`
@@ -134,19 +175,19 @@ type serverScopeArgs struct {
 
 // The set of arguments for constructing a ServerScope resource.
 type ServerScopeArgs struct {
-	// Auth server ID
+	// Auth Server ID.
 	AuthServerId pulumi.StringInput
-	// EA Feature and thus it is simply ignored if the feature is off
+	// Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
 	Consent pulumi.StringPtrInput
 	// A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
 	Default pulumi.BoolPtrInput
 	// Description of the Auth Server Scope.
 	Description pulumi.StringPtrInput
-	// Name of the end user displayed in a consent dialog box
+	// Name of the end user displayed in a consent dialog box.
 	DisplayName pulumi.StringPtrInput
-	// Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
+	// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
 	MetadataPublish pulumi.StringPtrInput
-	// Auth server scope name
+	// Auth Server scope name.
 	Name pulumi.StringPtrInput
 	// Whether the scope optional
 	Optional pulumi.BoolPtrInput
@@ -239,12 +280,12 @@ func (o ServerScopeOutput) ToServerScopeOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// Auth server ID
+// Auth Server ID.
 func (o ServerScopeOutput) AuthServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerScope) pulumi.StringOutput { return v.AuthServerId }).(pulumi.StringOutput)
 }
 
-// EA Feature and thus it is simply ignored if the feature is off
+// Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
 func (o ServerScopeOutput) Consent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerScope) pulumi.StringPtrOutput { return v.Consent }).(pulumi.StringPtrOutput)
 }
@@ -259,17 +300,17 @@ func (o ServerScopeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerScope) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of the end user displayed in a consent dialog box
+// Name of the end user displayed in a consent dialog box.
 func (o ServerScopeOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerScope) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
+// Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
 func (o ServerScopeOutput) MetadataPublish() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerScope) pulumi.StringPtrOutput { return v.MetadataPublish }).(pulumi.StringPtrOutput)
 }
 
-// Auth server scope name
+// Auth Server scope name.
 func (o ServerScopeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

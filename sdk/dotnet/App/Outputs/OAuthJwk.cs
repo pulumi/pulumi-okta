@@ -13,21 +13,9 @@ namespace Pulumi.Okta.App.Outputs
     [OutputType]
     public sealed class OAuthJwk
     {
-        /// <summary>
-        /// RSA Exponent
-        /// </summary>
         public readonly string? E;
-        /// <summary>
-        /// Key ID
-        /// </summary>
         public readonly string Kid;
-        /// <summary>
-        /// Key type
-        /// </summary>
         public readonly string Kty;
-        /// <summary>
-        /// RSA Modulus
-        /// </summary>
         public readonly string? N;
         public readonly string? X;
         public readonly string? Y;

@@ -14,15 +14,23 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GetServerScopesScope struct {
-	Consent         string `pulumi:"consent"`
-	Default         bool   `pulumi:"default"`
-	Description     string `pulumi:"description"`
-	DisplayName     string `pulumi:"displayName"`
-	Id              string `pulumi:"id"`
+	// Indicates whether a consent dialog is needed for the Scope
+	Consent string `pulumi:"consent"`
+	// Whether the Scope is a default Scope
+	Default bool `pulumi:"default"`
+	// Description of the Scope
+	Description string `pulumi:"description"`
+	// Name of the end user displayed in a consent dialog box
+	DisplayName string `pulumi:"displayName"`
+	// ID of the Scope
+	Id string `pulumi:"id"`
+	// Whether the Scope should be included in the metadata
 	MetadataPublish string `pulumi:"metadataPublish"`
-	Name            string `pulumi:"name"`
-	Optional        bool   `pulumi:"optional"`
-	System          bool   `pulumi:"system"`
+	// Name of the Scope
+	Name     string `pulumi:"name"`
+	Optional bool   `pulumi:"optional"`
+	// Whether Okta created the Scope
+	System bool `pulumi:"system"`
 }
 
 // GetServerScopesScopeInput is an input type that accepts GetServerScopesScopeArgs and GetServerScopesScopeOutput values.
@@ -37,15 +45,23 @@ type GetServerScopesScopeInput interface {
 }
 
 type GetServerScopesScopeArgs struct {
-	Consent         pulumi.StringInput `pulumi:"consent"`
-	Default         pulumi.BoolInput   `pulumi:"default"`
-	Description     pulumi.StringInput `pulumi:"description"`
-	DisplayName     pulumi.StringInput `pulumi:"displayName"`
-	Id              pulumi.StringInput `pulumi:"id"`
+	// Indicates whether a consent dialog is needed for the Scope
+	Consent pulumi.StringInput `pulumi:"consent"`
+	// Whether the Scope is a default Scope
+	Default pulumi.BoolInput `pulumi:"default"`
+	// Description of the Scope
+	Description pulumi.StringInput `pulumi:"description"`
+	// Name of the end user displayed in a consent dialog box
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// ID of the Scope
+	Id pulumi.StringInput `pulumi:"id"`
+	// Whether the Scope should be included in the metadata
 	MetadataPublish pulumi.StringInput `pulumi:"metadataPublish"`
-	Name            pulumi.StringInput `pulumi:"name"`
-	Optional        pulumi.BoolInput   `pulumi:"optional"`
-	System          pulumi.BoolInput   `pulumi:"system"`
+	// Name of the Scope
+	Name     pulumi.StringInput `pulumi:"name"`
+	Optional pulumi.BoolInput   `pulumi:"optional"`
+	// Whether Okta created the Scope
+	System pulumi.BoolInput `pulumi:"system"`
 }
 
 func (GetServerScopesScopeArgs) ElementType() reflect.Type {
@@ -99,30 +115,37 @@ func (o GetServerScopesScopeOutput) ToGetServerScopesScopeOutputWithContext(ctx 
 	return o
 }
 
+// Indicates whether a consent dialog is needed for the Scope
 func (o GetServerScopesScopeOutput) Consent() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerScopesScope) string { return v.Consent }).(pulumi.StringOutput)
 }
 
+// Whether the Scope is a default Scope
 func (o GetServerScopesScopeOutput) Default() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetServerScopesScope) bool { return v.Default }).(pulumi.BoolOutput)
 }
 
+// Description of the Scope
 func (o GetServerScopesScopeOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerScopesScope) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// Name of the end user displayed in a consent dialog box
 func (o GetServerScopesScopeOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerScopesScope) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// ID of the Scope
 func (o GetServerScopesScopeOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerScopesScope) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Whether the Scope should be included in the metadata
 func (o GetServerScopesScopeOutput) MetadataPublish() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerScopesScope) string { return v.MetadataPublish }).(pulumi.StringOutput)
 }
 
+// Name of the Scope
 func (o GetServerScopesScopeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerScopesScope) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -131,6 +154,7 @@ func (o GetServerScopesScopeOutput) Optional() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetServerScopesScope) bool { return v.Optional }).(pulumi.BoolOutput)
 }
 
+// Whether Okta created the Scope
 func (o GetServerScopesScopeOutput) System() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetServerScopesScope) bool { return v.System }).(pulumi.BoolOutput)
 }

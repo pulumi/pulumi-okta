@@ -13,31 +13,94 @@ import com.pulumi.okta.inputs.AppSamlAppSettingsState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to manage app settings of the SAML Application . It&#39;s basically the same as
+ * `app_settings_json` field in `okta.app.Saml` resource and can be used in cases where settings require to be managed separately.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.Saml;
+ * import com.pulumi.okta.app.SamlArgs;
+ * import com.pulumi.okta.AppSamlAppSettings;
+ * import com.pulumi.okta.AppSamlAppSettingsArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testSaml = new Saml(&#34;testSaml&#34;, SamlArgs.builder()        
+ *             .preconfiguredApp(&#34;amazon_aws&#34;)
+ *             .label(&#34;Amazon AWS&#34;)
+ *             .status(&#34;ACTIVE&#34;)
+ *             .build());
+ * 
+ *         var testAppSamlAppSettings = new AppSamlAppSettings(&#34;testAppSamlAppSettings&#34;, AppSamlAppSettingsArgs.builder()        
+ *             .appId(testSaml.id())
+ *             .settings(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;appFilter&#34;, &#34;okta&#34;),
+ *                     jsonProperty(&#34;awsEnvironmentType&#34;, &#34;aws.amazon&#34;),
+ *                     jsonProperty(&#34;groupFilter&#34;, &#34;aws_(?{{accountid}}\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\-_]+)&#34;),
+ *                     jsonProperty(&#34;joinAllRoles&#34;, false),
+ *                     jsonProperty(&#34;loginURL&#34;, &#34;https://console.aws.amazon.com/ec2/home&#34;),
+ *                     jsonProperty(&#34;roleValuePattern&#34;, &#34;arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}&#34;),
+ *                     jsonProperty(&#34;sessionDuration&#34;, 3200),
+ *                     jsonProperty(&#34;useGroupMapping&#34;, false)
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * A settings for the SAML App can be imported via the Okta ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &amp;#60;app id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/appSamlAppSettings:AppSamlAppSettings")
 public class AppSamlAppSettings extends com.pulumi.resources.CustomResource {
     /**
-     * Application ID
+     * ID of the application.
      * 
      */
     @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
-     * @return Application ID
+     * @return ID of the application.
      * 
      */
     public Output<String> appId() {
         return this.appId;
     }
     /**
-     * Application settings in JSON format
+     * Application settings in JSON format.
      * 
      */
     @Export(name="settings", refs={String.class}, tree="[0]")
     private Output<String> settings;
 
     /**
-     * @return Application settings in JSON format
+     * @return Application settings in JSON format.
      * 
      */
     public Output<String> settings() {

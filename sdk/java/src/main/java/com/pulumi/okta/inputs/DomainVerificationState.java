@@ -16,14 +16,14 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
     public static final DomainVerificationState Empty = new DomainVerificationState();
 
     /**
-     * Domain&#39;s ID
+     * Domain ID.
      * 
      */
     @Import(name="domainId")
     private @Nullable Output<String> domainId;
 
     /**
-     * @return Domain&#39;s ID
+     * @return Domain ID.
      * 
      */
     public Optional<Output<String>> domainId() {
@@ -55,7 +55,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param domainId Domain&#39;s ID
+         * @param domainId Domain ID.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param domainId Domain&#39;s ID
+         * @param domainId Domain ID.
          * 
          * @return builder
          * 

@@ -35,9 +35,6 @@ class GetAppSignonPolicyResult:
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> str:
-        """
-        App ID
-        """
         return pulumi.get(self, "app_id")
 
     @property
@@ -51,9 +48,6 @@ class GetAppSignonPolicyResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Policy name
-        """
         return pulumi.get(self, "name")
 
 
@@ -71,11 +65,9 @@ class AwaitableGetAppSignonPolicyResult(GetAppSignonPolicyResult):
 def get_app_signon_policy(app_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppSignonPolicyResult:
     """
-    Get a sign-on policy for the application.
+    > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
 
-    > **WARNING:** This feature is only available as a part of the
-    Identity Engine. Contact support
-    for further information.
+    Use this data source to retrieve a sign-on policy for the application.
 
     > Inside the product a sign-on policy is referenced as an _authentication
     policy_, in the public API the policy is of type
@@ -91,7 +83,7 @@ def get_app_signon_policy(app_id: Optional[str] = None,
     ```
 
 
-    :param str app_id: App ID
+    :param str app_id: The application ID.
     """
     __args__ = dict()
     __args__['appId'] = app_id
@@ -108,11 +100,9 @@ def get_app_signon_policy(app_id: Optional[str] = None,
 def get_app_signon_policy_output(app_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppSignonPolicyResult]:
     """
-    Get a sign-on policy for the application.
+    > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
 
-    > **WARNING:** This feature is only available as a part of the
-    Identity Engine. Contact support
-    for further information.
+    Use this data source to retrieve a sign-on policy for the application.
 
     > Inside the product a sign-on policy is referenced as an _authentication
     policy_, in the public API the policy is of type
@@ -128,6 +118,6 @@ def get_app_signon_policy_output(app_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str app_id: App ID
+    :param str app_id: The application ID.
     """
     ...

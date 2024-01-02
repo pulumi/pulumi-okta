@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EmailSenderDnsRecord {
+    /**
+     * @return DNS record name.
+     * 
+     */
     private @Nullable String fqdn;
+    /**
+     * @return Record type can be TXT or CNAME.
+     * 
+     */
     private @Nullable String recordType;
+    /**
+     * @return DNS verification value
+     * 
+     */
     private @Nullable String value;
 
     private EmailSenderDnsRecord() {}
+    /**
+     * @return DNS record name.
+     * 
+     */
     public Optional<String> fqdn() {
         return Optional.ofNullable(this.fqdn);
     }
+    /**
+     * @return Record type can be TXT or CNAME.
+     * 
+     */
     public Optional<String> recordType() {
         return Optional.ofNullable(this.recordType);
     }
+    /**
+     * @return DNS verification value
+     * 
+     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

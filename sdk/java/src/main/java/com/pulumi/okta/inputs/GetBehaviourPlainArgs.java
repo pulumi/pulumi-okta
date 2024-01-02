@@ -15,14 +15,14 @@ public final class GetBehaviourPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetBehaviourPlainArgs Empty = new GetBehaviourPlainArgs();
 
     /**
-     * Behavior ID.
+     * `id` of behavior to retrieve, conflicts with `name`.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return Behavior ID.
+     * @return `id` of behavior to retrieve, conflicts with `name`.
      * 
      */
     public Optional<String> id() {
@@ -30,14 +30,16 @@ public final class GetBehaviourPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Behavior name.
+     * The name of the behavior to retrieve. Name uses the `?q=&lt;name&gt;` query parameter exposed by
+     * Okta&#39;s API.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return Behavior name.
+     * @return The name of the behavior to retrieve. Name uses the `?q=&lt;name&gt;` query parameter exposed by
+     * Okta&#39;s API.
      * 
      */
     public Optional<String> name() {
@@ -70,7 +72,7 @@ public final class GetBehaviourPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param id Behavior ID.
+         * @param id `id` of behavior to retrieve, conflicts with `name`.
          * 
          * @return builder
          * 
@@ -81,7 +83,8 @@ public final class GetBehaviourPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param name Behavior name.
+         * @param name The name of the behavior to retrieve. Name uses the `?q=&lt;name&gt;` query parameter exposed by
+         * Okta&#39;s API.
          * 
          * @return builder
          * 

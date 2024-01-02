@@ -12,37 +12,85 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/auth"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := auth.NewServerPolicyRule(ctx, "example", &auth.ServerPolicyRuleArgs{
+//				AuthServerId: pulumi.String("<auth server id>"),
+//				GrantTypeWhitelists: pulumi.StringArray{
+//					pulumi.String("implicit"),
+//				},
+//				GroupWhitelists: pulumi.StringArray{
+//					pulumi.String("<group ids>"),
+//				},
+//				PolicyId: pulumi.String("<auth server policy id>"),
+//				Priority: pulumi.Int(1),
+//				Status:   pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:auth/serverPolicyRule:ServerPolicyRule example &#60;auth server id&#62;/&#60;policy id&#62;/&#60;policy rule id&#62;
+//
+// ```
 type ServerPolicyRule struct {
 	pulumi.CustomResourceState
 
 	// Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
 	AccessTokenLifetimeMinutes pulumi.IntPtrOutput `pulumi:"accessTokenLifetimeMinutes"`
-	// Auth server ID
+	// Auth Server ID.
 	AuthServerId pulumi.StringOutput `pulumi:"authServerId"`
-	// Accepted grant type values: authorization*code, implicit, password, client*credentials
+	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interactionCode"` (*OIE only*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 	GrantTypeWhitelists pulumi.StringArrayOutput `pulumi:"grantTypeWhitelists"`
 	// Specifies a set of Groups whose Users are to be excluded.
 	GroupBlacklists pulumi.StringArrayOutput `pulumi:"groupBlacklists"`
-	// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
+	// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
 	GroupWhitelists pulumi.StringArrayOutput `pulumi:"groupWhitelists"`
 	// The ID of the inline token to trigger.
 	InlineHookId pulumi.StringPtrOutput `pulumi:"inlineHookId"`
-	// Auth server policy rule name
+	// Auth Server Policy Rule name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Auth server policy ID
+	// Auth Server Policy ID.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
-	// Priority of the auth server policy rule
+	// Priority of the auth server policy rule.
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// Lifetime of refresh token.
 	RefreshTokenLifetimeMinutes pulumi.IntPtrOutput `pulumi:"refreshTokenLifetimeMinutes"`
-	// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and `refreshTokenLifetimeMinutes`.
+	// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
+	// `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
 	RefreshTokenWindowMinutes pulumi.IntPtrOutput `pulumi:"refreshTokenWindowMinutes"`
-	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
+	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 	ScopeWhitelists pulumi.StringArrayOutput `pulumi:"scopeWhitelists"`
-	Status          pulumi.StringPtrOutput   `pulumi:"status"`
-	// The rule is the system (default) rule for its associated policy
+	// The status of the Auth Server Policy Rule.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// The rule is the system (default) rule for its associated policy.
 	System pulumi.BoolOutput `pulumi:"system"`
-	// Auth server policy rule type, unlikely this will be anything other then the default
+	// The type of the Auth Server Policy Rule.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// Specifies a set of Users to be excluded.
 	UserBlacklists pulumi.StringArrayOutput `pulumi:"userBlacklists"`
@@ -100,32 +148,36 @@ func GetServerPolicyRule(ctx *pulumi.Context,
 type serverPolicyRuleState struct {
 	// Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
 	AccessTokenLifetimeMinutes *int `pulumi:"accessTokenLifetimeMinutes"`
-	// Auth server ID
+	// Auth Server ID.
 	AuthServerId *string `pulumi:"authServerId"`
-	// Accepted grant type values: authorization*code, implicit, password, client*credentials
+	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interactionCode"` (*OIE only*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 	GrantTypeWhitelists []string `pulumi:"grantTypeWhitelists"`
 	// Specifies a set of Groups whose Users are to be excluded.
 	GroupBlacklists []string `pulumi:"groupBlacklists"`
-	// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
+	// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
 	GroupWhitelists []string `pulumi:"groupWhitelists"`
 	// The ID of the inline token to trigger.
 	InlineHookId *string `pulumi:"inlineHookId"`
-	// Auth server policy rule name
+	// Auth Server Policy Rule name.
 	Name *string `pulumi:"name"`
-	// Auth server policy ID
+	// Auth Server Policy ID.
 	PolicyId *string `pulumi:"policyId"`
-	// Priority of the auth server policy rule
+	// Priority of the auth server policy rule.
 	Priority *int `pulumi:"priority"`
 	// Lifetime of refresh token.
 	RefreshTokenLifetimeMinutes *int `pulumi:"refreshTokenLifetimeMinutes"`
-	// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and `refreshTokenLifetimeMinutes`.
+	// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
+	// `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
 	RefreshTokenWindowMinutes *int `pulumi:"refreshTokenWindowMinutes"`
-	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
+	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 	ScopeWhitelists []string `pulumi:"scopeWhitelists"`
-	Status          *string  `pulumi:"status"`
-	// The rule is the system (default) rule for its associated policy
+	// The status of the Auth Server Policy Rule.
+	Status *string `pulumi:"status"`
+	// The rule is the system (default) rule for its associated policy.
 	System *bool `pulumi:"system"`
-	// Auth server policy rule type, unlikely this will be anything other then the default
+	// The type of the Auth Server Policy Rule.
 	Type *string `pulumi:"type"`
 	// Specifies a set of Users to be excluded.
 	UserBlacklists []string `pulumi:"userBlacklists"`
@@ -136,32 +188,36 @@ type serverPolicyRuleState struct {
 type ServerPolicyRuleState struct {
 	// Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
 	AccessTokenLifetimeMinutes pulumi.IntPtrInput
-	// Auth server ID
+	// Auth Server ID.
 	AuthServerId pulumi.StringPtrInput
-	// Accepted grant type values: authorization*code, implicit, password, client*credentials
+	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interactionCode"` (*OIE only*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 	GrantTypeWhitelists pulumi.StringArrayInput
 	// Specifies a set of Groups whose Users are to be excluded.
 	GroupBlacklists pulumi.StringArrayInput
-	// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
+	// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
 	GroupWhitelists pulumi.StringArrayInput
 	// The ID of the inline token to trigger.
 	InlineHookId pulumi.StringPtrInput
-	// Auth server policy rule name
+	// Auth Server Policy Rule name.
 	Name pulumi.StringPtrInput
-	// Auth server policy ID
+	// Auth Server Policy ID.
 	PolicyId pulumi.StringPtrInput
-	// Priority of the auth server policy rule
+	// Priority of the auth server policy rule.
 	Priority pulumi.IntPtrInput
 	// Lifetime of refresh token.
 	RefreshTokenLifetimeMinutes pulumi.IntPtrInput
-	// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and `refreshTokenLifetimeMinutes`.
+	// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
+	// `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
 	RefreshTokenWindowMinutes pulumi.IntPtrInput
-	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
+	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 	ScopeWhitelists pulumi.StringArrayInput
-	Status          pulumi.StringPtrInput
-	// The rule is the system (default) rule for its associated policy
+	// The status of the Auth Server Policy Rule.
+	Status pulumi.StringPtrInput
+	// The rule is the system (default) rule for its associated policy.
 	System pulumi.BoolPtrInput
-	// Auth server policy rule type, unlikely this will be anything other then the default
+	// The type of the Auth Server Policy Rule.
 	Type pulumi.StringPtrInput
 	// Specifies a set of Users to be excluded.
 	UserBlacklists pulumi.StringArrayInput
@@ -176,30 +232,34 @@ func (ServerPolicyRuleState) ElementType() reflect.Type {
 type serverPolicyRuleArgs struct {
 	// Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
 	AccessTokenLifetimeMinutes *int `pulumi:"accessTokenLifetimeMinutes"`
-	// Auth server ID
+	// Auth Server ID.
 	AuthServerId string `pulumi:"authServerId"`
-	// Accepted grant type values: authorization*code, implicit, password, client*credentials
+	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interactionCode"` (*OIE only*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 	GrantTypeWhitelists []string `pulumi:"grantTypeWhitelists"`
 	// Specifies a set of Groups whose Users are to be excluded.
 	GroupBlacklists []string `pulumi:"groupBlacklists"`
-	// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
+	// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
 	GroupWhitelists []string `pulumi:"groupWhitelists"`
 	// The ID of the inline token to trigger.
 	InlineHookId *string `pulumi:"inlineHookId"`
-	// Auth server policy rule name
+	// Auth Server Policy Rule name.
 	Name *string `pulumi:"name"`
-	// Auth server policy ID
+	// Auth Server Policy ID.
 	PolicyId string `pulumi:"policyId"`
-	// Priority of the auth server policy rule
+	// Priority of the auth server policy rule.
 	Priority int `pulumi:"priority"`
 	// Lifetime of refresh token.
 	RefreshTokenLifetimeMinutes *int `pulumi:"refreshTokenLifetimeMinutes"`
-	// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and `refreshTokenLifetimeMinutes`.
+	// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
+	// `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
 	RefreshTokenWindowMinutes *int `pulumi:"refreshTokenWindowMinutes"`
-	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
+	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 	ScopeWhitelists []string `pulumi:"scopeWhitelists"`
-	Status          *string  `pulumi:"status"`
-	// Auth server policy rule type, unlikely this will be anything other then the default
+	// The status of the Auth Server Policy Rule.
+	Status *string `pulumi:"status"`
+	// The type of the Auth Server Policy Rule.
 	Type *string `pulumi:"type"`
 	// Specifies a set of Users to be excluded.
 	UserBlacklists []string `pulumi:"userBlacklists"`
@@ -211,30 +271,34 @@ type serverPolicyRuleArgs struct {
 type ServerPolicyRuleArgs struct {
 	// Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
 	AccessTokenLifetimeMinutes pulumi.IntPtrInput
-	// Auth server ID
+	// Auth Server ID.
 	AuthServerId pulumi.StringInput
-	// Accepted grant type values: authorization*code, implicit, password, client*credentials
+	// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`, `"clientCredentials"`,
+	// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+	// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interactionCode"` (*OIE only*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 	GrantTypeWhitelists pulumi.StringArrayInput
 	// Specifies a set of Groups whose Users are to be excluded.
 	GroupBlacklists pulumi.StringArrayInput
-	// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
+	// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
 	GroupWhitelists pulumi.StringArrayInput
 	// The ID of the inline token to trigger.
 	InlineHookId pulumi.StringPtrInput
-	// Auth server policy rule name
+	// Auth Server Policy Rule name.
 	Name pulumi.StringPtrInput
-	// Auth server policy ID
+	// Auth Server Policy ID.
 	PolicyId pulumi.StringInput
-	// Priority of the auth server policy rule
+	// Priority of the auth server policy rule.
 	Priority pulumi.IntInput
 	// Lifetime of refresh token.
 	RefreshTokenLifetimeMinutes pulumi.IntPtrInput
-	// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and `refreshTokenLifetimeMinutes`.
+	// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
+	// `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
 	RefreshTokenWindowMinutes pulumi.IntPtrInput
-	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
+	// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 	ScopeWhitelists pulumi.StringArrayInput
-	Status          pulumi.StringPtrInput
-	// Auth server policy rule type, unlikely this will be anything other then the default
+	// The status of the Auth Server Policy Rule.
+	Status pulumi.StringPtrInput
+	// The type of the Auth Server Policy Rule.
 	Type pulumi.StringPtrInput
 	// Specifies a set of Users to be excluded.
 	UserBlacklists pulumi.StringArrayInput
@@ -334,12 +398,14 @@ func (o ServerPolicyRuleOutput) AccessTokenLifetimeMinutes() pulumi.IntPtrOutput
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.IntPtrOutput { return v.AccessTokenLifetimeMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Auth server ID
+// Auth Server ID.
 func (o ServerPolicyRuleOutput) AuthServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.StringOutput { return v.AuthServerId }).(pulumi.StringOutput)
 }
 
-// Accepted grant type values: authorization*code, implicit, password, client*credentials
+// Accepted grant type values, `"authorizationCode"`, `"implicit"`, `"password"`, `"clientCredentials"`,
+// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interactionCode"` (*OIE only*). For `"implicit"` value either `userWhitelist` or `groupWhitelist` should be set.
 func (o ServerPolicyRuleOutput) GrantTypeWhitelists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.StringArrayOutput { return v.GrantTypeWhitelists }).(pulumi.StringArrayOutput)
 }
@@ -349,7 +415,7 @@ func (o ServerPolicyRuleOutput) GroupBlacklists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.StringArrayOutput { return v.GroupBlacklists }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
+// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
 func (o ServerPolicyRuleOutput) GroupWhitelists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.StringArrayOutput { return v.GroupWhitelists }).(pulumi.StringArrayOutput)
 }
@@ -359,17 +425,17 @@ func (o ServerPolicyRuleOutput) InlineHookId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.StringPtrOutput { return v.InlineHookId }).(pulumi.StringPtrOutput)
 }
 
-// Auth server policy rule name
+// Auth Server Policy Rule name.
 func (o ServerPolicyRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Auth server policy ID
+// Auth Server Policy ID.
 func (o ServerPolicyRuleOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// Priority of the auth server policy rule
+// Priority of the auth server policy rule.
 func (o ServerPolicyRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
@@ -379,26 +445,28 @@ func (o ServerPolicyRuleOutput) RefreshTokenLifetimeMinutes() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.IntPtrOutput { return v.RefreshTokenLifetimeMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and `refreshTokenLifetimeMinutes`.
+// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
+// `"refreshTokenWindowMinutes"` must be between `"accessTokenLifetimeMinutes"` and `"refreshTokenLifetimeMinutes"`.
 func (o ServerPolicyRuleOutput) RefreshTokenWindowMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.IntPtrOutput { return v.RefreshTokenWindowMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
+// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
 func (o ServerPolicyRuleOutput) ScopeWhitelists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.StringArrayOutput { return v.ScopeWhitelists }).(pulumi.StringArrayOutput)
 }
 
+// The status of the Auth Server Policy Rule.
 func (o ServerPolicyRuleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The rule is the system (default) rule for its associated policy
+// The rule is the system (default) rule for its associated policy.
 func (o ServerPolicyRuleOutput) System() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.BoolOutput { return v.System }).(pulumi.BoolOutput)
 }
 
-// Auth server policy rule type, unlikely this will be anything other then the default
+// The type of the Auth Server Policy Rule.
 func (o ServerPolicyRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerPolicyRule) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

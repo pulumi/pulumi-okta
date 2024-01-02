@@ -18,219 +18,350 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `risc_level`
+ * to an empty string, since this feature is not enabled.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.policy.Signon;
+ * import com.pulumi.okta.policy.SignonArgs;
+ * import com.pulumi.okta.OktaFunctions;
+ * import com.pulumi.okta.inputs.GetBehaviourArgs;
+ * import com.pulumi.okta.policy.RuleSignon;
+ * import com.pulumi.okta.policy.RuleSignonArgs;
+ * import com.pulumi.okta.policy.inputs.RuleSignonFactorSequenceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Signon(&#34;test&#34;, SignonArgs.builder()        
+ *             .status(&#34;ACTIVE&#34;)
+ *             .description(&#34;Example Policy&#34;)
+ *             .build());
+ * 
+ *         final var newCity = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
+ *             .name(&#34;New City&#34;)
+ *             .build());
+ * 
+ *         var example = new RuleSignon(&#34;example&#34;, RuleSignonArgs.builder()        
+ *             .access(&#34;CHALLENGE&#34;)
+ *             .authtype(&#34;RADIUS&#34;)
+ *             .networkConnection(&#34;ANYWHERE&#34;)
+ *             .policyId(okta_policy_signon.example().id())
+ *             .status(&#34;ACTIVE&#34;)
+ *             .riscLevel(&#34;HIGH&#34;)
+ *             .behaviors(newCity.applyValue(getBehaviourResult -&gt; getBehaviourResult.id()))
+ *             .factorSequences(            
+ *                 RuleSignonFactorSequenceArgs.builder()
+ *                     .primaryCriteriaFactorType(&#34;token:hotp&#34;)
+ *                     .primaryCriteriaProvider(&#34;CUSTOM&#34;)
+ *                     .secondaryCriterias(                    
+ *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
+ *                             .factorType(&#34;token:software:totp&#34;)
+ *                             .provider(&#34;OKTA&#34;)
+ *                             .build(),
+ *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
+ *                             .factorType(&#34;push&#34;)
+ *                             .provider(&#34;OKTA&#34;)
+ *                             .build(),
+ *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
+ *                             .factorType(&#34;password&#34;)
+ *                             .provider(&#34;OKTA&#34;)
+ *                             .build(),
+ *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
+ *                             .factorType(&#34;question&#34;)
+ *                             .provider(&#34;OKTA&#34;)
+ *                             .build(),
+ *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
+ *                             .factorType(&#34;sms&#34;)
+ *                             .provider(&#34;OKTA&#34;)
+ *                             .build(),
+ *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
+ *                             .factorType(&#34;token:software:totp&#34;)
+ *                             .provider(&#34;GOOGLE&#34;)
+ *                             .build(),
+ *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
+ *                             .factorType(&#34;email&#34;)
+ *                             .provider(&#34;OKTA&#34;)
+ *                             .build(),
+ *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
+ *                             .factorType(&#34;call&#34;)
+ *                             .provider(&#34;OKTA&#34;)
+ *                             .build(),
+ *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
+ *                             .factorType(&#34;webauthn&#34;)
+ *                             .provider(&#34;FIDO&#34;)
+ *                             .build(),
+ *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
+ *                             .factorType(&#34;token&#34;)
+ *                             .provider(&#34;RSA&#34;)
+ *                             .build(),
+ *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
+ *                             .factorType(&#34;token&#34;)
+ *                             .provider(&#34;SYMANTEC&#34;)
+ *                             .build())
+ *                     .build(),
+ *                 RuleSignonFactorSequenceArgs.builder()
+ *                     .primaryCriteriaFactorType(&#34;token:software:totp&#34;)
+ *                     .primaryCriteriaProvider(&#34;OKTA&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * A Policy Rule can be imported via the Policy and Rule ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:policy/ruleSignon:RuleSignon example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:policy/ruleSignon:RuleSignon")
 public class RuleSignon extends com.pulumi.resources.CustomResource {
     /**
-     * Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
+     * Allow or deny access based on the rule conditions: `&#34;ALLOW&#34;`, `&#34;DENY&#34;` or `&#34;CHALLENGE&#34;`. The default is `&#34;ALLOW&#34;`.
      * 
      */
     @Export(name="access", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> access;
 
     /**
-     * @return Allow or deny access based on the rule conditions: ALLOW, DENY or CHALLENGE.
+     * @return Allow or deny access based on the rule conditions: `&#34;ALLOW&#34;`, `&#34;DENY&#34;` or `&#34;CHALLENGE&#34;`. The default is `&#34;ALLOW&#34;`.
      * 
      */
     public Output<Optional<String>> access() {
         return Codegen.optional(this.access);
     }
     /**
-     * Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
+     * Authentication entrypoint: `&#34;ANY&#34;`, `&#34;LDAP_INTERFACE&#34;` or `&#34;RADIUS&#34;`.
      * 
      */
     @Export(name="authtype", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authtype;
 
     /**
-     * @return Authentication entrypoint: ANY, RADIUS or LDAP_INTERFACE
+     * @return Authentication entrypoint: `&#34;ANY&#34;`, `&#34;LDAP_INTERFACE&#34;` or `&#34;RADIUS&#34;`.
      * 
      */
     public Output<Optional<String>> authtype() {
         return Codegen.optional(this.authtype);
     }
     /**
-     * List of behavior IDs
+     * List of behavior IDs.
      * 
      */
     @Export(name="behaviors", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> behaviors;
 
     /**
-     * @return List of behavior IDs
+     * @return List of behavior IDs.
      * 
      */
     public Output<Optional<List<String>>> behaviors() {
         return Codegen.optional(this.behaviors);
     }
+    /**
+     * Auth factor sequences. Should be set if `access = &#34;CHALLENGE&#34;`.
+     * 
+     */
     @Export(name="factorSequences", refs={List.class,RuleSignonFactorSequence.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleSignonFactorSequence>> factorSequences;
 
+    /**
+     * @return Auth factor sequences. Should be set if `access = &#34;CHALLENGE&#34;`.
+     * 
+     */
     public Output<Optional<List<RuleSignonFactorSequence>>> factorSequences() {
         return Codegen.optional(this.factorSequences);
     }
     /**
-     * Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+     * Defines the identity provider for this rule. Valid values are `&#34;ANY&#34;`, `&#34;OKTA&#34;`, and `&#34;SPECIFIC_IDP&#34;`.
+     * 
+     * &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
      * 
      */
     @Export(name="identityProvider", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> identityProvider;
 
     /**
-     * @return Apply rule based on the IdP used: ANY, OKTA or SPECIFIC_IDP.
+     * @return Defines the identity provider for this rule. Valid values are `&#34;ANY&#34;`, `&#34;OKTA&#34;`, and `&#34;SPECIFIC_IDP&#34;`.
+     * 
+     * &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
      * 
      */
     public Output<Optional<String>> identityProvider() {
         return Codegen.optional(this.identityProvider);
     }
     /**
-     * When identity*provider is SPECIFIC*IDP then this is the list of IdP IDs to apply the rule on
+     * When identity_provider is `&#34;SPECIFIC_IDP&#34;` then this is the list of IdP IDs to apply the rule on.
      * 
      */
     @Export(name="identityProviderIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> identityProviderIds;
 
     /**
-     * @return When identity*provider is SPECIFIC*IDP then this is the list of IdP IDs to apply the rule on
+     * @return When identity_provider is `&#34;SPECIFIC_IDP&#34;` then this is the list of IdP IDs to apply the rule on.
      * 
      */
     public Output<Optional<List<String>>> identityProviderIds() {
         return Codegen.optional(this.identityProviderIds);
     }
     /**
-     * Elapsed time before the next MFA challenge
+     * Elapsed time before the next MFA challenge.
      * 
      */
     @Export(name="mfaLifetime", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> mfaLifetime;
 
     /**
-     * @return Elapsed time before the next MFA challenge
+     * @return Elapsed time before the next MFA challenge.
      * 
      */
     public Output<Optional<Integer>> mfaLifetime() {
         return Codegen.optional(this.mfaLifetime);
     }
     /**
-     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
+     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `&#34;DEVICE&#34;`, `&#34;SESSION&#34;` or `&#34;ALWAYS&#34;`.
      * 
      */
     @Export(name="mfaPrompt", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mfaPrompt;
 
     /**
-     * @return Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: DEVICE, SESSION or ALWAYS
+     * @return Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `&#34;DEVICE&#34;`, `&#34;SESSION&#34;` or `&#34;ALWAYS&#34;`.
      * 
      */
     public Output<Optional<String>> mfaPrompt() {
         return Codegen.optional(this.mfaPrompt);
     }
     /**
-     * Remember MFA device.
+     * Remember MFA device. The default `false`.
      * 
      */
     @Export(name="mfaRememberDevice", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> mfaRememberDevice;
 
     /**
-     * @return Remember MFA device.
+     * @return Remember MFA device. The default `false`.
      * 
      */
     public Output<Optional<Boolean>> mfaRememberDevice() {
         return Codegen.optional(this.mfaRememberDevice);
     }
     /**
-     * Require MFA.
+     * Require MFA. By default is `false`.
      * 
      */
     @Export(name="mfaRequired", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> mfaRequired;
 
     /**
-     * @return Require MFA.
+     * @return Require MFA. By default is `false`.
      * 
      */
     public Output<Optional<Boolean>> mfaRequired() {
         return Codegen.optional(this.mfaRequired);
     }
     /**
-     * Policy Rule Name
+     * Policy Rule Name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Policy Rule Name
+     * @return Policy Rule Name.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+     * Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
      * 
      */
     @Export(name="networkConnection", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkConnection;
 
     /**
-     * @return Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+     * @return Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
      * 
      */
     public Output<Optional<String>> networkConnection() {
         return Codegen.optional(this.networkConnection);
     }
     /**
-     * The zones to exclude
+     * The network zones to exclude. Conflicts with `network_includes`.
      * 
      */
     @Export(name="networkExcludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkExcludes;
 
     /**
-     * @return The zones to exclude
+     * @return The network zones to exclude. Conflicts with `network_includes`.
      * 
      */
     public Output<Optional<List<String>>> networkExcludes() {
         return Codegen.optional(this.networkExcludes);
     }
     /**
-     * The zones to include
+     * The network zones to include. Conflicts with `network_excludes`.
      * 
      */
     @Export(name="networkIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkIncludes;
 
     /**
-     * @return The zones to include
+     * @return The network zones to include. Conflicts with `network_excludes`.
      * 
      */
     public Output<Optional<List<String>>> networkIncludes() {
         return Codegen.optional(this.networkIncludes);
     }
     /**
-     * Policy ID of the Rule
+     * Policy ID.
      * 
      */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyId;
 
     /**
-     * @return Policy ID of the Rule
+     * @return Policy ID.
      * 
      */
     public Output<Optional<String>> policyId() {
         return Codegen.optional(this.policyId);
     }
     /**
-     * Primary factor.
+     * Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
+     * `&#34;PASSWORD_IDP_ANY_FACTOR&#34;`, `&#34;PASSWORD_IDP&#34;`.
      * 
      */
     @Export(name="primaryFactor", refs={String.class}, tree="[0]")
     private Output<String> primaryFactor;
 
     /**
-     * @return Primary factor.
+     * @return Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
+     * `&#34;PASSWORD_IDP_ANY_FACTOR&#34;`, `&#34;PASSWORD_IDP&#34;`.
      * 
      */
     public Output<String> primaryFactor() {
@@ -251,28 +382,30 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.priority);
     }
     /**
-     * Risc level: ANY, LOW, MEDIUM or HIGH
+     * Risc level: `&#34;ANY&#34;`, `&#34;LOW&#34;`, `&#34;MEDIUM&#34;` or `&#34;HIGH&#34;`. Default is `&#34;ANY&#34;`. It can be also
+     * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
      * 
      */
     @Export(name="riscLevel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> riscLevel;
 
     /**
-     * @return Risc level: ANY, LOW, MEDIUM or HIGH
+     * @return Risc level: `&#34;ANY&#34;`, `&#34;LOW&#34;`, `&#34;MEDIUM&#34;` or `&#34;HIGH&#34;`. Default is `&#34;ANY&#34;`. It can be also
+     * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
      * 
      */
     public Output<Optional<String>> riscLevel() {
         return Codegen.optional(this.riscLevel);
     }
     /**
-     * Max minutes a session can be idle.
+     * Max minutes a session can be idle.,
      * 
      */
     @Export(name="sessionIdle", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> sessionIdle;
 
     /**
-     * @return Max minutes a session can be idle.
+     * @return Max minutes a session can be idle.,
      * 
      */
     public Output<Optional<Integer>> sessionIdle() {
@@ -307,28 +440,28 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sessionPersistent);
     }
     /**
-     * Policy Rule Status: ACTIVE or INACTIVE.
+     * Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Policy Rule Status: ACTIVE or INACTIVE.
+     * @return Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
      * 
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * Set of User IDs to Exclude
+     * The list of user IDs that would be excluded when rules are processed.
      * 
      */
     @Export(name="usersExcludeds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> usersExcludeds;
 
     /**
-     * @return Set of User IDs to Exclude
+     * @return The list of user IDs that would be excluded when rules are processed.
      * 
      */
     public Output<Optional<List<String>>> usersExcludeds() {

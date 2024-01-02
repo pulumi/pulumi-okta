@@ -17,59 +17,169 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates an Okta User.
+ * 
+ * This resource allows you to create and configure an Okta User.
+ * 
+ * ## Example Usage
+ * 
+ * Full profile:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.user.User;
+ * import com.pulumi.okta.user.UserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *             .city(&#34;New York&#34;)
+ *             .costCenter(&#34;10&#34;)
+ *             .countryCode(&#34;US&#34;)
+ *             .department(&#34;IT&#34;)
+ *             .displayName(&#34;Dr. John Smith&#34;)
+ *             .division(&#34;Acquisitions&#34;)
+ *             .email(&#34;john.smith@example.com&#34;)
+ *             .employeeNumber(&#34;111111&#34;)
+ *             .firstName(&#34;John&#34;)
+ *             .honorificPrefix(&#34;Dr.&#34;)
+ *             .honorificSuffix(&#34;Jr.&#34;)
+ *             .lastName(&#34;Smith&#34;)
+ *             .locale(&#34;en_US&#34;)
+ *             .login(&#34;john.smith@example.com&#34;)
+ *             .manager(&#34;Jimbo&#34;)
+ *             .managerId(&#34;222222&#34;)
+ *             .middleName(&#34;John&#34;)
+ *             .mobilePhone(&#34;1112223333&#34;)
+ *             .nickName(&#34;Johnny&#34;)
+ *             .organization(&#34;Testing Inc.&#34;)
+ *             .postalAddress(&#34;1234 Testing St.&#34;)
+ *             .preferredLanguage(&#34;en-us&#34;)
+ *             .primaryPhone(&#34;4445556666&#34;)
+ *             .profileUrl(&#34;https://www.example.com/profile&#34;)
+ *             .secondEmail(&#34;john.smith.fun@example.com&#34;)
+ *             .state(&#34;NY&#34;)
+ *             .streetAddress(&#34;5678 Testing Ave.&#34;)
+ *             .timezone(&#34;America/New_York&#34;)
+ *             .title(&#34;Director&#34;)
+ *             .userType(&#34;Employee&#34;)
+ *             .zipCode(&#34;11111&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * With Password Inline Hook:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.user.User;
+ * import com.pulumi.okta.user.UserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test2 = new User(&#34;test2&#34;, UserArgs.builder()        
+ *             .email(&#34;example@example.com&#34;)
+ *             .firstName(&#34;John&#34;)
+ *             .lastName(&#34;Smith&#34;)
+ *             .login(&#34;example@example.com&#34;)
+ *             .passwordInlineHook(&#34;default&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * An Okta User can be imported via the ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:user/user:User example &amp;#60;user id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:user/user:User")
 public class User extends com.pulumi.resources.CustomResource {
     /**
-     * User city
+     * User profile property.
      * 
      */
     @Export(name="city", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> city;
 
     /**
-     * @return User city
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> city() {
         return Codegen.optional(this.city);
     }
     /**
-     * User cost center
+     * User profile property.
      * 
      */
     @Export(name="costCenter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> costCenter;
 
     /**
-     * @return User cost center
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> costCenter() {
         return Codegen.optional(this.costCenter);
     }
     /**
-     * User country code
+     * User profile property.
      * 
      */
     @Export(name="countryCode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> countryCode;
 
     /**
-     * @return User country code
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> countryCode() {
         return Codegen.optional(this.countryCode);
     }
     /**
-     * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+     * raw JSON containing all custom profile attributes.
      * 
      */
     @Export(name="customProfileAttributes", refs={String.class}, tree="[0]")
     private Output<String> customProfileAttributes;
 
     /**
-     * @return JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+     * @return raw JSON containing all custom profile attributes.
      * 
      */
     public Output<String> customProfileAttributes() {
@@ -90,280 +200,286 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customProfileAttributesToIgnores);
     }
     /**
-     * User department
+     * User profile property.
      * 
      */
     @Export(name="department", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> department;
 
     /**
-     * @return User department
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> department() {
         return Codegen.optional(this.department);
     }
     /**
-     * User display name, suitable to show end users
+     * User profile property.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
     /**
-     * @return User display name, suitable to show end users
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> displayName() {
         return Codegen.optional(this.displayName);
     }
     /**
-     * User division
+     * User profile property.
      * 
      */
     @Export(name="division", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> division;
 
     /**
-     * @return User division
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> division() {
         return Codegen.optional(this.division);
     }
     /**
-     * User primary email address
+     * User profile property.
      * 
      */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
-     * @return User primary email address
+     * @return User profile property.
      * 
      */
     public Output<String> email() {
         return this.email;
     }
     /**
-     * User employee number
+     * User profile property.
      * 
      */
     @Export(name="employeeNumber", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> employeeNumber;
 
     /**
-     * @return User employee number
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> employeeNumber() {
         return Codegen.optional(this.employeeNumber);
     }
     /**
-     * If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set
+     * If set to `true`, the user will have to change the password at the next login. This property will be used
+     * when user is being created and works only when `password` field is set. Default is `false`.
      * 
      */
     @Export(name="expirePasswordOnCreate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> expirePasswordOnCreate;
 
     /**
-     * @return If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set
+     * @return If set to `true`, the user will have to change the password at the next login. This property will be used
+     * when user is being created and works only when `password` field is set. Default is `false`.
      * 
      */
     public Output<Optional<Boolean>> expirePasswordOnCreate() {
         return Codegen.optional(this.expirePasswordOnCreate);
     }
     /**
-     * User first name
+     * User&#39;s First Name, required by default.
      * 
      */
     @Export(name="firstName", refs={String.class}, tree="[0]")
     private Output<String> firstName;
 
     /**
-     * @return User first name
+     * @return User&#39;s First Name, required by default.
      * 
      */
     public Output<String> firstName() {
         return this.firstName;
     }
     /**
-     * User honorific prefix
+     * User profile property.
      * 
      */
     @Export(name="honorificPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> honorificPrefix;
 
     /**
-     * @return User honorific prefix
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> honorificPrefix() {
         return Codegen.optional(this.honorificPrefix);
     }
     /**
-     * User honorific suffix
+     * User profile property.
      * 
      */
     @Export(name="honorificSuffix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> honorificSuffix;
 
     /**
-     * @return User honorific suffix
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> honorificSuffix() {
         return Codegen.optional(this.honorificSuffix);
     }
     /**
-     * User last name
+     * User&#39;s Last Name, required by default.
      * 
      */
     @Export(name="lastName", refs={String.class}, tree="[0]")
     private Output<String> lastName;
 
     /**
-     * @return User last name
+     * @return User&#39;s Last Name, required by default.
      * 
      */
     public Output<String> lastName() {
         return this.lastName;
     }
     /**
-     * User default location
+     * User profile property.
      * 
      */
     @Export(name="locale", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> locale;
 
     /**
-     * @return User default location
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> locale() {
         return Codegen.optional(this.locale);
     }
     /**
-     * User Okta login
+     * User profile property.
      * 
      */
     @Export(name="login", refs={String.class}, tree="[0]")
     private Output<String> login;
 
     /**
-     * @return User Okta login
+     * @return User profile property.
      * 
      */
     public Output<String> login() {
         return this.login;
     }
     /**
-     * Manager of User
+     * User profile property.
      * 
      */
     @Export(name="manager", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> manager;
 
     /**
-     * @return Manager of User
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> manager() {
         return Codegen.optional(this.manager);
     }
     /**
-     * Manager ID of User
+     * User profile property.
      * 
      */
     @Export(name="managerId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managerId;
 
     /**
-     * @return Manager ID of User
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> managerId() {
         return Codegen.optional(this.managerId);
     }
     /**
-     * User middle name
+     * User profile property.
      * 
      */
     @Export(name="middleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> middleName;
 
     /**
-     * @return User middle name
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> middleName() {
         return Codegen.optional(this.middleName);
     }
     /**
-     * User mobile phone number
+     * User profile property.
      * 
      */
     @Export(name="mobilePhone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mobilePhone;
 
     /**
-     * @return User mobile phone number
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> mobilePhone() {
         return Codegen.optional(this.mobilePhone);
     }
     /**
-     * User nickname
+     * User profile property.
      * 
      */
     @Export(name="nickName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nickName;
 
     /**
-     * @return User nickname
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> nickName() {
         return Codegen.optional(this.nickName);
     }
     /**
-     * Old User Password. Should be only set in case the password was not changed using the provider
+     * Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
+     * outside the provider. After successful password change this field should be removed and `password` field should be used
+     * for further changes.
      * 
      */
     @Export(name="oldPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oldPassword;
 
     /**
-     * @return Old User Password. Should be only set in case the password was not changed using the provider
+     * @return Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
+     * outside the provider. After successful password change this field should be removed and `password` field should be used
+     * for further changes.
      * 
      */
     public Output<Optional<String>> oldPassword() {
         return Codegen.optional(this.oldPassword);
     }
     /**
-     * User organization
+     * User profile property.
      * 
      */
     @Export(name="organization", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> organization;
 
     /**
-     * @return User organization
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> organization() {
         return Codegen.optional(this.organization);
     }
     /**
-     * User Password
+     * User password.
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
-     * @return User Password
+     * @return User password.
      * 
      */
     public Output<Optional<String>> password() {
@@ -384,70 +500,76 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.passwordHash);
     }
     /**
-     * When specified, the Password Inline Hook is triggered to handle verification of the end user&#39;s password the first time the user tries to sign in
+     * Specifies that a Password Import Inline Hook should be triggered to handle verification
+     * of the user&#39;s password the first time the user logs in. This allows an existing password to be imported into Okta directly
+     * from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+     * field should not be specified when using Password Import Inline Hook.
      * 
      */
     @Export(name="passwordInlineHook", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> passwordInlineHook;
 
     /**
-     * @return When specified, the Password Inline Hook is triggered to handle verification of the end user&#39;s password the first time the user tries to sign in
+     * @return Specifies that a Password Import Inline Hook should be triggered to handle verification
+     * of the user&#39;s password the first time the user logs in. This allows an existing password to be imported into Okta directly
+     * from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
+     * field should not be specified when using Password Import Inline Hook.
      * 
      */
     public Output<Optional<String>> passwordInlineHook() {
         return Codegen.optional(this.passwordInlineHook);
     }
     /**
-     * User mailing address
+     * User profile property.
      * 
      */
     @Export(name="postalAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> postalAddress;
 
     /**
-     * @return User mailing address
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> postalAddress() {
         return Codegen.optional(this.postalAddress);
     }
     /**
-     * User preferred language
+     * User profile property.
      * 
      */
     @Export(name="preferredLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> preferredLanguage;
 
     /**
-     * @return User preferred language
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> preferredLanguage() {
         return Codegen.optional(this.preferredLanguage);
     }
     /**
-     * User primary phone number
+     * User profile property.
      * 
      */
     @Export(name="primaryPhone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> primaryPhone;
 
     /**
-     * @return User primary phone number
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> primaryPhone() {
         return Codegen.optional(this.primaryPhone);
     }
     /**
-     * User online profile (web page)
+     * User profile property.
      * 
      */
     @Export(name="profileUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> profileUrl;
 
     /**
-     * @return User online profile (web page)
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> profileUrl() {
@@ -468,42 +590,48 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.rawStatus;
     }
     /**
-     * User Password Recovery Answer
+     * User password recovery answer.
+     * 
+     * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+     * - `algorithm&#34;` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
      * 
      */
     @Export(name="recoveryAnswer", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> recoveryAnswer;
 
     /**
-     * @return User Password Recovery Answer
+     * @return User password recovery answer.
+     * 
+     * - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
+     * - `algorithm&#34;` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
      * 
      */
     public Output<Optional<String>> recoveryAnswer() {
         return Codegen.optional(this.recoveryAnswer);
     }
     /**
-     * User Password Recovery Question
+     * User password recovery question.
      * 
      */
     @Export(name="recoveryQuestion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> recoveryQuestion;
 
     /**
-     * @return User Password Recovery Question
+     * @return User password recovery question.
      * 
      */
     public Output<Optional<String>> recoveryQuestion() {
         return Codegen.optional(this.recoveryQuestion);
     }
     /**
-     * User secondary email address, used for account recovery
+     * User profile property.
      * 
      */
     @Export(name="secondEmail", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secondEmail;
 
     /**
-     * @return User secondary email address, used for account recovery
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> secondEmail() {
@@ -528,98 +656,98 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipRoles);
     }
     /**
-     * User state or region
+     * User profile property.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
     /**
-     * @return User state or region
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
     /**
-     * The status of the User in Okta - remove to set user back to active/provisioned
+     * User profile property. Valid values are &#34;ACTIVE&#34;, &#34;DEPROVISIONED&#34;, &#34;STAGED&#34;, &#34;SUSPENDED&#34;
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return The status of the User in Okta - remove to set user back to active/provisioned
+     * @return User profile property. Valid values are &#34;ACTIVE&#34;, &#34;DEPROVISIONED&#34;, &#34;STAGED&#34;, &#34;SUSPENDED&#34;
      * 
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * User street address
+     * User profile property.
      * 
      */
     @Export(name="streetAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> streetAddress;
 
     /**
-     * @return User street address
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> streetAddress() {
         return Codegen.optional(this.streetAddress);
     }
     /**
-     * User default timezone
+     * User profile property.
      * 
      */
     @Export(name="timezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timezone;
 
     /**
-     * @return User default timezone
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> timezone() {
         return Codegen.optional(this.timezone);
     }
     /**
-     * User title
+     * User profile property.
      * 
      */
     @Export(name="title", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> title;
 
     /**
-     * @return User title
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> title() {
         return Codegen.optional(this.title);
     }
     /**
-     * User employee type
+     * User profile property.
      * 
      */
     @Export(name="userType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userType;
 
     /**
-     * @return User employee type
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> userType() {
         return Codegen.optional(this.userType);
     }
     /**
-     * User zipcode or postal code
+     * User profile property.
      * 
      */
     @Export(name="zipCode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zipCode;
 
     /**
-     * @return User zipcode or postal code
+     * @return User profile property.
      * 
      */
     public Output<Optional<String>> zipCode() {

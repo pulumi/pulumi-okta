@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Get a OIDC IdP from Okta.
+ * Use this data source to retrieve a OIDC IdP from Okta.
  *
  * ## Example Usage
  *
@@ -33,11 +33,11 @@ export function getOidc(args?: GetOidcArgs, opts?: pulumi.InvokeOptions): Promis
  */
 export interface GetOidcArgs {
     /**
-     * Id of idp.
+     * The id of the idp to retrieve, conflicts with `name`.
      */
     id?: string;
     /**
-     * Name of the idp.
+     * The name of the idp to retrieve, conflicts with `id`.
      */
     name?: string;
 }
@@ -63,7 +63,7 @@ export interface GetOidcResult {
      */
     readonly clientSecret: string;
     /**
-     * Id of idp.
+     * id of idp.
      */
     readonly id?: string;
     /**
@@ -87,7 +87,7 @@ export interface GetOidcResult {
      */
     readonly maxClockSkew: number;
     /**
-     * Name of the idp.
+     * name of the idp.
      */
     readonly name?: string;
     /**
@@ -107,7 +107,7 @@ export interface GetOidcResult {
      */
     readonly tokenUrl: string;
     /**
-     * Type of idp.
+     * type of idp.
      */
     readonly type: string;
     /**
@@ -120,7 +120,7 @@ export interface GetOidcResult {
     readonly userInfoUrl: string;
 }
 /**
- * Get a OIDC IdP from Okta.
+ * Use this data source to retrieve a OIDC IdP from Okta.
  *
  * ## Example Usage
  *
@@ -142,11 +142,11 @@ export function getOidcOutput(args?: GetOidcOutputArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetOidcOutputArgs {
     /**
-     * Id of idp.
+     * The id of the idp to retrieve, conflicts with `name`.
      */
     id?: pulumi.Input<string>;
     /**
-     * Name of the idp.
+     * The name of the idp to retrieve, conflicts with `id`.
      */
     name?: pulumi.Input<string>;
 }

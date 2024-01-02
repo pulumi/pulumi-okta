@@ -12,7 +12,7 @@ namespace Pulumi.Okta.App
     public static class GetMetadataSaml
     {
         /// <summary>
-        /// Get a SAML application's metadata from Okta.
+        /// Use this data source to retrieve the metadata for SAML application from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -41,7 +41,7 @@ namespace Pulumi.Okta.App
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:app/getMetadataSaml:getMetadataSaml", args ?? new GetMetadataSamlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a SAML application's metadata from Okta.
+        /// Use this data source to retrieve the metadata for SAML application from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -115,16 +115,13 @@ namespace Pulumi.Okta.App
     [OutputType]
     public sealed class GetMetadataSamlResult
     {
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         public readonly string AppId;
         /// <summary>
-        /// Public certificate from application metadata.
+        /// public certificate from application metadata.
         /// </summary>
         public readonly string Certificate;
         /// <summary>
-        /// Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
+        /// Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
         /// </summary>
         public readonly string EntityId;
         /// <summary>
@@ -139,12 +136,9 @@ namespace Pulumi.Okta.App
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Certificate Key ID.
-        /// </summary>
         public readonly string? KeyId;
         /// <summary>
-        /// Raw metadata of application.
+        /// raw metadata of application.
         /// </summary>
         public readonly string Metadata;
         /// <summary>

@@ -27,17 +27,17 @@ class RulePasswordArgs:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RulePassword resource.
-        :param pulumi.Input[str] name: Policy Rule Name
-        :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
-        :param pulumi.Input[str] password_change: Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
-        :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
-        :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock. Default = DENY
-        :param pulumi.Input[str] policy_id: Policy ID of the Rule
-        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
-        :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
+        :param pulumi.Input[str] name: Policy Rule Name. Type `"string"`
+        :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`. Type `"list(string)"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`. Type `"list(string)"`
+        :param pulumi.Input[str] password_change: Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+        :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+        :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
+        :param pulumi.Input[str] policy_id: Policy ID.
+        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
+        :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The users to exclude. Type `"set(string)"`
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -66,7 +66,7 @@ class RulePasswordArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Rule Name
+        Policy Rule Name. Type `"string"`
         """
         return pulumi.get(self, "name")
 
@@ -78,7 +78,7 @@ class RulePasswordArgs:
     @pulumi.getter(name="networkConnection")
     def network_connection(self) -> Optional[pulumi.Input[str]]:
         """
-        Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+        Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
         """
         return pulumi.get(self, "network_connection")
 
@@ -90,7 +90,7 @@ class RulePasswordArgs:
     @pulumi.getter(name="networkExcludes")
     def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The zones to exclude
+        The network zones to exclude. Conflicts with `network_includes`. Type `"list(string)"`
         """
         return pulumi.get(self, "network_excludes")
 
@@ -102,7 +102,7 @@ class RulePasswordArgs:
     @pulumi.getter(name="networkIncludes")
     def network_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The zones to include
+        The network zones to include. Conflicts with `network_excludes`. Type `"list(string)"`
         """
         return pulumi.get(self, "network_includes")
 
@@ -114,7 +114,7 @@ class RulePasswordArgs:
     @pulumi.getter(name="passwordChange")
     def password_change(self) -> Optional[pulumi.Input[str]]:
         """
-        Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
+        Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         """
         return pulumi.get(self, "password_change")
 
@@ -126,7 +126,7 @@ class RulePasswordArgs:
     @pulumi.getter(name="passwordReset")
     def password_reset(self) -> Optional[pulumi.Input[str]]:
         """
-        Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
+        Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         """
         return pulumi.get(self, "password_reset")
 
@@ -138,7 +138,7 @@ class RulePasswordArgs:
     @pulumi.getter(name="passwordUnlock")
     def password_unlock(self) -> Optional[pulumi.Input[str]]:
         """
-        Allow or deny a user to unlock. Default = DENY
+        Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
         """
         return pulumi.get(self, "password_unlock")
 
@@ -150,7 +150,7 @@ class RulePasswordArgs:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy ID of the Rule
+        Policy ID.
         """
         return pulumi.get(self, "policy_id")
 
@@ -162,7 +162,7 @@ class RulePasswordArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
         """
         return pulumi.get(self, "priority")
 
@@ -174,7 +174,7 @@ class RulePasswordArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Rule Status: ACTIVE or INACTIVE.
+        Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         """
         return pulumi.get(self, "status")
 
@@ -186,7 +186,7 @@ class RulePasswordArgs:
     @pulumi.getter(name="usersExcludeds")
     def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Set of User IDs to Exclude
+        The users to exclude. Type `"set(string)"`
         """
         return pulumi.get(self, "users_excludeds")
 
@@ -211,17 +211,17 @@ class _RulePasswordState:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering RulePassword resources.
-        :param pulumi.Input[str] name: Policy Rule Name
-        :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
-        :param pulumi.Input[str] password_change: Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
-        :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
-        :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock. Default = DENY
-        :param pulumi.Input[str] policy_id: Policy ID of the Rule
-        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
-        :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
+        :param pulumi.Input[str] name: Policy Rule Name. Type `"string"`
+        :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`. Type `"list(string)"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`. Type `"list(string)"`
+        :param pulumi.Input[str] password_change: Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+        :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+        :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
+        :param pulumi.Input[str] policy_id: Policy ID.
+        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
+        :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The users to exclude. Type `"set(string)"`
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -250,7 +250,7 @@ class _RulePasswordState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Rule Name
+        Policy Rule Name. Type `"string"`
         """
         return pulumi.get(self, "name")
 
@@ -262,7 +262,7 @@ class _RulePasswordState:
     @pulumi.getter(name="networkConnection")
     def network_connection(self) -> Optional[pulumi.Input[str]]:
         """
-        Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+        Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
         """
         return pulumi.get(self, "network_connection")
 
@@ -274,7 +274,7 @@ class _RulePasswordState:
     @pulumi.getter(name="networkExcludes")
     def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The zones to exclude
+        The network zones to exclude. Conflicts with `network_includes`. Type `"list(string)"`
         """
         return pulumi.get(self, "network_excludes")
 
@@ -286,7 +286,7 @@ class _RulePasswordState:
     @pulumi.getter(name="networkIncludes")
     def network_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The zones to include
+        The network zones to include. Conflicts with `network_excludes`. Type `"list(string)"`
         """
         return pulumi.get(self, "network_includes")
 
@@ -298,7 +298,7 @@ class _RulePasswordState:
     @pulumi.getter(name="passwordChange")
     def password_change(self) -> Optional[pulumi.Input[str]]:
         """
-        Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
+        Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         """
         return pulumi.get(self, "password_change")
 
@@ -310,7 +310,7 @@ class _RulePasswordState:
     @pulumi.getter(name="passwordReset")
     def password_reset(self) -> Optional[pulumi.Input[str]]:
         """
-        Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
+        Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         """
         return pulumi.get(self, "password_reset")
 
@@ -322,7 +322,7 @@ class _RulePasswordState:
     @pulumi.getter(name="passwordUnlock")
     def password_unlock(self) -> Optional[pulumi.Input[str]]:
         """
-        Allow or deny a user to unlock. Default = DENY
+        Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
         """
         return pulumi.get(self, "password_unlock")
 
@@ -334,7 +334,7 @@ class _RulePasswordState:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy ID of the Rule
+        Policy ID.
         """
         return pulumi.get(self, "policy_id")
 
@@ -346,7 +346,7 @@ class _RulePasswordState:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
         """
         return pulumi.get(self, "priority")
 
@@ -358,7 +358,7 @@ class _RulePasswordState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Rule Status: ACTIVE or INACTIVE.
+        Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         """
         return pulumi.get(self, "status")
 
@@ -370,7 +370,7 @@ class _RulePasswordState:
     @pulumi.getter(name="usersExcludeds")
     def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Set of User IDs to Exclude
+        The users to exclude. Type `"set(string)"`
         """
         return pulumi.get(self, "users_excludeds")
 
@@ -397,20 +397,31 @@ class RulePassword(pulumi.CustomResource):
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a RulePassword resource with the given unique name, props, and options.
+        Creates a Password Policy Rule.
+
+        This resource allows you to create and configure a Password Policy Rule.
+
+        ## Import
+
+        A Policy Rule can be imported via the Policy and Rule ID.
+
+        ```sh
+         $ pulumi import okta:policy/rulePassword:RulePassword example &#60;policy id&#62;/&#60;rule id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Policy Rule Name
-        :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
-        :param pulumi.Input[str] password_change: Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
-        :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
-        :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock. Default = DENY
-        :param pulumi.Input[str] policy_id: Policy ID of the Rule
-        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
-        :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
+        :param pulumi.Input[str] name: Policy Rule Name. Type `"string"`
+        :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`. Type `"list(string)"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`. Type `"list(string)"`
+        :param pulumi.Input[str] password_change: Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+        :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+        :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
+        :param pulumi.Input[str] policy_id: Policy ID.
+        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
+        :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The users to exclude. Type `"set(string)"`
         """
         ...
     @overload
@@ -419,7 +430,18 @@ class RulePassword(pulumi.CustomResource):
                  args: Optional[RulePasswordArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RulePassword resource with the given unique name, props, and options.
+        Creates a Password Policy Rule.
+
+        This resource allows you to create and configure a Password Policy Rule.
+
+        ## Import
+
+        A Policy Rule can be imported via the Policy and Rule ID.
+
+        ```sh
+         $ pulumi import okta:policy/rulePassword:RulePassword example &#60;policy id&#62;/&#60;rule id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param RulePasswordArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -494,17 +516,17 @@ class RulePassword(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Policy Rule Name
-        :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
-        :param pulumi.Input[str] password_change: Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
-        :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
-        :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock. Default = DENY
-        :param pulumi.Input[str] policy_id: Policy ID of the Rule
-        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
-        :param pulumi.Input[str] status: Policy Rule Status: ACTIVE or INACTIVE.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to Exclude
+        :param pulumi.Input[str] name: Policy Rule Name. Type `"string"`
+        :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The network zones to exclude. Conflicts with `network_includes`. Type `"list(string)"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The network zones to include. Conflicts with `network_excludes`. Type `"list(string)"`
+        :param pulumi.Input[str] password_change: Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+        :param pulumi.Input[str] password_reset: Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
+        :param pulumi.Input[str] password_unlock: Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
+        :param pulumi.Input[str] policy_id: Policy ID.
+        :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
+        :param pulumi.Input[str] status: Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: The users to exclude. Type `"set(string)"`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -527,7 +549,7 @@ class RulePassword(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Policy Rule Name
+        Policy Rule Name. Type `"string"`
         """
         return pulumi.get(self, "name")
 
@@ -535,7 +557,7 @@ class RulePassword(pulumi.CustomResource):
     @pulumi.getter(name="networkConnection")
     def network_connection(self) -> pulumi.Output[Optional[str]]:
         """
-        Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+        Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
         """
         return pulumi.get(self, "network_connection")
 
@@ -543,7 +565,7 @@ class RulePassword(pulumi.CustomResource):
     @pulumi.getter(name="networkExcludes")
     def network_excludes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The zones to exclude
+        The network zones to exclude. Conflicts with `network_includes`. Type `"list(string)"`
         """
         return pulumi.get(self, "network_excludes")
 
@@ -551,7 +573,7 @@ class RulePassword(pulumi.CustomResource):
     @pulumi.getter(name="networkIncludes")
     def network_includes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The zones to include
+        The network zones to include. Conflicts with `network_excludes`. Type `"list(string)"`
         """
         return pulumi.get(self, "network_includes")
 
@@ -559,7 +581,7 @@ class RulePassword(pulumi.CustomResource):
     @pulumi.getter(name="passwordChange")
     def password_change(self) -> pulumi.Output[Optional[str]]:
         """
-        Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
+        Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         """
         return pulumi.get(self, "password_change")
 
@@ -567,7 +589,7 @@ class RulePassword(pulumi.CustomResource):
     @pulumi.getter(name="passwordReset")
     def password_reset(self) -> pulumi.Output[Optional[str]]:
         """
-        Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
+        Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
         """
         return pulumi.get(self, "password_reset")
 
@@ -575,7 +597,7 @@ class RulePassword(pulumi.CustomResource):
     @pulumi.getter(name="passwordUnlock")
     def password_unlock(self) -> pulumi.Output[Optional[str]]:
         """
-        Allow or deny a user to unlock. Default = DENY
+        Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
         """
         return pulumi.get(self, "password_unlock")
 
@@ -583,7 +605,7 @@ class RulePassword(pulumi.CustomResource):
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Policy ID of the Rule
+        Policy ID.
         """
         return pulumi.get(self, "policy_id")
 
@@ -591,7 +613,7 @@ class RulePassword(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[int]]:
         """
-        Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
         """
         return pulumi.get(self, "priority")
 
@@ -599,7 +621,7 @@ class RulePassword(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        Policy Rule Status: ACTIVE or INACTIVE.
+        Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
         """
         return pulumi.get(self, "status")
 
@@ -607,7 +629,7 @@ class RulePassword(pulumi.CustomResource):
     @pulumi.getter(name="usersExcludeds")
     def users_excludeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Set of User IDs to Exclude
+        The users to exclude. Type `"set(string)"`
         """
         return pulumi.get(self, "users_excludeds")
 

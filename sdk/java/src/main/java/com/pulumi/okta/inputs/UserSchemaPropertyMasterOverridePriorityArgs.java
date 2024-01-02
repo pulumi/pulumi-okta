@@ -16,16 +16,32 @@ public final class UserSchemaPropertyMasterOverridePriorityArgs extends com.pulu
 
     public static final UserSchemaPropertyMasterOverridePriorityArgs Empty = new UserSchemaPropertyMasterOverridePriorityArgs();
 
+    /**
+     * Type of profile source.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return Type of profile source.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
+    /**
+     * ID of profile source.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return ID of profile source.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -55,20 +71,44 @@ public final class UserSchemaPropertyMasterOverridePriorityArgs extends com.pulu
             $ = new UserSchemaPropertyMasterOverridePriorityArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param type Type of profile source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Type of profile source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
+        /**
+         * @param value ID of profile source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value ID of profile source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

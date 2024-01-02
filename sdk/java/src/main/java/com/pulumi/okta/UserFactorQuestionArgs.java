@@ -15,14 +15,14 @@ public final class UserFactorQuestionArgs extends com.pulumi.resources.ResourceA
     public static final UserFactorQuestionArgs Empty = new UserFactorQuestionArgs();
 
     /**
-     * User password security answer
+     * Security question answer. Note here that answer won&#39;t be set during the resource import.
      * 
      */
     @Import(name="answer", required=true)
     private Output<String> answer;
 
     /**
-     * @return User password security answer
+     * @return Security question answer. Note here that answer won&#39;t be set during the resource import.
      * 
      */
     public Output<String> answer() {
@@ -30,14 +30,14 @@ public final class UserFactorQuestionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Unique key for question
+     * Security question unique key.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return Unique key for question
+     * @return Security question unique key.
      * 
      */
     public Output<String> key() {
@@ -45,14 +45,14 @@ public final class UserFactorQuestionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * ID of a Okta User
+     * ID of the user. Resource will be recreated when `user_id` changes.
      * 
      */
     @Import(name="userId", required=true)
     private Output<String> userId;
 
     /**
-     * @return ID of a Okta User
+     * @return ID of the user. Resource will be recreated when `user_id` changes.
      * 
      */
     public Output<String> userId() {
@@ -86,7 +86,7 @@ public final class UserFactorQuestionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param answer User password security answer
+         * @param answer Security question answer. Note here that answer won&#39;t be set during the resource import.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class UserFactorQuestionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param answer User password security answer
+         * @param answer Security question answer. Note here that answer won&#39;t be set during the resource import.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class UserFactorQuestionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param key Unique key for question
+         * @param key Security question unique key.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class UserFactorQuestionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param key Unique key for question
+         * @param key Security question unique key.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class UserFactorQuestionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param userId ID of a Okta User
+         * @param userId ID of the user. Resource will be recreated when `user_id` changes.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class UserFactorQuestionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param userId ID of a Okta User
+         * @param userId ID of the user. Resource will be recreated when `user_id` changes.
          * 
          * @return builder
          * 

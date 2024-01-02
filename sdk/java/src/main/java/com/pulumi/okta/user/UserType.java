@@ -13,45 +13,90 @@ import com.pulumi.okta.user.inputs.UserTypeState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a User type.
+ * 
+ * This resource allows you to create and configure a User Type.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.user.UserType;
+ * import com.pulumi.okta.user.UserTypeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new UserType(&#34;example&#34;, UserTypeArgs.builder()        
+ *             .description(&#34;example&#34;)
+ *             .displayName(&#34;example&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * A User Type can be imported via the Okta ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:user/userType:UserType example &amp;#60;user type id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:user/userType:UserType")
 public class UserType extends com.pulumi.resources.CustomResource {
     /**
-     * A human-readable description of the User type
+     * Description of the User Type.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return A human-readable description of the User type
+     * @return Description of the User Type.
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * The display name of the user type
+     * Display Name of the User Type.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return The display name of the user type
+     * @return Display Name of the User Type.
      * 
      */
     public Output<String> displayName() {
         return this.displayName;
     }
     /**
-     * Name of the user type
+     * Name of the User Type.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the user type
+     * @return Name of the User Type.
      * 
      */
     public Output<String> name() {

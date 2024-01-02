@@ -12,27 +12,15 @@ namespace Pulumi.Okta.App.Inputs
 
     public sealed class OAuthJwkGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// RSA Exponent
-        /// </summary>
         [Input("e")]
         public Input<string>? E { get; set; }
 
-        /// <summary>
-        /// Key ID
-        /// </summary>
         [Input("kid", required: true)]
         public Input<string> Kid { get; set; } = null!;
 
-        /// <summary>
-        /// Key type
-        /// </summary>
         [Input("kty", required: true)]
         public Input<string> Kty { get; set; } = null!;
 
-        /// <summary>
-        /// RSA Modulus
-        /// </summary>
         [Input("n")]
         public Input<string>? N { get; set; }
 

@@ -12,7 +12,7 @@ namespace Pulumi.Okta
     public static class GetNetworkZone
     {
         /// <summary>
-        /// Gets Okta Network Zone.
+        /// Use this data source to retrieve a network zone from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -40,7 +40,7 @@ namespace Pulumi.Okta
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkZoneResult>("okta:index/getNetworkZone:getNetworkZone", args ?? new GetNetworkZoneArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets Okta Network Zone.
+        /// Use this data source to retrieve a network zone from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -114,43 +114,43 @@ namespace Pulumi.Okta
     public sealed class GetNetworkZoneResult
     {
         /// <summary>
-        /// Format of each array value: a string representation of an ASN numeric value
+        /// Array of Autonomous System Numbers.
         /// </summary>
         public readonly ImmutableArray<string> Asns;
         /// <summary>
-        /// Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+        /// Array of locations.
         /// </summary>
         public readonly ImmutableArray<string> DynamicLocations;
         /// <summary>
-        /// Type of proxy being controlled by this network zone
+        /// Type of proxy being controlled by this dynamic network zone.
         /// </summary>
         public readonly string DynamicProxyType;
         /// <summary>
-        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        /// Array of values in CIDR/range form.
         /// </summary>
         public readonly ImmutableArray<string> Gateways;
         /// <summary>
-        /// ID of the network zone to retrieve, conflicts with `name`.
+        /// ID of the network zone.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Name of the network zone to retrieve, conflicts with `id`.
+        /// Name of the network zone.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        /// Array of values in CIDR/range form.
         /// </summary>
         public readonly ImmutableArray<string> Proxies;
         /// <summary>
-        /// Network Status - can either be ACTIVE or INACTIVE only
+        /// Network Status - can either be ACTIVE or INACTIVE only.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Type of the Network Zone - can either be IP or DYNAMIC only
+        /// Type of the Network Zone.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Zone's purpose: POLICY or BLOCKLIST
+        /// Usage of the Network Zone.
         /// </summary>
         public readonly string Usage;
 

@@ -6,6 +6,31 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * This resource allows you to create and configure an email domain.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.index.EmailDomain("example", {
+ *     brandId: "abc123",
+ *     displayName: "test",
+ *     domain: "example.com",
+ *     userName: "paul_atreides",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Custom email domain can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:Index/emailDomain:EmailDomain example &#60;domain id&#62;
+ * ```
+ */
 export class EmailDomain extends pulumi.CustomResource {
     /**
      * Get an existing EmailDomain resource's state with the given name, ID, and optional extra
@@ -35,27 +60,27 @@ export class EmailDomain extends pulumi.CustomResource {
     }
 
     /**
-     * Brand id
+     * Brand id of the email domain.
      */
     public readonly brandId!: pulumi.Output<string>;
     /**
-     * Display name
+     * Display name of the email domain.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * TXT and cname records to be registered for the email Domain
+     * TXT and CNAME records to be registered for the domain.
      */
     public /*out*/ readonly dnsValidationRecords!: pulumi.Output<outputs.Index.EmailDomainDnsValidationRecord[]>;
     /**
-     * Domain name
+     * Mail domain to send from.
      */
     public readonly domain!: pulumi.Output<string>;
     /**
-     * User name
+     * User name of the email domain.
      */
     public readonly userName!: pulumi.Output<string>;
     /**
-     * Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
+     * Status of the email domain (shows whether the domain is verified).
      */
     public /*out*/ readonly validationStatus!: pulumi.Output<string>;
 
@@ -109,27 +134,27 @@ export class EmailDomain extends pulumi.CustomResource {
  */
 export interface EmailDomainState {
     /**
-     * Brand id
+     * Brand id of the email domain.
      */
     brandId?: pulumi.Input<string>;
     /**
-     * Display name
+     * Display name of the email domain.
      */
     displayName?: pulumi.Input<string>;
     /**
-     * TXT and cname records to be registered for the email Domain
+     * TXT and CNAME records to be registered for the domain.
      */
     dnsValidationRecords?: pulumi.Input<pulumi.Input<inputs.Index.EmailDomainDnsValidationRecord>[]>;
     /**
-     * Domain name
+     * Mail domain to send from.
      */
     domain?: pulumi.Input<string>;
     /**
-     * User name
+     * User name of the email domain.
      */
     userName?: pulumi.Input<string>;
     /**
-     * Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
+     * Status of the email domain (shows whether the domain is verified).
      */
     validationStatus?: pulumi.Input<string>;
 }
@@ -139,19 +164,19 @@ export interface EmailDomainState {
  */
 export interface EmailDomainArgs {
     /**
-     * Brand id
+     * Brand id of the email domain.
      */
     brandId: pulumi.Input<string>;
     /**
-     * Display name
+     * Display name of the email domain.
      */
     displayName: pulumi.Input<string>;
     /**
-     * Domain name
+     * Mail domain to send from.
      */
     domain: pulumi.Input<string>;
     /**
-     * User name
+     * User name of the email domain.
      */
     userName: pulumi.Input<string>;
 }

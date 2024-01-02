@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Get a SAML IdP from Okta.
+ * Use this data source to retrieve a SAML IdP from Okta.
  *
  * ## Example Usage
  *
@@ -33,11 +33,11 @@ export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promis
  */
 export interface GetSamlArgs {
     /**
-     * Id of idp.
+     * The id of the idp to retrieve, conflicts with `name`.
      */
     id?: string;
     /**
-     * Name of the idp.
+     * The name of the idp to retrieve, conflicts with `id`.
      */
     name?: string;
 }
@@ -46,9 +46,6 @@ export interface GetSamlArgs {
  * A collection of values returned by getSaml.
  */
 export interface GetSamlResult {
-    /**
-     * ACS binding
-     */
     readonly acsBinding: string;
     /**
      * Determines whether to publish an instance-specific (trust) or organization (shared) ACS endpoint in the SAML metadata.
@@ -59,7 +56,7 @@ export interface GetSamlResult {
      */
     readonly audience: string;
     /**
-     * Id of idp.
+     * id of idp.
      */
     readonly id?: string;
     /**
@@ -67,7 +64,7 @@ export interface GetSamlResult {
      */
     readonly issuer: string;
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
+     * indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
      */
     readonly issuerMode: string;
     /**
@@ -75,11 +72,11 @@ export interface GetSamlResult {
      */
     readonly kid: string;
     /**
-     * Name of the idp.
+     * name of the idp.
      */
     readonly name?: string;
     /**
-     * Single sign-on binding.
+     * single sign-on binding.
      */
     readonly ssoBinding: string;
     /**
@@ -87,11 +84,11 @@ export interface GetSamlResult {
      */
     readonly ssoDestination: string;
     /**
-     * Single sign-on url.
+     * single sign-on url.
      */
     readonly ssoUrl: string;
     /**
-     * Regular expression pattern used to filter untrusted IdP usernames.
+     * regular expression pattern used to filter untrusted IdP usernames.
      */
     readonly subjectFilter: string;
     /**
@@ -99,12 +96,12 @@ export interface GetSamlResult {
      */
     readonly subjectFormats: string[];
     /**
-     * Type of idp.
+     * type of idp.
      */
     readonly type: string;
 }
 /**
- * Get a SAML IdP from Okta.
+ * Use this data source to retrieve a SAML IdP from Okta.
  *
  * ## Example Usage
  *
@@ -126,11 +123,11 @@ export function getSamlOutput(args?: GetSamlOutputArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetSamlOutputArgs {
     /**
-     * Id of idp.
+     * The id of the idp to retrieve, conflicts with `name`.
      */
     id?: pulumi.Input<string>;
     /**
-     * Name of the idp.
+     * The name of the idp to retrieve, conflicts with `id`.
      */
     name?: pulumi.Input<string>;
 }

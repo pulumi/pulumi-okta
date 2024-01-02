@@ -19,14 +19,14 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
     public static final PolicyPasswordDefaultArgs Empty = new PolicyPasswordDefaultArgs();
 
     /**
-     * Enable or disable voice call recovery: ACTIVE or INACTIVE.
+     * Enable or disable voice call password recovery: ACTIVE or INACTIVE.
      * 
      */
     @Import(name="callRecovery")
     private @Nullable Output<String> callRecovery;
 
     /**
-     * @return Enable or disable voice call recovery: ACTIVE or INACTIVE.
+     * @return Enable or disable voice call password recovery: ACTIVE or INACTIVE.
      * 
      */
     public Optional<Output<String>> callRecovery() {
@@ -79,14 +79,14 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * User firstName attribute must be excluded from the password
+     * User firstName attribute must be excluded from the password.
      * 
      */
     @Import(name="passwordExcludeFirstName")
     private @Nullable Output<Boolean> passwordExcludeFirstName;
 
     /**
-     * @return User firstName attribute must be excluded from the password
+     * @return User firstName attribute must be excluded from the password.
      * 
      */
     public Optional<Output<Boolean>> passwordExcludeFirstName() {
@@ -94,14 +94,14 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * User lastName attribute must be excluded from the password
+     * User lastName attribute must be excluded from the password.
      * 
      */
     @Import(name="passwordExcludeLastName")
     private @Nullable Output<Boolean> passwordExcludeLastName;
 
     /**
-     * @return User lastName attribute must be excluded from the password
+     * @return User lastName attribute must be excluded from the password.
      * 
      */
     public Optional<Output<Boolean>> passwordExcludeLastName() {
@@ -109,14 +109,14 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * If the user name must be excluded from the password.
+     * If the username must be excluded from the password.
      * 
      */
     @Import(name="passwordExcludeUsername")
     private @Nullable Output<Boolean> passwordExcludeUsername;
 
     /**
-     * @return If the user name must be excluded from the password.
+     * @return If the username must be excluded from the password.
      * 
      */
     public Optional<Output<Boolean>> passwordExcludeUsername() {
@@ -139,14 +139,16 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Number of distinct passwords that must be created before they can be reused: 0 = none.
+     * Number of distinct passwords that must be created before they can be reused: 0 =
+     * none.
      * 
      */
     @Import(name="passwordHistoryCount")
     private @Nullable Output<Integer> passwordHistoryCount;
 
     /**
-     * @return Number of distinct passwords that must be created before they can be reused: 0 = none.
+     * @return Number of distinct passwords that must be created before they can be reused: 0 =
+     * none.
      * 
      */
     public Optional<Output<Integer>> passwordHistoryCount() {
@@ -154,14 +156,16 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Notification channels to use to notify a user when their account has been locked.
+     * Notification channels to use to notify a user when their account
+     * has been locked.
      * 
      */
     @Import(name="passwordLockoutNotificationChannels")
     private @Nullable Output<List<String>> passwordLockoutNotificationChannels;
 
     /**
-     * @return Notification channels to use to notify a user when their account has been locked.
+     * @return Notification channels to use to notify a user when their account
+     * has been locked.
      * 
      */
     public Optional<Output<List<String>>> passwordLockoutNotificationChannels() {
@@ -169,14 +173,14 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Length in days a password is valid before expiry: 0 = no limit.
+     * Length in days a password is valid before expiry: 0 = no limit.,
      * 
      */
     @Import(name="passwordMaxAgeDays")
     private @Nullable Output<Integer> passwordMaxAgeDays;
 
     /**
-     * @return Length in days a password is valid before expiry: 0 = no limit.
+     * @return Length in days a password is valid before expiry: 0 = no limit.,
      * 
      */
     public Optional<Output<Integer>> passwordMaxAgeDays() {
@@ -184,14 +188,16 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
+     * Number of unsuccessful login attempts allowed before lockout: 0 = no
+     * limit.
      * 
      */
     @Import(name="passwordMaxLockoutAttempts")
     private @Nullable Output<Integer> passwordMaxLockoutAttempts;
 
     /**
-     * @return Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
+     * @return Number of unsuccessful login attempts allowed before lockout: 0 = no
+     * limit.
      * 
      */
     public Optional<Output<Integer>> passwordMaxLockoutAttempts() {
@@ -214,14 +220,14 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Minimum password length.
+     * Minimum password length. Default is 8.
      * 
      */
     @Import(name="passwordMinLength")
     private @Nullable Output<Integer> passwordMinLength;
 
     /**
-     * @return Minimum password length.
+     * @return Minimum password length. Default is 8.
      * 
      */
     public Optional<Output<Integer>> passwordMinLength() {
@@ -229,14 +235,14 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
+     * Minimum number of lower case characters in a password.
      * 
      */
     @Import(name="passwordMinLowercase")
     private @Nullable Output<Integer> passwordMinLowercase;
 
     /**
-     * @return If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
+     * @return Minimum number of lower case characters in a password.
      * 
      */
     public Optional<Output<Integer>> passwordMinLowercase() {
@@ -244,14 +250,14 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
+     * Minimum number of numbers in a password.
      * 
      */
     @Import(name="passwordMinNumber")
     private @Nullable Output<Integer> passwordMinNumber;
 
     /**
-     * @return If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
+     * @return Minimum number of numbers in a password.
      * 
      */
     public Optional<Output<Integer>> passwordMinNumber() {
@@ -259,14 +265,14 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * If a password must contain at least one symbol (!@#$%^&amp;*): 0 = no, 1 = yes. Default = 1
+     * Minimum number of symbols in a password.
      * 
      */
     @Import(name="passwordMinSymbol")
     private @Nullable Output<Integer> passwordMinSymbol;
 
     /**
-     * @return If a password must contain at least one symbol (!@#$%^&amp;*): 0 = no, 1 = yes. Default = 1
+     * @return Minimum number of symbols in a password.
      * 
      */
     public Optional<Output<Integer>> passwordMinSymbol() {
@@ -274,14 +280,14 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
+     * Minimum number of upper case characters in a password.
      * 
      */
     @Import(name="passwordMinUppercase")
     private @Nullable Output<Integer> passwordMinUppercase;
 
     /**
-     * @return If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
+     * @return Minimum number of upper case characters in a password.
      * 
      */
     public Optional<Output<Integer>> passwordMinUppercase() {
@@ -349,14 +355,16 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account.
+     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also
+     * attempt to unlock the user&#39;s Windows account.
      * 
      */
     @Import(name="skipUnlock")
     private @Nullable Output<Boolean> skipUnlock;
 
     /**
-     * @return When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account.
+     * @return When an Active Directory user is locked out of Okta, the Okta unlock operation should also
+     * attempt to unlock the user&#39;s Windows account.
      * 
      */
     public Optional<Output<Boolean>> skipUnlock() {
@@ -426,7 +434,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param callRecovery Enable or disable voice call recovery: ACTIVE or INACTIVE.
+         * @param callRecovery Enable or disable voice call password recovery: ACTIVE or INACTIVE.
          * 
          * @return builder
          * 
@@ -437,7 +445,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param callRecovery Enable or disable voice call recovery: ACTIVE or INACTIVE.
+         * @param callRecovery Enable or disable voice call password recovery: ACTIVE or INACTIVE.
          * 
          * @return builder
          * 
@@ -510,7 +518,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordExcludeFirstName User firstName attribute must be excluded from the password
+         * @param passwordExcludeFirstName User firstName attribute must be excluded from the password.
          * 
          * @return builder
          * 
@@ -521,7 +529,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordExcludeFirstName User firstName attribute must be excluded from the password
+         * @param passwordExcludeFirstName User firstName attribute must be excluded from the password.
          * 
          * @return builder
          * 
@@ -531,7 +539,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordExcludeLastName User lastName attribute must be excluded from the password
+         * @param passwordExcludeLastName User lastName attribute must be excluded from the password.
          * 
          * @return builder
          * 
@@ -542,7 +550,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordExcludeLastName User lastName attribute must be excluded from the password
+         * @param passwordExcludeLastName User lastName attribute must be excluded from the password.
          * 
          * @return builder
          * 
@@ -552,7 +560,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordExcludeUsername If the user name must be excluded from the password.
+         * @param passwordExcludeUsername If the username must be excluded from the password.
          * 
          * @return builder
          * 
@@ -563,7 +571,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordExcludeUsername If the user name must be excluded from the password.
+         * @param passwordExcludeUsername If the username must be excluded from the password.
          * 
          * @return builder
          * 
@@ -594,7 +602,8 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordHistoryCount Number of distinct passwords that must be created before they can be reused: 0 = none.
+         * @param passwordHistoryCount Number of distinct passwords that must be created before they can be reused: 0 =
+         * none.
          * 
          * @return builder
          * 
@@ -605,7 +614,8 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordHistoryCount Number of distinct passwords that must be created before they can be reused: 0 = none.
+         * @param passwordHistoryCount Number of distinct passwords that must be created before they can be reused: 0 =
+         * none.
          * 
          * @return builder
          * 
@@ -615,7 +625,8 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account has been locked.
+         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account
+         * has been locked.
          * 
          * @return builder
          * 
@@ -626,7 +637,8 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account has been locked.
+         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account
+         * has been locked.
          * 
          * @return builder
          * 
@@ -636,7 +648,8 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account has been locked.
+         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account
+         * has been locked.
          * 
          * @return builder
          * 
@@ -646,7 +659,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordMaxAgeDays Length in days a password is valid before expiry: 0 = no limit.
+         * @param passwordMaxAgeDays Length in days a password is valid before expiry: 0 = no limit.,
          * 
          * @return builder
          * 
@@ -657,7 +670,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordMaxAgeDays Length in days a password is valid before expiry: 0 = no limit.
+         * @param passwordMaxAgeDays Length in days a password is valid before expiry: 0 = no limit.,
          * 
          * @return builder
          * 
@@ -667,7 +680,8 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordMaxLockoutAttempts Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
+         * @param passwordMaxLockoutAttempts Number of unsuccessful login attempts allowed before lockout: 0 = no
+         * limit.
          * 
          * @return builder
          * 
@@ -678,7 +692,8 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordMaxLockoutAttempts Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
+         * @param passwordMaxLockoutAttempts Number of unsuccessful login attempts allowed before lockout: 0 = no
+         * limit.
          * 
          * @return builder
          * 
@@ -709,7 +724,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordMinLength Minimum password length.
+         * @param passwordMinLength Minimum password length. Default is 8.
          * 
          * @return builder
          * 
@@ -720,7 +735,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordMinLength Minimum password length.
+         * @param passwordMinLength Minimum password length. Default is 8.
          * 
          * @return builder
          * 
@@ -730,7 +745,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordMinLowercase If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
+         * @param passwordMinLowercase Minimum number of lower case characters in a password.
          * 
          * @return builder
          * 
@@ -741,7 +756,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordMinLowercase If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
+         * @param passwordMinLowercase Minimum number of lower case characters in a password.
          * 
          * @return builder
          * 
@@ -751,7 +766,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordMinNumber If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
+         * @param passwordMinNumber Minimum number of numbers in a password.
          * 
          * @return builder
          * 
@@ -762,7 +777,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordMinNumber If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
+         * @param passwordMinNumber Minimum number of numbers in a password.
          * 
          * @return builder
          * 
@@ -772,7 +787,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordMinSymbol If a password must contain at least one symbol (!@#$%^&amp;*): 0 = no, 1 = yes. Default = 1
+         * @param passwordMinSymbol Minimum number of symbols in a password.
          * 
          * @return builder
          * 
@@ -783,7 +798,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordMinSymbol If a password must contain at least one symbol (!@#$%^&amp;*): 0 = no, 1 = yes. Default = 1
+         * @param passwordMinSymbol Minimum number of symbols in a password.
          * 
          * @return builder
          * 
@@ -793,7 +808,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordMinUppercase If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
+         * @param passwordMinUppercase Minimum number of upper case characters in a password.
          * 
          * @return builder
          * 
@@ -804,7 +819,7 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passwordMinUppercase If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
+         * @param passwordMinUppercase Minimum number of upper case characters in a password.
          * 
          * @return builder
          * 
@@ -898,7 +913,8 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param skipUnlock When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account.
+         * @param skipUnlock When an Active Directory user is locked out of Okta, the Okta unlock operation should also
+         * attempt to unlock the user&#39;s Windows account.
          * 
          * @return builder
          * 
@@ -909,7 +925,8 @@ public final class PolicyPasswordDefaultArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param skipUnlock When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account.
+         * @param skipUnlock When an Active Directory user is locked out of Okta, the Okta unlock operation should also
+         * attempt to unlock the user&#39;s Windows account.
          * 
          * @return builder
          * 

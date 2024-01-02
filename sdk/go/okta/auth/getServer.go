@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get an auth server from Okta.
+// Use this data source to retrieve an auth server from Okta.
 //
 // ## Example Usage
 //
@@ -56,27 +56,27 @@ type LookupServerArgs struct {
 
 // A collection of values returned by getServer.
 type LookupServerResult struct {
-	// Description of Authorization server.
+	// array of audiences.
 	Audiences []string `pulumi:"audiences"`
-	// Last time credentials were rotated.
+	// last time credentials were rotated.
 	CredentialsLastRotated string `pulumi:"credentialsLastRotated"`
-	// Next time credentials will be rotated
+	// next time credentials will be rotated
 	CredentialsNextRotation string `pulumi:"credentialsNextRotation"`
-	// Mode of credential rotation, auto or manual.
+	// mode of credential rotation, auto or manual.
 	CredentialsRotationMode string `pulumi:"credentialsRotationMode"`
-	// Description of Authorization server.
+	// description of Authorization server.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The complete URL of the authorization server. This becomes the `iss` claim in an access token.
 	Issuer string `pulumi:"issuer"`
-	// Can be set to `CUSTOM_URL` or `ORG_URL`
+	// Can be set to `"CUSTOM_URL"` or `"ORG_URL"`
 	IssuerMode string `pulumi:"issuerMode"`
-	// Auth server key id.
+	// auth server key id.
 	Kid string `pulumi:"kid"`
-	// The name of the auth server to retrieve.
+	// The name of the auth server.
 	Name string `pulumi:"name"`
-	// The activation status of the authorization server.
+	// the activation status of the authorization server.
 	Status string `pulumi:"status"`
 }
 
@@ -118,27 +118,27 @@ func (o LookupServerResultOutput) ToLookupServerResultOutputWithContext(ctx cont
 	return o
 }
 
-// Description of Authorization server.
+// array of audiences.
 func (o LookupServerResultOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupServerResult) []string { return v.Audiences }).(pulumi.StringArrayOutput)
 }
 
-// Last time credentials were rotated.
+// last time credentials were rotated.
 func (o LookupServerResultOutput) CredentialsLastRotated() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.CredentialsLastRotated }).(pulumi.StringOutput)
 }
 
-// Next time credentials will be rotated
+// next time credentials will be rotated
 func (o LookupServerResultOutput) CredentialsNextRotation() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.CredentialsNextRotation }).(pulumi.StringOutput)
 }
 
-// Mode of credential rotation, auto or manual.
+// mode of credential rotation, auto or manual.
 func (o LookupServerResultOutput) CredentialsRotationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.CredentialsRotationMode }).(pulumi.StringOutput)
 }
 
-// Description of Authorization server.
+// description of Authorization server.
 func (o LookupServerResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -153,22 +153,22 @@ func (o LookupServerResultOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// Can be set to `CUSTOM_URL` or `ORG_URL`
+// Can be set to `"CUSTOM_URL"` or `"ORG_URL"`
 func (o LookupServerResultOutput) IssuerMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.IssuerMode }).(pulumi.StringOutput)
 }
 
-// Auth server key id.
+// auth server key id.
 func (o LookupServerResultOutput) Kid() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Kid }).(pulumi.StringOutput)
 }
 
-// The name of the auth server to retrieve.
+// The name of the auth server.
 func (o LookupServerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The activation status of the authorization server.
+// the activation status of the authorization server.
 func (o LookupServerResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Status }).(pulumi.StringOutput)
 }

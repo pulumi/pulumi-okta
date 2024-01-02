@@ -12,12 +12,108 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myAppPolicy, err := okta.NewAppSignonPolicy(ctx, "myAppPolicy", &okta.AppSignonPolicyArgs{
+//				Description: pulumi.String("Authentication Policy to be used on my app."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = app.NewOAuth(ctx, "myApp", &app.OAuthArgs{
+//				Label: pulumi.String("My App"),
+//				Type:  pulumi.String("web"),
+//				GrantTypes: pulumi.StringArray{
+//					pulumi.String("authorization_code"),
+//				},
+//				RedirectUris: pulumi.StringArray{
+//					pulumi.String("http://localhost:3000"),
+//				},
+//				PostLogoutRedirectUris: pulumi.StringArray{
+//					pulumi.String("http://localhost:3000"),
+//				},
+//				ResponseTypes: pulumi.StringArray{
+//					pulumi.String("code"),
+//				},
+//				AuthenticationPolicy: myAppPolicy.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// The created policy can be extended using `appSignonPolicyRules`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewAppSignonPolicy(ctx, "myAppPolicy", &okta.AppSignonPolicyArgs{
+//				Description: pulumi.String("Authentication Policy to be used on my app."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"knowledge": map[string]interface{}{
+//					"types": []string{
+//						"password",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = okta.NewAppSignonPolicyRule(ctx, "someRule", &okta.AppSignonPolicyRuleArgs{
+//				PolicyId:                  pulumi.Any(resource.Okta_app_signon_policy.My_app_policy.Id),
+//				FactorMode:                pulumi.String("1FA"),
+//				ReAuthenticationFrequency: pulumi.String("PT43800H"),
+//				Constraints: pulumi.StringArray{
+//					pulumi.String(json0),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type AppSignonPolicy struct {
 	pulumi.CustomResourceState
 
-	// Policy Description
+	// Description of the policy.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Policy Name
+	// Name of the policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -54,16 +150,16 @@ func GetAppSignonPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppSignonPolicy resources.
 type appSignonPolicyState struct {
-	// Policy Description
+	// Description of the policy.
 	Description *string `pulumi:"description"`
-	// Policy Name
+	// Name of the policy.
 	Name *string `pulumi:"name"`
 }
 
 type AppSignonPolicyState struct {
-	// Policy Description
+	// Description of the policy.
 	Description pulumi.StringPtrInput
-	// Policy Name
+	// Name of the policy.
 	Name pulumi.StringPtrInput
 }
 
@@ -72,17 +168,17 @@ func (AppSignonPolicyState) ElementType() reflect.Type {
 }
 
 type appSignonPolicyArgs struct {
-	// Policy Description
+	// Description of the policy.
 	Description string `pulumi:"description"`
-	// Policy Name
+	// Name of the policy.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a AppSignonPolicy resource.
 type AppSignonPolicyArgs struct {
-	// Policy Description
+	// Description of the policy.
 	Description pulumi.StringInput
-	// Policy Name
+	// Name of the policy.
 	Name pulumi.StringPtrInput
 }
 
@@ -173,12 +269,12 @@ func (o AppSignonPolicyOutput) ToAppSignonPolicyOutputWithContext(ctx context.Co
 	return o
 }
 
-// Policy Description
+// Description of the policy.
 func (o AppSignonPolicyOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppSignonPolicy) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Policy Name
+// Name of the policy.
 func (o AppSignonPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppSignonPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
