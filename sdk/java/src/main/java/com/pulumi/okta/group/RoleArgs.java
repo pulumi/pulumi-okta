@@ -5,6 +5,7 @@ package com.pulumi.okta.group;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -246,8 +247,12 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RoleArgs build() {
-            $.groupId = Objects.requireNonNull($.groupId, "expected parameter 'groupId' to be non-null");
-            $.roleType = Objects.requireNonNull($.roleType, "expected parameter 'roleType' to be non-null");
+            if ($.groupId == null) {
+                throw new MissingRequiredPropertyException("RoleArgs", "groupId");
+            }
+            if ($.roleType == null) {
+                throw new MissingRequiredPropertyException("RoleArgs", "roleType");
+            }
             return $;
         }
     }

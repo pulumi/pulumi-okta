@@ -4,6 +4,7 @@
 package com.pulumi.okta.Index.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.Index.outputs.GetOrgMetadataDomains;
 import com.pulumi.okta.Index.outputs.GetOrgMetadataSettings;
 import java.lang.String;
@@ -88,21 +89,29 @@ public final class GetOrgMetadataResult {
 
         @CustomType.Setter
         public Builder domains(@Nullable GetOrgMetadataDomains domains) {
+
             this.domains = domains;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOrgMetadataResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder pipeline(String pipeline) {
-            this.pipeline = Objects.requireNonNull(pipeline);
+            if (pipeline == null) {
+              throw new MissingRequiredPropertyException("GetOrgMetadataResult", "pipeline");
+            }
+            this.pipeline = pipeline;
             return this;
         }
         @CustomType.Setter
         public Builder settings(@Nullable GetOrgMetadataSettings settings) {
+
             this.settings = settings;
             return this;
         }

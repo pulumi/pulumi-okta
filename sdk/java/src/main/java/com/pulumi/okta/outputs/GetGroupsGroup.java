@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -58,27 +59,42 @@ public final class GetGroupsGroup {
 
         @CustomType.Setter
         public Builder customProfileAttributes(String customProfileAttributes) {
-            this.customProfileAttributes = Objects.requireNonNull(customProfileAttributes);
+            if (customProfileAttributes == null) {
+              throw new MissingRequiredPropertyException("GetGroupsGroup", "customProfileAttributes");
+            }
+            this.customProfileAttributes = customProfileAttributes;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetGroupsGroup", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGroupsGroup", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetGroupsGroup", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetGroupsGroup", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetGroupsGroup build() {

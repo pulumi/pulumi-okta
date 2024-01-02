@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,8 +162,12 @@ public final class LinkValueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LinkValueArgs build() {
-            $.primaryName = Objects.requireNonNull($.primaryName, "expected parameter 'primaryName' to be non-null");
-            $.primaryUserId = Objects.requireNonNull($.primaryUserId, "expected parameter 'primaryUserId' to be non-null");
+            if ($.primaryName == null) {
+                throw new MissingRequiredPropertyException("LinkValueArgs", "primaryName");
+            }
+            if ($.primaryUserId == null) {
+                throw new MissingRequiredPropertyException("LinkValueArgs", "primaryUserId");
+            }
             return $;
         }
     }

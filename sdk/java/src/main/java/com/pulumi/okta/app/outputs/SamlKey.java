@@ -91,46 +91,55 @@ public final class SamlKey {
 
         @CustomType.Setter
         public Builder created(@Nullable String created) {
+
             this.created = created;
             return this;
         }
         @CustomType.Setter
         public Builder e(@Nullable String e) {
+
             this.e = e;
             return this;
         }
         @CustomType.Setter
         public Builder expiresAt(@Nullable String expiresAt) {
+
             this.expiresAt = expiresAt;
             return this;
         }
         @CustomType.Setter
         public Builder kid(@Nullable String kid) {
+
             this.kid = kid;
             return this;
         }
         @CustomType.Setter
         public Builder kty(@Nullable String kty) {
+
             this.kty = kty;
             return this;
         }
         @CustomType.Setter
         public Builder lastUpdated(@Nullable String lastUpdated) {
+
             this.lastUpdated = lastUpdated;
             return this;
         }
         @CustomType.Setter
         public Builder n(@Nullable String n) {
+
             this.n = n;
             return this;
         }
         @CustomType.Setter
         public Builder use(@Nullable String use) {
+
             this.use = use;
             return this;
         }
         @CustomType.Setter
         public Builder x5cs(@Nullable List<String> x5cs) {
+
             this.x5cs = x5cs;
             return this;
         }
@@ -139,6 +148,7 @@ public final class SamlKey {
         }
         @CustomType.Setter
         public Builder x5tS256(@Nullable String x5tS256) {
+
             this.x5tS256 = x5tS256;
             return this;
         }

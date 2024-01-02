@@ -5,6 +5,7 @@ package com.pulumi.okta.app;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class OauthRoleAssignmentArgs extends com.pulumi.resources.Resource
         }
 
         public OauthRoleAssignmentArgs build() {
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("OauthRoleAssignmentArgs", "clientId");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("OauthRoleAssignmentArgs", "type");
+            }
             return $;
         }
     }

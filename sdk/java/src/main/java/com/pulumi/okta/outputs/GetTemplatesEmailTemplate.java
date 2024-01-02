@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetTemplatesEmailTemplate {
 
         @CustomType.Setter
         public Builder links(String links) {
-            this.links = Objects.requireNonNull(links);
+            if (links == null) {
+              throw new MissingRequiredPropertyException("GetTemplatesEmailTemplate", "links");
+            }
+            this.links = links;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTemplatesEmailTemplate", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetTemplatesEmailTemplate build() {

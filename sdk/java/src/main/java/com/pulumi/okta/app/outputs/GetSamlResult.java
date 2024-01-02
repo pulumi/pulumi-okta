@@ -4,6 +4,7 @@
 package com.pulumi.okta.app.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.app.outputs.GetSamlAttributeStatement;
 import java.lang.Boolean;
 import java.lang.String;
@@ -721,22 +722,34 @@ public final class GetSamlResult {
 
         @CustomType.Setter
         public Builder accessibilityErrorRedirectUrl(String accessibilityErrorRedirectUrl) {
-            this.accessibilityErrorRedirectUrl = Objects.requireNonNull(accessibilityErrorRedirectUrl);
+            if (accessibilityErrorRedirectUrl == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "accessibilityErrorRedirectUrl");
+            }
+            this.accessibilityErrorRedirectUrl = accessibilityErrorRedirectUrl;
             return this;
         }
         @CustomType.Setter
         public Builder accessibilityLoginRedirectUrl(String accessibilityLoginRedirectUrl) {
-            this.accessibilityLoginRedirectUrl = Objects.requireNonNull(accessibilityLoginRedirectUrl);
+            if (accessibilityLoginRedirectUrl == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "accessibilityLoginRedirectUrl");
+            }
+            this.accessibilityLoginRedirectUrl = accessibilityLoginRedirectUrl;
             return this;
         }
         @CustomType.Setter
         public Builder accessibilitySelfService(Boolean accessibilitySelfService) {
-            this.accessibilitySelfService = Objects.requireNonNull(accessibilitySelfService);
+            if (accessibilitySelfService == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "accessibilitySelfService");
+            }
+            this.accessibilitySelfService = accessibilitySelfService;
             return this;
         }
         @CustomType.Setter
         public Builder acsEndpoints(List<String> acsEndpoints) {
-            this.acsEndpoints = Objects.requireNonNull(acsEndpoints);
+            if (acsEndpoints == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "acsEndpoints");
+            }
+            this.acsEndpoints = acsEndpoints;
             return this;
         }
         public Builder acsEndpoints(String... acsEndpoints) {
@@ -744,22 +757,32 @@ public final class GetSamlResult {
         }
         @CustomType.Setter
         public Builder activeOnly(@Nullable Boolean activeOnly) {
+
             this.activeOnly = activeOnly;
             return this;
         }
         @CustomType.Setter
         public Builder appSettingsJson(String appSettingsJson) {
-            this.appSettingsJson = Objects.requireNonNull(appSettingsJson);
+            if (appSettingsJson == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "appSettingsJson");
+            }
+            this.appSettingsJson = appSettingsJson;
             return this;
         }
         @CustomType.Setter
         public Builder assertionSigned(Boolean assertionSigned) {
-            this.assertionSigned = Objects.requireNonNull(assertionSigned);
+            if (assertionSigned == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "assertionSigned");
+            }
+            this.assertionSigned = assertionSigned;
             return this;
         }
         @CustomType.Setter
         public Builder attributeStatements(List<GetSamlAttributeStatement> attributeStatements) {
-            this.attributeStatements = Objects.requireNonNull(attributeStatements);
+            if (attributeStatements == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "attributeStatements");
+            }
+            this.attributeStatements = attributeStatements;
             return this;
         }
         public Builder attributeStatements(GetSamlAttributeStatement... attributeStatements) {
@@ -767,37 +790,58 @@ public final class GetSamlResult {
         }
         @CustomType.Setter
         public Builder audience(String audience) {
-            this.audience = Objects.requireNonNull(audience);
+            if (audience == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "audience");
+            }
+            this.audience = audience;
             return this;
         }
         @CustomType.Setter
         public Builder authnContextClassRef(String authnContextClassRef) {
-            this.authnContextClassRef = Objects.requireNonNull(authnContextClassRef);
+            if (authnContextClassRef == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "authnContextClassRef");
+            }
+            this.authnContextClassRef = authnContextClassRef;
             return this;
         }
         @CustomType.Setter
         public Builder autoSubmitToolbar(Boolean autoSubmitToolbar) {
-            this.autoSubmitToolbar = Objects.requireNonNull(autoSubmitToolbar);
+            if (autoSubmitToolbar == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "autoSubmitToolbar");
+            }
+            this.autoSubmitToolbar = autoSubmitToolbar;
             return this;
         }
         @CustomType.Setter
         public Builder defaultRelayState(String defaultRelayState) {
-            this.defaultRelayState = Objects.requireNonNull(defaultRelayState);
+            if (defaultRelayState == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "defaultRelayState");
+            }
+            this.defaultRelayState = defaultRelayState;
             return this;
         }
         @CustomType.Setter
         public Builder destination(String destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder digestAlgorithm(String digestAlgorithm) {
-            this.digestAlgorithm = Objects.requireNonNull(digestAlgorithm);
+            if (digestAlgorithm == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "digestAlgorithm");
+            }
+            this.digestAlgorithm = digestAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder features(List<String> features) {
-            this.features = Objects.requireNonNull(features);
+            if (features == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "features");
+            }
+            this.features = features;
             return this;
         }
         public Builder features(String... features) {
@@ -805,7 +849,10 @@ public final class GetSamlResult {
         }
         @CustomType.Setter
         public Builder groups(List<String> groups) {
-            this.groups = Objects.requireNonNull(groups);
+            if (groups == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "groups");
+            }
+            this.groups = groups;
             return this;
         }
         public Builder groups(String... groups) {
@@ -813,157 +860,238 @@ public final class GetSamlResult {
         }
         @CustomType.Setter
         public Builder hideIos(Boolean hideIos) {
-            this.hideIos = Objects.requireNonNull(hideIos);
+            if (hideIos == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "hideIos");
+            }
+            this.hideIos = hideIos;
             return this;
         }
         @CustomType.Setter
         public Builder hideWeb(Boolean hideWeb) {
-            this.hideWeb = Objects.requireNonNull(hideWeb);
+            if (hideWeb == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "hideWeb");
+            }
+            this.hideWeb = hideWeb;
             return this;
         }
         @CustomType.Setter
         public Builder honorForceAuthn(Boolean honorForceAuthn) {
-            this.honorForceAuthn = Objects.requireNonNull(honorForceAuthn);
+            if (honorForceAuthn == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "honorForceAuthn");
+            }
+            this.honorForceAuthn = honorForceAuthn;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder idpIssuer(String idpIssuer) {
-            this.idpIssuer = Objects.requireNonNull(idpIssuer);
+            if (idpIssuer == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "idpIssuer");
+            }
+            this.idpIssuer = idpIssuer;
             return this;
         }
         @CustomType.Setter
         public Builder inlineHookId(String inlineHookId) {
-            this.inlineHookId = Objects.requireNonNull(inlineHookId);
+            if (inlineHookId == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "inlineHookId");
+            }
+            this.inlineHookId = inlineHookId;
             return this;
         }
         @CustomType.Setter
         public Builder keyId(String keyId) {
-            this.keyId = Objects.requireNonNull(keyId);
+            if (keyId == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "keyId");
+            }
+            this.keyId = keyId;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder labelPrefix(@Nullable String labelPrefix) {
+
             this.labelPrefix = labelPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder links(String links) {
-            this.links = Objects.requireNonNull(links);
+            if (links == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "links");
+            }
+            this.links = links;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder recipient(String recipient) {
-            this.recipient = Objects.requireNonNull(recipient);
+            if (recipient == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "recipient");
+            }
+            this.recipient = recipient;
             return this;
         }
         @CustomType.Setter
         public Builder requestCompressed(@Nullable Boolean requestCompressed) {
+
             this.requestCompressed = requestCompressed;
             return this;
         }
         @CustomType.Setter
         public Builder responseSigned(Boolean responseSigned) {
-            this.responseSigned = Objects.requireNonNull(responseSigned);
+            if (responseSigned == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "responseSigned");
+            }
+            this.responseSigned = responseSigned;
             return this;
         }
         @CustomType.Setter
         public Builder samlSignedRequestEnabled(Boolean samlSignedRequestEnabled) {
-            this.samlSignedRequestEnabled = Objects.requireNonNull(samlSignedRequestEnabled);
+            if (samlSignedRequestEnabled == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "samlSignedRequestEnabled");
+            }
+            this.samlSignedRequestEnabled = samlSignedRequestEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder signatureAlgorithm(String signatureAlgorithm) {
-            this.signatureAlgorithm = Objects.requireNonNull(signatureAlgorithm);
+            if (signatureAlgorithm == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "signatureAlgorithm");
+            }
+            this.signatureAlgorithm = signatureAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder singleLogoutCertificate(String singleLogoutCertificate) {
-            this.singleLogoutCertificate = Objects.requireNonNull(singleLogoutCertificate);
+            if (singleLogoutCertificate == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "singleLogoutCertificate");
+            }
+            this.singleLogoutCertificate = singleLogoutCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder singleLogoutIssuer(String singleLogoutIssuer) {
-            this.singleLogoutIssuer = Objects.requireNonNull(singleLogoutIssuer);
+            if (singleLogoutIssuer == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "singleLogoutIssuer");
+            }
+            this.singleLogoutIssuer = singleLogoutIssuer;
             return this;
         }
         @CustomType.Setter
         public Builder singleLogoutUrl(String singleLogoutUrl) {
-            this.singleLogoutUrl = Objects.requireNonNull(singleLogoutUrl);
+            if (singleLogoutUrl == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "singleLogoutUrl");
+            }
+            this.singleLogoutUrl = singleLogoutUrl;
             return this;
         }
         @CustomType.Setter
         public Builder skipGroups(@Nullable Boolean skipGroups) {
+
             this.skipGroups = skipGroups;
             return this;
         }
         @CustomType.Setter
         public Builder skipUsers(@Nullable Boolean skipUsers) {
+
             this.skipUsers = skipUsers;
             return this;
         }
         @CustomType.Setter
         public Builder spIssuer(String spIssuer) {
-            this.spIssuer = Objects.requireNonNull(spIssuer);
+            if (spIssuer == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "spIssuer");
+            }
+            this.spIssuer = spIssuer;
             return this;
         }
         @CustomType.Setter
         public Builder ssoUrl(String ssoUrl) {
-            this.ssoUrl = Objects.requireNonNull(ssoUrl);
+            if (ssoUrl == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "ssoUrl");
+            }
+            this.ssoUrl = ssoUrl;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder subjectNameIdFormat(String subjectNameIdFormat) {
-            this.subjectNameIdFormat = Objects.requireNonNull(subjectNameIdFormat);
+            if (subjectNameIdFormat == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "subjectNameIdFormat");
+            }
+            this.subjectNameIdFormat = subjectNameIdFormat;
             return this;
         }
         @CustomType.Setter
         public Builder subjectNameIdTemplate(String subjectNameIdTemplate) {
-            this.subjectNameIdTemplate = Objects.requireNonNull(subjectNameIdTemplate);
+            if (subjectNameIdTemplate == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "subjectNameIdTemplate");
+            }
+            this.subjectNameIdTemplate = subjectNameIdTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder userNameTemplate(String userNameTemplate) {
-            this.userNameTemplate = Objects.requireNonNull(userNameTemplate);
+            if (userNameTemplate == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "userNameTemplate");
+            }
+            this.userNameTemplate = userNameTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder userNameTemplatePushStatus(String userNameTemplatePushStatus) {
-            this.userNameTemplatePushStatus = Objects.requireNonNull(userNameTemplatePushStatus);
+            if (userNameTemplatePushStatus == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "userNameTemplatePushStatus");
+            }
+            this.userNameTemplatePushStatus = userNameTemplatePushStatus;
             return this;
         }
         @CustomType.Setter
         public Builder userNameTemplateSuffix(String userNameTemplateSuffix) {
-            this.userNameTemplateSuffix = Objects.requireNonNull(userNameTemplateSuffix);
+            if (userNameTemplateSuffix == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "userNameTemplateSuffix");
+            }
+            this.userNameTemplateSuffix = userNameTemplateSuffix;
             return this;
         }
         @CustomType.Setter
         public Builder userNameTemplateType(String userNameTemplateType) {
-            this.userNameTemplateType = Objects.requireNonNull(userNameTemplateType);
+            if (userNameTemplateType == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "userNameTemplateType");
+            }
+            this.userNameTemplateType = userNameTemplateType;
             return this;
         }
         @CustomType.Setter
         public Builder users(List<String> users) {
-            this.users = Objects.requireNonNull(users);
+            if (users == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "users");
+            }
+            this.users = users;
             return this;
         }
         public Builder users(String... users) {

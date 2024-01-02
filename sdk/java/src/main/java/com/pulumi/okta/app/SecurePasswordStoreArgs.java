@@ -5,6 +5,7 @@ package com.pulumi.okta.app;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -1113,10 +1114,18 @@ public final class SecurePasswordStoreArgs extends com.pulumi.resources.Resource
         }
 
         public SecurePasswordStoreArgs build() {
-            $.label = Objects.requireNonNull($.label, "expected parameter 'label' to be non-null");
-            $.passwordField = Objects.requireNonNull($.passwordField, "expected parameter 'passwordField' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
-            $.usernameField = Objects.requireNonNull($.usernameField, "expected parameter 'usernameField' to be non-null");
+            if ($.label == null) {
+                throw new MissingRequiredPropertyException("SecurePasswordStoreArgs", "label");
+            }
+            if ($.passwordField == null) {
+                throw new MissingRequiredPropertyException("SecurePasswordStoreArgs", "passwordField");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("SecurePasswordStoreArgs", "url");
+            }
+            if ($.usernameField == null) {
+                throw new MissingRequiredPropertyException("SecurePasswordStoreArgs", "usernameField");
+            }
             return $;
         }
     }

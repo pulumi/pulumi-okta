@@ -4,6 +4,7 @@
 package com.pulumi.okta.app.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -426,32 +427,48 @@ public final class GetOauthResult {
 
         @CustomType.Setter
         public Builder activeOnly(@Nullable Boolean activeOnly) {
+
             this.activeOnly = activeOnly;
             return this;
         }
         @CustomType.Setter
         public Builder autoSubmitToolbar(Boolean autoSubmitToolbar) {
-            this.autoSubmitToolbar = Objects.requireNonNull(autoSubmitToolbar);
+            if (autoSubmitToolbar == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "autoSubmitToolbar");
+            }
+            this.autoSubmitToolbar = autoSubmitToolbar;
             return this;
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
-            this.clientSecret = Objects.requireNonNull(clientSecret);
+            if (clientSecret == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "clientSecret");
+            }
+            this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder clientUri(String clientUri) {
-            this.clientUri = Objects.requireNonNull(clientUri);
+            if (clientUri == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "clientUri");
+            }
+            this.clientUri = clientUri;
             return this;
         }
         @CustomType.Setter
         public Builder grantTypes(List<String> grantTypes) {
-            this.grantTypes = Objects.requireNonNull(grantTypes);
+            if (grantTypes == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "grantTypes");
+            }
+            this.grantTypes = grantTypes;
             return this;
         }
         public Builder grantTypes(String... grantTypes) {
@@ -459,42 +476,60 @@ public final class GetOauthResult {
         }
         @CustomType.Setter
         public Builder hideIos(Boolean hideIos) {
-            this.hideIos = Objects.requireNonNull(hideIos);
+            if (hideIos == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "hideIos");
+            }
+            this.hideIos = hideIos;
             return this;
         }
         @CustomType.Setter
         public Builder hideWeb(Boolean hideWeb) {
-            this.hideWeb = Objects.requireNonNull(hideWeb);
+            if (hideWeb == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "hideWeb");
+            }
+            this.hideWeb = hideWeb;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder labelPrefix(@Nullable String labelPrefix) {
+
             this.labelPrefix = labelPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder links(String links) {
-            this.links = Objects.requireNonNull(links);
+            if (links == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "links");
+            }
+            this.links = links;
             return this;
         }
         @CustomType.Setter
         public Builder loginMode(String loginMode) {
-            this.loginMode = Objects.requireNonNull(loginMode);
+            if (loginMode == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "loginMode");
+            }
+            this.loginMode = loginMode;
             return this;
         }
         @CustomType.Setter
         public Builder loginScopes(List<String> loginScopes) {
-            this.loginScopes = Objects.requireNonNull(loginScopes);
+            if (loginScopes == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "loginScopes");
+            }
+            this.loginScopes = loginScopes;
             return this;
         }
         public Builder loginScopes(String... loginScopes) {
@@ -502,27 +537,42 @@ public final class GetOauthResult {
         }
         @CustomType.Setter
         public Builder loginUri(String loginUri) {
-            this.loginUri = Objects.requireNonNull(loginUri);
+            if (loginUri == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "loginUri");
+            }
+            this.loginUri = loginUri;
             return this;
         }
         @CustomType.Setter
         public Builder logoUri(String logoUri) {
-            this.logoUri = Objects.requireNonNull(logoUri);
+            if (logoUri == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "logoUri");
+            }
+            this.logoUri = logoUri;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder policyUri(String policyUri) {
-            this.policyUri = Objects.requireNonNull(policyUri);
+            if (policyUri == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "policyUri");
+            }
+            this.policyUri = policyUri;
             return this;
         }
         @CustomType.Setter
         public Builder postLogoutRedirectUris(List<String> postLogoutRedirectUris) {
-            this.postLogoutRedirectUris = Objects.requireNonNull(postLogoutRedirectUris);
+            if (postLogoutRedirectUris == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "postLogoutRedirectUris");
+            }
+            this.postLogoutRedirectUris = postLogoutRedirectUris;
             return this;
         }
         public Builder postLogoutRedirectUris(String... postLogoutRedirectUris) {
@@ -530,7 +580,10 @@ public final class GetOauthResult {
         }
         @CustomType.Setter
         public Builder redirectUris(List<String> redirectUris) {
-            this.redirectUris = Objects.requireNonNull(redirectUris);
+            if (redirectUris == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "redirectUris");
+            }
+            this.redirectUris = redirectUris;
             return this;
         }
         public Builder redirectUris(String... redirectUris) {
@@ -538,7 +591,10 @@ public final class GetOauthResult {
         }
         @CustomType.Setter
         public Builder responseTypes(List<String> responseTypes) {
-            this.responseTypes = Objects.requireNonNull(responseTypes);
+            if (responseTypes == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "responseTypes");
+            }
+            this.responseTypes = responseTypes;
             return this;
         }
         public Builder responseTypes(String... responseTypes) {
@@ -546,27 +602,38 @@ public final class GetOauthResult {
         }
         @CustomType.Setter
         public Builder skipGroups(@Nullable Boolean skipGroups) {
+
             this.skipGroups = skipGroups;
             return this;
         }
         @CustomType.Setter
         public Builder skipUsers(@Nullable Boolean skipUsers) {
+
             this.skipUsers = skipUsers;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder wildcardRedirect(String wildcardRedirect) {
-            this.wildcardRedirect = Objects.requireNonNull(wildcardRedirect);
+            if (wildcardRedirect == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "wildcardRedirect");
+            }
+            this.wildcardRedirect = wildcardRedirect;
             return this;
         }
         public GetOauthResult build() {

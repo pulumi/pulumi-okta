@@ -5,6 +5,7 @@ package com.pulumi.okta.idp;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -682,16 +683,36 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OidcArgs build() {
-            $.authorizationBinding = Objects.requireNonNull($.authorizationBinding, "expected parameter 'authorizationBinding' to be non-null");
-            $.authorizationUrl = Objects.requireNonNull($.authorizationUrl, "expected parameter 'authorizationUrl' to be non-null");
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
-            $.issuerUrl = Objects.requireNonNull($.issuerUrl, "expected parameter 'issuerUrl' to be non-null");
-            $.jwksBinding = Objects.requireNonNull($.jwksBinding, "expected parameter 'jwksBinding' to be non-null");
-            $.jwksUrl = Objects.requireNonNull($.jwksUrl, "expected parameter 'jwksUrl' to be non-null");
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
-            $.tokenBinding = Objects.requireNonNull($.tokenBinding, "expected parameter 'tokenBinding' to be non-null");
-            $.tokenUrl = Objects.requireNonNull($.tokenUrl, "expected parameter 'tokenUrl' to be non-null");
+            if ($.authorizationBinding == null) {
+                throw new MissingRequiredPropertyException("OidcArgs", "authorizationBinding");
+            }
+            if ($.authorizationUrl == null) {
+                throw new MissingRequiredPropertyException("OidcArgs", "authorizationUrl");
+            }
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("OidcArgs", "clientId");
+            }
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("OidcArgs", "clientSecret");
+            }
+            if ($.issuerUrl == null) {
+                throw new MissingRequiredPropertyException("OidcArgs", "issuerUrl");
+            }
+            if ($.jwksBinding == null) {
+                throw new MissingRequiredPropertyException("OidcArgs", "jwksBinding");
+            }
+            if ($.jwksUrl == null) {
+                throw new MissingRequiredPropertyException("OidcArgs", "jwksUrl");
+            }
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("OidcArgs", "scopes");
+            }
+            if ($.tokenBinding == null) {
+                throw new MissingRequiredPropertyException("OidcArgs", "tokenBinding");
+            }
+            if ($.tokenUrl == null) {
+                throw new MissingRequiredPropertyException("OidcArgs", "tokenUrl");
+            }
             return $;
         }
     }

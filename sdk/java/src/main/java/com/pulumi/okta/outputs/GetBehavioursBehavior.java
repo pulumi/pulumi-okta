@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -59,27 +60,42 @@ public final class GetBehavioursBehavior {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBehavioursBehavior", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetBehavioursBehavior", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder settings(Map<String,String> settings) {
-            this.settings = Objects.requireNonNull(settings);
+            if (settings == null) {
+              throw new MissingRequiredPropertyException("GetBehavioursBehavior", "settings");
+            }
+            this.settings = settings;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetBehavioursBehavior", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetBehavioursBehavior", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetBehavioursBehavior build() {

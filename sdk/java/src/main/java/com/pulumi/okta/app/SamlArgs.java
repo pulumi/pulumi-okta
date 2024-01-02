@@ -5,6 +5,7 @@ package com.pulumi.okta.app;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.app.inputs.SamlAttributeStatementArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -1739,7 +1740,9 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SamlArgs build() {
-            $.label = Objects.requireNonNull($.label, "expected parameter 'label' to be non-null");
+            if ($.label == null) {
+                throw new MissingRequiredPropertyException("SamlArgs", "label");
+            }
             return $;
         }
     }

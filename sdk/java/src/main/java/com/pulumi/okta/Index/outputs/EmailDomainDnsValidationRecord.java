@@ -66,21 +66,25 @@ public final class EmailDomainDnsValidationRecord {
 
         @CustomType.Setter
         public Builder expiration(@Nullable String expiration) {
+
             this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(@Nullable String fqdn) {
+
             this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder recordType(@Nullable String recordType) {
+
             this.recordType = recordType;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.okta.auth;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -252,7 +253,9 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServerArgs build() {
-            $.audiences = Objects.requireNonNull($.audiences, "expected parameter 'audiences' to be non-null");
+            if ($.audiences == null) {
+                throw new MissingRequiredPropertyException("ServerArgs", "audiences");
+            }
             return $;
         }
     }

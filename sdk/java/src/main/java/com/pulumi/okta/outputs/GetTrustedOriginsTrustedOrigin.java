@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -60,27 +61,42 @@ public final class GetTrustedOriginsTrustedOrigin {
 
         @CustomType.Setter
         public Builder active(Boolean active) {
-            this.active = Objects.requireNonNull(active);
+            if (active == null) {
+              throw new MissingRequiredPropertyException("GetTrustedOriginsTrustedOrigin", "active");
+            }
+            this.active = active;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTrustedOriginsTrustedOrigin", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTrustedOriginsTrustedOrigin", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder origin(String origin) {
-            this.origin = Objects.requireNonNull(origin);
+            if (origin == null) {
+              throw new MissingRequiredPropertyException("GetTrustedOriginsTrustedOrigin", "origin");
+            }
+            this.origin = origin;
             return this;
         }
         @CustomType.Setter
         public Builder scopes(List<String> scopes) {
-            this.scopes = Objects.requireNonNull(scopes);
+            if (scopes == null) {
+              throw new MissingRequiredPropertyException("GetTrustedOriginsTrustedOrigin", "scopes");
+            }
+            this.scopes = scopes;
             return this;
         }
         public Builder scopes(String... scopes) {

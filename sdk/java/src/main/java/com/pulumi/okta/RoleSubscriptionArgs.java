@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class RoleSubscriptionArgs extends com.pulumi.resources.ResourceArg
         }
 
         public RoleSubscriptionArgs build() {
-            $.notificationType = Objects.requireNonNull($.notificationType, "expected parameter 'notificationType' to be non-null");
-            $.roleType = Objects.requireNonNull($.roleType, "expected parameter 'roleType' to be non-null");
+            if ($.notificationType == null) {
+                throw new MissingRequiredPropertyException("RoleSubscriptionArgs", "notificationType");
+            }
+            if ($.roleType == null) {
+                throw new MissingRequiredPropertyException("RoleSubscriptionArgs", "roleType");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.okta.group.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -122,37 +123,52 @@ public final class GetGroupResult {
 
         @CustomType.Setter
         public Builder delayReadSeconds(@Nullable String delayReadSeconds) {
+
             this.delayReadSeconds = delayReadSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeUsers(@Nullable Boolean includeUsers) {
+
             this.includeUsers = includeUsers;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder users(List<String> users) {
-            this.users = Objects.requireNonNull(users);
+            if (users == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "users");
+            }
+            this.users = users;
             return this;
         }
         public Builder users(String... users) {

@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class TemplateSmsTranslation {
 
         @CustomType.Setter
         public Builder language(String language) {
-            this.language = Objects.requireNonNull(language);
+            if (language == null) {
+              throw new MissingRequiredPropertyException("TemplateSmsTranslation", "language");
+            }
+            this.language = language;
             return this;
         }
         @CustomType.Setter
         public Builder template(String template) {
-            this.template = Objects.requireNonNull(template);
+            if (template == null) {
+              throw new MissingRequiredPropertyException("TemplateSmsTranslation", "template");
+            }
+            this.template = template;
             return this;
         }
         public TemplateSmsTranslation build() {

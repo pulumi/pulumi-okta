@@ -56,16 +56,19 @@ public final class AppSignonPolicyRulePlatformInclude {
 
         @CustomType.Setter
         public Builder osExpression(@Nullable String osExpression) {
+
             this.osExpression = osExpression;
             return this;
         }
         @CustomType.Setter
         public Builder osType(@Nullable String osType) {
+
             this.osType = osType;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

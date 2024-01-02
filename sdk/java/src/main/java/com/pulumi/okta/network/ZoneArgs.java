@@ -5,6 +5,7 @@ package com.pulumi.okta.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -413,7 +414,9 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ZoneArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ZoneArgs", "type");
+            }
             return $;
         }
     }

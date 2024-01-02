@@ -42,11 +42,13 @@ public final class RuleIdpDiscoveryUserIdentifierPattern {
 
         @CustomType.Setter
         public Builder matchType(@Nullable String matchType) {
+
             this.matchType = matchType;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.okta.app.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -221,8 +222,12 @@ public final class OAuthJwkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OAuthJwkArgs build() {
-            $.kid = Objects.requireNonNull($.kid, "expected parameter 'kid' to be non-null");
-            $.kty = Objects.requireNonNull($.kty, "expected parameter 'kty' to be non-null");
+            if ($.kid == null) {
+                throw new MissingRequiredPropertyException("OAuthJwkArgs", "kid");
+            }
+            if ($.kty == null) {
+                throw new MissingRequiredPropertyException("OAuthJwkArgs", "kty");
+            }
             return $;
         }
     }

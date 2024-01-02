@@ -4,6 +4,7 @@
 package com.pulumi.okta.auth.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.auth.outputs.GetServerScopesScope;
 import java.lang.String;
 import java.util.List;
@@ -72,17 +73,26 @@ public final class GetServerScopesResult {
 
         @CustomType.Setter
         public Builder authServerId(String authServerId) {
-            this.authServerId = Objects.requireNonNull(authServerId);
+            if (authServerId == null) {
+              throw new MissingRequiredPropertyException("GetServerScopesResult", "authServerId");
+            }
+            this.authServerId = authServerId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServerScopesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder scopes(List<GetServerScopesScope> scopes) {
-            this.scopes = Objects.requireNonNull(scopes);
+            if (scopes == null) {
+              throw new MissingRequiredPropertyException("GetServerScopesResult", "scopes");
+            }
+            this.scopes = scopes;
             return this;
         }
         public Builder scopes(GetServerScopesScope... scopes) {

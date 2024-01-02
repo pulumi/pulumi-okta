@@ -4,6 +4,7 @@
 package com.pulumi.okta.auth.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -83,47 +84,74 @@ public final class GetServerScopesScope {
 
         @CustomType.Setter
         public Builder consent(String consent) {
-            this.consent = Objects.requireNonNull(consent);
+            if (consent == null) {
+              throw new MissingRequiredPropertyException("GetServerScopesScope", "consent");
+            }
+            this.consent = consent;
             return this;
         }
         @CustomType.Setter("default")
         public Builder default_(Boolean default_) {
-            this.default_ = Objects.requireNonNull(default_);
+            if (default_ == null) {
+              throw new MissingRequiredPropertyException("GetServerScopesScope", "default_");
+            }
+            this.default_ = default_;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetServerScopesScope", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetServerScopesScope", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServerScopesScope", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder metadataPublish(String metadataPublish) {
-            this.metadataPublish = Objects.requireNonNull(metadataPublish);
+            if (metadataPublish == null) {
+              throw new MissingRequiredPropertyException("GetServerScopesScope", "metadataPublish");
+            }
+            this.metadataPublish = metadataPublish;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServerScopesScope", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder optional(Boolean optional) {
-            this.optional = Objects.requireNonNull(optional);
+            if (optional == null) {
+              throw new MissingRequiredPropertyException("GetServerScopesScope", "optional");
+            }
+            this.optional = optional;
             return this;
         }
         @CustomType.Setter
         public Builder system(Boolean system) {
-            this.system = Objects.requireNonNull(system);
+            if (system == null) {
+              throw new MissingRequiredPropertyException("GetServerScopesScope", "system");
+            }
+            this.system = system;
             return this;
         }
         public GetServerScopesScope build() {

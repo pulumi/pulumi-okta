@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AppSamlAppSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         public AppSamlAppSettingsArgs build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
-            $.settings = Objects.requireNonNull($.settings, "expected parameter 'settings' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("AppSamlAppSettingsArgs", "appId");
+            }
+            if ($.settings == null) {
+                throw new MissingRequiredPropertyException("AppSamlAppSettingsArgs", "settings");
+            }
             return $;
         }
     }

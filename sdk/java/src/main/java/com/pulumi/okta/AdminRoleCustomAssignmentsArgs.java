@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,8 +162,12 @@ public final class AdminRoleCustomAssignmentsArgs extends com.pulumi.resources.R
         }
 
         public AdminRoleCustomAssignmentsArgs build() {
-            $.customRoleId = Objects.requireNonNull($.customRoleId, "expected parameter 'customRoleId' to be non-null");
-            $.resourceSetId = Objects.requireNonNull($.resourceSetId, "expected parameter 'resourceSetId' to be non-null");
+            if ($.customRoleId == null) {
+                throw new MissingRequiredPropertyException("AdminRoleCustomAssignmentsArgs", "customRoleId");
+            }
+            if ($.resourceSetId == null) {
+                throw new MissingRequiredPropertyException("AdminRoleCustomAssignmentsArgs", "resourceSetId");
+            }
             return $;
         }
     }

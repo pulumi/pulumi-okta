@@ -70,21 +70,25 @@ public final class GetUserSearch {
 
         @CustomType.Setter
         public Builder comparison(@Nullable String comparison) {
+
             this.comparison = comparison;
             return this;
         }
         @CustomType.Setter
         public Builder expression(@Nullable String expression) {
+
             this.expression = expression;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

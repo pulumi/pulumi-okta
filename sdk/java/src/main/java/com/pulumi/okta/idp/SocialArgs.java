@@ -5,6 +5,7 @@ package com.pulumi.okta.idp;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -603,8 +604,12 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SocialArgs build() {
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("SocialArgs", "scopes");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("SocialArgs", "type");
+            }
             return $;
         }
     }

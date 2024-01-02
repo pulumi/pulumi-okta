@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.outputs.GetThemesTheme;
 import java.lang.String;
 import java.util.List;
@@ -72,17 +73,26 @@ public final class GetThemesResult {
 
         @CustomType.Setter
         public Builder brandId(String brandId) {
-            this.brandId = Objects.requireNonNull(brandId);
+            if (brandId == null) {
+              throw new MissingRequiredPropertyException("GetThemesResult", "brandId");
+            }
+            this.brandId = brandId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetThemesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder themes(List<GetThemesTheme> themes) {
-            this.themes = Objects.requireNonNull(themes);
+            if (themes == null) {
+              throw new MissingRequiredPropertyException("GetThemesResult", "themes");
+            }
+            this.themes = themes;
             return this;
         }
         public Builder themes(GetThemesTheme... themes) {

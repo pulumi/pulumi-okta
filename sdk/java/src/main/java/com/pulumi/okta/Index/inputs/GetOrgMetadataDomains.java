@@ -4,6 +4,7 @@
 package com.pulumi.okta.Index.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetOrgMetadataDomains extends com.pulumi.resources.InvokeArgs
         }
 
         public GetOrgMetadataDomains build() {
-            $.alternate = Objects.requireNonNull($.alternate, "expected parameter 'alternate' to be non-null");
-            $.organization = Objects.requireNonNull($.organization, "expected parameter 'organization' to be non-null");
+            if ($.alternate == null) {
+                throw new MissingRequiredPropertyException("GetOrgMetadataDomains", "alternate");
+            }
+            if ($.organization == null) {
+                throw new MissingRequiredPropertyException("GetOrgMetadataDomains", "organization");
+            }
             return $;
         }
     }

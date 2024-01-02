@@ -48,16 +48,19 @@ public final class EmailSenderDnsRecord {
 
         @CustomType.Setter
         public Builder fqdn(@Nullable String fqdn) {
+
             this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder recordType(@Nullable String recordType) {
+
             this.recordType = recordType;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

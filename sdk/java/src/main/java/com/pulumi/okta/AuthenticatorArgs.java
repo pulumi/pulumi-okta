@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -484,7 +485,9 @@ public final class AuthenticatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AuthenticatorArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("AuthenticatorArgs", "key");
+            }
             return $;
         }
     }

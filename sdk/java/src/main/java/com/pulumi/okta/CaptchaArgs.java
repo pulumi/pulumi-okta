@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class CaptchaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CaptchaArgs build() {
-            $.secretKey = Objects.requireNonNull($.secretKey, "expected parameter 'secretKey' to be non-null");
-            $.siteKey = Objects.requireNonNull($.siteKey, "expected parameter 'siteKey' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.secretKey == null) {
+                throw new MissingRequiredPropertyException("CaptchaArgs", "secretKey");
+            }
+            if ($.siteKey == null) {
+                throw new MissingRequiredPropertyException("CaptchaArgs", "siteKey");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("CaptchaArgs", "type");
+            }
             return $;
         }
     }

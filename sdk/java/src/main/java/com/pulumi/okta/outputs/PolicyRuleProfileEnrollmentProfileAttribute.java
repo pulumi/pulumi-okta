@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,23 @@ public final class PolicyRuleProfileEnrollmentProfileAttribute {
 
         @CustomType.Setter
         public Builder label(String label) {
-            this.label = Objects.requireNonNull(label);
+            if (label == null) {
+              throw new MissingRequiredPropertyException("PolicyRuleProfileEnrollmentProfileAttribute", "label");
+            }
+            this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("PolicyRuleProfileEnrollmentProfileAttribute", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder required(@Nullable Boolean required) {
+
             this.required = required;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.okta.group.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -121,17 +122,26 @@ public final class GetRuleResult {
 
         @CustomType.Setter
         public Builder expressionType(String expressionType) {
-            this.expressionType = Objects.requireNonNull(expressionType);
+            if (expressionType == null) {
+              throw new MissingRequiredPropertyException("GetRuleResult", "expressionType");
+            }
+            this.expressionType = expressionType;
             return this;
         }
         @CustomType.Setter
         public Builder expressionValue(String expressionValue) {
-            this.expressionValue = Objects.requireNonNull(expressionValue);
+            if (expressionValue == null) {
+              throw new MissingRequiredPropertyException("GetRuleResult", "expressionValue");
+            }
+            this.expressionValue = expressionValue;
             return this;
         }
         @CustomType.Setter
         public Builder groupAssignments(List<String> groupAssignments) {
-            this.groupAssignments = Objects.requireNonNull(groupAssignments);
+            if (groupAssignments == null) {
+              throw new MissingRequiredPropertyException("GetRuleResult", "groupAssignments");
+            }
+            this.groupAssignments = groupAssignments;
             return this;
         }
         public Builder groupAssignments(String... groupAssignments) {
@@ -139,22 +149,28 @@ public final class GetRuleResult {
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder usersExcludeds(List<String> usersExcludeds) {
-            this.usersExcludeds = Objects.requireNonNull(usersExcludeds);
+            if (usersExcludeds == null) {
+              throw new MissingRequiredPropertyException("GetRuleResult", "usersExcludeds");
+            }
+            this.usersExcludeds = usersExcludeds;
             return this;
         }
         public Builder usersExcludeds(String... usersExcludeds) {

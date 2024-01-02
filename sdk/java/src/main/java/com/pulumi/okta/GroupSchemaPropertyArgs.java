@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.inputs.GroupSchemaPropertyArrayOneOfArgs;
 import com.pulumi.okta.inputs.GroupSchemaPropertyMasterOverridePriorityArgs;
 import com.pulumi.okta.inputs.GroupSchemaPropertyOneOfArgs;
@@ -752,9 +753,15 @@ public final class GroupSchemaPropertyArgs extends com.pulumi.resources.Resource
         }
 
         public GroupSchemaPropertyArgs build() {
-            $.index = Objects.requireNonNull($.index, "expected parameter 'index' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.index == null) {
+                throw new MissingRequiredPropertyException("GroupSchemaPropertyArgs", "index");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("GroupSchemaPropertyArgs", "title");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("GroupSchemaPropertyArgs", "type");
+            }
             return $;
         }
     }

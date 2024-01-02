@@ -4,6 +4,7 @@
 package com.pulumi.okta.idp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -284,67 +285,102 @@ public final class GetOidcResult {
 
         @CustomType.Setter
         public Builder authorizationBinding(String authorizationBinding) {
-            this.authorizationBinding = Objects.requireNonNull(authorizationBinding);
+            if (authorizationBinding == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "authorizationBinding");
+            }
+            this.authorizationBinding = authorizationBinding;
             return this;
         }
         @CustomType.Setter
         public Builder authorizationUrl(String authorizationUrl) {
-            this.authorizationUrl = Objects.requireNonNull(authorizationUrl);
+            if (authorizationUrl == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "authorizationUrl");
+            }
+            this.authorizationUrl = authorizationUrl;
             return this;
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
-            this.clientSecret = Objects.requireNonNull(clientSecret);
+            if (clientSecret == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "clientSecret");
+            }
+            this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder issuerMode(String issuerMode) {
-            this.issuerMode = Objects.requireNonNull(issuerMode);
+            if (issuerMode == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "issuerMode");
+            }
+            this.issuerMode = issuerMode;
             return this;
         }
         @CustomType.Setter
         public Builder issuerUrl(String issuerUrl) {
-            this.issuerUrl = Objects.requireNonNull(issuerUrl);
+            if (issuerUrl == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "issuerUrl");
+            }
+            this.issuerUrl = issuerUrl;
             return this;
         }
         @CustomType.Setter
         public Builder jwksBinding(String jwksBinding) {
-            this.jwksBinding = Objects.requireNonNull(jwksBinding);
+            if (jwksBinding == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "jwksBinding");
+            }
+            this.jwksBinding = jwksBinding;
             return this;
         }
         @CustomType.Setter
         public Builder jwksUrl(String jwksUrl) {
-            this.jwksUrl = Objects.requireNonNull(jwksUrl);
+            if (jwksUrl == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "jwksUrl");
+            }
+            this.jwksUrl = jwksUrl;
             return this;
         }
         @CustomType.Setter
         public Builder maxClockSkew(Integer maxClockSkew) {
-            this.maxClockSkew = Objects.requireNonNull(maxClockSkew);
+            if (maxClockSkew == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "maxClockSkew");
+            }
+            this.maxClockSkew = maxClockSkew;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protocolType(String protocolType) {
-            this.protocolType = Objects.requireNonNull(protocolType);
+            if (protocolType == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "protocolType");
+            }
+            this.protocolType = protocolType;
             return this;
         }
         @CustomType.Setter
         public Builder scopes(List<String> scopes) {
-            this.scopes = Objects.requireNonNull(scopes);
+            if (scopes == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "scopes");
+            }
+            this.scopes = scopes;
             return this;
         }
         public Builder scopes(String... scopes) {
@@ -352,27 +388,42 @@ public final class GetOidcResult {
         }
         @CustomType.Setter
         public Builder tokenBinding(String tokenBinding) {
-            this.tokenBinding = Objects.requireNonNull(tokenBinding);
+            if (tokenBinding == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "tokenBinding");
+            }
+            this.tokenBinding = tokenBinding;
             return this;
         }
         @CustomType.Setter
         public Builder tokenUrl(String tokenUrl) {
-            this.tokenUrl = Objects.requireNonNull(tokenUrl);
+            if (tokenUrl == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "tokenUrl");
+            }
+            this.tokenUrl = tokenUrl;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder userInfoBinding(String userInfoBinding) {
-            this.userInfoBinding = Objects.requireNonNull(userInfoBinding);
+            if (userInfoBinding == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "userInfoBinding");
+            }
+            this.userInfoBinding = userInfoBinding;
             return this;
         }
         @CustomType.Setter
         public Builder userInfoUrl(String userInfoUrl) {
-            this.userInfoUrl = Objects.requireNonNull(userInfoUrl);
+            if (userInfoUrl == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "userInfoUrl");
+            }
+            this.userInfoUrl = userInfoUrl;
             return this;
         }
         public GetOidcResult build() {

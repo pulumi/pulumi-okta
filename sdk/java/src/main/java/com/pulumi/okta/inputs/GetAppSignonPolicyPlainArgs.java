@@ -4,6 +4,7 @@
 package com.pulumi.okta.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetAppSignonPolicyPlainArgs extends com.pulumi.resources.Invo
         }
 
         public GetAppSignonPolicyPlainArgs build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("GetAppSignonPolicyPlainArgs", "appId");
+            }
             return $;
         }
     }

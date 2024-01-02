@@ -4,6 +4,7 @@
 package com.pulumi.okta.app.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -98,31 +99,41 @@ public final class OAuthJwk {
 
         @CustomType.Setter
         public Builder e(@Nullable String e) {
+
             this.e = e;
             return this;
         }
         @CustomType.Setter
         public Builder kid(String kid) {
-            this.kid = Objects.requireNonNull(kid);
+            if (kid == null) {
+              throw new MissingRequiredPropertyException("OAuthJwk", "kid");
+            }
+            this.kid = kid;
             return this;
         }
         @CustomType.Setter
         public Builder kty(String kty) {
-            this.kty = Objects.requireNonNull(kty);
+            if (kty == null) {
+              throw new MissingRequiredPropertyException("OAuthJwk", "kty");
+            }
+            this.kty = kty;
             return this;
         }
         @CustomType.Setter
         public Builder n(@Nullable String n) {
+
             this.n = n;
             return this;
         }
         @CustomType.Setter
         public Builder x(@Nullable String x) {
+
             this.x = x;
             return this;
         }
         @CustomType.Setter
         public Builder y(@Nullable String y) {
+
             this.y = y;
             return this;
         }

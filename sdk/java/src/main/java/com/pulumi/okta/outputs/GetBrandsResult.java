@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.outputs.GetBrandsBrand;
 import java.lang.String;
 import java.util.List;
@@ -58,7 +59,10 @@ public final class GetBrandsResult {
 
         @CustomType.Setter
         public Builder brands(List<GetBrandsBrand> brands) {
-            this.brands = Objects.requireNonNull(brands);
+            if (brands == null) {
+              throw new MissingRequiredPropertyException("GetBrandsResult", "brands");
+            }
+            this.brands = brands;
             return this;
         }
         public Builder brands(GetBrandsBrand... brands) {
@@ -66,7 +70,10 @@ public final class GetBrandsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBrandsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetBrandsResult build() {

@@ -4,6 +4,7 @@
 package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.outputs.GetAuthServerClaimsClaim;
 import java.lang.String;
 import java.util.List;
@@ -72,12 +73,18 @@ public final class GetAuthServerClaimsResult {
 
         @CustomType.Setter
         public Builder authServerId(String authServerId) {
-            this.authServerId = Objects.requireNonNull(authServerId);
+            if (authServerId == null) {
+              throw new MissingRequiredPropertyException("GetAuthServerClaimsResult", "authServerId");
+            }
+            this.authServerId = authServerId;
             return this;
         }
         @CustomType.Setter
         public Builder claims(List<GetAuthServerClaimsClaim> claims) {
-            this.claims = Objects.requireNonNull(claims);
+            if (claims == null) {
+              throw new MissingRequiredPropertyException("GetAuthServerClaimsResult", "claims");
+            }
+            this.claims = claims;
             return this;
         }
         public Builder claims(GetAuthServerClaimsClaim... claims) {
@@ -85,7 +92,10 @@ public final class GetAuthServerClaimsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAuthServerClaimsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetAuthServerClaimsResult build() {

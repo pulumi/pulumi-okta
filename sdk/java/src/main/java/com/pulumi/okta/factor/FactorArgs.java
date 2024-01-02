@@ -5,6 +5,7 @@ package com.pulumi.okta.factor;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class FactorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FactorArgs build() {
-            $.providerId = Objects.requireNonNull($.providerId, "expected parameter 'providerId' to be non-null");
+            if ($.providerId == null) {
+                throw new MissingRequiredPropertyException("FactorArgs", "providerId");
+            }
             return $;
         }
     }

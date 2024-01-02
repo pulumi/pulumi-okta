@@ -4,6 +4,7 @@
 package com.pulumi.okta.user.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.user.outputs.GetUsersSearch;
 import com.pulumi.okta.user.outputs.GetUsersUser;
 import java.lang.Boolean;
@@ -146,36 +147,45 @@ public final class GetUsersResult {
 
         @CustomType.Setter
         public Builder compoundSearchOperator(@Nullable String compoundSearchOperator) {
+
             this.compoundSearchOperator = compoundSearchOperator;
             return this;
         }
         @CustomType.Setter
         public Builder delayReadSeconds(@Nullable String delayReadSeconds) {
+
             this.delayReadSeconds = delayReadSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder groupId(@Nullable String groupId) {
+
             this.groupId = groupId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUsersResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeGroups(@Nullable Boolean includeGroups) {
+
             this.includeGroups = includeGroups;
             return this;
         }
         @CustomType.Setter
         public Builder includeRoles(@Nullable Boolean includeRoles) {
+
             this.includeRoles = includeRoles;
             return this;
         }
         @CustomType.Setter
         public Builder searches(@Nullable List<GetUsersSearch> searches) {
+
             this.searches = searches;
             return this;
         }
@@ -184,7 +194,10 @@ public final class GetUsersResult {
         }
         @CustomType.Setter
         public Builder users(List<GetUsersUser> users) {
-            this.users = Objects.requireNonNull(users);
+            if (users == null) {
+              throw new MissingRequiredPropertyException("GetUsersResult", "users");
+            }
+            this.users = users;
             return this;
         }
         public Builder users(GetUsersUser... users) {

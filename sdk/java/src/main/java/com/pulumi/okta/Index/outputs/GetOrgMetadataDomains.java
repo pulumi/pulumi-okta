@@ -4,6 +4,7 @@
 package com.pulumi.okta.Index.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetOrgMetadataDomains {
 
         @CustomType.Setter
         public Builder alternate(String alternate) {
-            this.alternate = Objects.requireNonNull(alternate);
+            if (alternate == null) {
+              throw new MissingRequiredPropertyException("GetOrgMetadataDomains", "alternate");
+            }
+            this.alternate = alternate;
             return this;
         }
         @CustomType.Setter
         public Builder organization(String organization) {
-            this.organization = Objects.requireNonNull(organization);
+            if (organization == null) {
+              throw new MissingRequiredPropertyException("GetOrgMetadataDomains", "organization");
+            }
+            this.organization = organization;
             return this;
         }
         public GetOrgMetadataDomains build() {

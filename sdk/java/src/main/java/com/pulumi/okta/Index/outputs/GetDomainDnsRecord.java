@@ -4,6 +4,7 @@
 package com.pulumi.okta.Index.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -53,22 +54,34 @@ public final class GetDomainDnsRecord {
 
         @CustomType.Setter
         public Builder expiration(String expiration) {
-            this.expiration = Objects.requireNonNull(expiration);
+            if (expiration == null) {
+              throw new MissingRequiredPropertyException("GetDomainDnsRecord", "expiration");
+            }
+            this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(String fqdn) {
-            this.fqdn = Objects.requireNonNull(fqdn);
+            if (fqdn == null) {
+              throw new MissingRequiredPropertyException("GetDomainDnsRecord", "fqdn");
+            }
+            this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder recordType(String recordType) {
-            this.recordType = Objects.requireNonNull(recordType);
+            if (recordType == null) {
+              throw new MissingRequiredPropertyException("GetDomainDnsRecord", "recordType");
+            }
+            this.recordType = recordType;
             return this;
         }
         @CustomType.Setter
         public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+            if (values == null) {
+              throw new MissingRequiredPropertyException("GetDomainDnsRecord", "values");
+            }
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {

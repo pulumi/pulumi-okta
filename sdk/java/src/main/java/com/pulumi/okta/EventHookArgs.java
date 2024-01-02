@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.inputs.EventHookHeaderArgs;
 import java.lang.String;
 import java.util.List;
@@ -264,8 +265,12 @@ public final class EventHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EventHookArgs build() {
-            $.channel = Objects.requireNonNull($.channel, "expected parameter 'channel' to be non-null");
-            $.events = Objects.requireNonNull($.events, "expected parameter 'events' to be non-null");
+            if ($.channel == null) {
+                throw new MissingRequiredPropertyException("EventHookArgs", "channel");
+            }
+            if ($.events == null) {
+                throw new MissingRequiredPropertyException("EventHookArgs", "events");
+            }
             return $;
         }
     }
