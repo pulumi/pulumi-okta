@@ -12,7 +12,7 @@ namespace Pulumi.Okta
     public static class GetGroups
     {
         /// <summary>
-        /// Get a list of groups from Okta.
+        /// Use this data source to retrieve a list of groups from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -40,7 +40,7 @@ namespace Pulumi.Okta
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupsResult>("okta:index/getGroups:getGroups", args ?? new GetGroupsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a list of groups from Okta.
+        /// Use this data source to retrieve a list of groups from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -72,17 +72,24 @@ namespace Pulumi.Okta
     public sealed class GetGroupsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Searches the name property of groups for matching value
+        /// Searches the name property of groups for matching value.
         /// </summary>
         [Input("q")]
         public string? Q { get; set; }
 
         /// <summary>
-        /// Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
+        /// Searches for groups with a
+        /// supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
+        /// all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
+        /// except for `"_embedded"`, `"_links"`, and `"objectClass"`
         /// </summary>
         [Input("search")]
         public string? Search { get; set; }
 
+        /// <summary>
+        /// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+        /// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+        /// </summary>
         [Input("type")]
         public string? Type { get; set; }
 
@@ -95,17 +102,24 @@ namespace Pulumi.Okta
     public sealed class GetGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Searches the name property of groups for matching value
+        /// Searches the name property of groups for matching value.
         /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
         /// <summary>
-        /// Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
+        /// Searches for groups with a
+        /// supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
+        /// all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
+        /// except for `"_embedded"`, `"_links"`, and `"objectClass"`
         /// </summary>
         [Input("search")]
         public Input<string>? Search { get; set; }
 
+        /// <summary>
+        /// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+        /// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -119,19 +133,19 @@ namespace Pulumi.Okta
     [OutputType]
     public sealed class GetGroupsResult
     {
+        /// <summary>
+        /// collection of groups retrieved from Okta with the following properties.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupsGroupResult> Groups;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Searches the name property of groups for matching value
-        /// </summary>
         public readonly string? Q;
-        /// <summary>
-        /// Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
-        /// </summary>
         public readonly string? Search;
+        /// <summary>
+        /// Group type.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

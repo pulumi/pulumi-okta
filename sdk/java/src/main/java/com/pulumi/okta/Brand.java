@@ -16,27 +16,36 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages brand
+ * This resource allows you to create and configure an Okta
+ * [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).
+ * 
+ * ## Import
+ * 
+ * An Okta Brand can be imported via the ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/brand:Brand example &amp;#60;brand id&amp;#62;
+ * ```
  * 
  */
 @ResourceType(type="okta:index/brand:Brand")
 public class Brand extends com.pulumi.resources.CustomResource {
     /**
-     * Consent for updating the custom privacy policy URL.
+     * Is a required input flag with when changing custom_privacy_url, shouldn&#39;t be considered as a readable property
      * 
      */
     @Export(name="agreeToCustomPrivacyPolicy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> agreeToCustomPrivacyPolicy;
 
     /**
-     * @return Consent for updating the custom privacy policy URL.
+     * @return Is a required input flag with when changing custom_privacy_url, shouldn&#39;t be considered as a readable property
      * 
      */
     public Output<Boolean> agreeToCustomPrivacyPolicy() {
         return this.agreeToCustomPrivacyPolicy;
     }
     /**
-     * Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
+     * (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
      * 
      * @deprecated
      * Okta has fully support brand creation, this attribute is a no op and will be removed
@@ -47,7 +56,7 @@ public class Brand extends com.pulumi.resources.CustomResource {
     private Output<String> brandId;
 
     /**
-     * @return Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
+     * @return (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
      * 
      */
     public Output<String> brandId() {
@@ -110,42 +119,42 @@ public class Brand extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultAppClassicApplicationUri);
     }
     /**
-     * Email Domain ID tied to this brand
+     * (Read-only) Email Domain ID tied to this brand
      * 
      */
     @Export(name="emailDomainId", refs={String.class}, tree="[0]")
     private Output<String> emailDomainId;
 
     /**
-     * @return Email Domain ID tied to this brand
+     * @return (Read-only) Email Domain ID tied to this brand
      * 
      */
     public Output<String> emailDomainId() {
         return this.emailDomainId;
     }
     /**
-     * Is this the default brand
+     * (Read-only) Is this the default brand
      * 
      */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isDefault;
 
     /**
-     * @return Is this the default brand
+     * @return (Read-only) Is this the default brand
      * 
      */
     public Output<Boolean> isDefault() {
         return this.isDefault;
     }
     /**
-     * Link relations for this object - JSON HAL - Discoverable resources related to the brand
+     * (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
      * 
      */
     @Export(name="links", refs={String.class}, tree="[0]")
     private Output<String> links;
 
     /**
-     * @return Link relations for this object - JSON HAL - Discoverable resources related to the brand
+     * @return (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
      * 
      */
     public Output<String> links() {
@@ -166,28 +175,28 @@ public class Brand extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.locale);
     }
     /**
-     * Brand name
+     * Name of the brand
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Brand name
+     * @return Name of the brand
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+     * Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
      */
     @Export(name="removePoweredByOkta", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> removePoweredByOkta;
 
     /**
-     * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+     * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
      */
     public Output<Boolean> removePoweredByOkta() {

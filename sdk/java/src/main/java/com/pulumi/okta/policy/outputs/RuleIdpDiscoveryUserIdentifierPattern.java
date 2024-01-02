@@ -11,13 +11,73 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleIdpDiscoveryUserIdentifierPattern {
+    /**
+     * @return The kind of pattern. For regex, use `&#34;EXPRESSION&#34;`. For simple string matches, use one of the following: `&#34;SUFFIX&#34;`, `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`
+     * 
+     */
     private @Nullable String matchType;
+    /**
+     * @return The regex or simple match string to match against.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
+     * 
+     */
     private @Nullable String value;
 
     private RuleIdpDiscoveryUserIdentifierPattern() {}
+    /**
+     * @return The kind of pattern. For regex, use `&#34;EXPRESSION&#34;`. For simple string matches, use one of the following: `&#34;SUFFIX&#34;`, `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`
+     * 
+     */
     public Optional<String> matchType() {
         return Optional.ofNullable(this.matchType);
     }
+    /**
+     * @return The regex or simple match string to match against.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
+     * 
+     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

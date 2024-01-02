@@ -12,72 +12,117 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and configure a Secure Password Store Application.
+//
+// > During an apply if there is change in `status` the app will first be
+// activated or deactivated in accordance with the `status` change. Then, all
+// other arguments that changed will be applied.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewSecurePasswordStore(ctx, "example", &app.SecurePasswordStoreArgs{
+//				CredentialsScheme: pulumi.String("ADMIN_SETS_CREDENTIALS"),
+//				Label:             pulumi.String("example"),
+//				PasswordField:     pulumi.String("pass"),
+//				Url:               pulumi.String("https://test.com"),
+//				UsernameField:     pulumi.String("user"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Secure Password Store Application can be imported via the Okta ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &#60;app id&#62;
+//
+// ```
 type SecurePasswordStore struct {
 	pulumi.CustomResourceState
 
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
-	// Application credentials scheme
+	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrOutput `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
-	// Pretty name of app.
+	// The display name of the Application.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// URL of the application's logo
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
-	// Name of the app.
+	// Name assigned to the application by Okta.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Name of optional param in the login form
+	// Name of optional param in the login form.
 	OptionalField1 pulumi.StringPtrOutput `pulumi:"optionalField1"`
-	// Name of optional value in login form
+	// Name of optional value in the login form.
 	OptionalField1Value pulumi.StringPtrOutput `pulumi:"optionalField1Value"`
-	// Name of optional param in the login form
+	// Name of optional param in the login form.
 	OptionalField2 pulumi.StringPtrOutput `pulumi:"optionalField2"`
-	// Name of optional value in login form
+	// Name of optional value in the login form.
 	OptionalField2Value pulumi.StringPtrOutput `pulumi:"optionalField2Value"`
-	// Name of optional param in the login form
+	// Name of optional param in the login form.
 	OptionalField3 pulumi.StringPtrOutput `pulumi:"optionalField3"`
-	// Name of optional value in login form
+	// Name of optional value in the login form.
 	OptionalField3Value pulumi.StringPtrOutput `pulumi:"optionalField3Value"`
-	// Login password field
+	// Login password field.
 	PasswordField pulumi.StringOutput `pulumi:"passwordField"`
-	// Allow user to reveal password
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword pulumi.BoolPtrOutput `pulumi:"revealPassword"`
 	// Shared password, required for certain schemes.
 	SharedPassword pulumi.StringPtrOutput `pulumi:"sharedPassword"`
 	// Shared username, required for certain schemes.
 	SharedUsername pulumi.StringPtrOutput `pulumi:"sharedUsername"`
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Status of application.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Login URL
+	// Login URL.
 	Url pulumi.StringOutput `pulumi:"url"`
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
-	// Login username field
+	// Login username field.
 	UsernameField pulumi.StringOutput `pulumi:"usernameField"`
 }
 
@@ -123,136 +168,136 @@ func GetSecurePasswordStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurePasswordStore resources.
 type securePasswordStoreState struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// Application credentials scheme
+	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
-	// Pretty name of app.
+	// The display name of the Application.
 	Label *string `pulumi:"label"`
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
 	// URL of the application's logo
 	LogoUrl *string `pulumi:"logoUrl"`
-	// Name of the app.
+	// Name assigned to the application by Okta.
 	Name *string `pulumi:"name"`
-	// Name of optional param in the login form
+	// Name of optional param in the login form.
 	OptionalField1 *string `pulumi:"optionalField1"`
-	// Name of optional value in login form
+	// Name of optional value in the login form.
 	OptionalField1Value *string `pulumi:"optionalField1Value"`
-	// Name of optional param in the login form
+	// Name of optional param in the login form.
 	OptionalField2 *string `pulumi:"optionalField2"`
-	// Name of optional value in login form
+	// Name of optional value in the login form.
 	OptionalField2Value *string `pulumi:"optionalField2Value"`
-	// Name of optional param in the login form
+	// Name of optional param in the login form.
 	OptionalField3 *string `pulumi:"optionalField3"`
-	// Name of optional value in login form
+	// Name of optional value in the login form.
 	OptionalField3Value *string `pulumi:"optionalField3Value"`
-	// Login password field
+	// Login password field.
 	PasswordField *string `pulumi:"passwordField"`
-	// Allow user to reveal password
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword *bool `pulumi:"revealPassword"`
 	// Shared password, required for certain schemes.
 	SharedPassword *string `pulumi:"sharedPassword"`
 	// Shared username, required for certain schemes.
 	SharedUsername *string `pulumi:"sharedUsername"`
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Status of application.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Login URL
+	// Login URL.
 	Url *string `pulumi:"url"`
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// Login username field
+	// Login username field.
 	UsernameField *string `pulumi:"usernameField"`
 }
 
 type SecurePasswordStoreState struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// Application credentials scheme
+	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
-	// Pretty name of app.
+	// The display name of the Application.
 	Label pulumi.StringPtrInput
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
 	// URL of the application's logo
 	LogoUrl pulumi.StringPtrInput
-	// Name of the app.
+	// Name assigned to the application by Okta.
 	Name pulumi.StringPtrInput
-	// Name of optional param in the login form
+	// Name of optional param in the login form.
 	OptionalField1 pulumi.StringPtrInput
-	// Name of optional value in login form
+	// Name of optional value in the login form.
 	OptionalField1Value pulumi.StringPtrInput
-	// Name of optional param in the login form
+	// Name of optional param in the login form.
 	OptionalField2 pulumi.StringPtrInput
-	// Name of optional value in login form
+	// Name of optional value in the login form.
 	OptionalField2Value pulumi.StringPtrInput
-	// Name of optional param in the login form
+	// Name of optional param in the login form.
 	OptionalField3 pulumi.StringPtrInput
-	// Name of optional value in login form
+	// Name of optional value in the login form.
 	OptionalField3Value pulumi.StringPtrInput
-	// Login password field
+	// Login password field.
 	PasswordField pulumi.StringPtrInput
-	// Allow user to reveal password
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword pulumi.BoolPtrInput
 	// Shared password, required for certain schemes.
 	SharedPassword pulumi.StringPtrInput
 	// Shared username, required for certain schemes.
 	SharedUsername pulumi.StringPtrInput
-	// Sign on mode of application.
+	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Status of application.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Login URL
+	// Login URL.
 	Url pulumi.StringPtrInput
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus pulumi.StringPtrInput
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
-	// Login username field
+	// Login username field.
 	UsernameField pulumi.StringPtrInput
 }
 
@@ -261,125 +306,125 @@ func (SecurePasswordStoreState) ElementType() reflect.Type {
 }
 
 type securePasswordStoreArgs struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// Application credentials scheme
+	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
-	// Pretty name of app.
+	// The display name of the Application.
 	Label string `pulumi:"label"`
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
-	// Name of optional param in the login form
+	// Name of optional param in the login form.
 	OptionalField1 *string `pulumi:"optionalField1"`
-	// Name of optional value in login form
+	// Name of optional value in the login form.
 	OptionalField1Value *string `pulumi:"optionalField1Value"`
-	// Name of optional param in the login form
+	// Name of optional param in the login form.
 	OptionalField2 *string `pulumi:"optionalField2"`
-	// Name of optional value in login form
+	// Name of optional value in the login form.
 	OptionalField2Value *string `pulumi:"optionalField2Value"`
-	// Name of optional param in the login form
+	// Name of optional param in the login form.
 	OptionalField3 *string `pulumi:"optionalField3"`
-	// Name of optional value in login form
+	// Name of optional value in the login form.
 	OptionalField3Value *string `pulumi:"optionalField3Value"`
-	// Login password field
+	// Login password field.
 	PasswordField string `pulumi:"passwordField"`
-	// Allow user to reveal password
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword *bool `pulumi:"revealPassword"`
 	// Shared password, required for certain schemes.
 	SharedPassword *string `pulumi:"sharedPassword"`
 	// Shared username, required for certain schemes.
 	SharedUsername *string `pulumi:"sharedUsername"`
-	// Status of application.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Login URL
+	// Login URL.
 	Url string `pulumi:"url"`
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// Login username field
+	// Login username field.
 	UsernameField string `pulumi:"usernameField"`
 }
 
 // The set of arguments for constructing a SecurePasswordStore resource.
 type SecurePasswordStoreArgs struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// Application credentials scheme
+	// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
-	// Pretty name of app.
+	// The display name of the Application.
 	Label pulumi.StringInput
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
-	// Name of optional param in the login form
+	// Name of optional param in the login form.
 	OptionalField1 pulumi.StringPtrInput
-	// Name of optional value in login form
+	// Name of optional value in the login form.
 	OptionalField1Value pulumi.StringPtrInput
-	// Name of optional param in the login form
+	// Name of optional param in the login form.
 	OptionalField2 pulumi.StringPtrInput
-	// Name of optional value in login form
+	// Name of optional value in the login form.
 	OptionalField2Value pulumi.StringPtrInput
-	// Name of optional param in the login form
+	// Name of optional param in the login form.
 	OptionalField3 pulumi.StringPtrInput
-	// Name of optional value in login form
+	// Name of optional value in the login form.
 	OptionalField3Value pulumi.StringPtrInput
-	// Login password field
+	// Login password field.
 	PasswordField pulumi.StringInput
-	// Allow user to reveal password
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword pulumi.BoolPtrInput
 	// Shared password, required for certain schemes.
 	SharedPassword pulumi.StringPtrInput
 	// Shared username, required for certain schemes.
 	SharedUsername pulumi.StringPtrInput
-	// Status of application.
+	// Status of application. By default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Login URL
+	// Login URL.
 	Url pulumi.StringInput
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus pulumi.StringPtrInput
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
-	// Login username field
+	// Login username field.
 	UsernameField pulumi.StringInput
 }
 
@@ -470,17 +515,17 @@ func (o SecurePasswordStoreOutput) ToSecurePasswordStoreOutputWithContext(ctx co
 	return o
 }
 
-// Custom error page URL
+// Custom error page URL.
 func (o SecurePasswordStoreOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// Custom login page URL
+// Custom login page for this application.
 func (o SecurePasswordStoreOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// Enable self service
+// Enable self-service. By default, it is `false`.
 func (o SecurePasswordStoreOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
 }
@@ -490,17 +535,17 @@ func (o SecurePasswordStoreOutput) AdminNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
 }
 
-// Displays specific appLinks for the app
+// Displays specific appLinks for the app. The value for each application link should be boolean.
 func (o SecurePasswordStoreOutput) AppLinksJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
 }
 
-// Display auto submit toolbar
+// Display auto submit toolbar.
 func (o SecurePasswordStoreOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
 }
 
-// Application credentials scheme
+// Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 func (o SecurePasswordStoreOutput) CredentialsScheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.CredentialsScheme }).(pulumi.StringPtrOutput)
 }
@@ -510,22 +555,22 @@ func (o SecurePasswordStoreOutput) EnduserNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
 }
 
-// Do not display application icon on mobile app
+// Do not display application icon on mobile app.
 func (o SecurePasswordStoreOutput) HideIos() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
 }
 
-// Do not display application icon to users
+// Do not display application icon to users.
 func (o SecurePasswordStoreOutput) HideWeb() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
 }
 
-// Pretty name of app.
+// The display name of the Application.
 func (o SecurePasswordStoreOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
 }
 
-// Local path to logo of the application.
+// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 func (o SecurePasswordStoreOutput) Logo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
 }
@@ -535,47 +580,47 @@ func (o SecurePasswordStoreOutput) LogoUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
 }
 
-// Name of the app.
+// Name assigned to the application by Okta.
 func (o SecurePasswordStoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Name of optional param in the login form
+// Name of optional param in the login form.
 func (o SecurePasswordStoreOutput) OptionalField1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.OptionalField1 }).(pulumi.StringPtrOutput)
 }
 
-// Name of optional value in login form
+// Name of optional value in the login form.
 func (o SecurePasswordStoreOutput) OptionalField1Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.OptionalField1Value }).(pulumi.StringPtrOutput)
 }
 
-// Name of optional param in the login form
+// Name of optional param in the login form.
 func (o SecurePasswordStoreOutput) OptionalField2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.OptionalField2 }).(pulumi.StringPtrOutput)
 }
 
-// Name of optional value in login form
+// Name of optional value in the login form.
 func (o SecurePasswordStoreOutput) OptionalField2Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.OptionalField2Value }).(pulumi.StringPtrOutput)
 }
 
-// Name of optional param in the login form
+// Name of optional param in the login form.
 func (o SecurePasswordStoreOutput) OptionalField3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.OptionalField3 }).(pulumi.StringPtrOutput)
 }
 
-// Name of optional value in login form
+// Name of optional value in the login form.
 func (o SecurePasswordStoreOutput) OptionalField3Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.OptionalField3Value }).(pulumi.StringPtrOutput)
 }
 
-// Login password field
+// Login password field.
 func (o SecurePasswordStoreOutput) PasswordField() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringOutput { return v.PasswordField }).(pulumi.StringOutput)
 }
 
-// Allow user to reveal password
+// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 func (o SecurePasswordStoreOutput) RevealPassword() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.BoolPtrOutput { return v.RevealPassword }).(pulumi.BoolPtrOutput)
 }
@@ -590,42 +635,42 @@ func (o SecurePasswordStoreOutput) SharedUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.SharedUsername }).(pulumi.StringPtrOutput)
 }
 
-// Sign on mode of application.
+// Sign-on mode of application.
 func (o SecurePasswordStoreOutput) SignOnMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
 }
 
-// Status of application.
+// Status of application. By default, it is `"ACTIVE"`.
 func (o SecurePasswordStoreOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Login URL
+// Login URL.
 func (o SecurePasswordStoreOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
 
-// Username template
+// Username template. Default: `"${source.login}"`
 func (o SecurePasswordStoreOutput) UserNameTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
 }
 
-// Push username on update
+// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 func (o SecurePasswordStoreOutput) UserNameTemplatePushStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.UserNameTemplatePushStatus }).(pulumi.StringPtrOutput)
 }
 
-// Username template suffix
+// Username template suffix.
 func (o SecurePasswordStoreOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.UserNameTemplateSuffix }).(pulumi.StringPtrOutput)
 }
 
-// Username template type
+// Username template type. Default: `"BUILT_IN"`.
 func (o SecurePasswordStoreOutput) UserNameTemplateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
 }
 
-// Login username field
+// Login username field.
 func (o SecurePasswordStoreOutput) UsernameField() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurePasswordStore) pulumi.StringOutput { return v.UsernameField }).(pulumi.StringOutput)
 }

@@ -17,14 +17,16 @@ public final class FactorTotpArgs extends com.pulumi.resources.ResourceArgs {
     public static final FactorTotpArgs Empty = new FactorTotpArgs();
 
     /**
-     * Clock drift interval
+     * Clock drift interval. This setting allows you to build in tolerance for any
+     * drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
      * 
      */
     @Import(name="clockDriftInterval")
     private @Nullable Output<Integer> clockDriftInterval;
 
     /**
-     * @return Clock drift interval
+     * @return Clock drift interval. This setting allows you to build in tolerance for any
+     * drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
      * 
      */
     public Optional<Output<Integer>> clockDriftInterval() {
@@ -32,14 +34,16 @@ public final class FactorTotpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Hash-based message authentication code algorithm
+     * HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
+     * is `&#34;HMacSHA512&#34;`.
      * 
      */
     @Import(name="hmacAlgorithm")
     private @Nullable Output<String> hmacAlgorithm;
 
     /**
-     * @return Hash-based message authentication code algorithm
+     * @return HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
+     * is `&#34;HMacSHA512&#34;`.
      * 
      */
     public Optional<Output<String>> hmacAlgorithm() {
@@ -77,14 +81,16 @@ public final class FactorTotpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Shared secret encoding
+     * Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
+     * Default is `&#34;base32&#34;`.
      * 
      */
     @Import(name="sharedSecretEncoding")
     private @Nullable Output<String> sharedSecretEncoding;
 
     /**
-     * @return Shared secret encoding
+     * @return Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
+     * Default is `&#34;base32&#34;`.
      * 
      */
     public Optional<Output<String>> sharedSecretEncoding() {
@@ -92,14 +98,14 @@ public final class FactorTotpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Time step in seconds
+     * Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
      * 
      */
     @Import(name="timeStep")
     private @Nullable Output<Integer> timeStep;
 
     /**
-     * @return Time step in seconds
+     * @return Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
      * 
      */
     public Optional<Output<Integer>> timeStep() {
@@ -136,7 +142,8 @@ public final class FactorTotpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clockDriftInterval Clock drift interval
+         * @param clockDriftInterval Clock drift interval. This setting allows you to build in tolerance for any
+         * drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
          * 
          * @return builder
          * 
@@ -147,7 +154,8 @@ public final class FactorTotpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clockDriftInterval Clock drift interval
+         * @param clockDriftInterval Clock drift interval. This setting allows you to build in tolerance for any
+         * drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
          * 
          * @return builder
          * 
@@ -157,7 +165,8 @@ public final class FactorTotpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hmacAlgorithm Hash-based message authentication code algorithm
+         * @param hmacAlgorithm HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
+         * is `&#34;HMacSHA512&#34;`.
          * 
          * @return builder
          * 
@@ -168,7 +177,8 @@ public final class FactorTotpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hmacAlgorithm Hash-based message authentication code algorithm
+         * @param hmacAlgorithm HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
+         * is `&#34;HMacSHA512&#34;`.
          * 
          * @return builder
          * 
@@ -220,7 +230,8 @@ public final class FactorTotpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sharedSecretEncoding Shared secret encoding
+         * @param sharedSecretEncoding Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
+         * Default is `&#34;base32&#34;`.
          * 
          * @return builder
          * 
@@ -231,7 +242,8 @@ public final class FactorTotpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sharedSecretEncoding Shared secret encoding
+         * @param sharedSecretEncoding Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
+         * Default is `&#34;base32&#34;`.
          * 
          * @return builder
          * 
@@ -241,7 +253,7 @@ public final class FactorTotpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeStep Time step in seconds
+         * @param timeStep Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
          * 
          * @return builder
          * 
@@ -252,7 +264,7 @@ public final class FactorTotpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeStep Time step in seconds
+         * @param timeStep Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
          * 
          * @return builder
          * 

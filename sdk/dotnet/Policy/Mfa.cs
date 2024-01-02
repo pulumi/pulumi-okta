@@ -9,105 +9,237 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Policy
 {
+    /// <summary>
+    /// Creates an MFA Policy.
+    /// 
+    /// This resource allows you to create and configure an MFA Policy.
+    /// 
+    /// &gt; Requires Org Feature Flag `OKTA_MFA_POLICY`. Contact support to have this feature flag ***enabled***.
+    /// 
+    /// &gt; Unless Org Feature Flag `ENG_ENABLE_OPTIONAL_PASSWORD_ENROLLMENT` is ***disabled*** `okta_password` or `okta_email` must be present and its `enroll` value set to `REQUIRED`. Contact support to have this feature flag ***disabled***.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var classicExample = new Okta.Policy.Mfa("classicExample", new()
+    ///     {
+    ///         Description = "Example MFA policy using Okta Classic engine with factors.",
+    ///         GroupsIncludeds = new[]
+    ///         {
+    ///             data.Okta_group.Everyone.Id,
+    ///         },
+    ///         IsOie = false,
+    ///         OktaOtp = 
+    ///         {
+    ///             { "enroll", "REQUIRED" },
+    ///         },
+    ///         OktaPassword = 
+    ///         {
+    ///             { "enroll", "REQUIRED" },
+    ///         },
+    ///         Status = "ACTIVE",
+    ///     });
+    /// 
+    ///     var oieExample = new Okta.Policy.Mfa("oieExample", new()
+    ///     {
+    ///         Description = "Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
+    ///         GroupsIncludeds = new[]
+    ///         {
+    ///             data.Okta_group.Everyone.Id,
+    ///         },
+    ///         IsOie = true,
+    ///         OktaPassword = 
+    ///         {
+    ///             { "enroll", "REQUIRED" },
+    ///         },
+    ///         OktaVerify = 
+    ///         {
+    ///             { "enroll", "REQUIRED" },
+    ///         },
+    ///         Status = "ACTIVE",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An MFA Policy can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:policy/mfa:Mfa example &amp;#60;policy id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:policy/mfa:Mfa")]
     public partial class Mfa : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Policy Description
+        /// Policy Description.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// DUO MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         [Output("duo")]
         public Output<ImmutableDictionary<string, string>?> Duo { get; private set; } = null!;
 
+        /// <summary>
+        /// External IDP MFA policy settings (✓ OIE).
+        /// </summary>
         [Output("externalIdp")]
         public Output<ImmutableDictionary<string, string>?> ExternalIdp { get; private set; } = null!;
 
+        /// <summary>
+        /// Fido U2F MFA policy settings (✓ Classic).
+        /// </summary>
         [Output("fidoU2f")]
         public Output<ImmutableDictionary<string, string>?> FidoU2f { get; private set; } = null!;
 
+        /// <summary>
+        /// Fido Web Authn MFA policy settings (✓ Classic).
+        /// </summary>
         [Output("fidoWebauthn")]
         public Output<ImmutableDictionary<string, string>?> FidoWebauthn { get; private set; } = null!;
 
+        /// <summary>
+        /// Google OTP MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         [Output("googleOtp")]
         public Output<ImmutableDictionary<string, string>?> GoogleOtp { get; private set; } = null!;
 
         /// <summary>
-        /// List of Group IDs to Include
+        /// List of Group IDs to Include.
         /// </summary>
         [Output("groupsIncludeds")]
         public Output<ImmutableArray<string>> GroupsIncludeds { get; private set; } = null!;
 
+        /// <summary>
+        /// HMAC-based One-Time Password MFA policy settings (✓ Classic).
+        /// </summary>
         [Output("hotp")]
         public Output<ImmutableDictionary<string, string>?> Hotp { get; private set; } = null!;
 
         /// <summary>
-        /// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
+        /// Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+        /// &gt; **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
         /// </summary>
         [Output("isOie")]
         public Output<bool?> IsOie { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Name
+        /// Policy Name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Okta Call MFA policy settings (✓ Classic).
+        /// </summary>
         [Output("oktaCall")]
         public Output<ImmutableDictionary<string, string>?> OktaCall { get; private set; } = null!;
 
+        /// <summary>
+        /// Okta Email MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         [Output("oktaEmail")]
         public Output<ImmutableDictionary<string, string>?> OktaEmail { get; private set; } = null!;
 
+        /// <summary>
+        /// Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
+        /// </summary>
         [Output("oktaOtp")]
         public Output<ImmutableDictionary<string, string>?> OktaOtp { get; private set; } = null!;
 
+        /// <summary>
+        /// Okta Password MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         [Output("oktaPassword")]
         public Output<ImmutableDictionary<string, string>?> OktaPassword { get; private set; } = null!;
 
+        /// <summary>
+        /// Okta Push MFA policy settings (✓ Classic).
+        /// </summary>
         [Output("oktaPush")]
         public Output<ImmutableDictionary<string, string>?> OktaPush { get; private set; } = null!;
 
+        /// <summary>
+        /// Okta Question MFA policy settings (✓ Classic).
+        /// </summary>
         [Output("oktaQuestion")]
         public Output<ImmutableDictionary<string, string>?> OktaQuestion { get; private set; } = null!;
 
+        /// <summary>
+        /// Okta SMS MFA policy settings (✓ Classic).
+        /// </summary>
         [Output("oktaSms")]
         public Output<ImmutableDictionary<string, string>?> OktaSms { get; private set; } = null!;
 
+        /// <summary>
+        /// Okta Verify MFA policy settings (✓ OIE).
+        /// </summary>
         [Output("oktaVerify")]
         public Output<ImmutableDictionary<string, string>?> OktaVerify { get; private set; } = null!;
 
+        /// <summary>
+        /// On-Prem MFA MFA policy settings (✓ OIE).
+        /// </summary>
         [Output("onpremMfa")]
         public Output<ImmutableDictionary<string, string>?> OnpremMfa { get; private set; } = null!;
 
+        /// <summary>
+        /// Phone Number MFA policy settings (✓ OIE).
+        /// </summary>
         [Output("phoneNumber")]
         public Output<ImmutableDictionary<string, string>?> PhoneNumber { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        /// Priority of the policy.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
 
+        /// <summary>
+        /// RSA Token MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         [Output("rsaToken")]
         public Output<ImmutableDictionary<string, string>?> RsaToken { get; private set; } = null!;
 
+        /// <summary>
+        /// Security Question MFA policy settings (✓ OIE).
+        /// </summary>
         [Output("securityQuestion")]
         public Output<ImmutableDictionary<string, string>?> SecurityQuestion { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Status: ACTIVE or INACTIVE.
+        /// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Symantec VIP MFA policy settings (✓ Classic).
+        /// </summary>
         [Output("symantecVip")]
         public Output<ImmutableDictionary<string, string>?> SymantecVip { get; private set; } = null!;
 
+        /// <summary>
+        /// FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
+        /// </summary>
         [Output("webauthn")]
         public Output<ImmutableDictionary<string, string>?> Webauthn { get; private set; } = null!;
 
+        /// <summary>
+        /// Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         [Output("yubikeyToken")]
         public Output<ImmutableDictionary<string, string>?> YubikeyToken { get; private set; } = null!;
 
@@ -158,13 +290,17 @@ namespace Pulumi.Okta.Policy
     public sealed class MfaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Policy Description
+        /// Policy Description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("duo")]
         private InputMap<string>? _duo;
+
+        /// <summary>
+        /// DUO MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         public InputMap<string> Duo
         {
             get => _duo ?? (_duo = new InputMap<string>());
@@ -173,6 +309,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("externalIdp")]
         private InputMap<string>? _externalIdp;
+
+        /// <summary>
+        /// External IDP MFA policy settings (✓ OIE).
+        /// </summary>
         public InputMap<string> ExternalIdp
         {
             get => _externalIdp ?? (_externalIdp = new InputMap<string>());
@@ -181,6 +321,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("fidoU2f")]
         private InputMap<string>? _fidoU2f;
+
+        /// <summary>
+        /// Fido U2F MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> FidoU2f
         {
             get => _fidoU2f ?? (_fidoU2f = new InputMap<string>());
@@ -189,6 +333,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("fidoWebauthn")]
         private InputMap<string>? _fidoWebauthn;
+
+        /// <summary>
+        /// Fido Web Authn MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> FidoWebauthn
         {
             get => _fidoWebauthn ?? (_fidoWebauthn = new InputMap<string>());
@@ -197,6 +345,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("googleOtp")]
         private InputMap<string>? _googleOtp;
+
+        /// <summary>
+        /// Google OTP MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         public InputMap<string> GoogleOtp
         {
             get => _googleOtp ?? (_googleOtp = new InputMap<string>());
@@ -207,7 +359,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _groupsIncludeds;
 
         /// <summary>
-        /// List of Group IDs to Include
+        /// List of Group IDs to Include.
         /// </summary>
         public InputList<string> GroupsIncludeds
         {
@@ -217,6 +369,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("hotp")]
         private InputMap<string>? _hotp;
+
+        /// <summary>
+        /// HMAC-based One-Time Password MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> Hotp
         {
             get => _hotp ?? (_hotp = new InputMap<string>());
@@ -224,19 +380,24 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
+        /// Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+        /// &gt; **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
         /// </summary>
         [Input("isOie")]
         public Input<bool>? IsOie { get; set; }
 
         /// <summary>
-        /// Policy Name
+        /// Policy Name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("oktaCall")]
         private InputMap<string>? _oktaCall;
+
+        /// <summary>
+        /// Okta Call MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> OktaCall
         {
             get => _oktaCall ?? (_oktaCall = new InputMap<string>());
@@ -245,6 +406,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("oktaEmail")]
         private InputMap<string>? _oktaEmail;
+
+        /// <summary>
+        /// Okta Email MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         public InputMap<string> OktaEmail
         {
             get => _oktaEmail ?? (_oktaEmail = new InputMap<string>());
@@ -253,6 +418,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("oktaOtp")]
         private InputMap<string>? _oktaOtp;
+
+        /// <summary>
+        /// Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> OktaOtp
         {
             get => _oktaOtp ?? (_oktaOtp = new InputMap<string>());
@@ -261,6 +430,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("oktaPassword")]
         private InputMap<string>? _oktaPassword;
+
+        /// <summary>
+        /// Okta Password MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         public InputMap<string> OktaPassword
         {
             get => _oktaPassword ?? (_oktaPassword = new InputMap<string>());
@@ -269,6 +442,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("oktaPush")]
         private InputMap<string>? _oktaPush;
+
+        /// <summary>
+        /// Okta Push MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> OktaPush
         {
             get => _oktaPush ?? (_oktaPush = new InputMap<string>());
@@ -277,6 +454,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("oktaQuestion")]
         private InputMap<string>? _oktaQuestion;
+
+        /// <summary>
+        /// Okta Question MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> OktaQuestion
         {
             get => _oktaQuestion ?? (_oktaQuestion = new InputMap<string>());
@@ -285,6 +466,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("oktaSms")]
         private InputMap<string>? _oktaSms;
+
+        /// <summary>
+        /// Okta SMS MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> OktaSms
         {
             get => _oktaSms ?? (_oktaSms = new InputMap<string>());
@@ -293,6 +478,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("oktaVerify")]
         private InputMap<string>? _oktaVerify;
+
+        /// <summary>
+        /// Okta Verify MFA policy settings (✓ OIE).
+        /// </summary>
         public InputMap<string> OktaVerify
         {
             get => _oktaVerify ?? (_oktaVerify = new InputMap<string>());
@@ -301,6 +490,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("onpremMfa")]
         private InputMap<string>? _onpremMfa;
+
+        /// <summary>
+        /// On-Prem MFA MFA policy settings (✓ OIE).
+        /// </summary>
         public InputMap<string> OnpremMfa
         {
             get => _onpremMfa ?? (_onpremMfa = new InputMap<string>());
@@ -309,6 +502,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("phoneNumber")]
         private InputMap<string>? _phoneNumber;
+
+        /// <summary>
+        /// Phone Number MFA policy settings (✓ OIE).
+        /// </summary>
         public InputMap<string> PhoneNumber
         {
             get => _phoneNumber ?? (_phoneNumber = new InputMap<string>());
@@ -316,13 +513,17 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        /// Priority of the policy.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         [Input("rsaToken")]
         private InputMap<string>? _rsaToken;
+
+        /// <summary>
+        /// RSA Token MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         public InputMap<string> RsaToken
         {
             get => _rsaToken ?? (_rsaToken = new InputMap<string>());
@@ -331,6 +532,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("securityQuestion")]
         private InputMap<string>? _securityQuestion;
+
+        /// <summary>
+        /// Security Question MFA policy settings (✓ OIE).
+        /// </summary>
         public InputMap<string> SecurityQuestion
         {
             get => _securityQuestion ?? (_securityQuestion = new InputMap<string>());
@@ -338,13 +543,17 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Policy Status: ACTIVE or INACTIVE.
+        /// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("symantecVip")]
         private InputMap<string>? _symantecVip;
+
+        /// <summary>
+        /// Symantec VIP MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> SymantecVip
         {
             get => _symantecVip ?? (_symantecVip = new InputMap<string>());
@@ -353,6 +562,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("webauthn")]
         private InputMap<string>? _webauthn;
+
+        /// <summary>
+        /// FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
+        /// </summary>
         public InputMap<string> Webauthn
         {
             get => _webauthn ?? (_webauthn = new InputMap<string>());
@@ -361,6 +574,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("yubikeyToken")]
         private InputMap<string>? _yubikeyToken;
+
+        /// <summary>
+        /// Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         public InputMap<string> YubikeyToken
         {
             get => _yubikeyToken ?? (_yubikeyToken = new InputMap<string>());
@@ -376,13 +593,17 @@ namespace Pulumi.Okta.Policy
     public sealed class MfaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Policy Description
+        /// Policy Description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("duo")]
         private InputMap<string>? _duo;
+
+        /// <summary>
+        /// DUO MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         public InputMap<string> Duo
         {
             get => _duo ?? (_duo = new InputMap<string>());
@@ -391,6 +612,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("externalIdp")]
         private InputMap<string>? _externalIdp;
+
+        /// <summary>
+        /// External IDP MFA policy settings (✓ OIE).
+        /// </summary>
         public InputMap<string> ExternalIdp
         {
             get => _externalIdp ?? (_externalIdp = new InputMap<string>());
@@ -399,6 +624,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("fidoU2f")]
         private InputMap<string>? _fidoU2f;
+
+        /// <summary>
+        /// Fido U2F MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> FidoU2f
         {
             get => _fidoU2f ?? (_fidoU2f = new InputMap<string>());
@@ -407,6 +636,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("fidoWebauthn")]
         private InputMap<string>? _fidoWebauthn;
+
+        /// <summary>
+        /// Fido Web Authn MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> FidoWebauthn
         {
             get => _fidoWebauthn ?? (_fidoWebauthn = new InputMap<string>());
@@ -415,6 +648,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("googleOtp")]
         private InputMap<string>? _googleOtp;
+
+        /// <summary>
+        /// Google OTP MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         public InputMap<string> GoogleOtp
         {
             get => _googleOtp ?? (_googleOtp = new InputMap<string>());
@@ -425,7 +662,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _groupsIncludeds;
 
         /// <summary>
-        /// List of Group IDs to Include
+        /// List of Group IDs to Include.
         /// </summary>
         public InputList<string> GroupsIncludeds
         {
@@ -435,6 +672,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("hotp")]
         private InputMap<string>? _hotp;
+
+        /// <summary>
+        /// HMAC-based One-Time Password MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> Hotp
         {
             get => _hotp ?? (_hotp = new InputMap<string>());
@@ -442,19 +683,24 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
+        /// Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
+        /// &gt; **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
         /// </summary>
         [Input("isOie")]
         public Input<bool>? IsOie { get; set; }
 
         /// <summary>
-        /// Policy Name
+        /// Policy Name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("oktaCall")]
         private InputMap<string>? _oktaCall;
+
+        /// <summary>
+        /// Okta Call MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> OktaCall
         {
             get => _oktaCall ?? (_oktaCall = new InputMap<string>());
@@ -463,6 +709,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("oktaEmail")]
         private InputMap<string>? _oktaEmail;
+
+        /// <summary>
+        /// Okta Email MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         public InputMap<string> OktaEmail
         {
             get => _oktaEmail ?? (_oktaEmail = new InputMap<string>());
@@ -471,6 +721,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("oktaOtp")]
         private InputMap<string>? _oktaOtp;
+
+        /// <summary>
+        /// Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> OktaOtp
         {
             get => _oktaOtp ?? (_oktaOtp = new InputMap<string>());
@@ -479,6 +733,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("oktaPassword")]
         private InputMap<string>? _oktaPassword;
+
+        /// <summary>
+        /// Okta Password MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         public InputMap<string> OktaPassword
         {
             get => _oktaPassword ?? (_oktaPassword = new InputMap<string>());
@@ -487,6 +745,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("oktaPush")]
         private InputMap<string>? _oktaPush;
+
+        /// <summary>
+        /// Okta Push MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> OktaPush
         {
             get => _oktaPush ?? (_oktaPush = new InputMap<string>());
@@ -495,6 +757,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("oktaQuestion")]
         private InputMap<string>? _oktaQuestion;
+
+        /// <summary>
+        /// Okta Question MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> OktaQuestion
         {
             get => _oktaQuestion ?? (_oktaQuestion = new InputMap<string>());
@@ -503,6 +769,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("oktaSms")]
         private InputMap<string>? _oktaSms;
+
+        /// <summary>
+        /// Okta SMS MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> OktaSms
         {
             get => _oktaSms ?? (_oktaSms = new InputMap<string>());
@@ -511,6 +781,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("oktaVerify")]
         private InputMap<string>? _oktaVerify;
+
+        /// <summary>
+        /// Okta Verify MFA policy settings (✓ OIE).
+        /// </summary>
         public InputMap<string> OktaVerify
         {
             get => _oktaVerify ?? (_oktaVerify = new InputMap<string>());
@@ -519,6 +793,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("onpremMfa")]
         private InputMap<string>? _onpremMfa;
+
+        /// <summary>
+        /// On-Prem MFA MFA policy settings (✓ OIE).
+        /// </summary>
         public InputMap<string> OnpremMfa
         {
             get => _onpremMfa ?? (_onpremMfa = new InputMap<string>());
@@ -527,6 +805,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("phoneNumber")]
         private InputMap<string>? _phoneNumber;
+
+        /// <summary>
+        /// Phone Number MFA policy settings (✓ OIE).
+        /// </summary>
         public InputMap<string> PhoneNumber
         {
             get => _phoneNumber ?? (_phoneNumber = new InputMap<string>());
@@ -534,13 +816,17 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        /// Priority of the policy.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         [Input("rsaToken")]
         private InputMap<string>? _rsaToken;
+
+        /// <summary>
+        /// RSA Token MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         public InputMap<string> RsaToken
         {
             get => _rsaToken ?? (_rsaToken = new InputMap<string>());
@@ -549,6 +835,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("securityQuestion")]
         private InputMap<string>? _securityQuestion;
+
+        /// <summary>
+        /// Security Question MFA policy settings (✓ OIE).
+        /// </summary>
         public InputMap<string> SecurityQuestion
         {
             get => _securityQuestion ?? (_securityQuestion = new InputMap<string>());
@@ -556,13 +846,17 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Policy Status: ACTIVE or INACTIVE.
+        /// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("symantecVip")]
         private InputMap<string>? _symantecVip;
+
+        /// <summary>
+        /// Symantec VIP MFA policy settings (✓ Classic).
+        /// </summary>
         public InputMap<string> SymantecVip
         {
             get => _symantecVip ?? (_symantecVip = new InputMap<string>());
@@ -571,6 +865,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("webauthn")]
         private InputMap<string>? _webauthn;
+
+        /// <summary>
+        /// FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
+        /// </summary>
         public InputMap<string> Webauthn
         {
             get => _webauthn ?? (_webauthn = new InputMap<string>());
@@ -579,6 +877,10 @@ namespace Pulumi.Okta.Policy
 
         [Input("yubikeyToken")]
         private InputMap<string>? _yubikeyToken;
+
+        /// <summary>
+        /// Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
+        /// </summary>
         public InputMap<string> YubikeyToken
         {
             get => _yubikeyToken ?? (_yubikeyToken = new InputMap<string>());

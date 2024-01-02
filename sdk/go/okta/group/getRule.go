@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get a group rule from Okta.
+// Use this data source to retrieve a group rule from Okta.
 //
 // ## Example Usage
 //
@@ -50,10 +50,11 @@ func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getRule.
 type LookupRuleArgs struct {
-	// The ID of the Group Rule.
+	// The ID of the group rule to retrieve.
 	Id *string `pulumi:"id"`
-	// The name of the Group Rule.
-	Name   *string `pulumi:"name"`
+	// The name of the Group Rule to retrieve.
+	Name *string `pulumi:"name"`
+	// The status of the group rule.
 	Status *string `pulumi:"status"`
 }
 
@@ -68,7 +69,8 @@ type LookupRuleResult struct {
 	// The ID of the Group Rule.
 	Id *string `pulumi:"id"`
 	// The name of the Group Rule.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The status of the group rule.
 	Status *string `pulumi:"status"`
 	// The list of user IDs that would be excluded when rules are processed.
 	UsersExcludeds []string `pulumi:"usersExcludeds"`
@@ -89,10 +91,11 @@ func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getRule.
 type LookupRuleOutputArgs struct {
-	// The ID of the Group Rule.
+	// The ID of the group rule to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the Group Rule.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the Group Rule to retrieve.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The status of the group rule.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -140,6 +143,7 @@ func (o LookupRuleResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The status of the group rule.
 func (o LookupRuleResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }

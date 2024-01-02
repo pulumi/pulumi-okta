@@ -15,6 +15,48 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Use this resource to create an [email
+ * customization](https://developer.okta.com/docs/reference/api/brands/#create-email-customization)
+ * of an email template belonging to a brand in an Okta organization.
+ * 
+ * &gt; Okta&#39;s public API is strict regarding the behavior of the `is_default`
+ * property in [an email
+ * customization](https://developer.okta.com/docs/reference/api/brands/#email-customization).
+ * Make use of `depends_on` meta argument to ensure the provider navigates email customization
+ * language versions seamlessly. Have all secondary customizations depend on the primary
+ * customization that is marked default. See Example Usage.
+ * 
+ * &gt; Caveats for [creating an email
+ * customization](https://developer.okta.com/docs/reference/api/brands/#response-body-19).
+ * If this is the first customization being created for the email template, and
+ * `is_default` is not set for the customization in its resource configuration, the
+ * API will respond with the created customization marked as default. The API will
+ * 400 if the language parameter is not one of the supported languages or the body
+ * parameter does not contain a required variable reference. The API will error 409
+ * if `is_default` is true and a default customization exists. The API will 404 for
+ * an invalid `brand_id` or `template_name`.
+ * 
+ * &gt; Caveats for [updating an email
+ * customization](https://developer.okta.com/docs/reference/api/brands/#response-body-22).
+ * If the `is_default` parameter is true, the previous default email customization
+ * has its `is_default` set to false (see previous note about mitigating this with
+ * `depends_on` meta argument). The API will 409 if there’s already another email
+ * customization for the specified language or the `is_default` parameter is false
+ * and the email customization being updated is the default. The API will 400 if
+ * the language parameter is not one of the supported locales or the body parameter
+ * does not contain a required variable reference.  The API will 404 for an invalid
+ * `brand_id` or `template_name`.
+ * 
+ * ## Import
+ * 
+ * An email customization can be imported using the customization ID, brand ID and template name.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/emailCustomization:EmailCustomization example &amp;#60;customization_id&amp;#62;/&amp;#60;brand_id&amp;#62;/&amp;#60;template_name&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/emailCustomization:EmailCustomization")
 public class EmailCustomization extends com.pulumi.resources.CustomResource {
     /**
@@ -46,7 +88,7 @@ public class EmailCustomization extends com.pulumi.resources.CustomResource {
         return this.brandId;
     }
     /**
-     * Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of &#39;create&#39; or &#39;destroy&#39; or both `create,destroy&#39;.
+     * `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template&#34;,
      * 
      * @deprecated
      * force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
@@ -57,7 +99,7 @@ public class EmailCustomization extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> forceIsDefault;
 
     /**
-     * @return Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of &#39;create&#39; or &#39;destroy&#39; or both `create,destroy&#39;.
+     * @return `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template&#34;,
      * 
      */
     public Output<Optional<String>> forceIsDefault() {
@@ -79,6 +121,34 @@ public class EmailCustomization extends com.pulumi.resources.CustomResource {
     }
     /**
      * The language supported by the customization
+     * - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
+     *   `&#34;cs&#34;`,
+     *   `&#34;da&#34;`,
+     *   `&#34;de&#34;`,
+     *   `&#34;el&#34;`,
+     *   `&#34;en&#34;`,
+     *   `&#34;es&#34;`,
+     *   `&#34;fi&#34;`,
+     *   `&#34;fr&#34;`,
+     *   `&#34;hu&#34;`,
+     *   `&#34;id&#34;`,
+     *   `&#34;it&#34;`,
+     *   `&#34;ja&#34;`,
+     *   `&#34;ko&#34;`,
+     *   `&#34;ms&#34;`,
+     *   `&#34;nb&#34;`,
+     *   `&#34;nl-NL&#34;`,
+     *   `&#34;pl&#34;`,
+     *   `&#34;pt-BR&#34;`,
+     *   `&#34;ro&#34;`,
+     *   `&#34;ru&#34;`,
+     *   `&#34;sv&#34;`,
+     *   `&#34;th&#34;`,
+     *   `&#34;tr&#34;`,
+     *   `&#34;uk&#34;`,
+     *   `&#34;vi&#34;`,
+     *   `&#34;zh-CN&#34;`,
+     *   `&#34;zh-TW&#34;`
      * 
      */
     @Export(name="language", refs={String.class}, tree="[0]")
@@ -86,6 +156,34 @@ public class EmailCustomization extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The language supported by the customization
+     * - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
+     *   `&#34;cs&#34;`,
+     *   `&#34;da&#34;`,
+     *   `&#34;de&#34;`,
+     *   `&#34;el&#34;`,
+     *   `&#34;en&#34;`,
+     *   `&#34;es&#34;`,
+     *   `&#34;fi&#34;`,
+     *   `&#34;fr&#34;`,
+     *   `&#34;hu&#34;`,
+     *   `&#34;id&#34;`,
+     *   `&#34;it&#34;`,
+     *   `&#34;ja&#34;`,
+     *   `&#34;ko&#34;`,
+     *   `&#34;ms&#34;`,
+     *   `&#34;nb&#34;`,
+     *   `&#34;nl-NL&#34;`,
+     *   `&#34;pl&#34;`,
+     *   `&#34;pt-BR&#34;`,
+     *   `&#34;ro&#34;`,
+     *   `&#34;ru&#34;`,
+     *   `&#34;sv&#34;`,
+     *   `&#34;th&#34;`,
+     *   `&#34;tr&#34;`,
+     *   `&#34;uk&#34;`,
+     *   `&#34;vi&#34;`,
+     *   `&#34;zh-CN&#34;`,
+     *   `&#34;zh-TW&#34;`
      * 
      */
     public Output<Optional<String>> language() {
@@ -121,6 +219,38 @@ public class EmailCustomization extends com.pulumi.resources.CustomResource {
     }
     /**
      * Template Name
+     * - Example values: `&#34;AccountLockout&#34;`,
+     *   `&#34;ADForgotPassword&#34;`,
+     *   `&#34;ADForgotPasswordDenied&#34;`,
+     *   `&#34;ADSelfServiceUnlock&#34;`,
+     *   `&#34;ADUserActivation&#34;`,
+     *   `&#34;AuthenticatorEnrolled&#34;`,
+     *   `&#34;AuthenticatorReset&#34;`,
+     *   `&#34;ChangeEmailConfirmation&#34;`,
+     *   `&#34;EmailChallenge&#34;`,
+     *   `&#34;EmailChangeConfirmation&#34;`,
+     *   `&#34;EmailFactorVerification&#34;`,
+     *   `&#34;ForgotPassword&#34;`,
+     *   `&#34;ForgotPasswordDenied&#34;`,
+     *   `&#34;IGAReviewerEndNotification&#34;`,
+     *   `&#34;IGAReviewerNotification&#34;`,
+     *   `&#34;IGAReviewerPendingNotification&#34;`,
+     *   `&#34;IGAReviewerReassigned&#34;`,
+     *   `&#34;LDAPForgotPassword&#34;`,
+     *   `&#34;LDAPForgotPasswordDenied&#34;`,
+     *   `&#34;LDAPSelfServiceUnlock&#34;`,
+     *   `&#34;LDAPUserActivation&#34;`,
+     *   `&#34;MyAccountChangeConfirmation&#34;`,
+     *   `&#34;NewSignOnNotification&#34;`,
+     *   `&#34;OktaVerifyActivation&#34;`,
+     *   `&#34;PasswordChanged&#34;`,
+     *   `&#34;PasswordResetByAdmin&#34;`,
+     *   `&#34;PendingEmailChange&#34;`,
+     *   `&#34;RegistrationActivation&#34;`,
+     *   `&#34;RegistrationEmailVerification&#34;`,
+     *   `&#34;SelfServiceUnlock&#34;`,
+     *   `&#34;SelfServiceUnlockOnUnlockedAccount&#34;`,
+     *   `&#34;UserActivation&#34;`
      * 
      */
     @Export(name="templateName", refs={String.class}, tree="[0]")
@@ -128,6 +258,38 @@ public class EmailCustomization extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Template Name
+     * - Example values: `&#34;AccountLockout&#34;`,
+     *   `&#34;ADForgotPassword&#34;`,
+     *   `&#34;ADForgotPasswordDenied&#34;`,
+     *   `&#34;ADSelfServiceUnlock&#34;`,
+     *   `&#34;ADUserActivation&#34;`,
+     *   `&#34;AuthenticatorEnrolled&#34;`,
+     *   `&#34;AuthenticatorReset&#34;`,
+     *   `&#34;ChangeEmailConfirmation&#34;`,
+     *   `&#34;EmailChallenge&#34;`,
+     *   `&#34;EmailChangeConfirmation&#34;`,
+     *   `&#34;EmailFactorVerification&#34;`,
+     *   `&#34;ForgotPassword&#34;`,
+     *   `&#34;ForgotPasswordDenied&#34;`,
+     *   `&#34;IGAReviewerEndNotification&#34;`,
+     *   `&#34;IGAReviewerNotification&#34;`,
+     *   `&#34;IGAReviewerPendingNotification&#34;`,
+     *   `&#34;IGAReviewerReassigned&#34;`,
+     *   `&#34;LDAPForgotPassword&#34;`,
+     *   `&#34;LDAPForgotPasswordDenied&#34;`,
+     *   `&#34;LDAPSelfServiceUnlock&#34;`,
+     *   `&#34;LDAPUserActivation&#34;`,
+     *   `&#34;MyAccountChangeConfirmation&#34;`,
+     *   `&#34;NewSignOnNotification&#34;`,
+     *   `&#34;OktaVerifyActivation&#34;`,
+     *   `&#34;PasswordChanged&#34;`,
+     *   `&#34;PasswordResetByAdmin&#34;`,
+     *   `&#34;PendingEmailChange&#34;`,
+     *   `&#34;RegistrationActivation&#34;`,
+     *   `&#34;RegistrationEmailVerification&#34;`,
+     *   `&#34;SelfServiceUnlock&#34;`,
+     *   `&#34;SelfServiceUnlockOnUnlockedAccount&#34;`,
+     *   `&#34;UserActivation&#34;`
      * 
      */
     public Output<String> templateName() {

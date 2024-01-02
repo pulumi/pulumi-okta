@@ -9,17 +9,71 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// This resource allows you to configure Threat Insight Settings.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ipNetworkZoneExample = new Okta.Network.Zone("ipNetworkZoneExample", new()
+    ///     {
+    ///         Type = "IP",
+    ///         Gateways = new[]
+    ///         {
+    ///             "1.2.3.4/24",
+    ///             "2.3.4.5-2.3.4.15",
+    ///         },
+    ///         Proxies = new[]
+    ///         {
+    ///             "2.2.3.4/24",
+    ///             "3.3.4.5-3.3.4.15",
+    ///         },
+    ///     });
+    /// 
+    ///     var example = new Okta.ThreatInsightSettings("example", new()
+    ///     {
+    ///         Action = "block",
+    ///         NetworkExcludes = new[]
+    ///         {
+    ///             ipNetworkZoneExample.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Threat Insight Settings can be imported without any parameters.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/threatInsightSettings:ThreatInsightSettings example _
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/threatInsightSettings:ThreatInsightSettings")]
     public partial class ThreatInsightSettings : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies how Okta responds to authentication requests from suspicious IPs
+        /// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values 
+        /// are `"none"`, `"audit"`, or `"block"`. A value of `"none"` indicates that ThreatInsight is disabled. A value of `"audit"`
+        /// indicates that Okta logs suspicious requests in the System Log. A value of `"block"` indicates that Okta logs suspicious
+        /// requests in the System Log and blocks the requests.
         /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
 
         /// <summary>
-        /// List of Network Zone IDs to exclude to be not logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation
+        /// Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type. 
+        /// IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
+        /// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+        /// is not guarantee from the API sides
         /// </summary>
         [Output("networkExcludes")]
         public Output<ImmutableArray<string>> NetworkExcludes { get; private set; } = null!;
@@ -71,7 +125,10 @@ namespace Pulumi.Okta
     public sealed class ThreatInsightSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how Okta responds to authentication requests from suspicious IPs
+        /// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values 
+        /// are `"none"`, `"audit"`, or `"block"`. A value of `"none"` indicates that ThreatInsight is disabled. A value of `"audit"`
+        /// indicates that Okta logs suspicious requests in the System Log. A value of `"block"` indicates that Okta logs suspicious
+        /// requests in the System Log and blocks the requests.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -80,7 +137,10 @@ namespace Pulumi.Okta
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// List of Network Zone IDs to exclude to be not logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation
+        /// Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type. 
+        /// IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
+        /// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+        /// is not guarantee from the API sides
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -97,7 +157,10 @@ namespace Pulumi.Okta
     public sealed class ThreatInsightSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how Okta responds to authentication requests from suspicious IPs
+        /// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values 
+        /// are `"none"`, `"audit"`, or `"block"`. A value of `"none"` indicates that ThreatInsight is disabled. A value of `"audit"`
+        /// indicates that Okta logs suspicious requests in the System Log. A value of `"block"` indicates that Okta logs suspicious
+        /// requests in the System Log and blocks the requests.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
@@ -106,7 +169,10 @@ namespace Pulumi.Okta
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// List of Network Zone IDs to exclude to be not logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation
+        /// Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type. 
+        /// IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
+        /// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
+        /// is not guarantee from the API sides
         /// </summary>
         public InputList<string> NetworkExcludes
         {

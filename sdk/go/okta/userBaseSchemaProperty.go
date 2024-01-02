@@ -12,24 +12,84 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a User Base Schema property.
+//
+// This resource allows you to configure a base user schema property.
+//
+// ## IMPORTANT NOTE:
+//
+// Based on the [official documentation](https://developer.okta.com/docs/reference/api/schemas/#user-profile-base-subschema)
+// base properties can not be modified, except to update permissions, to change the nullability of `firstName` and
+// `lastName` (`required` property) or to specify a `pattern` for `login`. Currently, `title` and `type` are required, so
+// they should be set to the current values of the base property. This will be fixed in the future releases, as this is
+// a breaking change.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewUserBaseSchemaProperty(ctx, "example", &okta.UserBaseSchemaPropertyArgs{
+//				Index:    pulumi.String("firstName"),
+//				Master:   pulumi.String("OKTA"),
+//				Required: pulumi.Bool(true),
+//				Title:    pulumi.String("First name"),
+//				Type:     pulumi.String("string"),
+//				UserType: pulumi.Any(data.Okta_user_type.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// User schema property of default user type can be imported via the property index.
+//
+// ```sh
+//
+//	$ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;property name&#62;
+//
+// ```
+//
+//	User schema property of custom user type can be imported via user type id and property index
+//
+// ```sh
+//
+//	$ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;user type id&#62;.&#60;property name&#62;
+//
+// ```
 type UserBaseSchemaProperty struct {
 	pulumi.CustomResourceState
 
-	// Subschema unique string identifier
+	// The property name.
 	Index pulumi.StringOutput `pulumi:"index"`
-	// SubSchema profile manager, if not set it will inherit its setting.
+	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 	Master pulumi.StringPtrOutput `pulumi:"master"`
-	// The validation pattern to use for the subschema. Must be in form of '.+', or '[\n\n]+' if present.'
+	// The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
 	Pattern pulumi.StringPtrOutput `pulumi:"pattern"`
-	// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrOutput `pulumi:"permissions"`
-	// Whether the subschema is required
+	// Whether the property is required for this application's users.
 	Required pulumi.BoolPtrOutput `pulumi:"required"`
-	// Subschema title (display name)
+	// The property display name.
 	Title pulumi.StringOutput `pulumi:"title"`
-	// Subschema type: string, boolean, number, integer, array, or object
+	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Custom subschema user type
+	// User type ID.
 	UserType pulumi.StringPtrOutput `pulumi:"userType"`
 }
 
@@ -72,40 +132,40 @@ func GetUserBaseSchemaProperty(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserBaseSchemaProperty resources.
 type userBaseSchemaPropertyState struct {
-	// Subschema unique string identifier
+	// The property name.
 	Index *string `pulumi:"index"`
-	// SubSchema profile manager, if not set it will inherit its setting.
+	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 	Master *string `pulumi:"master"`
-	// The validation pattern to use for the subschema. Must be in form of '.+', or '[\n\n]+' if present.'
+	// The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
 	Pattern *string `pulumi:"pattern"`
-	// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions *string `pulumi:"permissions"`
-	// Whether the subschema is required
+	// Whether the property is required for this application's users.
 	Required *bool `pulumi:"required"`
-	// Subschema title (display name)
+	// The property display name.
 	Title *string `pulumi:"title"`
-	// Subschema type: string, boolean, number, integer, array, or object
+	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type *string `pulumi:"type"`
-	// Custom subschema user type
+	// User type ID.
 	UserType *string `pulumi:"userType"`
 }
 
 type UserBaseSchemaPropertyState struct {
-	// Subschema unique string identifier
+	// The property name.
 	Index pulumi.StringPtrInput
-	// SubSchema profile manager, if not set it will inherit its setting.
+	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 	Master pulumi.StringPtrInput
-	// The validation pattern to use for the subschema. Must be in form of '.+', or '[\n\n]+' if present.'
+	// The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
 	Pattern pulumi.StringPtrInput
-	// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrInput
-	// Whether the subschema is required
+	// Whether the property is required for this application's users.
 	Required pulumi.BoolPtrInput
-	// Subschema title (display name)
+	// The property display name.
 	Title pulumi.StringPtrInput
-	// Subschema type: string, boolean, number, integer, array, or object
+	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringPtrInput
-	// Custom subschema user type
+	// User type ID.
 	UserType pulumi.StringPtrInput
 }
 
@@ -114,41 +174,41 @@ func (UserBaseSchemaPropertyState) ElementType() reflect.Type {
 }
 
 type userBaseSchemaPropertyArgs struct {
-	// Subschema unique string identifier
+	// The property name.
 	Index string `pulumi:"index"`
-	// SubSchema profile manager, if not set it will inherit its setting.
+	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 	Master *string `pulumi:"master"`
-	// The validation pattern to use for the subschema. Must be in form of '.+', or '[\n\n]+' if present.'
+	// The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
 	Pattern *string `pulumi:"pattern"`
-	// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions *string `pulumi:"permissions"`
-	// Whether the subschema is required
+	// Whether the property is required for this application's users.
 	Required *bool `pulumi:"required"`
-	// Subschema title (display name)
+	// The property display name.
 	Title string `pulumi:"title"`
-	// Subschema type: string, boolean, number, integer, array, or object
+	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type string `pulumi:"type"`
-	// Custom subschema user type
+	// User type ID.
 	UserType *string `pulumi:"userType"`
 }
 
 // The set of arguments for constructing a UserBaseSchemaProperty resource.
 type UserBaseSchemaPropertyArgs struct {
-	// Subschema unique string identifier
+	// The property name.
 	Index pulumi.StringInput
-	// SubSchema profile manager, if not set it will inherit its setting.
+	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 	Master pulumi.StringPtrInput
-	// The validation pattern to use for the subschema. Must be in form of '.+', or '[\n\n]+' if present.'
+	// The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
 	Pattern pulumi.StringPtrInput
-	// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrInput
-	// Whether the subschema is required
+	// Whether the property is required for this application's users.
 	Required pulumi.BoolPtrInput
-	// Subschema title (display name)
+	// The property display name.
 	Title pulumi.StringInput
-	// Subschema type: string, boolean, number, integer, array, or object
+	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringInput
-	// Custom subschema user type
+	// User type ID.
 	UserType pulumi.StringPtrInput
 }
 
@@ -239,42 +299,42 @@ func (o UserBaseSchemaPropertyOutput) ToUserBaseSchemaPropertyOutputWithContext(
 	return o
 }
 
-// Subschema unique string identifier
+// The property name.
 func (o UserBaseSchemaPropertyOutput) Index() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.StringOutput { return v.Index }).(pulumi.StringOutput)
 }
 
-// SubSchema profile manager, if not set it will inherit its setting.
+// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 func (o UserBaseSchemaPropertyOutput) Master() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.StringPtrOutput { return v.Master }).(pulumi.StringPtrOutput)
 }
 
-// The validation pattern to use for the subschema. Must be in form of '.+', or '[\n\n]+' if present.'
+// The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[<pattern>]+`.
 func (o UserBaseSchemaPropertyOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.StringPtrOutput { return v.Pattern }).(pulumi.StringPtrOutput)
 }
 
-// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 func (o UserBaseSchemaPropertyOutput) Permissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.StringPtrOutput { return v.Permissions }).(pulumi.StringPtrOutput)
 }
 
-// Whether the subschema is required
+// Whether the property is required for this application's users.
 func (o UserBaseSchemaPropertyOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.BoolPtrOutput { return v.Required }).(pulumi.BoolPtrOutput)
 }
 
-// Subschema title (display name)
+// The property display name.
 func (o UserBaseSchemaPropertyOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }
 
-// Subschema type: string, boolean, number, integer, array, or object
+// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 func (o UserBaseSchemaPropertyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Custom subschema user type
+// User type ID.
 func (o UserBaseSchemaPropertyOutput) UserType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserBaseSchemaProperty) pulumi.StringPtrOutput { return v.UserType }).(pulumi.StringPtrOutput)
 }

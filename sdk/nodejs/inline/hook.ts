@@ -6,6 +6,41 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Creates an inline hook.
+ *
+ * This resource allows you to create and configure an inline hook.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.inline.Hook("example", {
+ *     auth: {
+ *         key: "Authorization",
+ *         type: "HEADER",
+ *         value: "secret",
+ *     },
+ *     channel: {
+ *         method: "POST",
+ *         uri: "https://example.com/test",
+ *         version: "1.0.0",
+ *     },
+ *     type: "com.okta.oauth2.tokens.transform",
+ *     version: "1.0.0",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An inline hook can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
+ * ```
+ */
 export class Hook extends pulumi.CustomResource {
     /**
      * Get an existing Hook resource's state with the given name, ID, and optional extra
@@ -34,12 +69,30 @@ export class Hook extends pulumi.CustomResource {
         return obj['__pulumiType'] === Hook.__pulumiType;
     }
 
+    /**
+     * Authentication required for inline hook request.
+     */
     public readonly auth!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Details of the endpoint the inline hook will hit.
+     */
     public readonly channel!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Map of headers to send along in inline hook request.
+     */
     public readonly headers!: pulumi.Output<outputs.inline.HookHeader[] | undefined>;
+    /**
+     * The inline hook display name.
+     */
     public readonly name!: pulumi.Output<string>;
     public readonly status!: pulumi.Output<string | undefined>;
+    /**
+     * The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+     */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Version of the channel. The currently-supported version is `"1.0.0"`.
+     */
     public readonly version!: pulumi.Output<string>;
 
     /**
@@ -90,12 +143,30 @@ export class Hook extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Hook resources.
  */
 export interface HookState {
+    /**
+     * Authentication required for inline hook request.
+     */
     auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Details of the endpoint the inline hook will hit.
+     */
     channel?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of headers to send along in inline hook request.
+     */
     headers?: pulumi.Input<pulumi.Input<inputs.inline.HookHeader>[]>;
+    /**
+     * The inline hook display name.
+     */
     name?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
+    /**
+     * The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+     */
     type?: pulumi.Input<string>;
+    /**
+     * Version of the channel. The currently-supported version is `"1.0.0"`.
+     */
     version?: pulumi.Input<string>;
 }
 
@@ -103,11 +174,29 @@ export interface HookState {
  * The set of arguments for constructing a Hook resource.
  */
 export interface HookArgs {
+    /**
+     * Authentication required for inline hook request.
+     */
     auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Details of the endpoint the inline hook will hit.
+     */
     channel: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of headers to send along in inline hook request.
+     */
     headers?: pulumi.Input<pulumi.Input<inputs.inline.HookHeader>[]>;
+    /**
+     * The inline hook display name.
+     */
     name?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
+    /**
+     * The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+     */
     type: pulumi.Input<string>;
+    /**
+     * Version of the channel. The currently-supported version is `"1.0.0"`.
+     */
     version: pulumi.Input<string>;
 }

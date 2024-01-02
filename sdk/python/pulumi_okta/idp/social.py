@@ -41,12 +41,33 @@ class SocialArgs:
                  username_template: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Social resource.
-        :param pulumi.Input[str] type: Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
-        :param pulumi.Input[str] apple_kid: The Key ID that you obtained from Apple when you created the private key for the client
-        :param pulumi.Input[str] apple_private_key: The PKCS #8 encoded private key that you created for the client and downloaded from Apple
-        :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
-        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-        :param pulumi.Input[str] name: Name of the IdP
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
+        :param pulumi.Input[str] type: The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+        :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
+        :param pulumi.Input[str] apple_kid: The Key ID that you obtained from Apple when you created the private key for the client.
+        :param pulumi.Input[str] apple_private_key: The Key ID that you obtained from Apple when you created the private 
+               key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+               and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+        :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account.
+        :param pulumi.Input[str] client_id: Unique identifier issued by AS for the Okta IdP instance.
+        :param pulumi.Input[str] client_secret: Client secret issued by AS for the Okta IdP instance.
+        :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        :param pulumi.Input[str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
+        :param pulumi.Input[str] name: The Application's display name.
+        :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
+        :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+        :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
+        :param pulumi.Input[str] status: Status of the IdP.
+        :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
         """
         pulumi.set(__self__, "scopes", scopes)
         pulumi.set(__self__, "type", type)
@@ -100,6 +121,9 @@ class SocialArgs:
     @property
     @pulumi.getter
     def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The scopes of the IdP.
+        """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
@@ -110,7 +134,7 @@ class SocialArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+        The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
         """
         return pulumi.get(self, "type")
 
@@ -121,6 +145,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="accountLinkAction")
     def account_link_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the account linking action for an IdP user.
+        """
         return pulumi.get(self, "account_link_action")
 
     @account_link_action.setter
@@ -130,6 +157,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="accountLinkGroupIncludes")
     def account_link_group_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Group memberships to determine link candidates.
+        """
         return pulumi.get(self, "account_link_group_includes")
 
     @account_link_group_includes.setter
@@ -140,7 +170,7 @@ class SocialArgs:
     @pulumi.getter(name="appleKid")
     def apple_kid(self) -> Optional[pulumi.Input[str]]:
         """
-        The Key ID that you obtained from Apple when you created the private key for the client
+        The Key ID that you obtained from Apple when you created the private key for the client.
         """
         return pulumi.get(self, "apple_kid")
 
@@ -152,7 +182,9 @@ class SocialArgs:
     @pulumi.getter(name="applePrivateKey")
     def apple_private_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+        The Key ID that you obtained from Apple when you created the private 
+        key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+        and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
         """
         return pulumi.get(self, "apple_private_key")
 
@@ -164,7 +196,7 @@ class SocialArgs:
     @pulumi.getter(name="appleTeamId")
     def apple_team_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Team ID associated with your Apple developer account
+        The Team ID associated with your Apple developer account.
         """
         return pulumi.get(self, "apple_team_id")
 
@@ -175,6 +207,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique identifier issued by AS for the Okta IdP instance.
+        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -184,6 +219,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Client secret issued by AS for the Okta IdP instance.
+        """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
@@ -193,6 +231,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="deprovisionedAction")
     def deprovisioned_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        """
         return pulumi.get(self, "deprovisioned_action")
 
     @deprovisioned_action.setter
@@ -202,6 +243,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="groupsAction")
     def groups_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        """
         return pulumi.get(self, "groups_action")
 
     @groups_action.setter
@@ -211,6 +255,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="groupsAssignments")
     def groups_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        """
         return pulumi.get(self, "groups_assignments")
 
     @groups_assignments.setter
@@ -220,6 +267,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="groupsAttribute")
     def groups_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+        """
         return pulumi.get(self, "groups_attribute")
 
     @groups_attribute.setter
@@ -229,6 +279,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="groupsFilters")
     def groups_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        """
         return pulumi.get(self, "groups_filters")
 
     @groups_filters.setter
@@ -239,7 +292,7 @@ class SocialArgs:
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -250,6 +303,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="maxClockSkew")
     def max_clock_skew(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum allowable clock-skew when processing messages from the IdP.
+        """
         return pulumi.get(self, "max_clock_skew")
 
     @max_clock_skew.setter
@@ -260,7 +316,7 @@ class SocialArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the IdP
+        The Application's display name.
         """
         return pulumi.get(self, "name")
 
@@ -271,6 +327,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="profileMaster")
     def profile_master(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines if the IdP should act as a source of truth for user profile attributes.
+        """
         return pulumi.get(self, "profile_master")
 
     @profile_master.setter
@@ -280,6 +339,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="protocolType")
     def protocol_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+        """
         return pulumi.get(self, "protocol_type")
 
     @protocol_type.setter
@@ -289,6 +351,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="provisioningAction")
     def provisioning_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provisioning action for an IdP user during authentication.
+        """
         return pulumi.get(self, "provisioning_action")
 
     @provisioning_action.setter
@@ -298,6 +363,9 @@ class SocialArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the IdP.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -307,6 +375,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="subjectMatchAttribute")
     def subject_match_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        """
         return pulumi.get(self, "subject_match_attribute")
 
     @subject_match_attribute.setter
@@ -316,6 +387,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="subjectMatchType")
     def subject_match_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        """
         return pulumi.get(self, "subject_match_type")
 
     @subject_match_type.setter
@@ -325,6 +399,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="suspendedAction")
     def suspended_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        """
         return pulumi.get(self, "suspended_action")
 
     @suspended_action.setter
@@ -334,6 +411,9 @@ class SocialArgs:
     @property
     @pulumi.getter(name="usernameTemplate")
     def username_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Okta EL Expression to generate or transform a unique username for the IdP user.
+        """
         return pulumi.get(self, "username_template")
 
     @username_template.setter
@@ -375,12 +455,37 @@ class _SocialState:
                  username_template: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Social resources.
-        :param pulumi.Input[str] apple_kid: The Key ID that you obtained from Apple when you created the private key for the client
-        :param pulumi.Input[str] apple_private_key: The PKCS #8 encoded private key that you created for the client and downloaded from Apple
-        :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
-        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-        :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[str] type: Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+        :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
+        :param pulumi.Input[str] apple_kid: The Key ID that you obtained from Apple when you created the private key for the client.
+        :param pulumi.Input[str] apple_private_key: The Key ID that you obtained from Apple when you created the private 
+               key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+               and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+        :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account.
+        :param pulumi.Input[str] authorization_binding: The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        :param pulumi.Input[str] authorization_url: IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
+        :param pulumi.Input[str] client_id: Unique identifier issued by AS for the Okta IdP instance.
+        :param pulumi.Input[str] client_secret: Client secret issued by AS for the Okta IdP instance.
+        :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        :param pulumi.Input[str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
+        :param pulumi.Input[str] name: The Application's display name.
+        :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
+        :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+        :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
+        :param pulumi.Input[str] status: Status of the IdP.
+        :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        :param pulumi.Input[str] token_binding: The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        :param pulumi.Input[str] token_url: IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
+        :param pulumi.Input[str] type: The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+        :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
         """
         if account_link_action is not None:
             pulumi.set(__self__, "account_link_action", account_link_action)
@@ -444,6 +549,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="accountLinkAction")
     def account_link_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the account linking action for an IdP user.
+        """
         return pulumi.get(self, "account_link_action")
 
     @account_link_action.setter
@@ -453,6 +561,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="accountLinkGroupIncludes")
     def account_link_group_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Group memberships to determine link candidates.
+        """
         return pulumi.get(self, "account_link_group_includes")
 
     @account_link_group_includes.setter
@@ -463,7 +574,7 @@ class _SocialState:
     @pulumi.getter(name="appleKid")
     def apple_kid(self) -> Optional[pulumi.Input[str]]:
         """
-        The Key ID that you obtained from Apple when you created the private key for the client
+        The Key ID that you obtained from Apple when you created the private key for the client.
         """
         return pulumi.get(self, "apple_kid")
 
@@ -475,7 +586,9 @@ class _SocialState:
     @pulumi.getter(name="applePrivateKey")
     def apple_private_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+        The Key ID that you obtained from Apple when you created the private 
+        key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+        and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
         """
         return pulumi.get(self, "apple_private_key")
 
@@ -487,7 +600,7 @@ class _SocialState:
     @pulumi.getter(name="appleTeamId")
     def apple_team_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Team ID associated with your Apple developer account
+        The Team ID associated with your Apple developer account.
         """
         return pulumi.get(self, "apple_team_id")
 
@@ -498,6 +611,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="authorizationBinding")
     def authorization_binding(self) -> Optional[pulumi.Input[str]]:
+        """
+        The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        """
         return pulumi.get(self, "authorization_binding")
 
     @authorization_binding.setter
@@ -507,6 +623,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="authorizationUrl")
     def authorization_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
+        """
         return pulumi.get(self, "authorization_url")
 
     @authorization_url.setter
@@ -516,6 +635,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique identifier issued by AS for the Okta IdP instance.
+        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -525,6 +647,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Client secret issued by AS for the Okta IdP instance.
+        """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
@@ -534,6 +659,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="deprovisionedAction")
     def deprovisioned_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        """
         return pulumi.get(self, "deprovisioned_action")
 
     @deprovisioned_action.setter
@@ -543,6 +671,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="groupsAction")
     def groups_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        """
         return pulumi.get(self, "groups_action")
 
     @groups_action.setter
@@ -552,6 +683,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="groupsAssignments")
     def groups_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        """
         return pulumi.get(self, "groups_assignments")
 
     @groups_assignments.setter
@@ -561,6 +695,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="groupsAttribute")
     def groups_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+        """
         return pulumi.get(self, "groups_attribute")
 
     @groups_attribute.setter
@@ -570,6 +707,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="groupsFilters")
     def groups_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        """
         return pulumi.get(self, "groups_filters")
 
     @groups_filters.setter
@@ -580,7 +720,7 @@ class _SocialState:
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -591,6 +731,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="maxClockSkew")
     def max_clock_skew(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum allowable clock-skew when processing messages from the IdP.
+        """
         return pulumi.get(self, "max_clock_skew")
 
     @max_clock_skew.setter
@@ -601,7 +744,7 @@ class _SocialState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the IdP
+        The Application's display name.
         """
         return pulumi.get(self, "name")
 
@@ -612,6 +755,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="profileMaster")
     def profile_master(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines if the IdP should act as a source of truth for user profile attributes.
+        """
         return pulumi.get(self, "profile_master")
 
     @profile_master.setter
@@ -621,6 +767,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="protocolType")
     def protocol_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+        """
         return pulumi.get(self, "protocol_type")
 
     @protocol_type.setter
@@ -630,6 +779,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="provisioningAction")
     def provisioning_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provisioning action for an IdP user during authentication.
+        """
         return pulumi.get(self, "provisioning_action")
 
     @provisioning_action.setter
@@ -639,6 +791,9 @@ class _SocialState:
     @property
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The scopes of the IdP.
+        """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
@@ -648,6 +803,9 @@ class _SocialState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the IdP.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -657,6 +815,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="subjectMatchAttribute")
     def subject_match_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        """
         return pulumi.get(self, "subject_match_attribute")
 
     @subject_match_attribute.setter
@@ -666,6 +827,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="subjectMatchType")
     def subject_match_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        """
         return pulumi.get(self, "subject_match_type")
 
     @subject_match_type.setter
@@ -675,6 +839,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="suspendedAction")
     def suspended_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        """
         return pulumi.get(self, "suspended_action")
 
     @suspended_action.setter
@@ -684,6 +851,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="tokenBinding")
     def token_binding(self) -> Optional[pulumi.Input[str]]:
+        """
+        The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        """
         return pulumi.get(self, "token_binding")
 
     @token_binding.setter
@@ -693,6 +863,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="tokenUrl")
     def token_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
+        """
         return pulumi.get(self, "token_url")
 
     @token_url.setter
@@ -703,7 +876,7 @@ class _SocialState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+        The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
         """
         return pulumi.get(self, "type")
 
@@ -714,6 +887,9 @@ class _SocialState:
     @property
     @pulumi.getter(name="usernameTemplate")
     def username_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Okta EL Expression to generate or transform a unique username for the IdP user.
+        """
         return pulumi.get(self, "username_template")
 
     @username_template.setter
@@ -753,15 +929,65 @@ class Social(pulumi.CustomResource):
                  username_template: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Social resource with the given unique name, props, and options.
+        Creates a Social Identity Provider.
+
+        This resource allows you to create and configure a Social Identity Provider.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.idp.Social("example",
+            client_id="abcd123",
+            client_secret="abcd123",
+            protocol_type="OAUTH2",
+            scopes=[
+                "public_profile",
+                "email",
+            ],
+            type="FACEBOOK",
+            username_template="idpuser.email")
+        ```
+
+        ## Import
+
+        A Social IdP can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:idp/social:Social example &#60;idp id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] apple_kid: The Key ID that you obtained from Apple when you created the private key for the client
-        :param pulumi.Input[str] apple_private_key: The PKCS #8 encoded private key that you created for the client and downloaded from Apple
-        :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
-        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-        :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[str] type: Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+        :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
+        :param pulumi.Input[str] apple_kid: The Key ID that you obtained from Apple when you created the private key for the client.
+        :param pulumi.Input[str] apple_private_key: The Key ID that you obtained from Apple when you created the private 
+               key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+               and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+        :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account.
+        :param pulumi.Input[str] client_id: Unique identifier issued by AS for the Okta IdP instance.
+        :param pulumi.Input[str] client_secret: Client secret issued by AS for the Okta IdP instance.
+        :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        :param pulumi.Input[str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
+        :param pulumi.Input[str] name: The Application's display name.
+        :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
+        :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+        :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
+        :param pulumi.Input[str] status: Status of the IdP.
+        :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        :param pulumi.Input[str] type: The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+        :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
         """
         ...
     @overload
@@ -770,7 +996,36 @@ class Social(pulumi.CustomResource):
                  args: SocialArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Social resource with the given unique name, props, and options.
+        Creates a Social Identity Provider.
+
+        This resource allows you to create and configure a Social Identity Provider.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.idp.Social("example",
+            client_id="abcd123",
+            client_secret="abcd123",
+            protocol_type="OAUTH2",
+            scopes=[
+                "public_profile",
+                "email",
+            ],
+            type="FACEBOOK",
+            username_template="idpuser.email")
+        ```
+
+        ## Import
+
+        A Social IdP can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:idp/social:Social example &#60;idp id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param SocialArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -901,12 +1156,37 @@ class Social(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] apple_kid: The Key ID that you obtained from Apple when you created the private key for the client
-        :param pulumi.Input[str] apple_private_key: The PKCS #8 encoded private key that you created for the client and downloaded from Apple
-        :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account
-        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
-        :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[str] type: Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+        :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
+        :param pulumi.Input[str] apple_kid: The Key ID that you obtained from Apple when you created the private key for the client.
+        :param pulumi.Input[str] apple_private_key: The Key ID that you obtained from Apple when you created the private 
+               key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+               and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+        :param pulumi.Input[str] apple_team_id: The Team ID associated with your Apple developer account.
+        :param pulumi.Input[str] authorization_binding: The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        :param pulumi.Input[str] authorization_url: IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
+        :param pulumi.Input[str] client_id: Unique identifier issued by AS for the Okta IdP instance.
+        :param pulumi.Input[str] client_secret: Client secret issued by AS for the Okta IdP instance.
+        :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        :param pulumi.Input[str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
+        :param pulumi.Input[str] name: The Application's display name.
+        :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
+        :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+        :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
+        :param pulumi.Input[str] status: Status of the IdP.
+        :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        :param pulumi.Input[str] token_binding: The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        :param pulumi.Input[str] token_url: IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
+        :param pulumi.Input[str] type: The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+        :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -946,18 +1226,24 @@ class Social(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountLinkAction")
     def account_link_action(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the account linking action for an IdP user.
+        """
         return pulumi.get(self, "account_link_action")
 
     @property
     @pulumi.getter(name="accountLinkGroupIncludes")
     def account_link_group_includes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Group memberships to determine link candidates.
+        """
         return pulumi.get(self, "account_link_group_includes")
 
     @property
     @pulumi.getter(name="appleKid")
     def apple_kid(self) -> pulumi.Output[Optional[str]]:
         """
-        The Key ID that you obtained from Apple when you created the private key for the client
+        The Key ID that you obtained from Apple when you created the private key for the client.
         """
         return pulumi.get(self, "apple_kid")
 
@@ -965,7 +1251,9 @@ class Social(pulumi.CustomResource):
     @pulumi.getter(name="applePrivateKey")
     def apple_private_key(self) -> pulumi.Output[Optional[str]]:
         """
-        The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+        The Key ID that you obtained from Apple when you created the private 
+        key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+        and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
         """
         return pulumi.get(self, "apple_private_key")
 
@@ -973,136 +1261,199 @@ class Social(pulumi.CustomResource):
     @pulumi.getter(name="appleTeamId")
     def apple_team_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The Team ID associated with your Apple developer account
+        The Team ID associated with your Apple developer account.
         """
         return pulumi.get(self, "apple_team_id")
 
     @property
     @pulumi.getter(name="authorizationBinding")
     def authorization_binding(self) -> pulumi.Output[str]:
+        """
+        The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        """
         return pulumi.get(self, "authorization_binding")
 
     @property
     @pulumi.getter(name="authorizationUrl")
     def authorization_url(self) -> pulumi.Output[str]:
+        """
+        IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
+        """
         return pulumi.get(self, "authorization_url")
 
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Unique identifier issued by AS for the Okta IdP instance.
+        """
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Output[Optional[str]]:
+        """
+        Client secret issued by AS for the Okta IdP instance.
+        """
         return pulumi.get(self, "client_secret")
 
     @property
     @pulumi.getter(name="deprovisionedAction")
     def deprovisioned_action(self) -> pulumi.Output[Optional[str]]:
+        """
+        Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        """
         return pulumi.get(self, "deprovisioned_action")
 
     @property
     @pulumi.getter(name="groupsAction")
     def groups_action(self) -> pulumi.Output[Optional[str]]:
+        """
+        Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        """
         return pulumi.get(self, "groups_action")
 
     @property
     @pulumi.getter(name="groupsAssignments")
     def groups_assignments(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        """
         return pulumi.get(self, "groups_assignments")
 
     @property
     @pulumi.getter(name="groupsAttribute")
     def groups_attribute(self) -> pulumi.Output[Optional[str]]:
+        """
+        IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+        """
         return pulumi.get(self, "groups_attribute")
 
     @property
     @pulumi.getter(name="groupsFilters")
     def groups_filters(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        """
         return pulumi.get(self, "groups_filters")
 
     @property
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
         """
         return pulumi.get(self, "issuer_mode")
 
     @property
     @pulumi.getter(name="maxClockSkew")
     def max_clock_skew(self) -> pulumi.Output[Optional[int]]:
+        """
+        Maximum allowable clock-skew when processing messages from the IdP.
+        """
         return pulumi.get(self, "max_clock_skew")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the IdP
+        The Application's display name.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="profileMaster")
     def profile_master(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Determines if the IdP should act as a source of truth for user profile attributes.
+        """
         return pulumi.get(self, "profile_master")
 
     @property
     @pulumi.getter(name="protocolType")
     def protocol_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+        """
         return pulumi.get(self, "protocol_type")
 
     @property
     @pulumi.getter(name="provisioningAction")
     def provisioning_action(self) -> pulumi.Output[Optional[str]]:
+        """
+        Provisioning action for an IdP user during authentication.
+        """
         return pulumi.get(self, "provisioning_action")
 
     @property
     @pulumi.getter
     def scopes(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The scopes of the IdP.
+        """
         return pulumi.get(self, "scopes")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Status of the IdP.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="subjectMatchAttribute")
     def subject_match_attribute(self) -> pulumi.Output[Optional[str]]:
+        """
+        Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        """
         return pulumi.get(self, "subject_match_attribute")
 
     @property
     @pulumi.getter(name="subjectMatchType")
     def subject_match_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        """
         return pulumi.get(self, "subject_match_type")
 
     @property
     @pulumi.getter(name="suspendedAction")
     def suspended_action(self) -> pulumi.Output[Optional[str]]:
+        """
+        Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        """
         return pulumi.get(self, "suspended_action")
 
     @property
     @pulumi.getter(name="tokenBinding")
     def token_binding(self) -> pulumi.Output[str]:
+        """
+        The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        """
         return pulumi.get(self, "token_binding")
 
     @property
     @pulumi.getter(name="tokenUrl")
     def token_url(self) -> pulumi.Output[str]:
+        """
+        IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
+        """
         return pulumi.get(self, "token_url")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+        The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
         """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="usernameTemplate")
     def username_template(self) -> pulumi.Output[Optional[str]]:
+        """
+        Okta EL Expression to generate or transform a unique username for the IdP user.
+        """
         return pulumi.get(self, "username_template")
 

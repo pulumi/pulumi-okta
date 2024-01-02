@@ -12,7 +12,7 @@ namespace Pulumi.Okta.Idp
     public static class GetSaml
     {
         /// <summary>
-        /// Get a SAML IdP from Okta.
+        /// Use this data source to retrieve a SAML IdP from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -40,7 +40,7 @@ namespace Pulumi.Okta.Idp
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? new GetSamlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a SAML IdP from Okta.
+        /// Use this data source to retrieve a SAML IdP from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -72,13 +72,13 @@ namespace Pulumi.Okta.Idp
     public sealed class GetSamlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Id of idp.
+        /// The id of the idp to retrieve, conflicts with `name`.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Name of the idp.
+        /// The name of the idp to retrieve, conflicts with `id`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -92,13 +92,13 @@ namespace Pulumi.Okta.Idp
     public sealed class GetSamlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Id of idp.
+        /// The id of the idp to retrieve, conflicts with `name`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the idp.
+        /// The name of the idp to retrieve, conflicts with `id`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -113,9 +113,6 @@ namespace Pulumi.Okta.Idp
     [OutputType]
     public sealed class GetSamlResult
     {
-        /// <summary>
-        /// ACS binding
-        /// </summary>
         public readonly string AcsBinding;
         /// <summary>
         /// Determines whether to publish an instance-specific (trust) or organization (shared) ACS endpoint in the SAML metadata.
@@ -126,7 +123,7 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly string Audience;
         /// <summary>
-        /// Id of idp.
+        /// id of idp.
         /// </summary>
         public readonly string? Id;
         /// <summary>
@@ -134,7 +131,7 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly string Issuer;
         /// <summary>
-        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
+        /// indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
         /// </summary>
         public readonly string IssuerMode;
         /// <summary>
@@ -142,11 +139,11 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly string Kid;
         /// <summary>
-        /// Name of the idp.
+        /// name of the idp.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Single sign-on binding.
+        /// single sign-on binding.
         /// </summary>
         public readonly string SsoBinding;
         /// <summary>
@@ -154,11 +151,11 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly string SsoDestination;
         /// <summary>
-        /// Single sign-on url.
+        /// single sign-on url.
         /// </summary>
         public readonly string SsoUrl;
         /// <summary>
-        /// Regular expression pattern used to filter untrusted IdP usernames.
+        /// regular expression pattern used to filter untrusted IdP usernames.
         /// </summary>
         public readonly string SubjectFilter;
         /// <summary>
@@ -166,7 +163,7 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly ImmutableArray<string> SubjectFormats;
         /// <summary>
-        /// Type of idp.
+        /// type of idp.
         /// </summary>
         public readonly string Type;
 

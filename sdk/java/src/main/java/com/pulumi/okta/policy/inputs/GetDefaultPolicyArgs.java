@@ -15,14 +15,16 @@ public final class GetDefaultPolicyArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetDefaultPolicyArgs Empty = new GetDefaultPolicyArgs();
 
     /**
-     * Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
+     * Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+     * `&#34;IDP_DISCOVERY&#34;`, `&#34;ACCESS_POLICY&#34;` (**only available as a part of the Identity Engine**), `&#34;PROFILE_ENROLLMENT&#34;` (**only available as a part of the Identity Engine**)
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
+     * @return Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+     * `&#34;IDP_DISCOVERY&#34;`, `&#34;ACCESS_POLICY&#34;` (**only available as a part of the Identity Engine**), `&#34;PROFILE_ENROLLMENT&#34;` (**only available as a part of the Identity Engine**)
      * 
      */
     public Output<String> type() {
@@ -54,7 +56,8 @@ public final class GetDefaultPolicyArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param type Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
+         * @param type Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+         * `&#34;IDP_DISCOVERY&#34;`, `&#34;ACCESS_POLICY&#34;` (**only available as a part of the Identity Engine**), `&#34;PROFILE_ENROLLMENT&#34;` (**only available as a part of the Identity Engine**)
          * 
          * @return builder
          * 
@@ -65,7 +68,8 @@ public final class GetDefaultPolicyArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param type Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
+         * @param type Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
+         * `&#34;IDP_DISCOVERY&#34;`, `&#34;ACCESS_POLICY&#34;` (**only available as a part of the Identity Engine**), `&#34;PROFILE_ENROLLMENT&#34;` (**only available as a part of the Identity Engine**)
          * 
          * @return builder
          * 

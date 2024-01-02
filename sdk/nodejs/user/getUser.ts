@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Get a single users from Okta.
+ * Use this data source to retrieve a users from Okta.
  *
  * ## Example Usage
  *
@@ -41,7 +41,7 @@ export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promis
  */
 export interface GetUserArgs {
     /**
-     * Search operator used when joining mulitple search clauses
+     * Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
      */
     compoundSearchOperator?: string;
     /**
@@ -49,19 +49,13 @@ export interface GetUserArgs {
      */
     delayReadSeconds?: string;
     /**
-     * Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+     * Map of search criteria. It supports the following properties.
      */
     searches?: inputs.user.GetUserSearch[];
-    /**
-     * Do not populate user groups information (prevents additional API call)
-     */
     skipGroups?: boolean;
-    /**
-     * Do not populate user roles information (prevents additional API call)
-     */
     skipRoles?: boolean;
     /**
-     * Retrieve a single user based on their id
+     * String representing a specific user's id value
      */
     userId?: string;
 }
@@ -71,72 +65,156 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     readonly adminRoles: string[];
+    /**
+     * City or locality component of user's address.
+     */
     readonly city: string;
-    /**
-     * Search operator used when joining mulitple search clauses
-     */
     readonly compoundSearchOperator?: string;
-    readonly costCenter: string;
-    readonly countryCode: string;
-    readonly customProfileAttributes: string;
     /**
-     * Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
+     * Name of a cost center assigned to user.
      */
+    readonly costCenter: string;
+    /**
+     * Country name component of user's address.
+     */
+    readonly countryCode: string;
+    /**
+     * Raw JSON containing all custom profile attributes.
+     */
+    readonly customProfileAttributes: string;
     readonly delayReadSeconds?: string;
+    /**
+     * Name of user's department.
+     */
     readonly department: string;
+    /**
+     * Name of the user, suitable for display to end users.
+     */
     readonly displayName: string;
+    /**
+     * Name of user's division.
+     */
     readonly division: string;
+    /**
+     * Primary email address of user.
+     */
     readonly email: string;
+    /**
+     * Organization or company assigned unique identifier for the user.
+     */
     readonly employeeNumber: string;
+    /**
+     * Given name of the user.
+     */
     readonly firstName: string;
     readonly groupMemberships: string[];
+    /**
+     * Honorific prefix(es) of the user, or title in most Western languages.
+     */
     readonly honorificPrefix: string;
+    /**
+     * Honorific suffix(es) of the user.
+     */
     readonly honorificSuffix: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Family name of the user.
+     */
     readonly lastName: string;
+    /**
+     * User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
+     */
     readonly locale: string;
+    /**
+     * Unique identifier for the user.
+     */
     readonly login: string;
+    /**
+     * Display name of the user's manager.
+     */
     readonly manager: string;
+    /**
+     * `id` of a user's manager.
+     */
     readonly managerId: string;
+    /**
+     * Middle name(s) of the user.
+     */
     readonly middleName: string;
+    /**
+     * Mobile phone number of user.
+     */
     readonly mobilePhone: string;
+    /**
+     * Casual way to address the user in real life.
+     */
     readonly nickName: string;
+    /**
+     * Name of user's organization.
+     */
     readonly organization: string;
+    /**
+     * Mailing address component of user's address.
+     */
     readonly postalAddress: string;
+    /**
+     * User's preferred written or spoken languages.
+     */
     readonly preferredLanguage: string;
+    /**
+     * Primary phone number of user such as home number.
+     */
     readonly primaryPhone: string;
+    /**
+     * URL of user's online profile (e.g. a web page).
+     */
     readonly profileUrl: string;
+    /**
+     * All roles assigned to user.
+     */
     readonly roles: string[];
-    /**
-     * Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
-     */
     readonly searches?: outputs.user.GetUserSearch[];
+    /**
+     * Secondary email address of user typically used for account recovery.
+     */
     readonly secondEmail: string;
-    /**
-     * Do not populate user groups information (prevents additional API call)
-     */
     readonly skipGroups?: boolean;
-    /**
-     * Do not populate user roles information (prevents additional API call)
-     */
     readonly skipRoles?: boolean;
-    readonly state: string;
-    readonly status: string;
-    readonly streetAddress: string;
-    readonly timezone: string;
-    readonly title: string;
     /**
-     * Retrieve a single user based on their id
+     * State or region component of user's address (region).
      */
+    readonly state: string;
+    /**
+     * Current status of user.
+     */
+    readonly status: string;
+    /**
+     * Full street address component of user's address.
+     */
+    readonly streetAddress: string;
+    /**
+     * User's time zone.
+     */
+    readonly timezone: string;
+    /**
+     * User's title, such as "Vice President".
+     */
+    readonly title: string;
     readonly userId?: string;
+    /**
+     * Used to describe the organization to user relationship such as "Employee" or "Contractor".
+     */
     readonly userType: string;
+    /**
+     * Zipcode or postal code component of user's address (postalCode)
+     */
     readonly zipCode: string;
 }
 /**
- * Get a single users from Okta.
+ * Use this data source to retrieve a users from Okta.
  *
  * ## Example Usage
  *
@@ -160,7 +238,7 @@ export function getUserOutput(args?: GetUserOutputArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetUserOutputArgs {
     /**
-     * Search operator used when joining mulitple search clauses
+     * Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
      */
     compoundSearchOperator?: pulumi.Input<string>;
     /**
@@ -168,19 +246,13 @@ export interface GetUserOutputArgs {
      */
     delayReadSeconds?: pulumi.Input<string>;
     /**
-     * Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+     * Map of search criteria. It supports the following properties.
      */
     searches?: pulumi.Input<pulumi.Input<inputs.user.GetUserSearchArgs>[]>;
-    /**
-     * Do not populate user groups information (prevents additional API call)
-     */
     skipGroups?: pulumi.Input<boolean>;
-    /**
-     * Do not populate user roles information (prevents additional API call)
-     */
     skipRoles?: pulumi.Input<boolean>;
     /**
-     * Retrieve a single user based on their id
+     * String representing a specific user's id value
      */
     userId?: pulumi.Input<string>;
 }

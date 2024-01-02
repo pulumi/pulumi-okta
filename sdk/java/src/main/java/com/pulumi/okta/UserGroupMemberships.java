@@ -15,7 +15,47 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Resource to manage a set of group memberships for a specific user.
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.user.User;
+ * import com.pulumi.okta.user.UserArgs;
+ * import com.pulumi.okta.UserGroupMemberships;
+ * import com.pulumi.okta.UserGroupMembershipsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testUser = new User(&#34;testUser&#34;, UserArgs.builder()        
+ *             .firstName(&#34;TestAcc&#34;)
+ *             .lastName(&#34;Smith&#34;)
+ *             .login(&#34;testAcc-replace_with_uuid@example.com&#34;)
+ *             .email(&#34;testAcc-replace_with_uuid@example.com&#34;)
+ *             .build());
+ * 
+ *         var testUserGroupMemberships = new UserGroupMemberships(&#34;testUserGroupMemberships&#34;, UserGroupMembershipsArgs.builder()        
+ *             .userId(testUser.id())
+ *             .groups(            
+ *                 okta_group.test_1().id(),
+ *                 okta_group.test_2().id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  */
 @ResourceType(type="okta:index/userGroupMemberships:UserGroupMemberships")
@@ -35,14 +75,14 @@ public class UserGroupMemberships extends com.pulumi.resources.CustomResource {
         return this.groups;
     }
     /**
-     * ID of a Okta User
+     * Okta user ID.
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
-     * @return ID of a Okta User
+     * @return Okta user ID.
      * 
      */
     public Output<String> userId() {

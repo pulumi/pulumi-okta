@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Get a single Theme of a Brand of an Okta Organization.
+ * Use this data source to retrieve a
+ * [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+ * of a brand for an Okta orgnanization.
  */
 export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promise<GetThemeResult> {
 
@@ -38,20 +40,17 @@ export interface GetThemeResult {
      * Background image URL
      */
     readonly backgroundImageUrl: string;
-    /**
-     * Brand ID
-     */
     readonly brandId: string;
     /**
-     * Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+     * (Enum) Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
      */
     readonly emailTemplateTouchPointVariant: string;
     /**
-     * Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+     * (Enum) Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
      */
     readonly endUserDashboardTouchPointVariant: string;
     /**
-     * Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * (Enum) Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      */
     readonly errorPageTouchPointVariant: string;
     /**
@@ -59,11 +58,11 @@ export interface GetThemeResult {
      */
     readonly faviconUrl: string;
     /**
-     * The ID of the theme
+     * Theme URL
      */
     readonly id: string;
     /**
-     * Link relations for this object - JSON HAL - Discoverable resources related to the email template
+     * Link relations for this object - JSON HAL - Discoverable resources related to the brand
      */
     readonly links: string;
     /**
@@ -87,16 +86,15 @@ export interface GetThemeResult {
      */
     readonly secondaryColorHex: string;
     /**
-     * Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * (Enum) Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      */
     readonly signInPageTouchPointVariant: string;
-    /**
-     * Theme ID
-     */
     readonly themeId: string;
 }
 /**
- * Get a single Theme of a Brand of an Okta Organization.
+ * Use this data source to retrieve a
+ * [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+ * of a brand for an Okta orgnanization.
  */
 export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemeResult> {
     return pulumi.output(args).apply((a: any) => getTheme(a, opts))

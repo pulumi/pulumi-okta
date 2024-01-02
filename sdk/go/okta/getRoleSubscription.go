@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get subscriptions of a Role with a specific type
+// Use this data source to retrieve role subscription with a specific type.
 //
 // ## Example Usage
 //
@@ -51,21 +51,33 @@ func LookupRoleSubscription(ctx *pulumi.Context, args *LookupRoleSubscriptionArg
 
 // A collection of arguments for invoking getRoleSubscription.
 type LookupRoleSubscriptionArgs struct {
-	// Type of the notification
+	// Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`,
+	// `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
+	// `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
 	NotificationType string `pulumi:"notificationType"`
-	// Type of the role
+	// Type of the role. Valid values:
+	// `"API_ADMIN"`,
+	// `"APP_ADMIN"`,
+	// `"CUSTOM"`,
+	// `"GROUP_MEMBERSHIP_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`,
+	// `"MOBILE_ADMIN"`,
+	// `"ORG_ADMIN"`,
+	// `"READ_ONLY_ADMIN"`,
+	// `"REPORT_ADMIN"`,
+	// `"SUPER_ADMIN"`,
+	// `"USER_ADMIN"`
+	// .
 	RoleType string `pulumi:"roleType"`
 }
 
 // A collection of values returned by getRoleSubscription.
 type LookupRoleSubscriptionResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Type of the notification
+	Id               string `pulumi:"id"`
 	NotificationType string `pulumi:"notificationType"`
-	// Type of the role
-	RoleType string `pulumi:"roleType"`
-	// Status of subscription
+	RoleType         string `pulumi:"roleType"`
+	// Subscription status.
 	Status string `pulumi:"status"`
 }
 
@@ -84,9 +96,23 @@ func LookupRoleSubscriptionOutput(ctx *pulumi.Context, args LookupRoleSubscripti
 
 // A collection of arguments for invoking getRoleSubscription.
 type LookupRoleSubscriptionOutputArgs struct {
-	// Type of the notification
+	// Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`,
+	// `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
+	// `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
 	NotificationType pulumi.StringInput `pulumi:"notificationType"`
-	// Type of the role
+	// Type of the role. Valid values:
+	// `"API_ADMIN"`,
+	// `"APP_ADMIN"`,
+	// `"CUSTOM"`,
+	// `"GROUP_MEMBERSHIP_ADMIN"`,
+	// `"HELP_DESK_ADMIN"`,
+	// `"MOBILE_ADMIN"`,
+	// `"ORG_ADMIN"`,
+	// `"READ_ONLY_ADMIN"`,
+	// `"REPORT_ADMIN"`,
+	// `"SUPER_ADMIN"`,
+	// `"USER_ADMIN"`
+	// .
 	RoleType pulumi.StringInput `pulumi:"roleType"`
 }
 
@@ -114,17 +140,15 @@ func (o LookupRoleSubscriptionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleSubscriptionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Type of the notification
 func (o LookupRoleSubscriptionResultOutput) NotificationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleSubscriptionResult) string { return v.NotificationType }).(pulumi.StringOutput)
 }
 
-// Type of the role
 func (o LookupRoleSubscriptionResultOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleSubscriptionResult) string { return v.RoleType }).(pulumi.StringOutput)
 }
 
-// Status of subscription
+// Subscription status.
 func (o LookupRoleSubscriptionResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleSubscriptionResult) string { return v.Status }).(pulumi.StringOutput)
 }

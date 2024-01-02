@@ -16,14 +16,14 @@ public final class GetOidcArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetOidcArgs Empty = new GetOidcArgs();
 
     /**
-     * Id of idp.
+     * The id of the idp to retrieve, conflicts with `name`.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return Id of idp.
+     * @return The id of the idp to retrieve, conflicts with `name`.
      * 
      */
     public Optional<Output<String>> id() {
@@ -31,14 +31,14 @@ public final class GetOidcArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Name of the idp.
+     * The name of the idp to retrieve, conflicts with `id`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the idp.
+     * @return The name of the idp to retrieve, conflicts with `id`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class GetOidcArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id Id of idp.
+         * @param id The id of the idp to retrieve, conflicts with `name`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetOidcArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id Id of idp.
+         * @param id The id of the idp to retrieve, conflicts with `name`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GetOidcArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the idp.
+         * @param name The name of the idp to retrieve, conflicts with `id`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetOidcArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the idp.
+         * @param name The name of the idp to retrieve, conflicts with `id`.
          * 
          * @return builder
          * 

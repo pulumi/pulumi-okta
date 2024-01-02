@@ -12,13 +12,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEmailCustomizationsResult {
-    /**
-     * @return Brand ID
-     * 
-     */
     private String brandId;
     /**
-     * @return List of `okta.EmailCustomization` belonging to the named email template of the brand in the organization
+     * @return List of `okta.EmailCustomization` belonging to the named email template of the brand
      * 
      */
     private List<GetEmailCustomizationsEmailCustomization> emailCustomizations;
@@ -27,22 +23,14 @@ public final class GetEmailCustomizationsResult {
      * 
      */
     private String id;
-    /**
-     * @return Template Name
-     * 
-     */
     private String templateName;
 
     private GetEmailCustomizationsResult() {}
-    /**
-     * @return Brand ID
-     * 
-     */
     public String brandId() {
         return this.brandId;
     }
     /**
-     * @return List of `okta.EmailCustomization` belonging to the named email template of the brand in the organization
+     * @return List of `okta.EmailCustomization` belonging to the named email template of the brand
      * 
      */
     public List<GetEmailCustomizationsEmailCustomization> emailCustomizations() {
@@ -55,10 +43,6 @@ public final class GetEmailCustomizationsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Template Name
-     * 
-     */
     public String templateName() {
         return this.templateName;
     }

@@ -24,7 +24,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class IdpFunctions {
     /**
-     * Get SAML IdP metadata from Okta.
+     * Use this data source to retrieve SAML IdP metadata from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -61,7 +61,7 @@ public final class IdpFunctions {
         return getMetadataSaml(GetMetadataSamlArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get SAML IdP metadata from Okta.
+     * Use this data source to retrieve SAML IdP metadata from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -98,7 +98,7 @@ public final class IdpFunctions {
         return getMetadataSamlPlain(GetMetadataSamlPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get SAML IdP metadata from Okta.
+     * Use this data source to retrieve SAML IdP metadata from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -135,7 +135,7 @@ public final class IdpFunctions {
         return getMetadataSaml(args, InvokeOptions.Empty);
     }
     /**
-     * Get SAML IdP metadata from Okta.
+     * Use this data source to retrieve SAML IdP metadata from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -172,7 +172,7 @@ public final class IdpFunctions {
         return getMetadataSamlPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get SAML IdP metadata from Okta.
+     * Use this data source to retrieve SAML IdP metadata from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -209,7 +209,7 @@ public final class IdpFunctions {
         return Deployment.getInstance().invoke("okta:idp/getMetadataSaml:getMetadataSaml", TypeShape.of(GetMetadataSamlResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get SAML IdP metadata from Okta.
+     * Use this data source to retrieve SAML IdP metadata from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -246,7 +246,7 @@ public final class IdpFunctions {
         return Deployment.getInstance().invokeAsync("okta:idp/getMetadataSaml:getMetadataSaml", TypeShape.of(GetMetadataSamlResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a OIDC IdP from Okta.
+     * Use this data source to retrieve a OIDC IdP from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -283,7 +283,7 @@ public final class IdpFunctions {
         return getOidc(GetOidcArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a OIDC IdP from Okta.
+     * Use this data source to retrieve a OIDC IdP from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -320,7 +320,7 @@ public final class IdpFunctions {
         return getOidcPlain(GetOidcPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a OIDC IdP from Okta.
+     * Use this data source to retrieve a OIDC IdP from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -357,7 +357,7 @@ public final class IdpFunctions {
         return getOidc(args, InvokeOptions.Empty);
     }
     /**
-     * Get a OIDC IdP from Okta.
+     * Use this data source to retrieve a OIDC IdP from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -394,7 +394,7 @@ public final class IdpFunctions {
         return getOidcPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a OIDC IdP from Okta.
+     * Use this data source to retrieve a OIDC IdP from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -431,7 +431,7 @@ public final class IdpFunctions {
         return Deployment.getInstance().invoke("okta:idp/getOidc:getOidc", TypeShape.of(GetOidcResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a OIDC IdP from Okta.
+     * Use this data source to retrieve a OIDC IdP from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -468,7 +468,7 @@ public final class IdpFunctions {
         return Deployment.getInstance().invokeAsync("okta:idp/getOidc:getOidc", TypeShape.of(GetOidcResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a SAML IdP from Okta.
+     * Use this data source to retrieve a SAML IdP from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -505,7 +505,7 @@ public final class IdpFunctions {
         return getSaml(GetSamlArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a SAML IdP from Okta.
+     * Use this data source to retrieve a SAML IdP from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -542,7 +542,7 @@ public final class IdpFunctions {
         return getSamlPlain(GetSamlPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a SAML IdP from Okta.
+     * Use this data source to retrieve a SAML IdP from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -579,7 +579,7 @@ public final class IdpFunctions {
         return getSaml(args, InvokeOptions.Empty);
     }
     /**
-     * Get a SAML IdP from Okta.
+     * Use this data source to retrieve a SAML IdP from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -616,7 +616,7 @@ public final class IdpFunctions {
         return getSamlPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a SAML IdP from Okta.
+     * Use this data source to retrieve a SAML IdP from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -653,7 +653,7 @@ public final class IdpFunctions {
         return Deployment.getInstance().invoke("okta:idp/getSaml:getSaml", TypeShape.of(GetSamlResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a SAML IdP from Okta.
+     * Use this data source to retrieve a SAML IdP from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -690,7 +690,7 @@ public final class IdpFunctions {
         return Deployment.getInstance().invokeAsync("okta:idp/getSaml:getSaml", TypeShape.of(GetSamlResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a social IdP from Okta.
+     * Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
      * 
      * ## Example Usage
      * ```java
@@ -727,7 +727,7 @@ public final class IdpFunctions {
         return getSocial(GetSocialArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a social IdP from Okta.
+     * Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
      * 
      * ## Example Usage
      * ```java
@@ -764,7 +764,7 @@ public final class IdpFunctions {
         return getSocialPlain(GetSocialPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a social IdP from Okta.
+     * Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
      * 
      * ## Example Usage
      * ```java
@@ -801,7 +801,7 @@ public final class IdpFunctions {
         return getSocial(args, InvokeOptions.Empty);
     }
     /**
-     * Get a social IdP from Okta.
+     * Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
      * 
      * ## Example Usage
      * ```java
@@ -838,7 +838,7 @@ public final class IdpFunctions {
         return getSocialPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a social IdP from Okta.
+     * Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
      * 
      * ## Example Usage
      * ```java
@@ -875,7 +875,7 @@ public final class IdpFunctions {
         return Deployment.getInstance().invoke("okta:idp/getSocial:getSocial", TypeShape.of(GetSocialResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a social IdP from Okta.
+     * Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
      * 
      * ## Example Usage
      * ```java

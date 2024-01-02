@@ -4,6 +4,41 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * This resource allows you to manage post logout redirection URI for use in redirect-based flows.
+ *
+ * > `okta.app.OAuthPostLogoutRedirectUri` has been marked deprecated and will
+ * be removed in the v5 release of the provider. Operators should manage the post
+ * logout redirect URIs for an oauth app directly on that resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const testOAuth = new okta.app.OAuth("testOAuth", {
+ *     label: "testAcc_replace_with_uuid",
+ *     type: "web",
+ *     grantTypes: ["authorization_code"],
+ *     responseTypes: ["code"],
+ *     redirectUris: ["myapp://callback"],
+ *     postLogoutRedirectUris: ["https://www.example.com"],
+ * });
+ * const testOAuthPostLogoutRedirectUri = new okta.app.OAuthPostLogoutRedirectUri("testOAuthPostLogoutRedirectUri", {
+ *     appId: testOAuth.id,
+ *     uri: "https://www.example.com",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * A post logout redirect URI can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &#60;app id&#62;/&#60;uri&#62;
+ * ```
+ */
 export class OAuthPostLogoutRedirectUri extends pulumi.CustomResource {
     /**
      * Get an existing OAuthPostLogoutRedirectUri resource's state with the given name, ID, and optional extra
@@ -33,7 +68,7 @@ export class OAuthPostLogoutRedirectUri extends pulumi.CustomResource {
     }
 
     /**
-     * OAuth application ID.
+     * OAuth application ID. Note: `appId` can not be changed once set.
      */
     public readonly appId!: pulumi.Output<string>;
     /**
@@ -77,7 +112,7 @@ export class OAuthPostLogoutRedirectUri extends pulumi.CustomResource {
  */
 export interface OAuthPostLogoutRedirectUriState {
     /**
-     * OAuth application ID.
+     * OAuth application ID. Note: `appId` can not be changed once set.
      */
     appId?: pulumi.Input<string>;
     /**
@@ -91,7 +126,7 @@ export interface OAuthPostLogoutRedirectUriState {
  */
 export interface OAuthPostLogoutRedirectUriArgs {
     /**
-     * OAuth application ID.
+     * OAuth application ID. Note: `appId` can not be changed once set.
      */
     appId: pulumi.Input<string>;
     /**

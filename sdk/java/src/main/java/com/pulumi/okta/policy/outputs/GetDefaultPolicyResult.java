@@ -16,7 +16,7 @@ public final class GetDefaultPolicyResult {
      */
     private String id;
     /**
-     * @return Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
+     * @return type of policy.
      * 
      */
     private String type;
@@ -30,7 +30,7 @@ public final class GetDefaultPolicyResult {
         return this.id;
     }
     /**
-     * @return Policy type: OKTA*SIGN*ON, PASSWORD, MFA*ENROLL, or IDP*DISCOVERY
+     * @return type of policy.
      * 
      */
     public String type() {

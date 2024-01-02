@@ -12,6 +12,58 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates an event hook.
+//
+// This resource allows you to create and configure an event hook.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewEventHook(ctx, "example", &okta.EventHookArgs{
+//				Auth: pulumi.StringMap{
+//					"key":   pulumi.String("Authorization"),
+//					"type":  pulumi.String("HEADER"),
+//					"value": pulumi.String("123"),
+//				},
+//				Channel: pulumi.StringMap{
+//					"type":    pulumi.String("HTTP"),
+//					"uri":     pulumi.String("https://example.com/test"),
+//					"version": pulumi.String("1.0.0"),
+//				},
+//				Events: pulumi.StringArray{
+//					pulumi.String("user.lifecycle.create"),
+//					pulumi.String("user.lifecycle.delete.initiated"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// An event hook can be imported via the Okta ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:index/eventHook:EventHook example &#60;hook id&#62;
+//
+// ```
 type EventHook struct {
 	pulumi.CustomResourceState
 

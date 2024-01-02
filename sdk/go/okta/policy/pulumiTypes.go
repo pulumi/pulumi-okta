@@ -14,10 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type RuleIdpDiscoveryAppExclude struct {
-	// The ID of this resource.
-	Id   *string `pulumi:"id"`
+	// Use if `type` is `"APP"` to indicate the application id to include.
+	Id *string `pulumi:"id"`
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name *string `pulumi:"name"`
-	Type string  `pulumi:"type"`
+	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+	Type string `pulumi:"type"`
 }
 
 // RuleIdpDiscoveryAppExcludeInput is an input type that accepts RuleIdpDiscoveryAppExcludeArgs and RuleIdpDiscoveryAppExcludeOutput values.
@@ -32,10 +34,12 @@ type RuleIdpDiscoveryAppExcludeInput interface {
 }
 
 type RuleIdpDiscoveryAppExcludeArgs struct {
-	// The ID of this resource.
-	Id   pulumi.StringPtrInput `pulumi:"id"`
+	// Use if `type` is `"APP"` to indicate the application id to include.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	Type pulumi.StringInput    `pulumi:"type"`
+	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (RuleIdpDiscoveryAppExcludeArgs) ElementType() reflect.Type {
@@ -89,15 +93,17 @@ func (o RuleIdpDiscoveryAppExcludeOutput) ToRuleIdpDiscoveryAppExcludeOutputWith
 	return o
 }
 
-// The ID of this resource.
+// Use if `type` is `"APP"` to indicate the application id to include.
 func (o RuleIdpDiscoveryAppExcludeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleIdpDiscoveryAppExclude) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 func (o RuleIdpDiscoveryAppExcludeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleIdpDiscoveryAppExclude) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
 func (o RuleIdpDiscoveryAppExcludeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleIdpDiscoveryAppExclude) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -123,10 +129,12 @@ func (o RuleIdpDiscoveryAppExcludeArrayOutput) Index(i pulumi.IntInput) RuleIdpD
 }
 
 type RuleIdpDiscoveryAppInclude struct {
-	// The ID of this resource.
-	Id   *string `pulumi:"id"`
+	// Use if `type` is `"APP"` to indicate the application id to include.
+	Id *string `pulumi:"id"`
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name *string `pulumi:"name"`
-	Type string  `pulumi:"type"`
+	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+	Type string `pulumi:"type"`
 }
 
 // RuleIdpDiscoveryAppIncludeInput is an input type that accepts RuleIdpDiscoveryAppIncludeArgs and RuleIdpDiscoveryAppIncludeOutput values.
@@ -141,10 +149,12 @@ type RuleIdpDiscoveryAppIncludeInput interface {
 }
 
 type RuleIdpDiscoveryAppIncludeArgs struct {
-	// The ID of this resource.
-	Id   pulumi.StringPtrInput `pulumi:"id"`
+	// Use if `type` is `"APP"` to indicate the application id to include.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	Type pulumi.StringInput    `pulumi:"type"`
+	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (RuleIdpDiscoveryAppIncludeArgs) ElementType() reflect.Type {
@@ -198,15 +208,17 @@ func (o RuleIdpDiscoveryAppIncludeOutput) ToRuleIdpDiscoveryAppIncludeOutputWith
 	return o
 }
 
-// The ID of this resource.
+// Use if `type` is `"APP"` to indicate the application id to include.
 func (o RuleIdpDiscoveryAppIncludeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleIdpDiscoveryAppInclude) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 func (o RuleIdpDiscoveryAppIncludeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleIdpDiscoveryAppInclude) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
 func (o RuleIdpDiscoveryAppIncludeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleIdpDiscoveryAppInclude) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -232,10 +244,26 @@ func (o RuleIdpDiscoveryAppIncludeArrayOutput) Index(i pulumi.IntInput) RuleIdpD
 }
 
 type RuleIdpDiscoveryPlatformInclude struct {
-	// Only available with OTHER OS type
+	// Only available when using `osType = "OTHER"`
 	OsExpression *string `pulumi:"osExpression"`
-	OsType       *string `pulumi:"osType"`
-	Type         *string `pulumi:"type"`
+	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	OsType *string `pulumi:"osType"`
+	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+	Type *string `pulumi:"type"`
 }
 
 // RuleIdpDiscoveryPlatformIncludeInput is an input type that accepts RuleIdpDiscoveryPlatformIncludeArgs and RuleIdpDiscoveryPlatformIncludeOutput values.
@@ -250,10 +278,26 @@ type RuleIdpDiscoveryPlatformIncludeInput interface {
 }
 
 type RuleIdpDiscoveryPlatformIncludeArgs struct {
-	// Only available with OTHER OS type
+	// Only available when using `osType = "OTHER"`
 	OsExpression pulumi.StringPtrInput `pulumi:"osExpression"`
-	OsType       pulumi.StringPtrInput `pulumi:"osType"`
-	Type         pulumi.StringPtrInput `pulumi:"type"`
+	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (RuleIdpDiscoveryPlatformIncludeArgs) ElementType() reflect.Type {
@@ -307,15 +351,34 @@ func (o RuleIdpDiscoveryPlatformIncludeOutput) ToRuleIdpDiscoveryPlatformInclude
 	return o
 }
 
-// Only available with OTHER OS type
+// Only available when using `osType = "OTHER"`
 func (o RuleIdpDiscoveryPlatformIncludeOutput) OsExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleIdpDiscoveryPlatformInclude) *string { return v.OsExpression }).(pulumi.StringPtrOutput)
 }
 
+// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o RuleIdpDiscoveryPlatformIncludeOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleIdpDiscoveryPlatformInclude) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
+// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
 func (o RuleIdpDiscoveryPlatformIncludeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleIdpDiscoveryPlatformInclude) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -341,8 +404,24 @@ func (o RuleIdpDiscoveryPlatformIncludeArrayOutput) Index(i pulumi.IntInput) Rul
 }
 
 type RuleIdpDiscoveryUserIdentifierPattern struct {
+	// The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
 	MatchType *string `pulumi:"matchType"`
-	Value     *string `pulumi:"value"`
+	// The regex or simple match string to match against.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	Value *string `pulumi:"value"`
 }
 
 // RuleIdpDiscoveryUserIdentifierPatternInput is an input type that accepts RuleIdpDiscoveryUserIdentifierPatternArgs and RuleIdpDiscoveryUserIdentifierPatternOutput values.
@@ -357,8 +436,24 @@ type RuleIdpDiscoveryUserIdentifierPatternInput interface {
 }
 
 type RuleIdpDiscoveryUserIdentifierPatternArgs struct {
+	// The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
 	MatchType pulumi.StringPtrInput `pulumi:"matchType"`
-	Value     pulumi.StringPtrInput `pulumi:"value"`
+	// The regex or simple match string to match against.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (RuleIdpDiscoveryUserIdentifierPatternArgs) ElementType() reflect.Type {
@@ -412,10 +507,29 @@ func (o RuleIdpDiscoveryUserIdentifierPatternOutput) ToRuleIdpDiscoveryUserIdent
 	return o
 }
 
+// The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
 func (o RuleIdpDiscoveryUserIdentifierPatternOutput) MatchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleIdpDiscoveryUserIdentifierPattern) *string { return v.MatchType }).(pulumi.StringPtrOutput)
 }
 
+// The regex or simple match string to match against.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o RuleIdpDiscoveryUserIdentifierPatternOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleIdpDiscoveryUserIdentifierPattern) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -441,10 +555,12 @@ func (o RuleIdpDiscoveryUserIdentifierPatternArrayOutput) Index(i pulumi.IntInpu
 }
 
 type RuleMfaAppExclude struct {
-	// The ID of this resource.
-	Id   *string `pulumi:"id"`
+	// Use if `type` is `"APP"` to indicate the application id to include.
+	Id *string `pulumi:"id"`
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name *string `pulumi:"name"`
-	Type string  `pulumi:"type"`
+	// One of: `"APP"`, `"APP_TYPE"`
+	Type string `pulumi:"type"`
 }
 
 // RuleMfaAppExcludeInput is an input type that accepts RuleMfaAppExcludeArgs and RuleMfaAppExcludeOutput values.
@@ -459,10 +575,12 @@ type RuleMfaAppExcludeInput interface {
 }
 
 type RuleMfaAppExcludeArgs struct {
-	// The ID of this resource.
-	Id   pulumi.StringPtrInput `pulumi:"id"`
+	// Use if `type` is `"APP"` to indicate the application id to include.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	Type pulumi.StringInput    `pulumi:"type"`
+	// One of: `"APP"`, `"APP_TYPE"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (RuleMfaAppExcludeArgs) ElementType() reflect.Type {
@@ -516,15 +634,17 @@ func (o RuleMfaAppExcludeOutput) ToRuleMfaAppExcludeOutputWithContext(ctx contex
 	return o
 }
 
-// The ID of this resource.
+// Use if `type` is `"APP"` to indicate the application id to include.
 func (o RuleMfaAppExcludeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMfaAppExclude) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 func (o RuleMfaAppExcludeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMfaAppExclude) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// One of: `"APP"`, `"APP_TYPE"`
 func (o RuleMfaAppExcludeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleMfaAppExclude) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -550,10 +670,12 @@ func (o RuleMfaAppExcludeArrayOutput) Index(i pulumi.IntInput) RuleMfaAppExclude
 }
 
 type RuleMfaAppInclude struct {
-	// The ID of this resource.
-	Id   *string `pulumi:"id"`
+	// Use if `type` is `"APP"` to indicate the application id to include.
+	Id *string `pulumi:"id"`
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name *string `pulumi:"name"`
-	Type string  `pulumi:"type"`
+	// One of: `"APP"`, `"APP_TYPE"`
+	Type string `pulumi:"type"`
 }
 
 // RuleMfaAppIncludeInput is an input type that accepts RuleMfaAppIncludeArgs and RuleMfaAppIncludeOutput values.
@@ -568,10 +690,12 @@ type RuleMfaAppIncludeInput interface {
 }
 
 type RuleMfaAppIncludeArgs struct {
-	// The ID of this resource.
-	Id   pulumi.StringPtrInput `pulumi:"id"`
+	// Use if `type` is `"APP"` to indicate the application id to include.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	Type pulumi.StringInput    `pulumi:"type"`
+	// One of: `"APP"`, `"APP_TYPE"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (RuleMfaAppIncludeArgs) ElementType() reflect.Type {
@@ -625,15 +749,17 @@ func (o RuleMfaAppIncludeOutput) ToRuleMfaAppIncludeOutputWithContext(ctx contex
 	return o
 }
 
-// The ID of this resource.
+// Use if `type` is `"APP"` to indicate the application id to include.
 func (o RuleMfaAppIncludeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMfaAppInclude) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
 func (o RuleMfaAppIncludeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMfaAppInclude) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// One of: `"APP"`, `"APP_TYPE"`
 func (o RuleMfaAppIncludeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleMfaAppInclude) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -659,11 +785,12 @@ func (o RuleMfaAppIncludeArrayOutput) Index(i pulumi.IntInput) RuleMfaAppInclude
 }
 
 type RuleSignonFactorSequence struct {
-	// Type of a Factor
+	// Primary factor type of the auth section.
 	PrimaryCriteriaFactorType string `pulumi:"primaryCriteriaFactorType"`
-	// Factor provider
-	PrimaryCriteriaProvider string                                      `pulumi:"primaryCriteriaProvider"`
-	SecondaryCriterias      []RuleSignonFactorSequenceSecondaryCriteria `pulumi:"secondaryCriterias"`
+	// Primary provider of the auth section.
+	PrimaryCriteriaProvider string `pulumi:"primaryCriteriaProvider"`
+	// Additional authentication steps.
+	SecondaryCriterias []RuleSignonFactorSequenceSecondaryCriteria `pulumi:"secondaryCriterias"`
 }
 
 // RuleSignonFactorSequenceInput is an input type that accepts RuleSignonFactorSequenceArgs and RuleSignonFactorSequenceOutput values.
@@ -678,11 +805,12 @@ type RuleSignonFactorSequenceInput interface {
 }
 
 type RuleSignonFactorSequenceArgs struct {
-	// Type of a Factor
+	// Primary factor type of the auth section.
 	PrimaryCriteriaFactorType pulumi.StringInput `pulumi:"primaryCriteriaFactorType"`
-	// Factor provider
-	PrimaryCriteriaProvider pulumi.StringInput                                  `pulumi:"primaryCriteriaProvider"`
-	SecondaryCriterias      RuleSignonFactorSequenceSecondaryCriteriaArrayInput `pulumi:"secondaryCriterias"`
+	// Primary provider of the auth section.
+	PrimaryCriteriaProvider pulumi.StringInput `pulumi:"primaryCriteriaProvider"`
+	// Additional authentication steps.
+	SecondaryCriterias RuleSignonFactorSequenceSecondaryCriteriaArrayInput `pulumi:"secondaryCriterias"`
 }
 
 func (RuleSignonFactorSequenceArgs) ElementType() reflect.Type {
@@ -736,16 +864,17 @@ func (o RuleSignonFactorSequenceOutput) ToRuleSignonFactorSequenceOutputWithCont
 	return o
 }
 
-// Type of a Factor
+// Primary factor type of the auth section.
 func (o RuleSignonFactorSequenceOutput) PrimaryCriteriaFactorType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSignonFactorSequence) string { return v.PrimaryCriteriaFactorType }).(pulumi.StringOutput)
 }
 
-// Factor provider
+// Primary provider of the auth section.
 func (o RuleSignonFactorSequenceOutput) PrimaryCriteriaProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSignonFactorSequence) string { return v.PrimaryCriteriaProvider }).(pulumi.StringOutput)
 }
 
+// Additional authentication steps.
 func (o RuleSignonFactorSequenceOutput) SecondaryCriterias() RuleSignonFactorSequenceSecondaryCriteriaArrayOutput {
 	return o.ApplyT(func(v RuleSignonFactorSequence) []RuleSignonFactorSequenceSecondaryCriteria {
 		return v.SecondaryCriterias
@@ -773,9 +902,9 @@ func (o RuleSignonFactorSequenceArrayOutput) Index(i pulumi.IntInput) RuleSignon
 }
 
 type RuleSignonFactorSequenceSecondaryCriteria struct {
-	// Type of a Factor
+	// Factor type of the additional authentication step.
 	FactorType string `pulumi:"factorType"`
-	// Factor provider
+	// Provider of the additional authentication step.
 	Provider string `pulumi:"provider"`
 }
 
@@ -791,9 +920,9 @@ type RuleSignonFactorSequenceSecondaryCriteriaInput interface {
 }
 
 type RuleSignonFactorSequenceSecondaryCriteriaArgs struct {
-	// Type of a Factor
+	// Factor type of the additional authentication step.
 	FactorType pulumi.StringInput `pulumi:"factorType"`
-	// Factor provider
+	// Provider of the additional authentication step.
 	Provider pulumi.StringInput `pulumi:"provider"`
 }
 
@@ -848,12 +977,12 @@ func (o RuleSignonFactorSequenceSecondaryCriteriaOutput) ToRuleSignonFactorSeque
 	return o
 }
 
-// Type of a Factor
+// Factor type of the additional authentication step.
 func (o RuleSignonFactorSequenceSecondaryCriteriaOutput) FactorType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSignonFactorSequenceSecondaryCriteria) string { return v.FactorType }).(pulumi.StringOutput)
 }
 
-// Factor provider
+// Provider of the additional authentication step.
 func (o RuleSignonFactorSequenceSecondaryCriteriaOutput) Provider() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSignonFactorSequenceSecondaryCriteria) string { return v.Provider }).(pulumi.StringOutput)
 }

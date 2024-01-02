@@ -12,18 +12,59 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **DEPRECATED** use `Index.EmailDomain` instead.
+//
+// This resource allows you to create and configure a custom email sender.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewEmailSender(ctx, "example", &okta.EmailSenderArgs{
+//				FromAddress: pulumi.String("no-reply@caladan.planet"),
+//				FromName:    pulumi.String("Paul Atreides"),
+//				Subdomain:   pulumi.String("mail"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Custom email sender can be imported via the Okta ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:index/emailSender:EmailSender example &#60;sender id&#62;
+//
+// ```
 type EmailSender struct {
 	pulumi.CustomResourceState
 
-	// TXT and CNAME records to be registered for the Domain
+	// TXT and CNAME records to be registered for the domain.
 	DnsRecords EmailSenderDnsRecordArrayOutput `pulumi:"dnsRecords"`
-	// Email address to send from
+	// Email address to send from.
 	FromAddress pulumi.StringOutput `pulumi:"fromAddress"`
-	// Name of sender
+	// Name of sender.
 	FromName pulumi.StringOutput `pulumi:"fromName"`
-	// Verification status
+	// Status of the sender (shows whether the sender is verified).
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Mail domain to send from
+	// Mail domain to send from.
 	Subdomain pulumi.StringOutput `pulumi:"subdomain"`
 }
 
@@ -66,28 +107,28 @@ func GetEmailSender(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailSender resources.
 type emailSenderState struct {
-	// TXT and CNAME records to be registered for the Domain
+	// TXT and CNAME records to be registered for the domain.
 	DnsRecords []EmailSenderDnsRecord `pulumi:"dnsRecords"`
-	// Email address to send from
+	// Email address to send from.
 	FromAddress *string `pulumi:"fromAddress"`
-	// Name of sender
+	// Name of sender.
 	FromName *string `pulumi:"fromName"`
-	// Verification status
+	// Status of the sender (shows whether the sender is verified).
 	Status *string `pulumi:"status"`
-	// Mail domain to send from
+	// Mail domain to send from.
 	Subdomain *string `pulumi:"subdomain"`
 }
 
 type EmailSenderState struct {
-	// TXT and CNAME records to be registered for the Domain
+	// TXT and CNAME records to be registered for the domain.
 	DnsRecords EmailSenderDnsRecordArrayInput
-	// Email address to send from
+	// Email address to send from.
 	FromAddress pulumi.StringPtrInput
-	// Name of sender
+	// Name of sender.
 	FromName pulumi.StringPtrInput
-	// Verification status
+	// Status of the sender (shows whether the sender is verified).
 	Status pulumi.StringPtrInput
-	// Mail domain to send from
+	// Mail domain to send from.
 	Subdomain pulumi.StringPtrInput
 }
 
@@ -96,21 +137,21 @@ func (EmailSenderState) ElementType() reflect.Type {
 }
 
 type emailSenderArgs struct {
-	// Email address to send from
+	// Email address to send from.
 	FromAddress string `pulumi:"fromAddress"`
-	// Name of sender
+	// Name of sender.
 	FromName string `pulumi:"fromName"`
-	// Mail domain to send from
+	// Mail domain to send from.
 	Subdomain string `pulumi:"subdomain"`
 }
 
 // The set of arguments for constructing a EmailSender resource.
 type EmailSenderArgs struct {
-	// Email address to send from
+	// Email address to send from.
 	FromAddress pulumi.StringInput
-	// Name of sender
+	// Name of sender.
 	FromName pulumi.StringInput
-	// Mail domain to send from
+	// Mail domain to send from.
 	Subdomain pulumi.StringInput
 }
 
@@ -201,27 +242,27 @@ func (o EmailSenderOutput) ToEmailSenderOutputWithContext(ctx context.Context) E
 	return o
 }
 
-// TXT and CNAME records to be registered for the Domain
+// TXT and CNAME records to be registered for the domain.
 func (o EmailSenderOutput) DnsRecords() EmailSenderDnsRecordArrayOutput {
 	return o.ApplyT(func(v *EmailSender) EmailSenderDnsRecordArrayOutput { return v.DnsRecords }).(EmailSenderDnsRecordArrayOutput)
 }
 
-// Email address to send from
+// Email address to send from.
 func (o EmailSenderOutput) FromAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailSender) pulumi.StringOutput { return v.FromAddress }).(pulumi.StringOutput)
 }
 
-// Name of sender
+// Name of sender.
 func (o EmailSenderOutput) FromName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailSender) pulumi.StringOutput { return v.FromName }).(pulumi.StringOutput)
 }
 
-// Verification status
+// Status of the sender (shows whether the sender is verified).
 func (o EmailSenderOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailSender) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Mail domain to send from
+// Mail domain to send from.
 func (o EmailSenderOutput) Subdomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailSender) pulumi.StringOutput { return v.Subdomain }).(pulumi.StringOutput)
 }

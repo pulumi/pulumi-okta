@@ -4,6 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * This resource allows you to manage redirection URI for use in redirect-based flows.
+ *
+ * > `okta.app.OAuthRedirectUri` has been marked deprecated and will be removed
+ * in the v5 release of the provider. Operators should manage the redirect URIs for
+ * an oauth app directly on that resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const testOAuth = new okta.app.OAuth("testOAuth", {
+ *     label: "testAcc_replace_with_uuid",
+ *     type: "web",
+ *     grantTypes: ["authorization_code"],
+ *     responseTypes: ["code"],
+ *     redirectUris: ["myapp://callback"],
+ * });
+ * const testOAuthRedirectUri = new okta.app.OAuthRedirectUri("testOAuthRedirectUri", {
+ *     appId: testOAuth.id,
+ *     uri: "http://google.com",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * A redirect URI can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62;
+ * ```
+ */
 export class OAuthRedirectUri extends pulumi.CustomResource {
     /**
      * Get an existing OAuthRedirectUri resource's state with the given name, ID, and optional extra
@@ -33,7 +67,7 @@ export class OAuthRedirectUri extends pulumi.CustomResource {
     }
 
     /**
-     * OAuth application ID.
+     * OAuth application ID. Note: `appId` can not be changed once set.
      */
     public readonly appId!: pulumi.Output<string>;
     /**
@@ -77,7 +111,7 @@ export class OAuthRedirectUri extends pulumi.CustomResource {
  */
 export interface OAuthRedirectUriState {
     /**
-     * OAuth application ID.
+     * OAuth application ID. Note: `appId` can not be changed once set.
      */
     appId?: pulumi.Input<string>;
     /**
@@ -91,7 +125,7 @@ export interface OAuthRedirectUriState {
  */
 export interface OAuthRedirectUriArgs {
     /**
-     * OAuth application ID.
+     * OAuth application ID. Note: `appId` can not be changed once set.
      */
     appId: pulumi.Input<string>;
     /**

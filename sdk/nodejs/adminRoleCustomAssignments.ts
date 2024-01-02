@@ -5,7 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Resource to manage the assignment and unassignment of Custom Roles
+ * This resource allows the assignment and unassignment of Custom Roles. The `members` field supports these type of resources:
+ *  - Groups
+ *  - Users
+ *
+ * > **NOTE:** This an `Early Access` feature.
+ *
+ * ## Import
+ *
+ * Okta Custom Admin Role Assignments can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example &#60;resource_set_id&#62;/&#60;custom_role_id&#62;
+ * ```
  */
 export class AdminRoleCustomAssignments extends pulumi.CustomResource {
     /**
@@ -36,15 +48,16 @@ export class AdminRoleCustomAssignments extends pulumi.CustomResource {
     }
 
     /**
-     * ID of the Custom Role
+     * ID of the Custom Role.
      */
     public readonly customRoleId!: pulumi.Output<string>;
     /**
-     * The hrefs that point to User(s) and/or Group(s) that receive the Role
+     * The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+     * permission must be specified when creating custom role.
      */
     public readonly members!: pulumi.Output<string[] | undefined>;
     /**
-     * ID of the target Resource Set
+     * ID of the target Resource Set.
      */
     public readonly resourceSetId!: pulumi.Output<string>;
 
@@ -86,15 +99,16 @@ export class AdminRoleCustomAssignments extends pulumi.CustomResource {
  */
 export interface AdminRoleCustomAssignmentsState {
     /**
-     * ID of the Custom Role
+     * ID of the Custom Role.
      */
     customRoleId?: pulumi.Input<string>;
     /**
-     * The hrefs that point to User(s) and/or Group(s) that receive the Role
+     * The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+     * permission must be specified when creating custom role.
      */
     members?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * ID of the target Resource Set
+     * ID of the target Resource Set.
      */
     resourceSetId?: pulumi.Input<string>;
 }
@@ -104,15 +118,16 @@ export interface AdminRoleCustomAssignmentsState {
  */
 export interface AdminRoleCustomAssignmentsArgs {
     /**
-     * ID of the Custom Role
+     * ID of the Custom Role.
      */
     customRoleId: pulumi.Input<string>;
     /**
-     * The hrefs that point to User(s) and/or Group(s) that receive the Role
+     * The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+     * permission must be specified when creating custom role.
      */
     members?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * ID of the target Resource Set
+     * ID of the target Resource Set.
      */
     resourceSetId: pulumi.Input<string>;
 }

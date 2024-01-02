@@ -16,6 +16,57 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Configures Default Authorization Server Claim.
+ * 
+ * This resource allows you to configure Default Authorization Server Claims.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.AuthServerClaimDefault;
+ * import com.pulumi.okta.AuthServerClaimDefaultArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AuthServerClaimDefault(&#34;example&#34;, AuthServerClaimDefaultArgs.builder()        
+ *             .authServerId(&#34;&lt;auth server id&gt;&#34;)
+ *             .value(&#34;(appuser != null) ? appuser.userName : app.clientId&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Authorization Server Claim can be imported via the Auth Server ID and Claim ID or Claim Name.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim id&amp;#62;
+ * ```
+ * 
+ *  or
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim name&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/authServerClaimDefault:AuthServerClaimDefault")
 public class AuthServerClaimDefault extends com.pulumi.resources.CustomResource {
     /**
@@ -33,56 +84,60 @@ public class AuthServerClaimDefault extends com.pulumi.resources.CustomResource 
         return this.alwaysIncludeInToken;
     }
     /**
-     * Auth server ID
+     * ID of the authorization server.
      * 
      */
     @Export(name="authServerId", refs={String.class}, tree="[0]")
     private Output<String> authServerId;
 
     /**
-     * @return Auth server ID
+     * @return ID of the authorization server.
      * 
      */
     public Output<String> authServerId() {
         return this.authServerId;
     }
     /**
-     * Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+     * Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
      * 
      */
     @Export(name="claimType", refs={String.class}, tree="[0]")
     private Output<String> claimType;
 
     /**
-     * @return Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+     * @return Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
      * 
      */
     public Output<String> claimType() {
         return this.claimType;
     }
     /**
-     * Default auth server claim name
+     * The name of the claim. Can be set to `&#34;sub&#34;`, `&#34;address&#34;`, `&#34;birthdate&#34;`, `&#34;email&#34;`,
+     * `&#34;email_verified&#34;`, `&#34;family_name&#34;`, `&#34;gender&#34;`, `&#34;given_name&#34;`, `&#34;locale&#34;`, `&#34;middle_name&#34;`, `&#34;name&#34;`, `&#34;nickname&#34;`,
+     * `&#34;phone_number&#34;`, `&#34;picture&#34;`, `&#34;preferred_username&#34;`, `&#34;profile&#34;`, `&#34;updated_at&#34;`, `&#34;website&#34;`, `&#34;zoneinfo&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Default auth server claim name
+     * @return The name of the claim. Can be set to `&#34;sub&#34;`, `&#34;address&#34;`, `&#34;birthdate&#34;`, `&#34;email&#34;`,
+     * `&#34;email_verified&#34;`, `&#34;family_name&#34;`, `&#34;gender&#34;`, `&#34;given_name&#34;`, `&#34;locale&#34;`, `&#34;middle_name&#34;`, `&#34;name&#34;`, `&#34;nickname&#34;`,
+     * `&#34;phone_number&#34;`, `&#34;picture&#34;`, `&#34;preferred_username&#34;`, `&#34;profile&#34;`, `&#34;updated_at&#34;`, `&#34;website&#34;`, `&#34;zoneinfo&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Auth server claim list of scopes
+     * The list of scopes the auth server claim is tied to.
      * 
      */
     @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopes;
 
     /**
-     * @return Auth server claim list of scopes
+     * @return The list of scopes the auth server claim is tied to.
      * 
      */
     public Output<List<String>> scopes() {
@@ -103,14 +158,14 @@ public class AuthServerClaimDefault extends com.pulumi.resources.CustomResource 
         return this.status;
     }
     /**
-     * The value of the claim.
+     * The value of the claim. Only required for `&#34;sub&#34;` claim.
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> value;
 
     /**
-     * @return The value of the claim.
+     * @return The value of the claim. Only required for `&#34;sub&#34;` claim.
      * 
      */
     public Output<Optional<String>> value() {

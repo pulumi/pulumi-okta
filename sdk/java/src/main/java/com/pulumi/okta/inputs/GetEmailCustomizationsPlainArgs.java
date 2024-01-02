@@ -29,14 +29,14 @@ public final class GetEmailCustomizationsPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * Template Name
+     * Name of an Email Template
      * 
      */
     @Import(name="templateName", required=true)
     private String templateName;
 
     /**
-     * @return Template Name
+     * @return Name of an Email Template
      * 
      */
     public String templateName() {
@@ -80,7 +80,7 @@ public final class GetEmailCustomizationsPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param templateName Template Name
+         * @param templateName Name of an Email Template
          * 
          * @return builder
          * 

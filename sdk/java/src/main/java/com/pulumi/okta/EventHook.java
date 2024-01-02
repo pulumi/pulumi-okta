@@ -17,6 +17,62 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates an event hook.
+ * 
+ * This resource allows you to create and configure an event hook.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.EventHook;
+ * import com.pulumi.okta.EventHookArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new EventHook(&#34;example&#34;, EventHookArgs.builder()        
+ *             .auth(Map.ofEntries(
+ *                 Map.entry(&#34;key&#34;, &#34;Authorization&#34;),
+ *                 Map.entry(&#34;type&#34;, &#34;HEADER&#34;),
+ *                 Map.entry(&#34;value&#34;, &#34;123&#34;)
+ *             ))
+ *             .channel(Map.ofEntries(
+ *                 Map.entry(&#34;type&#34;, &#34;HTTP&#34;),
+ *                 Map.entry(&#34;uri&#34;, &#34;https://example.com/test&#34;),
+ *                 Map.entry(&#34;version&#34;, &#34;1.0.0&#34;)
+ *             ))
+ *             .events(            
+ *                 &#34;user.lifecycle.create&#34;,
+ *                 &#34;user.lifecycle.delete.initiated&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * An event hook can be imported via the Okta ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/eventHook:EventHook example &amp;#60;hook id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/eventHook:EventHook")
 public class EventHook extends com.pulumi.resources.CustomResource {
     /**

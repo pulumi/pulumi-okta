@@ -19,14 +19,14 @@ public final class GroupAssignmentArgs extends com.pulumi.resources.ResourceArgs
     public static final GroupAssignmentArgs Empty = new GroupAssignmentArgs();
 
     /**
-     * App to associate group with
+     * The ID of the application to assign a group to.
      * 
      */
     @Import(name="appId", required=true)
     private Output<String> appId;
 
     /**
-     * @return App to associate group with
+     * @return The ID of the application to assign a group to.
      * 
      */
     public Output<String> appId() {
@@ -34,14 +34,14 @@ public final class GroupAssignmentArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Group associated with the application
+     * The ID of the group to assign the app to.
      * 
      */
     @Import(name="groupId", required=true)
     private Output<String> groupId;
 
     /**
-     * @return Group associated with the application
+     * @return The ID of the group to assign the app to.
      * 
      */
     public Output<String> groupId() {
@@ -122,7 +122,7 @@ public final class GroupAssignmentArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param appId App to associate group with
+         * @param appId The ID of the application to assign a group to.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class GroupAssignmentArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param appId App to associate group with
+         * @param appId The ID of the application to assign a group to.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class GroupAssignmentArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param groupId Group associated with the application
+         * @param groupId The ID of the group to assign the app to.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class GroupAssignmentArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param groupId Group associated with the application
+         * @param groupId The ID of the group to assign the app to.
          * 
          * @return builder
          * 

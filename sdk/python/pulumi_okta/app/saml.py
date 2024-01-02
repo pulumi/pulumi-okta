@@ -64,51 +64,52 @@ class SamlArgs:
                  user_name_template_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Saml resource.
-        :param pulumi.Input[str] label: Pretty name of app.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
-        :param pulumi.Input[bool] accessibility_self_service: Enable self service
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: List of ACS endpoints for this SAML application
+        :param pulumi.Input[str] label: label of application.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. Default is: `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
-        :param pulumi.Input[str] app_settings_json: Application settings in JSON format
-        :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
+        :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
+        :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
+        :param pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]] attribute_statements: List of SAML Attribute statements.
         :param pulumi.Input[str] audience: Audience Restriction
-        :param pulumi.Input[str] authentication_policy: Id of this apps authentication policy
+        :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
         :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar. Default is: `false`
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users
-        :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it
-        :param pulumi.Input[str] idp_issuer: SAML issuer ID
-        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
-        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook setting
-        :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
-        :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
-        :param pulumi.Input[str] logo: Local path to logo of the application.
-        :param pulumi.Input[str] preconfigured_app: Name of preexisting SAML application. For instance 'slack'
-        :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app. Default is: `false`
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users. Default is: `false`
+        :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it. Default is: `false`
+        :param pulumi.Input[str] idp_issuer: SAML issuer ID.
+        :param pulumi.Input[bool] implicit_assignment: _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
+        :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
+        :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
+        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
+        :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion.
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
-        :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed
+        :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed.
         :param pulumi.Input[bool] saml_signed_request_enabled: SAML Signed Request enabled
-        :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode
-        :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response
-        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests
-        :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
-        :param pulumi.Input[str] single_logout_url: The location where the logout response is sent
-        :param pulumi.Input[str] sp_issuer: SAML SP issuer ID
-        :param pulumi.Input[str] sso_url: Single Sign On URL
-        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+        :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
+        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
+        :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
+        :param pulumi.Input[str] sp_issuer: SAML service provider issuer.
+        :param pulumi.Input[str] sso_url: Single Sign-on Url.
+        :param pulumi.Input[str] status: status of application.
         :param pulumi.Input[str] subject_name_id_format: Identifies the SAML processing rules.
-        :param pulumi.Input[str] subject_name_id_template: Template for app user's username when a user is assigned to the app
-        :param pulumi.Input[str] user_name_template: Username template
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
-        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] subject_name_id_template: Template for app user's username when a user is assigned to the app.
+        :param pulumi.Input[str] user_name_template: Username template. Default is: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default is: `"BUILT_IN"`.
         """
         pulumi.set(__self__, "label", label)
         if accessibility_error_redirect_url is not None:
@@ -206,7 +207,7 @@ class SamlArgs:
     @pulumi.getter
     def label(self) -> pulumi.Input[str]:
         """
-        Pretty name of app.
+        label of application.
         """
         return pulumi.get(self, "label")
 
@@ -218,7 +219,7 @@ class SamlArgs:
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
     def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom error page URL
+        Custom error page URL.
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
@@ -230,7 +231,7 @@ class SamlArgs:
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom login page URL
+        Custom login page for this application.
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -242,7 +243,7 @@ class SamlArgs:
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable self service
+        Enable self-service. Default is: `false`.
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -254,7 +255,7 @@ class SamlArgs:
     @pulumi.getter(name="acsEndpoints")
     def acs_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of ACS endpoints for this SAML application
+        An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         """
         return pulumi.get(self, "acs_endpoints")
 
@@ -278,7 +279,7 @@ class SamlArgs:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -290,7 +291,7 @@ class SamlArgs:
     @pulumi.getter(name="appSettingsJson")
     def app_settings_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Application settings in JSON format
+        Application settings in JSON format.
         """
         return pulumi.get(self, "app_settings_json")
 
@@ -302,7 +303,7 @@ class SamlArgs:
     @pulumi.getter(name="assertionSigned")
     def assertion_signed(self) -> Optional[pulumi.Input[bool]]:
         """
-        Determines whether the SAML assertion is digitally signed
+        Determines whether the SAML assertion is digitally signed.
         """
         return pulumi.get(self, "assertion_signed")
 
@@ -313,6 +314,9 @@ class SamlArgs:
     @property
     @pulumi.getter(name="attributeStatements")
     def attribute_statements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]]:
+        """
+        List of SAML Attribute statements.
+        """
         return pulumi.get(self, "attribute_statements")
 
     @attribute_statements.setter
@@ -335,7 +339,7 @@ class SamlArgs:
     @pulumi.getter(name="authenticationPolicy")
     def authentication_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Id of this apps authentication policy
+        The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
         """
         return pulumi.get(self, "authentication_policy")
 
@@ -359,7 +363,7 @@ class SamlArgs:
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
         """
-        Display auto submit toolbar
+        Display auto submit toolbar. Default is: `false`
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -419,7 +423,7 @@ class SamlArgs:
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon on mobile app
+        Do not display application icon on mobile app. Default is: `false`
         """
         return pulumi.get(self, "hide_ios")
 
@@ -431,7 +435,7 @@ class SamlArgs:
     @pulumi.getter(name="hideWeb")
     def hide_web(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon to users
+        Do not display application icon to users. Default is: `false`
         """
         return pulumi.get(self, "hide_web")
 
@@ -443,7 +447,7 @@ class SamlArgs:
     @pulumi.getter(name="honorForceAuthn")
     def honor_force_authn(self) -> Optional[pulumi.Input[bool]]:
         """
-        Prompt user to re-authenticate if SP asks for it
+        Prompt user to re-authenticate if SP asks for it. Default is: `false`
         """
         return pulumi.get(self, "honor_force_authn")
 
@@ -455,7 +459,7 @@ class SamlArgs:
     @pulumi.getter(name="idpIssuer")
     def idp_issuer(self) -> Optional[pulumi.Input[str]]:
         """
-        SAML issuer ID
+        SAML issuer ID.
         """
         return pulumi.get(self, "idp_issuer")
 
@@ -467,7 +471,7 @@ class SamlArgs:
     @pulumi.getter(name="implicitAssignment")
     def implicit_assignment(self) -> Optional[pulumi.Input[bool]]:
         """
-        *Early Access Property*. Enable Federation Broker Mode.
+        _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
         """
         return pulumi.get(self, "implicit_assignment")
 
@@ -479,7 +483,7 @@ class SamlArgs:
     @pulumi.getter(name="inlineHookId")
     def inline_hook_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Saml Inline Hook setting
+        Saml Inline Hook associated with the application.
         """
         return pulumi.get(self, "inline_hook_id")
 
@@ -491,7 +495,7 @@ class SamlArgs:
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Certificate name. This modulates the rotation of keys. New name == new key.
+        Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         """
         return pulumi.get(self, "key_name")
 
@@ -503,7 +507,7 @@ class SamlArgs:
     @pulumi.getter(name="keyYearsValid")
     def key_years_valid(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of years the certificate is valid.
+        Number of years the certificate is valid (2 - 10 years).
         """
         return pulumi.get(self, "key_years_valid")
 
@@ -515,7 +519,7 @@ class SamlArgs:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Local path to logo of the application.
+        Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
@@ -527,7 +531,7 @@ class SamlArgs:
     @pulumi.getter(name="preconfiguredApp")
     def preconfigured_app(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of preexisting SAML application. For instance 'slack'
+        name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
         """
         return pulumi.get(self, "preconfigured_app")
 
@@ -539,7 +543,7 @@ class SamlArgs:
     @pulumi.getter
     def recipient(self) -> Optional[pulumi.Input[str]]:
         """
-        The location where the app may present the SAML assertion
+        The location where the app may present the SAML assertion.
         """
         return pulumi.get(self, "recipient")
 
@@ -563,7 +567,7 @@ class SamlArgs:
     @pulumi.getter(name="responseSigned")
     def response_signed(self) -> Optional[pulumi.Input[bool]]:
         """
-        Determines whether the SAML auth response message is digitally signed
+        Determines whether the SAML auth response message is digitally signed.
         """
         return pulumi.get(self, "response_signed")
 
@@ -587,7 +591,7 @@ class SamlArgs:
     @pulumi.getter(name="samlVersion")
     def saml_version(self) -> Optional[pulumi.Input[str]]:
         """
-        SAML version for the app's sign-on mode
+        SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
         """
         return pulumi.get(self, "saml_version")
 
@@ -599,7 +603,7 @@ class SamlArgs:
     @pulumi.getter(name="signatureAlgorithm")
     def signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        Signature algorithm used ot digitally sign the assertion and response
+        Signature algorithm used ot digitally sign the assertion and response.
         """
         return pulumi.get(self, "signature_algorithm")
 
@@ -611,7 +615,7 @@ class SamlArgs:
     @pulumi.getter(name="singleLogoutCertificate")
     def single_logout_certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+        x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         """
         return pulumi.get(self, "single_logout_certificate")
 
@@ -623,7 +627,7 @@ class SamlArgs:
     @pulumi.getter(name="singleLogoutIssuer")
     def single_logout_issuer(self) -> Optional[pulumi.Input[str]]:
         """
-        The issuer of the Service Provider that generates the Single Logout request
+        The issuer of the Service Provider that generates the Single Logout request.
         """
         return pulumi.get(self, "single_logout_issuer")
 
@@ -635,7 +639,7 @@ class SamlArgs:
     @pulumi.getter(name="singleLogoutUrl")
     def single_logout_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The location where the logout response is sent
+        The location where the logout response is sent.
         """
         return pulumi.get(self, "single_logout_url")
 
@@ -647,7 +651,7 @@ class SamlArgs:
     @pulumi.getter(name="spIssuer")
     def sp_issuer(self) -> Optional[pulumi.Input[str]]:
         """
-        SAML SP issuer ID
+        SAML service provider issuer.
         """
         return pulumi.get(self, "sp_issuer")
 
@@ -659,7 +663,7 @@ class SamlArgs:
     @pulumi.getter(name="ssoUrl")
     def sso_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Single Sign On URL
+        Single Sign-on Url.
         """
         return pulumi.get(self, "sso_url")
 
@@ -671,7 +675,7 @@ class SamlArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of application.
+        status of application.
         """
         return pulumi.get(self, "status")
 
@@ -695,7 +699,7 @@ class SamlArgs:
     @pulumi.getter(name="subjectNameIdTemplate")
     def subject_name_id_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Template for app user's username when a user is assigned to the app
+        Template for app user's username when a user is assigned to the app.
         """
         return pulumi.get(self, "subject_name_id_template")
 
@@ -707,7 +711,7 @@ class SamlArgs:
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template
+        Username template. Default is: `"${source.login}"`
         """
         return pulumi.get(self, "user_name_template")
 
@@ -719,7 +723,7 @@ class SamlArgs:
     @pulumi.getter(name="userNameTemplatePushStatus")
     def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
         """
-        Push username on update
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         """
         return pulumi.get(self, "user_name_template_push_status")
 
@@ -731,7 +735,7 @@ class SamlArgs:
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template suffix
+        Username template suffix.
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -743,7 +747,7 @@ class SamlArgs:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template type
+        Username template type. Default is: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -817,65 +821,66 @@ class _SamlState:
                  user_name_template_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Saml resources.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
-        :param pulumi.Input[bool] accessibility_self_service: Enable self service
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: List of ACS endpoints for this SAML application
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. Default is: `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
-        :param pulumi.Input[str] app_settings_json: Application settings in JSON format
-        :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
+        :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
+        :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
+        :param pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]] attribute_statements: List of SAML Attribute statements.
         :param pulumi.Input[str] audience: Audience Restriction
-        :param pulumi.Input[str] authentication_policy: Id of this apps authentication policy
+        :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
         :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[str] certificate: cert from SAML XML metadata payload
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar. Default is: `false`
+        :param pulumi.Input[str] certificate: The raw signing certificate.
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
-        :param pulumi.Input[str] embed_url: The url that can be used to embed this application in other portals.
+        :param pulumi.Input[str] embed_url: Url that can be used to embed this application into another portal.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the entity_url
-        :param pulumi.Input[str] entity_url: Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features to enable
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users
-        :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it
-        :param pulumi.Input[str] http_post_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
-        :param pulumi.Input[str] http_redirect_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
-        :param pulumi.Input[str] idp_issuer: SAML issuer ID
-        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
-        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook setting
-        :param pulumi.Input[str] key_id: Certificate ID
-        :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
-        :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
-        :param pulumi.Input[Sequence[pulumi.Input['SamlKeyArgs']]] keys: Application keys
-        :param pulumi.Input[str] label: Pretty name of app.
-        :param pulumi.Input[str] logo: Local path to logo of the application.
-        :param pulumi.Input[str] logo_url: URL of the application's logo
-        :param pulumi.Input[str] metadata: SAML xml metadata payload
-        :param pulumi.Input[str] metadata_url: SAML xml metadata URL
-        :param pulumi.Input[str] name: The reference name of the attribute statement
-        :param pulumi.Input[str] preconfigured_app: Name of preexisting SAML application. For instance 'slack'
-        :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
+        :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the `entity_url`.
+        :param pulumi.Input[str] entity_url: Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features enabled. Notice: you can't currently configure provisioning features via the API.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app. Default is: `false`
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users. Default is: `false`
+        :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it. Default is: `false`
+        :param pulumi.Input[str] http_post_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
+        :param pulumi.Input[str] http_redirect_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
+        :param pulumi.Input[str] idp_issuer: SAML issuer ID.
+        :param pulumi.Input[bool] implicit_assignment: _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
+        :param pulumi.Input[str] key_id: Certificate key ID.
+        :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
+        :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
+        :param pulumi.Input[Sequence[pulumi.Input['SamlKeyArgs']]] keys: An array of all key credentials for the application. Format of each entry is as follows:
+        :param pulumi.Input[str] label: label of application.
+        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] logo_url: Direct link of application logo.
+        :param pulumi.Input[str] metadata: The raw SAML metadata in XML.
+        :param pulumi.Input[str] metadata_url: SAML xml metadata URL.
+        :param pulumi.Input[str] name: The name of the attribute statement.
+        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
+        :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion.
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
-        :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed
+        :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed.
         :param pulumi.Input[bool] saml_signed_request_enabled: SAML Signed Request enabled
-        :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode
-        :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
-        :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response
-        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests
-        :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
-        :param pulumi.Input[str] single_logout_url: The location where the logout response is sent
-        :param pulumi.Input[str] sp_issuer: SAML SP issuer ID
-        :param pulumi.Input[str] sso_url: Single Sign On URL
-        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+        :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
+        :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
+        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
+        :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
+        :param pulumi.Input[str] sp_issuer: SAML service provider issuer.
+        :param pulumi.Input[str] sso_url: Single Sign-on Url.
+        :param pulumi.Input[str] status: status of application.
         :param pulumi.Input[str] subject_name_id_format: Identifies the SAML processing rules.
-        :param pulumi.Input[str] subject_name_id_template: Template for app user's username when a user is assigned to the app
-        :param pulumi.Input[str] user_name_template: Username template
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
-        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] subject_name_id_template: Template for app user's username when a user is assigned to the app.
+        :param pulumi.Input[str] user_name_template: Username template. Default is: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default is: `"BUILT_IN"`.
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -1002,7 +1007,7 @@ class _SamlState:
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
     def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom error page URL
+        Custom error page URL.
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
@@ -1014,7 +1019,7 @@ class _SamlState:
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom login page URL
+        Custom login page for this application.
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -1026,7 +1031,7 @@ class _SamlState:
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable self service
+        Enable self-service. Default is: `false`.
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -1038,7 +1043,7 @@ class _SamlState:
     @pulumi.getter(name="acsEndpoints")
     def acs_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of ACS endpoints for this SAML application
+        An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         """
         return pulumi.get(self, "acs_endpoints")
 
@@ -1062,7 +1067,7 @@ class _SamlState:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -1074,7 +1079,7 @@ class _SamlState:
     @pulumi.getter(name="appSettingsJson")
     def app_settings_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Application settings in JSON format
+        Application settings in JSON format.
         """
         return pulumi.get(self, "app_settings_json")
 
@@ -1086,7 +1091,7 @@ class _SamlState:
     @pulumi.getter(name="assertionSigned")
     def assertion_signed(self) -> Optional[pulumi.Input[bool]]:
         """
-        Determines whether the SAML assertion is digitally signed
+        Determines whether the SAML assertion is digitally signed.
         """
         return pulumi.get(self, "assertion_signed")
 
@@ -1097,6 +1102,9 @@ class _SamlState:
     @property
     @pulumi.getter(name="attributeStatements")
     def attribute_statements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]]:
+        """
+        List of SAML Attribute statements.
+        """
         return pulumi.get(self, "attribute_statements")
 
     @attribute_statements.setter
@@ -1119,7 +1127,7 @@ class _SamlState:
     @pulumi.getter(name="authenticationPolicy")
     def authentication_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Id of this apps authentication policy
+        The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
         """
         return pulumi.get(self, "authentication_policy")
 
@@ -1143,7 +1151,7 @@ class _SamlState:
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
         """
-        Display auto submit toolbar
+        Display auto submit toolbar. Default is: `false`
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -1155,7 +1163,7 @@ class _SamlState:
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        cert from SAML XML metadata payload
+        The raw signing certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -1203,7 +1211,7 @@ class _SamlState:
     @pulumi.getter(name="embedUrl")
     def embed_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The url that can be used to embed this application in other portals.
+        Url that can be used to embed this application into another portal.
         """
         return pulumi.get(self, "embed_url")
 
@@ -1227,7 +1235,7 @@ class _SamlState:
     @pulumi.getter(name="entityKey")
     def entity_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Entity ID, the ID portion of the entity_url
+        Entity ID, the ID portion of the `entity_url`.
         """
         return pulumi.get(self, "entity_key")
 
@@ -1239,7 +1247,7 @@ class _SamlState:
     @pulumi.getter(name="entityUrl")
     def entity_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+        Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
         """
         return pulumi.get(self, "entity_url")
 
@@ -1251,7 +1259,7 @@ class _SamlState:
     @pulumi.getter
     def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        features to enable
+        features enabled. Notice: you can't currently configure provisioning features via the API.
         """
         return pulumi.get(self, "features")
 
@@ -1263,7 +1271,7 @@ class _SamlState:
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon on mobile app
+        Do not display application icon on mobile app. Default is: `false`
         """
         return pulumi.get(self, "hide_ios")
 
@@ -1275,7 +1283,7 @@ class _SamlState:
     @pulumi.getter(name="hideWeb")
     def hide_web(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon to users
+        Do not display application icon to users. Default is: `false`
         """
         return pulumi.get(self, "hide_web")
 
@@ -1287,7 +1295,7 @@ class _SamlState:
     @pulumi.getter(name="honorForceAuthn")
     def honor_force_authn(self) -> Optional[pulumi.Input[bool]]:
         """
-        Prompt user to re-authenticate if SP asks for it
+        Prompt user to re-authenticate if SP asks for it. Default is: `false`
         """
         return pulumi.get(self, "honor_force_authn")
 
@@ -1299,7 +1307,7 @@ class _SamlState:
     @pulumi.getter(name="httpPostBinding")
     def http_post_binding(self) -> Optional[pulumi.Input[str]]:
         """
-        urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
+        `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
         """
         return pulumi.get(self, "http_post_binding")
 
@@ -1311,7 +1319,7 @@ class _SamlState:
     @pulumi.getter(name="httpRedirectBinding")
     def http_redirect_binding(self) -> Optional[pulumi.Input[str]]:
         """
-        urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
+        `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
         """
         return pulumi.get(self, "http_redirect_binding")
 
@@ -1323,7 +1331,7 @@ class _SamlState:
     @pulumi.getter(name="idpIssuer")
     def idp_issuer(self) -> Optional[pulumi.Input[str]]:
         """
-        SAML issuer ID
+        SAML issuer ID.
         """
         return pulumi.get(self, "idp_issuer")
 
@@ -1335,7 +1343,7 @@ class _SamlState:
     @pulumi.getter(name="implicitAssignment")
     def implicit_assignment(self) -> Optional[pulumi.Input[bool]]:
         """
-        *Early Access Property*. Enable Federation Broker Mode.
+        _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
         """
         return pulumi.get(self, "implicit_assignment")
 
@@ -1347,7 +1355,7 @@ class _SamlState:
     @pulumi.getter(name="inlineHookId")
     def inline_hook_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Saml Inline Hook setting
+        Saml Inline Hook associated with the application.
         """
         return pulumi.get(self, "inline_hook_id")
 
@@ -1359,7 +1367,7 @@ class _SamlState:
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Certificate ID
+        Certificate key ID.
         """
         return pulumi.get(self, "key_id")
 
@@ -1371,7 +1379,7 @@ class _SamlState:
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Certificate name. This modulates the rotation of keys. New name == new key.
+        Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         """
         return pulumi.get(self, "key_name")
 
@@ -1383,7 +1391,7 @@ class _SamlState:
     @pulumi.getter(name="keyYearsValid")
     def key_years_valid(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of years the certificate is valid.
+        Number of years the certificate is valid (2 - 10 years).
         """
         return pulumi.get(self, "key_years_valid")
 
@@ -1395,7 +1403,7 @@ class _SamlState:
     @pulumi.getter
     def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlKeyArgs']]]]:
         """
-        Application keys
+        An array of all key credentials for the application. Format of each entry is as follows:
         """
         return pulumi.get(self, "keys")
 
@@ -1407,7 +1415,7 @@ class _SamlState:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        Pretty name of app.
+        label of application.
         """
         return pulumi.get(self, "label")
 
@@ -1419,7 +1427,7 @@ class _SamlState:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Local path to logo of the application.
+        Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
@@ -1431,7 +1439,7 @@ class _SamlState:
     @pulumi.getter(name="logoUrl")
     def logo_url(self) -> Optional[pulumi.Input[str]]:
         """
-        URL of the application's logo
+        Direct link of application logo.
         """
         return pulumi.get(self, "logo_url")
 
@@ -1443,7 +1451,7 @@ class _SamlState:
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input[str]]:
         """
-        SAML xml metadata payload
+        The raw SAML metadata in XML.
         """
         return pulumi.get(self, "metadata")
 
@@ -1455,7 +1463,7 @@ class _SamlState:
     @pulumi.getter(name="metadataUrl")
     def metadata_url(self) -> Optional[pulumi.Input[str]]:
         """
-        SAML xml metadata URL
+        SAML xml metadata URL.
         """
         return pulumi.get(self, "metadata_url")
 
@@ -1467,7 +1475,7 @@ class _SamlState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The reference name of the attribute statement
+        The name of the attribute statement.
         """
         return pulumi.get(self, "name")
 
@@ -1479,7 +1487,7 @@ class _SamlState:
     @pulumi.getter(name="preconfiguredApp")
     def preconfigured_app(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of preexisting SAML application. For instance 'slack'
+        name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
         """
         return pulumi.get(self, "preconfigured_app")
 
@@ -1491,7 +1499,7 @@ class _SamlState:
     @pulumi.getter
     def recipient(self) -> Optional[pulumi.Input[str]]:
         """
-        The location where the app may present the SAML assertion
+        The location where the app may present the SAML assertion.
         """
         return pulumi.get(self, "recipient")
 
@@ -1515,7 +1523,7 @@ class _SamlState:
     @pulumi.getter(name="responseSigned")
     def response_signed(self) -> Optional[pulumi.Input[bool]]:
         """
-        Determines whether the SAML auth response message is digitally signed
+        Determines whether the SAML auth response message is digitally signed.
         """
         return pulumi.get(self, "response_signed")
 
@@ -1539,7 +1547,7 @@ class _SamlState:
     @pulumi.getter(name="samlVersion")
     def saml_version(self) -> Optional[pulumi.Input[str]]:
         """
-        SAML version for the app's sign-on mode
+        SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
         """
         return pulumi.get(self, "saml_version")
 
@@ -1551,7 +1559,7 @@ class _SamlState:
     @pulumi.getter(name="signOnMode")
     def sign_on_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Sign on mode of application.
+        Sign-on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
 
@@ -1563,7 +1571,7 @@ class _SamlState:
     @pulumi.getter(name="signatureAlgorithm")
     def signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        Signature algorithm used ot digitally sign the assertion and response
+        Signature algorithm used ot digitally sign the assertion and response.
         """
         return pulumi.get(self, "signature_algorithm")
 
@@ -1575,7 +1583,7 @@ class _SamlState:
     @pulumi.getter(name="singleLogoutCertificate")
     def single_logout_certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+        x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         """
         return pulumi.get(self, "single_logout_certificate")
 
@@ -1587,7 +1595,7 @@ class _SamlState:
     @pulumi.getter(name="singleLogoutIssuer")
     def single_logout_issuer(self) -> Optional[pulumi.Input[str]]:
         """
-        The issuer of the Service Provider that generates the Single Logout request
+        The issuer of the Service Provider that generates the Single Logout request.
         """
         return pulumi.get(self, "single_logout_issuer")
 
@@ -1599,7 +1607,7 @@ class _SamlState:
     @pulumi.getter(name="singleLogoutUrl")
     def single_logout_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The location where the logout response is sent
+        The location where the logout response is sent.
         """
         return pulumi.get(self, "single_logout_url")
 
@@ -1611,7 +1619,7 @@ class _SamlState:
     @pulumi.getter(name="spIssuer")
     def sp_issuer(self) -> Optional[pulumi.Input[str]]:
         """
-        SAML SP issuer ID
+        SAML service provider issuer.
         """
         return pulumi.get(self, "sp_issuer")
 
@@ -1623,7 +1631,7 @@ class _SamlState:
     @pulumi.getter(name="ssoUrl")
     def sso_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Single Sign On URL
+        Single Sign-on Url.
         """
         return pulumi.get(self, "sso_url")
 
@@ -1635,7 +1643,7 @@ class _SamlState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of application.
+        status of application.
         """
         return pulumi.get(self, "status")
 
@@ -1659,7 +1667,7 @@ class _SamlState:
     @pulumi.getter(name="subjectNameIdTemplate")
     def subject_name_id_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Template for app user's username when a user is assigned to the app
+        Template for app user's username when a user is assigned to the app.
         """
         return pulumi.get(self, "subject_name_id_template")
 
@@ -1671,7 +1679,7 @@ class _SamlState:
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template
+        Username template. Default is: `"${source.login}"`
         """
         return pulumi.get(self, "user_name_template")
 
@@ -1683,7 +1691,7 @@ class _SamlState:
     @pulumi.getter(name="userNameTemplatePushStatus")
     def user_name_template_push_status(self) -> Optional[pulumi.Input[str]]:
         """
-        Push username on update
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         """
         return pulumi.get(self, "user_name_template_push_status")
 
@@ -1695,7 +1703,7 @@ class _SamlState:
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template suffix
+        Username template suffix.
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -1707,7 +1715,7 @@ class _SamlState:
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Username template type
+        Username template type. Default is: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 
@@ -1769,54 +1777,208 @@ class Saml(pulumi.CustomResource):
                  user_name_template_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Saml resource with the given unique name, props, and options.
+        This resource allows you to create and configure a SAML Application.
+
+        > During an apply if there is change in `status` the app will first be
+        activated or deactivated in accordance with the `status` change. Then, all
+        other arguments that changed will be applied.
+
+        > If you receive the error `You do not have permission to access the feature
+        you are requesting` contact support and
+        request feature flag `ADVANCED_SSO` be applied to your org.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.Saml("example",
+            attribute_statements=[okta.app.SamlAttributeStatementArgs(
+                filter_type="REGEX",
+                filter_value=".*",
+                name="groups",
+                type="GROUP",
+            )],
+            audience="https://example.com/audience",
+            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+            destination="https://example.com",
+            digest_algorithm="SHA256",
+            honor_force_authn=False,
+            label="example",
+            recipient="https://example.com",
+            response_signed=True,
+            signature_algorithm="RSA_SHA256",
+            sso_url="https://example.com",
+            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+            subject_name_id_template="${user.userName}")
+        ```
+        ### With inline hook
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test_hook = okta.inline.Hook("testHook",
+            status="ACTIVE",
+            type="com.okta.saml.tokens.transform",
+            version="1.0.2",
+            channel={
+                "type": "HTTP",
+                "version": "1.0.0",
+                "uri": "https://example.com/test1",
+                "method": "POST",
+            },
+            auth={
+                "key": "Authorization",
+                "type": "HEADER",
+                "value": "secret",
+            })
+        test_saml = okta.app.Saml("testSaml",
+            label="testAcc_replace_with_uuid",
+            sso_url="https://google.com",
+            recipient="https://here.com",
+            destination="https://its-about-the-journey.com",
+            audience="https://audience.com",
+            subject_name_id_template="${user.userName}",
+            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+            response_signed=True,
+            signature_algorithm="RSA_SHA256",
+            digest_algorithm="SHA256",
+            honor_force_authn=False,
+            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+            inline_hook_id=test_hook.id,
+            attribute_statements=[okta.app.SamlAttributeStatementArgs(
+                type="GROUP",
+                name="groups",
+                filter_type="REGEX",
+                filter_value=".*",
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[test_hook]))
+        ```
+        ### Pre-configured app with SAML 1.1 sign-on mode
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test = okta.app.Saml("test",
+            app_settings_json=\"\"\"{
+            "groupFilter": "app1.*",
+            "siteURL": "https://www.okta.com"
+        }
+
+        \"\"\",
+            label="SharePoint (On-Premise)",
+            preconfigured_app="sharepoint_onpremise",
+            saml_version="1.1",
+            status="ACTIVE",
+            user_name_template="${source.login}",
+            user_name_template_type="BUILT_IN")
+        ```
+        ### Pre-configured app with SAML 1.1 sign-on mode, `app_settings_json` and `app_links_json`
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        office365 = okta.app.Saml("office365",
+            app_links_json=\"\"\"  {
+              "calendar": false,
+              "crm": false,
+              "delve": false,
+              "excel": false,
+              "forms": false,
+              "mail": false,
+              "newsfeed": false,
+              "onedrive": false,
+              "people": false,
+              "planner": false,
+              "powerbi": false,
+              "powerpoint": false,
+              "sites": false,
+              "sway": false,
+              "tasks": false,
+              "teams": false,
+              "video": false,
+              "word": false,
+              "yammer": false,
+              "login": true
+          }
+
+        \"\"\",
+            app_settings_json=\"\"\"    {
+               "wsFedConfigureType": "AUTO",
+               "windowsTransportEnabled": false,
+               "domain": "okta.com",
+               "msftTenant": "okta",
+               "domains": [],
+               "requireAdminConsent": false
+            }
+
+        \"\"\",
+            label="Microsoft Office 365",
+            preconfigured_app="office365",
+            saml_version="1.1",
+            status="ACTIVE")
+        ```
+
+        ## Import
+
+        A SAML App can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:app/saml:Saml example &#60;app id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
-        :param pulumi.Input[bool] accessibility_self_service: Enable self service
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: List of ACS endpoints for this SAML application
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. Default is: `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
-        :param pulumi.Input[str] app_settings_json: Application settings in JSON format
-        :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
+        :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
+        :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]] attribute_statements: List of SAML Attribute statements.
         :param pulumi.Input[str] audience: Audience Restriction
-        :param pulumi.Input[str] authentication_policy: Id of this apps authentication policy
+        :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
         :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar. Default is: `false`
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users
-        :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it
-        :param pulumi.Input[str] idp_issuer: SAML issuer ID
-        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
-        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook setting
-        :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
-        :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
-        :param pulumi.Input[str] label: Pretty name of app.
-        :param pulumi.Input[str] logo: Local path to logo of the application.
-        :param pulumi.Input[str] preconfigured_app: Name of preexisting SAML application. For instance 'slack'
-        :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app. Default is: `false`
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users. Default is: `false`
+        :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it. Default is: `false`
+        :param pulumi.Input[str] idp_issuer: SAML issuer ID.
+        :param pulumi.Input[bool] implicit_assignment: _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
+        :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
+        :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
+        :param pulumi.Input[str] label: label of application.
+        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
+        :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion.
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
-        :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed
+        :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed.
         :param pulumi.Input[bool] saml_signed_request_enabled: SAML Signed Request enabled
-        :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode
-        :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response
-        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests
-        :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
-        :param pulumi.Input[str] single_logout_url: The location where the logout response is sent
-        :param pulumi.Input[str] sp_issuer: SAML SP issuer ID
-        :param pulumi.Input[str] sso_url: Single Sign On URL
-        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+        :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
+        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
+        :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
+        :param pulumi.Input[str] sp_issuer: SAML service provider issuer.
+        :param pulumi.Input[str] sso_url: Single Sign-on Url.
+        :param pulumi.Input[str] status: status of application.
         :param pulumi.Input[str] subject_name_id_format: Identifies the SAML processing rules.
-        :param pulumi.Input[str] subject_name_id_template: Template for app user's username when a user is assigned to the app
-        :param pulumi.Input[str] user_name_template: Username template
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
-        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] subject_name_id_template: Template for app user's username when a user is assigned to the app.
+        :param pulumi.Input[str] user_name_template: Username template. Default is: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default is: `"BUILT_IN"`.
         """
         ...
     @overload
@@ -1825,7 +1987,160 @@ class Saml(pulumi.CustomResource):
                  args: SamlArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Saml resource with the given unique name, props, and options.
+        This resource allows you to create and configure a SAML Application.
+
+        > During an apply if there is change in `status` the app will first be
+        activated or deactivated in accordance with the `status` change. Then, all
+        other arguments that changed will be applied.
+
+        > If you receive the error `You do not have permission to access the feature
+        you are requesting` contact support and
+        request feature flag `ADVANCED_SSO` be applied to your org.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.Saml("example",
+            attribute_statements=[okta.app.SamlAttributeStatementArgs(
+                filter_type="REGEX",
+                filter_value=".*",
+                name="groups",
+                type="GROUP",
+            )],
+            audience="https://example.com/audience",
+            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+            destination="https://example.com",
+            digest_algorithm="SHA256",
+            honor_force_authn=False,
+            label="example",
+            recipient="https://example.com",
+            response_signed=True,
+            signature_algorithm="RSA_SHA256",
+            sso_url="https://example.com",
+            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+            subject_name_id_template="${user.userName}")
+        ```
+        ### With inline hook
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test_hook = okta.inline.Hook("testHook",
+            status="ACTIVE",
+            type="com.okta.saml.tokens.transform",
+            version="1.0.2",
+            channel={
+                "type": "HTTP",
+                "version": "1.0.0",
+                "uri": "https://example.com/test1",
+                "method": "POST",
+            },
+            auth={
+                "key": "Authorization",
+                "type": "HEADER",
+                "value": "secret",
+            })
+        test_saml = okta.app.Saml("testSaml",
+            label="testAcc_replace_with_uuid",
+            sso_url="https://google.com",
+            recipient="https://here.com",
+            destination="https://its-about-the-journey.com",
+            audience="https://audience.com",
+            subject_name_id_template="${user.userName}",
+            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+            response_signed=True,
+            signature_algorithm="RSA_SHA256",
+            digest_algorithm="SHA256",
+            honor_force_authn=False,
+            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+            inline_hook_id=test_hook.id,
+            attribute_statements=[okta.app.SamlAttributeStatementArgs(
+                type="GROUP",
+                name="groups",
+                filter_type="REGEX",
+                filter_value=".*",
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[test_hook]))
+        ```
+        ### Pre-configured app with SAML 1.1 sign-on mode
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test = okta.app.Saml("test",
+            app_settings_json=\"\"\"{
+            "groupFilter": "app1.*",
+            "siteURL": "https://www.okta.com"
+        }
+
+        \"\"\",
+            label="SharePoint (On-Premise)",
+            preconfigured_app="sharepoint_onpremise",
+            saml_version="1.1",
+            status="ACTIVE",
+            user_name_template="${source.login}",
+            user_name_template_type="BUILT_IN")
+        ```
+        ### Pre-configured app with SAML 1.1 sign-on mode, `app_settings_json` and `app_links_json`
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        office365 = okta.app.Saml("office365",
+            app_links_json=\"\"\"  {
+              "calendar": false,
+              "crm": false,
+              "delve": false,
+              "excel": false,
+              "forms": false,
+              "mail": false,
+              "newsfeed": false,
+              "onedrive": false,
+              "people": false,
+              "planner": false,
+              "powerbi": false,
+              "powerpoint": false,
+              "sites": false,
+              "sway": false,
+              "tasks": false,
+              "teams": false,
+              "video": false,
+              "word": false,
+              "yammer": false,
+              "login": true
+          }
+
+        \"\"\",
+            app_settings_json=\"\"\"    {
+               "wsFedConfigureType": "AUTO",
+               "windowsTransportEnabled": false,
+               "domain": "okta.com",
+               "msftTenant": "okta",
+               "domains": [],
+               "requireAdminConsent": false
+            }
+
+        \"\"\",
+            label="Microsoft Office 365",
+            preconfigured_app="office365",
+            saml_version="1.1",
+            status="ACTIVE")
+        ```
+
+        ## Import
+
+        A SAML App can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:app/saml:Saml example &#60;app id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param SamlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2035,65 +2350,66 @@ class Saml(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
-        :param pulumi.Input[bool] accessibility_self_service: Enable self service
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: List of ACS endpoints for this SAML application
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
+        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. Default is: `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
-        :param pulumi.Input[str] app_settings_json: Application settings in JSON format
-        :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
+        :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
+        :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]] attribute_statements: List of SAML Attribute statements.
         :param pulumi.Input[str] audience: Audience Restriction
-        :param pulumi.Input[str] authentication_policy: Id of this apps authentication policy
+        :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
         :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[str] certificate: cert from SAML XML metadata payload
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar. Default is: `false`
+        :param pulumi.Input[str] certificate: The raw signing certificate.
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
         :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
-        :param pulumi.Input[str] embed_url: The url that can be used to embed this application in other portals.
+        :param pulumi.Input[str] embed_url: Url that can be used to embed this application into another portal.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the entity_url
-        :param pulumi.Input[str] entity_url: Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features to enable
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users
-        :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it
-        :param pulumi.Input[str] http_post_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
-        :param pulumi.Input[str] http_redirect_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
-        :param pulumi.Input[str] idp_issuer: SAML issuer ID
-        :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
-        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook setting
-        :param pulumi.Input[str] key_id: Certificate ID
-        :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key.
-        :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlKeyArgs']]]] keys: Application keys
-        :param pulumi.Input[str] label: Pretty name of app.
-        :param pulumi.Input[str] logo: Local path to logo of the application.
-        :param pulumi.Input[str] logo_url: URL of the application's logo
-        :param pulumi.Input[str] metadata: SAML xml metadata payload
-        :param pulumi.Input[str] metadata_url: SAML xml metadata URL
-        :param pulumi.Input[str] name: The reference name of the attribute statement
-        :param pulumi.Input[str] preconfigured_app: Name of preexisting SAML application. For instance 'slack'
-        :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion
+        :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the `entity_url`.
+        :param pulumi.Input[str] entity_url: Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features enabled. Notice: you can't currently configure provisioning features via the API.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app. Default is: `false`
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users. Default is: `false`
+        :param pulumi.Input[bool] honor_force_authn: Prompt user to re-authenticate if SP asks for it. Default is: `false`
+        :param pulumi.Input[str] http_post_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
+        :param pulumi.Input[str] http_redirect_binding: `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
+        :param pulumi.Input[str] idp_issuer: SAML issuer ID.
+        :param pulumi.Input[bool] implicit_assignment: _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
+        :param pulumi.Input[str] inline_hook_id: Saml Inline Hook associated with the application.
+        :param pulumi.Input[str] key_id: Certificate key ID.
+        :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
+        :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlKeyArgs']]]] keys: An array of all key credentials for the application. Format of each entry is as follows:
+        :param pulumi.Input[str] label: label of application.
+        :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[str] logo_url: Direct link of application logo.
+        :param pulumi.Input[str] metadata: The raw SAML metadata in XML.
+        :param pulumi.Input[str] metadata_url: SAML xml metadata URL.
+        :param pulumi.Input[str] name: The name of the attribute statement.
+        :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
+        :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion.
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
-        :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed
+        :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed.
         :param pulumi.Input[bool] saml_signed_request_enabled: SAML Signed Request enabled
-        :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode
-        :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
-        :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response
-        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests
-        :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
-        :param pulumi.Input[str] single_logout_url: The location where the logout response is sent
-        :param pulumi.Input[str] sp_issuer: SAML SP issuer ID
-        :param pulumi.Input[str] sso_url: Single Sign On URL
-        :param pulumi.Input[str] status: Status of application.
+        :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
+        :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
+        :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
+        :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
+        :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
+        :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
+        :param pulumi.Input[str] sp_issuer: SAML service provider issuer.
+        :param pulumi.Input[str] sso_url: Single Sign-on Url.
+        :param pulumi.Input[str] status: status of application.
         :param pulumi.Input[str] subject_name_id_format: Identifies the SAML processing rules.
-        :param pulumi.Input[str] subject_name_id_template: Template for app user's username when a user is assigned to the app
-        :param pulumi.Input[str] user_name_template: Username template
-        :param pulumi.Input[str] user_name_template_push_status: Push username on update
-        :param pulumi.Input[str] user_name_template_suffix: Username template suffix
-        :param pulumi.Input[str] user_name_template_type: Username template type
+        :param pulumi.Input[str] subject_name_id_template: Template for app user's username when a user is assigned to the app.
+        :param pulumi.Input[str] user_name_template: Username template. Default is: `"${source.login}"`
+        :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        :param pulumi.Input[str] user_name_template_suffix: Username template suffix.
+        :param pulumi.Input[str] user_name_template_type: Username template type. Default is: `"BUILT_IN"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2165,7 +2481,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
     def accessibility_error_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Custom error page URL
+        Custom error page URL.
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
@@ -2173,7 +2489,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Custom login page URL
+        Custom login page for this application.
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -2181,7 +2497,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable self service
+        Enable self-service. Default is: `false`.
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -2189,7 +2505,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="acsEndpoints")
     def acs_endpoints(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of ACS endpoints for this SAML application
+        An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         """
         return pulumi.get(self, "acs_endpoints")
 
@@ -2205,7 +2521,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> pulumi.Output[Optional[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -2213,7 +2529,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="appSettingsJson")
     def app_settings_json(self) -> pulumi.Output[Optional[str]]:
         """
-        Application settings in JSON format
+        Application settings in JSON format.
         """
         return pulumi.get(self, "app_settings_json")
 
@@ -2221,13 +2537,16 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="assertionSigned")
     def assertion_signed(self) -> pulumi.Output[Optional[bool]]:
         """
-        Determines whether the SAML assertion is digitally signed
+        Determines whether the SAML assertion is digitally signed.
         """
         return pulumi.get(self, "assertion_signed")
 
     @property
     @pulumi.getter(name="attributeStatements")
     def attribute_statements(self) -> pulumi.Output[Optional[Sequence['outputs.SamlAttributeStatement']]]:
+        """
+        List of SAML Attribute statements.
+        """
         return pulumi.get(self, "attribute_statements")
 
     @property
@@ -2242,7 +2561,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="authenticationPolicy")
     def authentication_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        Id of this apps authentication policy
+        The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
         """
         return pulumi.get(self, "authentication_policy")
 
@@ -2258,7 +2577,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
-        Display auto submit toolbar
+        Display auto submit toolbar. Default is: `false`
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -2266,7 +2585,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def certificate(self) -> pulumi.Output[str]:
         """
-        cert from SAML XML metadata payload
+        The raw signing certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -2298,7 +2617,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="embedUrl")
     def embed_url(self) -> pulumi.Output[str]:
         """
-        The url that can be used to embed this application in other portals.
+        Url that can be used to embed this application into another portal.
         """
         return pulumi.get(self, "embed_url")
 
@@ -2314,7 +2633,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="entityKey")
     def entity_key(self) -> pulumi.Output[str]:
         """
-        Entity ID, the ID portion of the entity_url
+        Entity ID, the ID portion of the `entity_url`.
         """
         return pulumi.get(self, "entity_key")
 
@@ -2322,7 +2641,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="entityUrl")
     def entity_url(self) -> pulumi.Output[str]:
         """
-        Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+        Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8).
         """
         return pulumi.get(self, "entity_url")
 
@@ -2330,7 +2649,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def features(self) -> pulumi.Output[Sequence[str]]:
         """
-        features to enable
+        features enabled. Notice: you can't currently configure provisioning features via the API.
         """
         return pulumi.get(self, "features")
 
@@ -2338,7 +2657,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
-        Do not display application icon on mobile app
+        Do not display application icon on mobile app. Default is: `false`
         """
         return pulumi.get(self, "hide_ios")
 
@@ -2346,7 +2665,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="hideWeb")
     def hide_web(self) -> pulumi.Output[Optional[bool]]:
         """
-        Do not display application icon to users
+        Do not display application icon to users. Default is: `false`
         """
         return pulumi.get(self, "hide_web")
 
@@ -2354,7 +2673,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="honorForceAuthn")
     def honor_force_authn(self) -> pulumi.Output[Optional[bool]]:
         """
-        Prompt user to re-authenticate if SP asks for it
+        Prompt user to re-authenticate if SP asks for it. Default is: `false`
         """
         return pulumi.get(self, "honor_force_authn")
 
@@ -2362,7 +2681,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="httpPostBinding")
     def http_post_binding(self) -> pulumi.Output[str]:
         """
-        urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
+        `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post` location from the SAML metadata.
         """
         return pulumi.get(self, "http_post_binding")
 
@@ -2370,7 +2689,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="httpRedirectBinding")
     def http_redirect_binding(self) -> pulumi.Output[str]:
         """
-        urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
+        `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect` location from the SAML metadata.
         """
         return pulumi.get(self, "http_redirect_binding")
 
@@ -2378,7 +2697,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="idpIssuer")
     def idp_issuer(self) -> pulumi.Output[Optional[str]]:
         """
-        SAML issuer ID
+        SAML issuer ID.
         """
         return pulumi.get(self, "idp_issuer")
 
@@ -2386,7 +2705,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="implicitAssignment")
     def implicit_assignment(self) -> pulumi.Output[Optional[bool]]:
         """
-        *Early Access Property*. Enable Federation Broker Mode.
+        _Early Access Property_. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm).
         """
         return pulumi.get(self, "implicit_assignment")
 
@@ -2394,7 +2713,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="inlineHookId")
     def inline_hook_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Saml Inline Hook setting
+        Saml Inline Hook associated with the application.
         """
         return pulumi.get(self, "inline_hook_id")
 
@@ -2402,7 +2721,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Output[str]:
         """
-        Certificate ID
+        Certificate key ID.
         """
         return pulumi.get(self, "key_id")
 
@@ -2410,7 +2729,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="keyName")
     def key_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Certificate name. This modulates the rotation of keys. New name == new key.
+        Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`.
         """
         return pulumi.get(self, "key_name")
 
@@ -2418,7 +2737,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="keyYearsValid")
     def key_years_valid(self) -> pulumi.Output[Optional[int]]:
         """
-        Number of years the certificate is valid.
+        Number of years the certificate is valid (2 - 10 years).
         """
         return pulumi.get(self, "key_years_valid")
 
@@ -2426,7 +2745,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def keys(self) -> pulumi.Output[Sequence['outputs.SamlKey']]:
         """
-        Application keys
+        An array of all key credentials for the application. Format of each entry is as follows:
         """
         return pulumi.get(self, "keys")
 
@@ -2434,7 +2753,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def label(self) -> pulumi.Output[str]:
         """
-        Pretty name of app.
+        label of application.
         """
         return pulumi.get(self, "label")
 
@@ -2442,7 +2761,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def logo(self) -> pulumi.Output[Optional[str]]:
         """
-        Local path to logo of the application.
+        Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
@@ -2450,7 +2769,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="logoUrl")
     def logo_url(self) -> pulumi.Output[str]:
         """
-        URL of the application's logo
+        Direct link of application logo.
         """
         return pulumi.get(self, "logo_url")
 
@@ -2458,7 +2777,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def metadata(self) -> pulumi.Output[str]:
         """
-        SAML xml metadata payload
+        The raw SAML metadata in XML.
         """
         return pulumi.get(self, "metadata")
 
@@ -2466,7 +2785,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="metadataUrl")
     def metadata_url(self) -> pulumi.Output[str]:
         """
-        SAML xml metadata URL
+        SAML xml metadata URL.
         """
         return pulumi.get(self, "metadata_url")
 
@@ -2474,7 +2793,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The reference name of the attribute statement
+        The name of the attribute statement.
         """
         return pulumi.get(self, "name")
 
@@ -2482,7 +2801,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="preconfiguredApp")
     def preconfigured_app(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of preexisting SAML application. For instance 'slack'
+        name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
         """
         return pulumi.get(self, "preconfigured_app")
 
@@ -2490,7 +2809,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def recipient(self) -> pulumi.Output[Optional[str]]:
         """
-        The location where the app may present the SAML assertion
+        The location where the app may present the SAML assertion.
         """
         return pulumi.get(self, "recipient")
 
@@ -2506,7 +2825,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="responseSigned")
     def response_signed(self) -> pulumi.Output[Optional[bool]]:
         """
-        Determines whether the SAML auth response message is digitally signed
+        Determines whether the SAML auth response message is digitally signed.
         """
         return pulumi.get(self, "response_signed")
 
@@ -2522,7 +2841,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="samlVersion")
     def saml_version(self) -> pulumi.Output[Optional[str]]:
         """
-        SAML version for the app's sign-on mode
+        SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
         """
         return pulumi.get(self, "saml_version")
 
@@ -2530,7 +2849,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="signOnMode")
     def sign_on_mode(self) -> pulumi.Output[str]:
         """
-        Sign on mode of application.
+        Sign-on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
 
@@ -2538,7 +2857,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="signatureAlgorithm")
     def signature_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
-        Signature algorithm used ot digitally sign the assertion and response
+        Signature algorithm used ot digitally sign the assertion and response.
         """
         return pulumi.get(self, "signature_algorithm")
 
@@ -2546,7 +2865,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="singleLogoutCertificate")
     def single_logout_certificate(self) -> pulumi.Output[Optional[str]]:
         """
-        x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+        x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         """
         return pulumi.get(self, "single_logout_certificate")
 
@@ -2554,7 +2873,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="singleLogoutIssuer")
     def single_logout_issuer(self) -> pulumi.Output[Optional[str]]:
         """
-        The issuer of the Service Provider that generates the Single Logout request
+        The issuer of the Service Provider that generates the Single Logout request.
         """
         return pulumi.get(self, "single_logout_issuer")
 
@@ -2562,7 +2881,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="singleLogoutUrl")
     def single_logout_url(self) -> pulumi.Output[Optional[str]]:
         """
-        The location where the logout response is sent
+        The location where the logout response is sent.
         """
         return pulumi.get(self, "single_logout_url")
 
@@ -2570,7 +2889,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="spIssuer")
     def sp_issuer(self) -> pulumi.Output[Optional[str]]:
         """
-        SAML SP issuer ID
+        SAML service provider issuer.
         """
         return pulumi.get(self, "sp_issuer")
 
@@ -2578,7 +2897,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="ssoUrl")
     def sso_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Single Sign On URL
+        Single Sign-on Url.
         """
         return pulumi.get(self, "sso_url")
 
@@ -2586,7 +2905,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        Status of application.
+        status of application.
         """
         return pulumi.get(self, "status")
 
@@ -2602,7 +2921,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="subjectNameIdTemplate")
     def subject_name_id_template(self) -> pulumi.Output[Optional[str]]:
         """
-        Template for app user's username when a user is assigned to the app
+        Template for app user's username when a user is assigned to the app.
         """
         return pulumi.get(self, "subject_name_id_template")
 
@@ -2610,7 +2929,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplate")
     def user_name_template(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template
+        Username template. Default is: `"${source.login}"`
         """
         return pulumi.get(self, "user_name_template")
 
@@ -2618,7 +2937,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplatePushStatus")
     def user_name_template_push_status(self) -> pulumi.Output[Optional[str]]:
         """
-        Push username on update
+        Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         """
         return pulumi.get(self, "user_name_template_push_status")
 
@@ -2626,7 +2945,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplateSuffix")
     def user_name_template_suffix(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template suffix
+        Username template suffix.
         """
         return pulumi.get(self, "user_name_template_suffix")
 
@@ -2634,7 +2953,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="userNameTemplateType")
     def user_name_template_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Username template type
+        Username template type. Default is: `"BUILT_IN"`.
         """
         return pulumi.get(self, "user_name_template_type")
 

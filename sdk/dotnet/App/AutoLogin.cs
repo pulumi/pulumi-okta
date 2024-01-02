@@ -9,23 +9,84 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.App
 {
+    /// <summary>
+    /// This resource allows you to create and configure an Auto Login Okta Application.
+    /// 
+    /// &gt; During an apply if there is change in `status` the app will first be
+    /// activated or deactivated in accordance with the `status` change. Then, all
+    /// other arguments that changed will be applied.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.App.AutoLogin("example", new()
+    ///     {
+    ///         CredentialsScheme = "EDIT_USERNAME_AND_PASSWORD",
+    ///         Label = "Example App",
+    ///         RevealPassword = true,
+    ///         SignOnRedirectUrl = "https://example.com",
+    ///         SignOnUrl = "https://example.com/login.html",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Pre-configured application
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.App.AutoLogin("example", new()
+    ///     {
+    ///         AppSettingsJson = @"{
+    ///     ""domain"": ""okta"",
+    ///     ""afwOnly"": false
+    /// }
+    /// 
+    /// ",
+    ///         Label = "Google Example App",
+    ///         PreconfiguredApp = "google",
+    ///         Status = "ACTIVE",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Okta Auto Login App can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:app/autoLogin:AutoLogin example &amp;#60;app id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:app/autoLogin:AutoLogin")]
     public partial class AutoLogin : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Custom error page URL
+        /// Custom error page URL.
         /// </summary>
         [Output("accessibilityErrorRedirectUrl")]
         public Output<string?> AccessibilityErrorRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Custom login page URL
+        /// Custom login page for this application.
         /// </summary>
         [Output("accessibilityLoginRedirectUrl")]
         public Output<string?> AccessibilityLoginRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Enable self service
+        /// Enable self-service. By default, it is `false`.
         /// </summary>
         [Output("accessibilitySelfService")]
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
@@ -37,25 +98,25 @@ namespace Pulumi.Okta.App
         public Output<string?> AdminNote { get; private set; } = null!;
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Output("appLinksJson")]
         public Output<string?> AppLinksJson { get; private set; } = null!;
 
         /// <summary>
-        /// Application settings in JSON format
+        /// Application settings in JSON format.
         /// </summary>
         [Output("appSettingsJson")]
         public Output<string?> AppSettingsJson { get; private set; } = null!;
 
         /// <summary>
-        /// Display auto submit toolbar
+        /// Display auto submit toolbar.
         /// </summary>
         [Output("autoSubmitToolbar")]
         public Output<bool?> AutoSubmitToolbar { get; private set; } = null!;
 
         /// <summary>
-        /// Application credentials scheme
+        /// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         /// </summary>
         [Output("credentialsScheme")]
         public Output<string?> CredentialsScheme { get; private set; } = null!;
@@ -67,109 +128,109 @@ namespace Pulumi.Okta.App
         public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon on mobile app
+        /// Do not display application icon on mobile app.
         /// </summary>
         [Output("hideIos")]
         public Output<bool?> HideIos { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon to users
+        /// Do not display application icon to users.
         /// </summary>
         [Output("hideWeb")]
         public Output<bool?> HideWeb { get; private set; } = null!;
 
         /// <summary>
-        /// Pretty name of app.
+        /// The Application's display name.
         /// </summary>
         [Output("label")]
         public Output<string> Label { get; private set; } = null!;
 
         /// <summary>
-        /// Local path to logo of the application.
+        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         /// </summary>
         [Output("logo")]
         public Output<string?> Logo { get; private set; } = null!;
 
         /// <summary>
-        /// URL of the application's logo
+        /// Direct link of application logo.
         /// </summary>
         [Output("logoUrl")]
         public Output<string> LogoUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the app.
+        /// Name assigned to the application by Okta.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Preconfigured app name
+        /// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
         /// </summary>
         [Output("preconfiguredApp")]
         public Output<string?> PreconfiguredApp { get; private set; } = null!;
 
         /// <summary>
-        /// Allow user to reveal password
+        /// Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         /// </summary>
         [Output("revealPassword")]
         public Output<bool?> RevealPassword { get; private set; } = null!;
 
         /// <summary>
-        /// Shared password, required for certain schemes.
+        /// Shared password, required for certain schemes
         /// </summary>
         [Output("sharedPassword")]
         public Output<string?> SharedPassword { get; private set; } = null!;
 
         /// <summary>
-        /// Shared username, required for certain schemes.
+        /// Shared username, required for certain schemes
         /// </summary>
         [Output("sharedUsername")]
         public Output<string?> SharedUsername { get; private set; } = null!;
 
         /// <summary>
-        /// Sign on mode of application.
+        /// Sign-on mode of the application.
         /// </summary>
         [Output("signOnMode")]
         public Output<string> SignOnMode { get; private set; } = null!;
 
         /// <summary>
-        /// Post login redirect URL
+        /// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
         /// </summary>
         [Output("signOnRedirectUrl")]
         public Output<string?> SignOnRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Login URL
+        /// App login page URL
         /// </summary>
         [Output("signOnUrl")]
         public Output<string?> SignOnUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Status of application.
+        /// The status of the application, by default, it is `"ACTIVE"`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Username template
+        /// Username template. Default: `"${source.login}"`
         /// </summary>
         [Output("userNameTemplate")]
         public Output<string?> UserNameTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Push username on update
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         /// </summary>
         [Output("userNameTemplatePushStatus")]
         public Output<string?> UserNameTemplatePushStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Username template suffix
+        /// Username template suffix.
         /// </summary>
         [Output("userNameTemplateSuffix")]
         public Output<string?> UserNameTemplateSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// Username template type
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Output("userNameTemplateType")]
         public Output<string?> UserNameTemplateType { get; private set; } = null!;
@@ -221,19 +282,19 @@ namespace Pulumi.Okta.App
     public sealed class AutoLoginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom error page URL
+        /// Custom error page URL.
         /// </summary>
         [Input("accessibilityErrorRedirectUrl")]
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
-        /// Custom login page URL
+        /// Custom login page for this application.
         /// </summary>
         [Input("accessibilityLoginRedirectUrl")]
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self service
+        /// Enable self-service. By default, it is `false`.
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -245,25 +306,25 @@ namespace Pulumi.Okta.App
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
-        /// Application settings in JSON format
+        /// Application settings in JSON format.
         /// </summary>
         [Input("appSettingsJson")]
         public Input<string>? AppSettingsJson { get; set; }
 
         /// <summary>
-        /// Display auto submit toolbar
+        /// Display auto submit toolbar.
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
 
         /// <summary>
-        /// Application credentials scheme
+        /// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         /// </summary>
         [Input("credentialsScheme")]
         public Input<string>? CredentialsScheme { get; set; }
@@ -275,91 +336,91 @@ namespace Pulumi.Okta.App
         public Input<string>? EnduserNote { get; set; }
 
         /// <summary>
-        /// Do not display application icon on mobile app
+        /// Do not display application icon on mobile app.
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users
+        /// Do not display application icon to users.
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// Pretty name of app.
+        /// The Application's display name.
         /// </summary>
         [Input("label", required: true)]
         public Input<string> Label { get; set; } = null!;
 
         /// <summary>
-        /// Local path to logo of the application.
+        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
 
         /// <summary>
-        /// Preconfigured app name
+        /// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
         /// </summary>
         [Input("preconfiguredApp")]
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
-        /// Allow user to reveal password
+        /// Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         /// </summary>
         [Input("revealPassword")]
         public Input<bool>? RevealPassword { get; set; }
 
         /// <summary>
-        /// Shared password, required for certain schemes.
+        /// Shared password, required for certain schemes
         /// </summary>
         [Input("sharedPassword")]
         public Input<string>? SharedPassword { get; set; }
 
         /// <summary>
-        /// Shared username, required for certain schemes.
+        /// Shared username, required for certain schemes
         /// </summary>
         [Input("sharedUsername")]
         public Input<string>? SharedUsername { get; set; }
 
         /// <summary>
-        /// Post login redirect URL
+        /// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
         /// </summary>
         [Input("signOnRedirectUrl")]
         public Input<string>? SignOnRedirectUrl { get; set; }
 
         /// <summary>
-        /// Login URL
+        /// App login page URL
         /// </summary>
         [Input("signOnUrl")]
         public Input<string>? SignOnUrl { get; set; }
 
         /// <summary>
-        /// Status of application.
+        /// The status of the application, by default, it is `"ACTIVE"`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Username template
+        /// Username template. Default: `"${source.login}"`
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
-        /// Push username on update
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         /// </summary>
         [Input("userNameTemplatePushStatus")]
         public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
-        /// Username template suffix
+        /// Username template suffix.
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
@@ -373,19 +434,19 @@ namespace Pulumi.Okta.App
     public sealed class AutoLoginState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom error page URL
+        /// Custom error page URL.
         /// </summary>
         [Input("accessibilityErrorRedirectUrl")]
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
-        /// Custom login page URL
+        /// Custom login page for this application.
         /// </summary>
         [Input("accessibilityLoginRedirectUrl")]
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self service
+        /// Enable self-service. By default, it is `false`.
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -397,25 +458,25 @@ namespace Pulumi.Okta.App
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
-        /// Application settings in JSON format
+        /// Application settings in JSON format.
         /// </summary>
         [Input("appSettingsJson")]
         public Input<string>? AppSettingsJson { get; set; }
 
         /// <summary>
-        /// Display auto submit toolbar
+        /// Display auto submit toolbar.
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
 
         /// <summary>
-        /// Application credentials scheme
+        /// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         /// </summary>
         [Input("credentialsScheme")]
         public Input<string>? CredentialsScheme { get; set; }
@@ -427,109 +488,109 @@ namespace Pulumi.Okta.App
         public Input<string>? EnduserNote { get; set; }
 
         /// <summary>
-        /// Do not display application icon on mobile app
+        /// Do not display application icon on mobile app.
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users
+        /// Do not display application icon to users.
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// Pretty name of app.
+        /// The Application's display name.
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// Local path to logo of the application.
+        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
 
         /// <summary>
-        /// URL of the application's logo
+        /// Direct link of application logo.
         /// </summary>
         [Input("logoUrl")]
         public Input<string>? LogoUrl { get; set; }
 
         /// <summary>
-        /// Name of the app.
+        /// Name assigned to the application by Okta.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Preconfigured app name
+        /// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
         /// </summary>
         [Input("preconfiguredApp")]
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
-        /// Allow user to reveal password
+        /// Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
         /// </summary>
         [Input("revealPassword")]
         public Input<bool>? RevealPassword { get; set; }
 
         /// <summary>
-        /// Shared password, required for certain schemes.
+        /// Shared password, required for certain schemes
         /// </summary>
         [Input("sharedPassword")]
         public Input<string>? SharedPassword { get; set; }
 
         /// <summary>
-        /// Shared username, required for certain schemes.
+        /// Shared username, required for certain schemes
         /// </summary>
         [Input("sharedUsername")]
         public Input<string>? SharedUsername { get; set; }
 
         /// <summary>
-        /// Sign on mode of application.
+        /// Sign-on mode of the application.
         /// </summary>
         [Input("signOnMode")]
         public Input<string>? SignOnMode { get; set; }
 
         /// <summary>
-        /// Post login redirect URL
+        /// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
         /// </summary>
         [Input("signOnRedirectUrl")]
         public Input<string>? SignOnRedirectUrl { get; set; }
 
         /// <summary>
-        /// Login URL
+        /// App login page URL
         /// </summary>
         [Input("signOnUrl")]
         public Input<string>? SignOnUrl { get; set; }
 
         /// <summary>
-        /// Status of application.
+        /// The status of the application, by default, it is `"ACTIVE"`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Username template
+        /// Username template. Default: `"${source.login}"`
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
-        /// Push username on update
+        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
         /// </summary>
         [Input("userNameTemplatePushStatus")]
         public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
-        /// Username template suffix
+        /// Username template suffix.
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type
+        /// Username template type. Default: `"BUILT_IN"`.
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }

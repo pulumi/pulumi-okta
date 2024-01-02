@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Get a SAML application from Okta.
+ * Use this data source to retrieve an SAML application from Okta.
  *
  * ## Example Usage
  *
@@ -40,22 +40,22 @@ export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promis
  */
 export interface GetSamlArgs {
     /**
-     * Search only ACTIVE applications.
+     * tells the provider to query for only `ACTIVE` applications.
      */
     activeOnly?: boolean;
     /**
-     * Id of application to retrieve, conflicts with label and label_prefix.
+     * `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
      */
     id?: string;
     /**
-     * The label of the app to retrieve, conflicts with labelPrefix and id. Label
-     * 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-     * 			this searches both name and label. This is used to avoid paginating through all applications.
+     * The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
+     * the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+     * and `label`. This is used to avoid paginating through all applications.
      */
     label?: string;
     /**
-     * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+     * provider to do a `starts with` query as opposed to an `equals` query.
      */
     labelPrefix?: string;
     /**
@@ -63,14 +63,10 @@ export interface GetSamlArgs {
      */
     requestCompressed?: boolean;
     /**
-     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
-     *
      * @deprecated Because groups has been removed, this attribute is a no op and will be removed
      */
     skipGroups?: boolean;
     /**
-     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
-     *
      * @deprecated Because users has been removed, this attribute is a no op and will be removed
      */
     skipUsers?: boolean;
@@ -81,44 +77,44 @@ export interface GetSamlArgs {
  */
 export interface GetSamlResult {
     /**
-     * Custom error page URL
+     * Custom error page URL.
      */
     readonly accessibilityErrorRedirectUrl: string;
     /**
-     * Custom login page URL
+     * Custom login page URL.
      */
     readonly accessibilityLoginRedirectUrl: string;
     /**
-     * Enable self service
+     * Enable self-service.
      */
     readonly accessibilitySelfService: boolean;
     /**
-     * List of ACS endpoints for this SAML application
+     * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
      */
     readonly acsEndpoints: string[];
-    /**
-     * Search only ACTIVE applications.
-     */
     readonly activeOnly?: boolean;
     /**
-     * Application settings in JSON format
+     * Application settings in JSON format.
      */
     readonly appSettingsJson: string;
     /**
-     * Determines whether the SAML assertion is digitally signed
+     * Determines whether the SAML assertion is digitally signed.
      */
     readonly assertionSigned: boolean;
+    /**
+     * List of SAML Attribute statements.
+     */
     readonly attributeStatements: outputs.app.GetSamlAttributeStatement[];
     /**
-     * Audience Restriction
+     * Audience restriction.
      */
     readonly audience: string;
     /**
-     * Identifies the SAML authentication context class for the assertion’s authentication statement
+     * Identifies the SAML authentication context class for the assertion’s authentication statement.
      */
     readonly authnContextClassRef: string;
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      */
     readonly autoSubmitToolbar: boolean;
     /**
@@ -126,25 +122,25 @@ export interface GetSamlResult {
      */
     readonly defaultRelayState: string;
     /**
-     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
      */
     readonly destination: string;
     /**
-     * Determines the digest algorithm used to digitally sign the SAML assertion and response
+     * Determines the digest algorithm used to digitally sign the SAML assertion and response.
      */
     readonly digestAlgorithm: string;
     /**
-     * features to enable
+     * features enabled.
      */
     readonly features: string[];
     /**
-     * Groups associated with the application
+     * List of groups IDs assigned to the application.
      *
      * @deprecated The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
      */
     readonly groups: string[];
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      */
     readonly hideIos: boolean;
     /**
@@ -152,46 +148,40 @@ export interface GetSamlResult {
      */
     readonly hideWeb: boolean;
     /**
-     * Prompt user to re-authenticate if SP asks for it
+     * Prompt user to re-authenticate if SP asks for it.
      */
     readonly honorForceAuthn: boolean;
     /**
-     * Id of application to retrieve, conflicts with label and label_prefix.
+     * id of application.
      */
     readonly id?: string;
     /**
-     * SAML issuer ID
+     * SAML issuer ID.
      */
     readonly idpIssuer: string;
     /**
-     * Saml Inline Hook setting
+     * Saml Inline Hook associated with the application.
      */
     readonly inlineHookId: string;
     /**
-     * Certificate ID
+     * Certificate key ID.
      */
     readonly keyId: string;
     /**
-     * The label of the app to retrieve, conflicts with labelPrefix and id. Label
-     * 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-     * 			this searches both name and label. This is used to avoid paginating through all applications.
+     * label of application.
      */
     readonly label?: string;
-    /**
-     * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
-     */
     readonly labelPrefix?: string;
     /**
-     * Discoverable resources related to the app
+     * Generic JSON containing discoverable resources related to the app.
      */
     readonly links: string;
     /**
-     * Name of application.
+     * name of application.
      */
     readonly name: string;
     /**
-     * The location where the app may present the SAML assertion
+     * The location where the app may present the SAML assertion.
      */
     readonly recipient: string;
     /**
@@ -199,7 +189,7 @@ export interface GetSamlResult {
      */
     readonly requestCompressed?: boolean;
     /**
-     * Determines whether the SAML auth response message is digitally signed
+     * Determines whether the SAML auth response message is digitally signed.
      */
     readonly responseSigned: boolean;
     /**
@@ -207,43 +197,39 @@ export interface GetSamlResult {
      */
     readonly samlSignedRequestEnabled: boolean;
     /**
-     * Signature algorithm used ot digitally sign the assertion and response
+     * Signature algorithm used ot digitally sign the assertion and response.
      */
     readonly signatureAlgorithm: string;
     /**
-     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests
+     * x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
      */
     readonly singleLogoutCertificate: string;
     /**
-     * The issuer of the Service Provider that generates the Single Logout request
+     * The issuer of the Service Provider that generates the Single Logout request.
      */
     readonly singleLogoutIssuer: string;
     /**
-     * The location where the logout response is sent
+     * The location where the logout response is sent.
      */
     readonly singleLogoutUrl: string;
     /**
-     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
-     *
      * @deprecated Because groups has been removed, this attribute is a no op and will be removed
      */
     readonly skipGroups?: boolean;
     /**
-     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
-     *
      * @deprecated Because users has been removed, this attribute is a no op and will be removed
      */
     readonly skipUsers?: boolean;
     /**
-     * SAML SP issuer ID
+     * SAML service provider issuer.
      */
     readonly spIssuer: string;
     /**
-     * Single Sign On URL
+     * Single Sign-on Url.
      */
     readonly ssoUrl: string;
     /**
-     * Status of application.
+     * status of application.
      */
     readonly status: string;
     /**
@@ -251,34 +237,32 @@ export interface GetSamlResult {
      */
     readonly subjectNameIdFormat: string;
     /**
-     * Template for app user's username when a user is assigned to the app
+     * Template for app user's username when a user is assigned to the app.
      */
     readonly subjectNameIdTemplate: string;
     /**
-     * Username template
+     * Username template.
      */
     readonly userNameTemplate: string;
     /**
-     * Push username on update
+     * Push username on update.
      */
     readonly userNameTemplatePushStatus: string;
     /**
-     * Username template suffix
+     * Username template suffix.
      */
     readonly userNameTemplateSuffix: string;
     /**
-     * Username template type
+     * Username template type.
      */
     readonly userNameTemplateType: string;
     /**
-     * Users associated with the application
-     *
      * @deprecated The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
      */
     readonly users: string[];
 }
 /**
- * Get a SAML application from Okta.
+ * Use this data source to retrieve an SAML application from Okta.
  *
  * ## Example Usage
  *
@@ -300,22 +284,22 @@ export function getSamlOutput(args?: GetSamlOutputArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetSamlOutputArgs {
     /**
-     * Search only ACTIVE applications.
+     * tells the provider to query for only `ACTIVE` applications.
      */
     activeOnly?: pulumi.Input<boolean>;
     /**
-     * Id of application to retrieve, conflicts with label and label_prefix.
+     * `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
      */
     id?: pulumi.Input<string>;
     /**
-     * The label of the app to retrieve, conflicts with labelPrefix and id. Label
-     * 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-     * 			this searches both name and label. This is used to avoid paginating through all applications.
+     * The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
+     * the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time this searches both `name`
+     * and `label`. This is used to avoid paginating through all applications.
      */
     label?: pulumi.Input<string>;
     /**
-     * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+     * provider to do a `starts with` query as opposed to an `equals` query.
      */
     labelPrefix?: pulumi.Input<string>;
     /**
@@ -323,14 +307,10 @@ export interface GetSamlOutputArgs {
      */
     requestCompressed?: pulumi.Input<boolean>;
     /**
-     * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
-     *
      * @deprecated Because groups has been removed, this attribute is a no op and will be removed
      */
     skipGroups?: pulumi.Input<boolean>;
     /**
-     * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
-     *
      * @deprecated Because users has been removed, this attribute is a no op and will be removed
      */
     skipUsers?: pulumi.Input<boolean>;

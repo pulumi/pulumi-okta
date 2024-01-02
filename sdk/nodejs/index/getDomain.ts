@@ -7,7 +7,10 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Get a domain from Okta.
+ * Use this data source to retrieve a domain from Okta.
+ *
+ * - https://developer.okta.com/docs/reference/api/domains/#get-domain
+ * - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
  *
  * ## Example Usage
  *
@@ -37,7 +40,7 @@ export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetDomainArgs {
     /**
-     * Brand ID
+     * The Okta ID of the domain or the domain name itself.
      */
     domainIdOrName: string;
 }
@@ -47,23 +50,20 @@ export interface GetDomainArgs {
  */
 export interface GetDomainResult {
     /**
-     * Certificate source type that indicates whether the certificate is provided by the user or Okta. Values: MANUAL, OKTA_MANAGED
+     * Certificate source type that indicates whether the certificate is provided by the user or Okta. Values: MANUAL, OKTA_MANAGED"
      */
     readonly certificateSourceType: string;
     /**
-     * TXT and CNAME records to be registered for the Domain
+     * TXT and CNAME records to be registered for the Domain.
      */
     readonly dnsRecords: outputs.Index.GetDomainDnsRecord[];
     /**
      * Domain name
      */
     readonly domain: string;
-    /**
-     * Brand ID
-     */
     readonly domainIdOrName: string;
     /**
-     * The ID of the Domain
+     * Domain ID
      */
     readonly id: string;
     /**
@@ -71,12 +71,15 @@ export interface GetDomainResult {
      */
     readonly publicCertificate: {[key: string]: string};
     /**
-     * Status of the domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
+     * Status of the domain. Values: `NOT_STARTED`, `IN_PROGRESS`, `VERIFIED`, `COMPLETED`
      */
     readonly validationStatus: string;
 }
 /**
- * Get a domain from Okta.
+ * Use this data source to retrieve a domain from Okta.
+ *
+ * - https://developer.okta.com/docs/reference/api/domains/#get-domain
+ * - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
  *
  * ## Example Usage
  *
@@ -102,7 +105,7 @@ export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetDomainOutputArgs {
     /**
-     * Brand ID
+     * The Okta ID of the domain or the domain name itself.
      */
     domainIdOrName: pulumi.Input<string>;
 }

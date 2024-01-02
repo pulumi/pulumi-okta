@@ -19,28 +19,24 @@ public final class GetAuthServerClaimResult {
      * 
      */
     private Boolean alwaysIncludeInToken;
-    /**
-     * @return Auth server ID
-     * 
-     */
     private String authServerId;
     /**
-     * @return Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`).
+     * @return Specifies whether the Claim is for an access token (`&#34;RESOURCE&#34;`) or ID token (`&#34;IDENTITY&#34;`).
      * 
      */
     private String claimType;
     /**
-     * @return Name of the claim. Conflicts with `name`.
+     * @return ID of the claim.
      * 
      */
     private @Nullable String id;
     /**
-     * @return Name of the claim. Conflicts with `id`.
+     * @return Name of the claim.
      * 
      */
     private @Nullable String name;
     /**
-     * @return Auth server claim list of scopes
+     * @return Specifies the scopes for this Claim.
      * 
      */
     private List<String> scopes;
@@ -50,12 +46,12 @@ public final class GetAuthServerClaimResult {
      */
     private String status;
     /**
-     * @return Value of the claim.
+     * @return Value of the claim
      * 
      */
     private String value;
     /**
-     * @return Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
+     * @return Specifies whether the Claim is an Okta EL expression (`&#34;EXPRESSION&#34;`), a set of groups (`&#34;GROUPS&#34;`), or a system claim (`&#34;SYSTEM&#34;`)
      * 
      */
     private String valueType;
@@ -68,36 +64,32 @@ public final class GetAuthServerClaimResult {
     public Boolean alwaysIncludeInToken() {
         return this.alwaysIncludeInToken;
     }
-    /**
-     * @return Auth server ID
-     * 
-     */
     public String authServerId() {
         return this.authServerId;
     }
     /**
-     * @return Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`).
+     * @return Specifies whether the Claim is for an access token (`&#34;RESOURCE&#34;`) or ID token (`&#34;IDENTITY&#34;`).
      * 
      */
     public String claimType() {
         return this.claimType;
     }
     /**
-     * @return Name of the claim. Conflicts with `name`.
+     * @return ID of the claim.
      * 
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Name of the claim. Conflicts with `id`.
+     * @return Name of the claim.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Auth server claim list of scopes
+     * @return Specifies the scopes for this Claim.
      * 
      */
     public List<String> scopes() {
@@ -111,14 +103,14 @@ public final class GetAuthServerClaimResult {
         return this.status;
     }
     /**
-     * @return Value of the claim.
+     * @return Value of the claim
      * 
      */
     public String value() {
         return this.value;
     }
     /**
-     * @return Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
+     * @return Specifies whether the Claim is an Okta EL expression (`&#34;EXPRESSION&#34;`), a set of groups (`&#34;GROUPS&#34;`), or a system claim (`&#34;SYSTEM&#34;`)
      * 
      */
     public String valueType() {

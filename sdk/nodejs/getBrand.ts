@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Get a single Brand from Okta.
+ * Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
  */
 export function getBrand(args: GetBrandArgs, opts?: pulumi.InvokeOptions): Promise<GetBrandResult> {
 
@@ -20,7 +20,7 @@ export function getBrand(args: GetBrandArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetBrandArgs {
     /**
-     * Brand ID
+     * Brand ID. Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
      */
     brandId: string;
 }
@@ -29,16 +29,13 @@ export interface GetBrandArgs {
  * A collection of values returned by getBrand.
  */
 export interface GetBrandResult {
-    /**
-     * Brand ID
-     */
     readonly brandId: string;
     /**
      * Custom privacy policy URL
      */
     readonly customPrivacyPolicyUrl: string;
     /**
-     * The ID of the Brand
+     * Brand ID
      */
     readonly id: string;
     /**
@@ -50,12 +47,12 @@ export interface GetBrandResult {
      */
     readonly name: string;
     /**
-     * Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+     * Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
      */
     readonly removePoweredByOkta: boolean;
 }
 /**
- * Get a single Brand from Okta.
+ * Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
  */
 export function getBrandOutput(args: GetBrandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrandResult> {
     return pulumi.output(args).apply((a: any) => getBrand(a, opts))
@@ -66,7 +63,7 @@ export function getBrandOutput(args: GetBrandOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetBrandOutputArgs {
     /**
-     * Brand ID
+     * Brand ID. Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
      */
     brandId: pulumi.Input<string>;
 }

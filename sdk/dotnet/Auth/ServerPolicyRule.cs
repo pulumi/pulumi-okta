@@ -9,6 +9,44 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Auth
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.Auth.ServerPolicyRule("example", new()
+    ///     {
+    ///         AuthServerId = "&lt;auth server id&gt;",
+    ///         GrantTypeWhitelists = new[]
+    ///         {
+    ///             "implicit",
+    ///         },
+    ///         GroupWhitelists = new[]
+    ///         {
+    ///             "&lt;group ids&gt;",
+    ///         },
+    ///         PolicyId = "&lt;auth server policy id&gt;",
+    ///         Priority = 1,
+    ///         Status = "ACTIVE",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:auth/serverPolicyRule:ServerPolicyRule example &amp;#60;auth server id&amp;#62;/&amp;#60;policy id&amp;#62;/&amp;#60;policy rule id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:auth/serverPolicyRule:ServerPolicyRule")]
     public partial class ServerPolicyRule : global::Pulumi.CustomResource
     {
@@ -19,13 +57,15 @@ namespace Pulumi.Okta.Auth
         public Output<int?> AccessTokenLifetimeMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Auth server ID
+        /// Auth Server ID.
         /// </summary>
         [Output("authServerId")]
         public Output<string> AuthServerId { get; private set; } = null!;
 
         /// <summary>
-        /// Accepted grant type values: authorization*code, implicit, password, client*credentials
+        /// Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
+        /// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+        /// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interaction_code"` (*OIE only*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         /// </summary>
         [Output("grantTypeWhitelists")]
         public Output<ImmutableArray<string>> GrantTypeWhitelists { get; private set; } = null!;
@@ -37,7 +77,7 @@ namespace Pulumi.Okta.Auth
         public Output<ImmutableArray<string>> GroupBlacklists { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
+        /// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
         /// </summary>
         [Output("groupWhitelists")]
         public Output<ImmutableArray<string>> GroupWhitelists { get; private set; } = null!;
@@ -49,19 +89,19 @@ namespace Pulumi.Okta.Auth
         public Output<string?> InlineHookId { get; private set; } = null!;
 
         /// <summary>
-        /// Auth server policy rule name
+        /// Auth Server Policy Rule name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Auth server policy ID
+        /// Auth Server Policy ID.
         /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// Priority of the auth server policy rule
+        /// Priority of the auth server policy rule.
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
@@ -73,28 +113,32 @@ namespace Pulumi.Okta.Auth
         public Output<int?> RefreshTokenLifetimeMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
+        /// `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
         /// </summary>
         [Output("refreshTokenWindowMinutes")]
         public Output<int?> RefreshTokenWindowMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
+        /// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
         /// </summary>
         [Output("scopeWhitelists")]
         public Output<ImmutableArray<string>> ScopeWhitelists { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the Auth Server Policy Rule.
+        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The rule is the system (default) rule for its associated policy
+        /// The rule is the system (default) rule for its associated policy.
         /// </summary>
         [Output("system")]
         public Output<bool> System { get; private set; } = null!;
 
         /// <summary>
-        /// Auth server policy rule type, unlikely this will be anything other then the default
+        /// The type of the Auth Server Policy Rule.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -168,7 +212,7 @@ namespace Pulumi.Okta.Auth
         public Input<int>? AccessTokenLifetimeMinutes { get; set; }
 
         /// <summary>
-        /// Auth server ID
+        /// Auth Server ID.
         /// </summary>
         [Input("authServerId", required: true)]
         public Input<string> AuthServerId { get; set; } = null!;
@@ -177,7 +221,9 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _grantTypeWhitelists;
 
         /// <summary>
-        /// Accepted grant type values: authorization*code, implicit, password, client*credentials
+        /// Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
+        /// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+        /// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interaction_code"` (*OIE only*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         /// </summary>
         public InputList<string> GrantTypeWhitelists
         {
@@ -201,7 +247,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _groupWhitelists;
 
         /// <summary>
-        /// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
+        /// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
         /// </summary>
         public InputList<string> GroupWhitelists
         {
@@ -216,19 +262,19 @@ namespace Pulumi.Okta.Auth
         public Input<string>? InlineHookId { get; set; }
 
         /// <summary>
-        /// Auth server policy rule name
+        /// Auth Server Policy Rule name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Auth server policy ID
+        /// Auth Server Policy ID.
         /// </summary>
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;
 
         /// <summary>
-        /// Priority of the auth server policy rule
+        /// Priority of the auth server policy rule.
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
@@ -240,7 +286,8 @@ namespace Pulumi.Okta.Auth
         public Input<int>? RefreshTokenLifetimeMinutes { get; set; }
 
         /// <summary>
-        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
+        /// `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
         /// </summary>
         [Input("refreshTokenWindowMinutes")]
         public Input<int>? RefreshTokenWindowMinutes { get; set; }
@@ -249,7 +296,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _scopeWhitelists;
 
         /// <summary>
-        /// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
+        /// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
         /// </summary>
         public InputList<string> ScopeWhitelists
         {
@@ -257,11 +304,14 @@ namespace Pulumi.Okta.Auth
             set => _scopeWhitelists = value;
         }
 
+        /// <summary>
+        /// The status of the Auth Server Policy Rule.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Auth server policy rule type, unlikely this will be anything other then the default
+        /// The type of the Auth Server Policy Rule.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -305,7 +355,7 @@ namespace Pulumi.Okta.Auth
         public Input<int>? AccessTokenLifetimeMinutes { get; set; }
 
         /// <summary>
-        /// Auth server ID
+        /// Auth Server ID.
         /// </summary>
         [Input("authServerId")]
         public Input<string>? AuthServerId { get; set; }
@@ -314,7 +364,9 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _grantTypeWhitelists;
 
         /// <summary>
-        /// Accepted grant type values: authorization*code, implicit, password, client*credentials
+        /// Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
+        /// `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
+        /// `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interaction_code"` (*OIE only*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
         /// </summary>
         public InputList<string> GrantTypeWhitelists
         {
@@ -338,7 +390,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _groupWhitelists;
 
         /// <summary>
-        /// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
+        /// Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
         /// </summary>
         public InputList<string> GroupWhitelists
         {
@@ -353,19 +405,19 @@ namespace Pulumi.Okta.Auth
         public Input<string>? InlineHookId { get; set; }
 
         /// <summary>
-        /// Auth server policy rule name
+        /// Auth Server Policy Rule name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Auth server policy ID
+        /// Auth Server Policy ID.
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// Priority of the auth server policy rule
+        /// Priority of the auth server policy rule.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -377,7 +429,8 @@ namespace Pulumi.Okta.Auth
         public Input<int>? RefreshTokenLifetimeMinutes { get; set; }
 
         /// <summary>
-        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
+        /// `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
         /// </summary>
         [Input("refreshTokenWindowMinutes")]
         public Input<int>? RefreshTokenWindowMinutes { get; set; }
@@ -386,7 +439,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _scopeWhitelists;
 
         /// <summary>
-        /// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
+        /// Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
         /// </summary>
         public InputList<string> ScopeWhitelists
         {
@@ -394,17 +447,20 @@ namespace Pulumi.Okta.Auth
             set => _scopeWhitelists = value;
         }
 
+        /// <summary>
+        /// The status of the Auth Server Policy Rule.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The rule is the system (default) rule for its associated policy
+        /// The rule is the system (default) rule for its associated policy.
         /// </summary>
         [Input("system")]
         public Input<bool>? System { get; set; }
 
         /// <summary>
-        /// Auth server policy rule type, unlikely this will be anything other then the default
+        /// The type of the Auth Server Policy Rule.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

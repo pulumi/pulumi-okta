@@ -12,13 +12,17 @@ namespace Pulumi.Okta
     public static class GetTemplate
     {
         /// <summary>
-        /// Get a single Email Template for a Brand belonging to an Okta organization.
+        /// Use this data source to retrieve a specific [email
+        /// template](https://developer.okta.com/docs/reference/api/brands/#email-template)
+        /// of a brand in an Okta organization.
         /// </summary>
         public static Task<GetTemplateResult> InvokeAsync(GetTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTemplateResult>("okta:index/getTemplate:getTemplate", args ?? new GetTemplateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a single Email Template for a Brand belonging to an Okta organization.
+        /// Use this data source to retrieve a specific [email
+        /// template](https://developer.okta.com/docs/reference/api/brands/#email-template)
+        /// of a brand in an Okta organization.
         /// </summary>
         public static Output<GetTemplateResult> Invoke(GetTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateResult>("okta:index/getTemplate:getTemplate", args ?? new GetTemplateInvokeArgs(), options.WithDefaults());
@@ -34,7 +38,7 @@ namespace Pulumi.Okta
         public string BrandId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the email template
+        /// Template Name
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -54,7 +58,7 @@ namespace Pulumi.Okta
         public Input<string> BrandId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the email template
+        /// Template Name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -69,9 +73,6 @@ namespace Pulumi.Okta
     [OutputType]
     public sealed class GetTemplateResult
     {
-        /// <summary>
-        /// Brand ID
-        /// </summary>
         public readonly string BrandId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -81,9 +82,6 @@ namespace Pulumi.Okta
         /// Link relations for this object - JSON HAL - Discoverable resources related to the email template
         /// </summary>
         public readonly string Links;
-        /// <summary>
-        /// The name of the email template
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

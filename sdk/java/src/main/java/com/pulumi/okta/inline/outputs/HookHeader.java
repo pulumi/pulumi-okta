@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class HookHeader {
+    /**
+     * @return Key to use for authentication, usually the header name, for example `&#34;Authorization&#34;`.
+     * 
+     */
     private @Nullable String key;
+    /**
+     * @return Authentication secret.
+     * 
+     */
     private @Nullable String value;
 
     private HookHeader() {}
+    /**
+     * @return Key to use for authentication, usually the header name, for example `&#34;Authorization&#34;`.
+     * 
+     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
+    /**
+     * @return Authentication secret.
+     * 
+     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

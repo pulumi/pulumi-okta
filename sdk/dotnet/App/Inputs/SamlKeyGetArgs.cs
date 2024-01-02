@@ -12,38 +12,69 @@ namespace Pulumi.Okta.App.Inputs
 
     public sealed class SamlKeyGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Date created.
+        /// </summary>
         [Input("created")]
         public Input<string>? Created { get; set; }
 
+        /// <summary>
+        /// RSA exponent.
+        /// </summary>
         [Input("e")]
         public Input<string>? E { get; set; }
 
+        /// <summary>
+        /// Date the key expires.
+        /// </summary>
         [Input("expiresAt")]
         public Input<string>? ExpiresAt { get; set; }
 
+        /// <summary>
+        /// Key ID.
+        /// </summary>
         [Input("kid")]
         public Input<string>? Kid { get; set; }
 
+        /// <summary>
+        /// Identifies the cryptographic algorithm family used with the key.
+        /// </summary>
         [Input("kty")]
         public Input<string>? Kty { get; set; }
 
+        /// <summary>
+        /// Date the key was last updated.
+        /// </summary>
         [Input("lastUpdated")]
         public Input<string>? LastUpdated { get; set; }
 
+        /// <summary>
+        /// RSA modulus.
+        /// </summary>
         [Input("n")]
         public Input<string>? N { get; set; }
 
+        /// <summary>
+        /// Intended use of the public key.
+        /// </summary>
         [Input("use")]
         public Input<string>? Use { get; set; }
 
         [Input("x5cs")]
         private InputList<string>? _x5cs;
+
+        /// <summary>
+        /// X.509 certificate chain.
+        /// </summary>
         public InputList<string> X5cs
         {
             get => _x5cs ?? (_x5cs = new InputList<string>());
             set => _x5cs = value;
         }
 
+        /// <summary>
+        /// X.509 certificate SHA-256 thumbprint.
+        /// </summary>
         [Input("x5tS256")]
         public Input<string>? X5tS256 { get; set; }
 

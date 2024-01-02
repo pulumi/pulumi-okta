@@ -15,14 +15,14 @@ public final class EmailSenderArgs extends com.pulumi.resources.ResourceArgs {
     public static final EmailSenderArgs Empty = new EmailSenderArgs();
 
     /**
-     * Email address to send from
+     * Email address to send from.
      * 
      */
     @Import(name="fromAddress", required=true)
     private Output<String> fromAddress;
 
     /**
-     * @return Email address to send from
+     * @return Email address to send from.
      * 
      */
     public Output<String> fromAddress() {
@@ -30,14 +30,14 @@ public final class EmailSenderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of sender
+     * Name of sender.
      * 
      */
     @Import(name="fromName", required=true)
     private Output<String> fromName;
 
     /**
-     * @return Name of sender
+     * @return Name of sender.
      * 
      */
     public Output<String> fromName() {
@@ -45,14 +45,14 @@ public final class EmailSenderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Mail domain to send from
+     * Mail domain to send from.
      * 
      */
     @Import(name="subdomain", required=true)
     private Output<String> subdomain;
 
     /**
-     * @return Mail domain to send from
+     * @return Mail domain to send from.
      * 
      */
     public Output<String> subdomain() {
@@ -86,7 +86,7 @@ public final class EmailSenderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromAddress Email address to send from
+         * @param fromAddress Email address to send from.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class EmailSenderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromAddress Email address to send from
+         * @param fromAddress Email address to send from.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class EmailSenderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromName Name of sender
+         * @param fromName Name of sender.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class EmailSenderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromName Name of sender
+         * @param fromName Name of sender.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class EmailSenderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subdomain Mail domain to send from
+         * @param subdomain Mail domain to send from.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class EmailSenderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subdomain Mail domain to send from
+         * @param subdomain Mail domain to send from.
          * 
          * @return builder
          * 

@@ -14,16 +14,32 @@ public final class TemplateSmsTranslationArgs extends com.pulumi.resources.Resou
 
     public static final TemplateSmsTranslationArgs Empty = new TemplateSmsTranslationArgs();
 
+    /**
+     * The language to map the template to.
+     * 
+     */
     @Import(name="language", required=true)
     private Output<String> language;
 
+    /**
+     * @return The language to map the template to.
+     * 
+     */
     public Output<String> language() {
         return this.language;
     }
 
+    /**
+     * The SMS message.
+     * 
+     */
     @Import(name="template", required=true)
     private Output<String> template;
 
+    /**
+     * @return The SMS message.
+     * 
+     */
     public Output<String> template() {
         return this.template;
     }
@@ -53,20 +69,44 @@ public final class TemplateSmsTranslationArgs extends com.pulumi.resources.Resou
             $ = new TemplateSmsTranslationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param language The language to map the template to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder language(Output<String> language) {
             $.language = language;
             return this;
         }
 
+        /**
+         * @param language The language to map the template to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder language(String language) {
             return language(Output.of(language));
         }
 
+        /**
+         * @param template The SMS message.
+         * 
+         * @return builder
+         * 
+         */
         public Builder template(Output<String> template) {
             $.template = template;
             return this;
         }
 
+        /**
+         * @param template The SMS message.
+         * 
+         * @return builder
+         * 
+         */
         public Builder template(String template) {
             return template(Output.of(template));
         }

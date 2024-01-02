@@ -14,13 +14,14 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type OAuthGroupsClaim struct {
-	// Groups claim filter. Can only be set if type is FILTER.
+	// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
 	FilterType *string `pulumi:"filterType"`
-	// Issuer mode inherited from OAuth App
+	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode *string `pulumi:"issuerMode"`
 	// Name of the claim that will be used in the token.
 	Name string `pulumi:"name"`
-	// Groups claim type.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
 	Type string `pulumi:"type"`
 	// Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
 	Value string `pulumi:"value"`
@@ -38,13 +39,14 @@ type OAuthGroupsClaimInput interface {
 }
 
 type OAuthGroupsClaimArgs struct {
-	// Groups claim filter. Can only be set if type is FILTER.
+	// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
 	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
-	// Issuer mode inherited from OAuth App
+	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 	IssuerMode pulumi.StringPtrInput `pulumi:"issuerMode"`
 	// Name of the claim that will be used in the token.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Groups claim type.
+	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -127,12 +129,13 @@ func (o OAuthGroupsClaimOutput) ToOAuthGroupsClaimPtrOutputWithContext(ctx conte
 	}).(OAuthGroupsClaimPtrOutput)
 }
 
-// Groups claim filter. Can only be set if type is FILTER.
+// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
 func (o OAuthGroupsClaimOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuthGroupsClaim) *string { return v.FilterType }).(pulumi.StringPtrOutput)
 }
 
-// Issuer mode inherited from OAuth App
+// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 func (o OAuthGroupsClaimOutput) IssuerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuthGroupsClaim) *string { return v.IssuerMode }).(pulumi.StringPtrOutput)
 }
@@ -142,7 +145,7 @@ func (o OAuthGroupsClaimOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OAuthGroupsClaim) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Groups claim type.
+// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
 func (o OAuthGroupsClaimOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OAuthGroupsClaim) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -176,7 +179,7 @@ func (o OAuthGroupsClaimPtrOutput) Elem() OAuthGroupsClaimOutput {
 	}).(OAuthGroupsClaimOutput)
 }
 
-// Groups claim filter. Can only be set if type is FILTER.
+// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
 func (o OAuthGroupsClaimPtrOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuthGroupsClaim) *string {
 		if v == nil {
@@ -186,7 +189,8 @@ func (o OAuthGroupsClaimPtrOutput) FilterType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Issuer mode inherited from OAuth App
+// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
 func (o OAuthGroupsClaimPtrOutput) IssuerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuthGroupsClaim) *string {
 		if v == nil {
@@ -206,7 +210,7 @@ func (o OAuthGroupsClaimPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Groups claim type.
+// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
 func (o OAuthGroupsClaimPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuthGroupsClaim) *string {
 		if v == nil {
@@ -227,16 +231,12 @@ func (o OAuthGroupsClaimPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type OAuthJwk struct {
-	// RSA Exponent
-	E *string `pulumi:"e"`
-	// Key ID
-	Kid string `pulumi:"kid"`
-	// Key type
-	Kty string `pulumi:"kty"`
-	// RSA Modulus
-	N *string `pulumi:"n"`
-	X *string `pulumi:"x"`
-	Y *string `pulumi:"y"`
+	E   *string `pulumi:"e"`
+	Kid string  `pulumi:"kid"`
+	Kty string  `pulumi:"kty"`
+	N   *string `pulumi:"n"`
+	X   *string `pulumi:"x"`
+	Y   *string `pulumi:"y"`
 }
 
 // OAuthJwkInput is an input type that accepts OAuthJwkArgs and OAuthJwkOutput values.
@@ -251,16 +251,12 @@ type OAuthJwkInput interface {
 }
 
 type OAuthJwkArgs struct {
-	// RSA Exponent
-	E pulumi.StringPtrInput `pulumi:"e"`
-	// Key ID
-	Kid pulumi.StringInput `pulumi:"kid"`
-	// Key type
-	Kty pulumi.StringInput `pulumi:"kty"`
-	// RSA Modulus
-	N pulumi.StringPtrInput `pulumi:"n"`
-	X pulumi.StringPtrInput `pulumi:"x"`
-	Y pulumi.StringPtrInput `pulumi:"y"`
+	E   pulumi.StringPtrInput `pulumi:"e"`
+	Kid pulumi.StringInput    `pulumi:"kid"`
+	Kty pulumi.StringInput    `pulumi:"kty"`
+	N   pulumi.StringPtrInput `pulumi:"n"`
+	X   pulumi.StringPtrInput `pulumi:"x"`
+	Y   pulumi.StringPtrInput `pulumi:"y"`
 }
 
 func (OAuthJwkArgs) ElementType() reflect.Type {
@@ -314,22 +310,18 @@ func (o OAuthJwkOutput) ToOAuthJwkOutputWithContext(ctx context.Context) OAuthJw
 	return o
 }
 
-// RSA Exponent
 func (o OAuthJwkOutput) E() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuthJwk) *string { return v.E }).(pulumi.StringPtrOutput)
 }
 
-// Key ID
 func (o OAuthJwkOutput) Kid() pulumi.StringOutput {
 	return o.ApplyT(func(v OAuthJwk) string { return v.Kid }).(pulumi.StringOutput)
 }
 
-// Key type
 func (o OAuthJwkOutput) Kty() pulumi.StringOutput {
 	return o.ApplyT(func(v OAuthJwk) string { return v.Kty }).(pulumi.StringOutput)
 }
 
-// RSA Modulus
 func (o OAuthJwkOutput) N() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuthJwk) *string { return v.N }).(pulumi.StringPtrOutput)
 }
@@ -363,16 +355,17 @@ func (o OAuthJwkArrayOutput) Index(i pulumi.IntInput) OAuthJwkOutput {
 }
 
 type SamlAttributeStatement struct {
-	// Type of group attribute filter
+	// Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
 	FilterType *string `pulumi:"filterType"`
-	// Filter value to use
+	// Filter value to use.
 	FilterValue *string `pulumi:"filterValue"`
-	// The reference name of the attribute statement
+	// The name of the attribute statement.
 	Name string `pulumi:"name"`
-	// The name format of the attribute
+	// The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
 	Namespace *string `pulumi:"namespace"`
-	// The type of attribute statements object
-	Type   *string  `pulumi:"type"`
+	// The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
+	Type *string `pulumi:"type"`
+	// Array of values to use.
 	Values []string `pulumi:"values"`
 }
 
@@ -388,16 +381,17 @@ type SamlAttributeStatementInput interface {
 }
 
 type SamlAttributeStatementArgs struct {
-	// Type of group attribute filter
+	// Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
 	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
-	// Filter value to use
+	// Filter value to use.
 	FilterValue pulumi.StringPtrInput `pulumi:"filterValue"`
-	// The reference name of the attribute statement
+	// The name of the attribute statement.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name format of the attribute
+	// The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	// The type of attribute statements object
-	Type   pulumi.StringPtrInput   `pulumi:"type"`
+	// The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Array of values to use.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -452,31 +446,32 @@ func (o SamlAttributeStatementOutput) ToSamlAttributeStatementOutputWithContext(
 	return o
 }
 
-// Type of group attribute filter
+// Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
 func (o SamlAttributeStatementOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamlAttributeStatement) *string { return v.FilterType }).(pulumi.StringPtrOutput)
 }
 
-// Filter value to use
+// Filter value to use.
 func (o SamlAttributeStatementOutput) FilterValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamlAttributeStatement) *string { return v.FilterValue }).(pulumi.StringPtrOutput)
 }
 
-// The reference name of the attribute statement
+// The name of the attribute statement.
 func (o SamlAttributeStatementOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SamlAttributeStatement) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name format of the attribute
+// The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
 func (o SamlAttributeStatementOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamlAttributeStatement) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// The type of attribute statements object
+// The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
 func (o SamlAttributeStatementOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamlAttributeStatement) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// Array of values to use.
 func (o SamlAttributeStatementOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SamlAttributeStatement) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -502,16 +497,26 @@ func (o SamlAttributeStatementArrayOutput) Index(i pulumi.IntInput) SamlAttribut
 }
 
 type SamlKey struct {
-	Created     *string  `pulumi:"created"`
-	E           *string  `pulumi:"e"`
-	ExpiresAt   *string  `pulumi:"expiresAt"`
-	Kid         *string  `pulumi:"kid"`
-	Kty         *string  `pulumi:"kty"`
-	LastUpdated *string  `pulumi:"lastUpdated"`
-	N           *string  `pulumi:"n"`
-	Use         *string  `pulumi:"use"`
-	X5cs        []string `pulumi:"x5cs"`
-	X5tS256     *string  `pulumi:"x5tS256"`
+	// Date created.
+	Created *string `pulumi:"created"`
+	// RSA exponent.
+	E *string `pulumi:"e"`
+	// Date the key expires.
+	ExpiresAt *string `pulumi:"expiresAt"`
+	// Key ID.
+	Kid *string `pulumi:"kid"`
+	// Identifies the cryptographic algorithm family used with the key.
+	Kty *string `pulumi:"kty"`
+	// Date the key was last updated.
+	LastUpdated *string `pulumi:"lastUpdated"`
+	// RSA modulus.
+	N *string `pulumi:"n"`
+	// Intended use of the public key.
+	Use *string `pulumi:"use"`
+	// X.509 certificate chain.
+	X5cs []string `pulumi:"x5cs"`
+	// X.509 certificate SHA-256 thumbprint.
+	X5tS256 *string `pulumi:"x5tS256"`
 }
 
 // SamlKeyInput is an input type that accepts SamlKeyArgs and SamlKeyOutput values.
@@ -526,16 +531,26 @@ type SamlKeyInput interface {
 }
 
 type SamlKeyArgs struct {
-	Created     pulumi.StringPtrInput   `pulumi:"created"`
-	E           pulumi.StringPtrInput   `pulumi:"e"`
-	ExpiresAt   pulumi.StringPtrInput   `pulumi:"expiresAt"`
-	Kid         pulumi.StringPtrInput   `pulumi:"kid"`
-	Kty         pulumi.StringPtrInput   `pulumi:"kty"`
-	LastUpdated pulumi.StringPtrInput   `pulumi:"lastUpdated"`
-	N           pulumi.StringPtrInput   `pulumi:"n"`
-	Use         pulumi.StringPtrInput   `pulumi:"use"`
-	X5cs        pulumi.StringArrayInput `pulumi:"x5cs"`
-	X5tS256     pulumi.StringPtrInput   `pulumi:"x5tS256"`
+	// Date created.
+	Created pulumi.StringPtrInput `pulumi:"created"`
+	// RSA exponent.
+	E pulumi.StringPtrInput `pulumi:"e"`
+	// Date the key expires.
+	ExpiresAt pulumi.StringPtrInput `pulumi:"expiresAt"`
+	// Key ID.
+	Kid pulumi.StringPtrInput `pulumi:"kid"`
+	// Identifies the cryptographic algorithm family used with the key.
+	Kty pulumi.StringPtrInput `pulumi:"kty"`
+	// Date the key was last updated.
+	LastUpdated pulumi.StringPtrInput `pulumi:"lastUpdated"`
+	// RSA modulus.
+	N pulumi.StringPtrInput `pulumi:"n"`
+	// Intended use of the public key.
+	Use pulumi.StringPtrInput `pulumi:"use"`
+	// X.509 certificate chain.
+	X5cs pulumi.StringArrayInput `pulumi:"x5cs"`
+	// X.509 certificate SHA-256 thumbprint.
+	X5tS256 pulumi.StringPtrInput `pulumi:"x5tS256"`
 }
 
 func (SamlKeyArgs) ElementType() reflect.Type {
@@ -589,42 +604,52 @@ func (o SamlKeyOutput) ToSamlKeyOutputWithContext(ctx context.Context) SamlKeyOu
 	return o
 }
 
+// Date created.
 func (o SamlKeyOutput) Created() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamlKey) *string { return v.Created }).(pulumi.StringPtrOutput)
 }
 
+// RSA exponent.
 func (o SamlKeyOutput) E() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamlKey) *string { return v.E }).(pulumi.StringPtrOutput)
 }
 
+// Date the key expires.
 func (o SamlKeyOutput) ExpiresAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamlKey) *string { return v.ExpiresAt }).(pulumi.StringPtrOutput)
 }
 
+// Key ID.
 func (o SamlKeyOutput) Kid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamlKey) *string { return v.Kid }).(pulumi.StringPtrOutput)
 }
 
+// Identifies the cryptographic algorithm family used with the key.
 func (o SamlKeyOutput) Kty() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamlKey) *string { return v.Kty }).(pulumi.StringPtrOutput)
 }
 
+// Date the key was last updated.
 func (o SamlKeyOutput) LastUpdated() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamlKey) *string { return v.LastUpdated }).(pulumi.StringPtrOutput)
 }
 
+// RSA modulus.
 func (o SamlKeyOutput) N() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamlKey) *string { return v.N }).(pulumi.StringPtrOutput)
 }
 
+// Intended use of the public key.
 func (o SamlKeyOutput) Use() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamlKey) *string { return v.Use }).(pulumi.StringPtrOutput)
 }
 
+// X.509 certificate chain.
 func (o SamlKeyOutput) X5cs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SamlKey) []string { return v.X5cs }).(pulumi.StringArrayOutput)
 }
 
+// X.509 certificate SHA-256 thumbprint.
 func (o SamlKeyOutput) X5tS256() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamlKey) *string { return v.X5tS256 }).(pulumi.StringPtrOutput)
 }
@@ -650,12 +675,18 @@ func (o SamlKeyArrayOutput) Index(i pulumi.IntInput) SamlKeyOutput {
 }
 
 type GetSamlAttributeStatement struct {
-	FilterType  string   `pulumi:"filterType"`
-	FilterValue string   `pulumi:"filterValue"`
-	Name        string   `pulumi:"name"`
-	Namespace   string   `pulumi:"namespace"`
-	Type        string   `pulumi:"type"`
-	Values      []string `pulumi:"values"`
+	// Type of group attribute filter.
+	FilterType string `pulumi:"filterType"`
+	// Filter value to use.
+	FilterValue string `pulumi:"filterValue"`
+	// name of application.
+	Name string `pulumi:"name"`
+	// The attribute namespace.
+	Namespace string `pulumi:"namespace"`
+	// The type of attribute statement value.
+	Type string `pulumi:"type"`
+	// Array of values to use.
+	Values []string `pulumi:"values"`
 }
 
 // GetSamlAttributeStatementInput is an input type that accepts GetSamlAttributeStatementArgs and GetSamlAttributeStatementOutput values.
@@ -670,12 +701,18 @@ type GetSamlAttributeStatementInput interface {
 }
 
 type GetSamlAttributeStatementArgs struct {
-	FilterType  pulumi.StringInput      `pulumi:"filterType"`
-	FilterValue pulumi.StringInput      `pulumi:"filterValue"`
-	Name        pulumi.StringInput      `pulumi:"name"`
-	Namespace   pulumi.StringInput      `pulumi:"namespace"`
-	Type        pulumi.StringInput      `pulumi:"type"`
-	Values      pulumi.StringArrayInput `pulumi:"values"`
+	// Type of group attribute filter.
+	FilterType pulumi.StringInput `pulumi:"filterType"`
+	// Filter value to use.
+	FilterValue pulumi.StringInput `pulumi:"filterValue"`
+	// name of application.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The attribute namespace.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// The type of attribute statement value.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Array of values to use.
+	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (GetSamlAttributeStatementArgs) ElementType() reflect.Type {
@@ -729,26 +766,32 @@ func (o GetSamlAttributeStatementOutput) ToGetSamlAttributeStatementOutputWithCo
 	return o
 }
 
+// Type of group attribute filter.
 func (o GetSamlAttributeStatementOutput) FilterType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSamlAttributeStatement) string { return v.FilterType }).(pulumi.StringOutput)
 }
 
+// Filter value to use.
 func (o GetSamlAttributeStatementOutput) FilterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSamlAttributeStatement) string { return v.FilterValue }).(pulumi.StringOutput)
 }
 
+// name of application.
 func (o GetSamlAttributeStatementOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSamlAttributeStatement) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The attribute namespace.
 func (o GetSamlAttributeStatementOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSamlAttributeStatement) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
+// The type of attribute statement value.
 func (o GetSamlAttributeStatementOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSamlAttributeStatement) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Array of values to use.
 func (o GetSamlAttributeStatementOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSamlAttributeStatement) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Get authorization server claim from Okta.
+ * Use this data source to retrieve authorization server claim from Okta.
  *
  * ## Example Usage
  *
@@ -34,11 +34,11 @@ export function getAuthServerClaim(args: GetAuthServerClaimArgs, opts?: pulumi.I
  */
 export interface GetAuthServerClaimArgs {
     /**
-     * Auth server ID
+     * Auth server ID.
      */
     authServerId: string;
     /**
-     * Name of the claim. Conflicts with `name`.
+     * ID of the claim. Conflicts with `name`.
      */
     id?: string;
     /**
@@ -55,24 +55,21 @@ export interface GetAuthServerClaimResult {
      * Specifies whether to include Claims in the token.
      */
     readonly alwaysIncludeInToken: boolean;
-    /**
-     * Auth server ID
-     */
     readonly authServerId: string;
     /**
-     * Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`).
+     * Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
      */
     readonly claimType: string;
     /**
-     * Name of the claim. Conflicts with `name`.
+     * ID of the claim.
      */
     readonly id?: string;
     /**
-     * Name of the claim. Conflicts with `id`.
+     * Name of the claim.
      */
     readonly name?: string;
     /**
-     * Auth server claim list of scopes
+     * Specifies the scopes for this Claim.
      */
     readonly scopes: string[];
     /**
@@ -80,16 +77,16 @@ export interface GetAuthServerClaimResult {
      */
     readonly status: string;
     /**
-     * Value of the claim.
+     * Value of the claim
      */
     readonly value: string;
     /**
-     * Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
+     * Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
      */
     readonly valueType: string;
 }
 /**
- * Get authorization server claim from Okta.
+ * Use this data source to retrieve authorization server claim from Okta.
  *
  * ## Example Usage
  *
@@ -112,11 +109,11 @@ export function getAuthServerClaimOutput(args: GetAuthServerClaimOutputArgs, opt
  */
 export interface GetAuthServerClaimOutputArgs {
     /**
-     * Auth server ID
+     * Auth server ID.
      */
     authServerId: pulumi.Input<string>;
     /**
-     * Name of the claim. Conflicts with `name`.
+     * ID of the claim. Conflicts with `name`.
      */
     id?: pulumi.Input<string>;
     /**

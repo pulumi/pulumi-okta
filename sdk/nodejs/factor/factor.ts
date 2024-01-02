@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Allows you to manage the activation of Okta MFA methods.
+ *
+ * This resource allows you to manage Okta MFA methods.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.factor.Factor("example", {providerId: "google_otp"});
+ * ```
+ */
 export class Factor extends pulumi.CustomResource {
     /**
      * Get an existing Factor resource's state with the given name, ID, and optional extra
@@ -33,11 +47,12 @@ export class Factor extends pulumi.CustomResource {
     }
 
     /**
-     * Is this provider active?
+     * Whether to activate the provider, by default, it is set to `true`.
      */
     public readonly active!: pulumi.Output<boolean | undefined>;
     /**
-     * Factor provider ID
+     * The MFA provider name.
+     * Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
      */
     public readonly providerId!: pulumi.Output<string>;
 
@@ -74,11 +89,12 @@ export class Factor extends pulumi.CustomResource {
  */
 export interface FactorState {
     /**
-     * Is this provider active?
+     * Whether to activate the provider, by default, it is set to `true`.
      */
     active?: pulumi.Input<boolean>;
     /**
-     * Factor provider ID
+     * The MFA provider name.
+     * Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
      */
     providerId?: pulumi.Input<string>;
 }
@@ -88,11 +104,12 @@ export interface FactorState {
  */
 export interface FactorArgs {
     /**
-     * Is this provider active?
+     * Whether to activate the provider, by default, it is set to `true`.
      */
     active?: pulumi.Input<boolean>;
     /**
-     * Factor provider ID
+     * The MFA provider name.
+     * Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
      */
     providerId: pulumi.Input<string>;
 }

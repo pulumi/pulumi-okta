@@ -13,10 +13,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSamlResult {
-    /**
-     * @return ACS binding
-     * 
-     */
     private String acsBinding;
     /**
      * @return Determines whether to publish an instance-specific (trust) or organization (shared) ACS endpoint in the SAML metadata.
@@ -29,7 +25,7 @@ public final class GetSamlResult {
      */
     private String audience;
     /**
-     * @return Id of idp.
+     * @return id of idp.
      * 
      */
     private @Nullable String id;
@@ -39,7 +35,7 @@ public final class GetSamlResult {
      */
     private String issuer;
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
+     * @return indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
      * 
      */
     private String issuerMode;
@@ -49,12 +45,12 @@ public final class GetSamlResult {
      */
     private String kid;
     /**
-     * @return Name of the idp.
+     * @return name of the idp.
      * 
      */
     private @Nullable String name;
     /**
-     * @return Single sign-on binding.
+     * @return single sign-on binding.
      * 
      */
     private String ssoBinding;
@@ -64,12 +60,12 @@ public final class GetSamlResult {
      */
     private String ssoDestination;
     /**
-     * @return Single sign-on url.
+     * @return single sign-on url.
      * 
      */
     private String ssoUrl;
     /**
-     * @return Regular expression pattern used to filter untrusted IdP usernames.
+     * @return regular expression pattern used to filter untrusted IdP usernames.
      * 
      */
     private String subjectFilter;
@@ -79,16 +75,12 @@ public final class GetSamlResult {
      */
     private List<String> subjectFormats;
     /**
-     * @return Type of idp.
+     * @return type of idp.
      * 
      */
     private String type;
 
     private GetSamlResult() {}
-    /**
-     * @return ACS binding
-     * 
-     */
     public String acsBinding() {
         return this.acsBinding;
     }
@@ -107,7 +99,7 @@ public final class GetSamlResult {
         return this.audience;
     }
     /**
-     * @return Id of idp.
+     * @return id of idp.
      * 
      */
     public Optional<String> id() {
@@ -121,7 +113,7 @@ public final class GetSamlResult {
         return this.issuer;
     }
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
+     * @return indicates whether Okta uses the original Okta org domain URL, or a custom domain URL in the request to the IdP.
      * 
      */
     public String issuerMode() {
@@ -135,14 +127,14 @@ public final class GetSamlResult {
         return this.kid;
     }
     /**
-     * @return Name of the idp.
+     * @return name of the idp.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Single sign-on binding.
+     * @return single sign-on binding.
      * 
      */
     public String ssoBinding() {
@@ -156,14 +148,14 @@ public final class GetSamlResult {
         return this.ssoDestination;
     }
     /**
-     * @return Single sign-on url.
+     * @return single sign-on url.
      * 
      */
     public String ssoUrl() {
         return this.ssoUrl;
     }
     /**
-     * @return Regular expression pattern used to filter untrusted IdP usernames.
+     * @return regular expression pattern used to filter untrusted IdP usernames.
      * 
      */
     public String subjectFilter() {
@@ -177,7 +169,7 @@ public final class GetSamlResult {
         return this.subjectFormats;
     }
     /**
-     * @return Type of idp.
+     * @return type of idp.
      * 
      */
     public String type() {

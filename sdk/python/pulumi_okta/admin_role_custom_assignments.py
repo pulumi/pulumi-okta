@@ -19,9 +19,10 @@ class AdminRoleCustomAssignmentsArgs:
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AdminRoleCustomAssignments resource.
-        :param pulumi.Input[str] custom_role_id: ID of the Custom Role
-        :param pulumi.Input[str] resource_set_id: ID of the target Resource Set
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: The hrefs that point to User(s) and/or Group(s) that receive the Role
+        :param pulumi.Input[str] custom_role_id: ID of the Custom Role.
+        :param pulumi.Input[str] resource_set_id: ID of the target Resource Set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+               permission must be specified when creating custom role.
         """
         pulumi.set(__self__, "custom_role_id", custom_role_id)
         pulumi.set(__self__, "resource_set_id", resource_set_id)
@@ -32,7 +33,7 @@ class AdminRoleCustomAssignmentsArgs:
     @pulumi.getter(name="customRoleId")
     def custom_role_id(self) -> pulumi.Input[str]:
         """
-        ID of the Custom Role
+        ID of the Custom Role.
         """
         return pulumi.get(self, "custom_role_id")
 
@@ -44,7 +45,7 @@ class AdminRoleCustomAssignmentsArgs:
     @pulumi.getter(name="resourceSetId")
     def resource_set_id(self) -> pulumi.Input[str]:
         """
-        ID of the target Resource Set
+        ID of the target Resource Set.
         """
         return pulumi.get(self, "resource_set_id")
 
@@ -56,7 +57,8 @@ class AdminRoleCustomAssignmentsArgs:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The hrefs that point to User(s) and/or Group(s) that receive the Role
+        The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+        permission must be specified when creating custom role.
         """
         return pulumi.get(self, "members")
 
@@ -73,9 +75,10 @@ class _AdminRoleCustomAssignmentsState:
                  resource_set_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AdminRoleCustomAssignments resources.
-        :param pulumi.Input[str] custom_role_id: ID of the Custom Role
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: The hrefs that point to User(s) and/or Group(s) that receive the Role
-        :param pulumi.Input[str] resource_set_id: ID of the target Resource Set
+        :param pulumi.Input[str] custom_role_id: ID of the Custom Role.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+               permission must be specified when creating custom role.
+        :param pulumi.Input[str] resource_set_id: ID of the target Resource Set.
         """
         if custom_role_id is not None:
             pulumi.set(__self__, "custom_role_id", custom_role_id)
@@ -88,7 +91,7 @@ class _AdminRoleCustomAssignmentsState:
     @pulumi.getter(name="customRoleId")
     def custom_role_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the Custom Role
+        ID of the Custom Role.
         """
         return pulumi.get(self, "custom_role_id")
 
@@ -100,7 +103,8 @@ class _AdminRoleCustomAssignmentsState:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The hrefs that point to User(s) and/or Group(s) that receive the Role
+        The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+        permission must be specified when creating custom role.
         """
         return pulumi.get(self, "members")
 
@@ -112,7 +116,7 @@ class _AdminRoleCustomAssignmentsState:
     @pulumi.getter(name="resourceSetId")
     def resource_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the target Resource Set
+        ID of the target Resource Set.
         """
         return pulumi.get(self, "resource_set_id")
 
@@ -131,13 +135,26 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
                  resource_set_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource to manage the assignment and unassignment of Custom Roles
+        This resource allows the assignment and unassignment of Custom Roles. The `members` field supports these type of resources:
+         - Groups
+         - Users
+
+        > **NOTE:** This an `Early Access` feature.
+
+        ## Import
+
+        Okta Custom Admin Role Assignments can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example &#60;resource_set_id&#62;/&#60;custom_role_id&#62;
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] custom_role_id: ID of the Custom Role
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: The hrefs that point to User(s) and/or Group(s) that receive the Role
-        :param pulumi.Input[str] resource_set_id: ID of the target Resource Set
+        :param pulumi.Input[str] custom_role_id: ID of the Custom Role.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+               permission must be specified when creating custom role.
+        :param pulumi.Input[str] resource_set_id: ID of the target Resource Set.
         """
         ...
     @overload
@@ -146,7 +163,19 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
                  args: AdminRoleCustomAssignmentsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource to manage the assignment and unassignment of Custom Roles
+        This resource allows the assignment and unassignment of Custom Roles. The `members` field supports these type of resources:
+         - Groups
+         - Users
+
+        > **NOTE:** This an `Early Access` feature.
+
+        ## Import
+
+        Okta Custom Admin Role Assignments can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example &#60;resource_set_id&#62;/&#60;custom_role_id&#62;
+        ```
 
         :param str resource_name: The name of the resource.
         :param AdminRoleCustomAssignmentsArgs args: The arguments to use to populate this resource's properties.
@@ -202,9 +231,10 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] custom_role_id: ID of the Custom Role
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: The hrefs that point to User(s) and/or Group(s) that receive the Role
-        :param pulumi.Input[str] resource_set_id: ID of the target Resource Set
+        :param pulumi.Input[str] custom_role_id: ID of the Custom Role.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+               permission must be specified when creating custom role.
+        :param pulumi.Input[str] resource_set_id: ID of the target Resource Set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -219,7 +249,7 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
     @pulumi.getter(name="customRoleId")
     def custom_role_id(self) -> pulumi.Output[str]:
         """
-        ID of the Custom Role
+        ID of the Custom Role.
         """
         return pulumi.get(self, "custom_role_id")
 
@@ -227,7 +257,8 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The hrefs that point to User(s) and/or Group(s) that receive the Role
+        The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+        permission must be specified when creating custom role.
         """
         return pulumi.get(self, "members")
 
@@ -235,7 +266,7 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
     @pulumi.getter(name="resourceSetId")
     def resource_set_id(self) -> pulumi.Output[str]:
         """
-        ID of the target Resource Set
+        ID of the target Resource Set.
         """
         return pulumi.get(self, "resource_set_id")
 

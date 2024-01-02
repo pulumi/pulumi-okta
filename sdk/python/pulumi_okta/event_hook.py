@@ -224,7 +224,41 @@ class EventHook(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a EventHook resource with the given unique name, props, and options.
+        Creates an event hook.
+
+        This resource allows you to create and configure an event hook.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.EventHook("example",
+            auth={
+                "key": "Authorization",
+                "type": "HEADER",
+                "value": "123",
+            },
+            channel={
+                "type": "HTTP",
+                "uri": "https://example.com/test",
+                "version": "1.0.0",
+            },
+            events=[
+                "user.lifecycle.create",
+                "user.lifecycle.delete.initiated",
+            ])
+        ```
+
+        ## Import
+
+        An event hook can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:index/eventHook:EventHook example &#60;hook id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] auth: Authentication required for event hook request.
@@ -240,7 +274,41 @@ class EventHook(pulumi.CustomResource):
                  args: EventHookArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a EventHook resource with the given unique name, props, and options.
+        Creates an event hook.
+
+        This resource allows you to create and configure an event hook.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.EventHook("example",
+            auth={
+                "key": "Authorization",
+                "type": "HEADER",
+                "value": "123",
+            },
+            channel={
+                "type": "HTTP",
+                "uri": "https://example.com/test",
+                "version": "1.0.0",
+            },
+            events=[
+                "user.lifecycle.create",
+                "user.lifecycle.delete.initiated",
+            ])
+        ```
+
+        ## Import
+
+        An event hook can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:index/eventHook:EventHook example &#60;hook id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param EventHookArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

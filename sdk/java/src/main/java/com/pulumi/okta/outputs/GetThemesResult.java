@@ -12,10 +12,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetThemesResult {
-    /**
-     * @return Brand ID
-     * 
-     */
     private String brandId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -23,16 +19,12 @@ public final class GetThemesResult {
      */
     private String id;
     /**
-     * @return List of `okta_them` belonging to the brand in the organization
+     * @return List of `okta.Theme` belonging to the brand.
      * 
      */
     private List<GetThemesTheme> themes;
 
     private GetThemesResult() {}
-    /**
-     * @return Brand ID
-     * 
-     */
     public String brandId() {
         return this.brandId;
     }
@@ -44,7 +36,7 @@ public final class GetThemesResult {
         return this.id;
     }
     /**
-     * @return List of `okta_them` belonging to the brand in the organization
+     * @return List of `okta.Theme` belonging to the brand.
      * 
      */
     public List<GetThemesTheme> themes() {

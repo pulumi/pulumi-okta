@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gets Okta Network Zone.
+// Use this data source to retrieve a network zone from Okta.
 //
 // ## Example Usage
 //
@@ -58,25 +58,25 @@ type GetNetworkZoneArgs struct {
 
 // A collection of values returned by getNetworkZone.
 type GetNetworkZoneResult struct {
-	// Format of each array value: a string representation of an ASN numeric value
+	// Array of Autonomous System Numbers.
 	Asns []string `pulumi:"asns"`
-	// Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+	// Array of locations.
 	DynamicLocations []string `pulumi:"dynamicLocations"`
-	// Type of proxy being controlled by this network zone
+	// Type of proxy being controlled by this dynamic network zone.
 	DynamicProxyType string `pulumi:"dynamicProxyType"`
-	// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+	// Array of values in CIDR/range form.
 	Gateways []string `pulumi:"gateways"`
-	// ID of the network zone to retrieve, conflicts with `name`.
+	// ID of the network zone.
 	Id *string `pulumi:"id"`
-	// Name of the network zone to retrieve, conflicts with `id`.
+	// Name of the network zone.
 	Name *string `pulumi:"name"`
-	// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+	// Array of values in CIDR/range form.
 	Proxies []string `pulumi:"proxies"`
-	// Network Status - can either be ACTIVE or INACTIVE only
+	// Network Status - can either be ACTIVE or INACTIVE only.
 	Status string `pulumi:"status"`
-	// Type of the Network Zone - can either be IP or DYNAMIC only
+	// Type of the Network Zone.
 	Type string `pulumi:"type"`
-	// Zone's purpose: POLICY or BLOCKLIST
+	// Usage of the Network Zone.
 	Usage string `pulumi:"usage"`
 }
 
@@ -120,52 +120,52 @@ func (o GetNetworkZoneResultOutput) ToGetNetworkZoneResultOutputWithContext(ctx 
 	return o
 }
 
-// Format of each array value: a string representation of an ASN numeric value
+// Array of Autonomous System Numbers.
 func (o GetNetworkZoneResultOutput) Asns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) []string { return v.Asns }).(pulumi.StringArrayOutput)
 }
 
-// Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+// Array of locations.
 func (o GetNetworkZoneResultOutput) DynamicLocations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) []string { return v.DynamicLocations }).(pulumi.StringArrayOutput)
 }
 
-// Type of proxy being controlled by this network zone
+// Type of proxy being controlled by this dynamic network zone.
 func (o GetNetworkZoneResultOutput) DynamicProxyType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) string { return v.DynamicProxyType }).(pulumi.StringOutput)
 }
 
-// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+// Array of values in CIDR/range form.
 func (o GetNetworkZoneResultOutput) Gateways() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) []string { return v.Gateways }).(pulumi.StringArrayOutput)
 }
 
-// ID of the network zone to retrieve, conflicts with `name`.
+// ID of the network zone.
 func (o GetNetworkZoneResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Name of the network zone to retrieve, conflicts with `id`.
+// Name of the network zone.
 func (o GetNetworkZoneResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+// Array of values in CIDR/range form.
 func (o GetNetworkZoneResultOutput) Proxies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) []string { return v.Proxies }).(pulumi.StringArrayOutput)
 }
 
-// Network Status - can either be ACTIVE or INACTIVE only
+// Network Status - can either be ACTIVE or INACTIVE only.
 func (o GetNetworkZoneResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Type of the Network Zone - can either be IP or DYNAMIC only
+// Type of the Network Zone.
 func (o GetNetworkZoneResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Zone's purpose: POLICY or BLOCKLIST
+// Usage of the Network Zone.
 func (o GetNetworkZoneResultOutput) Usage() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) string { return v.Usage }).(pulumi.StringOutput)
 }

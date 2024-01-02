@@ -12,18 +12,63 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages targets for administrator roles.
+//
+// This resource allows you to define permissions for admin roles into a smaller subset of Groups or Apps within your org.
+// You can define admin roles to target Groups, Applications, and Application Instances.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewAdminRoleTargets(ctx, "example", &okta.AdminRoleTargetsArgs{
+//				Apps: pulumi.StringArray{
+//					pulumi.String("oidc_client.<app_id>"),
+//					pulumi.String("facebook"),
+//				},
+//				RoleType: pulumi.String("APP_ADMIN"),
+//				UserId:   pulumi.String("<user_id>"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Okta Admin Role Targets can be imported via the Okta ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &#60;user id&#62;/&#60;role type&#62;
+//
+// ```
 type AdminRoleTargets struct {
 	pulumi.CustomResourceState
 
-	// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
+	// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
 	Apps pulumi.StringArrayOutput `pulumi:"apps"`
-	// List of group IDs
+	// List of group IDs. Conflicts with `apps`.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
-	// ID of a role
+	// Role ID.
 	RoleId pulumi.StringOutput `pulumi:"roleId"`
-	// Type of the role that is assigned to the user and supports optional targets
+	// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 	RoleType pulumi.StringOutput `pulumi:"roleType"`
-	// User associated with the role
+	// ID of the user.
 	UserId pulumi.StringOutput `pulumi:"userId"`
 }
 
@@ -63,28 +108,28 @@ func GetAdminRoleTargets(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AdminRoleTargets resources.
 type adminRoleTargetsState struct {
-	// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
+	// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
 	Apps []string `pulumi:"apps"`
-	// List of group IDs
+	// List of group IDs. Conflicts with `apps`.
 	Groups []string `pulumi:"groups"`
-	// ID of a role
+	// Role ID.
 	RoleId *string `pulumi:"roleId"`
-	// Type of the role that is assigned to the user and supports optional targets
+	// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 	RoleType *string `pulumi:"roleType"`
-	// User associated with the role
+	// ID of the user.
 	UserId *string `pulumi:"userId"`
 }
 
 type AdminRoleTargetsState struct {
-	// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
+	// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
 	Apps pulumi.StringArrayInput
-	// List of group IDs
+	// List of group IDs. Conflicts with `apps`.
 	Groups pulumi.StringArrayInput
-	// ID of a role
+	// Role ID.
 	RoleId pulumi.StringPtrInput
-	// Type of the role that is assigned to the user and supports optional targets
+	// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 	RoleType pulumi.StringPtrInput
-	// User associated with the role
+	// ID of the user.
 	UserId pulumi.StringPtrInput
 }
 
@@ -93,25 +138,25 @@ func (AdminRoleTargetsState) ElementType() reflect.Type {
 }
 
 type adminRoleTargetsArgs struct {
-	// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
+	// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
 	Apps []string `pulumi:"apps"`
-	// List of group IDs
+	// List of group IDs. Conflicts with `apps`.
 	Groups []string `pulumi:"groups"`
-	// Type of the role that is assigned to the user and supports optional targets
+	// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 	RoleType string `pulumi:"roleType"`
-	// User associated with the role
+	// ID of the user.
 	UserId string `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a AdminRoleTargets resource.
 type AdminRoleTargetsArgs struct {
-	// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
+	// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
 	Apps pulumi.StringArrayInput
-	// List of group IDs
+	// List of group IDs. Conflicts with `apps`.
 	Groups pulumi.StringArrayInput
-	// Type of the role that is assigned to the user and supports optional targets
+	// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 	RoleType pulumi.StringInput
-	// User associated with the role
+	// ID of the user.
 	UserId pulumi.StringInput
 }
 
@@ -202,27 +247,27 @@ func (o AdminRoleTargetsOutput) ToAdminRoleTargetsOutputWithContext(ctx context.
 	return o
 }
 
-// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
+// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
 func (o AdminRoleTargetsOutput) Apps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AdminRoleTargets) pulumi.StringArrayOutput { return v.Apps }).(pulumi.StringArrayOutput)
 }
 
-// List of group IDs
+// List of group IDs. Conflicts with `apps`.
 func (o AdminRoleTargetsOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AdminRoleTargets) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// ID of a role
+// Role ID.
 func (o AdminRoleTargetsOutput) RoleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminRoleTargets) pulumi.StringOutput { return v.RoleId }).(pulumi.StringOutput)
 }
 
-// Type of the role that is assigned to the user and supports optional targets
+// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
 func (o AdminRoleTargetsOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminRoleTargets) pulumi.StringOutput { return v.RoleType }).(pulumi.StringOutput)
 }
 
-// User associated with the role
+// ID of the user.
 func (o AdminRoleTargetsOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminRoleTargets) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }

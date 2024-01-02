@@ -4,6 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * This resource allows you to configure Security Notification Emails.
+ *
+ * > **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
+ *
+ * > **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.SecurityNotificationEmails("example", {
+ *     reportSuspiciousActivityEnabled: true,
+ *     sendEmailForFactorEnrollmentEnabled: true,
+ *     sendEmailForFactorResetEnabled: true,
+ *     sendEmailForNewDeviceEnabled: true,
+ *     sendEmailForPasswordChangedEnabled: true,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Security Notification Emails can be imported without any parameters.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
+ * ```
+ */
 export class SecurityNotificationEmails extends pulumi.CustomResource {
     /**
      * Get an existing SecurityNotificationEmails resource's state with the given name, ID, and optional extra
@@ -33,23 +63,23 @@ export class SecurityNotificationEmails extends pulumi.CustomResource {
     }
 
     /**
-     * Notifies end users about suspicious or unrecognized activity from their account
+     * Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
      */
     public readonly reportSuspiciousActivityEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Notifies end users of any activity on their account related to MFA factor enrollment
+     * Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
      */
     public readonly sendEmailForFactorEnrollmentEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Notifies end users that one or more factors have been reset for their account
+     * Notifies end users that one or more factors have been reset for their account. Default is `true`.
      */
     public readonly sendEmailForFactorResetEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Notifies end users about new sign-on activity
+     * Notifies end users about new sign-on activity. Default is `true`.
      */
     public readonly sendEmailForNewDeviceEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Notifies end users that the password for their account has changed
+     * Notifies end users that the password for their account has changed. Default is `true`.
      */
     public readonly sendEmailForPasswordChangedEnabled!: pulumi.Output<boolean | undefined>;
 
@@ -89,23 +119,23 @@ export class SecurityNotificationEmails extends pulumi.CustomResource {
  */
 export interface SecurityNotificationEmailsState {
     /**
-     * Notifies end users about suspicious or unrecognized activity from their account
+     * Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
      */
     reportSuspiciousActivityEnabled?: pulumi.Input<boolean>;
     /**
-     * Notifies end users of any activity on their account related to MFA factor enrollment
+     * Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
      */
     sendEmailForFactorEnrollmentEnabled?: pulumi.Input<boolean>;
     /**
-     * Notifies end users that one or more factors have been reset for their account
+     * Notifies end users that one or more factors have been reset for their account. Default is `true`.
      */
     sendEmailForFactorResetEnabled?: pulumi.Input<boolean>;
     /**
-     * Notifies end users about new sign-on activity
+     * Notifies end users about new sign-on activity. Default is `true`.
      */
     sendEmailForNewDeviceEnabled?: pulumi.Input<boolean>;
     /**
-     * Notifies end users that the password for their account has changed
+     * Notifies end users that the password for their account has changed. Default is `true`.
      */
     sendEmailForPasswordChangedEnabled?: pulumi.Input<boolean>;
 }
@@ -115,23 +145,23 @@ export interface SecurityNotificationEmailsState {
  */
 export interface SecurityNotificationEmailsArgs {
     /**
-     * Notifies end users about suspicious or unrecognized activity from their account
+     * Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
      */
     reportSuspiciousActivityEnabled?: pulumi.Input<boolean>;
     /**
-     * Notifies end users of any activity on their account related to MFA factor enrollment
+     * Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
      */
     sendEmailForFactorEnrollmentEnabled?: pulumi.Input<boolean>;
     /**
-     * Notifies end users that one or more factors have been reset for their account
+     * Notifies end users that one or more factors have been reset for their account. Default is `true`.
      */
     sendEmailForFactorResetEnabled?: pulumi.Input<boolean>;
     /**
-     * Notifies end users about new sign-on activity
+     * Notifies end users about new sign-on activity. Default is `true`.
      */
     sendEmailForNewDeviceEnabled?: pulumi.Input<boolean>;
     /**
-     * Notifies end users that the password for their account has changed
+     * Notifies end users that the password for their account has changed. Default is `true`.
      */
     sendEmailForPasswordChangedEnabled?: pulumi.Input<boolean>;
 }

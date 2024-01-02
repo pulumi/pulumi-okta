@@ -17,59 +17,100 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Configures default password policy.
+ * 
+ * This resource allows you to configure default password policy.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.PolicyPasswordDefault;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var default_ = new PolicyPasswordDefault(&#34;default&#34;);
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Default Password Policy can be imported without providing Okta ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/policyPasswordDefault:PolicyPasswordDefault")
 public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
     /**
-     * Enable or disable voice call recovery: ACTIVE or INACTIVE.
+     * Enable or disable voice call password recovery: ACTIVE or INACTIVE.
      * 
      */
     @Export(name="callRecovery", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> callRecovery;
 
     /**
-     * @return Enable or disable voice call recovery: ACTIVE or INACTIVE.
+     * @return Enable or disable voice call password recovery: ACTIVE or INACTIVE.
      * 
      */
     public Output<Optional<String>> callRecovery() {
         return Codegen.optional(this.callRecovery);
     }
     /**
-     * Default Authentication Provider
+     * Default authentication provider.
      * 
      */
     @Export(name="defaultAuthProvider", refs={String.class}, tree="[0]")
     private Output<String> defaultAuthProvider;
 
     /**
-     * @return Default Authentication Provider
+     * @return Default authentication provider.
      * 
      */
     public Output<String> defaultAuthProvider() {
         return this.defaultAuthProvider;
     }
     /**
-     * Default group ID (always included)
+     * ID of the default Okta group.
      * 
      */
     @Export(name="defaultIncludedGroupId", refs={String.class}, tree="[0]")
     private Output<String> defaultIncludedGroupId;
 
     /**
-     * @return Default group ID (always included)
+     * @return ID of the default Okta group.
      * 
      */
     public Output<String> defaultIncludedGroupId() {
         return this.defaultIncludedGroupId;
     }
     /**
-     * Default policy description
+     * Default policy description.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return Default policy description
+     * @return Default policy description.
      * 
      */
     public Output<String> description() {
@@ -90,14 +131,14 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.emailRecovery);
     }
     /**
-     * Default policy name
+     * Default policy name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Default policy name
+     * @return Default policy name.
      * 
      */
     public Output<String> name() {
@@ -132,42 +173,42 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.passwordDictionaryLookup);
     }
     /**
-     * User firstName attribute must be excluded from the password
+     * User firstName attribute must be excluded from the password.
      * 
      */
     @Export(name="passwordExcludeFirstName", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> passwordExcludeFirstName;
 
     /**
-     * @return User firstName attribute must be excluded from the password
+     * @return User firstName attribute must be excluded from the password.
      * 
      */
     public Output<Optional<Boolean>> passwordExcludeFirstName() {
         return Codegen.optional(this.passwordExcludeFirstName);
     }
     /**
-     * User lastName attribute must be excluded from the password
+     * User lastName attribute must be excluded from the password.
      * 
      */
     @Export(name="passwordExcludeLastName", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> passwordExcludeLastName;
 
     /**
-     * @return User lastName attribute must be excluded from the password
+     * @return User lastName attribute must be excluded from the password.
      * 
      */
     public Output<Optional<Boolean>> passwordExcludeLastName() {
         return Codegen.optional(this.passwordExcludeLastName);
     }
     /**
-     * If the user name must be excluded from the password.
+     * If the username must be excluded from the password.
      * 
      */
     @Export(name="passwordExcludeUsername", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> passwordExcludeUsername;
 
     /**
-     * @return If the user name must be excluded from the password.
+     * @return If the username must be excluded from the password.
      * 
      */
     public Output<Optional<Boolean>> passwordExcludeUsername() {
@@ -188,56 +229,62 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.passwordExpireWarnDays);
     }
     /**
-     * Number of distinct passwords that must be created before they can be reused: 0 = none.
+     * Number of distinct passwords that must be created before they can be reused: 0 =
+     * none.
      * 
      */
     @Export(name="passwordHistoryCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordHistoryCount;
 
     /**
-     * @return Number of distinct passwords that must be created before they can be reused: 0 = none.
+     * @return Number of distinct passwords that must be created before they can be reused: 0 =
+     * none.
      * 
      */
     public Output<Optional<Integer>> passwordHistoryCount() {
         return Codegen.optional(this.passwordHistoryCount);
     }
     /**
-     * Notification channels to use to notify a user when their account has been locked.
+     * Notification channels to use to notify a user when their account
+     * has been locked.
      * 
      */
     @Export(name="passwordLockoutNotificationChannels", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> passwordLockoutNotificationChannels;
 
     /**
-     * @return Notification channels to use to notify a user when their account has been locked.
+     * @return Notification channels to use to notify a user when their account
+     * has been locked.
      * 
      */
     public Output<Optional<List<String>>> passwordLockoutNotificationChannels() {
         return Codegen.optional(this.passwordLockoutNotificationChannels);
     }
     /**
-     * Length in days a password is valid before expiry: 0 = no limit.
+     * Length in days a password is valid before expiry: 0 = no limit.,
      * 
      */
     @Export(name="passwordMaxAgeDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordMaxAgeDays;
 
     /**
-     * @return Length in days a password is valid before expiry: 0 = no limit.
+     * @return Length in days a password is valid before expiry: 0 = no limit.,
      * 
      */
     public Output<Optional<Integer>> passwordMaxAgeDays() {
         return Codegen.optional(this.passwordMaxAgeDays);
     }
     /**
-     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
+     * Number of unsuccessful login attempts allowed before lockout: 0 = no
+     * limit.
      * 
      */
     @Export(name="passwordMaxLockoutAttempts", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordMaxLockoutAttempts;
 
     /**
-     * @return Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
+     * @return Number of unsuccessful login attempts allowed before lockout: 0 = no
+     * limit.
      * 
      */
     public Output<Optional<Integer>> passwordMaxLockoutAttempts() {
@@ -258,70 +305,70 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.passwordMinAgeMinutes);
     }
     /**
-     * Minimum password length.
+     * Minimum password length. Default is 8.
      * 
      */
     @Export(name="passwordMinLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordMinLength;
 
     /**
-     * @return Minimum password length.
+     * @return Minimum password length. Default is 8.
      * 
      */
     public Output<Optional<Integer>> passwordMinLength() {
         return Codegen.optional(this.passwordMinLength);
     }
     /**
-     * If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
+     * Minimum number of lower case characters in a password.
      * 
      */
     @Export(name="passwordMinLowercase", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordMinLowercase;
 
     /**
-     * @return If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
+     * @return Minimum number of lower case characters in a password.
      * 
      */
     public Output<Optional<Integer>> passwordMinLowercase() {
         return Codegen.optional(this.passwordMinLowercase);
     }
     /**
-     * If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
+     * Minimum number of numbers in a password.
      * 
      */
     @Export(name="passwordMinNumber", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordMinNumber;
 
     /**
-     * @return If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
+     * @return Minimum number of numbers in a password.
      * 
      */
     public Output<Optional<Integer>> passwordMinNumber() {
         return Codegen.optional(this.passwordMinNumber);
     }
     /**
-     * If a password must contain at least one symbol (!@#$%^&amp;*): 0 = no, 1 = yes. Default = 1
+     * Minimum number of symbols in a password.
      * 
      */
     @Export(name="passwordMinSymbol", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordMinSymbol;
 
     /**
-     * @return If a password must contain at least one symbol (!@#$%^&amp;*): 0 = no, 1 = yes. Default = 1
+     * @return Minimum number of symbols in a password.
      * 
      */
     public Output<Optional<Integer>> passwordMinSymbol() {
         return Codegen.optional(this.passwordMinSymbol);
     }
     /**
-     * If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
+     * Minimum number of upper case characters in a password.
      * 
      */
     @Export(name="passwordMinUppercase", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> passwordMinUppercase;
 
     /**
-     * @return If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
+     * @return Minimum number of upper case characters in a password.
      * 
      */
     public Output<Optional<Integer>> passwordMinUppercase() {
@@ -342,14 +389,14 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.passwordShowLockoutFailures);
     }
     /**
-     * Default policy priority
+     * Default policy priority.
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
-     * @return Default policy priority
+     * @return Default policy priority.
      * 
      */
     public Output<Integer> priority() {
@@ -398,14 +445,16 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.recoveryEmailToken);
     }
     /**
-     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account.
+     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also
+     * attempt to unlock the user&#39;s Windows account.
      * 
      */
     @Export(name="skipUnlock", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipUnlock;
 
     /**
-     * @return When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account.
+     * @return When an Active Directory user is locked out of Okta, the Okta unlock operation should also
+     * attempt to unlock the user&#39;s Windows account.
      * 
      */
     public Output<Optional<Boolean>> skipUnlock() {
@@ -426,14 +475,14 @@ public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.smsRecovery);
     }
     /**
-     * Default policy status
+     * Default policy status.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return Default policy status
+     * @return Default policy status.
      * 
      */
     public Output<String> status() {

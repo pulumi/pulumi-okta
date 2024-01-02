@@ -15,14 +15,14 @@ public final class EventHookVerificationArgs extends com.pulumi.resources.Resour
     public static final EventHookVerificationArgs Empty = new EventHookVerificationArgs();
 
     /**
-     * Event hook ID
+     * Event Hook ID.
      * 
      */
     @Import(name="eventHookId", required=true)
     private Output<String> eventHookId;
 
     /**
-     * @return Event hook ID
+     * @return Event Hook ID.
      * 
      */
     public Output<String> eventHookId() {
@@ -54,7 +54,7 @@ public final class EventHookVerificationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param eventHookId Event hook ID
+         * @param eventHookId Event Hook ID.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class EventHookVerificationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param eventHookId Event hook ID
+         * @param eventHookId Event Hook ID.
          * 
          * @return builder
          * 

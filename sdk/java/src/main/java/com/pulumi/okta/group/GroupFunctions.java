@@ -21,8 +21,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class GroupFunctions {
     /**
-     * Use this data source to retrieve the `Everyone` group from Okta. The
-     * same can be achieved with the `okta.group.Group` data
+     * Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data
      * source with `name = &#34;Everyone&#34;`. This is simply a shortcut.
      * 
      * ## Example Usage
@@ -58,8 +57,7 @@ public final class GroupFunctions {
         return getEveryoneGroup(GetEveryoneGroupArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve the `Everyone` group from Okta. The
-     * same can be achieved with the `okta.group.Group` data
+     * Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data
      * source with `name = &#34;Everyone&#34;`. This is simply a shortcut.
      * 
      * ## Example Usage
@@ -95,8 +93,7 @@ public final class GroupFunctions {
         return getEveryoneGroupPlain(GetEveryoneGroupPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve the `Everyone` group from Okta. The
-     * same can be achieved with the `okta.group.Group` data
+     * Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data
      * source with `name = &#34;Everyone&#34;`. This is simply a shortcut.
      * 
      * ## Example Usage
@@ -132,8 +129,7 @@ public final class GroupFunctions {
         return getEveryoneGroup(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve the `Everyone` group from Okta. The
-     * same can be achieved with the `okta.group.Group` data
+     * Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data
      * source with `name = &#34;Everyone&#34;`. This is simply a shortcut.
      * 
      * ## Example Usage
@@ -169,8 +165,7 @@ public final class GroupFunctions {
         return getEveryoneGroupPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve the `Everyone` group from Okta. The
-     * same can be achieved with the `okta.group.Group` data
+     * Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data
      * source with `name = &#34;Everyone&#34;`. This is simply a shortcut.
      * 
      * ## Example Usage
@@ -206,8 +201,7 @@ public final class GroupFunctions {
         return Deployment.getInstance().invoke("okta:group/getEveryoneGroup:getEveryoneGroup", TypeShape.of(GetEveryoneGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve the `Everyone` group from Okta. The
-     * same can be achieved with the `okta.group.Group` data
+     * Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data
      * source with `name = &#34;Everyone&#34;`. This is simply a shortcut.
      * 
      * ## Example Usage
@@ -243,7 +237,7 @@ public final class GroupFunctions {
         return Deployment.getInstance().invokeAsync("okta:group/getEveryoneGroup:getEveryoneGroup", TypeShape.of(GetEveryoneGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a group from Okta.
+     * Use this data source to retrieve a group from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -280,7 +274,7 @@ public final class GroupFunctions {
         return getGroup(GetGroupArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a group from Okta.
+     * Use this data source to retrieve a group from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -317,7 +311,7 @@ public final class GroupFunctions {
         return getGroupPlain(GetGroupPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a group from Okta.
+     * Use this data source to retrieve a group from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -354,7 +348,7 @@ public final class GroupFunctions {
         return getGroup(args, InvokeOptions.Empty);
     }
     /**
-     * Get a group from Okta.
+     * Use this data source to retrieve a group from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -391,7 +385,7 @@ public final class GroupFunctions {
         return getGroupPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a group from Okta.
+     * Use this data source to retrieve a group from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -428,7 +422,7 @@ public final class GroupFunctions {
         return Deployment.getInstance().invoke("okta:group/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a group from Okta.
+     * Use this data source to retrieve a group from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -465,7 +459,7 @@ public final class GroupFunctions {
         return Deployment.getInstance().invokeAsync("okta:group/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a group rule from Okta.
+     * Use this data source to retrieve a group rule from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -502,7 +496,7 @@ public final class GroupFunctions {
         return getRule(GetRuleArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a group rule from Okta.
+     * Use this data source to retrieve a group rule from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -539,7 +533,7 @@ public final class GroupFunctions {
         return getRulePlain(GetRulePlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a group rule from Okta.
+     * Use this data source to retrieve a group rule from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -576,7 +570,7 @@ public final class GroupFunctions {
         return getRule(args, InvokeOptions.Empty);
     }
     /**
-     * Get a group rule from Okta.
+     * Use this data source to retrieve a group rule from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -613,7 +607,7 @@ public final class GroupFunctions {
         return getRulePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a group rule from Okta.
+     * Use this data source to retrieve a group rule from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -650,7 +644,7 @@ public final class GroupFunctions {
         return Deployment.getInstance().invoke("okta:group/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a group rule from Okta.
+     * Use this data source to retrieve a group rule from Okta.
      * 
      * ## Example Usage
      * ```java

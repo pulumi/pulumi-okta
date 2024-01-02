@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get a set of users assigned to an Okta application.
+// Use this data source to retrieve the list of users assigned to the given Okta application (by ID).
 //
 // ## Example Usage
 //
@@ -50,15 +50,15 @@ func GetAppUserAssignments(ctx *pulumi.Context, args *GetAppUserAssignmentsArgs,
 
 // A collection of arguments for invoking getAppUserAssignments.
 type GetAppUserAssignmentsArgs struct {
-	// ID of the Okta App being queried for groups
+	// The ID of the Okta application you want to retrieve the groups for.
 	Id string `pulumi:"id"`
 }
 
 // A collection of values returned by getAppUserAssignments.
 type GetAppUserAssignmentsResult struct {
-	// ID of the Okta App being queried for groups
+	// ID of application.
 	Id string `pulumi:"id"`
-	// List of user IDs assigned to the app
+	// List of user IDs assigned to the application.
 	Users []string `pulumi:"users"`
 }
 
@@ -77,7 +77,7 @@ func GetAppUserAssignmentsOutput(ctx *pulumi.Context, args GetAppUserAssignments
 
 // A collection of arguments for invoking getAppUserAssignments.
 type GetAppUserAssignmentsOutputArgs struct {
-	// ID of the Okta App being queried for groups
+	// The ID of the Okta application you want to retrieve the groups for.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -100,12 +100,12 @@ func (o GetAppUserAssignmentsResultOutput) ToGetAppUserAssignmentsResultOutputWi
 	return o
 }
 
-// ID of the Okta App being queried for groups
+// ID of application.
 func (o GetAppUserAssignmentsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppUserAssignmentsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of user IDs assigned to the app
+// List of user IDs assigned to the application.
 func (o GetAppUserAssignmentsResultOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAppUserAssignmentsResult) []string { return v.Users }).(pulumi.StringArrayOutput)
 }

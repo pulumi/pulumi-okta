@@ -19,29 +19,45 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SocialArgs Empty = new SocialArgs();
 
+    /**
+     * Specifies the account linking action for an IdP user.
+     * 
+     */
     @Import(name="accountLinkAction")
     private @Nullable Output<String> accountLinkAction;
 
+    /**
+     * @return Specifies the account linking action for an IdP user.
+     * 
+     */
     public Optional<Output<String>> accountLinkAction() {
         return Optional.ofNullable(this.accountLinkAction);
     }
 
+    /**
+     * Group memberships to determine link candidates.
+     * 
+     */
     @Import(name="accountLinkGroupIncludes")
     private @Nullable Output<List<String>> accountLinkGroupIncludes;
 
+    /**
+     * @return Group memberships to determine link candidates.
+     * 
+     */
     public Optional<Output<List<String>>> accountLinkGroupIncludes() {
         return Optional.ofNullable(this.accountLinkGroupIncludes);
     }
 
     /**
-     * The Key ID that you obtained from Apple when you created the private key for the client
+     * The Key ID that you obtained from Apple when you created the private key for the client.
      * 
      */
     @Import(name="appleKid")
     private @Nullable Output<String> appleKid;
 
     /**
-     * @return The Key ID that you obtained from Apple when you created the private key for the client
+     * @return The Key ID that you obtained from Apple when you created the private key for the client.
      * 
      */
     public Optional<Output<String>> appleKid() {
@@ -49,14 +65,18 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+     * The Key ID that you obtained from Apple when you created the private
+     * key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+     * and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
      * 
      */
     @Import(name="applePrivateKey")
     private @Nullable Output<String> applePrivateKey;
 
     /**
-     * @return The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+     * @return The Key ID that you obtained from Apple when you created the private
+     * key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+     * and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
      * 
      */
     public Optional<Output<String>> applePrivateKey() {
@@ -64,180 +84,316 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Team ID associated with your Apple developer account
+     * The Team ID associated with your Apple developer account.
      * 
      */
     @Import(name="appleTeamId")
     private @Nullable Output<String> appleTeamId;
 
     /**
-     * @return The Team ID associated with your Apple developer account
+     * @return The Team ID associated with your Apple developer account.
      * 
      */
     public Optional<Output<String>> appleTeamId() {
         return Optional.ofNullable(this.appleTeamId);
     }
 
+    /**
+     * Unique identifier issued by AS for the Okta IdP instance.
+     * 
+     */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
+    /**
+     * @return Unique identifier issued by AS for the Okta IdP instance.
+     * 
+     */
     public Optional<Output<String>> clientId() {
         return Optional.ofNullable(this.clientId);
     }
 
+    /**
+     * Client secret issued by AS for the Okta IdP instance.
+     * 
+     */
     @Import(name="clientSecret")
     private @Nullable Output<String> clientSecret;
 
+    /**
+     * @return Client secret issued by AS for the Okta IdP instance.
+     * 
+     */
     public Optional<Output<String>> clientSecret() {
         return Optional.ofNullable(this.clientSecret);
     }
 
+    /**
+     * Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+     * 
+     */
     @Import(name="deprovisionedAction")
     private @Nullable Output<String> deprovisionedAction;
 
+    /**
+     * @return Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+     * 
+     */
     public Optional<Output<String>> deprovisionedAction() {
         return Optional.ofNullable(this.deprovisionedAction);
     }
 
+    /**
+     * Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+     * 
+     */
     @Import(name="groupsAction")
     private @Nullable Output<String> groupsAction;
 
+    /**
+     * @return Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+     * 
+     */
     public Optional<Output<String>> groupsAction() {
         return Optional.ofNullable(this.groupsAction);
     }
 
+    /**
+     * List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+     * 
+     */
     @Import(name="groupsAssignments")
     private @Nullable Output<List<String>> groupsAssignments;
 
+    /**
+     * @return List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+     * 
+     */
     public Optional<Output<List<String>>> groupsAssignments() {
         return Optional.ofNullable(this.groupsAssignments);
     }
 
+    /**
+     * IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+     * 
+     */
     @Import(name="groupsAttribute")
     private @Nullable Output<String> groupsAttribute;
 
+    /**
+     * @return IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+     * 
+     */
     public Optional<Output<String>> groupsAttribute() {
         return Optional.ofNullable(this.groupsAttribute);
     }
 
+    /**
+     * Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+     * 
+     */
     @Import(name="groupsFilters")
     private @Nullable Output<List<String>> groupsFilters;
 
+    /**
+     * @return Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+     * 
+     */
     public Optional<Output<List<String>>> groupsFilters() {
         return Optional.ofNullable(this.groupsFilters);
     }
 
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
      * 
      */
     @Import(name="issuerMode")
     private @Nullable Output<String> issuerMode;
 
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
      * 
      */
     public Optional<Output<String>> issuerMode() {
         return Optional.ofNullable(this.issuerMode);
     }
 
+    /**
+     * Maximum allowable clock-skew when processing messages from the IdP.
+     * 
+     */
     @Import(name="maxClockSkew")
     private @Nullable Output<Integer> maxClockSkew;
 
+    /**
+     * @return Maximum allowable clock-skew when processing messages from the IdP.
+     * 
+     */
     public Optional<Output<Integer>> maxClockSkew() {
         return Optional.ofNullable(this.maxClockSkew);
     }
 
     /**
-     * Name of the IdP
+     * The Application&#39;s display name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the IdP
+     * @return The Application&#39;s display name.
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Determines if the IdP should act as a source of truth for user profile attributes.
+     * 
+     */
     @Import(name="profileMaster")
     private @Nullable Output<Boolean> profileMaster;
 
+    /**
+     * @return Determines if the IdP should act as a source of truth for user profile attributes.
+     * 
+     */
     public Optional<Output<Boolean>> profileMaster() {
         return Optional.ofNullable(this.profileMaster);
     }
 
+    /**
+     * The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+     * 
+     */
     @Import(name="protocolType")
     private @Nullable Output<String> protocolType;
 
+    /**
+     * @return The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+     * 
+     */
     public Optional<Output<String>> protocolType() {
         return Optional.ofNullable(this.protocolType);
     }
 
+    /**
+     * Provisioning action for an IdP user during authentication.
+     * 
+     */
     @Import(name="provisioningAction")
     private @Nullable Output<String> provisioningAction;
 
+    /**
+     * @return Provisioning action for an IdP user during authentication.
+     * 
+     */
     public Optional<Output<String>> provisioningAction() {
         return Optional.ofNullable(this.provisioningAction);
     }
 
+    /**
+     * The scopes of the IdP.
+     * 
+     */
     @Import(name="scopes", required=true)
     private Output<List<String>> scopes;
 
+    /**
+     * @return The scopes of the IdP.
+     * 
+     */
     public Output<List<String>> scopes() {
         return this.scopes;
     }
 
+    /**
+     * Status of the IdP.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return Status of the IdP.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
+    /**
+     * Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * 
+     */
     @Import(name="subjectMatchAttribute")
     private @Nullable Output<String> subjectMatchAttribute;
 
+    /**
+     * @return Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * 
+     */
     public Optional<Output<String>> subjectMatchAttribute() {
         return Optional.ofNullable(this.subjectMatchAttribute);
     }
 
+    /**
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * 
+     */
     @Import(name="subjectMatchType")
     private @Nullable Output<String> subjectMatchType;
 
+    /**
+     * @return Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * 
+     */
     public Optional<Output<String>> subjectMatchType() {
         return Optional.ofNullable(this.subjectMatchType);
     }
 
+    /**
+     * Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+     * 
+     */
     @Import(name="suspendedAction")
     private @Nullable Output<String> suspendedAction;
 
+    /**
+     * @return Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+     * 
+     */
     public Optional<Output<String>> suspendedAction() {
         return Optional.ofNullable(this.suspendedAction);
     }
 
     /**
-     * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     * The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     * @return The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      * 
      */
     public Output<String> type() {
         return this.type;
     }
 
+    /**
+     * Okta EL Expression to generate or transform a unique username for the IdP user.
+     * 
+     */
     @Import(name="usernameTemplate")
     private @Nullable Output<String> usernameTemplate;
 
+    /**
+     * @return Okta EL Expression to generate or transform a unique username for the IdP user.
+     * 
+     */
     public Optional<Output<String>> usernameTemplate() {
         return Optional.ofNullable(this.usernameTemplate);
     }
@@ -290,30 +446,60 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SocialArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountLinkAction Specifies the account linking action for an IdP user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountLinkAction(@Nullable Output<String> accountLinkAction) {
             $.accountLinkAction = accountLinkAction;
             return this;
         }
 
+        /**
+         * @param accountLinkAction Specifies the account linking action for an IdP user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountLinkAction(String accountLinkAction) {
             return accountLinkAction(Output.of(accountLinkAction));
         }
 
+        /**
+         * @param accountLinkGroupIncludes Group memberships to determine link candidates.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountLinkGroupIncludes(@Nullable Output<List<String>> accountLinkGroupIncludes) {
             $.accountLinkGroupIncludes = accountLinkGroupIncludes;
             return this;
         }
 
+        /**
+         * @param accountLinkGroupIncludes Group memberships to determine link candidates.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountLinkGroupIncludes(List<String> accountLinkGroupIncludes) {
             return accountLinkGroupIncludes(Output.of(accountLinkGroupIncludes));
         }
 
+        /**
+         * @param accountLinkGroupIncludes Group memberships to determine link candidates.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountLinkGroupIncludes(String... accountLinkGroupIncludes) {
             return accountLinkGroupIncludes(List.of(accountLinkGroupIncludes));
         }
 
         /**
-         * @param appleKid The Key ID that you obtained from Apple when you created the private key for the client
+         * @param appleKid The Key ID that you obtained from Apple when you created the private key for the client.
          * 
          * @return builder
          * 
@@ -324,7 +510,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appleKid The Key ID that you obtained from Apple when you created the private key for the client
+         * @param appleKid The Key ID that you obtained from Apple when you created the private key for the client.
          * 
          * @return builder
          * 
@@ -334,7 +520,9 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applePrivateKey The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+         * @param applePrivateKey The Key ID that you obtained from Apple when you created the private
+         * key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+         * and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
          * 
          * @return builder
          * 
@@ -345,7 +533,9 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applePrivateKey The PKCS #8 encoded private key that you created for the client and downloaded from Apple
+         * @param applePrivateKey The Key ID that you obtained from Apple when you created the private
+         * key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
+         * and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
          * 
          * @return builder
          * 
@@ -355,7 +545,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appleTeamId The Team ID associated with your Apple developer account
+         * @param appleTeamId The Team ID associated with your Apple developer account.
          * 
          * @return builder
          * 
@@ -366,7 +556,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appleTeamId The Team ID associated with your Apple developer account
+         * @param appleTeamId The Team ID associated with your Apple developer account.
          * 
          * @return builder
          * 
@@ -375,79 +565,175 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
             return appleTeamId(Output.of(appleTeamId));
         }
 
+        /**
+         * @param clientId Unique identifier issued by AS for the Okta IdP instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientId(@Nullable Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
+        /**
+         * @param clientId Unique identifier issued by AS for the Okta IdP instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
+        /**
+         * @param clientSecret Client secret issued by AS for the Okta IdP instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecret(@Nullable Output<String> clientSecret) {
             $.clientSecret = clientSecret;
             return this;
         }
 
+        /**
+         * @param clientSecret Client secret issued by AS for the Okta IdP instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
         }
 
+        /**
+         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deprovisionedAction(@Nullable Output<String> deprovisionedAction) {
             $.deprovisionedAction = deprovisionedAction;
             return this;
         }
 
+        /**
+         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deprovisionedAction(String deprovisionedAction) {
             return deprovisionedAction(Output.of(deprovisionedAction));
         }
 
+        /**
+         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupsAction(@Nullable Output<String> groupsAction) {
             $.groupsAction = groupsAction;
             return this;
         }
 
+        /**
+         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupsAction(String groupsAction) {
             return groupsAction(Output.of(groupsAction));
         }
 
+        /**
+         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupsAssignments(@Nullable Output<List<String>> groupsAssignments) {
             $.groupsAssignments = groupsAssignments;
             return this;
         }
 
+        /**
+         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupsAssignments(List<String> groupsAssignments) {
             return groupsAssignments(Output.of(groupsAssignments));
         }
 
+        /**
+         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupsAssignments(String... groupsAssignments) {
             return groupsAssignments(List.of(groupsAssignments));
         }
 
+        /**
+         * @param groupsAttribute IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupsAttribute(@Nullable Output<String> groupsAttribute) {
             $.groupsAttribute = groupsAttribute;
             return this;
         }
 
+        /**
+         * @param groupsAttribute IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupsAttribute(String groupsAttribute) {
             return groupsAttribute(Output.of(groupsAttribute));
         }
 
+        /**
+         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupsFilters(@Nullable Output<List<String>> groupsFilters) {
             $.groupsFilters = groupsFilters;
             return this;
         }
 
+        /**
+         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupsFilters(List<String> groupsFilters) {
             return groupsFilters(Output.of(groupsFilters));
         }
 
+        /**
+         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupsFilters(String... groupsFilters) {
             return groupsFilters(List.of(groupsFilters));
         }
 
         /**
-         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
          * 
          * @return builder
          * 
@@ -458,7 +744,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
+         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
          * 
          * @return builder
          * 
@@ -467,17 +753,29 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
             return issuerMode(Output.of(issuerMode));
         }
 
+        /**
+         * @param maxClockSkew Maximum allowable clock-skew when processing messages from the IdP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxClockSkew(@Nullable Output<Integer> maxClockSkew) {
             $.maxClockSkew = maxClockSkew;
             return this;
         }
 
+        /**
+         * @param maxClockSkew Maximum allowable clock-skew when processing messages from the IdP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxClockSkew(Integer maxClockSkew) {
             return maxClockSkew(Output.of(maxClockSkew));
         }
 
         /**
-         * @param name Name of the IdP
+         * @param name The Application&#39;s display name.
          * 
          * @return builder
          * 
@@ -488,7 +786,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the IdP
+         * @param name The Application&#39;s display name.
          * 
          * @return builder
          * 
@@ -497,84 +795,186 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param profileMaster Determines if the IdP should act as a source of truth for user profile attributes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder profileMaster(@Nullable Output<Boolean> profileMaster) {
             $.profileMaster = profileMaster;
             return this;
         }
 
+        /**
+         * @param profileMaster Determines if the IdP should act as a source of truth for user profile attributes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder profileMaster(Boolean profileMaster) {
             return profileMaster(Output.of(profileMaster));
         }
 
+        /**
+         * @param protocolType The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocolType(@Nullable Output<String> protocolType) {
             $.protocolType = protocolType;
             return this;
         }
 
+        /**
+         * @param protocolType The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocolType(String protocolType) {
             return protocolType(Output.of(protocolType));
         }
 
+        /**
+         * @param provisioningAction Provisioning action for an IdP user during authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder provisioningAction(@Nullable Output<String> provisioningAction) {
             $.provisioningAction = provisioningAction;
             return this;
         }
 
+        /**
+         * @param provisioningAction Provisioning action for an IdP user during authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder provisioningAction(String provisioningAction) {
             return provisioningAction(Output.of(provisioningAction));
         }
 
+        /**
+         * @param scopes The scopes of the IdP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopes(Output<List<String>> scopes) {
             $.scopes = scopes;
             return this;
         }
 
+        /**
+         * @param scopes The scopes of the IdP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopes(List<String> scopes) {
             return scopes(Output.of(scopes));
         }
 
+        /**
+         * @param scopes The scopes of the IdP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopes(String... scopes) {
             return scopes(List.of(scopes));
         }
 
+        /**
+         * @param status Status of the IdP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status Status of the IdP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
+        /**
+         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectMatchAttribute(@Nullable Output<String> subjectMatchAttribute) {
             $.subjectMatchAttribute = subjectMatchAttribute;
             return this;
         }
 
+        /**
+         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectMatchAttribute(String subjectMatchAttribute) {
             return subjectMatchAttribute(Output.of(subjectMatchAttribute));
         }
 
+        /**
+         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectMatchType(@Nullable Output<String> subjectMatchType) {
             $.subjectMatchType = subjectMatchType;
             return this;
         }
 
+        /**
+         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectMatchType(String subjectMatchType) {
             return subjectMatchType(Output.of(subjectMatchType));
         }
 
+        /**
+         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+         * 
+         * @return builder
+         * 
+         */
         public Builder suspendedAction(@Nullable Output<String> suspendedAction) {
             $.suspendedAction = suspendedAction;
             return this;
         }
 
+        /**
+         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+         * 
+         * @return builder
+         * 
+         */
         public Builder suspendedAction(String suspendedAction) {
             return suspendedAction(Output.of(suspendedAction));
         }
 
         /**
-         * @param type Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+         * @param type The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
          * 
          * @return builder
          * 
@@ -585,7 +985,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+         * @param type The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
          * 
          * @return builder
          * 
@@ -594,11 +994,23 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
             return type(Output.of(type));
         }
 
+        /**
+         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder usernameTemplate(@Nullable Output<String> usernameTemplate) {
             $.usernameTemplate = usernameTemplate;
             return this;
         }
 
+        /**
+         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder usernameTemplate(String usernameTemplate) {
             return usernameTemplate(Output.of(usernameTemplate));
         }

@@ -18,8 +18,8 @@ class PolicyProfileEnrollmentArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PolicyProfileEnrollment resource.
-        :param pulumi.Input[str] name: Name of the policy
-        :param pulumi.Input[str] status: Status of the policy
+        :param pulumi.Input[str] name: Policy Name.
+        :param pulumi.Input[str] status: Status of the policy.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -30,7 +30,7 @@ class PolicyProfileEnrollmentArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the policy
+        Policy Name.
         """
         return pulumi.get(self, "name")
 
@@ -42,7 +42,7 @@ class PolicyProfileEnrollmentArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of the policy
+        Status of the policy.
         """
         return pulumi.get(self, "status")
 
@@ -58,8 +58,8 @@ class _PolicyProfileEnrollmentState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PolicyProfileEnrollment resources.
-        :param pulumi.Input[str] name: Name of the policy
-        :param pulumi.Input[str] status: Status of the policy
+        :param pulumi.Input[str] name: Policy Name.
+        :param pulumi.Input[str] status: Status of the policy.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -70,7 +70,7 @@ class _PolicyProfileEnrollmentState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the policy
+        Policy Name.
         """
         return pulumi.get(self, "name")
 
@@ -82,7 +82,7 @@ class _PolicyProfileEnrollmentState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of the policy
+        Status of the policy.
         """
         return pulumi.get(self, "status")
 
@@ -100,11 +100,31 @@ class PolicyProfileEnrollment(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a PolicyProfileEnrollment resource with the given unique name, props, and options.
+        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+
+        This resource allows you to create and configure a Profile Enrollment Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.PolicyProfileEnrollment("example", status="ACTIVE")
+        ```
+
+        ## Import
+
+        A Profile Enrollment Policy can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &#60;policy id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the policy
-        :param pulumi.Input[str] status: Status of the policy
+        :param pulumi.Input[str] name: Policy Name.
+        :param pulumi.Input[str] status: Status of the policy.
         """
         ...
     @overload
@@ -113,7 +133,27 @@ class PolicyProfileEnrollment(pulumi.CustomResource):
                  args: Optional[PolicyProfileEnrollmentArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PolicyProfileEnrollment resource with the given unique name, props, and options.
+        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+
+        This resource allows you to create and configure a Profile Enrollment Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.PolicyProfileEnrollment("example", status="ACTIVE")
+        ```
+
+        ## Import
+
+        A Profile Enrollment Policy can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &#60;policy id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param PolicyProfileEnrollmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,8 +201,8 @@ class PolicyProfileEnrollment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the policy
-        :param pulumi.Input[str] status: Status of the policy
+        :param pulumi.Input[str] name: Policy Name.
+        :param pulumi.Input[str] status: Status of the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -176,7 +216,7 @@ class PolicyProfileEnrollment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the policy
+        Policy Name.
         """
         return pulumi.get(self, "name")
 
@@ -184,7 +224,7 @@ class PolicyProfileEnrollment(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        Status of the policy
+        Status of the policy.
         """
         return pulumi.get(self, "status")
 

@@ -6,6 +6,32 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * > **DEPRECATED** use `okta.Index.EmailDomain` instead.
+ *
+ * This resource allows you to create and configure a custom email sender.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.EmailSender("example", {
+ *     fromAddress: "no-reply@caladan.planet",
+ *     fromName: "Paul Atreides",
+ *     subdomain: "mail",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Custom email sender can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/emailSender:EmailSender example &#60;sender id&#62;
+ * ```
+ */
 export class EmailSender extends pulumi.CustomResource {
     /**
      * Get an existing EmailSender resource's state with the given name, ID, and optional extra
@@ -35,23 +61,23 @@ export class EmailSender extends pulumi.CustomResource {
     }
 
     /**
-     * TXT and CNAME records to be registered for the Domain
+     * TXT and CNAME records to be registered for the domain.
      */
     public /*out*/ readonly dnsRecords!: pulumi.Output<outputs.EmailSenderDnsRecord[]>;
     /**
-     * Email address to send from
+     * Email address to send from.
      */
     public readonly fromAddress!: pulumi.Output<string>;
     /**
-     * Name of sender
+     * Name of sender.
      */
     public readonly fromName!: pulumi.Output<string>;
     /**
-     * Verification status
+     * Status of the sender (shows whether the sender is verified).
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Mail domain to send from
+     * Mail domain to send from.
      */
     public readonly subdomain!: pulumi.Output<string>;
 
@@ -100,23 +126,23 @@ export class EmailSender extends pulumi.CustomResource {
  */
 export interface EmailSenderState {
     /**
-     * TXT and CNAME records to be registered for the Domain
+     * TXT and CNAME records to be registered for the domain.
      */
     dnsRecords?: pulumi.Input<pulumi.Input<inputs.EmailSenderDnsRecord>[]>;
     /**
-     * Email address to send from
+     * Email address to send from.
      */
     fromAddress?: pulumi.Input<string>;
     /**
-     * Name of sender
+     * Name of sender.
      */
     fromName?: pulumi.Input<string>;
     /**
-     * Verification status
+     * Status of the sender (shows whether the sender is verified).
      */
     status?: pulumi.Input<string>;
     /**
-     * Mail domain to send from
+     * Mail domain to send from.
      */
     subdomain?: pulumi.Input<string>;
 }
@@ -126,15 +152,15 @@ export interface EmailSenderState {
  */
 export interface EmailSenderArgs {
     /**
-     * Email address to send from
+     * Email address to send from.
      */
     fromAddress: pulumi.Input<string>;
     /**
-     * Name of sender
+     * Name of sender.
      */
     fromName: pulumi.Input<string>;
     /**
-     * Mail domain to send from
+     * Mail domain to send from.
      */
     subdomain: pulumi.Input<string>;
 }

@@ -16,14 +16,14 @@ public final class EventHookVerificationState extends com.pulumi.resources.Resou
     public static final EventHookVerificationState Empty = new EventHookVerificationState();
 
     /**
-     * Event hook ID
+     * Event Hook ID.
      * 
      */
     @Import(name="eventHookId")
     private @Nullable Output<String> eventHookId;
 
     /**
-     * @return Event hook ID
+     * @return Event Hook ID.
      * 
      */
     public Optional<Output<String>> eventHookId() {
@@ -55,7 +55,7 @@ public final class EventHookVerificationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param eventHookId Event hook ID
+         * @param eventHookId Event Hook ID.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class EventHookVerificationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param eventHookId Event hook ID
+         * @param eventHookId Event Hook ID.
          * 
          * @return builder
          * 

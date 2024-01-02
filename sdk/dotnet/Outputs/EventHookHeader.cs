@@ -13,7 +13,13 @@ namespace Pulumi.Okta.Outputs
     [OutputType]
     public sealed class EventHookHeader
     {
+        /// <summary>
+        /// Key to use for authentication, usually the header name, for example `"Authorization"`.
+        /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// Authentication secret.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

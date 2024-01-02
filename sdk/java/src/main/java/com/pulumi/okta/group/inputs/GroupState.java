@@ -17,14 +17,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     public static final GroupState Empty = new GroupState();
 
     /**
-     * JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
+     * raw JSON containing all custom profile attributes.
      * 
      */
     @Import(name="customProfileAttributes")
     private @Nullable Output<String> customProfileAttributes;
 
     /**
-     * @return JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
+     * @return raw JSON containing all custom profile attributes.
      * 
      */
     public Optional<Output<String>> customProfileAttributes() {
@@ -32,14 +32,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Group description
+     * The description of the Okta Group.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Group description
+     * @return The description of the Okta Group.
      * 
      */
     public Optional<Output<String>> description() {
@@ -47,14 +47,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Group name
+     * The name of the Okta Group.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Group name
+     * @return The name of the Okta Group.
      * 
      */
     public Optional<Output<String>> name() {
@@ -112,7 +112,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customProfileAttributes JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
+         * @param customProfileAttributes raw JSON containing all custom profile attributes.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customProfileAttributes JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
+         * @param customProfileAttributes raw JSON containing all custom profile attributes.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Group description
+         * @param description The description of the Okta Group.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Group description
+         * @param description The description of the Okta Group.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Group name
+         * @param name The name of the Okta Group.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Group name
+         * @param name The name of the Okta Group.
          * 
          * @return builder
          * 

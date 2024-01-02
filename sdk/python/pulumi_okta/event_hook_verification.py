@@ -17,7 +17,7 @@ class EventHookVerificationArgs:
                  event_hook_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a EventHookVerification resource.
-        :param pulumi.Input[str] event_hook_id: Event hook ID
+        :param pulumi.Input[str] event_hook_id: Event Hook ID.
         """
         pulumi.set(__self__, "event_hook_id", event_hook_id)
 
@@ -25,7 +25,7 @@ class EventHookVerificationArgs:
     @pulumi.getter(name="eventHookId")
     def event_hook_id(self) -> pulumi.Input[str]:
         """
-        Event hook ID
+        Event Hook ID.
         """
         return pulumi.get(self, "event_hook_id")
 
@@ -40,7 +40,7 @@ class _EventHookVerificationState:
                  event_hook_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EventHookVerification resources.
-        :param pulumi.Input[str] event_hook_id: Event hook ID
+        :param pulumi.Input[str] event_hook_id: Event Hook ID.
         """
         if event_hook_id is not None:
             pulumi.set(__self__, "event_hook_id", event_hook_id)
@@ -49,7 +49,7 @@ class _EventHookVerificationState:
     @pulumi.getter(name="eventHookId")
     def event_hook_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Event hook ID
+        Event Hook ID.
         """
         return pulumi.get(self, "event_hook_id")
 
@@ -66,10 +66,41 @@ class EventHookVerification(pulumi.CustomResource):
                  event_hook_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a EventHookVerification resource with the given unique name, props, and options.
+        Verifies the Event Hook. The resource won't be created unless the URI provided in the event hook returns a valid
+        JSON object with verification. See [Event Hooks](https://developer.okta.com/docs/concepts/event-hooks/#one-time-verification-request)
+        documentation for details.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_event_hook = okta.EventHook("exampleEventHook",
+            events=[
+                "user.lifecycle.create",
+                "user.lifecycle.delete.initiated",
+            ],
+            channel={
+                "type": "HTTP",
+                "version": "1.0.0",
+                "uri": "https://example.com/test",
+            },
+            auth={
+                "type": "HEADER",
+                "key": "Authorization",
+                "value": "123",
+            })
+        example_event_hook_verification = okta.EventHookVerification("exampleEventHookVerification", event_hook_id=example_event_hook.id)
+        ```
+
+        ## Import
+
+        This resource does not support importing.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] event_hook_id: Event hook ID
+        :param pulumi.Input[str] event_hook_id: Event Hook ID.
         """
         ...
     @overload
@@ -78,7 +109,38 @@ class EventHookVerification(pulumi.CustomResource):
                  args: EventHookVerificationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a EventHookVerification resource with the given unique name, props, and options.
+        Verifies the Event Hook. The resource won't be created unless the URI provided in the event hook returns a valid
+        JSON object with verification. See [Event Hooks](https://developer.okta.com/docs/concepts/event-hooks/#one-time-verification-request)
+        documentation for details.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_event_hook = okta.EventHook("exampleEventHook",
+            events=[
+                "user.lifecycle.create",
+                "user.lifecycle.delete.initiated",
+            ],
+            channel={
+                "type": "HTTP",
+                "version": "1.0.0",
+                "uri": "https://example.com/test",
+            },
+            auth={
+                "type": "HEADER",
+                "key": "Authorization",
+                "value": "123",
+            })
+        example_event_hook_verification = okta.EventHookVerification("exampleEventHookVerification", event_hook_id=example_event_hook.id)
+        ```
+
+        ## Import
+
+        This resource does not support importing.
+
         :param str resource_name: The name of the resource.
         :param EventHookVerificationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +187,7 @@ class EventHookVerification(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] event_hook_id: Event hook ID
+        :param pulumi.Input[str] event_hook_id: Event Hook ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -138,7 +200,7 @@ class EventHookVerification(pulumi.CustomResource):
     @pulumi.getter(name="eventHookId")
     def event_hook_id(self) -> pulumi.Output[str]:
         """
-        Event hook ID
+        Event Hook ID.
         """
         return pulumi.get(self, "event_hook_id")
 

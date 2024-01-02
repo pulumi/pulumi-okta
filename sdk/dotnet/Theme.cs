@@ -9,17 +9,32 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// This resource allows you to get and update an Okta
+    /// [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-object).
+    /// 
+    /// The Okta Management API does not have a true Create or Delete for a theme. Therefore, the theme resource must be imported
+    /// first into the pulumi state before updates can be applied to the theme.
+    /// 
+    /// ## Import
+    /// 
+    /// An Okta Brand can be imported via the ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/theme:Theme example &amp;#60;brand id&amp;#62;/&amp;#60;theme id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/theme:Theme")]
     public partial class Theme : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Path to local file
+        /// (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
         /// </summary>
         [Output("backgroundImage")]
         public Output<string?> BackgroundImage { get; private set; } = null!;
 
         /// <summary>
-        /// Background image URL
+        /// (Read-Only) Background image URL
         /// </summary>
         [Output("backgroundImageUrl")]
         public Output<string> BackgroundImageUrl { get; private set; } = null!;
@@ -31,85 +46,85 @@ namespace Pulumi.Okta
         public Output<string> BrandId { get; private set; } = null!;
 
         /// <summary>
-        /// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+        /// (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
         /// </summary>
         [Output("emailTemplateTouchPointVariant")]
         public Output<string?> EmailTemplateTouchPointVariant { get; private set; } = null!;
 
         /// <summary>
-        /// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+        /// (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
         /// </summary>
         [Output("endUserDashboardTouchPointVariant")]
         public Output<string?> EndUserDashboardTouchPointVariant { get; private set; } = null!;
 
         /// <summary>
-        /// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        /// (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         /// </summary>
         [Output("errorPageTouchPointVariant")]
         public Output<string?> ErrorPageTouchPointVariant { get; private set; } = null!;
 
         /// <summary>
-        /// Path to local file
+        /// (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
         /// </summary>
         [Output("favicon")]
         public Output<string?> Favicon { get; private set; } = null!;
 
         /// <summary>
-        /// Favicon URL
+        /// (Read-Only) Favicon URL
         /// </summary>
         [Output("faviconUrl")]
         public Output<string> FaviconUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Link relations for this object - JSON HAL - Discoverable resources related to the email template
+        /// Link relations for this object - JSON HAL - (Read-Only) Discoverable resources related to the brand
         /// </summary>
         [Output("links")]
         public Output<string> Links { get; private set; } = null!;
 
         /// <summary>
-        /// Path to local file
+        /// (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
         /// </summary>
         [Output("logo")]
         public Output<string?> Logo { get; private set; } = null!;
 
         /// <summary>
-        /// Logo URL
+        /// (Read-Only) Logo URL
         /// </summary>
         [Output("logoUrl")]
         public Output<string> LogoUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Primary color contrast hex code
+        /// (Optional) Primary color contrast hex code
         /// </summary>
         [Output("primaryColorContrastHex")]
         public Output<string?> PrimaryColorContrastHex { get; private set; } = null!;
 
         /// <summary>
-        /// Primary color hex code
+        /// (Required) Primary color hex code
         /// </summary>
         [Output("primaryColorHex")]
         public Output<string?> PrimaryColorHex { get; private set; } = null!;
 
         /// <summary>
-        /// Secondary color contrast hex code
+        /// (Optional) Secondary color contrast hex code
         /// </summary>
         [Output("secondaryColorContrastHex")]
         public Output<string?> SecondaryColorContrastHex { get; private set; } = null!;
 
         /// <summary>
-        /// Secondary color hex code
+        /// (Required) Secondary color hex code
         /// </summary>
         [Output("secondaryColorHex")]
         public Output<string?> SecondaryColorHex { get; private set; } = null!;
 
         /// <summary>
-        /// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        /// (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         /// </summary>
         [Output("signInPageTouchPointVariant")]
         public Output<string?> SignInPageTouchPointVariant { get; private set; } = null!;
 
         /// <summary>
-        /// Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
+        /// Theme ID, used for read (faux-create)
         /// </summary>
         [Output("themeId")]
         public Output<string?> ThemeId { get; private set; } = null!;
@@ -161,7 +176,7 @@ namespace Pulumi.Okta
     public sealed class ThemeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path to local file
+        /// (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
         /// </summary>
         [Input("backgroundImage")]
         public Input<string>? BackgroundImage { get; set; }
@@ -173,67 +188,67 @@ namespace Pulumi.Okta
         public Input<string> BrandId { get; set; } = null!;
 
         /// <summary>
-        /// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+        /// (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
         /// </summary>
         [Input("emailTemplateTouchPointVariant")]
         public Input<string>? EmailTemplateTouchPointVariant { get; set; }
 
         /// <summary>
-        /// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+        /// (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
         /// </summary>
         [Input("endUserDashboardTouchPointVariant")]
         public Input<string>? EndUserDashboardTouchPointVariant { get; set; }
 
         /// <summary>
-        /// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        /// (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         /// </summary>
         [Input("errorPageTouchPointVariant")]
         public Input<string>? ErrorPageTouchPointVariant { get; set; }
 
         /// <summary>
-        /// Path to local file
+        /// (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
         /// </summary>
         [Input("favicon")]
         public Input<string>? Favicon { get; set; }
 
         /// <summary>
-        /// Path to local file
+        /// (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
 
         /// <summary>
-        /// Primary color contrast hex code
+        /// (Optional) Primary color contrast hex code
         /// </summary>
         [Input("primaryColorContrastHex")]
         public Input<string>? PrimaryColorContrastHex { get; set; }
 
         /// <summary>
-        /// Primary color hex code
+        /// (Required) Primary color hex code
         /// </summary>
         [Input("primaryColorHex")]
         public Input<string>? PrimaryColorHex { get; set; }
 
         /// <summary>
-        /// Secondary color contrast hex code
+        /// (Optional) Secondary color contrast hex code
         /// </summary>
         [Input("secondaryColorContrastHex")]
         public Input<string>? SecondaryColorContrastHex { get; set; }
 
         /// <summary>
-        /// Secondary color hex code
+        /// (Required) Secondary color hex code
         /// </summary>
         [Input("secondaryColorHex")]
         public Input<string>? SecondaryColorHex { get; set; }
 
         /// <summary>
-        /// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        /// (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         /// </summary>
         [Input("signInPageTouchPointVariant")]
         public Input<string>? SignInPageTouchPointVariant { get; set; }
 
         /// <summary>
-        /// Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
+        /// Theme ID, used for read (faux-create)
         /// </summary>
         [Input("themeId")]
         public Input<string>? ThemeId { get; set; }
@@ -247,13 +262,13 @@ namespace Pulumi.Okta
     public sealed class ThemeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path to local file
+        /// (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
         /// </summary>
         [Input("backgroundImage")]
         public Input<string>? BackgroundImage { get; set; }
 
         /// <summary>
-        /// Background image URL
+        /// (Read-Only) Background image URL
         /// </summary>
         [Input("backgroundImageUrl")]
         public Input<string>? BackgroundImageUrl { get; set; }
@@ -265,85 +280,85 @@ namespace Pulumi.Okta
         public Input<string>? BrandId { get; set; }
 
         /// <summary>
-        /// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+        /// (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
         /// </summary>
         [Input("emailTemplateTouchPointVariant")]
         public Input<string>? EmailTemplateTouchPointVariant { get; set; }
 
         /// <summary>
-        /// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+        /// (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
         /// </summary>
         [Input("endUserDashboardTouchPointVariant")]
         public Input<string>? EndUserDashboardTouchPointVariant { get; set; }
 
         /// <summary>
-        /// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        /// (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         /// </summary>
         [Input("errorPageTouchPointVariant")]
         public Input<string>? ErrorPageTouchPointVariant { get; set; }
 
         /// <summary>
-        /// Path to local file
+        /// (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
         /// </summary>
         [Input("favicon")]
         public Input<string>? Favicon { get; set; }
 
         /// <summary>
-        /// Favicon URL
+        /// (Read-Only) Favicon URL
         /// </summary>
         [Input("faviconUrl")]
         public Input<string>? FaviconUrl { get; set; }
 
         /// <summary>
-        /// Link relations for this object - JSON HAL - Discoverable resources related to the email template
+        /// Link relations for this object - JSON HAL - (Read-Only) Discoverable resources related to the brand
         /// </summary>
         [Input("links")]
         public Input<string>? Links { get; set; }
 
         /// <summary>
-        /// Path to local file
+        /// (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
 
         /// <summary>
-        /// Logo URL
+        /// (Read-Only) Logo URL
         /// </summary>
         [Input("logoUrl")]
         public Input<string>? LogoUrl { get; set; }
 
         /// <summary>
-        /// Primary color contrast hex code
+        /// (Optional) Primary color contrast hex code
         /// </summary>
         [Input("primaryColorContrastHex")]
         public Input<string>? PrimaryColorContrastHex { get; set; }
 
         /// <summary>
-        /// Primary color hex code
+        /// (Required) Primary color hex code
         /// </summary>
         [Input("primaryColorHex")]
         public Input<string>? PrimaryColorHex { get; set; }
 
         /// <summary>
-        /// Secondary color contrast hex code
+        /// (Optional) Secondary color contrast hex code
         /// </summary>
         [Input("secondaryColorContrastHex")]
         public Input<string>? SecondaryColorContrastHex { get; set; }
 
         /// <summary>
-        /// Secondary color hex code
+        /// (Required) Secondary color hex code
         /// </summary>
         [Input("secondaryColorHex")]
         public Input<string>? SecondaryColorHex { get; set; }
 
         /// <summary>
-        /// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        /// (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         /// </summary>
         [Input("signInPageTouchPointVariant")]
         public Input<string>? SignInPageTouchPointVariant { get; set; }
 
         /// <summary>
-        /// Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
+        /// Theme ID, used for read (faux-create)
         /// </summary>
         [Input("themeId")]
         public Input<string>? ThemeId { get; set; }

@@ -10,7 +10,36 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// Resource to manage a set of group memberships for a specific user.
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testUser = new Okta.User.User("testUser", new()
+    ///     {
+    ///         FirstName = "TestAcc",
+    ///         LastName = "Smith",
+    ///         Login = "testAcc-replace_with_uuid@example.com",
+    ///         Email = "testAcc-replace_with_uuid@example.com",
+    ///     });
+    /// 
+    ///     var testUserGroupMemberships = new Okta.UserGroupMemberships("testUserGroupMemberships", new()
+    ///     {
+    ///         UserId = testUser.Id,
+    ///         Groups = new[]
+    ///         {
+    ///             okta_group.Test_1.Id,
+    ///             okta_group.Test_2.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [OktaResourceType("okta:index/userGroupMemberships:UserGroupMemberships")]
     public partial class UserGroupMemberships : global::Pulumi.CustomResource
@@ -22,7 +51,7 @@ namespace Pulumi.Okta
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
         /// <summary>
-        /// ID of a Okta User
+        /// Okta user ID.
         /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
@@ -86,7 +115,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// ID of a Okta User
+        /// Okta user ID.
         /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
@@ -112,7 +141,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// ID of a Okta User
+        /// Okta user ID.
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }

@@ -13,37 +13,41 @@ namespace Pulumi.Okta.App.Inputs
     public sealed class SamlAttributeStatementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of group attribute filter
+        /// Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
         /// </summary>
         [Input("filterType")]
         public Input<string>? FilterType { get; set; }
 
         /// <summary>
-        /// Filter value to use
+        /// Filter value to use.
         /// </summary>
         [Input("filterValue")]
         public Input<string>? FilterValue { get; set; }
 
         /// <summary>
-        /// The reference name of the attribute statement
+        /// The name of the attribute statement.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name format of the attribute
+        /// The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
         /// <summary>
-        /// The type of attribute statements object
+        /// The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// Array of values to use.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

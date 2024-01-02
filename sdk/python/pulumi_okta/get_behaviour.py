@@ -96,11 +96,12 @@ def get_behaviour(id: Optional[str] = None,
                   name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBehaviourResult:
     """
-    Get a behavior by name or ID.
+    Use this data source to retrieve a behavior from Okta.
 
 
-    :param str id: Behavior ID.
-    :param str name: Behavior name.
+    :param str id: `id` of behavior to retrieve, conflicts with `name`.
+    :param str name: The name of the behavior to retrieve. Name uses the `?q=<name>` query parameter exposed by 
+           Okta's API.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -121,10 +122,11 @@ def get_behaviour_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                          name: Optional[pulumi.Input[Optional[str]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBehaviourResult]:
     """
-    Get a behavior by name or ID.
+    Use this data source to retrieve a behavior from Okta.
 
 
-    :param str id: Behavior ID.
-    :param str name: Behavior name.
+    :param str id: `id` of behavior to retrieve, conflicts with `name`.
+    :param str name: The name of the behavior to retrieve. Name uses the `?q=<name>` query parameter exposed by 
+           Okta's API.
     """
     ...

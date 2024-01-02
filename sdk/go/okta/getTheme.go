@@ -11,7 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get a single Theme of a Brand of an Okta Organization.
+// Use this data source to retrieve a
+// [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+// of a brand for an Okta orgnanization.
 func LookupTheme(ctx *pulumi.Context, args *LookupThemeArgs, opts ...pulumi.InvokeOption) (*LookupThemeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupThemeResult
@@ -34,19 +36,18 @@ type LookupThemeArgs struct {
 type LookupThemeResult struct {
 	// Background image URL
 	BackgroundImageUrl string `pulumi:"backgroundImageUrl"`
-	// Brand ID
-	BrandId string `pulumi:"brandId"`
-	// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+	BrandId            string `pulumi:"brandId"`
+	// (Enum) Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
 	EmailTemplateTouchPointVariant string `pulumi:"emailTemplateTouchPointVariant"`
-	// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+	// (Enum) Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
 	EndUserDashboardTouchPointVariant string `pulumi:"endUserDashboardTouchPointVariant"`
-	// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	// (Enum) Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	ErrorPageTouchPointVariant string `pulumi:"errorPageTouchPointVariant"`
 	// Favicon URL
 	FaviconUrl string `pulumi:"faviconUrl"`
-	// The ID of the theme
+	// Theme URL
 	Id string `pulumi:"id"`
-	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
+	// Link relations for this object - JSON HAL - Discoverable resources related to the brand
 	Links string `pulumi:"links"`
 	// Logo URL
 	LogoUrl string `pulumi:"logoUrl"`
@@ -58,10 +59,9 @@ type LookupThemeResult struct {
 	SecondaryColorContrastHex string `pulumi:"secondaryColorContrastHex"`
 	// Secondary color hex code
 	SecondaryColorHex string `pulumi:"secondaryColorHex"`
-	// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	// (Enum) Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	SignInPageTouchPointVariant string `pulumi:"signInPageTouchPointVariant"`
-	// Theme ID
-	ThemeId string `pulumi:"themeId"`
+	ThemeId                     string `pulumi:"themeId"`
 }
 
 func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...pulumi.InvokeOption) LookupThemeResultOutput {
@@ -109,22 +109,21 @@ func (o LookupThemeResultOutput) BackgroundImageUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.BackgroundImageUrl }).(pulumi.StringOutput)
 }
 
-// Brand ID
 func (o LookupThemeResultOutput) BrandId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.BrandId }).(pulumi.StringOutput)
 }
 
-// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+// (Enum) Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
 func (o LookupThemeResultOutput) EmailTemplateTouchPointVariant() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.EmailTemplateTouchPointVariant }).(pulumi.StringOutput)
 }
 
-// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+// (Enum) Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
 func (o LookupThemeResultOutput) EndUserDashboardTouchPointVariant() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.EndUserDashboardTouchPointVariant }).(pulumi.StringOutput)
 }
 
-// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+// (Enum) Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 func (o LookupThemeResultOutput) ErrorPageTouchPointVariant() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.ErrorPageTouchPointVariant }).(pulumi.StringOutput)
 }
@@ -134,12 +133,12 @@ func (o LookupThemeResultOutput) FaviconUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.FaviconUrl }).(pulumi.StringOutput)
 }
 
-// The ID of the theme
+// Theme URL
 func (o LookupThemeResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Link relations for this object - JSON HAL - Discoverable resources related to the email template
+// Link relations for this object - JSON HAL - Discoverable resources related to the brand
 func (o LookupThemeResultOutput) Links() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.Links }).(pulumi.StringOutput)
 }
@@ -169,12 +168,11 @@ func (o LookupThemeResultOutput) SecondaryColorHex() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.SecondaryColorHex }).(pulumi.StringOutput)
 }
 
-// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+// (Enum) Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 func (o LookupThemeResultOutput) SignInPageTouchPointVariant() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.SignInPageTouchPointVariant }).(pulumi.StringOutput)
 }
 
-// Theme ID
 func (o LookupThemeResultOutput) ThemeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThemeResult) string { return v.ThemeId }).(pulumi.StringOutput)
 }

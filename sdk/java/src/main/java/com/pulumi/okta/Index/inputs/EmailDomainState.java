@@ -18,14 +18,14 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
     public static final EmailDomainState Empty = new EmailDomainState();
 
     /**
-     * Brand id
+     * Brand id of the email domain.
      * 
      */
     @Import(name="brandId")
     private @Nullable Output<String> brandId;
 
     /**
-     * @return Brand id
+     * @return Brand id of the email domain.
      * 
      */
     public Optional<Output<String>> brandId() {
@@ -33,14 +33,14 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Display name
+     * Display name of the email domain.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return Display name
+     * @return Display name of the email domain.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -48,14 +48,14 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * TXT and cname records to be registered for the email Domain
+     * TXT and CNAME records to be registered for the domain.
      * 
      */
     @Import(name="dnsValidationRecords")
     private @Nullable Output<List<EmailDomainDnsValidationRecordArgs>> dnsValidationRecords;
 
     /**
-     * @return TXT and cname records to be registered for the email Domain
+     * @return TXT and CNAME records to be registered for the domain.
      * 
      */
     public Optional<Output<List<EmailDomainDnsValidationRecordArgs>>> dnsValidationRecords() {
@@ -63,14 +63,14 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Domain name
+     * Mail domain to send from.
      * 
      */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
     /**
-     * @return Domain name
+     * @return Mail domain to send from.
      * 
      */
     public Optional<Output<String>> domain() {
@@ -78,14 +78,14 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User name
+     * User name of the email domain.
      * 
      */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
     /**
-     * @return User name
+     * @return User name of the email domain.
      * 
      */
     public Optional<Output<String>> userName() {
@@ -93,14 +93,14 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
+     * Status of the email domain (shows whether the domain is verified).
      * 
      */
     @Import(name="validationStatus")
     private @Nullable Output<String> validationStatus;
 
     /**
-     * @return Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
+     * @return Status of the email domain (shows whether the domain is verified).
      * 
      */
     public Optional<Output<String>> validationStatus() {
@@ -137,7 +137,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brandId Brand id
+         * @param brandId Brand id of the email domain.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brandId Brand id
+         * @param brandId Brand id of the email domain.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Display name
+         * @param displayName Display name of the email domain.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Display name
+         * @param displayName Display name of the email domain.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsValidationRecords TXT and cname records to be registered for the email Domain
+         * @param dnsValidationRecords TXT and CNAME records to be registered for the domain.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsValidationRecords TXT and cname records to be registered for the email Domain
+         * @param dnsValidationRecords TXT and CNAME records to be registered for the domain.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsValidationRecords TXT and cname records to be registered for the email Domain
+         * @param dnsValidationRecords TXT and CNAME records to be registered for the domain.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain Domain name
+         * @param domain Mail domain to send from.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain Domain name
+         * @param domain Mail domain to send from.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userName User name
+         * @param userName User name of the email domain.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userName User name
+         * @param userName User name of the email domain.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationStatus Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
+         * @param validationStatus Status of the email domain (shows whether the domain is verified).
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationStatus Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
+         * @param validationStatus Status of the email domain (shows whether the domain is verified).
          * 
          * @return builder
          * 

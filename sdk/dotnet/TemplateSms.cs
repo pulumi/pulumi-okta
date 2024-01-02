@@ -9,15 +9,63 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// Creates an Okta SMS Template.
+    /// 
+    /// This resource allows you to create and configure an Okta SMS Template.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.TemplateSms("example", new()
+    ///     {
+    ///         Template = "Your ${org.name} code is: ${code}",
+    ///         Translations = new[]
+    ///         {
+    ///             new Okta.Inputs.TemplateSmsTranslationArgs
+    ///             {
+    ///                 Language = "en",
+    ///                 Template = "Your ${org.name} code is: ${code}",
+    ///             },
+    ///             new Okta.Inputs.TemplateSmsTranslationArgs
+    ///             {
+    ///                 Language = "es",
+    ///                 Template = "Tu código de ${org.name} es: ${code}.",
+    ///             },
+    ///         },
+    ///         Type = "SMS_VERIFY_CODE",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An Okta SMS Template can be imported via the template type.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/templateSms:TemplateSms example &amp;#60;template type&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/templateSms:TemplateSms")]
     public partial class TemplateSms : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// SMS default template
+        /// The SMS message.
         /// </summary>
         [Output("template")]
         public Output<string> Template { get; private set; } = null!;
 
+        /// <summary>
+        /// Set of translations for a particular template.
+        /// </summary>
         [Output("translations")]
         public Output<ImmutableArray<Outputs.TemplateSmsTranslation>> Translations { get; private set; } = null!;
 
@@ -74,13 +122,17 @@ namespace Pulumi.Okta
     public sealed class TemplateSmsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// SMS default template
+        /// The SMS message.
         /// </summary>
         [Input("template", required: true)]
         public Input<string> Template { get; set; } = null!;
 
         [Input("translations")]
         private InputList<Inputs.TemplateSmsTranslationArgs>? _translations;
+
+        /// <summary>
+        /// Set of translations for a particular template.
+        /// </summary>
         public InputList<Inputs.TemplateSmsTranslationArgs> Translations
         {
             get => _translations ?? (_translations = new InputList<Inputs.TemplateSmsTranslationArgs>());
@@ -102,13 +154,17 @@ namespace Pulumi.Okta
     public sealed class TemplateSmsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// SMS default template
+        /// The SMS message.
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }
 
         [Input("translations")]
         private InputList<Inputs.TemplateSmsTranslationGetArgs>? _translations;
+
+        /// <summary>
+        /// Set of translations for a particular template.
+        /// </summary>
         public InputList<Inputs.TemplateSmsTranslationGetArgs> Translations
         {
             get => _translations ?? (_translations = new InputList<Inputs.TemplateSmsTranslationGetArgs>());

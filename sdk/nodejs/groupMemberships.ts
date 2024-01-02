@@ -5,7 +5,48 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Resource to manage a set of group memberships for a specific group.
+ * Resource to manage a set of memberships for a specific group.
+ *
+ * This resource will allow you to bulk manage group membership in Okta for a given
+ * group. This offers an interface to pass multiple users into a single resource
+ * call, for better API resource usage. If you need a relationship of a single
+ * user to many groups, please use the `okta.UserGroupMemberships` resource.
+ *
+ * **Important**: The default behavior of the resource is to only maintain the
+ * state of user ids that are assigned it. This behavior will signal drift only if
+ * those users stop being part of the group. If the desired behavior is track all
+ * users that are added/removed from the group make use of the `trackAllUsers`
+ * argument with this resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const testGroup = new okta.group.Group("testGroup", {description: "testing, testing"});
+ * const testGroupMemberships = new okta.GroupMemberships("testGroupMemberships", {
+ *     groupId: testGroup.id,
+ *     users: [
+ *         okta_user.test1.id,
+ *         okta_user.test2.id,
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * an Okta Group's memberships can be imported via the Okta group ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;
+ * ```
+ *
+ *  optional parameter track all users will also import all user id currently assigned to the group
+ *
+ * ```sh
+ *  $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;/&#60;true&#62;
+ * ```
  */
 export class GroupMemberships extends pulumi.CustomResource {
     /**
@@ -36,11 +77,11 @@ export class GroupMemberships extends pulumi.CustomResource {
     }
 
     /**
-     * ID of a Okta group.
+     * Okta group ID.
      */
     public readonly groupId!: pulumi.Output<string>;
     /**
-     * The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
+     * The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
      */
     public readonly trackAllUsers!: pulumi.Output<boolean | undefined>;
     /**
@@ -86,11 +127,11 @@ export class GroupMemberships extends pulumi.CustomResource {
  */
 export interface GroupMembershipsState {
     /**
-     * ID of a Okta group.
+     * Okta group ID.
      */
     groupId?: pulumi.Input<string>;
     /**
-     * The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
+     * The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
      */
     trackAllUsers?: pulumi.Input<boolean>;
     /**
@@ -104,11 +145,11 @@ export interface GroupMembershipsState {
  */
 export interface GroupMembershipsArgs {
     /**
-     * ID of a Okta group.
+     * Okta group ID.
      */
     groupId: pulumi.Input<string>;
     /**
-     * The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
+     * The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
      */
     trackAllUsers?: pulumi.Input<boolean>;
     /**

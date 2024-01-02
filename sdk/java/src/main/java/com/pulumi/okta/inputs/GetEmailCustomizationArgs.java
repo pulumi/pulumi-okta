@@ -30,14 +30,14 @@ public final class GetEmailCustomizationArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The ID of the customization
+     * Customization ID
      * 
      */
     @Import(name="customizationId", required=true)
     private Output<String> customizationId;
 
     /**
-     * @return The ID of the customization
+     * @return Customization ID
      * 
      */
     public Output<String> customizationId() {
@@ -107,7 +107,7 @@ public final class GetEmailCustomizationArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param customizationId The ID of the customization
+         * @param customizationId Customization ID
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class GetEmailCustomizationArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param customizationId The ID of the customization
+         * @param customizationId Customization ID
          * 
          * @return builder
          * 

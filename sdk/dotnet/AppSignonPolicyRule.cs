@@ -9,98 +9,458 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+    /// 
+    /// This resource allows you to create and configure a sign-on policy rule for the application.
+    /// 
+    /// A default or `Catch-all Rule` sign-on policy rule can be imported and managed as a custom rule.
+    /// The only difference is that these fields are immutable and can not be managed: `network_connection`, `network_excludes`,
+    /// `network_includes`, `platform_include`, `custom_expression`, `device_is_registered`, `device_is_managed`, `users_excluded`,
+    /// `users_included`, `groups_excluded`, `groups_included`, `user_types_excluded` and `user_types_included`.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Rule with Constraints
+    /// ### Example 1:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Okta.AppSignonPolicyRule("test", new()
+    ///     {
+    ///         PolicyId = data.Okta_app_signon_policy.Test.Id,
+    ///         Constraints = new[]
+    ///         {
+    ///             JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["knowledge"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["types"] = new[]
+    ///                     {
+    ///                         "password",
+    ///                     },
+    ///                 },
+    ///             }),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// This will create an app sign-on policy rule with the following `THEN` block:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    /// });
+    /// ```
+    /// ### Example 2:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Okta.AppSignonPolicyRule("test", new()
+    ///     {
+    ///         PolicyId = data.Okta_app_signon_policy.Test.Id,
+    ///         Constraints = new[]
+    ///         {
+    ///             JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["knowledge"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["reauthenticateIn"] = "PT2H",
+    ///                     ["types"] = new[]
+    ///                     {
+    ///                         "password",
+    ///                     },
+    ///                 },
+    ///                 ["possession"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["deviceBound"] = "REQUIRED",
+    ///                     ["hardwareProtection"] = "REQUIRED",
+    ///                 },
+    ///             }),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// This will create an app sign-on policy rule with the following `THEN` block:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    /// });
+    /// ```
+    /// 
+    /// More examples can be
+    /// found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
+    /// ### Complex example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testSaml = new Okta.App.Saml("testSaml", new()
+    ///     {
+    ///         Label = "testAcc_replace_with_uuid",
+    ///         SsoUrl = "https://google.com",
+    ///         Recipient = "https://here.com",
+    ///         Destination = "https://its-about-the-journey.com",
+    ///         Audience = "https://audience.com",
+    ///         SubjectNameIdTemplate = "${user.userName}",
+    ///         SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+    ///         ResponseSigned = true,
+    ///         SignatureAlgorithm = "RSA_SHA256",
+    ///         DigestAlgorithm = "SHA256",
+    ///         HonorForceAuthn = false,
+    ///         AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+    ///         SingleLogoutIssuer = "https://dunshire.okta.com",
+    ///         SingleLogoutUrl = "https://dunshire.okta.com/logout",
+    ///         SingleLogoutCertificate = @"MIIFnDCCA4QCCQDBSLbiON2T1zANBgkqhkiG9w0BAQsFADCBjzELMAkGA1UEBhMCVVMxDjAMBgNV
+    /// BAgMBU1haW5lMRAwDgYDVQQHDAdDYXJpYm91MRcwFQYDVQQKDA5Tbm93bWFrZXJzIEluYzEUMBIG
+    /// A1UECwwLRW5naW5lZXJpbmcxDTALBgNVBAMMBFNub3cxIDAeBgkqhkiG9w0BCQEWEWVtYWlsQGV4
+    /// YW1wbGUuY29tMB4XDTIwMTIwMzIyNDY0M1oXDTMwMTIwMTIyNDY0M1owgY8xCzAJBgNVBAYTAlVT
+    /// MQ4wDAYDVQQIDAVNYWluZTEQMA4GA1UEBwwHQ2FyaWJvdTEXMBUGA1UECgwOU25vd21ha2VycyBJ
+    /// bmMxFDASBgNVBAsMC0VuZ2luZWVyaW5nMQ0wCwYDVQQDDARTbm93MSAwHgYJKoZIhvcNAQkBFhFl
+    /// bWFpbEBleGFtcGxlLmNvbTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBANMmWDjXPdoa
+    /// PyzIENqeY9njLan2FqCbQPSestWUUcb6NhDsJVGSQ7XR+ozQA5TaJzbP7cAJUj8vCcbqMZsgOQAu
+    /// O/pzYyQEKptLmrGvPn7xkJ1A1xLkp2NY18cpDTeUPueJUoidZ9EJwEuyUZIktzxNNU1pA1lGijiu
+    /// 2XNxs9d9JR/hm3tCu9Im8qLVB4JtX80YUa6QtlRjWR/H8a373AYCOASdoB3c57fIPD8ATDNy2w/c
+    /// fCVGiyKDMFB+GA/WTsZpOP3iohRp8ltAncSuzypcztb2iE+jijtTsiC9kUA2abAJqqpoCJubNShi
+    /// Vff4822czpziS44MV2guC9wANi8u3Uyl5MKsU95j01jzadKRP5S+2f0K+n8n4UoV9fnqZFyuGAKd
+    /// CJi9K6NlSAP+TgPe/JP9FOSuxQOHWJfmdLHdJD+evoKi9E55sr5lRFK0xU1Fj5Ld7zjC0pXPhtJf
+    /// sgjEZzD433AsHnRzvRT1KSNCPkLYomznZo5n9rWYgCQ8HcytlQDTesmKE+s05E/VSWNtH84XdDrt
+    /// ieXwfwhHfaABSu+WjZYxi9CXdFCSvXhsgufUcK4FbYAHl/ga/cJxZc52yFC7Pcq0u9O2BSCjYPdQ
+    /// DAHs9dhT1RhwVLM8RmoAzgxyyzau0gxnAlgSBD9FMW6dXqIHIp8yAAg9cRXhYRTNAgMBAAEwDQYJ
+    /// KoZIhvcNAQELBQADggIBADofEC1SvG8qa7pmKCjB/E9Sxhk3mvUO9Gq43xzwVb721Ng3VYf4vGU3
+    /// wLUwJeLt0wggnj26NJweN5T3q9T8UMxZhHSWvttEU3+S1nArRB0beti716HSlOCDx4wTmBu/D1MG
+    /// t/kZYFJw+zuzvAcbYct2pK69AQhD8xAIbQvqADJI7cCK3yRry+aWtppc58P81KYabUlCfFXfhJ9E
+    /// P72ffN4jVHpX3lxxYh7FKAdiKbY2FYzjsc7RdgKI1R3iAAZUCGBTvezNzaetGzTUjjl/g1tcVYij
+    /// ltH9ZOQBPlUMI88lxUxqgRTerpPmAJH00CACx4JFiZrweLM1trZyy06wNDQgLrqHr3EOagBF/O2h
+    /// hfTehNdVr6iq3YhKWBo4/+RL0RCzHMh4u86VbDDnDn4Y6HzLuyIAtBFoikoKM6UHTOa0Pqv2bBr5
+    /// wbkRkVUxl9yJJw/HmTCdfnsM9dTOJUKzEglnGF2184Gg+qJDZB6fSf0EAO1F6sTqiSswl+uHQZiy
+    /// DaZzyU7Gg5seKOZ20zTRaX3Ihj9Zij/ORnrARE7eM/usKMECp+7syUwAUKxDCZkGiUdskmOhhBGL
+    /// JtbyK3F2UvoJoLsm3pIcvMak9KwMjSTGJB47ABUP1+w+zGcNk0D5Co3IJ6QekiLfWJyQ+kKsWLKt
+    /// zOYQQatrnBagM7MI2/T4
+    /// ",
+    ///         AttributeStatements = new[]
+    ///         {
+    ///             new Okta.App.Inputs.SamlAttributeStatementArgs
+    ///             {
+    ///                 Type = "GROUP",
+    ///                 Name = "groups",
+    ///                 FilterType = "REGEX",
+    ///                 FilterValue = ".*",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var testAppSignonPolicy = Okta.GetAppSignonPolicy.Invoke(new()
+    ///     {
+    ///         AppId = testSaml.Id,
+    ///     });
+    /// 
+    ///     var testUser = new List&lt;Okta.User.User&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         testUser.Add(new Okta.User.User($"testUser-{range.Value}", new()
+    ///         {
+    ///             FirstName = "TestAcc",
+    ///             LastName = "Smith",
+    ///             Login = $"testAcc_{range.Value}@example.com",
+    ///             Email = $"testAcc_{range.Value}@example.com",
+    ///         }));
+    ///     }
+    ///     var @this = new List&lt;Okta.Group.Group&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         @this.Add(new Okta.Group.Group($"this-{range.Value}", new()
+    ///         {
+    ///             Description = $"testAcc_{range.Value}",
+    ///         }));
+    ///     }
+    ///     var testUserType = new Okta.User.UserType("testUserType", new()
+    ///     {
+    ///         DisplayName = "Terraform Acceptance Test User Type Updated",
+    ///         Description = "Terraform Acceptance Test User Type Updated",
+    ///     });
+    /// 
+    ///     var testZone = new Okta.Network.Zone("testZone", new()
+    ///     {
+    ///         Type = "IP",
+    ///         Gateways = new[]
+    ///         {
+    ///             "1.2.3.4/24",
+    ///             "2.3.4.5-2.3.4.15",
+    ///         },
+    ///         Proxies = new[]
+    ///         {
+    ///             "2.2.3.4/24",
+    ///             "3.3.4.5-3.3.4.15",
+    ///         },
+    ///     });
+    /// 
+    ///     var @default = Okta.User.GetUserType.Invoke(new()
+    ///     {
+    ///         Name = "user",
+    ///     });
+    /// 
+    ///     var testDeviceAssuranceAndroid = new Okta.Policy.DeviceAssuranceAndroid("testDeviceAssuranceAndroid", new()
+    ///     {
+    ///         OsVersion = "12",
+    ///         Jailbreak = false,
+    ///     });
+    /// 
+    ///     var testAppSignonPolicyRule = new Okta.AppSignonPolicyRule("testAppSignonPolicyRule", new()
+    ///     {
+    ///         PolicyId = testAppSignonPolicy.Apply(getAppSignonPolicyResult =&gt; getAppSignonPolicyResult.Id),
+    ///         Access = "ALLOW",
+    ///         CustomExpression = "user.status == \"ACTIVE\"",
+    ///         DeviceIsManaged = false,
+    ///         DeviceIsRegistered = true,
+    ///         FactorMode = "2FA",
+    ///         GroupsExcludeds = new[]
+    ///         {
+    ///             @this[2].Id,
+    ///             @this[3].Id,
+    ///             @this[4].Id,
+    ///         },
+    ///         GroupsIncludeds = new[]
+    ///         {
+    ///             @this[0].Id,
+    ///             @this[1].Id,
+    ///         },
+    ///         DeviceAssurancesIncludeds = new[]
+    ///         {
+    ///             testDeviceAssuranceAndroid.Id,
+    ///         },
+    ///         NetworkConnection = "ZONE",
+    ///         NetworkIncludes = new[]
+    ///         {
+    ///             testZone.Id,
+    ///         },
+    ///         PlatformIncludes = new[]
+    ///         {
+    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
+    ///             {
+    ///                 OsType = "ANDROID",
+    ///                 Type = "MOBILE",
+    ///             },
+    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
+    ///             {
+    ///                 OsType = "IOS",
+    ///                 Type = "MOBILE",
+    ///             },
+    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
+    ///             {
+    ///                 OsType = "MACOS",
+    ///                 Type = "DESKTOP",
+    ///             },
+    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
+    ///             {
+    ///                 OsType = "OTHER",
+    ///                 Type = "DESKTOP",
+    ///             },
+    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
+    ///             {
+    ///                 OsType = "OTHER",
+    ///                 Type = "MOBILE",
+    ///             },
+    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
+    ///             {
+    ///                 OsType = "WINDOWS",
+    ///                 Type = "DESKTOP",
+    ///             },
+    ///         },
+    ///         Priority = 98,
+    ///         ReAuthenticationFrequency = "PT43800H",
+    ///         Type = "ASSURANCE",
+    ///         UserTypesExcludeds = new[]
+    ///         {
+    ///             testUserType.Id,
+    ///         },
+    ///         UserTypesIncludeds = new[]
+    ///         {
+    ///             @default.Apply(@default =&gt; @default.Apply(getUserTypeResult =&gt; getUserTypeResult.Id)),
+    ///         },
+    ///         UsersExcludeds = new[]
+    ///         {
+    ///             testUser[2].Id,
+    ///             testUser[3].Id,
+    ///             testUser[4].Id,
+    ///         },
+    ///         UsersIncludeds = new[]
+    ///         {
+    ///             testUser[0].Id,
+    ///             testUser[1].Id,
+    ///         },
+    ///         Constraints = new[]
+    ///         {
+    ///             JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["knowledge"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["reauthenticateIn"] = "PT2H",
+    ///                     ["types"] = new[]
+    ///                     {
+    ///                         "password",
+    ///                     },
+    ///                 },
+    ///                 ["possession"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["deviceBound"] = "REQUIRED",
+    ///                 },
+    ///             }),
+    ///             JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["possession"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["deviceBound"] = "REQUIRED",
+    ///                     ["hardwareProtection"] = "REQUIRED",
+    ///                     ["userPresence"] = "OPTIONAL",
+    ///                 },
+    ///             }),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Okta app sign-on policy rule can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &amp;#60;policy_id&amp;#62;/&amp;#60;rule_id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/appSignonPolicyRule:AppSignonPolicyRule")]
     public partial class AppSignonPolicyRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: ALLOW or DENY
+        /// Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
         /// </summary>
         [Output("access")]
         public Output<string?> Access { get; private set; } = null!;
 
         /// <summary>
-        /// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
+        /// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
         /// </summary>
         [Output("constraints")]
         public Output<ImmutableArray<string>> Constraints { get; private set; } = null!;
 
         /// <summary>
-        /// This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+        /// This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         /// </summary>
         [Output("customExpression")]
         public Output<string?> CustomExpression { get; private set; } = null!;
 
         /// <summary>
-        /// List of device assurance IDs to include
+        /// List of device assurances IDs to be included.
         /// </summary>
         [Output("deviceAssurancesIncludeds")]
         public Output<ImmutableArray<string>> DeviceAssurancesIncludeds { get; private set; } = null!;
 
         /// <summary>
-        /// If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
+        /// If the device is managed. A device is managed if it's managed by a device management
+        /// system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
         /// </summary>
         [Output("deviceIsManaged")]
         public Output<bool?> DeviceIsManaged { get; private set; } = null!;
 
         /// <summary>
-        /// If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
+        /// If the device is registered. A device is registered if the User enrolls with Okta
+        /// Verify that is installed on the device. Can only be set to `true`.
         /// </summary>
         [Output("deviceIsRegistered")]
         public Output<bool?> DeviceIsRegistered { get; private set; } = null!;
 
         /// <summary>
-        /// The number of factors required to satisfy this assurance level
+        /// The number of factors required to satisfy this assurance level. It can be set to `"1FA"` or `"2FA"`. Default is `"2FA"`.
         /// </summary>
         [Output("factorMode")]
         public Output<string?> FactorMode { get; private set; } = null!;
 
         /// <summary>
-        /// List of group IDs to exclude
+        /// List of groups IDs to be excluded.
         /// </summary>
         [Output("groupsExcludeds")]
         public Output<ImmutableArray<string>> GroupsExcludeds { get; private set; } = null!;
 
         /// <summary>
-        /// List of group IDs to include
+        /// List of groups IDs to be included.
         /// </summary>
         [Output("groupsIncludeds")]
         public Output<ImmutableArray<string>> GroupsIncludeds { get; private set; } = null!;
 
         /// <summary>
-        /// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
+        /// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
         /// </summary>
         [Output("inactivityPeriod")]
         public Output<string?> InactivityPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Name
+        /// Name of the policy rule.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         /// </summary>
         [Output("networkConnection")]
         public Output<string?> NetworkConnection { get; private set; } = null!;
 
         /// <summary>
-        /// The zones to exclude
+        /// List of network zones IDs to exclude. Conflicts with `network_includes`.
         /// </summary>
         [Output("networkExcludes")]
         public Output<ImmutableArray<string>> NetworkExcludes { get; private set; } = null!;
 
         /// <summary>
-        /// The zones to include
+        /// List of network zones IDs to include. Conflicts with `network_excludes`.
         /// </summary>
         [Output("networkIncludes")]
         public Output<ImmutableArray<string>> NetworkIncludes { get; private set; } = null!;
 
+        /// <summary>
+        /// List of particular platforms or devices to match on.
+        /// </summary>
         [Output("platformIncludes")]
         public Output<ImmutableArray<Outputs.AppSignonPolicyRulePlatformInclude>> PlatformIncludes { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the policy
+        /// ID of the app sign-on policy.
         /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
@@ -112,13 +472,13 @@ namespace Pulumi.Okta
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        /// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `"PT0S"` - every sign-in attempt, `"PT43800H"` - once per session. Default is `"PT2H"`.
         /// </summary>
         [Output("reAuthenticationFrequency")]
         public Output<string?> ReAuthenticationFrequency { get; private set; } = null!;
 
         /// <summary>
-        /// The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
+        /// The risk score specifies a particular level of risk to match on. Valid values are: `"ANY"`, `"LOW"`, `"MEDIUM"`, `"HIGH"`. Default is `"ANY"`.
         /// </summary>
         [Output("riskScore")]
         public Output<string> RiskScore { get; private set; } = null!;
@@ -130,37 +490,37 @@ namespace Pulumi.Okta
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy
+        /// Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy.
         /// </summary>
         [Output("system")]
         public Output<bool> System { get; private set; } = null!;
 
         /// <summary>
-        /// The Verification Method type
+        /// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Set of User Type IDs to exclude
+        /// List of user types IDs to be excluded.
         /// </summary>
         [Output("userTypesExcludeds")]
         public Output<ImmutableArray<string>> UserTypesExcludeds { get; private set; } = null!;
 
         /// <summary>
-        /// Set of User Type IDs to include
+        /// List of user types IDs to be included.
         /// </summary>
         [Output("userTypesIncludeds")]
         public Output<ImmutableArray<string>> UserTypesIncludeds { get; private set; } = null!;
 
         /// <summary>
-        /// Set of User IDs to exclude
+        /// List of users IDs to be excluded.
         /// </summary>
         [Output("usersExcludeds")]
         public Output<ImmutableArray<string>> UsersExcludeds { get; private set; } = null!;
 
         /// <summary>
-        /// Set of User IDs to include
+        /// List of users IDs to be included.
         /// </summary>
         [Output("usersIncludeds")]
         public Output<ImmutableArray<string>> UsersIncludeds { get; private set; } = null!;
@@ -212,7 +572,7 @@ namespace Pulumi.Okta
     public sealed class AppSignonPolicyRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: ALLOW or DENY
+        /// Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
         /// </summary>
         [Input("access")]
         public Input<string>? Access { get; set; }
@@ -221,7 +581,7 @@ namespace Pulumi.Okta
         private InputList<string>? _constraints;
 
         /// <summary>
-        /// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
+        /// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
         /// </summary>
         public InputList<string> Constraints
         {
@@ -230,7 +590,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+        /// This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         /// </summary>
         [Input("customExpression")]
         public Input<string>? CustomExpression { get; set; }
@@ -239,7 +599,7 @@ namespace Pulumi.Okta
         private InputList<string>? _deviceAssurancesIncludeds;
 
         /// <summary>
-        /// List of device assurance IDs to include
+        /// List of device assurances IDs to be included.
         /// </summary>
         public InputList<string> DeviceAssurancesIncludeds
         {
@@ -248,19 +608,21 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
+        /// If the device is managed. A device is managed if it's managed by a device management
+        /// system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
         /// </summary>
         [Input("deviceIsManaged")]
         public Input<bool>? DeviceIsManaged { get; set; }
 
         /// <summary>
-        /// If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
+        /// If the device is registered. A device is registered if the User enrolls with Okta
+        /// Verify that is installed on the device. Can only be set to `true`.
         /// </summary>
         [Input("deviceIsRegistered")]
         public Input<bool>? DeviceIsRegistered { get; set; }
 
         /// <summary>
-        /// The number of factors required to satisfy this assurance level
+        /// The number of factors required to satisfy this assurance level. It can be set to `"1FA"` or `"2FA"`. Default is `"2FA"`.
         /// </summary>
         [Input("factorMode")]
         public Input<string>? FactorMode { get; set; }
@@ -269,7 +631,7 @@ namespace Pulumi.Okta
         private InputList<string>? _groupsExcludeds;
 
         /// <summary>
-        /// List of group IDs to exclude
+        /// List of groups IDs to be excluded.
         /// </summary>
         public InputList<string> GroupsExcludeds
         {
@@ -281,7 +643,7 @@ namespace Pulumi.Okta
         private InputList<string>? _groupsIncludeds;
 
         /// <summary>
-        /// List of group IDs to include
+        /// List of groups IDs to be included.
         /// </summary>
         public InputList<string> GroupsIncludeds
         {
@@ -290,19 +652,19 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
+        /// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
         /// </summary>
         [Input("inactivityPeriod")]
         public Input<string>? InactivityPeriod { get; set; }
 
         /// <summary>
-        /// Policy Rule Name
+        /// Name of the policy rule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         /// </summary>
         [Input("networkConnection")]
         public Input<string>? NetworkConnection { get; set; }
@@ -311,7 +673,7 @@ namespace Pulumi.Okta
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// The zones to exclude
+        /// List of network zones IDs to exclude. Conflicts with `network_includes`.
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -323,7 +685,7 @@ namespace Pulumi.Okta
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// The zones to include
+        /// List of network zones IDs to include. Conflicts with `network_excludes`.
         /// </summary>
         public InputList<string> NetworkIncludes
         {
@@ -333,6 +695,10 @@ namespace Pulumi.Okta
 
         [Input("platformIncludes")]
         private InputList<Inputs.AppSignonPolicyRulePlatformIncludeArgs>? _platformIncludes;
+
+        /// <summary>
+        /// List of particular platforms or devices to match on.
+        /// </summary>
         public InputList<Inputs.AppSignonPolicyRulePlatformIncludeArgs> PlatformIncludes
         {
             get => _platformIncludes ?? (_platformIncludes = new InputList<Inputs.AppSignonPolicyRulePlatformIncludeArgs>());
@@ -340,7 +706,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// ID of the policy
+        /// ID of the app sign-on policy.
         /// </summary>
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;
@@ -352,13 +718,13 @@ namespace Pulumi.Okta
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        /// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `"PT0S"` - every sign-in attempt, `"PT43800H"` - once per session. Default is `"PT2H"`.
         /// </summary>
         [Input("reAuthenticationFrequency")]
         public Input<string>? ReAuthenticationFrequency { get; set; }
 
         /// <summary>
-        /// The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
+        /// The risk score specifies a particular level of risk to match on. Valid values are: `"ANY"`, `"LOW"`, `"MEDIUM"`, `"HIGH"`. Default is `"ANY"`.
         /// </summary>
         [Input("riskScore")]
         public Input<string>? RiskScore { get; set; }
@@ -370,7 +736,7 @@ namespace Pulumi.Okta
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The Verification Method type
+        /// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -379,7 +745,7 @@ namespace Pulumi.Okta
         private InputList<string>? _userTypesExcludeds;
 
         /// <summary>
-        /// Set of User Type IDs to exclude
+        /// List of user types IDs to be excluded.
         /// </summary>
         public InputList<string> UserTypesExcludeds
         {
@@ -391,7 +757,7 @@ namespace Pulumi.Okta
         private InputList<string>? _userTypesIncludeds;
 
         /// <summary>
-        /// Set of User Type IDs to include
+        /// List of user types IDs to be included.
         /// </summary>
         public InputList<string> UserTypesIncludeds
         {
@@ -403,7 +769,7 @@ namespace Pulumi.Okta
         private InputList<string>? _usersExcludeds;
 
         /// <summary>
-        /// Set of User IDs to exclude
+        /// List of users IDs to be excluded.
         /// </summary>
         public InputList<string> UsersExcludeds
         {
@@ -415,7 +781,7 @@ namespace Pulumi.Okta
         private InputList<string>? _usersIncludeds;
 
         /// <summary>
-        /// Set of User IDs to include
+        /// List of users IDs to be included.
         /// </summary>
         public InputList<string> UsersIncludeds
         {
@@ -432,7 +798,7 @@ namespace Pulumi.Okta
     public sealed class AppSignonPolicyRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow or deny access based on the rule conditions: ALLOW or DENY
+        /// Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
         /// </summary>
         [Input("access")]
         public Input<string>? Access { get; set; }
@@ -441,7 +807,7 @@ namespace Pulumi.Okta
         private InputList<string>? _constraints;
 
         /// <summary>
-        /// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
+        /// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
         /// </summary>
         public InputList<string> Constraints
         {
@@ -450,7 +816,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+        /// This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         /// </summary>
         [Input("customExpression")]
         public Input<string>? CustomExpression { get; set; }
@@ -459,7 +825,7 @@ namespace Pulumi.Okta
         private InputList<string>? _deviceAssurancesIncludeds;
 
         /// <summary>
-        /// List of device assurance IDs to include
+        /// List of device assurances IDs to be included.
         /// </summary>
         public InputList<string> DeviceAssurancesIncludeds
         {
@@ -468,19 +834,21 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
+        /// If the device is managed. A device is managed if it's managed by a device management
+        /// system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
         /// </summary>
         [Input("deviceIsManaged")]
         public Input<bool>? DeviceIsManaged { get; set; }
 
         /// <summary>
-        /// If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
+        /// If the device is registered. A device is registered if the User enrolls with Okta
+        /// Verify that is installed on the device. Can only be set to `true`.
         /// </summary>
         [Input("deviceIsRegistered")]
         public Input<bool>? DeviceIsRegistered { get; set; }
 
         /// <summary>
-        /// The number of factors required to satisfy this assurance level
+        /// The number of factors required to satisfy this assurance level. It can be set to `"1FA"` or `"2FA"`. Default is `"2FA"`.
         /// </summary>
         [Input("factorMode")]
         public Input<string>? FactorMode { get; set; }
@@ -489,7 +857,7 @@ namespace Pulumi.Okta
         private InputList<string>? _groupsExcludeds;
 
         /// <summary>
-        /// List of group IDs to exclude
+        /// List of groups IDs to be excluded.
         /// </summary>
         public InputList<string> GroupsExcludeds
         {
@@ -501,7 +869,7 @@ namespace Pulumi.Okta
         private InputList<string>? _groupsIncludeds;
 
         /// <summary>
-        /// List of group IDs to include
+        /// List of groups IDs to be included.
         /// </summary>
         public InputList<string> GroupsIncludeds
         {
@@ -510,19 +878,19 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
+        /// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
         /// </summary>
         [Input("inactivityPeriod")]
         public Input<string>? InactivityPeriod { get; set; }
 
         /// <summary>
-        /// Policy Rule Name
+        /// Name of the policy rule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
         /// </summary>
         [Input("networkConnection")]
         public Input<string>? NetworkConnection { get; set; }
@@ -531,7 +899,7 @@ namespace Pulumi.Okta
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// The zones to exclude
+        /// List of network zones IDs to exclude. Conflicts with `network_includes`.
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -543,7 +911,7 @@ namespace Pulumi.Okta
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// The zones to include
+        /// List of network zones IDs to include. Conflicts with `network_excludes`.
         /// </summary>
         public InputList<string> NetworkIncludes
         {
@@ -553,6 +921,10 @@ namespace Pulumi.Okta
 
         [Input("platformIncludes")]
         private InputList<Inputs.AppSignonPolicyRulePlatformIncludeGetArgs>? _platformIncludes;
+
+        /// <summary>
+        /// List of particular platforms or devices to match on.
+        /// </summary>
         public InputList<Inputs.AppSignonPolicyRulePlatformIncludeGetArgs> PlatformIncludes
         {
             get => _platformIncludes ?? (_platformIncludes = new InputList<Inputs.AppSignonPolicyRulePlatformIncludeGetArgs>());
@@ -560,7 +932,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// ID of the policy
+        /// ID of the app sign-on policy.
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
@@ -572,13 +944,13 @@ namespace Pulumi.Okta
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        /// The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `"PT0S"` - every sign-in attempt, `"PT43800H"` - once per session. Default is `"PT2H"`.
         /// </summary>
         [Input("reAuthenticationFrequency")]
         public Input<string>? ReAuthenticationFrequency { get; set; }
 
         /// <summary>
-        /// The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
+        /// The risk score specifies a particular level of risk to match on. Valid values are: `"ANY"`, `"LOW"`, `"MEDIUM"`, `"HIGH"`. Default is `"ANY"`.
         /// </summary>
         [Input("riskScore")]
         public Input<string>? RiskScore { get; set; }
@@ -590,13 +962,13 @@ namespace Pulumi.Okta
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy
+        /// Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy.
         /// </summary>
         [Input("system")]
         public Input<bool>? System { get; set; }
 
         /// <summary>
-        /// The Verification Method type
+        /// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -605,7 +977,7 @@ namespace Pulumi.Okta
         private InputList<string>? _userTypesExcludeds;
 
         /// <summary>
-        /// Set of User Type IDs to exclude
+        /// List of user types IDs to be excluded.
         /// </summary>
         public InputList<string> UserTypesExcludeds
         {
@@ -617,7 +989,7 @@ namespace Pulumi.Okta
         private InputList<string>? _userTypesIncludeds;
 
         /// <summary>
-        /// Set of User Type IDs to include
+        /// List of user types IDs to be included.
         /// </summary>
         public InputList<string> UserTypesIncludeds
         {
@@ -629,7 +1001,7 @@ namespace Pulumi.Okta
         private InputList<string>? _usersExcludeds;
 
         /// <summary>
-        /// Set of User IDs to exclude
+        /// List of users IDs to be excluded.
         /// </summary>
         public InputList<string> UsersExcludeds
         {
@@ -641,7 +1013,7 @@ namespace Pulumi.Okta
         private InputList<string>? _usersIncludeds;
 
         /// <summary>
-        /// Set of User IDs to include
+        /// List of users IDs to be included.
         /// </summary>
         public InputList<string> UsersIncludeds
         {

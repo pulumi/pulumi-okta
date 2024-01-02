@@ -14,31 +14,75 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+ * 
+ * This resource allows you to create and configure a Profile Enrollment Policy.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.PolicyProfileEnrollment;
+ * import com.pulumi.okta.PolicyProfileEnrollmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new PolicyProfileEnrollment(&#34;example&#34;, PolicyProfileEnrollmentArgs.builder()        
+ *             .status(&#34;ACTIVE&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * A Profile Enrollment Policy can be imported via the Okta ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &amp;#60;policy id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/policyProfileEnrollment:PolicyProfileEnrollment")
 public class PolicyProfileEnrollment extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the policy
+     * Policy Name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the policy
+     * @return Policy Name.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Status of the policy
+     * Status of the policy.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Status of the policy
+     * @return Status of the policy.
      * 
      */
     public Output<Optional<String>> status() {

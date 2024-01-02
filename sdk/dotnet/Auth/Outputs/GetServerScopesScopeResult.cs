@@ -13,14 +13,38 @@ namespace Pulumi.Okta.Auth.Outputs
     [OutputType]
     public sealed class GetServerScopesScopeResult
     {
+        /// <summary>
+        /// Indicates whether a consent dialog is needed for the Scope
+        /// </summary>
         public readonly string Consent;
+        /// <summary>
+        /// Whether the Scope is a default Scope
+        /// </summary>
         public readonly bool Default;
+        /// <summary>
+        /// Description of the Scope
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// Name of the end user displayed in a consent dialog box
+        /// </summary>
         public readonly string DisplayName;
+        /// <summary>
+        /// ID of the Scope
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Whether the Scope should be included in the metadata
+        /// </summary>
         public readonly string MetadataPublish;
+        /// <summary>
+        /// Name of the Scope
+        /// </summary>
         public readonly string Name;
         public readonly bool Optional;
+        /// <summary>
+        /// Whether Okta created the Scope
+        /// </summary>
         public readonly bool System;
 
         [OutputConstructor]

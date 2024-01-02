@@ -16,31 +16,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * An application group assignment can be imported via the `app_id` and the `group_id`.
+ * 
+ * ```sh
+ *  $ pulumi import okta:app/groupAssignment:GroupAssignment example &amp;#60;app_id&amp;#62;/&amp;#60;group_id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:app/groupAssignment:GroupAssignment")
 public class GroupAssignment extends com.pulumi.resources.CustomResource {
     /**
-     * App to associate group with
+     * The ID of the application to assign a group to.
      * 
      */
     @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
-     * @return App to associate group with
+     * @return The ID of the application to assign a group to.
      * 
      */
     public Output<String> appId() {
         return this.appId;
     }
     /**
-     * Group associated with the application
+     * The ID of the group to assign the app to.
      * 
      */
     @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
     /**
-     * @return Group associated with the application
+     * @return The ID of the group to assign the app to.
      * 
      */
     public Output<String> groupId() {

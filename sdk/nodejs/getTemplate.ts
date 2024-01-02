@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Get a single Email Template for a Brand belonging to an Okta organization.
+ * Use this data source to retrieve a specific [email
+ * template](https://developer.okta.com/docs/reference/api/brands/#email-template)
+ * of a brand in an Okta organization.
  */
 export function getTemplate(args: GetTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateResult> {
 
@@ -25,7 +27,7 @@ export interface GetTemplateArgs {
      */
     brandId: string;
     /**
-     * The name of the email template
+     * Template Name
      */
     name: string;
 }
@@ -34,9 +36,6 @@ export interface GetTemplateArgs {
  * A collection of values returned by getTemplate.
  */
 export interface GetTemplateResult {
-    /**
-     * Brand ID
-     */
     readonly brandId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -46,13 +45,12 @@ export interface GetTemplateResult {
      * Link relations for this object - JSON HAL - Discoverable resources related to the email template
      */
     readonly links: string;
-    /**
-     * The name of the email template
-     */
     readonly name: string;
 }
 /**
- * Get a single Email Template for a Brand belonging to an Okta organization.
+ * Use this data source to retrieve a specific [email
+ * template](https://developer.okta.com/docs/reference/api/brands/#email-template)
+ * of a brand in an Okta organization.
  */
 export function getTemplateOutput(args: GetTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateResult> {
     return pulumi.output(args).apply((a: any) => getTemplate(a, opts))
@@ -67,7 +65,7 @@ export interface GetTemplateOutputArgs {
      */
     brandId: pulumi.Input<string>;
     /**
-     * The name of the email template
+     * Template Name
      */
     name: pulumi.Input<string>;
 }

@@ -15,31 +15,77 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates an Authorization Server Scope.
+ * 
+ * This resource allows you to create and configure an Authorization Server Scope.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.auth.ServerScope;
+ * import com.pulumi.okta.auth.ServerScopeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ServerScope(&#34;example&#34;, ServerScopeArgs.builder()        
+ *             .authServerId(&#34;&lt;auth server id&gt;&#34;)
+ *             .consent(&#34;IMPLICIT&#34;)
+ *             .metadataPublish(&#34;NO_CLIENTS&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Okta Auth Server Scope can be imported via the Auth Server ID and Scope ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:auth/serverScope:ServerScope example &amp;#60;auth server id&amp;#62;/&amp;#60;scope id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:auth/serverScope:ServerScope")
 public class ServerScope extends com.pulumi.resources.CustomResource {
     /**
-     * Auth server ID
+     * Auth Server ID.
      * 
      */
     @Export(name="authServerId", refs={String.class}, tree="[0]")
     private Output<String> authServerId;
 
     /**
-     * @return Auth server ID
+     * @return Auth Server ID.
      * 
      */
     public Output<String> authServerId() {
         return this.authServerId;
     }
     /**
-     * EA Feature and thus it is simply ignored if the feature is off
+     * Indicates whether a consent dialog is needed for the scope. It can be set to `&#34;REQUIRED&#34;` or `&#34;IMPLICIT&#34;`.
      * 
      */
     @Export(name="consent", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> consent;
 
     /**
-     * @return EA Feature and thus it is simply ignored if the feature is off
+     * @return Indicates whether a consent dialog is needed for the scope. It can be set to `&#34;REQUIRED&#34;` or `&#34;IMPLICIT&#34;`.
      * 
      */
     public Output<Optional<String>> consent() {
@@ -74,42 +120,42 @@ public class ServerScope extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Name of the end user displayed in a consent dialog box
+     * Name of the end user displayed in a consent dialog box.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
     /**
-     * @return Name of the end user displayed in a consent dialog box
+     * @return Name of the end user displayed in a consent dialog box.
      * 
      */
     public Output<Optional<String>> displayName() {
         return Codegen.optional(this.displayName);
     }
     /**
-     * Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
+     * Whether to publish metadata or not. It can be set to `&#34;ALL_CLIENTS&#34;` or `&#34;NO_CLIENTS&#34;`.
      * 
      */
     @Export(name="metadataPublish", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metadataPublish;
 
     /**
-     * @return Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
+     * @return Whether to publish metadata or not. It can be set to `&#34;ALL_CLIENTS&#34;` or `&#34;NO_CLIENTS&#34;`.
      * 
      */
     public Output<Optional<String>> metadataPublish() {
         return Codegen.optional(this.metadataPublish);
     }
     /**
-     * Auth server scope name
+     * Auth Server scope name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Auth server scope name
+     * @return Auth Server scope name.
      * 
      */
     public Output<String> name() {

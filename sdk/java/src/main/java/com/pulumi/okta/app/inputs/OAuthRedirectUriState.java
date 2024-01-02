@@ -16,14 +16,14 @@ public final class OAuthRedirectUriState extends com.pulumi.resources.ResourceAr
     public static final OAuthRedirectUriState Empty = new OAuthRedirectUriState();
 
     /**
-     * OAuth application ID.
+     * OAuth application ID. Note: `app_id` can not be changed once set.
      * 
      */
     @Import(name="appId")
     private @Nullable Output<String> appId;
 
     /**
-     * @return OAuth application ID.
+     * @return OAuth application ID. Note: `app_id` can not be changed once set.
      * 
      */
     public Optional<Output<String>> appId() {
@@ -71,7 +71,7 @@ public final class OAuthRedirectUriState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param appId OAuth application ID.
+         * @param appId OAuth application ID. Note: `app_id` can not be changed once set.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class OAuthRedirectUriState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param appId OAuth application ID.
+         * @param appId OAuth application ID. Note: `app_id` can not be changed once set.
          * 
          * @return builder
          * 

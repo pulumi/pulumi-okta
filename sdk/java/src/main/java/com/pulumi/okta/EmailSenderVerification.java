@@ -13,17 +13,65 @@ import com.pulumi.okta.inputs.EmailSenderVerificationState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * &gt; **DEPRECATED** use `okta.Index.EmailDomainVerification` instead.
+ * 
+ * Verifies the email sender. The resource won&#39;t be created if the email sender could not be verified.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.EmailSender;
+ * import com.pulumi.okta.EmailSenderArgs;
+ * import com.pulumi.okta.EmailSenderVerification;
+ * import com.pulumi.okta.EmailSenderVerificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleEmailSender = new EmailSender(&#34;exampleEmailSender&#34;, EmailSenderArgs.builder()        
+ *             .fromName(&#34;Paul Atreides&#34;)
+ *             .fromAddress(&#34;no-reply@caladan.planet&#34;)
+ *             .subdomain(&#34;mail&#34;)
+ *             .build());
+ * 
+ *         var exampleEmailSenderVerification = new EmailSenderVerification(&#34;exampleEmailSenderVerification&#34;, EmailSenderVerificationArgs.builder()        
+ *             .senderId(okta_email_sender.valid().id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * This resource does not support importing.
+ * 
+ */
 @ResourceType(type="okta:index/emailSenderVerification:EmailSenderVerification")
 public class EmailSenderVerification extends com.pulumi.resources.CustomResource {
     /**
-     * Email sender ID
+     * Email sender ID.
      * 
      */
     @Export(name="senderId", refs={String.class}, tree="[0]")
     private Output<String> senderId;
 
     /**
-     * @return Email sender ID
+     * @return Email sender ID.
      * 
      */
     public Output<String> senderId() {

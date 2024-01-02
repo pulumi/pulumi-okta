@@ -15,14 +15,14 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSamlPlainArgs Empty = new GetSamlPlainArgs();
 
     /**
-     * Id of idp.
+     * The id of the idp to retrieve, conflicts with `name`.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return Id of idp.
+     * @return The id of the idp to retrieve, conflicts with `name`.
      * 
      */
     public Optional<String> id() {
@@ -30,14 +30,14 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Name of the idp.
+     * The name of the idp to retrieve, conflicts with `id`.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return Name of the idp.
+     * @return The name of the idp to retrieve, conflicts with `id`.
      * 
      */
     public Optional<String> name() {
@@ -70,7 +70,7 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id Id of idp.
+         * @param id The id of the idp to retrieve, conflicts with `name`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the idp.
+         * @param name The name of the idp to retrieve, conflicts with `id`.
          * 
          * @return builder
          * 

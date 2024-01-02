@@ -12,7 +12,7 @@ namespace Pulumi.Okta
     public static class GetBrands
     {
         /// <summary>
-        /// Get the brands belonging to an Okta organization.
+        /// Use this data source to retrieve the brands belonging to an Okta organization.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -37,7 +37,7 @@ namespace Pulumi.Okta
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrandsResult>("okta:index/getBrands:getBrands", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// Get the brands belonging to an Okta organization.
+        /// Use this data source to retrieve the brands belonging to an Okta organization.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

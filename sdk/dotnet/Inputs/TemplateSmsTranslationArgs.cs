@@ -12,9 +12,15 @@ namespace Pulumi.Okta.Inputs
 
     public sealed class TemplateSmsTranslationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The language to map the template to.
+        /// </summary>
         [Input("language", required: true)]
         public Input<string> Language { get; set; } = null!;
 
+        /// <summary>
+        /// The SMS message.
+        /// </summary>
         [Input("template", required: true)]
         public Input<string> Template { get; set; } = null!;
 

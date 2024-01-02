@@ -12,8 +12,7 @@ namespace Pulumi.Okta.Group
     public static class GetEveryoneGroup
     {
         /// <summary>
-        /// Use this data source to retrieve the `Everyone` group from Okta. The 
-        /// same can be achieved with the `okta.group.Group` data
+        /// Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data
         /// source with `name = "Everyone"`. This is simply a shortcut.
         /// 
         /// {{% examples %}}
@@ -39,8 +38,7 @@ namespace Pulumi.Okta.Group
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEveryoneGroupResult>("okta:group/getEveryoneGroup:getEveryoneGroup", args ?? new GetEveryoneGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve the `Everyone` group from Okta. The 
-        /// same can be achieved with the `okta.group.Group` data
+        /// Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data
         /// source with `name = "Everyone"`. This is simply a shortcut.
         /// 
         /// {{% examples %}}
@@ -70,7 +68,7 @@ namespace Pulumi.Okta.Group
     public sealed class GetEveryoneGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Fetch group users, having default off cuts down on API calls.
+        /// whether to retrieve all member ids.
         /// </summary>
         [Input("includeUsers")]
         public bool? IncludeUsers { get; set; }
@@ -84,7 +82,7 @@ namespace Pulumi.Okta.Group
     public sealed class GetEveryoneGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Fetch group users, having default off cuts down on API calls.
+        /// whether to retrieve all member ids.
         /// </summary>
         [Input("includeUsers")]
         public Input<bool>? IncludeUsers { get; set; }
@@ -100,16 +98,13 @@ namespace Pulumi.Okta.Group
     public sealed class GetEveryoneGroupResult
     {
         /// <summary>
-        /// Description of group.
+        /// description of group.
         /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Fetch group users, having default off cuts down on API calls.
-        /// </summary>
         public readonly bool? IncludeUsers;
 
         [OutputConstructor]

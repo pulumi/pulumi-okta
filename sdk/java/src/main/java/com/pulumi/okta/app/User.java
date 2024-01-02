@@ -16,17 +16,59 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.User;
+ * import com.pulumi.okta.app.UserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *             .appId(&#34;&lt;app_id&gt;&#34;)
+ *             .userId(&#34;&lt;user id&gt;&#34;)
+ *             .username(&#34;example&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * An Application User can be imported via the Okta ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:app/user:User example &amp;#60;app id&amp;#62;/&amp;#60;user id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:app/user:User")
 public class User extends com.pulumi.resources.CustomResource {
     /**
-     * App to associate user with
+     * App to associate user with.
      * 
      */
     @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
-     * @return App to associate user with
+     * @return App to associate user with.
      * 
      */
     public Output<String> appId() {
@@ -67,42 +109,44 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.profile);
     }
     /**
-     * Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+     * Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      * 
      */
     @Export(name="retainAssignment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> retainAssignment;
 
     /**
-     * @return Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+     * @return Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      * 
      */
     public Output<Optional<Boolean>> retainAssignment() {
         return Codegen.optional(this.retainAssignment);
     }
     /**
-     * User associated with the application
+     * User to associate the application with.
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
-     * @return User associated with the application
+     * @return User to associate the application with.
      * 
      */
     public Output<String> userId() {
         return this.userId;
     }
     /**
-     * The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
+     * The username to use for the app user. In case the user is assigned to the app with
+     * &#39;SHARED_USERNAME_AND_PASSWORD&#39; credentials scheme, this field will be computed and should not be set.
      * 
      */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**
-     * @return The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
+     * @return The username to use for the app user. In case the user is assigned to the app with
+     * &#39;SHARED_USERNAME_AND_PASSWORD&#39; credentials scheme, this field will be computed and should not be set.
      * 
      */
     public Output<Optional<String>> username() {

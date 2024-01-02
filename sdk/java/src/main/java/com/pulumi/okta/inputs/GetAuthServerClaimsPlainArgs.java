@@ -14,14 +14,14 @@ public final class GetAuthServerClaimsPlainArgs extends com.pulumi.resources.Inv
     public static final GetAuthServerClaimsPlainArgs Empty = new GetAuthServerClaimsPlainArgs();
 
     /**
-     * Auth server ID
+     * Auth server ID.
      * 
      */
     @Import(name="authServerId", required=true)
     private String authServerId;
 
     /**
-     * @return Auth server ID
+     * @return Auth server ID.
      * 
      */
     public String authServerId() {
@@ -53,7 +53,7 @@ public final class GetAuthServerClaimsPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param authServerId Auth server ID
+         * @param authServerId Auth server ID.
          * 
          * @return builder
          * 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Get a policy from Okta.
+ * Use this data source to retrieve a policy from Okta.
  *
  * ## Example Usage
  *
@@ -33,11 +33,12 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetPolicyArgs {
     /**
-     * Name of the policy
+     * Name of policy to retrieve.
      */
     name: string;
     /**
-     * Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+     * Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
+     * - All:
      */
     type: string;
 }
@@ -51,20 +52,17 @@ export interface GetPolicyResult {
      */
     readonly id: string;
     /**
-     * Name of the policy
+     * name of policy.
      */
     readonly name: string;
-    /**
-     * Status of the policy
-     */
     readonly status: string;
     /**
-     * Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+     * type of policy.
      */
     readonly type: string;
 }
 /**
- * Get a policy from Okta.
+ * Use this data source to retrieve a policy from Okta.
  *
  * ## Example Usage
  *
@@ -87,11 +85,12 @@ export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetPolicyOutputArgs {
     /**
-     * Name of the policy
+     * Name of policy to retrieve.
      */
     name: pulumi.Input<string>;
     /**
-     * Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+     * Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
+     * - All:
      */
     type: pulumi.Input<string>;
 }

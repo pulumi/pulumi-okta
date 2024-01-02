@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTrustedOriginsResult {
-    /**
-     * @return Filter criteria. Filter value will be URL-encoded by the provider
-     * 
-     */
     private @Nullable String filter;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -27,10 +23,6 @@ public final class GetTrustedOriginsResult {
     private List<GetTrustedOriginsTrustedOrigin> trustedOrigins;
 
     private GetTrustedOriginsResult() {}
-    /**
-     * @return Filter criteria. Filter value will be URL-encoded by the provider
-     * 
-     */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
     }

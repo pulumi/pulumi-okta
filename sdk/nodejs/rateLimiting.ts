@@ -4,6 +4,34 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * This resource allows you to configure the client-based rate limit and rate limiting communications settings.
+ *
+ * > **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
+ *
+ * > **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.RateLimiting("example", {
+ *     authorize: "ENFORCE",
+ *     communicationsEnabled: true,
+ *     login: "ENFORCE",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Rate limit settings can be imported without any parameters.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/rateLimiting:RateLimiting example .
+ * ```
+ */
 export class RateLimiting extends pulumi.CustomResource {
     /**
      * Get an existing RateLimiting resource's state with the given name, ID, and optional extra
@@ -33,15 +61,17 @@ export class RateLimiting extends pulumi.CustomResource {
     }
 
     /**
-     * Called during authentication.
+     * Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
+     * log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
      */
     public readonly authorize!: pulumi.Output<string>;
     /**
-     * Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+     * Enable or disable rate limiting communications. By default, it is `true`.
      */
     public readonly communicationsEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Called when accessing the Okta hosted login page.
+     * Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
+     * log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
      */
     public readonly login!: pulumi.Output<string>;
 
@@ -83,15 +113,17 @@ export class RateLimiting extends pulumi.CustomResource {
  */
 export interface RateLimitingState {
     /**
-     * Called during authentication.
+     * Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
+     * log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
      */
     authorize?: pulumi.Input<string>;
     /**
-     * Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+     * Enable or disable rate limiting communications. By default, it is `true`.
      */
     communicationsEnabled?: pulumi.Input<boolean>;
     /**
-     * Called when accessing the Okta hosted login page.
+     * Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
+     * log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
      */
     login?: pulumi.Input<string>;
 }
@@ -101,15 +133,17 @@ export interface RateLimitingState {
  */
 export interface RateLimitingArgs {
     /**
-     * Called during authentication.
+     * Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
+     * log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
      */
     authorize: pulumi.Input<string>;
     /**
-     * Enables rate limit warning, violation, notification emails and banners when this org meets rate limits.
+     * Enable or disable rate limiting communications. By default, it is `true`.
      */
     communicationsEnabled?: pulumi.Input<boolean>;
     /**
-     * Called when accessing the Okta hosted login page.
+     * Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
+     * log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
      */
     login: pulumi.Input<string>;
 }

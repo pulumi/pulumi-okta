@@ -4,6 +4,37 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Configures Default Authorization Server Claim.
+ *
+ * This resource allows you to configure Default Authorization Server Claims.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.AuthServerClaimDefault("example", {
+ *     authServerId: "<auth server id>",
+ *     value: "(appuser != null) ? appuser.userName : app.clientId",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Authorization Server Claim can be imported via the Auth Server ID and Claim ID or Claim Name.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim id&#62;
+ * ```
+ *
+ *  or
+ *
+ * ```sh
+ *  $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim name&#62;
+ * ```
+ */
 export class AuthServerClaimDefault extends pulumi.CustomResource {
     /**
      * Get an existing AuthServerClaimDefault resource's state with the given name, ID, and optional extra
@@ -37,19 +68,21 @@ export class AuthServerClaimDefault extends pulumi.CustomResource {
      */
     public readonly alwaysIncludeInToken!: pulumi.Output<boolean>;
     /**
-     * Auth server ID
+     * ID of the authorization server.
      */
     public readonly authServerId!: pulumi.Output<string>;
     /**
-     * Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+     * Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
      */
     public /*out*/ readonly claimType!: pulumi.Output<string>;
     /**
-     * Default auth server claim name
+     * The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
+     * `"emailVerified"`, `"familyName"`, `"gender"`, `"givenName"`, `"locale"`, `"middleName"`, `"name"`, `"nickname"`,
+     * `"phoneNumber"`, `"picture"`, `"preferredUsername"`, `"profile"`, `"updatedAt"`, `"website"`, `"zoneinfo"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Auth server claim list of scopes
+     * The list of scopes the auth server claim is tied to.
      */
     public /*out*/ readonly scopes!: pulumi.Output<string[]>;
     /**
@@ -57,7 +90,7 @@ export class AuthServerClaimDefault extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * The value of the claim.
+     * The value of the claim. Only required for `"sub"` claim.
      */
     public readonly value!: pulumi.Output<string | undefined>;
     /**
@@ -114,19 +147,21 @@ export interface AuthServerClaimDefaultState {
      */
     alwaysIncludeInToken?: pulumi.Input<boolean>;
     /**
-     * Auth server ID
+     * ID of the authorization server.
      */
     authServerId?: pulumi.Input<string>;
     /**
-     * Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+     * Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
      */
     claimType?: pulumi.Input<string>;
     /**
-     * Default auth server claim name
+     * The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
+     * `"emailVerified"`, `"familyName"`, `"gender"`, `"givenName"`, `"locale"`, `"middleName"`, `"name"`, `"nickname"`,
+     * `"phoneNumber"`, `"picture"`, `"preferredUsername"`, `"profile"`, `"updatedAt"`, `"website"`, `"zoneinfo"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * Auth server claim list of scopes
+     * The list of scopes the auth server claim is tied to.
      */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -134,7 +169,7 @@ export interface AuthServerClaimDefaultState {
      */
     status?: pulumi.Input<string>;
     /**
-     * The value of the claim.
+     * The value of the claim. Only required for `"sub"` claim.
      */
     value?: pulumi.Input<string>;
     /**
@@ -152,15 +187,17 @@ export interface AuthServerClaimDefaultArgs {
      */
     alwaysIncludeInToken?: pulumi.Input<boolean>;
     /**
-     * Auth server ID
+     * ID of the authorization server.
      */
     authServerId: pulumi.Input<string>;
     /**
-     * Default auth server claim name
+     * The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
+     * `"emailVerified"`, `"familyName"`, `"gender"`, `"givenName"`, `"locale"`, `"middleName"`, `"name"`, `"nickname"`,
+     * `"phoneNumber"`, `"picture"`, `"preferredUsername"`, `"profile"`, `"updatedAt"`, `"website"`, `"zoneinfo"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * The value of the claim.
+     * The value of the claim. Only required for `"sub"` claim.
      */
     value?: pulumi.Input<string>;
 }

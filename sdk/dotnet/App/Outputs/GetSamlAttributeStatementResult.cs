@@ -13,11 +13,29 @@ namespace Pulumi.Okta.App.Outputs
     [OutputType]
     public sealed class GetSamlAttributeStatementResult
     {
+        /// <summary>
+        /// Type of group attribute filter.
+        /// </summary>
         public readonly string FilterType;
+        /// <summary>
+        /// Filter value to use.
+        /// </summary>
         public readonly string FilterValue;
+        /// <summary>
+        /// name of application.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The attribute namespace.
+        /// </summary>
         public readonly string Namespace;
+        /// <summary>
+        /// The type of attribute statement value.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Array of values to use.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

@@ -16,59 +16,107 @@ public final class SamlKeyState extends com.pulumi.resources.ResourceArgs {
 
     public static final SamlKeyState Empty = new SamlKeyState();
 
+    /**
+     * Date created.
+     * 
+     */
     @Import(name="created")
     private @Nullable Output<String> created;
 
+    /**
+     * @return Date created.
+     * 
+     */
     public Optional<Output<String>> created() {
         return Optional.ofNullable(this.created);
     }
 
+    /**
+     * Date the cert expires.
+     * 
+     */
     @Import(name="expiresAt")
     private @Nullable Output<String> expiresAt;
 
+    /**
+     * @return Date the cert expires.
+     * 
+     */
     public Optional<Output<String>> expiresAt() {
         return Optional.ofNullable(this.expiresAt);
     }
 
+    /**
+     * Key ID.
+     * 
+     */
     @Import(name="kid")
     private @Nullable Output<String> kid;
 
+    /**
+     * @return Key ID.
+     * 
+     */
     public Optional<Output<String>> kid() {
         return Optional.ofNullable(this.kid);
     }
 
+    /**
+     * Identifies the cryptographic algorithm family used with the key.
+     * 
+     */
     @Import(name="kty")
     private @Nullable Output<String> kty;
 
+    /**
+     * @return Identifies the cryptographic algorithm family used with the key.
+     * 
+     */
     public Optional<Output<String>> kty() {
         return Optional.ofNullable(this.kty);
     }
 
+    /**
+     * Intended use of the public key.
+     * 
+     */
     @Import(name="use")
     private @Nullable Output<String> use;
 
+    /**
+     * @return Intended use of the public key.
+     * 
+     */
     public Optional<Output<String>> use() {
         return Optional.ofNullable(this.use);
     }
 
     /**
-     * base64-encoded X.509 certificate chain with DER encoding
+     * base64-encoded X.509 certificate chain with DER encoding.
      * 
      */
     @Import(name="x5cs")
     private @Nullable Output<List<String>> x5cs;
 
     /**
-     * @return base64-encoded X.509 certificate chain with DER encoding
+     * @return base64-encoded X.509 certificate chain with DER encoding.
      * 
      */
     public Optional<Output<List<String>>> x5cs() {
         return Optional.ofNullable(this.x5cs);
     }
 
+    /**
+     * base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
+     * 
+     */
     @Import(name="x5tS256")
     private @Nullable Output<String> x5tS256;
 
+    /**
+     * @return base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
+     * 
+     */
     public Optional<Output<String>> x5tS256() {
         return Optional.ofNullable(this.x5tS256);
     }
@@ -103,53 +151,113 @@ public final class SamlKeyState extends com.pulumi.resources.ResourceArgs {
             $ = new SamlKeyState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param created Date created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder created(@Nullable Output<String> created) {
             $.created = created;
             return this;
         }
 
+        /**
+         * @param created Date created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder created(String created) {
             return created(Output.of(created));
         }
 
+        /**
+         * @param expiresAt Date the cert expires.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expiresAt(@Nullable Output<String> expiresAt) {
             $.expiresAt = expiresAt;
             return this;
         }
 
+        /**
+         * @param expiresAt Date the cert expires.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expiresAt(String expiresAt) {
             return expiresAt(Output.of(expiresAt));
         }
 
+        /**
+         * @param kid Key ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kid(@Nullable Output<String> kid) {
             $.kid = kid;
             return this;
         }
 
+        /**
+         * @param kid Key ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kid(String kid) {
             return kid(Output.of(kid));
         }
 
+        /**
+         * @param kty Identifies the cryptographic algorithm family used with the key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kty(@Nullable Output<String> kty) {
             $.kty = kty;
             return this;
         }
 
+        /**
+         * @param kty Identifies the cryptographic algorithm family used with the key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kty(String kty) {
             return kty(Output.of(kty));
         }
 
+        /**
+         * @param use Intended use of the public key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder use(@Nullable Output<String> use) {
             $.use = use;
             return this;
         }
 
+        /**
+         * @param use Intended use of the public key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder use(String use) {
             return use(Output.of(use));
         }
 
         /**
-         * @param x5cs base64-encoded X.509 certificate chain with DER encoding
+         * @param x5cs base64-encoded X.509 certificate chain with DER encoding.
          * 
          * @return builder
          * 
@@ -160,7 +268,7 @@ public final class SamlKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param x5cs base64-encoded X.509 certificate chain with DER encoding
+         * @param x5cs base64-encoded X.509 certificate chain with DER encoding.
          * 
          * @return builder
          * 
@@ -170,7 +278,7 @@ public final class SamlKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param x5cs base64-encoded X.509 certificate chain with DER encoding
+         * @param x5cs base64-encoded X.509 certificate chain with DER encoding.
          * 
          * @return builder
          * 
@@ -179,11 +287,23 @@ public final class SamlKeyState extends com.pulumi.resources.ResourceArgs {
             return x5cs(List.of(x5cs));
         }
 
+        /**
+         * @param x5tS256 base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder x5tS256(@Nullable Output<String> x5tS256) {
             $.x5tS256 = x5tS256;
             return this;
         }
 
+        /**
+         * @param x5tS256 base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder x5tS256(String x5tS256) {
             return x5tS256(Output.of(x5tS256));
         }

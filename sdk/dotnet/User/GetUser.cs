@@ -12,7 +12,7 @@ namespace Pulumi.Okta.User
     public static class GetUser
     {
         /// <summary>
-        /// Get a single users from Okta.
+        /// Use this data source to retrieve a users from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -46,7 +46,7 @@ namespace Pulumi.Okta.User
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("okta:user/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a single users from Okta.
+        /// Use this data source to retrieve a users from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -84,7 +84,7 @@ namespace Pulumi.Okta.User
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Search operator used when joining mulitple search clauses
+        /// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
         /// </summary>
         [Input("compoundSearchOperator")]
         public string? CompoundSearchOperator { get; set; }
@@ -99,7 +99,7 @@ namespace Pulumi.Okta.User
         private List<Inputs.GetUserSearchArgs>? _searches;
 
         /// <summary>
-        /// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+        /// Map of search criteria. It supports the following properties.
         /// </summary>
         public List<Inputs.GetUserSearchArgs> Searches
         {
@@ -107,20 +107,14 @@ namespace Pulumi.Okta.User
             set => _searches = value;
         }
 
-        /// <summary>
-        /// Do not populate user groups information (prevents additional API call)
-        /// </summary>
         [Input("skipGroups")]
         public bool? SkipGroups { get; set; }
 
-        /// <summary>
-        /// Do not populate user roles information (prevents additional API call)
-        /// </summary>
         [Input("skipRoles")]
         public bool? SkipRoles { get; set; }
 
         /// <summary>
-        /// Retrieve a single user based on their id
+        /// String representing a specific user's id value
         /// </summary>
         [Input("userId")]
         public string? UserId { get; set; }
@@ -134,7 +128,7 @@ namespace Pulumi.Okta.User
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Search operator used when joining mulitple search clauses
+        /// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
         /// </summary>
         [Input("compoundSearchOperator")]
         public Input<string>? CompoundSearchOperator { get; set; }
@@ -149,7 +143,7 @@ namespace Pulumi.Okta.User
         private InputList<Inputs.GetUserSearchInputArgs>? _searches;
 
         /// <summary>
-        /// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+        /// Map of search criteria. It supports the following properties.
         /// </summary>
         public InputList<Inputs.GetUserSearchInputArgs> Searches
         {
@@ -157,20 +151,14 @@ namespace Pulumi.Okta.User
             set => _searches = value;
         }
 
-        /// <summary>
-        /// Do not populate user groups information (prevents additional API call)
-        /// </summary>
         [Input("skipGroups")]
         public Input<bool>? SkipGroups { get; set; }
 
-        /// <summary>
-        /// Do not populate user roles information (prevents additional API call)
-        /// </summary>
         [Input("skipRoles")]
         public Input<bool>? SkipRoles { get; set; }
 
         /// <summary>
-        /// Retrieve a single user based on their id
+        /// String representing a specific user's id value
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
@@ -186,68 +174,152 @@ namespace Pulumi.Okta.User
     public sealed class GetUserResult
     {
         public readonly ImmutableArray<string> AdminRoles;
+        /// <summary>
+        /// City or locality component of user's address.
+        /// </summary>
         public readonly string City;
-        /// <summary>
-        /// Search operator used when joining mulitple search clauses
-        /// </summary>
         public readonly string? CompoundSearchOperator;
-        public readonly string CostCenter;
-        public readonly string CountryCode;
-        public readonly string CustomProfileAttributes;
         /// <summary>
-        /// Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
+        /// Name of a cost center assigned to user.
         /// </summary>
+        public readonly string CostCenter;
+        /// <summary>
+        /// Country name component of user's address.
+        /// </summary>
+        public readonly string CountryCode;
+        /// <summary>
+        /// Raw JSON containing all custom profile attributes.
+        /// </summary>
+        public readonly string CustomProfileAttributes;
         public readonly string? DelayReadSeconds;
+        /// <summary>
+        /// Name of user's department.
+        /// </summary>
         public readonly string Department;
+        /// <summary>
+        /// Name of the user, suitable for display to end users.
+        /// </summary>
         public readonly string DisplayName;
+        /// <summary>
+        /// Name of user's division.
+        /// </summary>
         public readonly string Division;
+        /// <summary>
+        /// Primary email address of user.
+        /// </summary>
         public readonly string Email;
+        /// <summary>
+        /// Organization or company assigned unique identifier for the user.
+        /// </summary>
         public readonly string EmployeeNumber;
+        /// <summary>
+        /// Given name of the user.
+        /// </summary>
         public readonly string FirstName;
         public readonly ImmutableArray<string> GroupMemberships;
+        /// <summary>
+        /// Honorific prefix(es) of the user, or title in most Western languages.
+        /// </summary>
         public readonly string HonorificPrefix;
+        /// <summary>
+        /// Honorific suffix(es) of the user.
+        /// </summary>
         public readonly string HonorificSuffix;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Family name of the user.
+        /// </summary>
         public readonly string LastName;
+        /// <summary>
+        /// User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
+        /// </summary>
         public readonly string Locale;
+        /// <summary>
+        /// Unique identifier for the user.
+        /// </summary>
         public readonly string Login;
+        /// <summary>
+        /// Display name of the user's manager.
+        /// </summary>
         public readonly string Manager;
+        /// <summary>
+        /// `id` of a user's manager.
+        /// </summary>
         public readonly string ManagerId;
+        /// <summary>
+        /// Middle name(s) of the user.
+        /// </summary>
         public readonly string MiddleName;
+        /// <summary>
+        /// Mobile phone number of user.
+        /// </summary>
         public readonly string MobilePhone;
+        /// <summary>
+        /// Casual way to address the user in real life.
+        /// </summary>
         public readonly string NickName;
+        /// <summary>
+        /// Name of user's organization.
+        /// </summary>
         public readonly string Organization;
+        /// <summary>
+        /// Mailing address component of user's address.
+        /// </summary>
         public readonly string PostalAddress;
+        /// <summary>
+        /// User's preferred written or spoken languages.
+        /// </summary>
         public readonly string PreferredLanguage;
+        /// <summary>
+        /// Primary phone number of user such as home number.
+        /// </summary>
         public readonly string PrimaryPhone;
+        /// <summary>
+        /// URL of user's online profile (e.g. a web page).
+        /// </summary>
         public readonly string ProfileUrl;
+        /// <summary>
+        /// All roles assigned to user.
+        /// </summary>
         public readonly ImmutableArray<string> Roles;
-        /// <summary>
-        /// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserSearchResult> Searches;
+        /// <summary>
+        /// Secondary email address of user typically used for account recovery.
+        /// </summary>
         public readonly string SecondEmail;
-        /// <summary>
-        /// Do not populate user groups information (prevents additional API call)
-        /// </summary>
         public readonly bool? SkipGroups;
-        /// <summary>
-        /// Do not populate user roles information (prevents additional API call)
-        /// </summary>
         public readonly bool? SkipRoles;
-        public readonly string State;
-        public readonly string Status;
-        public readonly string StreetAddress;
-        public readonly string Timezone;
-        public readonly string Title;
         /// <summary>
-        /// Retrieve a single user based on their id
+        /// State or region component of user's address (region).
         /// </summary>
+        public readonly string State;
+        /// <summary>
+        /// Current status of user.
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
+        /// Full street address component of user's address.
+        /// </summary>
+        public readonly string StreetAddress;
+        /// <summary>
+        /// User's time zone.
+        /// </summary>
+        public readonly string Timezone;
+        /// <summary>
+        /// User's title, such as "Vice President".
+        /// </summary>
+        public readonly string Title;
         public readonly string? UserId;
+        /// <summary>
+        /// Used to describe the organization to user relationship such as "Employee" or "Contractor".
+        /// </summary>
         public readonly string UserType;
+        /// <summary>
+        /// Zipcode or postal code component of user's address (postalCode)
+        /// </summary>
         public readonly string ZipCode;
 
         [OutputConstructor]

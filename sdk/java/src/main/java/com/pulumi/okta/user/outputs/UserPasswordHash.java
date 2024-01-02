@@ -13,63 +13,63 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPasswordHash {
-    /**
-     * @return The algorithm used to generate the hash using the password
-     * 
-     */
     private String algorithm;
     /**
-     * @return Only required for salted hashes
+     * @return Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
+     * the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
      * 
      */
     private @Nullable String salt;
     /**
-     * @return Specifies whether salt was pre- or postfixed to the password before hashing
+     * @return Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
      * 
      */
     private @Nullable String saltOrder;
     /**
-     * @return For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password&#39;s SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+     * @return For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
+     * This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
+     * the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
+     * the Base64 encoded value of the password&#39;s SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
      * 
      */
     private String value;
     /**
-     * @return Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
+     * @return Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
      * 
      */
     private @Nullable Integer workFactor;
 
     private UserPasswordHash() {}
-    /**
-     * @return The algorithm used to generate the hash using the password
-     * 
-     */
     public String algorithm() {
         return this.algorithm;
     }
     /**
-     * @return Only required for salted hashes
+     * @return Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
+     * the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
      * 
      */
     public Optional<String> salt() {
         return Optional.ofNullable(this.salt);
     }
     /**
-     * @return Specifies whether salt was pre- or postfixed to the password before hashing
+     * @return Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
      * 
      */
     public Optional<String> saltOrder() {
         return Optional.ofNullable(this.saltOrder);
     }
     /**
-     * @return For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password&#39;s SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+     * @return For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
+     * This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
+     * the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
+     * the Base64 encoded value of the password&#39;s SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
      * 
      */
     public String value() {
         return this.value;
     }
     /**
-     * @return Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
+     * @return Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
      * 
      */
     public Optional<Integer> workFactor() {

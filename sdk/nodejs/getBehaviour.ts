@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Get a behavior by name or ID.
+ * Use this data source to retrieve a behavior from Okta.
  */
 export function getBehaviour(args?: GetBehaviourArgs, opts?: pulumi.InvokeOptions): Promise<GetBehaviourResult> {
     args = args || {};
@@ -22,11 +22,12 @@ export function getBehaviour(args?: GetBehaviourArgs, opts?: pulumi.InvokeOption
  */
 export interface GetBehaviourArgs {
     /**
-     * Behavior ID.
+     * `id` of behavior to retrieve, conflicts with `name`.
      */
     id?: string;
     /**
-     * Behavior name.
+     * The name of the behavior to retrieve. Name uses the `?q=<name>` query parameter exposed by 
+     * Okta's API.
      */
     name?: string;
 }
@@ -57,7 +58,7 @@ export interface GetBehaviourResult {
     readonly type: string;
 }
 /**
- * Get a behavior by name or ID.
+ * Use this data source to retrieve a behavior from Okta.
  */
 export function getBehaviourOutput(args?: GetBehaviourOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBehaviourResult> {
     return pulumi.output(args).apply((a: any) => getBehaviour(a, opts))
@@ -68,11 +69,12 @@ export function getBehaviourOutput(args?: GetBehaviourOutputArgs, opts?: pulumi.
  */
 export interface GetBehaviourOutputArgs {
     /**
-     * Behavior ID.
+     * `id` of behavior to retrieve, conflicts with `name`.
      */
     id?: pulumi.Input<string>;
     /**
-     * Behavior name.
+     * The name of the behavior to retrieve. Name uses the `?q=<name>` query parameter exposed by 
+     * Okta's API.
      */
     name?: pulumi.Input<string>;
 }

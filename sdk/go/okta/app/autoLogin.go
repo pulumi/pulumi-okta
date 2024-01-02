@@ -12,62 +12,134 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and configure an Auto Login Okta Application.
+//
+// > During an apply if there is change in `status` the app will first be
+// activated or deactivated in accordance with the `status` change. Then, all
+// other arguments that changed will be applied.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewAutoLogin(ctx, "example", &app.AutoLoginArgs{
+//				CredentialsScheme: pulumi.String("EDIT_USERNAME_AND_PASSWORD"),
+//				Label:             pulumi.String("Example App"),
+//				RevealPassword:    pulumi.Bool(true),
+//				SignOnRedirectUrl: pulumi.String("https://example.com"),
+//				SignOnUrl:         pulumi.String("https://example.com/login.html"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Pre-configured application
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewAutoLogin(ctx, "example", &app.AutoLoginArgs{
+//				AppSettingsJson:  pulumi.String("{\n    \"domain\": \"okta\",\n    \"afwOnly\": false\n}\n\n"),
+//				Label:            pulumi.String("Google Example App"),
+//				PreconfiguredApp: pulumi.String("google"),
+//				Status:           pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Okta Auto Login App can be imported via the Okta ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;
+//
+// ```
 type AutoLogin struct {
 	pulumi.CustomResourceState
 
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
-	// Application settings in JSON format
+	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
-	// Application credentials scheme
+	// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrOutput `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
-	// Pretty name of app.
+	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
-	// URL of the application's logo
+	// Direct link of application logo.
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
-	// Name of the app.
+	// Name assigned to the application by Okta.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Preconfigured app name
+	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
 	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
-	// Allow user to reveal password
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword pulumi.BoolPtrOutput `pulumi:"revealPassword"`
-	// Shared password, required for certain schemes.
+	// Shared password, required for certain schemes
 	SharedPassword pulumi.StringPtrOutput `pulumi:"sharedPassword"`
-	// Shared username, required for certain schemes.
+	// Shared username, required for certain schemes
 	SharedUsername pulumi.StringPtrOutput `pulumi:"sharedUsername"`
-	// Sign on mode of application.
+	// Sign-on mode of the application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Post login redirect URL
+	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl pulumi.StringPtrOutput `pulumi:"signOnRedirectUrl"`
-	// Login URL
+	// App login page URL
 	SignOnUrl pulumi.StringPtrOutput `pulumi:"signOnUrl"`
-	// Status of application.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 }
 
@@ -104,116 +176,116 @@ func GetAutoLogin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutoLogin resources.
 type autoLoginState struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
-	// Application settings in JSON format
+	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// Application credentials scheme
+	// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
-	// Pretty name of app.
+	// The Application's display name.
 	Label *string `pulumi:"label"`
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
-	// URL of the application's logo
+	// Direct link of application logo.
 	LogoUrl *string `pulumi:"logoUrl"`
-	// Name of the app.
+	// Name assigned to the application by Okta.
 	Name *string `pulumi:"name"`
-	// Preconfigured app name
+	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
-	// Allow user to reveal password
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword *bool `pulumi:"revealPassword"`
-	// Shared password, required for certain schemes.
+	// Shared password, required for certain schemes
 	SharedPassword *string `pulumi:"sharedPassword"`
-	// Shared username, required for certain schemes.
+	// Shared username, required for certain schemes
 	SharedUsername *string `pulumi:"sharedUsername"`
-	// Sign on mode of application.
+	// Sign-on mode of the application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Post login redirect URL
+	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl *string `pulumi:"signOnRedirectUrl"`
-	// Login URL
+	// App login page URL
 	SignOnUrl *string `pulumi:"signOnUrl"`
-	// Status of application.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 }
 
 type AutoLoginState struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
-	// Application settings in JSON format
+	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// Application credentials scheme
+	// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
-	// Pretty name of app.
+	// The Application's display name.
 	Label pulumi.StringPtrInput
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
-	// URL of the application's logo
+	// Direct link of application logo.
 	LogoUrl pulumi.StringPtrInput
-	// Name of the app.
+	// Name assigned to the application by Okta.
 	Name pulumi.StringPtrInput
-	// Preconfigured app name
+	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
 	PreconfiguredApp pulumi.StringPtrInput
-	// Allow user to reveal password
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword pulumi.BoolPtrInput
-	// Shared password, required for certain schemes.
+	// Shared password, required for certain schemes
 	SharedPassword pulumi.StringPtrInput
-	// Shared username, required for certain schemes.
+	// Shared username, required for certain schemes
 	SharedUsername pulumi.StringPtrInput
-	// Sign on mode of application.
+	// Sign-on mode of the application.
 	SignOnMode pulumi.StringPtrInput
-	// Post login redirect URL
+	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl pulumi.StringPtrInput
-	// Login URL
+	// App login page URL
 	SignOnUrl pulumi.StringPtrInput
-	// Status of application.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus pulumi.StringPtrInput
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 }
 
@@ -222,105 +294,105 @@ func (AutoLoginState) ElementType() reflect.Type {
 }
 
 type autoLoginArgs struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
-	// Application settings in JSON format
+	// Application settings in JSON format.
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// Application credentials scheme
+	// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
-	// Pretty name of app.
+	// The Application's display name.
 	Label string `pulumi:"label"`
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
-	// Preconfigured app name
+	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
-	// Allow user to reveal password
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword *bool `pulumi:"revealPassword"`
-	// Shared password, required for certain schemes.
+	// Shared password, required for certain schemes
 	SharedPassword *string `pulumi:"sharedPassword"`
-	// Shared username, required for certain schemes.
+	// Shared username, required for certain schemes
 	SharedUsername *string `pulumi:"sharedUsername"`
-	// Post login redirect URL
+	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl *string `pulumi:"signOnRedirectUrl"`
-	// Login URL
+	// App login page URL
 	SignOnUrl *string `pulumi:"signOnUrl"`
-	// Status of application.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status *string `pulumi:"status"`
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate *string `pulumi:"userNameTemplate"`
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 }
 
 // The set of arguments for constructing a AutoLogin resource.
 type AutoLoginArgs struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
-	// Application settings in JSON format
+	// Application settings in JSON format.
 	AppSettingsJson pulumi.StringPtrInput
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// Application credentials scheme
+	// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 	CredentialsScheme pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
-	// Pretty name of app.
+	// The Application's display name.
 	Label pulumi.StringInput
-	// Local path to logo of the application.
+	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
-	// Preconfigured app name
+	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
 	PreconfiguredApp pulumi.StringPtrInput
-	// Allow user to reveal password
+	// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 	RevealPassword pulumi.BoolPtrInput
-	// Shared password, required for certain schemes.
+	// Shared password, required for certain schemes
 	SharedPassword pulumi.StringPtrInput
-	// Shared username, required for certain schemes.
+	// Shared username, required for certain schemes
 	SharedUsername pulumi.StringPtrInput
-	// Post login redirect URL
+	// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 	SignOnRedirectUrl pulumi.StringPtrInput
-	// Login URL
+	// App login page URL
 	SignOnUrl pulumi.StringPtrInput
-	// Status of application.
+	// The status of the application, by default, it is `"ACTIVE"`.
 	Status pulumi.StringPtrInput
-	// Username template
+	// Username template. Default: `"${source.login}"`
 	UserNameTemplate pulumi.StringPtrInput
-	// Push username on update
+	// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 	UserNameTemplatePushStatus pulumi.StringPtrInput
-	// Username template suffix
+	// Username template suffix.
 	UserNameTemplateSuffix pulumi.StringPtrInput
-	// Username template type
+	// Username template type. Default: `"BUILT_IN"`.
 	UserNameTemplateType pulumi.StringPtrInput
 }
 
@@ -411,17 +483,17 @@ func (o AutoLoginOutput) ToAutoLoginOutputWithContext(ctx context.Context) AutoL
 	return o
 }
 
-// Custom error page URL
+// Custom error page URL.
 func (o AutoLoginOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// Custom login page URL
+// Custom login page for this application.
 func (o AutoLoginOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// Enable self service
+// Enable self-service. By default, it is `false`.
 func (o AutoLoginOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
 }
@@ -431,22 +503,22 @@ func (o AutoLoginOutput) AdminNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
 }
 
-// Displays specific appLinks for the app
+// Displays specific appLinks for the app. The value for each application link should be boolean.
 func (o AutoLoginOutput) AppLinksJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
 }
 
-// Application settings in JSON format
+// Application settings in JSON format.
 func (o AutoLoginOutput) AppSettingsJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.AppSettingsJson }).(pulumi.StringPtrOutput)
 }
 
-// Display auto submit toolbar
+// Display auto submit toolbar.
 func (o AutoLoginOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
 }
 
-// Application credentials scheme
+// One of: `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
 func (o AutoLoginOutput) CredentialsScheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.CredentialsScheme }).(pulumi.StringPtrOutput)
 }
@@ -456,92 +528,92 @@ func (o AutoLoginOutput) EnduserNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
 }
 
-// Do not display application icon on mobile app
+// Do not display application icon on mobile app.
 func (o AutoLoginOutput) HideIos() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
 }
 
-// Do not display application icon to users
+// Do not display application icon to users.
 func (o AutoLoginOutput) HideWeb() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
 }
 
-// Pretty name of app.
+// The Application's display name.
 func (o AutoLoginOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
 }
 
-// Local path to logo of the application.
+// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 func (o AutoLoginOutput) Logo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
 }
 
-// URL of the application's logo
+// Direct link of application logo.
 func (o AutoLoginOutput) LogoUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
 }
 
-// Name of the app.
+// Name assigned to the application by Okta.
 func (o AutoLoginOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Preconfigured app name
+// Tells Okta to use an existing application in their application catalog, as opposed to a custom application.
 func (o AutoLoginOutput) PreconfiguredApp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.PreconfiguredApp }).(pulumi.StringPtrOutput)
 }
 
-// Allow user to reveal password
+// Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
 func (o AutoLoginOutput) RevealPassword() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.BoolPtrOutput { return v.RevealPassword }).(pulumi.BoolPtrOutput)
 }
 
-// Shared password, required for certain schemes.
+// Shared password, required for certain schemes
 func (o AutoLoginOutput) SharedPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.SharedPassword }).(pulumi.StringPtrOutput)
 }
 
-// Shared username, required for certain schemes.
+// Shared username, required for certain schemes
 func (o AutoLoginOutput) SharedUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.SharedUsername }).(pulumi.StringPtrOutput)
 }
 
-// Sign on mode of application.
+// Sign-on mode of the application.
 func (o AutoLoginOutput) SignOnMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
 }
 
-// Post login redirect URL
+// Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
 func (o AutoLoginOutput) SignOnRedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.SignOnRedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// Login URL
+// App login page URL
 func (o AutoLoginOutput) SignOnUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.SignOnUrl }).(pulumi.StringPtrOutput)
 }
 
-// Status of application.
+// The status of the application, by default, it is `"ACTIVE"`.
 func (o AutoLoginOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Username template
+// Username template. Default: `"${source.login}"`
 func (o AutoLoginOutput) UserNameTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
 }
 
-// Push username on update
+// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
 func (o AutoLoginOutput) UserNameTemplatePushStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.UserNameTemplatePushStatus }).(pulumi.StringPtrOutput)
 }
 
-// Username template suffix
+// Username template suffix.
 func (o AutoLoginOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.UserNameTemplateSuffix }).(pulumi.StringPtrOutput)
 }
 
-// Username template type
+// Username template type. Default: `"BUILT_IN"`.
 func (o AutoLoginOutput) UserNameTemplateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoLogin) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
 }

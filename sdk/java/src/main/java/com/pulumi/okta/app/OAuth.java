@@ -19,45 +19,184 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to create and configure an OIDC Application.
+ * 
+ * &gt; During an apply if there is change in `status` the app will first be
+ * activated or deactivated in accordance with the `status` change. Then, all
+ * other arguments that changed will be applied.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.OAuth;
+ * import com.pulumi.okta.app.OAuthArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new OAuth(&#34;example&#34;, OAuthArgs.builder()        
+ *             .grantTypes(&#34;authorization_code&#34;)
+ *             .label(&#34;example&#34;)
+ *             .redirectUris(&#34;https://example.com/&#34;)
+ *             .responseTypes(&#34;code&#34;)
+ *             .type(&#34;web&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With JWKS value
+ * 
+ * See also Advanced PEM secrets and JWKS example.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.OAuth;
+ * import com.pulumi.okta.app.OAuthArgs;
+ * import com.pulumi.okta.app.inputs.OAuthJwkArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new OAuth(&#34;example&#34;, OAuthArgs.builder()        
+ *             .grantTypes(&#34;client_credentials&#34;)
+ *             .jwks(            
+ *                 OAuthJwkArgs.builder()
+ *                     .e(&#34;AQAB&#34;)
+ *                     .kid(&#34;SIGNING_KEY_RSA&#34;)
+ *                     .kty(&#34;RSA&#34;)
+ *                     .n(&#34;xyz&#34;)
+ *                     .build(),
+ *                 OAuthJwkArgs.builder()
+ *                     .kid(&#34;SIGNING_KEY_EC&#34;)
+ *                     .kty(&#34;EC&#34;)
+ *                     .x(&#34;K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I&#34;)
+ *                     .y(&#34;8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo&#34;)
+ *                     .build())
+ *             .label(&#34;example&#34;)
+ *             .responseTypes(&#34;token&#34;)
+ *             .tokenEndpointAuthMethod(&#34;private_key_jwt&#34;)
+ *             .type(&#34;service&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Etc.
+ * 
+ * ### Resetting client secret
+ * 
+ * If the client secret needs to be reset run an apply with `omit_secret` set to
+ * true in the resource. This causes `client_secret` to be set to blank. Remove
+ * `omit_secret` and run apply again. The resource will set a new `client_secret`
+ * for the app.
+ * 
+ * ### Private Keys
+ * 
+ * The private key format that an Okta OAuth app expects is PKCS#8 (unencrypted).
+ * The operator either uploads their own private key or Okta can generate one in
+ * the Admin UI Panel under the apps Client Credentials. PKCS#8 format can be
+ * identified by a header that starts with `-----BEGIN PRIVATE KEY-----`. If the
+ * operator has a PKCS#1 (unencrypted) format private key (the header starts with
+ * `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
+ * key with `openssl`:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * An OIDC Application can be imported via the Okta ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:app/oAuth:OAuth")
 public class OAuth extends com.pulumi.resources.CustomResource {
     /**
-     * Custom error page URL
+     * Custom error page URL.
      * 
      */
     @Export(name="accessibilityErrorRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityErrorRedirectUrl;
 
     /**
-     * @return Custom error page URL
+     * @return Custom error page URL.
      * 
      */
     public Output<Optional<String>> accessibilityErrorRedirectUrl() {
         return Codegen.optional(this.accessibilityErrorRedirectUrl);
     }
     /**
-     * Custom login page URL
+     * Custom login page for this application.
      * 
      */
     @Export(name="accessibilityLoginRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityLoginRedirectUrl;
 
     /**
-     * @return Custom login page URL
+     * @return Custom login page for this application.
      * 
      */
     public Output<Optional<String>> accessibilityLoginRedirectUrl() {
         return Codegen.optional(this.accessibilityLoginRedirectUrl);
     }
     /**
-     * Enable self service
+     * Enable self-service. By default, it is `false`.
      * 
      */
     @Export(name="accessibilitySelfService", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessibilitySelfService;
 
     /**
-     * @return Enable self service
+     * @return Enable self-service. By default, it is `false`.
      * 
      */
     public Output<Optional<Boolean>> accessibilitySelfService() {
@@ -78,112 +217,120 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.adminNote);
     }
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
     @Export(name="appLinksJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appLinksJson;
 
     /**
-     * @return Displays specific appLinks for the app
+     * @return Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
     public Output<Optional<String>> appLinksJson() {
         return Codegen.optional(this.appLinksJson);
     }
     /**
-     * Application settings in JSON format
+     * Application settings in JSON format.
      * 
      */
     @Export(name="appSettingsJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appSettingsJson;
 
     /**
-     * @return Application settings in JSON format
+     * @return Application settings in JSON format.
      * 
      */
     public Output<Optional<String>> appSettingsJson() {
         return Codegen.optional(this.appSettingsJson);
     }
     /**
-     * Id of this apps authentication policy
+     * The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
      * 
      */
     @Export(name="authenticationPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authenticationPolicy;
 
     /**
-     * @return Id of this apps authentication policy
+     * @return The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
      * 
      */
     public Output<Optional<String>> authenticationPolicy() {
         return Codegen.optional(this.authenticationPolicy);
     }
     /**
-     * Requested key rotation mode.
+     * Requested key rotation mode.  If
+     * `auto_key_rotation` isn&#39;t specified, the client automatically opts in for Okta&#39;s
+     * key rotation. You can update this property via the API or via the administrator
+     * UI.
+     * See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Export(name="autoKeyRotation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoKeyRotation;
 
     /**
-     * @return Requested key rotation mode.
+     * @return Requested key rotation mode.  If
+     * `auto_key_rotation` isn&#39;t specified, the client automatically opts in for Okta&#39;s
+     * key rotation. You can update this property via the API or via the administrator
+     * UI.
+     * See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Output<Optional<Boolean>> autoKeyRotation() {
         return Codegen.optional(this.autoKeyRotation);
     }
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      * 
      */
     @Export(name="autoSubmitToolbar", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoSubmitToolbar;
 
     /**
-     * @return Display auto submit toolbar
+     * @return Display auto submit toolbar.
      * 
      */
     public Output<Optional<Boolean>> autoSubmitToolbar() {
         return Codegen.optional(this.autoSubmitToolbar);
     }
     /**
-     * OAuth client secret key, this can be set when token*endpoint*auth*method is client*secret_basic.
+     * OAuth client secret key, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`.
      * 
      */
     @Export(name="clientBasicSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientBasicSecret;
 
     /**
-     * @return OAuth client secret key, this can be set when token*endpoint*auth*method is client*secret_basic.
+     * @return OAuth client secret key, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`.
      * 
      */
     public Output<Optional<String>> clientBasicSecret() {
         return Codegen.optional(this.clientBasicSecret);
     }
     /**
-     * OAuth client ID. If set during creation, app is created with this id.
+     * OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output<String> clientId;
 
     /**
-     * @return OAuth client ID. If set during creation, app is created with this id.
+     * @return OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Output<String> clientId() {
         return this.clientId;
     }
     /**
-     * OAuth client secret key. This will be in plain text in your statefile unless you set omit_secret above.
+     * The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output<String> clientSecret;
 
     /**
-     * @return OAuth client secret key. This will be in plain text in your statefile unless you set omit_secret above.
+     * @return The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Output<String> clientSecret() {
@@ -204,14 +351,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientUri);
     }
     /**
-     * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+     * Indicates whether user consent is required or implicit. Valid values: `&#34;REQUIRED&#34;`, `&#34;TRUSTED&#34;`. Default value is `&#34;TRUSTED&#34;`.
      * 
      */
     @Export(name="consentMethod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> consentMethod;
 
     /**
-     * @return *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+     * @return Indicates whether user consent is required or implicit. Valid values: `&#34;REQUIRED&#34;`, `&#34;TRUSTED&#34;`. Default value is `&#34;TRUSTED&#34;`.
      * 
      */
     public Output<Optional<String>> consentMethod() {
@@ -232,174 +379,190 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enduserNote);
     }
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+     * List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
+     * Defaults to minimum requirements per app type. Valid values: `&#34;authorization_code&#34;`, `&#34;implicit&#34;`, `&#34;password&#34;`, `&#34;refresh_token&#34;`, `&#34;client_credentials&#34;`,
+     * `&#34;urn:ietf:params:oauth:grant-type:saml2-bearer&#34;` (*Early Access Property*), `&#34;urn:ietf:params:oauth:grant-type:token-exchange&#34;` (*Early Access Property*),
+     * `&#34;interaction_code&#34;` (*OIE only*).
      * 
      */
     @Export(name="grantTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> grantTypes;
 
     /**
-     * @return List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+     * @return List of OAuth 2.0 grant types. Conditional validation params found [here](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details).
+     * Defaults to minimum requirements per app type. Valid values: `&#34;authorization_code&#34;`, `&#34;implicit&#34;`, `&#34;password&#34;`, `&#34;refresh_token&#34;`, `&#34;client_credentials&#34;`,
+     * `&#34;urn:ietf:params:oauth:grant-type:saml2-bearer&#34;` (*Early Access Property*), `&#34;urn:ietf:params:oauth:grant-type:token-exchange&#34;` (*Early Access Property*),
+     * `&#34;interaction_code&#34;` (*OIE only*).
      * 
      */
     public Output<Optional<List<String>>> grantTypes() {
         return Codegen.optional(this.grantTypes);
     }
     /**
-     * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+     * Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
      * 
      */
     @Export(name="groupsClaim", refs={OAuthGroupsClaim.class}, tree="[0]")
     private Output</* @Nullable */ OAuthGroupsClaim> groupsClaim;
 
     /**
-     * @return Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+     * @return Groups claim for an OpenID Connect client application. **IMPORTANT**: this argument is ignored when Okta API authentication is done with OAuth 2.0 credentials
      * 
      */
     public Output<Optional<OAuthGroupsClaim>> groupsClaim() {
         return Codegen.optional(this.groupsClaim);
     }
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      * 
      */
     @Export(name="hideIos", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideIos;
 
     /**
-     * @return Do not display application icon on mobile app
+     * @return Do not display application icon on mobile app.
      * 
      */
     public Output<Optional<Boolean>> hideIos() {
         return Codegen.optional(this.hideIos);
     }
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      * 
      */
     @Export(name="hideWeb", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideWeb;
 
     /**
-     * @return Do not display application icon to users
+     * @return Do not display application icon to users.
      * 
      */
     public Output<Optional<Boolean>> hideWeb() {
         return Codegen.optional(this.hideWeb);
     }
     /**
-     * *Early Access Property*. Enable Federation Broker Mode.
+     * *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
      * 
      */
     @Export(name="implicitAssignment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> implicitAssignment;
 
     /**
-     * @return *Early Access Property*. Enable Federation Broker Mode.
+     * @return *Early Access Property*. Enables [Federation Broker Mode](https://help.okta.com/en/prod/Content/Topics/Apps/apps-fbm-enable.htm). When this mode is enabled, `users` and `groups` arguments are ignored.
      * 
      */
     public Output<Optional<Boolean>> implicitAssignment() {
         return Codegen.optional(this.implicitAssignment);
     }
     /**
-     * Issuer mode inherited from OAuth App
+     * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+     * Valid values: `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`. Default is `&#34;ORG_URL&#34;`.
      * 
      */
     @Export(name="issuerMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerMode;
 
     /**
-     * @return Issuer mode inherited from OAuth App
+     * @return Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+     * Valid values: `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`. Default is `&#34;ORG_URL&#34;`.
      * 
      */
     public Output<Optional<String>> issuerMode() {
         return Codegen.optional(this.issuerMode);
     }
+    /**
+     * JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
+     * 
+     */
     @Export(name="jwks", refs={List.class,OAuthJwk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OAuthJwk>> jwks;
 
+    /**
+     * @return JSON Web Key set. Multiple jwks are supported[Admin Console JWK Reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/#generate-the-jwk-in-the-admin-console). Use kty=RSA e=[value] n=[value] for RSA jwks, and kty=EC x=[value] y=[value] for EC jwks
+     * 
+     */
     public Output<Optional<List<OAuthJwk>>> jwks() {
         return Codegen.optional(this.jwks);
     }
     /**
-     * URL reference to JWKS
+     * URL of the custom authorization server&#39;s JSON Web Key Set document.
      * 
      */
     @Export(name="jwksUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> jwksUri;
 
     /**
-     * @return URL reference to JWKS
+     * @return URL of the custom authorization server&#39;s JSON Web Key Set document.
      * 
      */
     public Output<Optional<String>> jwksUri() {
         return Codegen.optional(this.jwksUri);
     }
     /**
-     * Pretty name of app.
+     * The Application&#39;s display name.
      * 
      */
     @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
-     * @return Pretty name of app.
+     * @return The Application&#39;s display name.
      * 
      */
     public Output<String> label() {
         return this.label;
     }
     /**
-     * The type of Idp-Initiated login that the client supports, if any
+     * The type of Idp-Initiated login that the client supports, if any. Valid values: `&#34;DISABLED&#34;`, `&#34;SPEC&#34;`, `&#34;OKTA&#34;`. Default is `&#34;DISABLED&#34;`.
      * 
      */
     @Export(name="loginMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> loginMode;
 
     /**
-     * @return The type of Idp-Initiated login that the client supports, if any
+     * @return The type of Idp-Initiated login that the client supports, if any. Valid values: `&#34;DISABLED&#34;`, `&#34;SPEC&#34;`, `&#34;OKTA&#34;`. Default is `&#34;DISABLED&#34;`.
      * 
      */
     public Output<Optional<String>> loginMode() {
         return Codegen.optional(this.loginMode);
     }
     /**
-     * List of scopes to use for the request
+     * List of scopes to use for the request. Valid values: `&#34;openid&#34;`, `&#34;profile&#34;`, `&#34;email&#34;`, `&#34;address&#34;`, `&#34;phone&#34;`. Required when `login_mode` is NOT `DISABLED`.
      * 
      */
     @Export(name="loginScopes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> loginScopes;
 
     /**
-     * @return List of scopes to use for the request
+     * @return List of scopes to use for the request. Valid values: `&#34;openid&#34;`, `&#34;profile&#34;`, `&#34;email&#34;`, `&#34;address&#34;`, `&#34;phone&#34;`. Required when `login_mode` is NOT `DISABLED`.
      * 
      */
     public Output<Optional<List<String>>> loginScopes() {
         return Codegen.optional(this.loginScopes);
     }
     /**
-     * URI that initiates login.
+     * URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
      * 
      */
     @Export(name="loginUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> loginUri;
 
     /**
-     * @return URI that initiates login.
+     * @return URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
      * 
      */
     public Output<Optional<String>> loginUri() {
         return Codegen.optional(this.loginUri);
     }
     /**
-     * Local path to logo of the application.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
-     * @return Local path to logo of the application.
+     * @return Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     public Output<Optional<String>> logo() {
@@ -420,14 +583,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logoUri);
     }
     /**
-     * URL of the application&#39;s logo
+     * Direct link of application logo.
      * 
      */
     @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
-     * @return URL of the application&#39;s logo
+     * @return Direct link of application logo.
      * 
      */
     public Output<String> logoUrl() {
@@ -448,28 +611,36 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * This tells the provider not to persist the application&#39;s secret to state. If this is ever changes from true =&gt; false your app will be recreated.
+     * This tells the provider not to persist the application&#39;s secret to state. Your app&#39;s `client_secret` will be recreated if this ever changes from true =&gt; false.
      * 
      */
     @Export(name="omitSecret", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> omitSecret;
 
     /**
-     * @return This tells the provider not to persist the application&#39;s secret to state. If this is ever changes from true =&gt; false your app will be recreated.
+     * @return This tells the provider not to persist the application&#39;s secret to state. Your app&#39;s `client_secret` will be recreated if this ever changes from true =&gt; false.
      * 
      */
     public Output<Optional<Boolean>> omitSecret() {
         return Codegen.optional(this.omitSecret);
     }
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Require Proof Key for Code Exchange (PKCE) for
+     * additional verification.  If `pkce_required` isn&#39;t specified when adding a new
+     * application, Okta sets it to `true` by default for `&#34;browser&#34;` and `&#34;native&#34;`
+     * application types.
+     * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Export(name="pkceRequired", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> pkceRequired;
 
     /**
-     * @return Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * @return Require Proof Key for Code Exchange (PKCE) for
+     * additional verification.  If `pkce_required` isn&#39;t specified when adding a new
+     * application, Okta sets it to `true` by default for `&#34;browser&#34;` and `&#34;native&#34;`
+     * application types.
+     * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Output<Optional<Boolean>> pkceRequired() {
@@ -490,126 +661,160 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.policyUri);
     }
     /**
-     * List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
+     * List of URIs for redirection after logout.
      * 
      */
     @Export(name="postLogoutRedirectUris", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> postLogoutRedirectUris;
 
     /**
-     * @return List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
+     * @return List of URIs for redirection after logout.
      * 
      */
     public Output<Optional<List<String>>> postLogoutRedirectUris() {
         return Codegen.optional(this.postLogoutRedirectUris);
     }
     /**
-     * Custom JSON that represents an OAuth application&#39;s profile
+     * Custom JSON that represents an OAuth application&#39;s profile.
      * 
      */
     @Export(name="profile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> profile;
 
     /**
-     * @return Custom JSON that represents an OAuth application&#39;s profile
+     * @return Custom JSON that represents an OAuth application&#39;s profile.
      * 
      */
     public Output<Optional<String>> profile() {
         return Codegen.optional(this.profile);
     }
     /**
-     * List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
+     * List of URIs for use in the redirect-based flow. This is required for all application types except service.
      * 
      */
     @Export(name="redirectUris", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> redirectUris;
 
     /**
-     * @return List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
+     * @return List of URIs for use in the redirect-based flow. This is required for all application types except service.
      * 
      */
     public Output<Optional<List<String>>> redirectUris() {
         return Codegen.optional(this.redirectUris);
     }
     /**
-     * *Early Access Property* Grace period for token rotation
+     * Grace period for token rotation. Valid values: 0 to 60 seconds.
      * 
      */
     @Export(name="refreshTokenLeeway", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> refreshTokenLeeway;
 
     /**
-     * @return *Early Access Property* Grace period for token rotation
+     * @return Grace period for token rotation. Valid values: 0 to 60 seconds.
      * 
      */
     public Output<Optional<Integer>> refreshTokenLeeway() {
         return Codegen.optional(this.refreshTokenLeeway);
     }
     /**
-     * *Early Access Property* Refresh token rotation behavior
+     * Refresh token rotation behavior. Valid values: `&#34;STATIC&#34;` or `&#34;ROTATE&#34;`.
      * 
      */
     @Export(name="refreshTokenRotation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> refreshTokenRotation;
 
     /**
-     * @return *Early Access Property* Refresh token rotation behavior
+     * @return Refresh token rotation behavior. Valid values: `&#34;STATIC&#34;` or `&#34;ROTATE&#34;`.
      * 
      */
     public Output<Optional<String>> refreshTokenRotation() {
         return Codegen.optional(this.refreshTokenRotation);
     }
     /**
-     * List of OAuth 2.0 response type strings.
+     * List of OAuth 2.0 response type strings. Array
+     * values of `&#34;code&#34;`, `&#34;token&#34;`, `&#34;id_token&#34;`. The `grant_types` and `response_types`
+     * values described are partially orthogonal, as they refer to arguments
+     * passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+     * However, they are related in that the `grant_types` available to a client
+     * influence the `response_types` that the client is allowed to use, and vice versa.
+     * For instance, a grant_types value that includes authorization_code implies a
+     * `response_types` value that includes code, as both values are defined as part of
+     * the OAuth 2.0 authorization code grant.
+     * See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
      * 
      */
     @Export(name="responseTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> responseTypes;
 
     /**
-     * @return List of OAuth 2.0 response type strings.
+     * @return List of OAuth 2.0 response type strings. Array
+     * values of `&#34;code&#34;`, `&#34;token&#34;`, `&#34;id_token&#34;`. The `grant_types` and `response_types`
+     * values described are partially orthogonal, as they refer to arguments
+     * passed to different endpoints in the OAuth 2.0 protocol (opens new window).
+     * However, they are related in that the `grant_types` available to a client
+     * influence the `response_types` that the client is allowed to use, and vice versa.
+     * For instance, a grant_types value that includes authorization_code implies a
+     * `response_types` value that includes code, as both values are defined as part of
+     * the OAuth 2.0 authorization code grant.
+     * See: https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application
      * 
      */
     public Output<Optional<List<String>>> responseTypes() {
         return Codegen.optional(this.responseTypes);
     }
     /**
-     * Sign on mode of application.
+     * Sign-on mode of application.
      * 
      */
     @Export(name="signOnMode", refs={String.class}, tree="[0]")
     private Output<String> signOnMode;
 
     /**
-     * @return Sign on mode of application.
+     * @return Sign-on mode of application.
      * 
      */
     public Output<String> signOnMode() {
         return this.signOnMode;
     }
     /**
-     * Status of application.
+     * The status of the application, by default, it is `&#34;ACTIVE&#34;`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Status of application.
+     * @return The status of the application, by default, it is `&#34;ACTIVE&#34;`.
      * 
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * Requested authentication method for the token endpoint.
+     * Requested authentication method for
+     * the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`,
+     * `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`.  Use
+     * `pkce_required` to require PKCE for your confidential clients using the
+     * Authorization Code flow. If `&#34;token_endpoint_auth_method&#34;` is `&#34;none&#34;`,
+     * `pkce_required` needs to be `true`. If `pkce_required` isn&#39;t specified when
+     * adding a new application, Okta sets it to `true` by default for `&#34;browser&#34;` and
+     * `&#34;native&#34;` application types.
+     * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Export(name="tokenEndpointAuthMethod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenEndpointAuthMethod;
 
     /**
-     * @return Requested authentication method for the token endpoint.
+     * @return Requested authentication method for
+     * the token endpoint. It can be set to `&#34;none&#34;`, `&#34;client_secret_post&#34;`,
+     * `&#34;client_secret_basic&#34;`, `&#34;client_secret_jwt&#34;`, `&#34;private_key_jwt&#34;`.  Use
+     * `pkce_required` to require PKCE for your confidential clients using the
+     * Authorization Code flow. If `&#34;token_endpoint_auth_method&#34;` is `&#34;none&#34;`,
+     * `pkce_required` needs to be `true`. If `pkce_required` isn&#39;t specified when
+     * adding a new application, Okta sets it to `true` by default for `&#34;browser&#34;` and
+     * `&#34;native&#34;` application types.
+     * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Output<Optional<String>> tokenEndpointAuthMethod() {
@@ -630,84 +835,84 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tosUri);
     }
     /**
-     * Groups claim type.
+     * The type of OAuth application. Valid values: `&#34;web&#34;`, `&#34;native&#34;`, `&#34;browser&#34;`, `&#34;service&#34;`. For SPA apps use `browser`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Groups claim type.
+     * @return The type of OAuth application. Valid values: `&#34;web&#34;`, `&#34;native&#34;`, `&#34;browser&#34;`, `&#34;service&#34;`. For SPA apps use `browser`.
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * Username template
+     * Username template. Default: `&#34;${source.login}&#34;`
      * 
      */
     @Export(name="userNameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplate;
 
     /**
-     * @return Username template
+     * @return Username template. Default: `&#34;${source.login}&#34;`
      * 
      */
     public Output<Optional<String>> userNameTemplate() {
         return Codegen.optional(this.userNameTemplate);
     }
     /**
-     * Push username on update
+     * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
     @Export(name="userNameTemplatePushStatus", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplatePushStatus;
 
     /**
-     * @return Push username on update
+     * @return Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
     public Output<Optional<String>> userNameTemplatePushStatus() {
         return Codegen.optional(this.userNameTemplatePushStatus);
     }
     /**
-     * Username template suffix
+     * Username template suffix.
      * 
      */
     @Export(name="userNameTemplateSuffix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateSuffix;
 
     /**
-     * @return Username template suffix
+     * @return Username template suffix.
      * 
      */
     public Output<Optional<String>> userNameTemplateSuffix() {
         return Codegen.optional(this.userNameTemplateSuffix);
     }
     /**
-     * Username template type
+     * Username template type. Default: `&#34;BUILT_IN&#34;`.
      * 
      */
     @Export(name="userNameTemplateType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateType;
 
     /**
-     * @return Username template type
+     * @return Username template type. Default: `&#34;BUILT_IN&#34;`.
      * 
      */
     public Output<Optional<String>> userNameTemplateType() {
         return Codegen.optional(this.userNameTemplateType);
     }
     /**
-     * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+     * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `&#34;DISABLED&#34;`, `&#34;SUBDOMAIN&#34;`. Default value is `&#34;DISABLED&#34;`.
      * 
      */
     @Export(name="wildcardRedirect", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> wildcardRedirect;
 
     /**
-     * @return *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+     * @return *Early Access Property*. Indicates if the client is allowed to use wildcard matching of `redirect_uris`. Valid values: `&#34;DISABLED&#34;`, `&#34;SUBDOMAIN&#34;`. Default value is `&#34;DISABLED&#34;`.
      * 
      */
     public Output<Optional<String>> wildcardRedirect() {

@@ -12,20 +12,60 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and configure an email domain.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/Index"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := Index.NewEmailDomain(ctx, "example", &Index.EmailDomainArgs{
+//				BrandId:     pulumi.String("abc123"),
+//				DisplayName: pulumi.String("test"),
+//				Domain:      pulumi.String("example.com"),
+//				UserName:    pulumi.String("paul_atreides"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Custom email domain can be imported via the Okta ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:Index/emailDomain:EmailDomain example &#60;domain id&#62;
+//
+// ```
 type EmailDomain struct {
 	pulumi.CustomResourceState
 
-	// Brand id
+	// Brand id of the email domain.
 	BrandId pulumi.StringOutput `pulumi:"brandId"`
-	// Display name
+	// Display name of the email domain.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// TXT and cname records to be registered for the email Domain
+	// TXT and CNAME records to be registered for the domain.
 	DnsValidationRecords EmailDomainDnsValidationRecordArrayOutput `pulumi:"dnsValidationRecords"`
-	// Domain name
+	// Mail domain to send from.
 	Domain pulumi.StringOutput `pulumi:"domain"`
-	// User name
+	// User name of the email domain.
 	UserName pulumi.StringOutput `pulumi:"userName"`
-	// Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
+	// Status of the email domain (shows whether the domain is verified).
 	ValidationStatus pulumi.StringOutput `pulumi:"validationStatus"`
 }
 
@@ -71,32 +111,32 @@ func GetEmailDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailDomain resources.
 type emailDomainState struct {
-	// Brand id
+	// Brand id of the email domain.
 	BrandId *string `pulumi:"brandId"`
-	// Display name
+	// Display name of the email domain.
 	DisplayName *string `pulumi:"displayName"`
-	// TXT and cname records to be registered for the email Domain
+	// TXT and CNAME records to be registered for the domain.
 	DnsValidationRecords []EmailDomainDnsValidationRecord `pulumi:"dnsValidationRecords"`
-	// Domain name
+	// Mail domain to send from.
 	Domain *string `pulumi:"domain"`
-	// User name
+	// User name of the email domain.
 	UserName *string `pulumi:"userName"`
-	// Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
+	// Status of the email domain (shows whether the domain is verified).
 	ValidationStatus *string `pulumi:"validationStatus"`
 }
 
 type EmailDomainState struct {
-	// Brand id
+	// Brand id of the email domain.
 	BrandId pulumi.StringPtrInput
-	// Display name
+	// Display name of the email domain.
 	DisplayName pulumi.StringPtrInput
-	// TXT and cname records to be registered for the email Domain
+	// TXT and CNAME records to be registered for the domain.
 	DnsValidationRecords EmailDomainDnsValidationRecordArrayInput
-	// Domain name
+	// Mail domain to send from.
 	Domain pulumi.StringPtrInput
-	// User name
+	// User name of the email domain.
 	UserName pulumi.StringPtrInput
-	// Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
+	// Status of the email domain (shows whether the domain is verified).
 	ValidationStatus pulumi.StringPtrInput
 }
 
@@ -105,25 +145,25 @@ func (EmailDomainState) ElementType() reflect.Type {
 }
 
 type emailDomainArgs struct {
-	// Brand id
+	// Brand id of the email domain.
 	BrandId string `pulumi:"brandId"`
-	// Display name
+	// Display name of the email domain.
 	DisplayName string `pulumi:"displayName"`
-	// Domain name
+	// Mail domain to send from.
 	Domain string `pulumi:"domain"`
-	// User name
+	// User name of the email domain.
 	UserName string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a EmailDomain resource.
 type EmailDomainArgs struct {
-	// Brand id
+	// Brand id of the email domain.
 	BrandId pulumi.StringInput
-	// Display name
+	// Display name of the email domain.
 	DisplayName pulumi.StringInput
-	// Domain name
+	// Mail domain to send from.
 	Domain pulumi.StringInput
-	// User name
+	// User name of the email domain.
 	UserName pulumi.StringInput
 }
 
@@ -214,32 +254,32 @@ func (o EmailDomainOutput) ToEmailDomainOutputWithContext(ctx context.Context) E
 	return o
 }
 
-// Brand id
+// Brand id of the email domain.
 func (o EmailDomainOutput) BrandId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailDomain) pulumi.StringOutput { return v.BrandId }).(pulumi.StringOutput)
 }
 
-// Display name
+// Display name of the email domain.
 func (o EmailDomainOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailDomain) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// TXT and cname records to be registered for the email Domain
+// TXT and CNAME records to be registered for the domain.
 func (o EmailDomainOutput) DnsValidationRecords() EmailDomainDnsValidationRecordArrayOutput {
 	return o.ApplyT(func(v *EmailDomain) EmailDomainDnsValidationRecordArrayOutput { return v.DnsValidationRecords }).(EmailDomainDnsValidationRecordArrayOutput)
 }
 
-// Domain name
+// Mail domain to send from.
 func (o EmailDomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailDomain) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
-// User name
+// User name of the email domain.
 func (o EmailDomainOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailDomain) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }
 
-// Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
+// Status of the email domain (shows whether the domain is verified).
 func (o EmailDomainOutput) ValidationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailDomain) pulumi.StringOutput { return v.ValidationStatus }).(pulumi.StringOutput)
 }

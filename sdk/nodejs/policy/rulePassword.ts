@@ -4,6 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Creates a Password Policy Rule.
+ *
+ * This resource allows you to create and configure a Password Policy Rule.
+ *
+ * ## Import
+ *
+ * A Policy Rule can be imported via the Policy and Rule ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:policy/rulePassword:RulePassword example &#60;policy id&#62;/&#60;rule id&#62;
+ * ```
+ */
 export class RulePassword extends pulumi.CustomResource {
     /**
      * Get an existing RulePassword resource's state with the given name, ID, and optional extra
@@ -33,47 +46,47 @@ export class RulePassword extends pulumi.CustomResource {
     }
 
     /**
-     * Policy Rule Name
+     * Policy Rule Name. Type `"string"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+     * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
      */
     public readonly networkConnection!: pulumi.Output<string | undefined>;
     /**
-     * The zones to exclude
+     * The network zones to exclude. Conflicts with `networkIncludes`. Type `"list(string)"`
      */
     public readonly networkExcludes!: pulumi.Output<string[] | undefined>;
     /**
-     * The zones to include
+     * The network zones to include. Conflicts with `networkExcludes`. Type `"list(string)"`
      */
     public readonly networkIncludes!: pulumi.Output<string[] | undefined>;
     /**
-     * Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
+     * Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
      */
     public readonly passwordChange!: pulumi.Output<string | undefined>;
     /**
-     * Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
+     * Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
      */
     public readonly passwordReset!: pulumi.Output<string | undefined>;
     /**
-     * Allow or deny a user to unlock. Default = DENY
+     * Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
      */
     public readonly passwordUnlock!: pulumi.Output<string | undefined>;
     /**
-     * Policy ID of the Rule
+     * Policy ID.
      */
     public readonly policyId!: pulumi.Output<string | undefined>;
     /**
-     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
-     * Policy Rule Status: ACTIVE or INACTIVE.
+     * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Set of User IDs to Exclude
+     * The users to exclude. Type `"set(string)"`
      */
     public readonly usersExcludeds!: pulumi.Output<string[] | undefined>;
 
@@ -125,47 +138,47 @@ export class RulePassword extends pulumi.CustomResource {
  */
 export interface RulePasswordState {
     /**
-     * Policy Rule Name
+     * Policy Rule Name. Type `"string"`
      */
     name?: pulumi.Input<string>;
     /**
-     * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+     * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
      */
     networkConnection?: pulumi.Input<string>;
     /**
-     * The zones to exclude
+     * The network zones to exclude. Conflicts with `networkIncludes`. Type `"list(string)"`
      */
     networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The zones to include
+     * The network zones to include. Conflicts with `networkExcludes`. Type `"list(string)"`
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
+     * Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
      */
     passwordChange?: pulumi.Input<string>;
     /**
-     * Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
+     * Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
      */
     passwordReset?: pulumi.Input<string>;
     /**
-     * Allow or deny a user to unlock. Default = DENY
+     * Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
      */
     passwordUnlock?: pulumi.Input<string>;
     /**
-     * Policy ID of the Rule
+     * Policy ID.
      */
     policyId?: pulumi.Input<string>;
     /**
-     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
      */
     priority?: pulumi.Input<number>;
     /**
-     * Policy Rule Status: ACTIVE or INACTIVE.
+     * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
      */
     status?: pulumi.Input<string>;
     /**
-     * Set of User IDs to Exclude
+     * The users to exclude. Type `"set(string)"`
      */
     usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -175,47 +188,47 @@ export interface RulePasswordState {
  */
 export interface RulePasswordArgs {
     /**
-     * Policy Rule Name
+     * Policy Rule Name. Type `"string"`
      */
     name?: pulumi.Input<string>;
     /**
-     * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+     * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`. Type `"string"`
      */
     networkConnection?: pulumi.Input<string>;
     /**
-     * The zones to exclude
+     * The network zones to exclude. Conflicts with `networkIncludes`. Type `"list(string)"`
      */
     networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The zones to include
+     * The network zones to include. Conflicts with `networkExcludes`. Type `"list(string)"`
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
+     * Allow or deny a user to change their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
      */
     passwordChange?: pulumi.Input<string>;
     /**
-     * Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
+     * Allow or deny a user to reset their password: `"ALLOW"` or `"DENY"`. By default, it is `"ALLOW"`. Type `"string"`
      */
     passwordReset?: pulumi.Input<string>;
     /**
-     * Allow or deny a user to unlock. Default = DENY
+     * Allow or deny a user to unlock: `"ALLOW"` or `"DENY"`. By default, it is `"DENY"`, Type `"string"`
      */
     passwordUnlock?: pulumi.Input<string>;
     /**
-     * Policy ID of the Rule
+     * Policy ID.
      */
     policyId?: pulumi.Input<string>;
     /**
-     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `"number"`
      */
     priority?: pulumi.Input<number>;
     /**
-     * Policy Rule Status: ACTIVE or INACTIVE.
+     * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
      */
     status?: pulumi.Input<string>;
     /**
-     * Set of User IDs to Exclude
+     * The users to exclude. Type `"set(string)"`
      */
     usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }

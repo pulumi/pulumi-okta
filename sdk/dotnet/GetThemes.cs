@@ -12,13 +12,17 @@ namespace Pulumi.Okta
     public static class GetThemes
     {
         /// <summary>
-        /// Get Themes of a Brand of an Okta Organization.
+        /// Use this data source to retrieve 
+        /// [Themes](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+        /// of a brand for an Okta orgnanization.
         /// </summary>
         public static Task<GetThemesResult> InvokeAsync(GetThemesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetThemesResult>("okta:index/getThemes:getThemes", args ?? new GetThemesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get Themes of a Brand of an Okta Organization.
+        /// Use this data source to retrieve 
+        /// [Themes](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+        /// of a brand for an Okta orgnanization.
         /// </summary>
         public static Output<GetThemesResult> Invoke(GetThemesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThemesResult>("okta:index/getThemes:getThemes", args ?? new GetThemesInvokeArgs(), options.WithDefaults());
@@ -57,16 +61,13 @@ namespace Pulumi.Okta
     [OutputType]
     public sealed class GetThemesResult
     {
-        /// <summary>
-        /// Brand ID
-        /// </summary>
         public readonly string BrandId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of `okta_them` belonging to the brand in the organization
+        /// List of `okta.Theme` belonging to the brand.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetThemesThemeResult> Themes;
 

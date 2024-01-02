@@ -15,18 +15,10 @@ public final class GetRoleSubscriptionResult {
      * 
      */
     private String id;
-    /**
-     * @return Type of the notification
-     * 
-     */
     private String notificationType;
-    /**
-     * @return Type of the role
-     * 
-     */
     private String roleType;
     /**
-     * @return Status of subscription
+     * @return Subscription status.
      * 
      */
     private String status;
@@ -39,22 +31,14 @@ public final class GetRoleSubscriptionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Type of the notification
-     * 
-     */
     public String notificationType() {
         return this.notificationType;
     }
-    /**
-     * @return Type of the role
-     * 
-     */
     public String roleType() {
         return this.roleType;
     }
     /**
-     * @return Status of subscription
+     * @return Subscription status.
      * 
      */
     public String status() {

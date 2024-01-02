@@ -74,7 +74,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class OktaFunctions {
     /**
-     * Get a set of groups assigned to an Okta application.
+     * Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
      * ```java
@@ -111,7 +111,7 @@ public final class OktaFunctions {
         return getAppGroupAssignments(args, InvokeOptions.Empty);
     }
     /**
-     * Get a set of groups assigned to an Okta application.
+     * Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
      * ```java
@@ -148,7 +148,7 @@ public final class OktaFunctions {
         return getAppGroupAssignmentsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a set of groups assigned to an Okta application.
+     * Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
      * ```java
@@ -185,7 +185,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getAppGroupAssignments:getAppGroupAssignments", TypeShape.of(GetAppGroupAssignmentsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a set of groups assigned to an Okta application.
+     * Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
      * ```java
@@ -222,11 +222,9 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getAppGroupAssignments:getAppGroupAssignments", TypeShape.of(GetAppGroupAssignmentsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a sign-on policy for the application.
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
      * 
-     * &gt; **WARNING:** This feature is only available as a part of the
-     * Identity Engine. Contact support
-     * for further information.
+     * Use this data source to retrieve a sign-on policy for the application.
      * 
      * &gt; Inside the product a sign-on policy is referenced as an _authentication
      * policy_, in the public API the policy is of type
@@ -267,11 +265,9 @@ public final class OktaFunctions {
         return getAppSignonPolicy(args, InvokeOptions.Empty);
     }
     /**
-     * Get a sign-on policy for the application.
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
      * 
-     * &gt; **WARNING:** This feature is only available as a part of the
-     * Identity Engine. Contact support
-     * for further information.
+     * Use this data source to retrieve a sign-on policy for the application.
      * 
      * &gt; Inside the product a sign-on policy is referenced as an _authentication
      * policy_, in the public API the policy is of type
@@ -312,11 +308,9 @@ public final class OktaFunctions {
         return getAppSignonPolicyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a sign-on policy for the application.
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
      * 
-     * &gt; **WARNING:** This feature is only available as a part of the
-     * Identity Engine. Contact support
-     * for further information.
+     * Use this data source to retrieve a sign-on policy for the application.
      * 
      * &gt; Inside the product a sign-on policy is referenced as an _authentication
      * policy_, in the public API the policy is of type
@@ -357,11 +351,9 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getAppSignonPolicy:getAppSignonPolicy", TypeShape.of(GetAppSignonPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a sign-on policy for the application.
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
      * 
-     * &gt; **WARNING:** This feature is only available as a part of the
-     * Identity Engine. Contact support
-     * for further information.
+     * Use this data source to retrieve a sign-on policy for the application.
      * 
      * &gt; Inside the product a sign-on policy is referenced as an _authentication
      * policy_, in the public API the policy is of type
@@ -402,7 +394,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getAppSignonPolicy:getAppSignonPolicy", TypeShape.of(GetAppSignonPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a set of users assigned to an Okta application.
+     * Use this data source to retrieve the list of users assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
      * ```java
@@ -439,7 +431,7 @@ public final class OktaFunctions {
         return getAppUserAssignments(args, InvokeOptions.Empty);
     }
     /**
-     * Get a set of users assigned to an Okta application.
+     * Use this data source to retrieve the list of users assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
      * ```java
@@ -476,7 +468,7 @@ public final class OktaFunctions {
         return getAppUserAssignmentsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a set of users assigned to an Okta application.
+     * Use this data source to retrieve the list of users assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
      * ```java
@@ -513,7 +505,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getAppUserAssignments:getAppUserAssignments", TypeShape.of(GetAppUserAssignmentsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a set of users assigned to an Okta application.
+     * Use this data source to retrieve the list of users assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
      * ```java
@@ -550,7 +542,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getAppUserAssignments:getAppUserAssignments", TypeShape.of(GetAppUserAssignmentsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get authorization server claim from Okta.
+     * Use this data source to retrieve authorization server claim from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -588,7 +580,7 @@ public final class OktaFunctions {
         return getAuthServerClaim(args, InvokeOptions.Empty);
     }
     /**
-     * Get authorization server claim from Okta.
+     * Use this data source to retrieve authorization server claim from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -626,7 +618,7 @@ public final class OktaFunctions {
         return getAuthServerClaimPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get authorization server claim from Okta.
+     * Use this data source to retrieve authorization server claim from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -664,7 +656,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getAuthServerClaim:getAuthServerClaim", TypeShape.of(GetAuthServerClaimResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get authorization server claim from Okta.
+     * Use this data source to retrieve authorization server claim from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -702,7 +694,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getAuthServerClaim:getAuthServerClaim", TypeShape.of(GetAuthServerClaimResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a list of authorization server claims from Okta.
+     * Use this data source to retrieve a list of authorization server claims from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -739,7 +731,7 @@ public final class OktaFunctions {
         return getAuthServerClaims(args, InvokeOptions.Empty);
     }
     /**
-     * Get a list of authorization server claims from Okta.
+     * Use this data source to retrieve a list of authorization server claims from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -776,7 +768,7 @@ public final class OktaFunctions {
         return getAuthServerClaimsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a list of authorization server claims from Okta.
+     * Use this data source to retrieve a list of authorization server claims from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -813,7 +805,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getAuthServerClaims:getAuthServerClaims", TypeShape.of(GetAuthServerClaimsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a list of authorization server claims from Okta.
+     * Use this data source to retrieve a list of authorization server claims from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -850,11 +842,9 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getAuthServerClaims:getAuthServerClaims", TypeShape.of(GetAuthServerClaimsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get an authenticator by key, name of ID.
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
      * 
-     * &gt; **WARNING:** This feature is only available as a part of the
-     * Identity Engine. Contact support
-     * for further information.
+     * Use this data source to retrieve an authenticator.
      * 
      * ## Example Usage
      * ```java
@@ -879,11 +869,35 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .key(&#34;security_question&#34;)
+     *             .name(&#34;Security Question&#34;)
      *             .build());
      * 
-     *         final var test1 = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .name(&#34;Okta Verify&#34;)
+     *     }
+     * }
+     * ```
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key(&#34;okta_email&#34;)
      *             .build());
      * 
      *     }
@@ -895,11 +909,9 @@ public final class OktaFunctions {
         return getAuthenticator(GetAuthenticatorArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get an authenticator by key, name of ID.
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
      * 
-     * &gt; **WARNING:** This feature is only available as a part of the
-     * Identity Engine. Contact support
-     * for further information.
+     * Use this data source to retrieve an authenticator.
      * 
      * ## Example Usage
      * ```java
@@ -924,11 +936,35 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .key(&#34;security_question&#34;)
+     *             .name(&#34;Security Question&#34;)
      *             .build());
      * 
-     *         final var test1 = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .name(&#34;Okta Verify&#34;)
+     *     }
+     * }
+     * ```
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key(&#34;okta_email&#34;)
      *             .build());
      * 
      *     }
@@ -940,11 +976,9 @@ public final class OktaFunctions {
         return getAuthenticatorPlain(GetAuthenticatorPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get an authenticator by key, name of ID.
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
      * 
-     * &gt; **WARNING:** This feature is only available as a part of the
-     * Identity Engine. Contact support
-     * for further information.
+     * Use this data source to retrieve an authenticator.
      * 
      * ## Example Usage
      * ```java
@@ -969,11 +1003,35 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .key(&#34;security_question&#34;)
+     *             .name(&#34;Security Question&#34;)
      *             .build());
      * 
-     *         final var test1 = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .name(&#34;Okta Verify&#34;)
+     *     }
+     * }
+     * ```
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key(&#34;okta_email&#34;)
      *             .build());
      * 
      *     }
@@ -985,11 +1043,9 @@ public final class OktaFunctions {
         return getAuthenticator(args, InvokeOptions.Empty);
     }
     /**
-     * Get an authenticator by key, name of ID.
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
      * 
-     * &gt; **WARNING:** This feature is only available as a part of the
-     * Identity Engine. Contact support
-     * for further information.
+     * Use this data source to retrieve an authenticator.
      * 
      * ## Example Usage
      * ```java
@@ -1014,11 +1070,35 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .key(&#34;security_question&#34;)
+     *             .name(&#34;Security Question&#34;)
      *             .build());
      * 
-     *         final var test1 = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .name(&#34;Okta Verify&#34;)
+     *     }
+     * }
+     * ```
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key(&#34;okta_email&#34;)
      *             .build());
      * 
      *     }
@@ -1030,11 +1110,9 @@ public final class OktaFunctions {
         return getAuthenticatorPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get an authenticator by key, name of ID.
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
      * 
-     * &gt; **WARNING:** This feature is only available as a part of the
-     * Identity Engine. Contact support
-     * for further information.
+     * Use this data source to retrieve an authenticator.
      * 
      * ## Example Usage
      * ```java
@@ -1059,11 +1137,35 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .key(&#34;security_question&#34;)
+     *             .name(&#34;Security Question&#34;)
      *             .build());
      * 
-     *         final var test1 = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .name(&#34;Okta Verify&#34;)
+     *     }
+     * }
+     * ```
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key(&#34;okta_email&#34;)
      *             .build());
      * 
      *     }
@@ -1075,11 +1177,9 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getAuthenticator:getAuthenticator", TypeShape.of(GetAuthenticatorResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get an authenticator by key, name of ID.
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
      * 
-     * &gt; **WARNING:** This feature is only available as a part of the
-     * Identity Engine. Contact support
-     * for further information.
+     * Use this data source to retrieve an authenticator.
      * 
      * ## Example Usage
      * ```java
@@ -1104,11 +1204,35 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .key(&#34;security_question&#34;)
+     *             .name(&#34;Security Question&#34;)
      *             .build());
      * 
-     *         final var test1 = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .name(&#34;Okta Verify&#34;)
+     *     }
+     * }
+     * ```
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key(&#34;okta_email&#34;)
      *             .build());
      * 
      *     }
@@ -1120,7 +1244,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getAuthenticator:getAuthenticator", TypeShape.of(GetAuthenticatorResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a behavior by name or ID.
+     * Use this data source to retrieve a behavior from Okta.
      * 
      * ## Example Usage
      * 
@@ -1158,7 +1282,7 @@ public final class OktaFunctions {
         return getBehaviour(GetBehaviourArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a behavior by name or ID.
+     * Use this data source to retrieve a behavior from Okta.
      * 
      * ## Example Usage
      * 
@@ -1196,7 +1320,7 @@ public final class OktaFunctions {
         return getBehaviourPlain(GetBehaviourPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a behavior by name or ID.
+     * Use this data source to retrieve a behavior from Okta.
      * 
      * ## Example Usage
      * 
@@ -1234,7 +1358,7 @@ public final class OktaFunctions {
         return getBehaviour(args, InvokeOptions.Empty);
     }
     /**
-     * Get a behavior by name or ID.
+     * Use this data source to retrieve a behavior from Okta.
      * 
      * ## Example Usage
      * 
@@ -1272,7 +1396,7 @@ public final class OktaFunctions {
         return getBehaviourPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a behavior by name or ID.
+     * Use this data source to retrieve a behavior from Okta.
      * 
      * ## Example Usage
      * 
@@ -1310,7 +1434,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getBehaviour:getBehaviour", TypeShape.of(GetBehaviourResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a behavior by name or ID.
+     * Use this data source to retrieve a behavior from Okta.
      * 
      * ## Example Usage
      * 
@@ -1348,7 +1472,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getBehaviour:getBehaviour", TypeShape.of(GetBehaviourResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a behaviors by search criteria.
+     * Use this data source to retrieve a behaviors from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -1385,7 +1509,7 @@ public final class OktaFunctions {
         return getBehaviours(GetBehavioursArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a behaviors by search criteria.
+     * Use this data source to retrieve a behaviors from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -1422,7 +1546,7 @@ public final class OktaFunctions {
         return getBehavioursPlain(GetBehavioursPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a behaviors by search criteria.
+     * Use this data source to retrieve a behaviors from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -1459,7 +1583,7 @@ public final class OktaFunctions {
         return getBehaviours(args, InvokeOptions.Empty);
     }
     /**
-     * Get a behaviors by search criteria.
+     * Use this data source to retrieve a behaviors from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -1496,7 +1620,7 @@ public final class OktaFunctions {
         return getBehavioursPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a behaviors by search criteria.
+     * Use this data source to retrieve a behaviors from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -1533,7 +1657,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getBehaviours:getBehaviours", TypeShape.of(GetBehavioursResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a behaviors by search criteria.
+     * Use this data source to retrieve a behaviors from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -1570,35 +1694,35 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getBehaviours:getBehaviours", TypeShape.of(GetBehavioursResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a single Brand from Okta.
+     * Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
      * 
      */
     public static Output<GetBrandResult> getBrand(GetBrandArgs args) {
         return getBrand(args, InvokeOptions.Empty);
     }
     /**
-     * Get a single Brand from Okta.
+     * Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
      * 
      */
     public static CompletableFuture<GetBrandResult> getBrandPlain(GetBrandPlainArgs args) {
         return getBrandPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a single Brand from Okta.
+     * Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
      * 
      */
     public static Output<GetBrandResult> getBrand(GetBrandArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getBrand:getBrand", TypeShape.of(GetBrandResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a single Brand from Okta.
+     * Use this data source to retrieve a [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object) from Okta.
      * 
      */
     public static CompletableFuture<GetBrandResult> getBrandPlain(GetBrandPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getBrand:getBrand", TypeShape.of(GetBrandResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get the brands belonging to an Okta organization.
+     * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
      * ```java
@@ -1632,7 +1756,7 @@ public final class OktaFunctions {
         return getBrands(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get the brands belonging to an Okta organization.
+     * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
      * ```java
@@ -1666,7 +1790,7 @@ public final class OktaFunctions {
         return getBrandsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get the brands belonging to an Okta organization.
+     * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
      * ```java
@@ -1700,7 +1824,7 @@ public final class OktaFunctions {
         return getBrands(args, InvokeOptions.Empty);
     }
     /**
-     * Get the brands belonging to an Okta organization.
+     * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
      * ```java
@@ -1734,7 +1858,7 @@ public final class OktaFunctions {
         return getBrandsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get the brands belonging to an Okta organization.
+     * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
      * ```java
@@ -1768,7 +1892,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getBrands:getBrands", TypeShape.of(GetBrandsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get the brands belonging to an Okta organization.
+     * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
      * ```java
@@ -1802,63 +1926,79 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getBrands:getBrands", TypeShape.of(GetBrandsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get the email customization of an email template belonging to a brand in an Okta organization.
+     * Use this data source to retrieve the [email
+     * customization](https://developer.okta.com/docs/reference/api/brands/#get-email-customization)
+     * of an email template belonging to a brand in an Okta organization.
      * 
      */
     public static Output<GetEmailCustomizationResult> getEmailCustomization(GetEmailCustomizationArgs args) {
         return getEmailCustomization(args, InvokeOptions.Empty);
     }
     /**
-     * Get the email customization of an email template belonging to a brand in an Okta organization.
+     * Use this data source to retrieve the [email
+     * customization](https://developer.okta.com/docs/reference/api/brands/#get-email-customization)
+     * of an email template belonging to a brand in an Okta organization.
      * 
      */
     public static CompletableFuture<GetEmailCustomizationResult> getEmailCustomizationPlain(GetEmailCustomizationPlainArgs args) {
         return getEmailCustomizationPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get the email customization of an email template belonging to a brand in an Okta organization.
+     * Use this data source to retrieve the [email
+     * customization](https://developer.okta.com/docs/reference/api/brands/#get-email-customization)
+     * of an email template belonging to a brand in an Okta organization.
      * 
      */
     public static Output<GetEmailCustomizationResult> getEmailCustomization(GetEmailCustomizationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getEmailCustomization:getEmailCustomization", TypeShape.of(GetEmailCustomizationResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get the email customization of an email template belonging to a brand in an Okta organization.
+     * Use this data source to retrieve the [email
+     * customization](https://developer.okta.com/docs/reference/api/brands/#get-email-customization)
+     * of an email template belonging to a brand in an Okta organization.
      * 
      */
     public static CompletableFuture<GetEmailCustomizationResult> getEmailCustomizationPlain(GetEmailCustomizationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getEmailCustomization:getEmailCustomization", TypeShape.of(GetEmailCustomizationResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get the email customizations of an email template belonging to a brand in an Okta organization.
+     * Use this data source to retrieve the [email
+     * customizations](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations)
+     * of an email template belonging to a brand in an Okta organization.
      * 
      */
     public static Output<GetEmailCustomizationsResult> getEmailCustomizations(GetEmailCustomizationsArgs args) {
         return getEmailCustomizations(args, InvokeOptions.Empty);
     }
     /**
-     * Get the email customizations of an email template belonging to a brand in an Okta organization.
+     * Use this data source to retrieve the [email
+     * customizations](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations)
+     * of an email template belonging to a brand in an Okta organization.
      * 
      */
     public static CompletableFuture<GetEmailCustomizationsResult> getEmailCustomizationsPlain(GetEmailCustomizationsPlainArgs args) {
         return getEmailCustomizationsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get the email customizations of an email template belonging to a brand in an Okta organization.
+     * Use this data source to retrieve the [email
+     * customizations](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations)
+     * of an email template belonging to a brand in an Okta organization.
      * 
      */
     public static Output<GetEmailCustomizationsResult> getEmailCustomizations(GetEmailCustomizationsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getEmailCustomizations:getEmailCustomizations", TypeShape.of(GetEmailCustomizationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get the email customizations of an email template belonging to a brand in an Okta organization.
+     * Use this data source to retrieve the [email
+     * customizations](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations)
+     * of an email template belonging to a brand in an Okta organization.
      * 
      */
     public static CompletableFuture<GetEmailCustomizationsResult> getEmailCustomizationsPlain(GetEmailCustomizationsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getEmailCustomizations:getEmailCustomizations", TypeShape.of(GetEmailCustomizationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a list of groups from Okta.
+     * Use this data source to retrieve a list of groups from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -1895,7 +2035,7 @@ public final class OktaFunctions {
         return getGroups(GetGroupsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a list of groups from Okta.
+     * Use this data source to retrieve a list of groups from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -1932,7 +2072,7 @@ public final class OktaFunctions {
         return getGroupsPlain(GetGroupsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a list of groups from Okta.
+     * Use this data source to retrieve a list of groups from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -1969,7 +2109,7 @@ public final class OktaFunctions {
         return getGroups(args, InvokeOptions.Empty);
     }
     /**
-     * Get a list of groups from Okta.
+     * Use this data source to retrieve a list of groups from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -2006,7 +2146,7 @@ public final class OktaFunctions {
         return getGroupsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a list of groups from Okta.
+     * Use this data source to retrieve a list of groups from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -2043,7 +2183,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a list of groups from Okta.
+     * Use this data source to retrieve a list of groups from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -2080,7 +2220,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Gets Okta Network Zone.
+     * Use this data source to retrieve a network zone from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -2117,7 +2257,7 @@ public final class OktaFunctions {
         return getNetworkZone(GetNetworkZoneArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Gets Okta Network Zone.
+     * Use this data source to retrieve a network zone from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -2154,7 +2294,7 @@ public final class OktaFunctions {
         return getNetworkZonePlain(GetNetworkZonePlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Gets Okta Network Zone.
+     * Use this data source to retrieve a network zone from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -2191,7 +2331,7 @@ public final class OktaFunctions {
         return getNetworkZone(args, InvokeOptions.Empty);
     }
     /**
-     * Gets Okta Network Zone.
+     * Use this data source to retrieve a network zone from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -2228,7 +2368,7 @@ public final class OktaFunctions {
         return getNetworkZonePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Gets Okta Network Zone.
+     * Use this data source to retrieve a network zone from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -2265,7 +2405,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getNetworkZone:getNetworkZone", TypeShape.of(GetNetworkZoneResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Gets Okta Network Zone.
+     * Use this data source to retrieve a network zone from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -2302,7 +2442,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getNetworkZone:getNetworkZone", TypeShape.of(GetNetworkZoneResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get subscriptions of a Role with a specific type
+     * Use this data source to retrieve role subscription with a specific type.
      * 
      * ## Example Usage
      * ```java
@@ -2340,7 +2480,7 @@ public final class OktaFunctions {
         return getRoleSubscription(args, InvokeOptions.Empty);
     }
     /**
-     * Get subscriptions of a Role with a specific type
+     * Use this data source to retrieve role subscription with a specific type.
      * 
      * ## Example Usage
      * ```java
@@ -2378,7 +2518,7 @@ public final class OktaFunctions {
         return getRoleSubscriptionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get subscriptions of a Role with a specific type
+     * Use this data source to retrieve role subscription with a specific type.
      * 
      * ## Example Usage
      * ```java
@@ -2416,7 +2556,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getRoleSubscription:getRoleSubscription", TypeShape.of(GetRoleSubscriptionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get subscriptions of a Role with a specific type
+     * Use this data source to retrieve role subscription with a specific type.
      * 
      * ## Example Usage
      * ```java
@@ -2454,119 +2594,151 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getRoleSubscription:getRoleSubscription", TypeShape.of(GetRoleSubscriptionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a single Email Template for a Brand belonging to an Okta organization.
+     * Use this data source to retrieve a specific [email
+     * template](https://developer.okta.com/docs/reference/api/brands/#email-template)
+     * of a brand in an Okta organization.
      * 
      */
     public static Output<GetTemplateResult> getTemplate(GetTemplateArgs args) {
         return getTemplate(args, InvokeOptions.Empty);
     }
     /**
-     * Get a single Email Template for a Brand belonging to an Okta organization.
+     * Use this data source to retrieve a specific [email
+     * template](https://developer.okta.com/docs/reference/api/brands/#email-template)
+     * of a brand in an Okta organization.
      * 
      */
     public static CompletableFuture<GetTemplateResult> getTemplatePlain(GetTemplatePlainArgs args) {
         return getTemplatePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a single Email Template for a Brand belonging to an Okta organization.
+     * Use this data source to retrieve a specific [email
+     * template](https://developer.okta.com/docs/reference/api/brands/#email-template)
+     * of a brand in an Okta organization.
      * 
      */
     public static Output<GetTemplateResult> getTemplate(GetTemplateArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getTemplate:getTemplate", TypeShape.of(GetTemplateResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a single Email Template for a Brand belonging to an Okta organization.
+     * Use this data source to retrieve a specific [email
+     * template](https://developer.okta.com/docs/reference/api/brands/#email-template)
+     * of a brand in an Okta organization.
      * 
      */
     public static CompletableFuture<GetTemplateResult> getTemplatePlain(GetTemplatePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getTemplate:getTemplate", TypeShape.of(GetTemplateResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get the email templates belonging to a brand in an Okta organization.
+     * Use this data source to retrieve the [email
+     * templates](https://developer.okta.com/docs/reference/api/brands/#email-template)
+     * of a brand in an Okta organization.
      * 
      */
     public static Output<GetTemplatesResult> getTemplates(GetTemplatesArgs args) {
         return getTemplates(args, InvokeOptions.Empty);
     }
     /**
-     * Get the email templates belonging to a brand in an Okta organization.
+     * Use this data source to retrieve the [email
+     * templates](https://developer.okta.com/docs/reference/api/brands/#email-template)
+     * of a brand in an Okta organization.
      * 
      */
     public static CompletableFuture<GetTemplatesResult> getTemplatesPlain(GetTemplatesPlainArgs args) {
         return getTemplatesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get the email templates belonging to a brand in an Okta organization.
+     * Use this data source to retrieve the [email
+     * templates](https://developer.okta.com/docs/reference/api/brands/#email-template)
+     * of a brand in an Okta organization.
      * 
      */
     public static Output<GetTemplatesResult> getTemplates(GetTemplatesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getTemplates:getTemplates", TypeShape.of(GetTemplatesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get the email templates belonging to a brand in an Okta organization.
+     * Use this data source to retrieve the [email
+     * templates](https://developer.okta.com/docs/reference/api/brands/#email-template)
+     * of a brand in an Okta organization.
      * 
      */
     public static CompletableFuture<GetTemplatesResult> getTemplatesPlain(GetTemplatesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getTemplates:getTemplates", TypeShape.of(GetTemplatesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a single Theme of a Brand of an Okta Organization.
+     * Use this data source to retrieve a
+     * [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+     * of a brand for an Okta orgnanization.
      * 
      */
     public static Output<GetThemeResult> getTheme(GetThemeArgs args) {
         return getTheme(args, InvokeOptions.Empty);
     }
     /**
-     * Get a single Theme of a Brand of an Okta Organization.
+     * Use this data source to retrieve a
+     * [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+     * of a brand for an Okta orgnanization.
      * 
      */
     public static CompletableFuture<GetThemeResult> getThemePlain(GetThemePlainArgs args) {
         return getThemePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a single Theme of a Brand of an Okta Organization.
+     * Use this data source to retrieve a
+     * [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+     * of a brand for an Okta orgnanization.
      * 
      */
     public static Output<GetThemeResult> getTheme(GetThemeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getTheme:getTheme", TypeShape.of(GetThemeResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a single Theme of a Brand of an Okta Organization.
+     * Use this data source to retrieve a
+     * [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+     * of a brand for an Okta orgnanization.
      * 
      */
     public static CompletableFuture<GetThemeResult> getThemePlain(GetThemePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getTheme:getTheme", TypeShape.of(GetThemeResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get Themes of a Brand of an Okta Organization.
+     * Use this data source to retrieve
+     * [Themes](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+     * of a brand for an Okta orgnanization.
      * 
      */
     public static Output<GetThemesResult> getThemes(GetThemesArgs args) {
         return getThemes(args, InvokeOptions.Empty);
     }
     /**
-     * Get Themes of a Brand of an Okta Organization.
+     * Use this data source to retrieve
+     * [Themes](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+     * of a brand for an Okta orgnanization.
      * 
      */
     public static CompletableFuture<GetThemesResult> getThemesPlain(GetThemesPlainArgs args) {
         return getThemesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get Themes of a Brand of an Okta Organization.
+     * Use this data source to retrieve
+     * [Themes](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+     * of a brand for an Okta orgnanization.
      * 
      */
     public static Output<GetThemesResult> getThemes(GetThemesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getThemes:getThemes", TypeShape.of(GetThemesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get Themes of a Brand of an Okta Organization.
+     * Use this data source to retrieve
+     * [Themes](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+     * of a brand for an Okta orgnanization.
      * 
      */
     public static CompletableFuture<GetThemesResult> getThemesPlain(GetThemesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getThemes:getThemes", TypeShape.of(GetThemesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get List of Trusted Origins using filters.
+     * This resource allows you to retrieve a list of trusted origins from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -2601,7 +2773,7 @@ public final class OktaFunctions {
         return getTrustedOrigins(GetTrustedOriginsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get List of Trusted Origins using filters.
+     * This resource allows you to retrieve a list of trusted origins from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -2636,7 +2808,7 @@ public final class OktaFunctions {
         return getTrustedOriginsPlain(GetTrustedOriginsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get List of Trusted Origins using filters.
+     * This resource allows you to retrieve a list of trusted origins from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -2671,7 +2843,7 @@ public final class OktaFunctions {
         return getTrustedOrigins(args, InvokeOptions.Empty);
     }
     /**
-     * Get List of Trusted Origins using filters.
+     * This resource allows you to retrieve a list of trusted origins from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -2706,7 +2878,7 @@ public final class OktaFunctions {
         return getTrustedOriginsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get List of Trusted Origins using filters.
+     * This resource allows you to retrieve a list of trusted origins from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -2741,7 +2913,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getTrustedOrigins:getTrustedOrigins", TypeShape.of(GetTrustedOriginsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get List of Trusted Origins using filters.
+     * This resource allows you to retrieve a list of trusted origins from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -2776,6 +2948,8 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getTrustedOrigins:getTrustedOrigins", TypeShape.of(GetTrustedOriginsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve a list of user&#39;s security questions.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -2820,6 +2994,8 @@ public final class OktaFunctions {
         return getUserSecurityQuestions(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to retrieve a list of user&#39;s security questions.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -2864,6 +3040,8 @@ public final class OktaFunctions {
         return getUserSecurityQuestionsPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to retrieve a list of user&#39;s security questions.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -2908,6 +3086,8 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", TypeShape.of(GetUserSecurityQuestionsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve a list of user&#39;s security questions.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;

@@ -10,25 +10,45 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// Resource to manage administrative Role assignments for a User
+    /// This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use
+    /// Okta Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources.
+    /// The `resources` field supports the following:
+    ///  - Apps
+    ///  - Groups
+    ///  - All Users within a Group
+    ///  - All Users within the org
+    ///  - All Groups within the org
+    ///  - All Apps within the org
+    ///  - All Apps of the same type
+    /// 
+    /// &gt; **NOTE:** This an `Early Access` feature.
+    /// 
+    /// ## Import
+    /// 
+    /// Okta Resource Set can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/resourceSet:ResourceSet example &amp;#60;resource_set_id&amp;#62;
+    /// ```
     /// </summary>
     [OktaResourceType("okta:index/resourceSet:ResourceSet")]
     public partial class ResourceSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A description of the Resource Set
+        /// A description of the Resource Set.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Unique name given to the Resource Set
+        /// Unique name given to the Resource Set.
         /// </summary>
         [Output("label")]
         public Output<string> Label { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoints that reference the resources to be included in the new Resource Set
+        /// The endpoints that reference the resources to be included in the new Resource Set. At least one
+        /// endpoint must be specified when creating resource set.
         /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<string>> Resources { get; private set; } = null!;
@@ -80,13 +100,13 @@ namespace Pulumi.Okta
     public sealed class ResourceSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the Resource Set
+        /// A description of the Resource Set.
         /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
-        /// Unique name given to the Resource Set
+        /// Unique name given to the Resource Set.
         /// </summary>
         [Input("label", required: true)]
         public Input<string> Label { get; set; } = null!;
@@ -95,7 +115,8 @@ namespace Pulumi.Okta
         private InputList<string>? _resources;
 
         /// <summary>
-        /// The endpoints that reference the resources to be included in the new Resource Set
+        /// The endpoints that reference the resources to be included in the new Resource Set. At least one
+        /// endpoint must be specified when creating resource set.
         /// </summary>
         public InputList<string> Resources
         {
@@ -112,13 +133,13 @@ namespace Pulumi.Okta
     public sealed class ResourceSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the Resource Set
+        /// A description of the Resource Set.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Unique name given to the Resource Set
+        /// Unique name given to the Resource Set.
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
@@ -127,7 +148,8 @@ namespace Pulumi.Okta
         private InputList<string>? _resources;
 
         /// <summary>
-        /// The endpoints that reference the resources to be included in the new Resource Set
+        /// The endpoints that reference the resources to be included in the new Resource Set. At least one
+        /// endpoint must be specified when creating resource set.
         /// </summary>
         public InputList<string> Resources
         {

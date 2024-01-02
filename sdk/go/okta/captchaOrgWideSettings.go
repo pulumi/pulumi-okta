@@ -11,12 +11,95 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+//
+// This resource allows you to configure which parts of the authentication flow requires users to pass the CAPTCHA logic.
+// CAPTCHA org-wide settings can be disabled by unsetting `captchaId` and `enabledFor`.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewCaptcha(ctx, "exampleCaptcha", &okta.CaptchaArgs{
+//				Type:      pulumi.String("HCAPTCHA"),
+//				SiteKey:   pulumi.String("some_key"),
+//				SecretKey: pulumi.String("some_secret_key"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewCaptchaOrgWideSettings(ctx, "exampleCaptchaOrgWideSettings", &okta.CaptchaOrgWideSettingsArgs{
+//				CaptchaId: pulumi.Any(okta_captcha.Test.Id),
+//				EnabledFors: pulumi.StringArray{
+//					pulumi.String("SSR"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// The following example disables org-wide CAPTCHA.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewCaptcha(ctx, "exampleCaptcha", &okta.CaptchaArgs{
+//				SecretKey: pulumi.String("some_secret_key"),
+//				SiteKey:   pulumi.String("some_key"),
+//				Type:      pulumi.String("HCAPTCHA"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewCaptchaOrgWideSettings(ctx, "exampleCaptchaOrgWideSettings", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Org-Wide CAPTCHA settings can be imported without any parameters.
+//
+// ```sh
+//
+//	$ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
+//
+// ```
 type CaptchaOrgWideSettings struct {
 	pulumi.CustomResourceState
 
-	// ID of the CAPTCHA
+	// The ID of the CAPTCHA.
 	CaptchaId pulumi.StringPtrOutput `pulumi:"captchaId"`
-	// Set of pages that have CAPTCHA enabled
+	// Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
 	EnabledFors pulumi.StringArrayOutput `pulumi:"enabledFors"`
 }
 
@@ -50,16 +133,16 @@ func GetCaptchaOrgWideSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CaptchaOrgWideSettings resources.
 type captchaOrgWideSettingsState struct {
-	// ID of the CAPTCHA
+	// The ID of the CAPTCHA.
 	CaptchaId *string `pulumi:"captchaId"`
-	// Set of pages that have CAPTCHA enabled
+	// Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
 	EnabledFors []string `pulumi:"enabledFors"`
 }
 
 type CaptchaOrgWideSettingsState struct {
-	// ID of the CAPTCHA
+	// The ID of the CAPTCHA.
 	CaptchaId pulumi.StringPtrInput
-	// Set of pages that have CAPTCHA enabled
+	// Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
 	EnabledFors pulumi.StringArrayInput
 }
 
@@ -68,17 +151,17 @@ func (CaptchaOrgWideSettingsState) ElementType() reflect.Type {
 }
 
 type captchaOrgWideSettingsArgs struct {
-	// ID of the CAPTCHA
+	// The ID of the CAPTCHA.
 	CaptchaId *string `pulumi:"captchaId"`
-	// Set of pages that have CAPTCHA enabled
+	// Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
 	EnabledFors []string `pulumi:"enabledFors"`
 }
 
 // The set of arguments for constructing a CaptchaOrgWideSettings resource.
 type CaptchaOrgWideSettingsArgs struct {
-	// ID of the CAPTCHA
+	// The ID of the CAPTCHA.
 	CaptchaId pulumi.StringPtrInput
-	// Set of pages that have CAPTCHA enabled
+	// Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
 	EnabledFors pulumi.StringArrayInput
 }
 
@@ -169,12 +252,12 @@ func (o CaptchaOrgWideSettingsOutput) ToCaptchaOrgWideSettingsOutputWithContext(
 	return o
 }
 
-// ID of the CAPTCHA
+// The ID of the CAPTCHA.
 func (o CaptchaOrgWideSettingsOutput) CaptchaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CaptchaOrgWideSettings) pulumi.StringPtrOutput { return v.CaptchaId }).(pulumi.StringPtrOutput)
 }
 
-// Set of pages that have CAPTCHA enabled
+// Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
 func (o CaptchaOrgWideSettingsOutput) EnabledFors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CaptchaOrgWideSettings) pulumi.StringArrayOutput { return v.EnabledFors }).(pulumi.StringArrayOutput)
 }

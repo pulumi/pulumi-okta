@@ -13,31 +13,120 @@ import com.pulumi.okta.inputs.AppSignonPolicyState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.AppSignonPolicy;
+ * import com.pulumi.okta.AppSignonPolicyArgs;
+ * import com.pulumi.okta.app.OAuth;
+ * import com.pulumi.okta.app.OAuthArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var myAppPolicy = new AppSignonPolicy(&#34;myAppPolicy&#34;, AppSignonPolicyArgs.builder()        
+ *             .description(&#34;Authentication Policy to be used on my app.&#34;)
+ *             .build());
+ * 
+ *         var myApp = new OAuth(&#34;myApp&#34;, OAuthArgs.builder()        
+ *             .label(&#34;My App&#34;)
+ *             .type(&#34;web&#34;)
+ *             .grantTypes(&#34;authorization_code&#34;)
+ *             .redirectUris(&#34;http://localhost:3000&#34;)
+ *             .postLogoutRedirectUris(&#34;http://localhost:3000&#34;)
+ *             .responseTypes(&#34;code&#34;)
+ *             .authenticationPolicy(myAppPolicy.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * The created policy can be extended using `app_signon_policy_rules`.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.AppSignonPolicy;
+ * import com.pulumi.okta.AppSignonPolicyArgs;
+ * import com.pulumi.okta.AppSignonPolicyRule;
+ * import com.pulumi.okta.AppSignonPolicyRuleArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var myAppPolicy = new AppSignonPolicy(&#34;myAppPolicy&#34;, AppSignonPolicyArgs.builder()        
+ *             .description(&#34;Authentication Policy to be used on my app.&#34;)
+ *             .build());
+ * 
+ *         var someRule = new AppSignonPolicyRule(&#34;someRule&#34;, AppSignonPolicyRuleArgs.builder()        
+ *             .policyId(resource.okta_app_signon_policy().my_app_policy().id())
+ *             .factorMode(&#34;1FA&#34;)
+ *             .reAuthenticationFrequency(&#34;PT43800H&#34;)
+ *             .constraints(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;knowledge&#34;, jsonObject(
+ *                         jsonProperty(&#34;types&#34;, jsonArray(&#34;password&#34;))
+ *                     ))
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/appSignonPolicy:AppSignonPolicy")
 public class AppSignonPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * Policy Description
+     * Description of the policy.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return Policy Description
+     * @return Description of the policy.
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * Policy Name
+     * Name of the policy.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Policy Name
+     * @return Name of the policy.
      * 
      */
     public Output<String> name() {

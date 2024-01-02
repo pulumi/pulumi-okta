@@ -36,16 +36,13 @@ class GetAuthServerClaimsResult:
     @property
     @pulumi.getter(name="authServerId")
     def auth_server_id(self) -> str:
-        """
-        Auth server ID
-        """
         return pulumi.get(self, "auth_server_id")
 
     @property
     @pulumi.getter
     def claims(self) -> Sequence['outputs.GetAuthServerClaimsClaimResult']:
         """
-        Collection of authorization server claims retrieved from Okta with the following properties.
+        collection of authorization server claims retrieved from Okta with the following properties.
         """
         return pulumi.get(self, "claims")
 
@@ -72,7 +69,7 @@ class AwaitableGetAuthServerClaimsResult(GetAuthServerClaimsResult):
 def get_auth_server_claims(auth_server_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthServerClaimsResult:
     """
-    Get a list of authorization server claims from Okta.
+    Use this data source to retrieve a list of authorization server claims from Okta.
 
     ## Example Usage
 
@@ -84,7 +81,7 @@ def get_auth_server_claims(auth_server_id: Optional[str] = None,
     ```
 
 
-    :param str auth_server_id: Auth server ID
+    :param str auth_server_id: Auth server ID.
     """
     __args__ = dict()
     __args__['authServerId'] = auth_server_id
@@ -101,7 +98,7 @@ def get_auth_server_claims(auth_server_id: Optional[str] = None,
 def get_auth_server_claims_output(auth_server_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthServerClaimsResult]:
     """
-    Get a list of authorization server claims from Okta.
+    Use this data source to retrieve a list of authorization server claims from Okta.
 
     ## Example Usage
 
@@ -113,6 +110,6 @@ def get_auth_server_claims_output(auth_server_id: Optional[pulumi.Input[str]] = 
     ```
 
 
-    :param str auth_server_id: Auth server ID
+    :param str auth_server_id: Auth server ID.
     """
     ...

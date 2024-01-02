@@ -7,7 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Get Themes of a Brand of an Okta Organization.
+ * Use this data source to retrieve
+ * [Themes](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+ * of a brand for an Okta orgnanization.
  */
 export function getThemes(args: GetThemesArgs, opts?: pulumi.InvokeOptions): Promise<GetThemesResult> {
 
@@ -31,21 +33,20 @@ export interface GetThemesArgs {
  * A collection of values returned by getThemes.
  */
 export interface GetThemesResult {
-    /**
-     * Brand ID
-     */
     readonly brandId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * List of `oktaThem` belonging to the brand in the organization
+     * List of `okta.Theme` belonging to the brand.
      */
     readonly themes: outputs.GetThemesTheme[];
 }
 /**
- * Get Themes of a Brand of an Okta Organization.
+ * Use this data source to retrieve
+ * [Themes](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+ * of a brand for an Okta orgnanization.
  */
 export function getThemesOutput(args: GetThemesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemesResult> {
     return pulumi.output(args).apply((a: any) => getThemes(a, opts))

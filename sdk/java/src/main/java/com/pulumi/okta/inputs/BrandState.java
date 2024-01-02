@@ -17,14 +17,14 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
     public static final BrandState Empty = new BrandState();
 
     /**
-     * Consent for updating the custom privacy policy URL.
+     * Is a required input flag with when changing custom_privacy_url, shouldn&#39;t be considered as a readable property
      * 
      */
     @Import(name="agreeToCustomPrivacyPolicy")
     private @Nullable Output<Boolean> agreeToCustomPrivacyPolicy;
 
     /**
-     * @return Consent for updating the custom privacy policy URL.
+     * @return Is a required input flag with when changing custom_privacy_url, shouldn&#39;t be considered as a readable property
      * 
      */
     public Optional<Output<Boolean>> agreeToCustomPrivacyPolicy() {
@@ -32,7 +32,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
+     * (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
      * 
      * @deprecated
      * Okta has fully support brand creation, this attribute is a no op and will be removed
@@ -43,7 +43,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> brandId;
 
     /**
-     * @return Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
+     * @return (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
      * 
      * @deprecated
      * Okta has fully support brand creation, this attribute is a no op and will be removed
@@ -115,14 +115,14 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Email Domain ID tied to this brand
+     * (Read-only) Email Domain ID tied to this brand
      * 
      */
     @Import(name="emailDomainId")
     private @Nullable Output<String> emailDomainId;
 
     /**
-     * @return Email Domain ID tied to this brand
+     * @return (Read-only) Email Domain ID tied to this brand
      * 
      */
     public Optional<Output<String>> emailDomainId() {
@@ -130,14 +130,14 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is this the default brand
+     * (Read-only) Is this the default brand
      * 
      */
     @Import(name="isDefault")
     private @Nullable Output<Boolean> isDefault;
 
     /**
-     * @return Is this the default brand
+     * @return (Read-only) Is this the default brand
      * 
      */
     public Optional<Output<Boolean>> isDefault() {
@@ -145,14 +145,14 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Link relations for this object - JSON HAL - Discoverable resources related to the brand
+     * (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
      * 
      */
     @Import(name="links")
     private @Nullable Output<String> links;
 
     /**
-     * @return Link relations for this object - JSON HAL - Discoverable resources related to the brand
+     * @return (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
      * 
      */
     public Optional<Output<String>> links() {
@@ -175,14 +175,14 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Brand name
+     * Name of the brand
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Brand name
+     * @return Name of the brand
      * 
      */
     public Optional<Output<String>> name() {
@@ -190,14 +190,14 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+     * Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
      */
     @Import(name="removePoweredByOkta")
     private @Nullable Output<Boolean> removePoweredByOkta;
 
     /**
-     * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+     * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
      */
     public Optional<Output<Boolean>> removePoweredByOkta() {
@@ -240,7 +240,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agreeToCustomPrivacyPolicy Consent for updating the custom privacy policy URL.
+         * @param agreeToCustomPrivacyPolicy Is a required input flag with when changing custom_privacy_url, shouldn&#39;t be considered as a readable property
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agreeToCustomPrivacyPolicy Consent for updating the custom privacy policy URL.
+         * @param agreeToCustomPrivacyPolicy Is a required input flag with when changing custom_privacy_url, shouldn&#39;t be considered as a readable property
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brandId Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
+         * @param brandId (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param brandId Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id.
+         * @param brandId (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailDomainId Email Domain ID tied to this brand
+         * @param emailDomainId (Read-only) Email Domain ID tied to this brand
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailDomainId Email Domain ID tied to this brand
+         * @param emailDomainId (Read-only) Email Domain ID tied to this brand
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isDefault Is this the default brand
+         * @param isDefault (Read-only) Is this the default brand
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isDefault Is this the default brand
+         * @param isDefault (Read-only) Is this the default brand
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param links Link relations for this object - JSON HAL - Discoverable resources related to the brand
+         * @param links (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param links Link relations for this object - JSON HAL - Discoverable resources related to the brand
+         * @param links (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Brand name
+         * @param name Name of the brand
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Brand name
+         * @param name Name of the brand
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param removePoweredByOkta Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+         * @param removePoweredByOkta Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
          * 
          * @return builder
          * 
@@ -490,7 +490,7 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param removePoweredByOkta Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+         * @param removePoweredByOkta Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
          * 
          * @return builder
          * 

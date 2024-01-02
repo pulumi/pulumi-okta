@@ -19,6 +19,52 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.AppUserSchemaProperty;
+ * import com.pulumi.okta.AppUserSchemaPropertyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AppUserSchemaProperty(&#34;example&#34;, AppUserSchemaPropertyArgs.builder()        
+ *             .appId(&#34;&lt;app id&gt;&#34;)
+ *             .description(&#34;My custom property name&#34;)
+ *             .index(&#34;customPropertyName&#34;)
+ *             .master(&#34;OKTA&#34;)
+ *             .scope(&#34;SELF&#34;)
+ *             .title(&#34;customPropertyName&#34;)
+ *             .type(&#34;string&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * App user schema property can be imported via the property index and app id.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example &amp;#60;app id&amp;#62;/&amp;#60;property name&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/appUserSchemaProperty:AppUserSchemaProperty")
 public class AppUserSchemaProperty extends com.pulumi.resources.CustomResource {
     /**
@@ -36,252 +82,252 @@ public class AppUserSchemaProperty extends com.pulumi.resources.CustomResource {
         return this.appId;
     }
     /**
-     * Custom Subschema enumerated value of a property of type array.
+     * Array of values that an array property&#39;s items can be set to.
      * 
      */
     @Export(name="arrayEnums", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> arrayEnums;
 
     /**
-     * @return Custom Subschema enumerated value of a property of type array.
+     * @return Array of values that an array property&#39;s items can be set to.
      * 
      */
     public Output<Optional<List<String>>> arrayEnums() {
         return Codegen.optional(this.arrayEnums);
     }
     /**
-     * array of valid JSON schemas for property type array.
+     * Display name and value an enum array can be set to.
      * 
      */
     @Export(name="arrayOneOfs", refs={List.class,AppUserSchemaPropertyArrayOneOf.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AppUserSchemaPropertyArrayOneOf>> arrayOneOfs;
 
     /**
-     * @return array of valid JSON schemas for property type array.
+     * @return Display name and value an enum array can be set to.
      * 
      */
     public Output<Optional<List<AppUserSchemaPropertyArrayOneOf>>> arrayOneOfs() {
         return Codegen.optional(this.arrayOneOfs);
     }
     /**
-     * Subschema array type: string, number, integer, reference. Type field must be an array.
+     * The type of the array elements if `type` is set to `&#34;array&#34;`.
      * 
      */
     @Export(name="arrayType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> arrayType;
 
     /**
-     * @return Subschema array type: string, number, integer, reference. Type field must be an array.
+     * @return The type of the array elements if `type` is set to `&#34;array&#34;`.
      * 
      */
     public Output<Optional<String>> arrayType() {
         return Codegen.optional(this.arrayType);
     }
     /**
-     * Custom Subschema description
+     * The description of the user schema property.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Custom Subschema description
+     * @return The description of the user schema property.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+     * Array of values a primitive property can be set to. See `array_enum` for arrays.
      * 
      */
     @Export(name="enums", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> enums;
 
     /**
-     * @return Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+     * @return Array of values a primitive property can be set to. See `array_enum` for arrays.
      * 
      */
     public Output<Optional<List<String>>> enums() {
         return Codegen.optional(this.enums);
     }
     /**
-     * Subschema external name
+     * External name of the user schema property.
      * 
      */
     @Export(name="externalName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> externalName;
 
     /**
-     * @return Subschema external name
+     * @return External name of the user schema property.
      * 
      */
     public Output<Optional<String>> externalName() {
         return Codegen.optional(this.externalName);
     }
     /**
-     * Subschema external namespace
+     * External namespace of the user schema property.
      * 
      */
     @Export(name="externalNamespace", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> externalNamespace;
 
     /**
-     * @return Subschema external namespace
+     * @return External namespace of the user schema property.
      * 
      */
     public Output<Optional<String>> externalNamespace() {
         return Codegen.optional(this.externalNamespace);
     }
     /**
-     * Subschema unique string identifier
+     * The property name.
      * 
      */
     @Export(name="index", refs={String.class}, tree="[0]")
     private Output<String> index;
 
     /**
-     * @return Subschema unique string identifier
+     * @return The property name.
      * 
      */
     public Output<String> index() {
         return this.index;
     }
     /**
-     * SubSchema profile manager, if not set it will inherit its setting.
+     * Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;` or `&#34;OKTA&#34;`.
      * 
      */
     @Export(name="master", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> master;
 
     /**
-     * @return SubSchema profile manager, if not set it will inherit its setting.
+     * @return Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;` or `&#34;OKTA&#34;`.
      * 
      */
     public Output<Optional<String>> master() {
         return Codegen.optional(this.master);
     }
     /**
-     * Subschema of type string maximum length
+     * The maximum length of the user property value. Only applies to type `&#34;string&#34;`.
      * 
      */
     @Export(name="maxLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxLength;
 
     /**
-     * @return Subschema of type string maximum length
+     * @return The maximum length of the user property value. Only applies to type `&#34;string&#34;`.
      * 
      */
     public Output<Optional<Integer>> maxLength() {
         return Codegen.optional(this.maxLength);
     }
     /**
-     * Subschema of type string minimum length
+     * The minimum length of the user property value. Only applies to type `&#34;string&#34;`.
      * 
      */
     @Export(name="minLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minLength;
 
     /**
-     * @return Subschema of type string minimum length
+     * @return The minimum length of the user property value. Only applies to type `&#34;string&#34;`.
      * 
      */
     public Output<Optional<Integer>> minLength() {
         return Codegen.optional(this.minLength);
     }
     /**
-     * Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+     * Array of maps containing a mapping for display name to enum value.
      * 
      */
     @Export(name="oneOfs", refs={List.class,AppUserSchemaPropertyOneOf.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AppUserSchemaPropertyOneOf>> oneOfs;
 
     /**
-     * @return Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+     * @return Array of maps containing a mapping for display name to enum value.
      * 
      */
     public Output<Optional<List<AppUserSchemaPropertyOneOf>>> oneOfs() {
         return Codegen.optional(this.oneOfs);
     }
     /**
-     * SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+     * Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
      * 
      */
     @Export(name="permissions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> permissions;
 
     /**
-     * @return SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+     * @return Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
      * 
      */
     public Output<Optional<String>> permissions() {
         return Codegen.optional(this.permissions);
     }
     /**
-     * Whether the subschema is required
+     * Whether the property is required for this application&#39;s users.
      * 
      */
     @Export(name="required", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> required;
 
     /**
-     * @return Whether the subschema is required
+     * @return Whether the property is required for this application&#39;s users.
      * 
      */
     public Output<Optional<Boolean>> required() {
         return Codegen.optional(this.required);
     }
     /**
-     * determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
+     * determines whether an app user attribute can be set at the Personal `&#34;SELF&#34;` or Group `&#34;NONE&#34;` level. Default value is `&#34;NONE&#34;`.
      * 
      */
     @Export(name="scope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scope;
 
     /**
-     * @return determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
+     * @return determines whether an app user attribute can be set at the Personal `&#34;SELF&#34;` or Group `&#34;NONE&#34;` level. Default value is `&#34;NONE&#34;`.
      * 
      */
     public Output<Optional<String>> scope() {
         return Codegen.optional(this.scope);
     }
     /**
-     * Enum title
+     * display name for the enum value.
      * 
      */
     @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**
-     * @return Enum title
+     * @return display name for the enum value.
      * 
      */
     public Output<String> title() {
         return this.title;
     }
     /**
-     * Subschema type: string, boolean, number, integer, array, or object
+     * The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Subschema type: string, boolean, number, integer, array, or object
+     * @return The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * Allows to assign attribute&#39;s group priority
+     * If `type` is set to `&#34;array&#34;`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `&#34;SELF&#34;`.
      * 
      */
     @Export(name="union", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> union;
 
     /**
-     * @return Allows to assign attribute&#39;s group priority
+     * @return If `type` is set to `&#34;array&#34;`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `&#34;SELF&#34;`.
      * 
      */
     public Output<Optional<Boolean>> union() {

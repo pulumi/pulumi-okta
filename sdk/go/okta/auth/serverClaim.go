@@ -12,25 +12,70 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates an Authorization Server Claim.
+//
+// This resource allows you to create and configure an Authorization Server Claim.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/auth"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := auth.NewServerClaim(ctx, "example", &auth.ServerClaimArgs{
+//				AuthServerId: pulumi.String("<auth server id>"),
+//				ClaimType:    pulumi.String("IDENTITY"),
+//				Scopes: pulumi.StringArray{
+//					okta_auth_server_scope.Example.Name,
+//				},
+//				Value: pulumi.String("String.substringAfter(user.email, \"@\") == \"example.com\""),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Authorization Server Claim can be imported via the Auth Server ID and Claim ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:auth/serverClaim:ServerClaim example &#60;auth server id&#62;/&#60;claim id&#62;
+//
+// ```
 type ServerClaim struct {
 	pulumi.CustomResourceState
 
 	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken pulumi.BoolPtrOutput `pulumi:"alwaysIncludeInToken"`
-	// Auth server ID
+	// ID of the authorization server.
 	AuthServerId pulumi.StringOutput `pulumi:"authServerId"`
-	// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+	// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
 	ClaimType pulumi.StringOutput `pulumi:"claimType"`
-	// Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
+	// Specifies the type of group filter if `valueType` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
 	GroupFilterType pulumi.StringPtrOutput `pulumi:"groupFilterType"`
-	// Auth server claim name
+	// The name of the claim.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Auth server claim list of scopes
+	// The list of scopes the auth server claim is tied to.
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
-	Status pulumi.StringPtrOutput   `pulumi:"status"`
+	// The status of the application. It defaults to `"ACTIVE"`.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The value of the claim.
 	Value pulumi.StringOutput `pulumi:"value"`
-	// The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
+	// The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
 	ValueType pulumi.StringPtrOutput `pulumi:"valueType"`
 }
 
@@ -75,40 +120,42 @@ func GetServerClaim(ctx *pulumi.Context,
 type serverClaimState struct {
 	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken *bool `pulumi:"alwaysIncludeInToken"`
-	// Auth server ID
+	// ID of the authorization server.
 	AuthServerId *string `pulumi:"authServerId"`
-	// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+	// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
 	ClaimType *string `pulumi:"claimType"`
-	// Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
+	// Specifies the type of group filter if `valueType` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
 	GroupFilterType *string `pulumi:"groupFilterType"`
-	// Auth server claim name
+	// The name of the claim.
 	Name *string `pulumi:"name"`
-	// Auth server claim list of scopes
+	// The list of scopes the auth server claim is tied to.
 	Scopes []string `pulumi:"scopes"`
-	Status *string  `pulumi:"status"`
+	// The status of the application. It defaults to `"ACTIVE"`.
+	Status *string `pulumi:"status"`
 	// The value of the claim.
 	Value *string `pulumi:"value"`
-	// The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
+	// The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
 	ValueType *string `pulumi:"valueType"`
 }
 
 type ServerClaimState struct {
 	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken pulumi.BoolPtrInput
-	// Auth server ID
+	// ID of the authorization server.
 	AuthServerId pulumi.StringPtrInput
-	// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+	// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
 	ClaimType pulumi.StringPtrInput
-	// Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
+	// Specifies the type of group filter if `valueType` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
 	GroupFilterType pulumi.StringPtrInput
-	// Auth server claim name
+	// The name of the claim.
 	Name pulumi.StringPtrInput
-	// Auth server claim list of scopes
+	// The list of scopes the auth server claim is tied to.
 	Scopes pulumi.StringArrayInput
+	// The status of the application. It defaults to `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// The value of the claim.
 	Value pulumi.StringPtrInput
-	// The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
+	// The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
 	ValueType pulumi.StringPtrInput
 }
 
@@ -119,20 +166,21 @@ func (ServerClaimState) ElementType() reflect.Type {
 type serverClaimArgs struct {
 	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken *bool `pulumi:"alwaysIncludeInToken"`
-	// Auth server ID
+	// ID of the authorization server.
 	AuthServerId string `pulumi:"authServerId"`
-	// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+	// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
 	ClaimType string `pulumi:"claimType"`
-	// Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
+	// Specifies the type of group filter if `valueType` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
 	GroupFilterType *string `pulumi:"groupFilterType"`
-	// Auth server claim name
+	// The name of the claim.
 	Name *string `pulumi:"name"`
-	// Auth server claim list of scopes
+	// The list of scopes the auth server claim is tied to.
 	Scopes []string `pulumi:"scopes"`
-	Status *string  `pulumi:"status"`
+	// The status of the application. It defaults to `"ACTIVE"`.
+	Status *string `pulumi:"status"`
 	// The value of the claim.
 	Value string `pulumi:"value"`
-	// The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
+	// The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
 	ValueType *string `pulumi:"valueType"`
 }
 
@@ -140,20 +188,21 @@ type serverClaimArgs struct {
 type ServerClaimArgs struct {
 	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken pulumi.BoolPtrInput
-	// Auth server ID
+	// ID of the authorization server.
 	AuthServerId pulumi.StringInput
-	// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+	// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
 	ClaimType pulumi.StringInput
-	// Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
+	// Specifies the type of group filter if `valueType` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
 	GroupFilterType pulumi.StringPtrInput
-	// Auth server claim name
+	// The name of the claim.
 	Name pulumi.StringPtrInput
-	// Auth server claim list of scopes
+	// The list of scopes the auth server claim is tied to.
 	Scopes pulumi.StringArrayInput
+	// The status of the application. It defaults to `"ACTIVE"`.
 	Status pulumi.StringPtrInput
 	// The value of the claim.
 	Value pulumi.StringInput
-	// The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
+	// The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
 	ValueType pulumi.StringPtrInput
 }
 
@@ -249,31 +298,32 @@ func (o ServerClaimOutput) AlwaysIncludeInToken() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServerClaim) pulumi.BoolPtrOutput { return v.AlwaysIncludeInToken }).(pulumi.BoolPtrOutput)
 }
 
-// Auth server ID
+// ID of the authorization server.
 func (o ServerClaimOutput) AuthServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerClaim) pulumi.StringOutput { return v.AuthServerId }).(pulumi.StringOutput)
 }
 
-// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
 func (o ServerClaimOutput) ClaimType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerClaim) pulumi.StringOutput { return v.ClaimType }).(pulumi.StringOutput)
 }
 
-// Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
+// Specifies the type of group filter if `valueType` is `"GROUPS"`. Can be set to one of the following `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, `"REGEX"`.
 func (o ServerClaimOutput) GroupFilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerClaim) pulumi.StringPtrOutput { return v.GroupFilterType }).(pulumi.StringPtrOutput)
 }
 
-// Auth server claim name
+// The name of the claim.
 func (o ServerClaimOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerClaim) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Auth server claim list of scopes
+// The list of scopes the auth server claim is tied to.
 func (o ServerClaimOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerClaim) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
 }
 
+// The status of the application. It defaults to `"ACTIVE"`.
 func (o ServerClaimOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerClaim) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -283,7 +333,7 @@ func (o ServerClaimOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerClaim) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }
 
-// The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
+// The type of value of the claim. It can be set to `"EXPRESSION"` or `"GROUPS"`. It defaults to `"EXPRESSION"`.
 func (o ServerClaimOutput) ValueType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerClaim) pulumi.StringPtrOutput { return v.ValueType }).(pulumi.StringPtrOutput)
 }

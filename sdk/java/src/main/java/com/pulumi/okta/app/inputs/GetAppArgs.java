@@ -17,14 +17,14 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAppArgs Empty = new GetAppArgs();
 
     /**
-     * Search only ACTIVE applications.
+     * tells the provider to query for only `ACTIVE` applications.
      * 
      */
     @Import(name="activeOnly")
     private @Nullable Output<Boolean> activeOnly;
 
     /**
-     * @return Search only ACTIVE applications.
+     * @return tells the provider to query for only `ACTIVE` applications.
      * 
      */
     public Optional<Output<Boolean>> activeOnly() {
@@ -32,14 +32,14 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Id of application to retrieve, conflicts with label and label_prefix.
+     * `id` of application to retrieve, conflicts with `label` and `label_prefix`.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return Id of application to retrieve, conflicts with label and label_prefix.
+     * @return `id` of application to retrieve, conflicts with `label` and `label_prefix`.
      * 
      */
     public Optional<Output<String>> id() {
@@ -47,26 +47,22 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The label of the app to retrieve, conflicts with
-     * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
-     * 			Okta&#39;s List Apps API. The API will search both name and label using that
-     * 			query. Therefore similarily named and labeled apps may be returned in the query
-     * 			and have the unitended result of associating the wrong app with this data
-     * 			source. See:
-     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+     * The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
+     * the `?q=&lt;label&gt;` query parameter exposed by Okta&#39;s API. It should be noted that at this time the API searches both `name`
+     * and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
+     * may result in multiple apps being returned for the query. The data source further inspects the lables looking for
+     * an exact match.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return The label of the app to retrieve, conflicts with
-     * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
-     * 			Okta&#39;s List Apps API. The API will search both name and label using that
-     * 			query. Therefore similarily named and labeled apps may be returned in the query
-     * 			and have the unitended result of associating the wrong app with this data
-     * 			source. See:
-     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+     * @return The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
+     * the `?q=&lt;label&gt;` query parameter exposed by Okta&#39;s API. It should be noted that at this time the API searches both `name`
+     * and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
+     * may result in multiple apps being returned for the query. The data source further inspects the lables looking for
+     * an exact match.
      * 
      */
     public Optional<Output<String>> label() {
@@ -74,16 +70,16 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+     * provider to do a `starts with` query as opposed to an `equals` query.
      * 
      */
     @Import(name="labelPrefix")
     private @Nullable Output<String> labelPrefix;
 
     /**
-     * @return Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * @return Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+     * provider to do a `starts with` query as opposed to an `equals` query.
      * 
      */
     public Optional<Output<String>> labelPrefix() {
@@ -91,8 +87,6 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
-     * 
      * @deprecated
      * Because groups has been removed, this attribute is a no op and will be removed
      * 
@@ -102,8 +96,6 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<Boolean> skipGroups;
 
     /**
-     * @return Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
-     * 
      * @deprecated
      * Because groups has been removed, this attribute is a no op and will be removed
      * 
@@ -114,8 +106,6 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
-     * 
      * @deprecated
      * Because users has been removed, this attribute is a no op and will be removed
      * 
@@ -125,8 +115,6 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<Boolean> skipUsers;
 
     /**
-     * @return Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
-     * 
      * @deprecated
      * Because users has been removed, this attribute is a no op and will be removed
      * 
@@ -166,7 +154,7 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param activeOnly Search only ACTIVE applications.
+         * @param activeOnly tells the provider to query for only `ACTIVE` applications.
          * 
          * @return builder
          * 
@@ -177,7 +165,7 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param activeOnly Search only ACTIVE applications.
+         * @param activeOnly tells the provider to query for only `ACTIVE` applications.
          * 
          * @return builder
          * 
@@ -187,7 +175,7 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id Id of application to retrieve, conflicts with label and label_prefix.
+         * @param id `id` of application to retrieve, conflicts with `label` and `label_prefix`.
          * 
          * @return builder
          * 
@@ -198,7 +186,7 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id Id of application to retrieve, conflicts with label and label_prefix.
+         * @param id `id` of application to retrieve, conflicts with `label` and `label_prefix`.
          * 
          * @return builder
          * 
@@ -208,13 +196,11 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param label The label of the app to retrieve, conflicts with
-         * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
-         * 			Okta&#39;s List Apps API. The API will search both name and label using that
-         * 			query. Therefore similarily named and labeled apps may be returned in the query
-         * 			and have the unitended result of associating the wrong app with this data
-         * 			source. See:
-         * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+         * @param label The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
+         * the `?q=&lt;label&gt;` query parameter exposed by Okta&#39;s API. It should be noted that at this time the API searches both `name`
+         * and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
+         * may result in multiple apps being returned for the query. The data source further inspects the lables looking for
+         * an exact match.
          * 
          * @return builder
          * 
@@ -225,13 +211,11 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param label The label of the app to retrieve, conflicts with
-         * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
-         * 			Okta&#39;s List Apps API. The API will search both name and label using that
-         * 			query. Therefore similarily named and labeled apps may be returned in the query
-         * 			and have the unitended result of associating the wrong app with this data
-         * 			source. See:
-         * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+         * @param label The label of the app to retrieve, conflicts with `label_prefix` and `id`. Label uses
+         * the `?q=&lt;label&gt;` query parameter exposed by Okta&#39;s API. It should be noted that at this time the API searches both `name`
+         * and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
+         * may result in multiple apps being returned for the query. The data source further inspects the lables looking for
+         * an exact match.
          * 
          * @return builder
          * 
@@ -241,8 +225,8 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param labelPrefix Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-         * 			provider to do a starts with query as opposed to an equals query.
+         * @param labelPrefix Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+         * provider to do a `starts with` query as opposed to an `equals` query.
          * 
          * @return builder
          * 
@@ -253,8 +237,8 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param labelPrefix Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-         * 			provider to do a starts with query as opposed to an equals query.
+         * @param labelPrefix Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
+         * provider to do a `starts with` query as opposed to an `equals` query.
          * 
          * @return builder
          * 
@@ -264,8 +248,6 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param skipGroups Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
-         * 
          * @return builder
          * 
          * @deprecated
@@ -279,8 +261,6 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param skipGroups Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
-         * 
          * @return builder
          * 
          * @deprecated
@@ -293,8 +273,6 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param skipUsers Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
-         * 
          * @return builder
          * 
          * @deprecated
@@ -308,8 +286,6 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param skipUsers Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
-         * 
          * @return builder
          * 
          * @deprecated

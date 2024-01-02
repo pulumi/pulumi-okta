@@ -9,35 +9,68 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// &gt; **DEPRECATED** use `okta.Index.EmailDomain` instead.
+    /// 
+    /// This resource allows you to create and configure a custom email sender.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.EmailSender("example", new()
+    ///     {
+    ///         FromAddress = "no-reply@caladan.planet",
+    ///         FromName = "Paul Atreides",
+    ///         Subdomain = "mail",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Custom email sender can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/emailSender:EmailSender example &amp;#60;sender id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/emailSender:EmailSender")]
     public partial class EmailSender : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// TXT and CNAME records to be registered for the Domain
+        /// TXT and CNAME records to be registered for the domain.
         /// </summary>
         [Output("dnsRecords")]
         public Output<ImmutableArray<Outputs.EmailSenderDnsRecord>> DnsRecords { get; private set; } = null!;
 
         /// <summary>
-        /// Email address to send from
+        /// Email address to send from.
         /// </summary>
         [Output("fromAddress")]
         public Output<string> FromAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Name of sender
+        /// Name of sender.
         /// </summary>
         [Output("fromName")]
         public Output<string> FromName { get; private set; } = null!;
 
         /// <summary>
-        /// Verification status
+        /// Status of the sender (shows whether the sender is verified).
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Mail domain to send from
+        /// Mail domain to send from.
         /// </summary>
         [Output("subdomain")]
         public Output<string> Subdomain { get; private set; } = null!;
@@ -89,19 +122,19 @@ namespace Pulumi.Okta
     public sealed class EmailSenderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Email address to send from
+        /// Email address to send from.
         /// </summary>
         [Input("fromAddress", required: true)]
         public Input<string> FromAddress { get; set; } = null!;
 
         /// <summary>
-        /// Name of sender
+        /// Name of sender.
         /// </summary>
         [Input("fromName", required: true)]
         public Input<string> FromName { get; set; } = null!;
 
         /// <summary>
-        /// Mail domain to send from
+        /// Mail domain to send from.
         /// </summary>
         [Input("subdomain", required: true)]
         public Input<string> Subdomain { get; set; } = null!;
@@ -118,7 +151,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.EmailSenderDnsRecordGetArgs>? _dnsRecords;
 
         /// <summary>
-        /// TXT and CNAME records to be registered for the Domain
+        /// TXT and CNAME records to be registered for the domain.
         /// </summary>
         public InputList<Inputs.EmailSenderDnsRecordGetArgs> DnsRecords
         {
@@ -127,25 +160,25 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Email address to send from
+        /// Email address to send from.
         /// </summary>
         [Input("fromAddress")]
         public Input<string>? FromAddress { get; set; }
 
         /// <summary>
-        /// Name of sender
+        /// Name of sender.
         /// </summary>
         [Input("fromName")]
         public Input<string>? FromName { get; set; }
 
         /// <summary>
-        /// Verification status
+        /// Status of the sender (shows whether the sender is verified).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Mail domain to send from
+        /// Mail domain to send from.
         /// </summary>
         [Input("subdomain")]
         public Input<string>? Subdomain { get; set; }

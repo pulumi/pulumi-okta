@@ -14,14 +14,14 @@ public final class GetServerPolicyPlainArgs extends com.pulumi.resources.InvokeA
     public static final GetServerPolicyPlainArgs Empty = new GetServerPolicyPlainArgs();
 
     /**
-     * Auth server ID
+     * The ID of the Auth Server.
      * 
      */
     @Import(name="authServerId", required=true)
     private String authServerId;
 
     /**
-     * @return Auth server ID
+     * @return The ID of the Auth Server.
      * 
      */
     public String authServerId() {
@@ -29,14 +29,14 @@ public final class GetServerPolicyPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * Name of the policy
+     * Name of policy to retrieve.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Name of the policy
+     * @return Name of policy to retrieve.
      * 
      */
     public String name() {
@@ -69,7 +69,7 @@ public final class GetServerPolicyPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param authServerId Auth server ID
+         * @param authServerId The ID of the Auth Server.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetServerPolicyPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param name Name of the policy
+         * @param name Name of policy to retrieve.
          * 
          * @return builder
          * 

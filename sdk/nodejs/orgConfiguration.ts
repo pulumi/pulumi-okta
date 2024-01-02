@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * This resource allows you manage org settings, logo, support and communication options.
+ *
+ * > **IMPORTANT:** You must specify all Org Setting properties when you update an org's profile. Any property not specified in the script will be deleted.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.OrgConfiguration("example", {
+ *     companyName: "Umbrella Corporation",
+ *     website: "https://terraform.io",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Okta Org Configuration can be imported even without specifying the Org ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
+ * ```
+ */
 export class OrgConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing OrgConfiguration resource's state with the given name, ID, and optional extra

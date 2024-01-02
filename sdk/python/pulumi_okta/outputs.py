@@ -43,7 +43,7 @@ class AppGroupAssignmentsGroup(dict):
                  profile: str,
                  priority: Optional[int] = None):
         """
-        :param str id: A group to associate with the application
+        :param str id: ID of the group to assign.
         :param str profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         :param int priority: Priority of group assignment
         """
@@ -56,7 +56,7 @@ class AppGroupAssignmentsGroup(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        A group to associate with the application
+        ID of the group to assign.
         """
         return pulumi.get(self, "id")
 
@@ -103,7 +103,9 @@ class AppSignonPolicyRulePlatformInclude(dict):
                  os_type: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param str os_expression: Only available with OTHER OS type
+        :param str os_expression: Only available and required when using `os_type = "OTHER"`
+        :param str os_type: One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+        :param str type: The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
         """
         if os_expression is not None:
             pulumi.set(__self__, "os_expression", os_expression)
@@ -116,18 +118,24 @@ class AppSignonPolicyRulePlatformInclude(dict):
     @pulumi.getter(name="osExpression")
     def os_expression(self) -> Optional[str]:
         """
-        Only available with OTHER OS type
+        Only available and required when using `os_type = "OTHER"`
         """
         return pulumi.get(self, "os_expression")
 
     @property
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[str]:
+        """
+        One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+        """
         return pulumi.get(self, "os_type")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+        """
         return pulumi.get(self, "type")
 
 
@@ -137,8 +145,8 @@ class AppUserSchemaPropertyArrayOneOf(dict):
                  const: str,
                  title: str):
         """
-        :param str const: Enum value
-        :param str title: Enum title
+        :param str const: value mapping to member of `array_enum`.
+        :param str title: display name for the enum value.
         """
         pulumi.set(__self__, "const", const)
         pulumi.set(__self__, "title", title)
@@ -147,7 +155,7 @@ class AppUserSchemaPropertyArrayOneOf(dict):
     @pulumi.getter
     def const(self) -> str:
         """
-        Enum value
+        value mapping to member of `array_enum`.
         """
         return pulumi.get(self, "const")
 
@@ -155,7 +163,7 @@ class AppUserSchemaPropertyArrayOneOf(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        Enum title
+        display name for the enum value.
         """
         return pulumi.get(self, "title")
 
@@ -166,8 +174,8 @@ class AppUserSchemaPropertyOneOf(dict):
                  const: str,
                  title: str):
         """
-        :param str const: Enum value
-        :param str title: Enum title
+        :param str const: value mapping to member of `array_enum`.
+        :param str title: display name for the enum value.
         """
         pulumi.set(__self__, "const", const)
         pulumi.set(__self__, "title", title)
@@ -176,7 +184,7 @@ class AppUserSchemaPropertyOneOf(dict):
     @pulumi.getter
     def const(self) -> str:
         """
-        Enum value
+        value mapping to member of `array_enum`.
         """
         return pulumi.get(self, "const")
 
@@ -184,7 +192,7 @@ class AppUserSchemaPropertyOneOf(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        Enum title
+        display name for the enum value.
         """
         return pulumi.get(self, "title")
 
@@ -213,6 +221,12 @@ class DomainDnsRecord(dict):
                  fqdn: Optional[str] = None,
                  record_type: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
+        """
+        :param str expiration: TXT record expiration.
+        :param str fqdn: DNS record name.
+        :param str record_type: Record type can be TXT or CNAME.
+        :param Sequence[str] values: DNS verification value
+        """
         if expiration is not None:
             pulumi.set(__self__, "expiration", expiration)
         if fqdn is not None:
@@ -225,21 +239,33 @@ class DomainDnsRecord(dict):
     @property
     @pulumi.getter
     def expiration(self) -> Optional[str]:
+        """
+        TXT record expiration.
+        """
         return pulumi.get(self, "expiration")
 
     @property
     @pulumi.getter
     def fqdn(self) -> Optional[str]:
+        """
+        DNS record name.
+        """
         return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter(name="recordType")
     def record_type(self) -> Optional[str]:
+        """
+        Record type can be TXT or CNAME.
+        """
         return pulumi.get(self, "record_type")
 
     @property
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
+        """
+        DNS verification value
+        """
         return pulumi.get(self, "values")
 
 
@@ -266,6 +292,11 @@ class EmailSenderDnsRecord(dict):
                  fqdn: Optional[str] = None,
                  record_type: Optional[str] = None,
                  value: Optional[str] = None):
+        """
+        :param str fqdn: DNS record name.
+        :param str record_type: Record type can be TXT or CNAME.
+        :param str value: DNS verification value
+        """
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
         if record_type is not None:
@@ -276,16 +307,25 @@ class EmailSenderDnsRecord(dict):
     @property
     @pulumi.getter
     def fqdn(self) -> Optional[str]:
+        """
+        DNS record name.
+        """
         return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter(name="recordType")
     def record_type(self) -> Optional[str]:
+        """
+        Record type can be TXT or CNAME.
+        """
         return pulumi.get(self, "record_type")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        DNS verification value
+        """
         return pulumi.get(self, "value")
 
 
@@ -294,6 +334,10 @@ class EventHookHeader(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
+        """
+        :param str key: Key to use for authentication, usually the header name, for example `"Authorization"`.
+        :param str value: Authentication secret.
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -302,11 +346,17 @@ class EventHookHeader(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
+        """
+        Key to use for authentication, usually the header name, for example `"Authorization"`.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        Authentication secret.
+        """
         return pulumi.get(self, "value")
 
 
@@ -316,8 +366,8 @@ class GroupSchemaPropertyArrayOneOf(dict):
                  const: str,
                  title: str):
         """
-        :param str const: Enum value
-        :param str title: Enum title
+        :param str const: value mapping to member of `enum`.
+        :param str title: display name for the enum value.
         """
         pulumi.set(__self__, "const", const)
         pulumi.set(__self__, "title", title)
@@ -326,7 +376,7 @@ class GroupSchemaPropertyArrayOneOf(dict):
     @pulumi.getter
     def const(self) -> str:
         """
-        Enum value
+        value mapping to member of `enum`.
         """
         return pulumi.get(self, "const")
 
@@ -334,7 +384,7 @@ class GroupSchemaPropertyArrayOneOf(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        Enum title
+        display name for the enum value.
         """
         return pulumi.get(self, "title")
 
@@ -344,6 +394,10 @@ class GroupSchemaPropertyMasterOverridePriority(dict):
     def __init__(__self__, *,
                  value: str,
                  type: Optional[str] = None):
+        """
+        :param str value: ID of profile source.
+        :param str type: Type of profile source.
+        """
         pulumi.set(__self__, "value", value)
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -351,11 +405,17 @@ class GroupSchemaPropertyMasterOverridePriority(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        ID of profile source.
+        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        Type of profile source.
+        """
         return pulumi.get(self, "type")
 
 
@@ -365,8 +425,8 @@ class GroupSchemaPropertyOneOf(dict):
                  const: str,
                  title: str):
         """
-        :param str const: Enum value
-        :param str title: Enum title
+        :param str const: value mapping to member of `enum`.
+        :param str title: display name for the enum value.
         """
         pulumi.set(__self__, "const", const)
         pulumi.set(__self__, "title", title)
@@ -375,7 +435,7 @@ class GroupSchemaPropertyOneOf(dict):
     @pulumi.getter
     def const(self) -> str:
         """
-        Enum value
+        value mapping to member of `enum`.
         """
         return pulumi.get(self, "const")
 
@@ -383,7 +443,7 @@ class GroupSchemaPropertyOneOf(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        Enum title
+        display name for the enum value.
         """
         return pulumi.get(self, "title")
 
@@ -397,7 +457,7 @@ class PolicyRuleProfileEnrollmentProfileAttribute(dict):
         """
         :param str label: A display-friendly label for this property
         :param str name: The name of a User Profile property
-        :param bool required: Indicates if this property is required for enrollment
+        :param bool required: Indicates if this property is required for enrollment. Default is `false`.
         """
         pulumi.set(__self__, "label", label)
         pulumi.set(__self__, "name", name)
@@ -424,7 +484,7 @@ class PolicyRuleProfileEnrollmentProfileAttribute(dict):
     @pulumi.getter
     def required(self) -> Optional[bool]:
         """
-        Indicates if this property is required for enrollment
+        Indicates if this property is required for enrollment. Default is `false`.
         """
         return pulumi.get(self, "required")
 
@@ -434,17 +494,27 @@ class TemplateSmsTranslation(dict):
     def __init__(__self__, *,
                  language: str,
                  template: str):
+        """
+        :param str language: The language to map the template to.
+        :param str template: The SMS message.
+        """
         pulumi.set(__self__, "language", language)
         pulumi.set(__self__, "template", template)
 
     @property
     @pulumi.getter
     def language(self) -> str:
+        """
+        The language to map the template to.
+        """
         return pulumi.get(self, "language")
 
     @property
     @pulumi.getter
     def template(self) -> str:
+        """
+        The SMS message.
+        """
         return pulumi.get(self, "template")
 
 
@@ -454,8 +524,8 @@ class UserSchemaPropertyArrayOneOf(dict):
                  const: str,
                  title: str):
         """
-        :param str const: Enum value
-        :param str title: Enum title
+        :param str const: value mapping to member of `enum`.
+        :param str title: display name for the enum value.
         """
         pulumi.set(__self__, "const", const)
         pulumi.set(__self__, "title", title)
@@ -464,7 +534,7 @@ class UserSchemaPropertyArrayOneOf(dict):
     @pulumi.getter
     def const(self) -> str:
         """
-        Enum value
+        value mapping to member of `enum`.
         """
         return pulumi.get(self, "const")
 
@@ -472,7 +542,7 @@ class UserSchemaPropertyArrayOneOf(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        Enum title
+        display name for the enum value.
         """
         return pulumi.get(self, "title")
 
@@ -482,6 +552,10 @@ class UserSchemaPropertyMasterOverridePriority(dict):
     def __init__(__self__, *,
                  value: str,
                  type: Optional[str] = None):
+        """
+        :param str value: ID of profile source.
+        :param str type: Type of profile source.
+        """
         pulumi.set(__self__, "value", value)
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -489,11 +563,17 @@ class UserSchemaPropertyMasterOverridePriority(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        ID of profile source.
+        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        Type of profile source.
+        """
         return pulumi.get(self, "type")
 
 
@@ -503,8 +583,8 @@ class UserSchemaPropertyOneOf(dict):
                  const: str,
                  title: str):
         """
-        :param str const: Enum value
-        :param str title: Enum title
+        :param str const: value mapping to member of `enum`.
+        :param str title: display name for the enum value.
         """
         pulumi.set(__self__, "const", const)
         pulumi.set(__self__, "title", title)
@@ -513,7 +593,7 @@ class UserSchemaPropertyOneOf(dict):
     @pulumi.getter
     def const(self) -> str:
         """
-        Enum value
+        value mapping to member of `enum`.
         """
         return pulumi.get(self, "const")
 
@@ -521,7 +601,7 @@ class UserSchemaPropertyOneOf(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        Enum title
+        display name for the enum value.
         """
         return pulumi.get(self, "title")
 
@@ -537,6 +617,16 @@ class GetAuthServerClaimsClaimResult(dict):
                  status: str,
                  value: str,
                  value_type: str):
+        """
+        :param bool always_include_in_token: Specifies whether to include Claims in the token.
+        :param str claim_type: Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+        :param str id: ID of the claim.
+        :param str name: Name of the claim.
+        :param Sequence[str] scopes: Specifies the scopes for this Claim.
+        :param str status: Status of the claim.
+        :param str value: Value of the claim
+        :param str value_type: Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+        """
         pulumi.set(__self__, "always_include_in_token", always_include_in_token)
         pulumi.set(__self__, "claim_type", claim_type)
         pulumi.set(__self__, "id", id)
@@ -549,41 +639,65 @@ class GetAuthServerClaimsClaimResult(dict):
     @property
     @pulumi.getter(name="alwaysIncludeInToken")
     def always_include_in_token(self) -> bool:
+        """
+        Specifies whether to include Claims in the token.
+        """
         return pulumi.get(self, "always_include_in_token")
 
     @property
     @pulumi.getter(name="claimType")
     def claim_type(self) -> str:
+        """
+        Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+        """
         return pulumi.get(self, "claim_type")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        ID of the claim.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the claim.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def scopes(self) -> Sequence[str]:
+        """
+        Specifies the scopes for this Claim.
+        """
         return pulumi.get(self, "scopes")
 
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Status of the claim.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the claim
+        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter(name="valueType")
     def value_type(self) -> str:
+        """
+        Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+        """
         return pulumi.get(self, "value_type")
 
 
@@ -595,6 +709,13 @@ class GetBehavioursBehaviorResult(dict):
                  settings: Mapping[str, str],
                  status: str,
                  type: str):
+        """
+        :param str id: Behavior ID.
+        :param str name: Behavior name.
+        :param Mapping[str, str] settings: Map of behavior settings.
+        :param str status: Behavior status.
+        :param str type: Behavior type.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "settings", settings)
@@ -604,26 +725,41 @@ class GetBehavioursBehaviorResult(dict):
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Behavior ID.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Behavior name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def settings(self) -> Mapping[str, str]:
+        """
+        Map of behavior settings.
+        """
         return pulumi.get(self, "settings")
 
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Behavior status.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Behavior type.
+        """
         return pulumi.get(self, "type")
 
 
@@ -722,6 +858,14 @@ class GetGroupsGroupResult(dict):
                  id: str,
                  name: str,
                  type: str):
+        """
+        :param str custom_profile_attributes: raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+        :param str description: Group description.
+        :param str id: Group ID.
+        :param str name: Group name.
+        :param str type: type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+               (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+        """
         pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
@@ -731,26 +875,42 @@ class GetGroupsGroupResult(dict):
     @property
     @pulumi.getter(name="customProfileAttributes")
     def custom_profile_attributes(self) -> str:
+        """
+        raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+        """
         return pulumi.get(self, "custom_profile_attributes")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Group description.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        Group ID.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Group name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+        (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+        """
         return pulumi.get(self, "type")
 
 
@@ -877,6 +1037,13 @@ class GetTrustedOriginsTrustedOriginResult(dict):
                  name: str,
                  origin: str,
                  scopes: Sequence[str]):
+        """
+        :param bool active: Whether the Trusted Origin is active or not - can only be issued post-creation
+        :param str id: The ID of the Trusted Origin.
+        :param str name: Unique name for this trusted origin.
+        :param str origin: Unique origin URL for this trusted origin.
+        :param Sequence[str] scopes: Scopes of the Trusted Origin
+        """
         pulumi.set(__self__, "active", active)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -886,26 +1053,41 @@ class GetTrustedOriginsTrustedOriginResult(dict):
     @property
     @pulumi.getter
     def active(self) -> bool:
+        """
+        Whether the Trusted Origin is active or not - can only be issued post-creation
+        """
         return pulumi.get(self, "active")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The ID of the Trusted Origin.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Unique name for this trusted origin.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def origin(self) -> str:
+        """
+        Unique origin URL for this trusted origin.
+        """
         return pulumi.get(self, "origin")
 
     @property
     @pulumi.getter
     def scopes(self) -> Sequence[str]:
+        """
+        Scopes of the Trusted Origin
+        """
         return pulumi.get(self, "scopes")
 
 
@@ -914,17 +1096,27 @@ class GetUserSecurityQuestionsQuestionResult(dict):
     def __init__(__self__, *,
                  key: str,
                  text: str):
+        """
+        :param str key: Security question unique key.
+        :param str text: Display text for security question.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "text", text)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Security question unique key.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def text(self) -> str:
+        """
+        Display text for security question.
+        """
         return pulumi.get(self, "text")
 
 

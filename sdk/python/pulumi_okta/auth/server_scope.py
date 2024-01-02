@@ -24,13 +24,13 @@ class ServerScopeArgs:
                  optional: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ServerScope resource.
-        :param pulumi.Input[str] auth_server_id: Auth server ID
-        :param pulumi.Input[str] consent: EA Feature and thus it is simply ignored if the feature is off
+        :param pulumi.Input[str] auth_server_id: Auth Server ID.
+        :param pulumi.Input[str] consent: Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
         :param pulumi.Input[bool] default: A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
         :param pulumi.Input[str] description: Description of the Auth Server Scope.
-        :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box
-        :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
-        :param pulumi.Input[str] name: Auth server scope name
+        :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box.
+        :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
+        :param pulumi.Input[str] name: Auth Server scope name.
         :param pulumi.Input[bool] optional: Whether the scope optional
         """
         pulumi.set(__self__, "auth_server_id", auth_server_id)
@@ -53,7 +53,7 @@ class ServerScopeArgs:
     @pulumi.getter(name="authServerId")
     def auth_server_id(self) -> pulumi.Input[str]:
         """
-        Auth server ID
+        Auth Server ID.
         """
         return pulumi.get(self, "auth_server_id")
 
@@ -65,7 +65,7 @@ class ServerScopeArgs:
     @pulumi.getter
     def consent(self) -> Optional[pulumi.Input[str]]:
         """
-        EA Feature and thus it is simply ignored if the feature is off
+        Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
         """
         return pulumi.get(self, "consent")
 
@@ -101,7 +101,7 @@ class ServerScopeArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the end user displayed in a consent dialog box
+        Name of the end user displayed in a consent dialog box.
         """
         return pulumi.get(self, "display_name")
 
@@ -113,7 +113,7 @@ class ServerScopeArgs:
     @pulumi.getter(name="metadataPublish")
     def metadata_publish(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
+        Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         """
         return pulumi.get(self, "metadata_publish")
 
@@ -125,7 +125,7 @@ class ServerScopeArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Auth server scope name
+        Auth Server scope name.
         """
         return pulumi.get(self, "name")
 
@@ -160,13 +160,13 @@ class _ServerScopeState:
                  system: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering ServerScope resources.
-        :param pulumi.Input[str] auth_server_id: Auth server ID
-        :param pulumi.Input[str] consent: EA Feature and thus it is simply ignored if the feature is off
+        :param pulumi.Input[str] auth_server_id: Auth Server ID.
+        :param pulumi.Input[str] consent: Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
         :param pulumi.Input[bool] default: A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
         :param pulumi.Input[str] description: Description of the Auth Server Scope.
-        :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box
-        :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
-        :param pulumi.Input[str] name: Auth server scope name
+        :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box.
+        :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
+        :param pulumi.Input[str] name: Auth Server scope name.
         :param pulumi.Input[bool] optional: Whether the scope optional
         :param pulumi.Input[bool] system: Whether Okta created the Scope
         """
@@ -193,7 +193,7 @@ class _ServerScopeState:
     @pulumi.getter(name="authServerId")
     def auth_server_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Auth server ID
+        Auth Server ID.
         """
         return pulumi.get(self, "auth_server_id")
 
@@ -205,7 +205,7 @@ class _ServerScopeState:
     @pulumi.getter
     def consent(self) -> Optional[pulumi.Input[str]]:
         """
-        EA Feature and thus it is simply ignored if the feature is off
+        Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
         """
         return pulumi.get(self, "consent")
 
@@ -241,7 +241,7 @@ class _ServerScopeState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the end user displayed in a consent dialog box
+        Name of the end user displayed in a consent dialog box.
         """
         return pulumi.get(self, "display_name")
 
@@ -253,7 +253,7 @@ class _ServerScopeState:
     @pulumi.getter(name="metadataPublish")
     def metadata_publish(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
+        Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         """
         return pulumi.get(self, "metadata_publish")
 
@@ -265,7 +265,7 @@ class _ServerScopeState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Auth server scope name
+        Auth Server scope name.
         """
         return pulumi.get(self, "name")
 
@@ -313,16 +313,39 @@ class ServerScope(pulumi.CustomResource):
                  optional: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a ServerScope resource with the given unique name, props, and options.
+        Creates an Authorization Server Scope.
+
+        This resource allows you to create and configure an Authorization Server Scope.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.auth.ServerScope("example",
+            auth_server_id="<auth server id>",
+            consent="IMPLICIT",
+            metadata_publish="NO_CLIENTS")
+        ```
+
+        ## Import
+
+        Okta Auth Server Scope can be imported via the Auth Server ID and Scope ID.
+
+        ```sh
+         $ pulumi import okta:auth/serverScope:ServerScope example &#60;auth server id&#62;/&#60;scope id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auth_server_id: Auth server ID
-        :param pulumi.Input[str] consent: EA Feature and thus it is simply ignored if the feature is off
+        :param pulumi.Input[str] auth_server_id: Auth Server ID.
+        :param pulumi.Input[str] consent: Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
         :param pulumi.Input[bool] default: A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
         :param pulumi.Input[str] description: Description of the Auth Server Scope.
-        :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box
-        :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
-        :param pulumi.Input[str] name: Auth server scope name
+        :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box.
+        :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
+        :param pulumi.Input[str] name: Auth Server scope name.
         :param pulumi.Input[bool] optional: Whether the scope optional
         """
         ...
@@ -332,7 +355,30 @@ class ServerScope(pulumi.CustomResource):
                  args: ServerScopeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ServerScope resource with the given unique name, props, and options.
+        Creates an Authorization Server Scope.
+
+        This resource allows you to create and configure an Authorization Server Scope.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.auth.ServerScope("example",
+            auth_server_id="<auth server id>",
+            consent="IMPLICIT",
+            metadata_publish="NO_CLIENTS")
+        ```
+
+        ## Import
+
+        Okta Auth Server Scope can be imported via the Auth Server ID and Scope ID.
+
+        ```sh
+         $ pulumi import okta:auth/serverScope:ServerScope example &#60;auth server id&#62;/&#60;scope id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param ServerScopeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -402,13 +448,13 @@ class ServerScope(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auth_server_id: Auth server ID
-        :param pulumi.Input[str] consent: EA Feature and thus it is simply ignored if the feature is off
+        :param pulumi.Input[str] auth_server_id: Auth Server ID.
+        :param pulumi.Input[str] consent: Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
         :param pulumi.Input[bool] default: A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
         :param pulumi.Input[str] description: Description of the Auth Server Scope.
-        :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box
-        :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
-        :param pulumi.Input[str] name: Auth server scope name
+        :param pulumi.Input[str] display_name: Name of the end user displayed in a consent dialog box.
+        :param pulumi.Input[str] metadata_publish: Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
+        :param pulumi.Input[str] name: Auth Server scope name.
         :param pulumi.Input[bool] optional: Whether the scope optional
         :param pulumi.Input[bool] system: Whether Okta created the Scope
         """
@@ -431,7 +477,7 @@ class ServerScope(pulumi.CustomResource):
     @pulumi.getter(name="authServerId")
     def auth_server_id(self) -> pulumi.Output[str]:
         """
-        Auth server ID
+        Auth Server ID.
         """
         return pulumi.get(self, "auth_server_id")
 
@@ -439,7 +485,7 @@ class ServerScope(pulumi.CustomResource):
     @pulumi.getter
     def consent(self) -> pulumi.Output[Optional[str]]:
         """
-        EA Feature and thus it is simply ignored if the feature is off
+        Indicates whether a consent dialog is needed for the scope. It can be set to `"REQUIRED"` or `"IMPLICIT"`.
         """
         return pulumi.get(self, "consent")
 
@@ -463,7 +509,7 @@ class ServerScope(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of the end user displayed in a consent dialog box
+        Name of the end user displayed in a consent dialog box.
         """
         return pulumi.get(self, "display_name")
 
@@ -471,7 +517,7 @@ class ServerScope(pulumi.CustomResource):
     @pulumi.getter(name="metadataPublish")
     def metadata_publish(self) -> pulumi.Output[Optional[str]]:
         """
-        Whether to publish metadata or not, matching API type despite the fact it could just be a boolean
+        Whether to publish metadata or not. It can be set to `"ALL_CLIENTS"` or `"NO_CLIENTS"`.
         """
         return pulumi.get(self, "metadata_publish")
 
@@ -479,7 +525,7 @@ class ServerScope(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Auth server scope name
+        Auth Server scope name.
         """
         return pulumi.get(self, "name")
 

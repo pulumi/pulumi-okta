@@ -195,9 +195,6 @@ class GetSocialResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        The id of the social idp to retrieve, conflicts with `name`.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -219,9 +216,6 @@ class GetSocialResult:
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        The name of the social idp to retrieve, conflicts with `id`.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -360,7 +354,7 @@ def get_social(id: Optional[str] = None,
                name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSocialResult:
     """
-    Get a social IdP from Okta.
+    Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
 
     ## Example Usage
 
@@ -416,7 +410,7 @@ def get_social_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSocialResult]:
     """
-    Get a social IdP from Okta.
+    Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
 
     ## Example Usage
 

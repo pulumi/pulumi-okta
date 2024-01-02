@@ -57,7 +57,7 @@ class GetNetworkZoneResult:
     @pulumi.getter
     def asns(self) -> Sequence[str]:
         """
-        Format of each array value: a string representation of an ASN numeric value
+        Array of Autonomous System Numbers.
         """
         return pulumi.get(self, "asns")
 
@@ -65,7 +65,7 @@ class GetNetworkZoneResult:
     @pulumi.getter(name="dynamicLocations")
     def dynamic_locations(self) -> Sequence[str]:
         """
-        Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+        Array of locations.
         """
         return pulumi.get(self, "dynamic_locations")
 
@@ -73,7 +73,7 @@ class GetNetworkZoneResult:
     @pulumi.getter(name="dynamicProxyType")
     def dynamic_proxy_type(self) -> str:
         """
-        Type of proxy being controlled by this network zone
+        Type of proxy being controlled by this dynamic network zone.
         """
         return pulumi.get(self, "dynamic_proxy_type")
 
@@ -81,7 +81,7 @@ class GetNetworkZoneResult:
     @pulumi.getter
     def gateways(self) -> Sequence[str]:
         """
-        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        Array of values in CIDR/range form.
         """
         return pulumi.get(self, "gateways")
 
@@ -89,7 +89,7 @@ class GetNetworkZoneResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        ID of the network zone to retrieve, conflicts with `name`.
+        ID of the network zone.
         """
         return pulumi.get(self, "id")
 
@@ -97,7 +97,7 @@ class GetNetworkZoneResult:
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the network zone to retrieve, conflicts with `id`.
+        Name of the network zone.
         """
         return pulumi.get(self, "name")
 
@@ -105,7 +105,7 @@ class GetNetworkZoneResult:
     @pulumi.getter
     def proxies(self) -> Sequence[str]:
         """
-        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        Array of values in CIDR/range form.
         """
         return pulumi.get(self, "proxies")
 
@@ -113,7 +113,7 @@ class GetNetworkZoneResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        Network Status - can either be ACTIVE or INACTIVE only
+        Network Status - can either be ACTIVE or INACTIVE only.
         """
         return pulumi.get(self, "status")
 
@@ -121,7 +121,7 @@ class GetNetworkZoneResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the Network Zone - can either be IP or DYNAMIC only
+        Type of the Network Zone.
         """
         return pulumi.get(self, "type")
 
@@ -129,7 +129,7 @@ class GetNetworkZoneResult:
     @pulumi.getter
     def usage(self) -> str:
         """
-        Zone's purpose: POLICY or BLOCKLIST
+        Usage of the Network Zone.
         """
         return pulumi.get(self, "usage")
 
@@ -156,7 +156,7 @@ def get_network_zone(id: Optional[str] = None,
                      name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkZoneResult:
     """
-    Gets Okta Network Zone.
+    Use this data source to retrieve a network zone from Okta.
 
     ## Example Usage
 
@@ -195,7 +195,7 @@ def get_network_zone_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                             name: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkZoneResult]:
     """
-    Gets Okta Network Zone.
+    Use this data source to retrieve a network zone from Okta.
 
     ## Example Usage
 

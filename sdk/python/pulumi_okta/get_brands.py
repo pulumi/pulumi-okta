@@ -59,7 +59,7 @@ class AwaitableGetBrandsResult(GetBrandsResult):
 
 def get_brands(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrandsResult:
     """
-    Get the brands belonging to an Okta organization.
+    Use this data source to retrieve the brands belonging to an Okta organization.
 
     ## Example Usage
 
@@ -82,7 +82,7 @@ def get_brands(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrand
 @_utilities.lift_output_func(get_brands)
 def get_brands_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrandsResult]:
     """
-    Get the brands belonging to an Okta organization.
+    Use this data source to retrieve the brands belonging to an Okta organization.
 
     ## Example Usage
 

@@ -12,25 +12,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTrustedOriginsTrustedOrigin {
+    /**
+     * @return Whether the Trusted Origin is active or not - can only be issued post-creation
+     * 
+     */
     private Boolean active;
+    /**
+     * @return The ID of the Trusted Origin.
+     * 
+     */
     private String id;
+    /**
+     * @return Unique name for this trusted origin.
+     * 
+     */
     private String name;
+    /**
+     * @return Unique origin URL for this trusted origin.
+     * 
+     */
     private String origin;
+    /**
+     * @return Scopes of the Trusted Origin
+     * 
+     */
     private List<String> scopes;
 
     private GetTrustedOriginsTrustedOrigin() {}
+    /**
+     * @return Whether the Trusted Origin is active or not - can only be issued post-creation
+     * 
+     */
     public Boolean active() {
         return this.active;
     }
+    /**
+     * @return The ID of the Trusted Origin.
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return Unique name for this trusted origin.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Unique origin URL for this trusted origin.
+     * 
+     */
     public String origin() {
         return this.origin;
     }
+    /**
+     * @return Scopes of the Trusted Origin
+     * 
+     */
     public List<String> scopes() {
         return this.scopes;
     }

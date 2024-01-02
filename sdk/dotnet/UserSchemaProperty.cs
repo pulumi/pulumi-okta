@@ -9,125 +9,170 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.UserSchemaProperty("example", new()
+    ///     {
+    ///         Description = "My custom property name",
+    ///         Index = "customPropertyName",
+    ///         Master = "OKTA",
+    ///         Scope = "SELF",
+    ///         Title = "customPropertyName",
+    ///         Type = "string",
+    ///         UserType = data.Okta_user_type.Example.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// User schema property of default user type can be imported via the property variableName.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &amp;#60;variableName&amp;#62;
+    /// ```
+    /// 
+    ///  User schema property of custom user type can be imported via user type id and property index
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &amp;#60;user type id&amp;#62;.&amp;#60;index&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/userSchemaProperty:UserSchemaProperty")]
     public partial class UserSchemaProperty : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Custom Subschema enumerated value of a property of type array.
+        /// Array of values that an array property's items can be set to.
         /// </summary>
         [Output("arrayEnums")]
         public Output<ImmutableArray<string>> ArrayEnums { get; private set; } = null!;
 
         /// <summary>
-        /// array of valid JSON schemas for property type array.
+        /// Display name and value an enum array can be set to.
         /// </summary>
         [Output("arrayOneOfs")]
         public Output<ImmutableArray<Outputs.UserSchemaPropertyArrayOneOf>> ArrayOneOfs { get; private set; } = null!;
 
         /// <summary>
-        /// Subschema array type: string, number, integer, reference. Type field must be an array.
+        /// The type of the array elements if `type` is set to `"array"`.
         /// </summary>
         [Output("arrayType")]
         public Output<string?> ArrayType { get; private set; } = null!;
 
         /// <summary>
-        /// Custom Subschema description
+        /// The description of the user schema property.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+        /// Array of values a primitive property can be set to. See `array_enum` for arrays.
         /// </summary>
         [Output("enums")]
         public Output<ImmutableArray<string>> Enums { get; private set; } = null!;
 
         /// <summary>
-        /// Subschema external name
+        /// External name of the user schema property.
         /// </summary>
         [Output("externalName")]
         public Output<string?> ExternalName { get; private set; } = null!;
 
         /// <summary>
-        /// Subschema external namespace
+        /// External name of the user schema property.
         /// </summary>
         [Output("externalNamespace")]
         public Output<string?> ExternalNamespace { get; private set; } = null!;
 
         /// <summary>
-        /// Subschema unique string identifier
+        /// The property name.
         /// </summary>
         [Output("index")]
         public Output<string> Index { get; private set; } = null!;
 
         /// <summary>
-        /// SubSchema profile manager, if not set it will inherit its setting.
+        /// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
         /// </summary>
         [Output("master")]
         public Output<string?> Master { get; private set; } = null!;
 
+        /// <summary>
+        /// Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+        /// </summary>
         [Output("masterOverridePriorities")]
         public Output<ImmutableArray<Outputs.UserSchemaPropertyMasterOverridePriority>> MasterOverridePriorities { get; private set; } = null!;
 
         /// <summary>
-        /// Subschema of type string maximum length
+        /// The maximum length of the user property value. Only applies to type `"string"`.
         /// </summary>
         [Output("maxLength")]
         public Output<int?> MaxLength { get; private set; } = null!;
 
         /// <summary>
-        /// Subschema of type string minimum length
+        /// The minimum length of the user property value. Only applies to type `"string"`.
         /// </summary>
         [Output("minLength")]
         public Output<int?> MinLength { get; private set; } = null!;
 
         /// <summary>
-        /// Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+        /// Array of maps containing a mapping for display name to enum value.
         /// </summary>
         [Output("oneOfs")]
         public Output<ImmutableArray<Outputs.UserSchemaPropertyOneOf>> OneOfs { get; private set; } = null!;
 
         /// <summary>
-        /// The validation pattern to use for the subschema. Must be in form of '.+', or '[\n\n]+' if present.'
+        /// The validation pattern to use for the subschema. Must be in form of '.+', or '[&lt;pattern&gt;]+' if present.'
         /// </summary>
         [Output("pattern")]
         public Output<string?> Pattern { get; private set; } = null!;
 
         /// <summary>
-        /// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+        /// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         /// </summary>
         [Output("permissions")]
         public Output<string?> Permissions { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the subschema is required
+        /// Whether the property is required for these users.
         /// </summary>
         [Output("required")]
         public Output<bool?> Required { get; private set; } = null!;
 
+        /// <summary>
+        /// determines whether an app user attribute can be set at the Individual or Group Level.
+        /// </summary>
         [Output("scope")]
         public Output<string?> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// Enum title
+        /// display name for the enum value.
         /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
-        /// Subschema type: string, boolean, number, integer, array, or object
+        /// Type of profile source.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Subschema unique restriction
+        /// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
         /// </summary>
         [Output("unique")]
         public Output<string?> Unique { get; private set; } = null!;
 
         /// <summary>
-        /// Custom subschema user type
+        /// User type ID
         /// </summary>
         [Output("userType")]
         public Output<string?> UserType { get; private set; } = null!;
@@ -182,7 +227,7 @@ namespace Pulumi.Okta
         private InputList<string>? _arrayEnums;
 
         /// <summary>
-        /// Custom Subschema enumerated value of a property of type array.
+        /// Array of values that an array property's items can be set to.
         /// </summary>
         public InputList<string> ArrayEnums
         {
@@ -194,7 +239,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.UserSchemaPropertyArrayOneOfArgs>? _arrayOneOfs;
 
         /// <summary>
-        /// array of valid JSON schemas for property type array.
+        /// Display name and value an enum array can be set to.
         /// </summary>
         public InputList<Inputs.UserSchemaPropertyArrayOneOfArgs> ArrayOneOfs
         {
@@ -203,13 +248,13 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Subschema array type: string, number, integer, reference. Type field must be an array.
+        /// The type of the array elements if `type` is set to `"array"`.
         /// </summary>
         [Input("arrayType")]
         public Input<string>? ArrayType { get; set; }
 
         /// <summary>
-        /// Custom Subschema description
+        /// The description of the user schema property.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -218,7 +263,7 @@ namespace Pulumi.Okta
         private InputList<string>? _enums;
 
         /// <summary>
-        /// Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+        /// Array of values a primitive property can be set to. See `array_enum` for arrays.
         /// </summary>
         public InputList<string> Enums
         {
@@ -227,31 +272,35 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Subschema external name
+        /// External name of the user schema property.
         /// </summary>
         [Input("externalName")]
         public Input<string>? ExternalName { get; set; }
 
         /// <summary>
-        /// Subschema external namespace
+        /// External name of the user schema property.
         /// </summary>
         [Input("externalNamespace")]
         public Input<string>? ExternalNamespace { get; set; }
 
         /// <summary>
-        /// Subschema unique string identifier
+        /// The property name.
         /// </summary>
         [Input("index", required: true)]
         public Input<string> Index { get; set; } = null!;
 
         /// <summary>
-        /// SubSchema profile manager, if not set it will inherit its setting.
+        /// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
         /// </summary>
         [Input("master")]
         public Input<string>? Master { get; set; }
 
         [Input("masterOverridePriorities")]
         private InputList<Inputs.UserSchemaPropertyMasterOverridePriorityArgs>? _masterOverridePriorities;
+
+        /// <summary>
+        /// Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+        /// </summary>
         public InputList<Inputs.UserSchemaPropertyMasterOverridePriorityArgs> MasterOverridePriorities
         {
             get => _masterOverridePriorities ?? (_masterOverridePriorities = new InputList<Inputs.UserSchemaPropertyMasterOverridePriorityArgs>());
@@ -259,13 +308,13 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Subschema of type string maximum length
+        /// The maximum length of the user property value. Only applies to type `"string"`.
         /// </summary>
         [Input("maxLength")]
         public Input<int>? MaxLength { get; set; }
 
         /// <summary>
-        /// Subschema of type string minimum length
+        /// The minimum length of the user property value. Only applies to type `"string"`.
         /// </summary>
         [Input("minLength")]
         public Input<int>? MinLength { get; set; }
@@ -274,7 +323,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.UserSchemaPropertyOneOfArgs>? _oneOfs;
 
         /// <summary>
-        /// Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+        /// Array of maps containing a mapping for display name to enum value.
         /// </summary>
         public InputList<Inputs.UserSchemaPropertyOneOfArgs> OneOfs
         {
@@ -283,46 +332,49 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// The validation pattern to use for the subschema. Must be in form of '.+', or '[\n\n]+' if present.'
+        /// The validation pattern to use for the subschema. Must be in form of '.+', or '[&lt;pattern&gt;]+' if present.'
         /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+        /// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         /// </summary>
         [Input("permissions")]
         public Input<string>? Permissions { get; set; }
 
         /// <summary>
-        /// Whether the subschema is required
+        /// Whether the property is required for these users.
         /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }
 
+        /// <summary>
+        /// determines whether an app user attribute can be set at the Individual or Group Level.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
         /// <summary>
-        /// Enum title
+        /// display name for the enum value.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
         /// <summary>
-        /// Subschema type: string, boolean, number, integer, array, or object
+        /// Type of profile source.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Subschema unique restriction
+        /// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
         /// </summary>
         [Input("unique")]
         public Input<string>? Unique { get; set; }
 
         /// <summary>
-        /// Custom subschema user type
+        /// User type ID
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }
@@ -339,7 +391,7 @@ namespace Pulumi.Okta
         private InputList<string>? _arrayEnums;
 
         /// <summary>
-        /// Custom Subschema enumerated value of a property of type array.
+        /// Array of values that an array property's items can be set to.
         /// </summary>
         public InputList<string> ArrayEnums
         {
@@ -351,7 +403,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.UserSchemaPropertyArrayOneOfGetArgs>? _arrayOneOfs;
 
         /// <summary>
-        /// array of valid JSON schemas for property type array.
+        /// Display name and value an enum array can be set to.
         /// </summary>
         public InputList<Inputs.UserSchemaPropertyArrayOneOfGetArgs> ArrayOneOfs
         {
@@ -360,13 +412,13 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Subschema array type: string, number, integer, reference. Type field must be an array.
+        /// The type of the array elements if `type` is set to `"array"`.
         /// </summary>
         [Input("arrayType")]
         public Input<string>? ArrayType { get; set; }
 
         /// <summary>
-        /// Custom Subschema description
+        /// The description of the user schema property.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -375,7 +427,7 @@ namespace Pulumi.Okta
         private InputList<string>? _enums;
 
         /// <summary>
-        /// Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+        /// Array of values a primitive property can be set to. See `array_enum` for arrays.
         /// </summary>
         public InputList<string> Enums
         {
@@ -384,31 +436,35 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Subschema external name
+        /// External name of the user schema property.
         /// </summary>
         [Input("externalName")]
         public Input<string>? ExternalName { get; set; }
 
         /// <summary>
-        /// Subschema external namespace
+        /// External name of the user schema property.
         /// </summary>
         [Input("externalNamespace")]
         public Input<string>? ExternalNamespace { get; set; }
 
         /// <summary>
-        /// Subschema unique string identifier
+        /// The property name.
         /// </summary>
         [Input("index")]
         public Input<string>? Index { get; set; }
 
         /// <summary>
-        /// SubSchema profile manager, if not set it will inherit its setting.
+        /// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
         /// </summary>
         [Input("master")]
         public Input<string>? Master { get; set; }
 
         [Input("masterOverridePriorities")]
         private InputList<Inputs.UserSchemaPropertyMasterOverridePriorityGetArgs>? _masterOverridePriorities;
+
+        /// <summary>
+        /// Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+        /// </summary>
         public InputList<Inputs.UserSchemaPropertyMasterOverridePriorityGetArgs> MasterOverridePriorities
         {
             get => _masterOverridePriorities ?? (_masterOverridePriorities = new InputList<Inputs.UserSchemaPropertyMasterOverridePriorityGetArgs>());
@@ -416,13 +472,13 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Subschema of type string maximum length
+        /// The maximum length of the user property value. Only applies to type `"string"`.
         /// </summary>
         [Input("maxLength")]
         public Input<int>? MaxLength { get; set; }
 
         /// <summary>
-        /// Subschema of type string minimum length
+        /// The minimum length of the user property value. Only applies to type `"string"`.
         /// </summary>
         [Input("minLength")]
         public Input<int>? MinLength { get; set; }
@@ -431,7 +487,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.UserSchemaPropertyOneOfGetArgs>? _oneOfs;
 
         /// <summary>
-        /// Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+        /// Array of maps containing a mapping for display name to enum value.
         /// </summary>
         public InputList<Inputs.UserSchemaPropertyOneOfGetArgs> OneOfs
         {
@@ -440,46 +496,49 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// The validation pattern to use for the subschema. Must be in form of '.+', or '[\n\n]+' if present.'
+        /// The validation pattern to use for the subschema. Must be in form of '.+', or '[&lt;pattern&gt;]+' if present.'
         /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+        /// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         /// </summary>
         [Input("permissions")]
         public Input<string>? Permissions { get; set; }
 
         /// <summary>
-        /// Whether the subschema is required
+        /// Whether the property is required for these users.
         /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }
 
+        /// <summary>
+        /// determines whether an app user attribute can be set at the Individual or Group Level.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
         /// <summary>
-        /// Enum title
+        /// display name for the enum value.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// Subschema type: string, boolean, number, integer, array, or object
+        /// Type of profile source.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Subschema unique restriction
+        /// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
         /// </summary>
         [Input("unique")]
         public Input<string>? Unique { get; set; }
 
         /// <summary>
-        /// Custom subschema user type
+        /// User type ID
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }

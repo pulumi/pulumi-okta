@@ -11,29 +11,77 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSamlAttributeStatement {
+    /**
+     * @return Type of group attribute filter.
+     * 
+     */
     private String filterType;
+    /**
+     * @return Filter value to use.
+     * 
+     */
     private String filterValue;
+    /**
+     * @return name of application.
+     * 
+     */
     private String name;
+    /**
+     * @return The attribute namespace.
+     * 
+     */
     private String namespace;
+    /**
+     * @return The type of attribute statement value.
+     * 
+     */
     private String type;
+    /**
+     * @return Array of values to use.
+     * 
+     */
     private List<String> values;
 
     private GetSamlAttributeStatement() {}
+    /**
+     * @return Type of group attribute filter.
+     * 
+     */
     public String filterType() {
         return this.filterType;
     }
+    /**
+     * @return Filter value to use.
+     * 
+     */
     public String filterValue() {
         return this.filterValue;
     }
+    /**
+     * @return name of application.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The attribute namespace.
+     * 
+     */
     public String namespace() {
         return this.namespace;
     }
+    /**
+     * @return The type of attribute statement value.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return Array of values to use.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }

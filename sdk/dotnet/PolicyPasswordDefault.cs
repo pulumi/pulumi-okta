@@ -9,29 +9,57 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// Configures default password policy.
+    /// 
+    /// This resource allows you to configure default password policy.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = new Okta.PolicyPasswordDefault("default");
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Default Password Policy can be imported without providing Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/policyPasswordDefault:PolicyPasswordDefault")]
     public partial class PolicyPasswordDefault : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Enable or disable voice call recovery: ACTIVE or INACTIVE.
+        /// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
         /// </summary>
         [Output("callRecovery")]
         public Output<string?> CallRecovery { get; private set; } = null!;
 
         /// <summary>
-        /// Default Authentication Provider
+        /// Default authentication provider.
         /// </summary>
         [Output("defaultAuthProvider")]
         public Output<string> DefaultAuthProvider { get; private set; } = null!;
 
         /// <summary>
-        /// Default group ID (always included)
+        /// ID of the default Okta group.
         /// </summary>
         [Output("defaultIncludedGroupId")]
         public Output<string> DefaultIncludedGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Default policy description
+        /// Default policy description.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -43,7 +71,7 @@ namespace Pulumi.Okta
         public Output<string?> EmailRecovery { get; private set; } = null!;
 
         /// <summary>
-        /// Default policy name
+        /// Default policy name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -61,19 +89,19 @@ namespace Pulumi.Okta
         public Output<bool?> PasswordDictionaryLookup { get; private set; } = null!;
 
         /// <summary>
-        /// User firstName attribute must be excluded from the password
+        /// User firstName attribute must be excluded from the password.
         /// </summary>
         [Output("passwordExcludeFirstName")]
         public Output<bool?> PasswordExcludeFirstName { get; private set; } = null!;
 
         /// <summary>
-        /// User lastName attribute must be excluded from the password
+        /// User lastName attribute must be excluded from the password.
         /// </summary>
         [Output("passwordExcludeLastName")]
         public Output<bool?> PasswordExcludeLastName { get; private set; } = null!;
 
         /// <summary>
-        /// If the user name must be excluded from the password.
+        /// If the username must be excluded from the password.
         /// </summary>
         [Output("passwordExcludeUsername")]
         public Output<bool?> PasswordExcludeUsername { get; private set; } = null!;
@@ -85,25 +113,28 @@ namespace Pulumi.Okta
         public Output<int?> PasswordExpireWarnDays { get; private set; } = null!;
 
         /// <summary>
-        /// Number of distinct passwords that must be created before they can be reused: 0 = none.
+        /// Number of distinct passwords that must be created before they can be reused: 0 =
+        /// none.
         /// </summary>
         [Output("passwordHistoryCount")]
         public Output<int?> PasswordHistoryCount { get; private set; } = null!;
 
         /// <summary>
-        /// Notification channels to use to notify a user when their account has been locked.
+        /// Notification channels to use to notify a user when their account
+        /// has been locked.
         /// </summary>
         [Output("passwordLockoutNotificationChannels")]
         public Output<ImmutableArray<string>> PasswordLockoutNotificationChannels { get; private set; } = null!;
 
         /// <summary>
-        /// Length in days a password is valid before expiry: 0 = no limit.
+        /// Length in days a password is valid before expiry: 0 = no limit.,
         /// </summary>
         [Output("passwordMaxAgeDays")]
         public Output<int?> PasswordMaxAgeDays { get; private set; } = null!;
 
         /// <summary>
-        /// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
+        /// Number of unsuccessful login attempts allowed before lockout: 0 = no
+        /// limit.
         /// </summary>
         [Output("passwordMaxLockoutAttempts")]
         public Output<int?> PasswordMaxLockoutAttempts { get; private set; } = null!;
@@ -115,31 +146,31 @@ namespace Pulumi.Okta
         public Output<int?> PasswordMinAgeMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum password length.
+        /// Minimum password length. Default is 8.
         /// </summary>
         [Output("passwordMinLength")]
         public Output<int?> PasswordMinLength { get; private set; } = null!;
 
         /// <summary>
-        /// If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
+        /// Minimum number of lower case characters in a password.
         /// </summary>
         [Output("passwordMinLowercase")]
         public Output<int?> PasswordMinLowercase { get; private set; } = null!;
 
         /// <summary>
-        /// If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
+        /// Minimum number of numbers in a password.
         /// </summary>
         [Output("passwordMinNumber")]
         public Output<int?> PasswordMinNumber { get; private set; } = null!;
 
         /// <summary>
-        /// If a password must contain at least one symbol (!@#$%^&amp;*): 0 = no, 1 = yes. Default = 1
+        /// Minimum number of symbols in a password.
         /// </summary>
         [Output("passwordMinSymbol")]
         public Output<int?> PasswordMinSymbol { get; private set; } = null!;
 
         /// <summary>
-        /// If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
+        /// Minimum number of upper case characters in a password.
         /// </summary>
         [Output("passwordMinUppercase")]
         public Output<int?> PasswordMinUppercase { get; private set; } = null!;
@@ -151,7 +182,7 @@ namespace Pulumi.Okta
         public Output<bool?> PasswordShowLockoutFailures { get; private set; } = null!;
 
         /// <summary>
-        /// Default policy priority
+        /// Default policy priority.
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
@@ -175,7 +206,8 @@ namespace Pulumi.Okta
         public Output<int?> RecoveryEmailToken { get; private set; } = null!;
 
         /// <summary>
-        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
+        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also
+        /// attempt to unlock the user's Windows account.
         /// </summary>
         [Output("skipUnlock")]
         public Output<bool?> SkipUnlock { get; private set; } = null!;
@@ -187,7 +219,7 @@ namespace Pulumi.Okta
         public Output<string?> SmsRecovery { get; private set; } = null!;
 
         /// <summary>
-        /// Default policy status
+        /// Default policy status.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -239,7 +271,7 @@ namespace Pulumi.Okta
     public sealed class PolicyPasswordDefaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable or disable voice call recovery: ACTIVE or INACTIVE.
+        /// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
         /// </summary>
         [Input("callRecovery")]
         public Input<string>? CallRecovery { get; set; }
@@ -263,19 +295,19 @@ namespace Pulumi.Okta
         public Input<bool>? PasswordDictionaryLookup { get; set; }
 
         /// <summary>
-        /// User firstName attribute must be excluded from the password
+        /// User firstName attribute must be excluded from the password.
         /// </summary>
         [Input("passwordExcludeFirstName")]
         public Input<bool>? PasswordExcludeFirstName { get; set; }
 
         /// <summary>
-        /// User lastName attribute must be excluded from the password
+        /// User lastName attribute must be excluded from the password.
         /// </summary>
         [Input("passwordExcludeLastName")]
         public Input<bool>? PasswordExcludeLastName { get; set; }
 
         /// <summary>
-        /// If the user name must be excluded from the password.
+        /// If the username must be excluded from the password.
         /// </summary>
         [Input("passwordExcludeUsername")]
         public Input<bool>? PasswordExcludeUsername { get; set; }
@@ -287,7 +319,8 @@ namespace Pulumi.Okta
         public Input<int>? PasswordExpireWarnDays { get; set; }
 
         /// <summary>
-        /// Number of distinct passwords that must be created before they can be reused: 0 = none.
+        /// Number of distinct passwords that must be created before they can be reused: 0 =
+        /// none.
         /// </summary>
         [Input("passwordHistoryCount")]
         public Input<int>? PasswordHistoryCount { get; set; }
@@ -296,7 +329,8 @@ namespace Pulumi.Okta
         private InputList<string>? _passwordLockoutNotificationChannels;
 
         /// <summary>
-        /// Notification channels to use to notify a user when their account has been locked.
+        /// Notification channels to use to notify a user when their account
+        /// has been locked.
         /// </summary>
         public InputList<string> PasswordLockoutNotificationChannels
         {
@@ -305,13 +339,14 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Length in days a password is valid before expiry: 0 = no limit.
+        /// Length in days a password is valid before expiry: 0 = no limit.,
         /// </summary>
         [Input("passwordMaxAgeDays")]
         public Input<int>? PasswordMaxAgeDays { get; set; }
 
         /// <summary>
-        /// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
+        /// Number of unsuccessful login attempts allowed before lockout: 0 = no
+        /// limit.
         /// </summary>
         [Input("passwordMaxLockoutAttempts")]
         public Input<int>? PasswordMaxLockoutAttempts { get; set; }
@@ -323,31 +358,31 @@ namespace Pulumi.Okta
         public Input<int>? PasswordMinAgeMinutes { get; set; }
 
         /// <summary>
-        /// Minimum password length.
+        /// Minimum password length. Default is 8.
         /// </summary>
         [Input("passwordMinLength")]
         public Input<int>? PasswordMinLength { get; set; }
 
         /// <summary>
-        /// If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
+        /// Minimum number of lower case characters in a password.
         /// </summary>
         [Input("passwordMinLowercase")]
         public Input<int>? PasswordMinLowercase { get; set; }
 
         /// <summary>
-        /// If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
+        /// Minimum number of numbers in a password.
         /// </summary>
         [Input("passwordMinNumber")]
         public Input<int>? PasswordMinNumber { get; set; }
 
         /// <summary>
-        /// If a password must contain at least one symbol (!@#$%^&amp;*): 0 = no, 1 = yes. Default = 1
+        /// Minimum number of symbols in a password.
         /// </summary>
         [Input("passwordMinSymbol")]
         public Input<int>? PasswordMinSymbol { get; set; }
 
         /// <summary>
-        /// If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
+        /// Minimum number of upper case characters in a password.
         /// </summary>
         [Input("passwordMinUppercase")]
         public Input<int>? PasswordMinUppercase { get; set; }
@@ -377,7 +412,8 @@ namespace Pulumi.Okta
         public Input<int>? RecoveryEmailToken { get; set; }
 
         /// <summary>
-        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
+        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also
+        /// attempt to unlock the user's Windows account.
         /// </summary>
         [Input("skipUnlock")]
         public Input<bool>? SkipUnlock { get; set; }
@@ -397,25 +433,25 @@ namespace Pulumi.Okta
     public sealed class PolicyPasswordDefaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable or disable voice call recovery: ACTIVE or INACTIVE.
+        /// Enable or disable voice call password recovery: ACTIVE or INACTIVE.
         /// </summary>
         [Input("callRecovery")]
         public Input<string>? CallRecovery { get; set; }
 
         /// <summary>
-        /// Default Authentication Provider
+        /// Default authentication provider.
         /// </summary>
         [Input("defaultAuthProvider")]
         public Input<string>? DefaultAuthProvider { get; set; }
 
         /// <summary>
-        /// Default group ID (always included)
+        /// ID of the default Okta group.
         /// </summary>
         [Input("defaultIncludedGroupId")]
         public Input<string>? DefaultIncludedGroupId { get; set; }
 
         /// <summary>
-        /// Default policy description
+        /// Default policy description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -427,7 +463,7 @@ namespace Pulumi.Okta
         public Input<string>? EmailRecovery { get; set; }
 
         /// <summary>
-        /// Default policy name
+        /// Default policy name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -445,19 +481,19 @@ namespace Pulumi.Okta
         public Input<bool>? PasswordDictionaryLookup { get; set; }
 
         /// <summary>
-        /// User firstName attribute must be excluded from the password
+        /// User firstName attribute must be excluded from the password.
         /// </summary>
         [Input("passwordExcludeFirstName")]
         public Input<bool>? PasswordExcludeFirstName { get; set; }
 
         /// <summary>
-        /// User lastName attribute must be excluded from the password
+        /// User lastName attribute must be excluded from the password.
         /// </summary>
         [Input("passwordExcludeLastName")]
         public Input<bool>? PasswordExcludeLastName { get; set; }
 
         /// <summary>
-        /// If the user name must be excluded from the password.
+        /// If the username must be excluded from the password.
         /// </summary>
         [Input("passwordExcludeUsername")]
         public Input<bool>? PasswordExcludeUsername { get; set; }
@@ -469,7 +505,8 @@ namespace Pulumi.Okta
         public Input<int>? PasswordExpireWarnDays { get; set; }
 
         /// <summary>
-        /// Number of distinct passwords that must be created before they can be reused: 0 = none.
+        /// Number of distinct passwords that must be created before they can be reused: 0 =
+        /// none.
         /// </summary>
         [Input("passwordHistoryCount")]
         public Input<int>? PasswordHistoryCount { get; set; }
@@ -478,7 +515,8 @@ namespace Pulumi.Okta
         private InputList<string>? _passwordLockoutNotificationChannels;
 
         /// <summary>
-        /// Notification channels to use to notify a user when their account has been locked.
+        /// Notification channels to use to notify a user when their account
+        /// has been locked.
         /// </summary>
         public InputList<string> PasswordLockoutNotificationChannels
         {
@@ -487,13 +525,14 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Length in days a password is valid before expiry: 0 = no limit.
+        /// Length in days a password is valid before expiry: 0 = no limit.,
         /// </summary>
         [Input("passwordMaxAgeDays")]
         public Input<int>? PasswordMaxAgeDays { get; set; }
 
         /// <summary>
-        /// Number of unsuccessful login attempts allowed before lockout: 0 = no limit.
+        /// Number of unsuccessful login attempts allowed before lockout: 0 = no
+        /// limit.
         /// </summary>
         [Input("passwordMaxLockoutAttempts")]
         public Input<int>? PasswordMaxLockoutAttempts { get; set; }
@@ -505,31 +544,31 @@ namespace Pulumi.Okta
         public Input<int>? PasswordMinAgeMinutes { get; set; }
 
         /// <summary>
-        /// Minimum password length.
+        /// Minimum password length. Default is 8.
         /// </summary>
         [Input("passwordMinLength")]
         public Input<int>? PasswordMinLength { get; set; }
 
         /// <summary>
-        /// If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
+        /// Minimum number of lower case characters in a password.
         /// </summary>
         [Input("passwordMinLowercase")]
         public Input<int>? PasswordMinLowercase { get; set; }
 
         /// <summary>
-        /// If a password must contain at least one number: 0 = no, 1 = yes. Default = 1
+        /// Minimum number of numbers in a password.
         /// </summary>
         [Input("passwordMinNumber")]
         public Input<int>? PasswordMinNumber { get; set; }
 
         /// <summary>
-        /// If a password must contain at least one symbol (!@#$%^&amp;*): 0 = no, 1 = yes. Default = 1
+        /// Minimum number of symbols in a password.
         /// </summary>
         [Input("passwordMinSymbol")]
         public Input<int>? PasswordMinSymbol { get; set; }
 
         /// <summary>
-        /// If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
+        /// Minimum number of upper case characters in a password.
         /// </summary>
         [Input("passwordMinUppercase")]
         public Input<int>? PasswordMinUppercase { get; set; }
@@ -541,7 +580,7 @@ namespace Pulumi.Okta
         public Input<bool>? PasswordShowLockoutFailures { get; set; }
 
         /// <summary>
-        /// Default policy priority
+        /// Default policy priority.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -565,7 +604,8 @@ namespace Pulumi.Okta
         public Input<int>? RecoveryEmailToken { get; set; }
 
         /// <summary>
-        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account.
+        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also
+        /// attempt to unlock the user's Windows account.
         /// </summary>
         [Input("skipUnlock")]
         public Input<bool>? SkipUnlock { get; set; }
@@ -577,7 +617,7 @@ namespace Pulumi.Okta
         public Input<string>? SmsRecovery { get; set; }
 
         /// <summary>
-        /// Default policy status
+        /// Default policy status.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

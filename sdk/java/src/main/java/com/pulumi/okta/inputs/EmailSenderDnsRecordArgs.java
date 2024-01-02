@@ -15,23 +15,47 @@ public final class EmailSenderDnsRecordArgs extends com.pulumi.resources.Resourc
 
     public static final EmailSenderDnsRecordArgs Empty = new EmailSenderDnsRecordArgs();
 
+    /**
+     * DNS record name.
+     * 
+     */
     @Import(name="fqdn")
     private @Nullable Output<String> fqdn;
 
+    /**
+     * @return DNS record name.
+     * 
+     */
     public Optional<Output<String>> fqdn() {
         return Optional.ofNullable(this.fqdn);
     }
 
+    /**
+     * Record type can be TXT or CNAME.
+     * 
+     */
     @Import(name="recordType")
     private @Nullable Output<String> recordType;
 
+    /**
+     * @return Record type can be TXT or CNAME.
+     * 
+     */
     public Optional<Output<String>> recordType() {
         return Optional.ofNullable(this.recordType);
     }
 
+    /**
+     * DNS verification value
+     * 
+     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
+    /**
+     * @return DNS verification value
+     * 
+     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -62,29 +86,65 @@ public final class EmailSenderDnsRecordArgs extends com.pulumi.resources.Resourc
             $ = new EmailSenderDnsRecordArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param fqdn DNS record name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fqdn(@Nullable Output<String> fqdn) {
             $.fqdn = fqdn;
             return this;
         }
 
+        /**
+         * @param fqdn DNS record name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fqdn(String fqdn) {
             return fqdn(Output.of(fqdn));
         }
 
+        /**
+         * @param recordType Record type can be TXT or CNAME.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recordType(@Nullable Output<String> recordType) {
             $.recordType = recordType;
             return this;
         }
 
+        /**
+         * @param recordType Record type can be TXT or CNAME.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recordType(String recordType) {
             return recordType(Output.of(recordType));
         }
 
+        /**
+         * @param value DNS verification value
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value DNS verification value
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

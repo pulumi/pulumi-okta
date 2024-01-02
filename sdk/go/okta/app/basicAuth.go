@@ -12,42 +12,85 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and configure a Basic Auth Application.
+//
+// > During an apply if there is change in `status` the app will first be
+// activated or deactivated in accordance with the `status` change. Then, all
+// other arguments that changed will be applied.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewBasicAuth(ctx, "example", &app.BasicAuthArgs{
+//				AuthUrl: pulumi.String("https://example.com/auth.html"),
+//				Label:   pulumi.String("Example"),
+//				Url:     pulumi.String("https://example.com/login.html"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// A Basic Auth App can be imported via the Okta ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
+//
+// ```
 type BasicAuth struct {
 	pulumi.CustomResourceState
 
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrOutput `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
-	// Login button field
+	// The URL of the authenticating site for this app.
 	AuthUrl pulumi.StringOutput `pulumi:"authUrl"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrOutput `pulumi:"hideWeb"`
-	// Pretty name of app.
+	// The Application's display name.
 	Label pulumi.StringOutput `pulumi:"label"`
-	// Local path to logo of the application.
+	// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
-	// URL of the application's logo
+	// Direct link of application logo.
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
 	// Name of the app.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Status of application.
+	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Login password field
+	// The URL of the sign-in page for this app.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
 
@@ -90,76 +133,76 @@ func GetBasicAuth(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BasicAuth resources.
 type basicAuthState struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
-	// Login button field
+	// The URL of the authenticating site for this app.
 	AuthUrl *string `pulumi:"authUrl"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
-	// Pretty name of app.
+	// The Application's display name.
 	Label *string `pulumi:"label"`
-	// Local path to logo of the application.
+	// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
-	// URL of the application's logo
+	// Direct link of application logo.
 	LogoUrl *string `pulumi:"logoUrl"`
 	// Name of the app.
 	Name *string `pulumi:"name"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Status of application.
+	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status *string `pulumi:"status"`
-	// Login password field
+	// The URL of the sign-in page for this app.
 	Url *string `pulumi:"url"`
 }
 
 type BasicAuthState struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
-	// Login button field
+	// The URL of the authenticating site for this app.
 	AuthUrl pulumi.StringPtrInput
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
-	// Pretty name of app.
+	// The Application's display name.
 	Label pulumi.StringPtrInput
-	// Local path to logo of the application.
+	// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
-	// URL of the application's logo
+	// Direct link of application logo.
 	LogoUrl pulumi.StringPtrInput
 	// Name of the app.
 	Name pulumi.StringPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Status of application.
+	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrInput
-	// Login password field
+	// The URL of the sign-in page for this app.
 	Url pulumi.StringPtrInput
 }
 
@@ -168,65 +211,65 @@ func (BasicAuthState) ElementType() reflect.Type {
 }
 
 type basicAuthArgs struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl *string `pulumi:"accessibilityLoginRedirectUrl"`
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
-	// Login button field
+	// The URL of the authenticating site for this app.
 	AuthUrl string `pulumi:"authUrl"`
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos *bool `pulumi:"hideIos"`
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb *bool `pulumi:"hideWeb"`
-	// Pretty name of app.
+	// The Application's display name.
 	Label string `pulumi:"label"`
-	// Local path to logo of the application.
+	// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
-	// Status of application.
+	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status *string `pulumi:"status"`
-	// Login password field
+	// The URL of the sign-in page for this app.
 	Url string `pulumi:"url"`
 }
 
 // The set of arguments for constructing a BasicAuth resource.
 type BasicAuthArgs struct {
-	// Custom error page URL
+	// Custom error page URL.
 	AccessibilityErrorRedirectUrl pulumi.StringPtrInput
-	// Custom login page URL
+	// Custom login page for this application.
 	AccessibilityLoginRedirectUrl pulumi.StringPtrInput
-	// Enable self service
+	// Enable self-service. By default, it is `false`.
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
-	// Login button field
+	// The URL of the authenticating site for this app.
 	AuthUrl pulumi.StringInput
-	// Display auto submit toolbar
+	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// Do not display application icon on mobile app
+	// Do not display application icon on mobile app.
 	HideIos pulumi.BoolPtrInput
-	// Do not display application icon to users
+	// Do not display application icon to users.
 	HideWeb pulumi.BoolPtrInput
-	// Pretty name of app.
+	// The Application's display name.
 	Label pulumi.StringInput
-	// Local path to logo of the application.
+	// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
-	// Status of application.
+	// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 	Status pulumi.StringPtrInput
-	// Login password field
+	// The URL of the sign-in page for this app.
 	Url pulumi.StringInput
 }
 
@@ -317,17 +360,17 @@ func (o BasicAuthOutput) ToBasicAuthOutputWithContext(ctx context.Context) Basic
 	return o
 }
 
-// Custom error page URL
+// Custom error page URL.
 func (o BasicAuthOutput) AccessibilityErrorRedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.AccessibilityErrorRedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// Custom login page URL
+// Custom login page for this application.
 func (o BasicAuthOutput) AccessibilityLoginRedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.AccessibilityLoginRedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// Enable self service
+// Enable self-service. By default, it is `false`.
 func (o BasicAuthOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.AccessibilitySelfService }).(pulumi.BoolPtrOutput)
 }
@@ -337,17 +380,17 @@ func (o BasicAuthOutput) AdminNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
 }
 
-// Displays specific appLinks for the app
+// Displays specific appLinks for the app. The value for each application link should be boolean.
 func (o BasicAuthOutput) AppLinksJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
 }
 
-// Login button field
+// The URL of the authenticating site for this app.
 func (o BasicAuthOutput) AuthUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.AuthUrl }).(pulumi.StringOutput)
 }
 
-// Display auto submit toolbar
+// Display auto submit toolbar.
 func (o BasicAuthOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
 }
@@ -357,27 +400,27 @@ func (o BasicAuthOutput) EnduserNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
 }
 
-// Do not display application icon on mobile app
+// Do not display application icon on mobile app.
 func (o BasicAuthOutput) HideIos() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.HideIos }).(pulumi.BoolPtrOutput)
 }
 
-// Do not display application icon to users
+// Do not display application icon to users.
 func (o BasicAuthOutput) HideWeb() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.HideWeb }).(pulumi.BoolPtrOutput)
 }
 
-// Pretty name of app.
+// The Application's display name.
 func (o BasicAuthOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
 }
 
-// Local path to logo of the application.
+// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 func (o BasicAuthOutput) Logo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
 }
 
-// URL of the application's logo
+// Direct link of application logo.
 func (o BasicAuthOutput) LogoUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
 }
@@ -392,12 +435,12 @@ func (o BasicAuthOutput) SignOnMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
 }
 
-// Status of application.
+// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
 func (o BasicAuthOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Login password field
+// The URL of the sign-in page for this app.
 func (o BasicAuthOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Get a list of groups from Okta.
+ * Use this data source to retrieve a list of groups from Okta.
  *
  * ## Example Usage
  *
@@ -36,13 +36,20 @@ export function getGroups(args?: GetGroupsArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetGroupsArgs {
     /**
-     * Searches the name property of groups for matching value
+     * Searches the name property of groups for matching value.
      */
     q?: string;
     /**
-     * Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
+     * Searches for groups with a
+     * supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
+     * all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
+     * except for `"_embedded"`, `"_links"`, and `"objectClass"`
      */
     search?: string;
+    /**
+     * type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+     * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+     */
     type?: string;
 }
 
@@ -50,23 +57,23 @@ export interface GetGroupsArgs {
  * A collection of values returned by getGroups.
  */
 export interface GetGroupsResult {
+    /**
+     * collection of groups retrieved from Okta with the following properties.
+     */
     readonly groups: outputs.GetGroupsGroup[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Searches the name property of groups for matching value
-     */
     readonly q?: string;
-    /**
-     * Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
-     */
     readonly search?: string;
+    /**
+     * Group type.
+     */
     readonly type?: string;
 }
 /**
- * Get a list of groups from Okta.
+ * Use this data source to retrieve a list of groups from Okta.
  *
  * ## Example Usage
  *
@@ -88,12 +95,19 @@ export function getGroupsOutput(args?: GetGroupsOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetGroupsOutputArgs {
     /**
-     * Searches the name property of groups for matching value
+     * Searches the name property of groups for matching value.
      */
     q?: pulumi.Input<string>;
     /**
-     * Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
+     * Searches for groups with a
+     * supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
+     * all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
+     * except for `"_embedded"`, `"_links"`, and `"objectClass"`
      */
     search?: pulumi.Input<string>;
+    /**
+     * type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+     * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+     */
     type?: pulumi.Input<string>;
 }

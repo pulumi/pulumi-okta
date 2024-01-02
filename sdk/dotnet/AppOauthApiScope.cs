@@ -9,6 +9,53 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// Manages API scopes for OAuth applications.
+    /// 
+    /// This resource allows you to grant or revoke API scopes for OAuth2 applications within your organization.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    /// });
+    /// ```
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.AppOauthApiScope("example", new()
+    ///     {
+    ///         AppId = "&lt;application_id&gt;",
+    ///         Issuer = "&lt;your org domain&gt;",
+    ///         Scopes = new[]
+    ///         {
+    ///             "okta.users.read",
+    ///             "okta.users.manage",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// OAuth API scopes can be imported via the Okta Application ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &amp;#60;app id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/appOauthApiScope:AppOauthApiScope")]
     public partial class AppOauthApiScope : global::Pulumi.CustomResource
     {
@@ -25,7 +72,7 @@ namespace Pulumi.Okta
         public Output<string> Issuer { get; private set; } = null!;
 
         /// <summary>
-        /// Scopes of the application for which consent is granted.
+        /// List of scopes for which consent is granted.
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
@@ -92,7 +139,7 @@ namespace Pulumi.Okta
         private InputList<string>? _scopes;
 
         /// <summary>
-        /// Scopes of the application for which consent is granted.
+        /// List of scopes for which consent is granted.
         /// </summary>
         public InputList<string> Scopes
         {
@@ -124,7 +171,7 @@ namespace Pulumi.Okta
         private InputList<string>? _scopes;
 
         /// <summary>
-        /// Scopes of the application for which consent is granted.
+        /// List of scopes for which consent is granted.
         /// </summary>
         public InputList<string> Scopes
         {

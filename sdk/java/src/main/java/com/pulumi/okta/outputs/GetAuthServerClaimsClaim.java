@@ -12,37 +12,101 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAuthServerClaimsClaim {
+    /**
+     * @return Specifies whether to include Claims in the token.
+     * 
+     */
     private Boolean alwaysIncludeInToken;
+    /**
+     * @return Specifies whether the Claim is for an access token (`&#34;RESOURCE&#34;`) or ID token (`&#34;IDENTITY&#34;`).
+     * 
+     */
     private String claimType;
+    /**
+     * @return ID of the claim.
+     * 
+     */
     private String id;
+    /**
+     * @return Name of the claim.
+     * 
+     */
     private String name;
+    /**
+     * @return Specifies the scopes for this Claim.
+     * 
+     */
     private List<String> scopes;
+    /**
+     * @return Status of the claim.
+     * 
+     */
     private String status;
+    /**
+     * @return Value of the claim
+     * 
+     */
     private String value;
+    /**
+     * @return Specifies whether the Claim is an Okta EL expression (`&#34;EXPRESSION&#34;`), a set of groups (`&#34;GROUPS&#34;`), or a system claim (`&#34;SYSTEM&#34;`)
+     * 
+     */
     private String valueType;
 
     private GetAuthServerClaimsClaim() {}
+    /**
+     * @return Specifies whether to include Claims in the token.
+     * 
+     */
     public Boolean alwaysIncludeInToken() {
         return this.alwaysIncludeInToken;
     }
+    /**
+     * @return Specifies whether the Claim is for an access token (`&#34;RESOURCE&#34;`) or ID token (`&#34;IDENTITY&#34;`).
+     * 
+     */
     public String claimType() {
         return this.claimType;
     }
+    /**
+     * @return ID of the claim.
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return Name of the claim.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Specifies the scopes for this Claim.
+     * 
+     */
     public List<String> scopes() {
         return this.scopes;
     }
+    /**
+     * @return Status of the claim.
+     * 
+     */
     public String status() {
         return this.status;
     }
+    /**
+     * @return Value of the claim
+     * 
+     */
     public String value() {
         return this.value;
     }
+    /**
+     * @return Specifies whether the Claim is an Okta EL expression (`&#34;EXPRESSION&#34;`), a set of groups (`&#34;GROUPS&#34;`), or a system claim (`&#34;SYSTEM&#34;`)
+     * 
+     */
     public String valueType() {
         return this.valueType;
     }

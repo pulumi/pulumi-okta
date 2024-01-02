@@ -37,7 +37,9 @@ class MappingMapping(dict):
                  id: str,
                  push_status: Optional[str] = None):
         """
-        :param str id: The mapping property key.
+        :param str expression: Combination or single source properties that will be mapped to the target property.
+        :param str id: Key of mapping.
+        :param str push_status: Whether to update target properties on user create & update or just on create.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "id", id)
@@ -47,19 +49,25 @@ class MappingMapping(dict):
     @property
     @pulumi.getter
     def expression(self) -> str:
+        """
+        Combination or single source properties that will be mapped to the target property.
+        """
         return pulumi.get(self, "expression")
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        The mapping property key.
+        Key of mapping.
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="pushStatus")
     def push_status(self) -> Optional[str]:
+        """
+        Whether to update target properties on user create & update or just on create.
+        """
         return pulumi.get(self, "push_status")
 
 

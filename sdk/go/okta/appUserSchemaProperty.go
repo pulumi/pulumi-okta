@@ -12,46 +12,87 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewAppUserSchemaProperty(ctx, "example", &okta.AppUserSchemaPropertyArgs{
+//				AppId:       pulumi.String("<app id>"),
+//				Description: pulumi.String("My custom property name"),
+//				Index:       pulumi.String("customPropertyName"),
+//				Master:      pulumi.String("OKTA"),
+//				Scope:       pulumi.String("SELF"),
+//				Title:       pulumi.String("customPropertyName"),
+//				Type:        pulumi.String("string"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// App user schema property can be imported via the property index and app id.
+//
+// ```sh
+//
+//	$ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example &#60;app id&#62;/&#60;property name&#62;
+//
+// ```
 type AppUserSchemaProperty struct {
 	pulumi.CustomResourceState
 
 	// The Application's ID the user custom schema property should be assigned to.
 	AppId pulumi.StringOutput `pulumi:"appId"`
-	// Custom Subschema enumerated value of a property of type array.
+	// Array of values that an array property's items can be set to.
 	ArrayEnums pulumi.StringArrayOutput `pulumi:"arrayEnums"`
-	// array of valid JSON schemas for property type array.
+	// Display name and value an enum array can be set to.
 	ArrayOneOfs AppUserSchemaPropertyArrayOneOfArrayOutput `pulumi:"arrayOneOfs"`
-	// Subschema array type: string, number, integer, reference. Type field must be an array.
+	// The type of the array elements if `type` is set to `"array"`.
 	ArrayType pulumi.StringPtrOutput `pulumi:"arrayType"`
-	// Custom Subschema description
+	// The description of the user schema property.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+	// Array of values a primitive property can be set to. See `arrayEnum` for arrays.
 	Enums pulumi.StringArrayOutput `pulumi:"enums"`
-	// Subschema external name
+	// External name of the user schema property.
 	ExternalName pulumi.StringPtrOutput `pulumi:"externalName"`
-	// Subschema external namespace
+	// External namespace of the user schema property.
 	ExternalNamespace pulumi.StringPtrOutput `pulumi:"externalNamespace"`
-	// Subschema unique string identifier
+	// The property name.
 	Index pulumi.StringOutput `pulumi:"index"`
-	// SubSchema profile manager, if not set it will inherit its setting.
+	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 	Master pulumi.StringPtrOutput `pulumi:"master"`
-	// Subschema of type string maximum length
+	// The maximum length of the user property value. Only applies to type `"string"`.
 	MaxLength pulumi.IntPtrOutput `pulumi:"maxLength"`
-	// Subschema of type string minimum length
+	// The minimum length of the user property value. Only applies to type `"string"`.
 	MinLength pulumi.IntPtrOutput `pulumi:"minLength"`
-	// Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+	// Array of maps containing a mapping for display name to enum value.
 	OneOfs AppUserSchemaPropertyOneOfArrayOutput `pulumi:"oneOfs"`
-	// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrOutput `pulumi:"permissions"`
-	// Whether the subschema is required
+	// Whether the property is required for this application's users.
 	Required pulumi.BoolPtrOutput `pulumi:"required"`
-	// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
+	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
-	// Enum title
+	// display name for the enum value.
 	Title pulumi.StringOutput `pulumi:"title"`
-	// Subschema type: string, boolean, number, integer, array, or object
+	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Allows to assign attribute's group priority
+	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 	Union pulumi.BoolPtrOutput `pulumi:"union"`
 	// Subschema unique restriction
 	Unique pulumi.StringPtrOutput `pulumi:"unique"`
@@ -103,41 +144,41 @@ func GetAppUserSchemaProperty(ctx *pulumi.Context,
 type appUserSchemaPropertyState struct {
 	// The Application's ID the user custom schema property should be assigned to.
 	AppId *string `pulumi:"appId"`
-	// Custom Subschema enumerated value of a property of type array.
+	// Array of values that an array property's items can be set to.
 	ArrayEnums []string `pulumi:"arrayEnums"`
-	// array of valid JSON schemas for property type array.
+	// Display name and value an enum array can be set to.
 	ArrayOneOfs []AppUserSchemaPropertyArrayOneOf `pulumi:"arrayOneOfs"`
-	// Subschema array type: string, number, integer, reference. Type field must be an array.
+	// The type of the array elements if `type` is set to `"array"`.
 	ArrayType *string `pulumi:"arrayType"`
-	// Custom Subschema description
+	// The description of the user schema property.
 	Description *string `pulumi:"description"`
-	// Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+	// Array of values a primitive property can be set to. See `arrayEnum` for arrays.
 	Enums []string `pulumi:"enums"`
-	// Subschema external name
+	// External name of the user schema property.
 	ExternalName *string `pulumi:"externalName"`
-	// Subschema external namespace
+	// External namespace of the user schema property.
 	ExternalNamespace *string `pulumi:"externalNamespace"`
-	// Subschema unique string identifier
+	// The property name.
 	Index *string `pulumi:"index"`
-	// SubSchema profile manager, if not set it will inherit its setting.
+	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 	Master *string `pulumi:"master"`
-	// Subschema of type string maximum length
+	// The maximum length of the user property value. Only applies to type `"string"`.
 	MaxLength *int `pulumi:"maxLength"`
-	// Subschema of type string minimum length
+	// The minimum length of the user property value. Only applies to type `"string"`.
 	MinLength *int `pulumi:"minLength"`
-	// Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+	// Array of maps containing a mapping for display name to enum value.
 	OneOfs []AppUserSchemaPropertyOneOf `pulumi:"oneOfs"`
-	// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions *string `pulumi:"permissions"`
-	// Whether the subschema is required
+	// Whether the property is required for this application's users.
 	Required *bool `pulumi:"required"`
-	// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
+	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 	Scope *string `pulumi:"scope"`
-	// Enum title
+	// display name for the enum value.
 	Title *string `pulumi:"title"`
-	// Subschema type: string, boolean, number, integer, array, or object
+	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type *string `pulumi:"type"`
-	// Allows to assign attribute's group priority
+	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 	Union *bool `pulumi:"union"`
 	// Subschema unique restriction
 	Unique *string `pulumi:"unique"`
@@ -148,41 +189,41 @@ type appUserSchemaPropertyState struct {
 type AppUserSchemaPropertyState struct {
 	// The Application's ID the user custom schema property should be assigned to.
 	AppId pulumi.StringPtrInput
-	// Custom Subschema enumerated value of a property of type array.
+	// Array of values that an array property's items can be set to.
 	ArrayEnums pulumi.StringArrayInput
-	// array of valid JSON schemas for property type array.
+	// Display name and value an enum array can be set to.
 	ArrayOneOfs AppUserSchemaPropertyArrayOneOfArrayInput
-	// Subschema array type: string, number, integer, reference. Type field must be an array.
+	// The type of the array elements if `type` is set to `"array"`.
 	ArrayType pulumi.StringPtrInput
-	// Custom Subschema description
+	// The description of the user schema property.
 	Description pulumi.StringPtrInput
-	// Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+	// Array of values a primitive property can be set to. See `arrayEnum` for arrays.
 	Enums pulumi.StringArrayInput
-	// Subschema external name
+	// External name of the user schema property.
 	ExternalName pulumi.StringPtrInput
-	// Subschema external namespace
+	// External namespace of the user schema property.
 	ExternalNamespace pulumi.StringPtrInput
-	// Subschema unique string identifier
+	// The property name.
 	Index pulumi.StringPtrInput
-	// SubSchema profile manager, if not set it will inherit its setting.
+	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 	Master pulumi.StringPtrInput
-	// Subschema of type string maximum length
+	// The maximum length of the user property value. Only applies to type `"string"`.
 	MaxLength pulumi.IntPtrInput
-	// Subschema of type string minimum length
+	// The minimum length of the user property value. Only applies to type `"string"`.
 	MinLength pulumi.IntPtrInput
-	// Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+	// Array of maps containing a mapping for display name to enum value.
 	OneOfs AppUserSchemaPropertyOneOfArrayInput
-	// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrInput
-	// Whether the subschema is required
+	// Whether the property is required for this application's users.
 	Required pulumi.BoolPtrInput
-	// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
+	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 	Scope pulumi.StringPtrInput
-	// Enum title
+	// display name for the enum value.
 	Title pulumi.StringPtrInput
-	// Subschema type: string, boolean, number, integer, array, or object
+	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringPtrInput
-	// Allows to assign attribute's group priority
+	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 	Union pulumi.BoolPtrInput
 	// Subschema unique restriction
 	Unique pulumi.StringPtrInput
@@ -197,41 +238,41 @@ func (AppUserSchemaPropertyState) ElementType() reflect.Type {
 type appUserSchemaPropertyArgs struct {
 	// The Application's ID the user custom schema property should be assigned to.
 	AppId string `pulumi:"appId"`
-	// Custom Subschema enumerated value of a property of type array.
+	// Array of values that an array property's items can be set to.
 	ArrayEnums []string `pulumi:"arrayEnums"`
-	// array of valid JSON schemas for property type array.
+	// Display name and value an enum array can be set to.
 	ArrayOneOfs []AppUserSchemaPropertyArrayOneOf `pulumi:"arrayOneOfs"`
-	// Subschema array type: string, number, integer, reference. Type field must be an array.
+	// The type of the array elements if `type` is set to `"array"`.
 	ArrayType *string `pulumi:"arrayType"`
-	// Custom Subschema description
+	// The description of the user schema property.
 	Description *string `pulumi:"description"`
-	// Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+	// Array of values a primitive property can be set to. See `arrayEnum` for arrays.
 	Enums []string `pulumi:"enums"`
-	// Subschema external name
+	// External name of the user schema property.
 	ExternalName *string `pulumi:"externalName"`
-	// Subschema external namespace
+	// External namespace of the user schema property.
 	ExternalNamespace *string `pulumi:"externalNamespace"`
-	// Subschema unique string identifier
+	// The property name.
 	Index string `pulumi:"index"`
-	// SubSchema profile manager, if not set it will inherit its setting.
+	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 	Master *string `pulumi:"master"`
-	// Subschema of type string maximum length
+	// The maximum length of the user property value. Only applies to type `"string"`.
 	MaxLength *int `pulumi:"maxLength"`
-	// Subschema of type string minimum length
+	// The minimum length of the user property value. Only applies to type `"string"`.
 	MinLength *int `pulumi:"minLength"`
-	// Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+	// Array of maps containing a mapping for display name to enum value.
 	OneOfs []AppUserSchemaPropertyOneOf `pulumi:"oneOfs"`
-	// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions *string `pulumi:"permissions"`
-	// Whether the subschema is required
+	// Whether the property is required for this application's users.
 	Required *bool `pulumi:"required"`
-	// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
+	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 	Scope *string `pulumi:"scope"`
-	// Enum title
+	// display name for the enum value.
 	Title string `pulumi:"title"`
-	// Subschema type: string, boolean, number, integer, array, or object
+	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type string `pulumi:"type"`
-	// Allows to assign attribute's group priority
+	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 	Union *bool `pulumi:"union"`
 	// Subschema unique restriction
 	Unique *string `pulumi:"unique"`
@@ -243,41 +284,41 @@ type appUserSchemaPropertyArgs struct {
 type AppUserSchemaPropertyArgs struct {
 	// The Application's ID the user custom schema property should be assigned to.
 	AppId pulumi.StringInput
-	// Custom Subschema enumerated value of a property of type array.
+	// Array of values that an array property's items can be set to.
 	ArrayEnums pulumi.StringArrayInput
-	// array of valid JSON schemas for property type array.
+	// Display name and value an enum array can be set to.
 	ArrayOneOfs AppUserSchemaPropertyArrayOneOfArrayInput
-	// Subschema array type: string, number, integer, reference. Type field must be an array.
+	// The type of the array elements if `type` is set to `"array"`.
 	ArrayType pulumi.StringPtrInput
-	// Custom Subschema description
+	// The description of the user schema property.
 	Description pulumi.StringPtrInput
-	// Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+	// Array of values a primitive property can be set to. See `arrayEnum` for arrays.
 	Enums pulumi.StringArrayInput
-	// Subschema external name
+	// External name of the user schema property.
 	ExternalName pulumi.StringPtrInput
-	// Subschema external namespace
+	// External namespace of the user schema property.
 	ExternalNamespace pulumi.StringPtrInput
-	// Subschema unique string identifier
+	// The property name.
 	Index pulumi.StringInput
-	// SubSchema profile manager, if not set it will inherit its setting.
+	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 	Master pulumi.StringPtrInput
-	// Subschema of type string maximum length
+	// The maximum length of the user property value. Only applies to type `"string"`.
 	MaxLength pulumi.IntPtrInput
-	// Subschema of type string minimum length
+	// The minimum length of the user property value. Only applies to type `"string"`.
 	MinLength pulumi.IntPtrInput
-	// Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+	// Array of maps containing a mapping for display name to enum value.
 	OneOfs AppUserSchemaPropertyOneOfArrayInput
-	// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 	Permissions pulumi.StringPtrInput
-	// Whether the subschema is required
+	// Whether the property is required for this application's users.
 	Required pulumi.BoolPtrInput
-	// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
+	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 	Scope pulumi.StringPtrInput
-	// Enum title
+	// display name for the enum value.
 	Title pulumi.StringInput
-	// Subschema type: string, boolean, number, integer, array, or object
+	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringInput
-	// Allows to assign attribute's group priority
+	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 	Union pulumi.BoolPtrInput
 	// Subschema unique restriction
 	Unique pulumi.StringPtrInput
@@ -377,92 +418,92 @@ func (o AppUserSchemaPropertyOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }
 
-// Custom Subschema enumerated value of a property of type array.
+// Array of values that an array property's items can be set to.
 func (o AppUserSchemaPropertyOutput) ArrayEnums() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringArrayOutput { return v.ArrayEnums }).(pulumi.StringArrayOutput)
 }
 
-// array of valid JSON schemas for property type array.
+// Display name and value an enum array can be set to.
 func (o AppUserSchemaPropertyOutput) ArrayOneOfs() AppUserSchemaPropertyArrayOneOfArrayOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) AppUserSchemaPropertyArrayOneOfArrayOutput { return v.ArrayOneOfs }).(AppUserSchemaPropertyArrayOneOfArrayOutput)
 }
 
-// Subschema array type: string, number, integer, reference. Type field must be an array.
+// The type of the array elements if `type` is set to `"array"`.
 func (o AppUserSchemaPropertyOutput) ArrayType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.ArrayType }).(pulumi.StringPtrOutput)
 }
 
-// Custom Subschema description
+// The description of the user schema property.
 func (o AppUserSchemaPropertyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Custom Subschema enumerated value of the property. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+// Array of values a primitive property can be set to. See `arrayEnum` for arrays.
 func (o AppUserSchemaPropertyOutput) Enums() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringArrayOutput { return v.Enums }).(pulumi.StringArrayOutput)
 }
 
-// Subschema external name
+// External name of the user schema property.
 func (o AppUserSchemaPropertyOutput) ExternalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.ExternalName }).(pulumi.StringPtrOutput)
 }
 
-// Subschema external namespace
+// External namespace of the user schema property.
 func (o AppUserSchemaPropertyOutput) ExternalNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.ExternalNamespace }).(pulumi.StringPtrOutput)
 }
 
-// Subschema unique string identifier
+// The property name.
 func (o AppUserSchemaPropertyOutput) Index() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringOutput { return v.Index }).(pulumi.StringOutput)
 }
 
-// SubSchema profile manager, if not set it will inherit its setting.
+// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
 func (o AppUserSchemaPropertyOutput) Master() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.Master }).(pulumi.StringPtrOutput)
 }
 
-// Subschema of type string maximum length
+// The maximum length of the user property value. Only applies to type `"string"`.
 func (o AppUserSchemaPropertyOutput) MaxLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.IntPtrOutput { return v.MaxLength }).(pulumi.IntPtrOutput)
 }
 
-// Subschema of type string minimum length
+// The minimum length of the user property value. Only applies to type `"string"`.
 func (o AppUserSchemaPropertyOutput) MinLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.IntPtrOutput { return v.MinLength }).(pulumi.IntPtrOutput)
 }
 
-// Custom Subschema json schemas. see: developer.okta.com/docs/api/resources/schemas#user-profile-schema-property-object
+// Array of maps containing a mapping for display name to enum value.
 func (o AppUserSchemaPropertyOutput) OneOfs() AppUserSchemaPropertyOneOfArrayOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) AppUserSchemaPropertyOneOfArrayOutput { return v.OneOfs }).(AppUserSchemaPropertyOneOfArrayOutput)
 }
 
-// SubSchema permissions: HIDE, READ*ONLY, or READ*WRITE.
+// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
 func (o AppUserSchemaPropertyOutput) Permissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.Permissions }).(pulumi.StringPtrOutput)
 }
 
-// Whether the subschema is required
+// Whether the property is required for this application's users.
 func (o AppUserSchemaPropertyOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.BoolPtrOutput { return v.Required }).(pulumi.BoolPtrOutput)
 }
 
-// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
+// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 func (o AppUserSchemaPropertyOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-// Enum title
+// display name for the enum value.
 func (o AppUserSchemaPropertyOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }
 
-// Subschema type: string, boolean, number, integer, array, or object
+// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 func (o AppUserSchemaPropertyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Allows to assign attribute's group priority
+// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 func (o AppUserSchemaPropertyOutput) Union() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.BoolPtrOutput { return v.Union }).(pulumi.BoolPtrOutput)
 }

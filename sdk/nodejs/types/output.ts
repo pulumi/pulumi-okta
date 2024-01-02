@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 
 export interface AppGroupAssignmentsGroup {
     /**
-     * A group to associate with the application
+     * ID of the group to assign.
      */
     id: string;
     /**
@@ -22,69 +22,141 @@ export interface AppGroupAssignmentsGroup {
 
 export interface AppSignonPolicyRulePlatformInclude {
     /**
-     * Only available with OTHER OS type
+     * Only available and required when using `osType = "OTHER"`
      */
     osExpression?: string;
+    /**
+     * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+     */
     osType?: string;
+    /**
+     * The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+     */
     type?: string;
 }
 
 export interface AppUserSchemaPropertyArrayOneOf {
     /**
-     * Enum value
+     * value mapping to member of `arrayEnum`.
      */
     const: string;
     /**
-     * Enum title
+     * display name for the enum value.
      */
     title: string;
 }
 
 export interface AppUserSchemaPropertyOneOf {
     /**
-     * Enum value
+     * value mapping to member of `arrayEnum`.
      */
     const: string;
     /**
-     * Enum title
+     * display name for the enum value.
      */
     title: string;
 }
 
 export interface DomainDnsRecord {
+    /**
+     * TXT record expiration.
+     */
     expiration: string;
+    /**
+     * DNS record name.
+     */
     fqdn: string;
+    /**
+     * Record type can be TXT or CNAME.
+     */
     recordType: string;
+    /**
+     * DNS verification value
+     */
     values: string[];
 }
 
 export interface EmailSenderDnsRecord {
+    /**
+     * DNS record name.
+     */
     fqdn: string;
+    /**
+     * Record type can be TXT or CNAME.
+     */
     recordType: string;
+    /**
+     * DNS verification value
+     */
     value: string;
 }
 
 export interface EventHookHeader {
+    /**
+     * Key to use for authentication, usually the header name, for example `"Authorization"`.
+     */
     key?: string;
+    /**
+     * Authentication secret.
+     */
     value?: string;
 }
 
 export interface GetAuthServerClaimsClaim {
+    /**
+     * Specifies whether to include Claims in the token.
+     */
     alwaysIncludeInToken: boolean;
+    /**
+     * Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+     */
     claimType: string;
+    /**
+     * ID of the claim.
+     */
     id: string;
+    /**
+     * Name of the claim.
+     */
     name: string;
+    /**
+     * Specifies the scopes for this Claim.
+     */
     scopes: string[];
+    /**
+     * Status of the claim.
+     */
     status: string;
+    /**
+     * Value of the claim
+     */
     value: string;
+    /**
+     * Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+     */
     valueType: string;
 }
 
 export interface GetBehavioursBehavior {
+    /**
+     * Behavior ID.
+     */
     id: string;
+    /**
+     * Behavior name.
+     */
     name: string;
+    /**
+     * Map of behavior settings.
+     */
     settings: {[key: string]: string};
+    /**
+     * Behavior status.
+     */
     status: string;
+    /**
+     * Behavior type.
+     */
     type: string;
 }
 
@@ -106,10 +178,26 @@ export interface GetEmailCustomizationsEmailCustomization {
 }
 
 export interface GetGroupsGroup {
+    /**
+     * raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+     */
     customProfileAttributes: string;
+    /**
+     * Group description.
+     */
     description: string;
+    /**
+     * Group ID.
+     */
     id: string;
+    /**
+     * Group name.
+     */
     name: string;
+    /**
+     * type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+     * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+     */
     type: string;
 }
 
@@ -135,41 +223,68 @@ export interface GetThemesTheme {
 }
 
 export interface GetTrustedOriginsTrustedOrigin {
+    /**
+     * Whether the Trusted Origin is active or not - can only be issued post-creation
+     */
     active: boolean;
+    /**
+     * The ID of the Trusted Origin.
+     */
     id: string;
+    /**
+     * Unique name for this trusted origin.
+     */
     name: string;
+    /**
+     * Unique origin URL for this trusted origin.
+     */
     origin: string;
+    /**
+     * Scopes of the Trusted Origin
+     */
     scopes: string[];
 }
 
 export interface GetUserSecurityQuestionsQuestion {
+    /**
+     * Security question unique key.
+     */
     key: string;
+    /**
+     * Display text for security question.
+     */
     text: string;
 }
 
 export interface GroupSchemaPropertyArrayOneOf {
     /**
-     * Enum value
+     * value mapping to member of `enum`.
      */
     const: string;
     /**
-     * Enum title
+     * display name for the enum value.
      */
     title: string;
 }
 
 export interface GroupSchemaPropertyMasterOverridePriority {
+    /**
+     * Type of profile source.
+     */
     type?: string;
+    /**
+     * ID of profile source.
+     */
     value: string;
 }
 
 export interface GroupSchemaPropertyOneOf {
     /**
-     * Enum value
+     * value mapping to member of `enum`.
      */
     const: string;
     /**
-     * Enum title
+     * display name for the enum value.
      */
     title: string;
 }
@@ -184,39 +299,51 @@ export interface PolicyRuleProfileEnrollmentProfileAttribute {
      */
     name: string;
     /**
-     * Indicates if this property is required for enrollment
+     * Indicates if this property is required for enrollment. Default is `false`.
      */
     required?: boolean;
 }
 
 export interface TemplateSmsTranslation {
+    /**
+     * The language to map the template to.
+     */
     language: string;
+    /**
+     * The SMS message.
+     */
     template: string;
 }
 
 export interface UserSchemaPropertyArrayOneOf {
     /**
-     * Enum value
+     * value mapping to member of `enum`.
      */
     const: string;
     /**
-     * Enum title
+     * display name for the enum value.
      */
     title: string;
 }
 
 export interface UserSchemaPropertyMasterOverridePriority {
+    /**
+     * Type of profile source.
+     */
     type?: string;
+    /**
+     * ID of profile source.
+     */
     value: string;
 }
 
 export interface UserSchemaPropertyOneOf {
     /**
-     * Enum value
+     * value mapping to member of `enum`.
      */
     const: string;
     /**
-     * Enum title
+     * display name for the enum value.
      */
     title: string;
 }
@@ -227,15 +354,37 @@ export namespace Index {
          * @deprecated This field has been removed in the newest go sdk version and has become noop
          */
         expiration: string;
+        /**
+         * DNS record name.
+         */
         fqdn: string;
+        /**
+         * Record type can be TXT or cname.
+         */
         recordType: string;
+        /**
+         * DNS record value
+         * - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
+         */
         value: string;
     }
 
     export interface GetDomainDnsRecord {
+        /**
+         * TXT record expiration.
+         */
         expiration: string;
+        /**
+         * DNS record name.
+         */
         fqdn: string;
+        /**
+         * Record type can be TXT or CNAME.
+         */
         recordType: string;
+        /**
+         * DNS verification value
+         */
         values: string[];
     }
 
@@ -263,21 +412,40 @@ export namespace Index {
 
 export namespace app {
     export interface GetSamlAttributeStatement {
+        /**
+         * Type of group attribute filter.
+         */
         filterType: string;
+        /**
+         * Filter value to use.
+         */
         filterValue: string;
+        /**
+         * name of application.
+         */
         name: string;
+        /**
+         * The attribute namespace.
+         */
         namespace: string;
+        /**
+         * The type of attribute statement value.
+         */
         type: string;
+        /**
+         * Array of values to use.
+         */
         values: string[];
     }
 
     export interface OAuthGroupsClaim {
         /**
-         * Groups claim filter. Can only be set if type is FILTER.
+         * Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
          */
         filterType?: string;
         /**
-         * Issuer mode inherited from OAuth App
+         * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+         * Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
          */
         issuerMode: string;
         /**
@@ -285,7 +453,7 @@ export namespace app {
          */
         name: string;
         /**
-         * Groups claim type.
+         * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
          */
         type: string;
         /**
@@ -295,21 +463,9 @@ export namespace app {
     }
 
     export interface OAuthJwk {
-        /**
-         * RSA Exponent
-         */
         e?: string;
-        /**
-         * Key ID
-         */
         kid: string;
-        /**
-         * Key type
-         */
         kty: string;
-        /**
-         * RSA Modulus
-         */
         n?: string;
         x?: string;
         y?: string;
@@ -317,38 +473,71 @@ export namespace app {
 
     export interface SamlAttributeStatement {
         /**
-         * Type of group attribute filter
+         * Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
          */
         filterType?: string;
         /**
-         * Filter value to use
+         * Filter value to use.
          */
         filterValue?: string;
         /**
-         * The reference name of the attribute statement
+         * The name of the attribute statement.
          */
         name: string;
         /**
-         * The name format of the attribute
+         * The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
          */
         namespace?: string;
         /**
-         * The type of attribute statements object
+         * The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
          */
         type?: string;
+        /**
+         * Array of values to use.
+         */
         values?: string[];
     }
 
     export interface SamlKey {
+        /**
+         * Date created.
+         */
         created: string;
+        /**
+         * RSA exponent.
+         */
         e: string;
+        /**
+         * Date the key expires.
+         */
         expiresAt: string;
+        /**
+         * Key ID.
+         */
         kid: string;
+        /**
+         * Identifies the cryptographic algorithm family used with the key.
+         */
         kty: string;
+        /**
+         * Date the key was last updated.
+         */
         lastUpdated: string;
+        /**
+         * RSA modulus.
+         */
         n: string;
+        /**
+         * Intended use of the public key.
+         */
         use: string;
+        /**
+         * X.509 certificate chain.
+         */
         x5cs: string[];
+        /**
+         * X.509 certificate SHA-256 thumbprint.
+         */
         x5tS256: string;
     }
 
@@ -356,14 +545,38 @@ export namespace app {
 
 export namespace auth {
     export interface GetServerScopesScope {
+        /**
+         * Indicates whether a consent dialog is needed for the Scope
+         */
         consent: string;
+        /**
+         * Whether the Scope is a default Scope
+         */
         default: boolean;
+        /**
+         * Description of the Scope
+         */
         description: string;
+        /**
+         * Name of the end user displayed in a consent dialog box
+         */
         displayName: string;
+        /**
+         * ID of the Scope
+         */
         id: string;
+        /**
+         * Whether the Scope should be included in the metadata
+         */
         metadataPublish: string;
+        /**
+         * Name of the Scope
+         */
         name: string;
         optional: boolean;
+        /**
+         * Whether Okta created the Scope
+         */
         system: boolean;
     }
 
@@ -371,7 +584,13 @@ export namespace auth {
 
 export namespace inline {
     export interface HookHeader {
+        /**
+         * Key to use for authentication, usually the header name, for example `"Authorization"`.
+         */
         key?: string;
+        /**
+         * Authentication secret.
+         */
         value?: string;
     }
 
@@ -380,73 +599,120 @@ export namespace inline {
 export namespace policy {
     export interface RuleIdpDiscoveryAppExclude {
         /**
-         * The ID of this resource.
+         * Use if `type` is `"APP"` to indicate the application id to include.
          */
         id?: string;
+        /**
+         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+         */
         name?: string;
+        /**
+         * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+         */
         type: string;
     }
 
     export interface RuleIdpDiscoveryAppInclude {
         /**
-         * The ID of this resource.
+         * Use if `type` is `"APP"` to indicate the application id to include.
          */
         id?: string;
+        /**
+         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+         */
         name?: string;
+        /**
+         * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+         */
         type: string;
     }
 
     export interface RuleIdpDiscoveryPlatformInclude {
         /**
-         * Only available with OTHER OS type
+         * Only available when using `osType = "OTHER"`
          */
         osExpression?: string;
+        /**
+         * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
+         */
         osType?: string;
+        /**
+         * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+         */
         type?: string;
     }
 
     export interface RuleIdpDiscoveryUserIdentifierPattern {
+        /**
+         * The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
+         */
         matchType?: string;
+        /**
+         * The regex or simple match string to match against.
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
+         */
         value?: string;
     }
 
     export interface RuleMfaAppExclude {
         /**
-         * The ID of this resource.
+         * Use if `type` is `"APP"` to indicate the application id to include.
          */
         id?: string;
+        /**
+         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+         */
         name?: string;
+        /**
+         * One of: `"APP"`, `"APP_TYPE"`
+         */
         type: string;
     }
 
     export interface RuleMfaAppInclude {
         /**
-         * The ID of this resource.
+         * Use if `type` is `"APP"` to indicate the application id to include.
          */
         id?: string;
+        /**
+         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+         */
         name?: string;
+        /**
+         * One of: `"APP"`, `"APP_TYPE"`
+         */
         type: string;
     }
 
     export interface RuleSignonFactorSequence {
         /**
-         * Type of a Factor
+         * Primary factor type of the auth section.
          */
         primaryCriteriaFactorType: string;
         /**
-         * Factor provider
+         * Primary provider of the auth section.
          */
         primaryCriteriaProvider: string;
+        /**
+         * Additional authentication steps.
+         */
         secondaryCriterias?: outputs.policy.RuleSignonFactorSequenceSecondaryCriteria[];
     }
 
     export interface RuleSignonFactorSequenceSecondaryCriteria {
         /**
-         * Type of a Factor
+         * Factor type of the additional authentication step.
          */
         factorType: string;
         /**
-         * Factor provider
+         * Provider of the additional authentication step.
          */
         provider: string;
     }
@@ -455,11 +721,17 @@ export namespace policy {
 
 export namespace profile {
     export interface MappingMapping {
+        /**
+         * Combination or single source properties that will be mapped to the target property.
+         */
         expression: string;
         /**
-         * The mapping property key.
+         * Key of mapping.
          */
         id: string;
+        /**
+         * Whether to update target properties on user create & update or just on create.
+         */
         pushStatus?: string;
     }
 
@@ -467,90 +739,208 @@ export namespace profile {
 
 export namespace user {
     export interface GetUserSearch {
+        /**
+         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
+         */
         comparison?: string;
         /**
-         * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * A raw search expression string. If present it will override name/comparison/value.
          */
         expression?: string;
         /**
-         * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * Name of property to search against.
          */
         name?: string;
+        /**
+         * Value to compare with.
+         */
         value?: string;
     }
 
     export interface GetUsersSearch {
+        /**
+         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
+         */
         comparison?: string;
         /**
-         * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * A raw search expression string. If present it will override name/comparison/value.
          */
         expression?: string;
         /**
-         * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * Name of property to search against.
          */
         name?: string;
+        /**
+         * Value to compare with.
+         */
         value?: string;
     }
 
     export interface GetUsersUser {
+        /**
+         * Administrator roles assigned to user.
+         */
         adminRoles: string[];
+        /**
+         * City or locality component of user's address.
+         */
         city: string;
+        /**
+         * Name of a cost center assigned to user.
+         */
         costCenter: string;
+        /**
+         * Country name component of user's address.
+         */
         countryCode: string;
+        /**
+         * Raw JSON containing all custom profile attributes.
+         */
         customProfileAttributes: string;
+        /**
+         * Name of user's department.
+         */
         department: string;
+        /**
+         * Name of the user, suitable for display to end users.
+         */
         displayName: string;
+        /**
+         * Name of user's division.
+         */
         division: string;
+        /**
+         * Primary email address of user.
+         */
         email: string;
+        /**
+         * Organization or company assigned unique identifier for the user.
+         */
         employeeNumber: string;
+        /**
+         * Given name of the user.
+         */
         firstName: string;
+        /**
+         * Groups user belongs to.
+         */
         groupMemberships: string[];
+        /**
+         * Honorific prefix(es) of the user, or title in most Western languages.
+         */
         honorificPrefix: string;
+        /**
+         * Honorific suffix(es) of the user.
+         */
         honorificSuffix: string;
         id: string;
+        /**
+         * Family name of the user.
+         */
         lastName: string;
+        /**
+         * User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
+         */
         locale: string;
+        /**
+         * Unique identifier for the user.
+         */
         login: string;
+        /**
+         * Display name of the user's manager.
+         */
         manager: string;
+        /**
+         * `id` of a user's manager.
+         */
         managerId: string;
+        /**
+         * Middle name(s) of the user.
+         */
         middleName: string;
+        /**
+         * Mobile phone number of user.
+         */
         mobilePhone: string;
+        /**
+         * Casual way to address the user in real life.
+         */
         nickName: string;
+        /**
+         * Name of user's organization.
+         */
         organization: string;
+        /**
+         * Mailing address component of user's address.
+         */
         postalAddress: string;
+        /**
+         * User's preferred written or spoken languages.
+         */
         preferredLanguage: string;
+        /**
+         * Primary phone number of user such as home number.
+         */
         primaryPhone: string;
+        /**
+         * URL of user's online profile (e.g. a web page).
+         */
         profileUrl: string;
         roles: string[];
+        /**
+         * Secondary email address of user typically used for account recovery.
+         */
         secondEmail: string;
+        /**
+         * State or region component of user's address (region).
+         */
         state: string;
+        /**
+         * Current status of user.
+         */
         status: string;
+        /**
+         * Full street address component of user's address.
+         */
         streetAddress: string;
+        /**
+         * User's time zone.
+         */
         timezone: string;
+        /**
+         * User's title, such as "Vice President".
+         */
         title: string;
+        /**
+         * Used to describe the organization to user relationship such as "Employee" or "Contractor".
+         */
         userType: string;
+        /**
+         * Zipcode or postal code component of user's address (postalCode)
+         */
         zipCode: string;
     }
 
     export interface UserPasswordHash {
-        /**
-         * The algorithm used to generate the hash using the password
-         */
         algorithm: string;
         /**
-         * Only required for salted hashes
+         * Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
+         * the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
          */
         salt?: string;
         /**
-         * Specifies whether salt was pre- or postfixed to the password before hashing
+         * Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
          */
         saltOrder?: string;
         /**
-         * For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+         * For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
+         * This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
+         * the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
+         * the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
          */
         value: string;
         /**
-         * Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
+         * Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
          */
         workFactor?: number;
     }

@@ -17,14 +17,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     public static final ThreeFieldState Empty = new ThreeFieldState();
 
     /**
-     * Custom error page URL
+     * Custom error page URL.
      * 
      */
     @Import(name="accessibilityErrorRedirectUrl")
     private @Nullable Output<String> accessibilityErrorRedirectUrl;
 
     /**
-     * @return Custom error page URL
+     * @return Custom error page URL.
      * 
      */
     public Optional<Output<String>> accessibilityErrorRedirectUrl() {
@@ -32,14 +32,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Custom login page URL
+     * Custom login page for this application.
      * 
      */
     @Import(name="accessibilityLoginRedirectUrl")
     private @Nullable Output<String> accessibilityLoginRedirectUrl;
 
     /**
-     * @return Custom login page URL
+     * @return Custom login page for this application.
      * 
      */
     public Optional<Output<String>> accessibilityLoginRedirectUrl() {
@@ -47,14 +47,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable self service
+     * Enable self-service. By default, it is `false`.
      * 
      */
     @Import(name="accessibilitySelfService")
     private @Nullable Output<Boolean> accessibilitySelfService;
 
     /**
-     * @return Enable self service
+     * @return Enable self-service. By default, it is `false`.
      * 
      */
     public Optional<Output<Boolean>> accessibilitySelfService() {
@@ -92,14 +92,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Display auto submit toolbar
+     * Display auto submit toolbar.
      * 
      */
     @Import(name="autoSubmitToolbar")
     private @Nullable Output<Boolean> autoSubmitToolbar;
 
     /**
-     * @return Display auto submit toolbar
+     * @return Display auto submit toolbar.
      * 
      */
     public Optional<Output<Boolean>> autoSubmitToolbar() {
@@ -107,14 +107,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Login button field CSS selector
+     * Login button field CSS selector.
      * 
      */
     @Import(name="buttonSelector")
     private @Nullable Output<String> buttonSelector;
 
     /**
-     * @return Login button field CSS selector
+     * @return Login button field CSS selector.
      * 
      */
     public Optional<Output<String>> buttonSelector() {
@@ -122,14 +122,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Application credentials scheme
+     * Application credentials scheme. Can be set to `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
      * 
      */
     @Import(name="credentialsScheme")
     private @Nullable Output<String> credentialsScheme;
 
     /**
-     * @return Application credentials scheme
+     * @return Application credentials scheme. Can be set to `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
      * 
      */
     public Optional<Output<String>> credentialsScheme() {
@@ -152,14 +152,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Extra field CSS selector
+     * Extra field CSS selector.
      * 
      */
     @Import(name="extraFieldSelector")
     private @Nullable Output<String> extraFieldSelector;
 
     /**
-     * @return Extra field CSS selector
+     * @return Extra field CSS selector.
      * 
      */
     public Optional<Output<String>> extraFieldSelector() {
@@ -167,14 +167,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Value for extra form field
+     * Value for extra form field.
      * 
      */
     @Import(name="extraFieldValue")
     private @Nullable Output<String> extraFieldValue;
 
     /**
-     * @return Value for extra form field
+     * @return Value for extra form field.
      * 
      */
     public Optional<Output<String>> extraFieldValue() {
@@ -182,14 +182,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Do not display application icon on mobile app
+     * Do not display application icon on mobile app.
      * 
      */
     @Import(name="hideIos")
     private @Nullable Output<Boolean> hideIos;
 
     /**
-     * @return Do not display application icon on mobile app
+     * @return Do not display application icon on mobile app.
      * 
      */
     public Optional<Output<Boolean>> hideIos() {
@@ -197,14 +197,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Do not display application icon to users
+     * Do not display application icon to users.
      * 
      */
     @Import(name="hideWeb")
     private @Nullable Output<Boolean> hideWeb;
 
     /**
-     * @return Do not display application icon to users
+     * @return Do not display application icon to users.
      * 
      */
     public Optional<Output<Boolean>> hideWeb() {
@@ -212,14 +212,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Pretty name of app.
+     * The display name of the Application.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return Pretty name of app.
+     * @return The display name of the Application.
      * 
      */
     public Optional<Output<String>> label() {
@@ -227,14 +227,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Local path to logo of the application.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     @Import(name="logo")
     private @Nullable Output<String> logo;
 
     /**
-     * @return Local path to logo of the application.
+     * @return Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     public Optional<Output<String>> logo() {
@@ -242,14 +242,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * URL of the application&#39;s logo
+     * Direct link of application logo.
      * 
      */
     @Import(name="logoUrl")
     private @Nullable Output<String> logoUrl;
 
     /**
-     * @return URL of the application&#39;s logo
+     * @return Direct link of application logo.
      * 
      */
     public Optional<Output<String>> logoUrl() {
@@ -257,14 +257,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the app.
+     * Name assigned to the application by Okta.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the app.
+     * @return Name assigned to the application by Okta.
      * 
      */
     public Optional<Output<String>> name() {
@@ -272,14 +272,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Login password field CSS selector
+     * Login password field CSS selector.
      * 
      */
     @Import(name="passwordSelector")
     private @Nullable Output<String> passwordSelector;
 
     /**
-     * @return Login password field CSS selector
+     * @return Login password field CSS selector.
      * 
      */
     public Optional<Output<String>> passwordSelector() {
@@ -287,14 +287,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow user to reveal password
+     * Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
      * 
      */
     @Import(name="revealPassword")
     private @Nullable Output<Boolean> revealPassword;
 
     /**
-     * @return Allow user to reveal password
+     * @return Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
      * 
      */
     public Optional<Output<Boolean>> revealPassword() {
@@ -332,14 +332,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sign on mode of application.
+     * Sign-on mode of application.
      * 
      */
     @Import(name="signOnMode")
     private @Nullable Output<String> signOnMode;
 
     /**
-     * @return Sign on mode of application.
+     * @return Sign-on mode of application.
      * 
      */
     public Optional<Output<String>> signOnMode() {
@@ -347,14 +347,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of application.
+     * Status of application. By default, it is `&#34;ACTIVE&#34;`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of application.
+     * @return Status of application. By default, it is `&#34;ACTIVE&#34;`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -362,14 +362,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Login URL
+     * Login URL.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return Login URL
+     * @return Login URL.
      * 
      */
     public Optional<Output<String>> url() {
@@ -377,14 +377,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A regex that further restricts URL to the specified regex
+     * A regex that further restricts URL to the specified regex.
      * 
      */
     @Import(name="urlRegex")
     private @Nullable Output<String> urlRegex;
 
     /**
-     * @return A regex that further restricts URL to the specified regex
+     * @return A regex that further restricts URL to the specified regex.
      * 
      */
     public Optional<Output<String>> urlRegex() {
@@ -392,14 +392,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username template
+     * Username template. Default: `&#34;${source.login}&#34;`
      * 
      */
     @Import(name="userNameTemplate")
     private @Nullable Output<String> userNameTemplate;
 
     /**
-     * @return Username template
+     * @return Username template. Default: `&#34;${source.login}&#34;`
      * 
      */
     public Optional<Output<String>> userNameTemplate() {
@@ -407,14 +407,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Push username on update
+     * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
     @Import(name="userNameTemplatePushStatus")
     private @Nullable Output<String> userNameTemplatePushStatus;
 
     /**
-     * @return Push username on update
+     * @return Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
      * 
      */
     public Optional<Output<String>> userNameTemplatePushStatus() {
@@ -422,14 +422,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username template suffix
+     * Username template suffix.
      * 
      */
     @Import(name="userNameTemplateSuffix")
     private @Nullable Output<String> userNameTemplateSuffix;
 
     /**
-     * @return Username template suffix
+     * @return Username template suffix.
      * 
      */
     public Optional<Output<String>> userNameTemplateSuffix() {
@@ -437,14 +437,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username template type
+     * Username template type. Default: `&#34;BUILT_IN&#34;`.
      * 
      */
     @Import(name="userNameTemplateType")
     private @Nullable Output<String> userNameTemplateType;
 
     /**
-     * @return Username template type
+     * @return Username template type. Default: `&#34;BUILT_IN&#34;`.
      * 
      */
     public Optional<Output<String>> userNameTemplateType() {
@@ -452,14 +452,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Login username field CSS selector
+     * Login username field CSS selector.
      * 
      */
     @Import(name="usernameSelector")
     private @Nullable Output<String> usernameSelector;
 
     /**
-     * @return Login username field CSS selector
+     * @return Login username field CSS selector.
      * 
      */
     public Optional<Output<String>> usernameSelector() {
@@ -520,7 +520,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL
+         * @param accessibilityErrorRedirectUrl Custom error page URL.
          * 
          * @return builder
          * 
@@ -531,7 +531,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL
+         * @param accessibilityErrorRedirectUrl Custom error page URL.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page URL
+         * @param accessibilityLoginRedirectUrl Custom login page for this application.
          * 
          * @return builder
          * 
@@ -552,7 +552,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page URL
+         * @param accessibilityLoginRedirectUrl Custom login page for this application.
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilitySelfService Enable self service
+         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
          * 
          * @return builder
          * 
@@ -573,7 +573,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilitySelfService Enable self service
+         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar
+         * @param autoSubmitToolbar Display auto submit toolbar.
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar
+         * @param autoSubmitToolbar Display auto submit toolbar.
          * 
          * @return builder
          * 
@@ -646,7 +646,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buttonSelector Login button field CSS selector
+         * @param buttonSelector Login button field CSS selector.
          * 
          * @return builder
          * 
@@ -657,7 +657,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buttonSelector Login button field CSS selector
+         * @param buttonSelector Login button field CSS selector.
          * 
          * @return builder
          * 
@@ -667,7 +667,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentialsScheme Application credentials scheme
+         * @param credentialsScheme Application credentials scheme. Can be set to `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
          * 
          * @return builder
          * 
@@ -678,7 +678,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentialsScheme Application credentials scheme
+         * @param credentialsScheme Application credentials scheme. Can be set to `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
          * 
          * @return builder
          * 
@@ -709,7 +709,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param extraFieldSelector Extra field CSS selector
+         * @param extraFieldSelector Extra field CSS selector.
          * 
          * @return builder
          * 
@@ -720,7 +720,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param extraFieldSelector Extra field CSS selector
+         * @param extraFieldSelector Extra field CSS selector.
          * 
          * @return builder
          * 
@@ -730,7 +730,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param extraFieldValue Value for extra form field
+         * @param extraFieldValue Value for extra form field.
          * 
          * @return builder
          * 
@@ -741,7 +741,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param extraFieldValue Value for extra form field
+         * @param extraFieldValue Value for extra form field.
          * 
          * @return builder
          * 
@@ -751,7 +751,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app
+         * @param hideIos Do not display application icon on mobile app.
          * 
          * @return builder
          * 
@@ -762,7 +762,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app
+         * @param hideIos Do not display application icon on mobile app.
          * 
          * @return builder
          * 
@@ -772,7 +772,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideWeb Do not display application icon to users
+         * @param hideWeb Do not display application icon to users.
          * 
          * @return builder
          * 
@@ -783,7 +783,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideWeb Do not display application icon to users
+         * @param hideWeb Do not display application icon to users.
          * 
          * @return builder
          * 
@@ -793,7 +793,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param label Pretty name of app.
+         * @param label The display name of the Application.
          * 
          * @return builder
          * 
@@ -804,7 +804,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param label Pretty name of app.
+         * @param label The display name of the Application.
          * 
          * @return builder
          * 
@@ -814,7 +814,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logo Local path to logo of the application.
+         * @param logo Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
          * 
          * @return builder
          * 
@@ -825,7 +825,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logo Local path to logo of the application.
+         * @param logo Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
          * 
          * @return builder
          * 
@@ -835,7 +835,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logoUrl URL of the application&#39;s logo
+         * @param logoUrl Direct link of application logo.
          * 
          * @return builder
          * 
@@ -846,7 +846,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logoUrl URL of the application&#39;s logo
+         * @param logoUrl Direct link of application logo.
          * 
          * @return builder
          * 
@@ -856,7 +856,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the app.
+         * @param name Name assigned to the application by Okta.
          * 
          * @return builder
          * 
@@ -867,7 +867,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the app.
+         * @param name Name assigned to the application by Okta.
          * 
          * @return builder
          * 
@@ -877,7 +877,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordSelector Login password field CSS selector
+         * @param passwordSelector Login password field CSS selector.
          * 
          * @return builder
          * 
@@ -888,7 +888,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordSelector Login password field CSS selector
+         * @param passwordSelector Login password field CSS selector.
          * 
          * @return builder
          * 
@@ -898,7 +898,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revealPassword Allow user to reveal password
+         * @param revealPassword Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
          * 
          * @return builder
          * 
@@ -909,7 +909,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revealPassword Allow user to reveal password
+         * @param revealPassword Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
          * 
          * @return builder
          * 
@@ -961,7 +961,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signOnMode Sign on mode of application.
+         * @param signOnMode Sign-on mode of application.
          * 
          * @return builder
          * 
@@ -972,7 +972,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signOnMode Sign on mode of application.
+         * @param signOnMode Sign-on mode of application.
          * 
          * @return builder
          * 
@@ -982,7 +982,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of application.
+         * @param status Status of application. By default, it is `&#34;ACTIVE&#34;`.
          * 
          * @return builder
          * 
@@ -993,7 +993,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of application.
+         * @param status Status of application. By default, it is `&#34;ACTIVE&#34;`.
          * 
          * @return builder
          * 
@@ -1003,7 +1003,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url Login URL
+         * @param url Login URL.
          * 
          * @return builder
          * 
@@ -1014,7 +1014,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url Login URL
+         * @param url Login URL.
          * 
          * @return builder
          * 
@@ -1024,7 +1024,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param urlRegex A regex that further restricts URL to the specified regex
+         * @param urlRegex A regex that further restricts URL to the specified regex.
          * 
          * @return builder
          * 
@@ -1035,7 +1035,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param urlRegex A regex that further restricts URL to the specified regex
+         * @param urlRegex A regex that further restricts URL to the specified regex.
          * 
          * @return builder
          * 
@@ -1045,7 +1045,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplate Username template
+         * @param userNameTemplate Username template. Default: `&#34;${source.login}&#34;`
          * 
          * @return builder
          * 
@@ -1056,7 +1056,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplate Username template
+         * @param userNameTemplate Username template. Default: `&#34;${source.login}&#34;`
          * 
          * @return builder
          * 
@@ -1066,7 +1066,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplatePushStatus Push username on update
+         * @param userNameTemplatePushStatus Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
          * 
          * @return builder
          * 
@@ -1077,7 +1077,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplatePushStatus Push username on update
+         * @param userNameTemplatePushStatus Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
          * 
          * @return builder
          * 
@@ -1087,7 +1087,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateSuffix Username template suffix
+         * @param userNameTemplateSuffix Username template suffix.
          * 
          * @return builder
          * 
@@ -1098,7 +1098,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateSuffix Username template suffix
+         * @param userNameTemplateSuffix Username template suffix.
          * 
          * @return builder
          * 
@@ -1108,7 +1108,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateType Username template type
+         * @param userNameTemplateType Username template type. Default: `&#34;BUILT_IN&#34;`.
          * 
          * @return builder
          * 
@@ -1119,7 +1119,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateType Username template type
+         * @param userNameTemplateType Username template type. Default: `&#34;BUILT_IN&#34;`.
          * 
          * @return builder
          * 
@@ -1129,7 +1129,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usernameSelector Login username field CSS selector
+         * @param usernameSelector Login username field CSS selector.
          * 
          * @return builder
          * 
@@ -1140,7 +1140,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usernameSelector Login username field CSS selector
+         * @param usernameSelector Login username field CSS selector.
          * 
          * @return builder
          * 

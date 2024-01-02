@@ -44,14 +44,14 @@ class GetUserSecurityQuestionsResult:
     @property
     @pulumi.getter
     def questions(self) -> Sequence['outputs.GetUserSecurityQuestionsQuestionResult']:
+        """
+        collection of user's security question retrieved from Okta with the following properties:
+        """
         return pulumi.get(self, "questions")
 
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> str:
-        """
-        ID of a Okta User
-        """
         return pulumi.get(self, "user_id")
 
 
@@ -69,6 +69,8 @@ class AwaitableGetUserSecurityQuestionsResult(GetUserSecurityQuestionsResult):
 def get_user_security_questions(user_id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSecurityQuestionsResult:
     """
+    Use this data source to retrieve a list of user's security questions.
+
     ## Example Usage
 
     ```python
@@ -84,7 +86,7 @@ def get_user_security_questions(user_id: Optional[str] = None,
     ```
 
 
-    :param str user_id: ID of a Okta User
+    :param str user_id: User ID.
     """
     __args__ = dict()
     __args__['userId'] = user_id
@@ -101,6 +103,8 @@ def get_user_security_questions(user_id: Optional[str] = None,
 def get_user_security_questions_output(user_id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSecurityQuestionsResult]:
     """
+    Use this data source to retrieve a list of user's security questions.
+
     ## Example Usage
 
     ```python
@@ -116,6 +120,6 @@ def get_user_security_questions_output(user_id: Optional[pulumi.Input[str]] = No
     ```
 
 
-    :param str user_id: ID of a Okta User
+    :param str user_id: User ID.
     """
     ...

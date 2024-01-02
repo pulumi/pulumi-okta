@@ -15,14 +15,14 @@ public final class GetBrandArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetBrandArgs Empty = new GetBrandArgs();
 
     /**
-     * Brand ID
+     * Brand ID. Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
      * 
      */
     @Import(name="brandId", required=true)
     private Output<String> brandId;
 
     /**
-     * @return Brand ID
+     * @return Brand ID. Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
      * 
      */
     public Output<String> brandId() {
@@ -54,7 +54,7 @@ public final class GetBrandArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param brandId Brand ID
+         * @param brandId Brand ID. Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GetBrandArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param brandId Brand ID
+         * @param brandId Brand ID. Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
          * 
          * @return builder
          * 

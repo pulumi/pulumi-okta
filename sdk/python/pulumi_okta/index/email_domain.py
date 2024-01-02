@@ -22,10 +22,10 @@ class EmailDomainArgs:
                  user_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a EmailDomain resource.
-        :param pulumi.Input[str] brand_id: Brand id
-        :param pulumi.Input[str] display_name: Display name
-        :param pulumi.Input[str] domain: Domain name
-        :param pulumi.Input[str] user_name: User name
+        :param pulumi.Input[str] brand_id: Brand id of the email domain.
+        :param pulumi.Input[str] display_name: Display name of the email domain.
+        :param pulumi.Input[str] domain: Mail domain to send from.
+        :param pulumi.Input[str] user_name: User name of the email domain.
         """
         pulumi.set(__self__, "brand_id", brand_id)
         pulumi.set(__self__, "display_name", display_name)
@@ -36,7 +36,7 @@ class EmailDomainArgs:
     @pulumi.getter(name="brandId")
     def brand_id(self) -> pulumi.Input[str]:
         """
-        Brand id
+        Brand id of the email domain.
         """
         return pulumi.get(self, "brand_id")
 
@@ -48,7 +48,7 @@ class EmailDomainArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
         """
-        Display name
+        Display name of the email domain.
         """
         return pulumi.get(self, "display_name")
 
@@ -60,7 +60,7 @@ class EmailDomainArgs:
     @pulumi.getter
     def domain(self) -> pulumi.Input[str]:
         """
-        Domain name
+        Mail domain to send from.
         """
         return pulumi.get(self, "domain")
 
@@ -72,7 +72,7 @@ class EmailDomainArgs:
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[str]:
         """
-        User name
+        User name of the email domain.
         """
         return pulumi.get(self, "user_name")
 
@@ -92,12 +92,12 @@ class _EmailDomainState:
                  validation_status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EmailDomain resources.
-        :param pulumi.Input[str] brand_id: Brand id
-        :param pulumi.Input[str] display_name: Display name
-        :param pulumi.Input[Sequence[pulumi.Input['EmailDomainDnsValidationRecordArgs']]] dns_validation_records: TXT and cname records to be registered for the email Domain
-        :param pulumi.Input[str] domain: Domain name
-        :param pulumi.Input[str] user_name: User name
-        :param pulumi.Input[str] validation_status: Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
+        :param pulumi.Input[str] brand_id: Brand id of the email domain.
+        :param pulumi.Input[str] display_name: Display name of the email domain.
+        :param pulumi.Input[Sequence[pulumi.Input['EmailDomainDnsValidationRecordArgs']]] dns_validation_records: TXT and CNAME records to be registered for the domain.
+        :param pulumi.Input[str] domain: Mail domain to send from.
+        :param pulumi.Input[str] user_name: User name of the email domain.
+        :param pulumi.Input[str] validation_status: Status of the email domain (shows whether the domain is verified).
         """
         if brand_id is not None:
             pulumi.set(__self__, "brand_id", brand_id)
@@ -116,7 +116,7 @@ class _EmailDomainState:
     @pulumi.getter(name="brandId")
     def brand_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Brand id
+        Brand id of the email domain.
         """
         return pulumi.get(self, "brand_id")
 
@@ -128,7 +128,7 @@ class _EmailDomainState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Display name
+        Display name of the email domain.
         """
         return pulumi.get(self, "display_name")
 
@@ -140,7 +140,7 @@ class _EmailDomainState:
     @pulumi.getter(name="dnsValidationRecords")
     def dns_validation_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailDomainDnsValidationRecordArgs']]]]:
         """
-        TXT and cname records to be registered for the email Domain
+        TXT and CNAME records to be registered for the domain.
         """
         return pulumi.get(self, "dns_validation_records")
 
@@ -152,7 +152,7 @@ class _EmailDomainState:
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
         """
-        Domain name
+        Mail domain to send from.
         """
         return pulumi.get(self, "domain")
 
@@ -164,7 +164,7 @@ class _EmailDomainState:
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[str]]:
         """
-        User name
+        User name of the email domain.
         """
         return pulumi.get(self, "user_name")
 
@@ -176,7 +176,7 @@ class _EmailDomainState:
     @pulumi.getter(name="validationStatus")
     def validation_status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
+        Status of the email domain (shows whether the domain is verified).
         """
         return pulumi.get(self, "validation_status")
 
@@ -196,13 +196,35 @@ class EmailDomain(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a EmailDomain resource with the given unique name, props, and options.
+        This resource allows you to create and configure an email domain.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.index.EmailDomain("example",
+            brand_id="abc123",
+            display_name="test",
+            domain="example.com",
+            user_name="paul_atreides")
+        ```
+
+        ## Import
+
+        Custom email domain can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:Index/emailDomain:EmailDomain example &#60;domain id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] brand_id: Brand id
-        :param pulumi.Input[str] display_name: Display name
-        :param pulumi.Input[str] domain: Domain name
-        :param pulumi.Input[str] user_name: User name
+        :param pulumi.Input[str] brand_id: Brand id of the email domain.
+        :param pulumi.Input[str] display_name: Display name of the email domain.
+        :param pulumi.Input[str] domain: Mail domain to send from.
+        :param pulumi.Input[str] user_name: User name of the email domain.
         """
         ...
     @overload
@@ -211,7 +233,29 @@ class EmailDomain(pulumi.CustomResource):
                  args: EmailDomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a EmailDomain resource with the given unique name, props, and options.
+        This resource allows you to create and configure an email domain.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.index.EmailDomain("example",
+            brand_id="abc123",
+            display_name="test",
+            domain="example.com",
+            user_name="paul_atreides")
+        ```
+
+        ## Import
+
+        Custom email domain can be imported via the Okta ID.
+
+        ```sh
+         $ pulumi import okta:Index/emailDomain:EmailDomain example &#60;domain id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param EmailDomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -277,12 +321,12 @@ class EmailDomain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] brand_id: Brand id
-        :param pulumi.Input[str] display_name: Display name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailDomainDnsValidationRecordArgs']]]] dns_validation_records: TXT and cname records to be registered for the email Domain
-        :param pulumi.Input[str] domain: Domain name
-        :param pulumi.Input[str] user_name: User name
-        :param pulumi.Input[str] validation_status: Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
+        :param pulumi.Input[str] brand_id: Brand id of the email domain.
+        :param pulumi.Input[str] display_name: Display name of the email domain.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailDomainDnsValidationRecordArgs']]]] dns_validation_records: TXT and CNAME records to be registered for the domain.
+        :param pulumi.Input[str] domain: Mail domain to send from.
+        :param pulumi.Input[str] user_name: User name of the email domain.
+        :param pulumi.Input[str] validation_status: Status of the email domain (shows whether the domain is verified).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -300,7 +344,7 @@ class EmailDomain(pulumi.CustomResource):
     @pulumi.getter(name="brandId")
     def brand_id(self) -> pulumi.Output[str]:
         """
-        Brand id
+        Brand id of the email domain.
         """
         return pulumi.get(self, "brand_id")
 
@@ -308,7 +352,7 @@ class EmailDomain(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
         """
-        Display name
+        Display name of the email domain.
         """
         return pulumi.get(self, "display_name")
 
@@ -316,7 +360,7 @@ class EmailDomain(pulumi.CustomResource):
     @pulumi.getter(name="dnsValidationRecords")
     def dns_validation_records(self) -> pulumi.Output[Sequence['outputs.EmailDomainDnsValidationRecord']]:
         """
-        TXT and cname records to be registered for the email Domain
+        TXT and CNAME records to be registered for the domain.
         """
         return pulumi.get(self, "dns_validation_records")
 
@@ -324,7 +368,7 @@ class EmailDomain(pulumi.CustomResource):
     @pulumi.getter
     def domain(self) -> pulumi.Output[str]:
         """
-        Domain name
+        Mail domain to send from.
         """
         return pulumi.get(self, "domain")
 
@@ -332,7 +376,7 @@ class EmailDomain(pulumi.CustomResource):
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[str]:
         """
-        User name
+        User name of the email domain.
         """
         return pulumi.get(self, "user_name")
 
@@ -340,7 +384,7 @@ class EmailDomain(pulumi.CustomResource):
     @pulumi.getter(name="validationStatus")
     def validation_status(self) -> pulumi.Output[str]:
         """
-        Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
+        Status of the email domain (shows whether the domain is verified).
         """
         return pulumi.get(self, "validation_status")
 

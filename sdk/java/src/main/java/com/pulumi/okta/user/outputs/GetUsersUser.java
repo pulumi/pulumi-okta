@@ -11,153 +11,433 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUsersUser {
+    /**
+     * @return Administrator roles assigned to user.
+     * 
+     */
     private List<String> adminRoles;
+    /**
+     * @return City or locality component of user&#39;s address.
+     * 
+     */
     private String city;
+    /**
+     * @return Name of a cost center assigned to user.
+     * 
+     */
     private String costCenter;
+    /**
+     * @return Country name component of user&#39;s address.
+     * 
+     */
     private String countryCode;
+    /**
+     * @return Raw JSON containing all custom profile attributes.
+     * 
+     */
     private String customProfileAttributes;
+    /**
+     * @return Name of user&#39;s department.
+     * 
+     */
     private String department;
+    /**
+     * @return Name of the user, suitable for display to end users.
+     * 
+     */
     private String displayName;
+    /**
+     * @return Name of user&#39;s division.
+     * 
+     */
     private String division;
+    /**
+     * @return Primary email address of user.
+     * 
+     */
     private String email;
+    /**
+     * @return Organization or company assigned unique identifier for the user.
+     * 
+     */
     private String employeeNumber;
+    /**
+     * @return Given name of the user.
+     * 
+     */
     private String firstName;
+    /**
+     * @return Groups user belongs to.
+     * 
+     */
     private List<String> groupMemberships;
+    /**
+     * @return Honorific prefix(es) of the user, or title in most Western languages.
+     * 
+     */
     private String honorificPrefix;
+    /**
+     * @return Honorific suffix(es) of the user.
+     * 
+     */
     private String honorificSuffix;
     private String id;
+    /**
+     * @return Family name of the user.
+     * 
+     */
     private String lastName;
+    /**
+     * @return User&#39;s default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
+     * 
+     */
     private String locale;
+    /**
+     * @return Unique identifier for the user.
+     * 
+     */
     private String login;
+    /**
+     * @return Display name of the user&#39;s manager.
+     * 
+     */
     private String manager;
+    /**
+     * @return `id` of a user&#39;s manager.
+     * 
+     */
     private String managerId;
+    /**
+     * @return Middle name(s) of the user.
+     * 
+     */
     private String middleName;
+    /**
+     * @return Mobile phone number of user.
+     * 
+     */
     private String mobilePhone;
+    /**
+     * @return Casual way to address the user in real life.
+     * 
+     */
     private String nickName;
+    /**
+     * @return Name of user&#39;s organization.
+     * 
+     */
     private String organization;
+    /**
+     * @return Mailing address component of user&#39;s address.
+     * 
+     */
     private String postalAddress;
+    /**
+     * @return User&#39;s preferred written or spoken languages.
+     * 
+     */
     private String preferredLanguage;
+    /**
+     * @return Primary phone number of user such as home number.
+     * 
+     */
     private String primaryPhone;
+    /**
+     * @return URL of user&#39;s online profile (e.g. a web page).
+     * 
+     */
     private String profileUrl;
     private List<String> roles;
+    /**
+     * @return Secondary email address of user typically used for account recovery.
+     * 
+     */
     private String secondEmail;
+    /**
+     * @return State or region component of user&#39;s address (region).
+     * 
+     */
     private String state;
+    /**
+     * @return Current status of user.
+     * 
+     */
     private String status;
+    /**
+     * @return Full street address component of user&#39;s address.
+     * 
+     */
     private String streetAddress;
+    /**
+     * @return User&#39;s time zone.
+     * 
+     */
     private String timezone;
+    /**
+     * @return User&#39;s title, such as &#34;Vice President&#34;.
+     * 
+     */
     private String title;
+    /**
+     * @return Used to describe the organization to user relationship such as &#34;Employee&#34; or &#34;Contractor&#34;.
+     * 
+     */
     private String userType;
+    /**
+     * @return Zipcode or postal code component of user&#39;s address (postalCode)
+     * 
+     */
     private String zipCode;
 
     private GetUsersUser() {}
+    /**
+     * @return Administrator roles assigned to user.
+     * 
+     */
     public List<String> adminRoles() {
         return this.adminRoles;
     }
+    /**
+     * @return City or locality component of user&#39;s address.
+     * 
+     */
     public String city() {
         return this.city;
     }
+    /**
+     * @return Name of a cost center assigned to user.
+     * 
+     */
     public String costCenter() {
         return this.costCenter;
     }
+    /**
+     * @return Country name component of user&#39;s address.
+     * 
+     */
     public String countryCode() {
         return this.countryCode;
     }
+    /**
+     * @return Raw JSON containing all custom profile attributes.
+     * 
+     */
     public String customProfileAttributes() {
         return this.customProfileAttributes;
     }
+    /**
+     * @return Name of user&#39;s department.
+     * 
+     */
     public String department() {
         return this.department;
     }
+    /**
+     * @return Name of the user, suitable for display to end users.
+     * 
+     */
     public String displayName() {
         return this.displayName;
     }
+    /**
+     * @return Name of user&#39;s division.
+     * 
+     */
     public String division() {
         return this.division;
     }
+    /**
+     * @return Primary email address of user.
+     * 
+     */
     public String email() {
         return this.email;
     }
+    /**
+     * @return Organization or company assigned unique identifier for the user.
+     * 
+     */
     public String employeeNumber() {
         return this.employeeNumber;
     }
+    /**
+     * @return Given name of the user.
+     * 
+     */
     public String firstName() {
         return this.firstName;
     }
+    /**
+     * @return Groups user belongs to.
+     * 
+     */
     public List<String> groupMemberships() {
         return this.groupMemberships;
     }
+    /**
+     * @return Honorific prefix(es) of the user, or title in most Western languages.
+     * 
+     */
     public String honorificPrefix() {
         return this.honorificPrefix;
     }
+    /**
+     * @return Honorific suffix(es) of the user.
+     * 
+     */
     public String honorificSuffix() {
         return this.honorificSuffix;
     }
     public String id() {
         return this.id;
     }
+    /**
+     * @return Family name of the user.
+     * 
+     */
     public String lastName() {
         return this.lastName;
     }
+    /**
+     * @return User&#39;s default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
+     * 
+     */
     public String locale() {
         return this.locale;
     }
+    /**
+     * @return Unique identifier for the user.
+     * 
+     */
     public String login() {
         return this.login;
     }
+    /**
+     * @return Display name of the user&#39;s manager.
+     * 
+     */
     public String manager() {
         return this.manager;
     }
+    /**
+     * @return `id` of a user&#39;s manager.
+     * 
+     */
     public String managerId() {
         return this.managerId;
     }
+    /**
+     * @return Middle name(s) of the user.
+     * 
+     */
     public String middleName() {
         return this.middleName;
     }
+    /**
+     * @return Mobile phone number of user.
+     * 
+     */
     public String mobilePhone() {
         return this.mobilePhone;
     }
+    /**
+     * @return Casual way to address the user in real life.
+     * 
+     */
     public String nickName() {
         return this.nickName;
     }
+    /**
+     * @return Name of user&#39;s organization.
+     * 
+     */
     public String organization() {
         return this.organization;
     }
+    /**
+     * @return Mailing address component of user&#39;s address.
+     * 
+     */
     public String postalAddress() {
         return this.postalAddress;
     }
+    /**
+     * @return User&#39;s preferred written or spoken languages.
+     * 
+     */
     public String preferredLanguage() {
         return this.preferredLanguage;
     }
+    /**
+     * @return Primary phone number of user such as home number.
+     * 
+     */
     public String primaryPhone() {
         return this.primaryPhone;
     }
+    /**
+     * @return URL of user&#39;s online profile (e.g. a web page).
+     * 
+     */
     public String profileUrl() {
         return this.profileUrl;
     }
     public List<String> roles() {
         return this.roles;
     }
+    /**
+     * @return Secondary email address of user typically used for account recovery.
+     * 
+     */
     public String secondEmail() {
         return this.secondEmail;
     }
+    /**
+     * @return State or region component of user&#39;s address (region).
+     * 
+     */
     public String state() {
         return this.state;
     }
+    /**
+     * @return Current status of user.
+     * 
+     */
     public String status() {
         return this.status;
     }
+    /**
+     * @return Full street address component of user&#39;s address.
+     * 
+     */
     public String streetAddress() {
         return this.streetAddress;
     }
+    /**
+     * @return User&#39;s time zone.
+     * 
+     */
     public String timezone() {
         return this.timezone;
     }
+    /**
+     * @return User&#39;s title, such as &#34;Vice President&#34;.
+     * 
+     */
     public String title() {
         return this.title;
     }
+    /**
+     * @return Used to describe the organization to user relationship such as &#34;Employee&#34; or &#34;Contractor&#34;.
+     * 
+     */
     public String userType() {
         return this.userType;
     }
+    /**
+     * @return Zipcode or postal code component of user&#39;s address (postalCode)
+     * 
+     */
     public String zipCode() {
         return this.zipCode;
     }

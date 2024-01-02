@@ -16,157 +16,171 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a Password Policy Rule.
+ * 
+ * This resource allows you to create and configure a Password Policy Rule.
+ * 
+ * ## Import
+ * 
+ * A Policy Rule can be imported via the Policy and Rule ID.
+ * 
+ * ```sh
+ *  $ pulumi import okta:policy/rulePassword:RulePassword example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:policy/rulePassword:RulePassword")
 public class RulePassword extends com.pulumi.resources.CustomResource {
     /**
-     * Policy Rule Name
+     * Policy Rule Name. Type `&#34;string&#34;`
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Policy Rule Name
+     * @return Policy Rule Name. Type `&#34;string&#34;`
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+     * Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`. Type `&#34;string&#34;`
      * 
      */
     @Export(name="networkConnection", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkConnection;
 
     /**
-     * @return Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+     * @return Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`. Type `&#34;string&#34;`
      * 
      */
     public Output<Optional<String>> networkConnection() {
         return Codegen.optional(this.networkConnection);
     }
     /**
-     * The zones to exclude
+     * The network zones to exclude. Conflicts with `network_includes`. Type `&#34;list(string)&#34;`
      * 
      */
     @Export(name="networkExcludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkExcludes;
 
     /**
-     * @return The zones to exclude
+     * @return The network zones to exclude. Conflicts with `network_includes`. Type `&#34;list(string)&#34;`
      * 
      */
     public Output<Optional<List<String>>> networkExcludes() {
         return Codegen.optional(this.networkExcludes);
     }
     /**
-     * The zones to include
+     * The network zones to include. Conflicts with `network_excludes`. Type `&#34;list(string)&#34;`
      * 
      */
     @Export(name="networkIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkIncludes;
 
     /**
-     * @return The zones to include
+     * @return The network zones to include. Conflicts with `network_excludes`. Type `&#34;list(string)&#34;`
      * 
      */
     public Output<Optional<List<String>>> networkIncludes() {
         return Codegen.optional(this.networkIncludes);
     }
     /**
-     * Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
+     * Allow or deny a user to change their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
      * 
      */
     @Export(name="passwordChange", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> passwordChange;
 
     /**
-     * @return Allow or deny a user to change their password: ALLOW or DENY. Default = ALLOW
+     * @return Allow or deny a user to change their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
      * 
      */
     public Output<Optional<String>> passwordChange() {
         return Codegen.optional(this.passwordChange);
     }
     /**
-     * Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
+     * Allow or deny a user to reset their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
      * 
      */
     @Export(name="passwordReset", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> passwordReset;
 
     /**
-     * @return Allow or deny a user to reset their password: ALLOW or DENY. Default = ALLOW
+     * @return Allow or deny a user to reset their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
      * 
      */
     public Output<Optional<String>> passwordReset() {
         return Codegen.optional(this.passwordReset);
     }
     /**
-     * Allow or deny a user to unlock. Default = DENY
+     * Allow or deny a user to unlock: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;DENY&#34;`, Type `&#34;string&#34;`
      * 
      */
     @Export(name="passwordUnlock", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> passwordUnlock;
 
     /**
-     * @return Allow or deny a user to unlock. Default = DENY
+     * @return Allow or deny a user to unlock: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;DENY&#34;`, Type `&#34;string&#34;`
      * 
      */
     public Output<Optional<String>> passwordUnlock() {
         return Codegen.optional(this.passwordUnlock);
     }
     /**
-     * Policy ID of the Rule
+     * Policy ID.
      * 
      */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyId;
 
     /**
-     * @return Policy ID of the Rule
+     * @return Policy ID.
      * 
      */
     public Output<Optional<String>> policyId() {
         return Codegen.optional(this.policyId);
     }
     /**
-     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `&#34;number&#34;`
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> priority;
 
     /**
-     * @return Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * @return Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `&#34;number&#34;`
      * 
      */
     public Output<Optional<Integer>> priority() {
         return Codegen.optional(this.priority);
     }
     /**
-     * Policy Rule Status: ACTIVE or INACTIVE.
+     * Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Policy Rule Status: ACTIVE or INACTIVE.
+     * @return Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
      * 
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * Set of User IDs to Exclude
+     * The users to exclude. Type `&#34;set(string)&#34;`
      * 
      */
     @Export(name="usersExcludeds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> usersExcludeds;
 
     /**
-     * @return Set of User IDs to Exclude
+     * @return The users to exclude. Type `&#34;set(string)&#34;`
      * 
      */
     public Output<Optional<List<String>>> usersExcludeds() {

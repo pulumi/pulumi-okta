@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get a single users from Okta.
+// Use this data source to retrieve a users from Okta.
 //
 // ## Example Usage
 //
@@ -54,72 +54,98 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
-	// Search operator used when joining mulitple search clauses
+	// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
 	CompoundSearchOperator *string `pulumi:"compoundSearchOperator"`
 	// Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
 	DelayReadSeconds *string `pulumi:"delayReadSeconds"`
-	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
-	Searches []GetUserSearch `pulumi:"searches"`
-	// Do not populate user groups information (prevents additional API call)
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Do not populate user roles information (prevents additional API call)
-	SkipRoles *bool `pulumi:"skipRoles"`
-	// Retrieve a single user based on their id
+	// Map of search criteria. It supports the following properties.
+	Searches   []GetUserSearch `pulumi:"searches"`
+	SkipGroups *bool           `pulumi:"skipGroups"`
+	SkipRoles  *bool           `pulumi:"skipRoles"`
+	// String representing a specific user's id value
 	UserId *string `pulumi:"userId"`
 }
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
 	AdminRoles []string `pulumi:"adminRoles"`
-	City       string   `pulumi:"city"`
-	// Search operator used when joining mulitple search clauses
-	CompoundSearchOperator  *string `pulumi:"compoundSearchOperator"`
-	CostCenter              string  `pulumi:"costCenter"`
-	CountryCode             string  `pulumi:"countryCode"`
+	// City or locality component of user's address.
+	City                   string  `pulumi:"city"`
+	CompoundSearchOperator *string `pulumi:"compoundSearchOperator"`
+	// Name of a cost center assigned to user.
+	CostCenter string `pulumi:"costCenter"`
+	// Country name component of user's address.
+	CountryCode string `pulumi:"countryCode"`
+	// Raw JSON containing all custom profile attributes.
 	CustomProfileAttributes string  `pulumi:"customProfileAttributes"`
-	// Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
-	DelayReadSeconds *string  `pulumi:"delayReadSeconds"`
-	Department       string   `pulumi:"department"`
-	DisplayName      string   `pulumi:"displayName"`
-	Division         string   `pulumi:"division"`
-	Email            string   `pulumi:"email"`
-	EmployeeNumber   string   `pulumi:"employeeNumber"`
+	DelayReadSeconds        *string `pulumi:"delayReadSeconds"`
+	// Name of user's department.
+	Department string `pulumi:"department"`
+	// Name of the user, suitable for display to end users.
+	DisplayName string `pulumi:"displayName"`
+	// Name of user's division.
+	Division string `pulumi:"division"`
+	// Primary email address of user.
+	Email string `pulumi:"email"`
+	// Organization or company assigned unique identifier for the user.
+	EmployeeNumber string `pulumi:"employeeNumber"`
+	// Given name of the user.
 	FirstName        string   `pulumi:"firstName"`
 	GroupMemberships []string `pulumi:"groupMemberships"`
-	HonorificPrefix  string   `pulumi:"honorificPrefix"`
-	HonorificSuffix  string   `pulumi:"honorificSuffix"`
+	// Honorific prefix(es) of the user, or title in most Western languages.
+	HonorificPrefix string `pulumi:"honorificPrefix"`
+	// Honorific suffix(es) of the user.
+	HonorificSuffix string `pulumi:"honorificSuffix"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string   `pulumi:"id"`
-	LastName          string   `pulumi:"lastName"`
-	Locale            string   `pulumi:"locale"`
-	Login             string   `pulumi:"login"`
-	Manager           string   `pulumi:"manager"`
-	ManagerId         string   `pulumi:"managerId"`
-	MiddleName        string   `pulumi:"middleName"`
-	MobilePhone       string   `pulumi:"mobilePhone"`
-	NickName          string   `pulumi:"nickName"`
-	Organization      string   `pulumi:"organization"`
-	PostalAddress     string   `pulumi:"postalAddress"`
-	PreferredLanguage string   `pulumi:"preferredLanguage"`
-	PrimaryPhone      string   `pulumi:"primaryPhone"`
-	ProfileUrl        string   `pulumi:"profileUrl"`
-	Roles             []string `pulumi:"roles"`
-	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
-	Searches    []GetUserSearch `pulumi:"searches"`
-	SecondEmail string          `pulumi:"secondEmail"`
-	// Do not populate user groups information (prevents additional API call)
-	SkipGroups *bool `pulumi:"skipGroups"`
-	// Do not populate user roles information (prevents additional API call)
-	SkipRoles     *bool  `pulumi:"skipRoles"`
-	State         string `pulumi:"state"`
-	Status        string `pulumi:"status"`
+	Id string `pulumi:"id"`
+	// Family name of the user.
+	LastName string `pulumi:"lastName"`
+	// User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
+	Locale string `pulumi:"locale"`
+	// Unique identifier for the user.
+	Login string `pulumi:"login"`
+	// Display name of the user's manager.
+	Manager string `pulumi:"manager"`
+	// `id` of a user's manager.
+	ManagerId string `pulumi:"managerId"`
+	// Middle name(s) of the user.
+	MiddleName string `pulumi:"middleName"`
+	// Mobile phone number of user.
+	MobilePhone string `pulumi:"mobilePhone"`
+	// Casual way to address the user in real life.
+	NickName string `pulumi:"nickName"`
+	// Name of user's organization.
+	Organization string `pulumi:"organization"`
+	// Mailing address component of user's address.
+	PostalAddress string `pulumi:"postalAddress"`
+	// User's preferred written or spoken languages.
+	PreferredLanguage string `pulumi:"preferredLanguage"`
+	// Primary phone number of user such as home number.
+	PrimaryPhone string `pulumi:"primaryPhone"`
+	// URL of user's online profile (e.g. a web page).
+	ProfileUrl string `pulumi:"profileUrl"`
+	// All roles assigned to user.
+	Roles    []string        `pulumi:"roles"`
+	Searches []GetUserSearch `pulumi:"searches"`
+	// Secondary email address of user typically used for account recovery.
+	SecondEmail string `pulumi:"secondEmail"`
+	SkipGroups  *bool  `pulumi:"skipGroups"`
+	SkipRoles   *bool  `pulumi:"skipRoles"`
+	// State or region component of user's address (region).
+	State string `pulumi:"state"`
+	// Current status of user.
+	Status string `pulumi:"status"`
+	// Full street address component of user's address.
 	StreetAddress string `pulumi:"streetAddress"`
-	Timezone      string `pulumi:"timezone"`
-	Title         string `pulumi:"title"`
-	// Retrieve a single user based on their id
-	UserId   *string `pulumi:"userId"`
-	UserType string  `pulumi:"userType"`
-	ZipCode  string  `pulumi:"zipCode"`
+	// User's time zone.
+	Timezone string `pulumi:"timezone"`
+	// User's title, such as "Vice President".
+	Title  string  `pulumi:"title"`
+	UserId *string `pulumi:"userId"`
+	// Used to describe the organization to user relationship such as "Employee" or "Contractor".
+	UserType string `pulumi:"userType"`
+	// Zipcode or postal code component of user's address (postalCode)
+	ZipCode string `pulumi:"zipCode"`
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
@@ -137,17 +163,15 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getUser.
 type LookupUserOutputArgs struct {
-	// Search operator used when joining mulitple search clauses
+	// Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
 	CompoundSearchOperator pulumi.StringPtrInput `pulumi:"compoundSearchOperator"`
 	// Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
 	DelayReadSeconds pulumi.StringPtrInput `pulumi:"delayReadSeconds"`
-	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
-	Searches GetUserSearchArrayInput `pulumi:"searches"`
-	// Do not populate user groups information (prevents additional API call)
-	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
-	// Do not populate user roles information (prevents additional API call)
-	SkipRoles pulumi.BoolPtrInput `pulumi:"skipRoles"`
-	// Retrieve a single user based on their id
+	// Map of search criteria. It supports the following properties.
+	Searches   GetUserSearchArrayInput `pulumi:"searches"`
+	SkipGroups pulumi.BoolPtrInput     `pulumi:"skipGroups"`
+	SkipRoles  pulumi.BoolPtrInput     `pulumi:"skipRoles"`
+	// String representing a specific user's id value
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
 }
 
@@ -174,52 +198,60 @@ func (o LookupUserResultOutput) AdminRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []string { return v.AdminRoles }).(pulumi.StringArrayOutput)
 }
 
+// City or locality component of user's address.
 func (o LookupUserResultOutput) City() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.City }).(pulumi.StringOutput)
 }
 
-// Search operator used when joining mulitple search clauses
 func (o LookupUserResultOutput) CompoundSearchOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.CompoundSearchOperator }).(pulumi.StringPtrOutput)
 }
 
+// Name of a cost center assigned to user.
 func (o LookupUserResultOutput) CostCenter() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.CostCenter }).(pulumi.StringOutput)
 }
 
+// Country name component of user's address.
 func (o LookupUserResultOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
+// Raw JSON containing all custom profile attributes.
 func (o LookupUserResultOutput) CustomProfileAttributes() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.CustomProfileAttributes }).(pulumi.StringOutput)
 }
 
-// Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
 func (o LookupUserResultOutput) DelayReadSeconds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.DelayReadSeconds }).(pulumi.StringPtrOutput)
 }
 
+// Name of user's department.
 func (o LookupUserResultOutput) Department() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Department }).(pulumi.StringOutput)
 }
 
+// Name of the user, suitable for display to end users.
 func (o LookupUserResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// Name of user's division.
 func (o LookupUserResultOutput) Division() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Division }).(pulumi.StringOutput)
 }
 
+// Primary email address of user.
 func (o LookupUserResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Email }).(pulumi.StringOutput)
 }
 
+// Organization or company assigned unique identifier for the user.
 func (o LookupUserResultOutput) EmployeeNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.EmployeeNumber }).(pulumi.StringOutput)
 }
 
+// Given name of the user.
 func (o LookupUserResultOutput) FirstName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.FirstName }).(pulumi.StringOutput)
 }
@@ -228,10 +260,12 @@ func (o LookupUserResultOutput) GroupMemberships() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []string { return v.GroupMemberships }).(pulumi.StringArrayOutput)
 }
 
+// Honorific prefix(es) of the user, or title in most Western languages.
 func (o LookupUserResultOutput) HonorificPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.HonorificPrefix }).(pulumi.StringOutput)
 }
 
+// Honorific suffix(es) of the user.
 func (o LookupUserResultOutput) HonorificSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.HonorificSuffix }).(pulumi.StringOutput)
 }
@@ -241,110 +275,128 @@ func (o LookupUserResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Family name of the user.
 func (o LookupUserResultOutput) LastName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.LastName }).(pulumi.StringOutput)
 }
 
+// User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
 func (o LookupUserResultOutput) Locale() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Locale }).(pulumi.StringOutput)
 }
 
+// Unique identifier for the user.
 func (o LookupUserResultOutput) Login() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Login }).(pulumi.StringOutput)
 }
 
+// Display name of the user's manager.
 func (o LookupUserResultOutput) Manager() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Manager }).(pulumi.StringOutput)
 }
 
+// `id` of a user's manager.
 func (o LookupUserResultOutput) ManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.ManagerId }).(pulumi.StringOutput)
 }
 
+// Middle name(s) of the user.
 func (o LookupUserResultOutput) MiddleName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.MiddleName }).(pulumi.StringOutput)
 }
 
+// Mobile phone number of user.
 func (o LookupUserResultOutput) MobilePhone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.MobilePhone }).(pulumi.StringOutput)
 }
 
+// Casual way to address the user in real life.
 func (o LookupUserResultOutput) NickName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.NickName }).(pulumi.StringOutput)
 }
 
+// Name of user's organization.
 func (o LookupUserResultOutput) Organization() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Organization }).(pulumi.StringOutput)
 }
 
+// Mailing address component of user's address.
 func (o LookupUserResultOutput) PostalAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.PostalAddress }).(pulumi.StringOutput)
 }
 
+// User's preferred written or spoken languages.
 func (o LookupUserResultOutput) PreferredLanguage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.PreferredLanguage }).(pulumi.StringOutput)
 }
 
+// Primary phone number of user such as home number.
 func (o LookupUserResultOutput) PrimaryPhone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.PrimaryPhone }).(pulumi.StringOutput)
 }
 
+// URL of user's online profile (e.g. a web page).
 func (o LookupUserResultOutput) ProfileUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.ProfileUrl }).(pulumi.StringOutput)
 }
 
+// All roles assigned to user.
 func (o LookupUserResultOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
-// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
 func (o LookupUserResultOutput) Searches() GetUserSearchArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []GetUserSearch { return v.Searches }).(GetUserSearchArrayOutput)
 }
 
+// Secondary email address of user typically used for account recovery.
 func (o LookupUserResultOutput) SecondEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.SecondEmail }).(pulumi.StringOutput)
 }
 
-// Do not populate user groups information (prevents additional API call)
 func (o LookupUserResultOutput) SkipGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *bool { return v.SkipGroups }).(pulumi.BoolPtrOutput)
 }
 
-// Do not populate user roles information (prevents additional API call)
 func (o LookupUserResultOutput) SkipRoles() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *bool { return v.SkipRoles }).(pulumi.BoolPtrOutput)
 }
 
+// State or region component of user's address (region).
 func (o LookupUserResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.State }).(pulumi.StringOutput)
 }
 
+// Current status of user.
 func (o LookupUserResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Full street address component of user's address.
 func (o LookupUserResultOutput) StreetAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.StreetAddress }).(pulumi.StringOutput)
 }
 
+// User's time zone.
 func (o LookupUserResultOutput) Timezone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Timezone }).(pulumi.StringOutput)
 }
 
+// User's title, such as "Vice President".
 func (o LookupUserResultOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Title }).(pulumi.StringOutput)
 }
 
-// Retrieve a single user based on their id
 func (o LookupUserResultOutput) UserId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
+// Used to describe the organization to user relationship such as "Employee" or "Contractor".
 func (o LookupUserResultOutput) UserType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.UserType }).(pulumi.StringOutput)
 }
 
+// Zipcode or postal code component of user's address (postalCode)
 func (o LookupUserResultOutput) ZipCode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.ZipCode }).(pulumi.StringOutput)
 }

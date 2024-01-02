@@ -4,6 +4,44 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+ *
+ * This resource allows you to configure different authenticators.
+ *
+ * > **Create:** The Okta API has an odd notion of create for authenticators. If
+ * the authenticator doesn't exist then a one time `POST /api/v1/authenticators` to
+ * create the authenticator (hard create) will be performed. Thereafter, that
+ * authenticator is never deleted, it is only deactivated (soft delete). Therefore,
+ * if the authenticator already exists create is just a soft import of an existing
+ * authenticator.
+ *
+ * > **Delete:** Authenticators can not be truly deleted therefore delete is soft.
+ * Delete will attempt to deativate the authenticator. An authenticator can only be
+ * deactivated if it's not in use by any other policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = new okta.Authenticator("test", {
+ *     key: "security_question",
+ *     settings: JSON.stringify({
+ *         allowedFor: "recovery",
+ *     }),
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Okta authenticator can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/authenticator:Authenticator example &#60;authenticator_id&#62;
+ * ```
+ */
 export class Authenticator extends pulumi.CustomResource {
     /**
      * Get an existing Authenticator resource's state with the given name, ID, and optional extra
@@ -33,23 +71,23 @@ export class Authenticator extends pulumi.CustomResource {
     }
 
     /**
-     * A human-readable string that identifies the Authenticator
+     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * Display name of the Authenticator
+     * Name of the authenticator.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured
+     * The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"securityKey"`.  Conflicts with `providerJson` argument.
      */
     public readonly providerAuthPort!: pulumi.Output<number | undefined>;
     /**
-     * The Duo Security API hostname
+     * (DUO specific) - The Duo Security API hostname". Conflicts with `providerJson` argument.
      */
     public readonly providerHost!: pulumi.Output<string | undefined>;
     /**
-     * Server host name or IP address
+     * Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"securityKey"`.  Conflicts with `providerJson` argument.
      */
     public readonly providerHostname!: pulumi.Output<string | undefined>;
     /**
@@ -57,19 +95,25 @@ export class Authenticator extends pulumi.CustomResource {
      */
     public /*out*/ readonly providerInstanceId!: pulumi.Output<string>;
     /**
-     * The Duo Security integration key
+     * (DUO specific) - The Duo Security integration key.  Conflicts with `providerJson` argument.
      */
     public readonly providerIntegrationKey!: pulumi.Output<string | undefined>;
     /**
-     * Provider in JSON format
+     * Provider JSON allows for expressive provider
+     * values. This argument conflicts with the other `providerXxx` arguments.  The
+     * [Create
+     * Provider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request)
+     * illustrates detailed provider values for a Duo authenticator.  [Provider
+     * values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)
+     * are listed in Okta API.
      */
     public readonly providerJson!: pulumi.Output<string | undefined>;
     /**
-     * The Duo Security secret key
+     * (DUO specific) - The Duo Security secret key.  Conflicts with `providerJson` argument.
      */
     public readonly providerSecretKey!: pulumi.Output<string | undefined>;
     /**
-     * An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server.
+     * An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"securityKey"`.  Conflicts with `providerJson` argument.
      */
     public readonly providerSharedSecret!: pulumi.Output<string | undefined>;
     /**
@@ -77,19 +121,19 @@ export class Authenticator extends pulumi.CustomResource {
      */
     public /*out*/ readonly providerType!: pulumi.Output<string>;
     /**
-     * Format expected by the provider
+     * Username template expected by the provider. Used only for authenticators with type `"securityKey"`.  Conflicts with `providerJson` argument.
      */
     public readonly providerUserNameTemplate!: pulumi.Output<string | undefined>;
     /**
-     * Authenticator settings in JSON format
+     * Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `"securityKey"`.
      */
     public readonly settings!: pulumi.Output<string | undefined>;
     /**
-     * Authenticator status: ACTIVE or INACTIVE
+     * Status of the authenticator. Default is `ACTIVE`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * The type of Authenticator
+     * The type of Authenticator. Values include: `"password"`, `"securityQuestion"`, `"phone"`, `"email"`, `"app"`, `"federated"`, and `"securityKey"`.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -154,23 +198,23 @@ export class Authenticator extends pulumi.CustomResource {
  */
 export interface AuthenticatorState {
     /**
-     * A human-readable string that identifies the Authenticator
+     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
      */
     key?: pulumi.Input<string>;
     /**
-     * Display name of the Authenticator
+     * Name of the authenticator.
      */
     name?: pulumi.Input<string>;
     /**
-     * The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured
+     * The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"securityKey"`.  Conflicts with `providerJson` argument.
      */
     providerAuthPort?: pulumi.Input<number>;
     /**
-     * The Duo Security API hostname
+     * (DUO specific) - The Duo Security API hostname". Conflicts with `providerJson` argument.
      */
     providerHost?: pulumi.Input<string>;
     /**
-     * Server host name or IP address
+     * Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"securityKey"`.  Conflicts with `providerJson` argument.
      */
     providerHostname?: pulumi.Input<string>;
     /**
@@ -178,19 +222,25 @@ export interface AuthenticatorState {
      */
     providerInstanceId?: pulumi.Input<string>;
     /**
-     * The Duo Security integration key
+     * (DUO specific) - The Duo Security integration key.  Conflicts with `providerJson` argument.
      */
     providerIntegrationKey?: pulumi.Input<string>;
     /**
-     * Provider in JSON format
+     * Provider JSON allows for expressive provider
+     * values. This argument conflicts with the other `providerXxx` arguments.  The
+     * [Create
+     * Provider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request)
+     * illustrates detailed provider values for a Duo authenticator.  [Provider
+     * values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)
+     * are listed in Okta API.
      */
     providerJson?: pulumi.Input<string>;
     /**
-     * The Duo Security secret key
+     * (DUO specific) - The Duo Security secret key.  Conflicts with `providerJson` argument.
      */
     providerSecretKey?: pulumi.Input<string>;
     /**
-     * An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server.
+     * An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"securityKey"`.  Conflicts with `providerJson` argument.
      */
     providerSharedSecret?: pulumi.Input<string>;
     /**
@@ -198,19 +248,19 @@ export interface AuthenticatorState {
      */
     providerType?: pulumi.Input<string>;
     /**
-     * Format expected by the provider
+     * Username template expected by the provider. Used only for authenticators with type `"securityKey"`.  Conflicts with `providerJson` argument.
      */
     providerUserNameTemplate?: pulumi.Input<string>;
     /**
-     * Authenticator settings in JSON format
+     * Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `"securityKey"`.
      */
     settings?: pulumi.Input<string>;
     /**
-     * Authenticator status: ACTIVE or INACTIVE
+     * Status of the authenticator. Default is `ACTIVE`.
      */
     status?: pulumi.Input<string>;
     /**
-     * The type of Authenticator
+     * The type of Authenticator. Values include: `"password"`, `"securityQuestion"`, `"phone"`, `"email"`, `"app"`, `"federated"`, and `"securityKey"`.
      */
     type?: pulumi.Input<string>;
 }
@@ -220,51 +270,57 @@ export interface AuthenticatorState {
  */
 export interface AuthenticatorArgs {
     /**
-     * A human-readable string that identifies the Authenticator
+     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
      */
     key: pulumi.Input<string>;
     /**
-     * Display name of the Authenticator
+     * Name of the authenticator.
      */
     name?: pulumi.Input<string>;
     /**
-     * The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured
+     * The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"securityKey"`.  Conflicts with `providerJson` argument.
      */
     providerAuthPort?: pulumi.Input<number>;
     /**
-     * The Duo Security API hostname
+     * (DUO specific) - The Duo Security API hostname". Conflicts with `providerJson` argument.
      */
     providerHost?: pulumi.Input<string>;
     /**
-     * Server host name or IP address
+     * Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"securityKey"`.  Conflicts with `providerJson` argument.
      */
     providerHostname?: pulumi.Input<string>;
     /**
-     * The Duo Security integration key
+     * (DUO specific) - The Duo Security integration key.  Conflicts with `providerJson` argument.
      */
     providerIntegrationKey?: pulumi.Input<string>;
     /**
-     * Provider in JSON format
+     * Provider JSON allows for expressive provider
+     * values. This argument conflicts with the other `providerXxx` arguments.  The
+     * [Create
+     * Provider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request)
+     * illustrates detailed provider values for a Duo authenticator.  [Provider
+     * values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)
+     * are listed in Okta API.
      */
     providerJson?: pulumi.Input<string>;
     /**
-     * The Duo Security secret key
+     * (DUO specific) - The Duo Security secret key.  Conflicts with `providerJson` argument.
      */
     providerSecretKey?: pulumi.Input<string>;
     /**
-     * An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server.
+     * An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"securityKey"`.  Conflicts with `providerJson` argument.
      */
     providerSharedSecret?: pulumi.Input<string>;
     /**
-     * Format expected by the provider
+     * Username template expected by the provider. Used only for authenticators with type `"securityKey"`.  Conflicts with `providerJson` argument.
      */
     providerUserNameTemplate?: pulumi.Input<string>;
     /**
-     * Authenticator settings in JSON format
+     * Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `"securityKey"`.
      */
     settings?: pulumi.Input<string>;
     /**
-     * Authenticator status: ACTIVE or INACTIVE
+     * Status of the authenticator. Default is `ACTIVE`.
      */
     status?: pulumi.Input<string>;
 }

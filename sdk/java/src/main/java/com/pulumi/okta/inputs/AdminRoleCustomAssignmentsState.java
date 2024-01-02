@@ -17,14 +17,14 @@ public final class AdminRoleCustomAssignmentsState extends com.pulumi.resources.
     public static final AdminRoleCustomAssignmentsState Empty = new AdminRoleCustomAssignmentsState();
 
     /**
-     * ID of the Custom Role
+     * ID of the Custom Role.
      * 
      */
     @Import(name="customRoleId")
     private @Nullable Output<String> customRoleId;
 
     /**
-     * @return ID of the Custom Role
+     * @return ID of the Custom Role.
      * 
      */
     public Optional<Output<String>> customRoleId() {
@@ -32,14 +32,16 @@ public final class AdminRoleCustomAssignmentsState extends com.pulumi.resources.
     }
 
     /**
-     * The hrefs that point to User(s) and/or Group(s) that receive the Role
+     * The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+     * permission must be specified when creating custom role.
      * 
      */
     @Import(name="members")
     private @Nullable Output<List<String>> members;
 
     /**
-     * @return The hrefs that point to User(s) and/or Group(s) that receive the Role
+     * @return The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+     * permission must be specified when creating custom role.
      * 
      */
     public Optional<Output<List<String>>> members() {
@@ -47,14 +49,14 @@ public final class AdminRoleCustomAssignmentsState extends com.pulumi.resources.
     }
 
     /**
-     * ID of the target Resource Set
+     * ID of the target Resource Set.
      * 
      */
     @Import(name="resourceSetId")
     private @Nullable Output<String> resourceSetId;
 
     /**
-     * @return ID of the target Resource Set
+     * @return ID of the target Resource Set.
      * 
      */
     public Optional<Output<String>> resourceSetId() {
@@ -88,7 +90,7 @@ public final class AdminRoleCustomAssignmentsState extends com.pulumi.resources.
         }
 
         /**
-         * @param customRoleId ID of the Custom Role
+         * @param customRoleId ID of the Custom Role.
          * 
          * @return builder
          * 
@@ -99,7 +101,7 @@ public final class AdminRoleCustomAssignmentsState extends com.pulumi.resources.
         }
 
         /**
-         * @param customRoleId ID of the Custom Role
+         * @param customRoleId ID of the Custom Role.
          * 
          * @return builder
          * 
@@ -109,7 +111,8 @@ public final class AdminRoleCustomAssignmentsState extends com.pulumi.resources.
         }
 
         /**
-         * @param members The hrefs that point to User(s) and/or Group(s) that receive the Role
+         * @param members The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+         * permission must be specified when creating custom role.
          * 
          * @return builder
          * 
@@ -120,7 +123,8 @@ public final class AdminRoleCustomAssignmentsState extends com.pulumi.resources.
         }
 
         /**
-         * @param members The hrefs that point to User(s) and/or Group(s) that receive the Role
+         * @param members The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+         * permission must be specified when creating custom role.
          * 
          * @return builder
          * 
@@ -130,7 +134,8 @@ public final class AdminRoleCustomAssignmentsState extends com.pulumi.resources.
         }
 
         /**
-         * @param members The hrefs that point to User(s) and/or Group(s) that receive the Role
+         * @param members The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
+         * permission must be specified when creating custom role.
          * 
          * @return builder
          * 
@@ -140,7 +145,7 @@ public final class AdminRoleCustomAssignmentsState extends com.pulumi.resources.
         }
 
         /**
-         * @param resourceSetId ID of the target Resource Set
+         * @param resourceSetId ID of the target Resource Set.
          * 
          * @return builder
          * 
@@ -151,7 +156,7 @@ public final class AdminRoleCustomAssignmentsState extends com.pulumi.resources.
         }
 
         /**
-         * @param resourceSetId ID of the target Resource Set
+         * @param resourceSetId ID of the target Resource Set.
          * 
          * @return builder
          * 

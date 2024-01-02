@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get a list of authorization server claims from Okta.
+// Use this data source to retrieve a list of authorization server claims from Okta.
 //
 // ## Example Usage
 //
@@ -50,15 +50,14 @@ func GetAuthServerClaims(ctx *pulumi.Context, args *GetAuthServerClaimsArgs, opt
 
 // A collection of arguments for invoking getAuthServerClaims.
 type GetAuthServerClaimsArgs struct {
-	// Auth server ID
+	// Auth server ID.
 	AuthServerId string `pulumi:"authServerId"`
 }
 
 // A collection of values returned by getAuthServerClaims.
 type GetAuthServerClaimsResult struct {
-	// Auth server ID
 	AuthServerId string `pulumi:"authServerId"`
-	// Collection of authorization server claims retrieved from Okta with the following properties.
+	// collection of authorization server claims retrieved from Okta with the following properties.
 	Claims []GetAuthServerClaimsClaim `pulumi:"claims"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -79,7 +78,7 @@ func GetAuthServerClaimsOutput(ctx *pulumi.Context, args GetAuthServerClaimsOutp
 
 // A collection of arguments for invoking getAuthServerClaims.
 type GetAuthServerClaimsOutputArgs struct {
-	// Auth server ID
+	// Auth server ID.
 	AuthServerId pulumi.StringInput `pulumi:"authServerId"`
 }
 
@@ -102,12 +101,11 @@ func (o GetAuthServerClaimsResultOutput) ToGetAuthServerClaimsResultOutputWithCo
 	return o
 }
 
-// Auth server ID
 func (o GetAuthServerClaimsResultOutput) AuthServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimsResult) string { return v.AuthServerId }).(pulumi.StringOutput)
 }
 
-// Collection of authorization server claims retrieved from Okta with the following properties.
+// collection of authorization server claims retrieved from Okta with the following properties.
 func (o GetAuthServerClaimsResultOutput) Claims() GetAuthServerClaimsClaimArrayOutput {
 	return o.ApplyT(func(v GetAuthServerClaimsResult) []GetAuthServerClaimsClaim { return v.Claims }).(GetAuthServerClaimsClaimArrayOutput)
 }

@@ -12,12 +12,74 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+//
+// This resource allows you to manage the apps in the Profile Enrollment Policy.
+//
+// **Important Notes:**
+//   - Default Enrollment Policy can not be used in this resource since it is used as a policy to re-assign apps to when they are unassigned from this one.
+//   - When re-assigning the app to another policy, please use `dependsOn` in the policy to which the app will be assigned. This is necessary to avoid
+//     unexpected behavior, since if the app is unassigned from the policy it is just assigned to the `Default` one.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := policy.GetPolicy(ctx, &policy.GetPolicyArgs{
+//				Name: "My Policy",
+//				Type: "PROFILE_ENROLLMENT",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = app.GetApp(ctx, &app.GetAppArgs{
+//				Label: pulumi.StringRef("My App"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewPolicyProfileEnrollmentApps(ctx, "examplePolicyProfileEnrollmentApps", &okta.PolicyProfileEnrollmentAppsArgs{
+//				PolicyId: pulumi.Any(okta_policy.Example.Id),
+//				Apps: pulumi.StringArray{
+//					data.Okta_app.Id,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// A Profile Enrollment Policy Apps can be imported via the Okta ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &#60;policy id&#62;
+//
+// ```
 type PolicyProfileEnrollmentApps struct {
 	pulumi.CustomResourceState
 
-	// List of app IDs to be added to this policy
+	// List of app IDs to be added to this policy.
 	Apps pulumi.StringArrayOutput `pulumi:"apps"`
-	// ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
+	// ID of the default enrollment policy.
 	DefaultPolicyId pulumi.StringOutput `pulumi:"defaultPolicyId"`
 	// ID of the enrollment policy.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
@@ -56,18 +118,18 @@ func GetPolicyProfileEnrollmentApps(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyProfileEnrollmentApps resources.
 type policyProfileEnrollmentAppsState struct {
-	// List of app IDs to be added to this policy
+	// List of app IDs to be added to this policy.
 	Apps []string `pulumi:"apps"`
-	// ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
+	// ID of the default enrollment policy.
 	DefaultPolicyId *string `pulumi:"defaultPolicyId"`
 	// ID of the enrollment policy.
 	PolicyId *string `pulumi:"policyId"`
 }
 
 type PolicyProfileEnrollmentAppsState struct {
-	// List of app IDs to be added to this policy
+	// List of app IDs to be added to this policy.
 	Apps pulumi.StringArrayInput
-	// ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
+	// ID of the default enrollment policy.
 	DefaultPolicyId pulumi.StringPtrInput
 	// ID of the enrollment policy.
 	PolicyId pulumi.StringPtrInput
@@ -78,7 +140,7 @@ func (PolicyProfileEnrollmentAppsState) ElementType() reflect.Type {
 }
 
 type policyProfileEnrollmentAppsArgs struct {
-	// List of app IDs to be added to this policy
+	// List of app IDs to be added to this policy.
 	Apps []string `pulumi:"apps"`
 	// ID of the enrollment policy.
 	PolicyId string `pulumi:"policyId"`
@@ -86,7 +148,7 @@ type policyProfileEnrollmentAppsArgs struct {
 
 // The set of arguments for constructing a PolicyProfileEnrollmentApps resource.
 type PolicyProfileEnrollmentAppsArgs struct {
-	// List of app IDs to be added to this policy
+	// List of app IDs to be added to this policy.
 	Apps pulumi.StringArrayInput
 	// ID of the enrollment policy.
 	PolicyId pulumi.StringInput
@@ -179,12 +241,12 @@ func (o PolicyProfileEnrollmentAppsOutput) ToPolicyProfileEnrollmentAppsOutputWi
 	return o
 }
 
-// List of app IDs to be added to this policy
+// List of app IDs to be added to this policy.
 func (o PolicyProfileEnrollmentAppsOutput) Apps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyProfileEnrollmentApps) pulumi.StringArrayOutput { return v.Apps }).(pulumi.StringArrayOutput)
 }
 
-// ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
+// ID of the default enrollment policy.
 func (o PolicyProfileEnrollmentAppsOutput) DefaultPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyProfileEnrollmentApps) pulumi.StringOutput { return v.DefaultPolicyId }).(pulumi.StringOutput)
 }

@@ -6,6 +6,43 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Creates an event hook.
+ *
+ * This resource allows you to create and configure an event hook.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.EventHook("example", {
+ *     auth: {
+ *         key: "Authorization",
+ *         type: "HEADER",
+ *         value: "123",
+ *     },
+ *     channel: {
+ *         type: "HTTP",
+ *         uri: "https://example.com/test",
+ *         version: "1.0.0",
+ *     },
+ *     events: [
+ *         "user.lifecycle.create",
+ *         "user.lifecycle.delete.initiated",
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An event hook can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:index/eventHook:EventHook example &#60;hook id&#62;
+ * ```
+ */
 export class EventHook extends pulumi.CustomResource {
     /**
      * Get an existing EventHook resource's state with the given name, ID, and optional extra

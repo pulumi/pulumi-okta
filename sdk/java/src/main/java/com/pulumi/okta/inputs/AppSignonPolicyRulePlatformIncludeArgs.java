@@ -16,30 +16,46 @@ public final class AppSignonPolicyRulePlatformIncludeArgs extends com.pulumi.res
     public static final AppSignonPolicyRulePlatformIncludeArgs Empty = new AppSignonPolicyRulePlatformIncludeArgs();
 
     /**
-     * Only available with OTHER OS type
+     * Only available and required when using `os_type = &#34;OTHER&#34;`
      * 
      */
     @Import(name="osExpression")
     private @Nullable Output<String> osExpression;
 
     /**
-     * @return Only available with OTHER OS type
+     * @return Only available and required when using `os_type = &#34;OTHER&#34;`
      * 
      */
     public Optional<Output<String>> osExpression() {
         return Optional.ofNullable(this.osExpression);
     }
 
+    /**
+     * One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`
+     * 
+     */
     @Import(name="osType")
     private @Nullable Output<String> osType;
 
+    /**
+     * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`
+     * 
+     */
     public Optional<Output<String>> osType() {
         return Optional.ofNullable(this.osType);
     }
 
+    /**
+     * The Verification Method type. It can be set to `&#34;ASSURANCE&#34;`. Default is `&#34;ASSURANCE&#34;`.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return The Verification Method type. It can be set to `&#34;ASSURANCE&#34;`. Default is `&#34;ASSURANCE&#34;`.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -71,7 +87,7 @@ public final class AppSignonPolicyRulePlatformIncludeArgs extends com.pulumi.res
         }
 
         /**
-         * @param osExpression Only available with OTHER OS type
+         * @param osExpression Only available and required when using `os_type = &#34;OTHER&#34;`
          * 
          * @return builder
          * 
@@ -82,7 +98,7 @@ public final class AppSignonPolicyRulePlatformIncludeArgs extends com.pulumi.res
         }
 
         /**
-         * @param osExpression Only available with OTHER OS type
+         * @param osExpression Only available and required when using `os_type = &#34;OTHER&#34;`
          * 
          * @return builder
          * 
@@ -91,20 +107,44 @@ public final class AppSignonPolicyRulePlatformIncludeArgs extends com.pulumi.res
             return osExpression(Output.of(osExpression));
         }
 
+        /**
+         * @param osType One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`
+         * 
+         * @return builder
+         * 
+         */
         public Builder osType(@Nullable Output<String> osType) {
             $.osType = osType;
             return this;
         }
 
+        /**
+         * @param osType One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`
+         * 
+         * @return builder
+         * 
+         */
         public Builder osType(String osType) {
             return osType(Output.of(osType));
         }
 
+        /**
+         * @param type The Verification Method type. It can be set to `&#34;ASSURANCE&#34;`. Default is `&#34;ASSURANCE&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The Verification Method type. It can be set to `&#34;ASSURANCE&#34;`. Default is `&#34;ASSURANCE&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

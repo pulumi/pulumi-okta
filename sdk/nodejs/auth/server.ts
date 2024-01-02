@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Creates an Authorization Server.
+ *
+ * This resource allows you to create and configure an Authorization Server.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.auth.Server("example", {
+ *     audiences: ["api://example"],
+ *     description: "My Example Auth Server",
+ *     issuerMode: "CUSTOM_URL",
+ *     status: "ACTIVE",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Authorization Server can be imported via the Okta ID.
+ *
+ * ```sh
+ *  $ pulumi import okta:auth/server:Server example &#60;auth server id&#62;
+ * ```
+ */
 export class Server extends pulumi.CustomResource {
     /**
      * Get an existing Server resource's state with the given name, ID, and optional extra
@@ -33,7 +60,7 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
-     * Currently Okta only supports a single value here
+     * The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
      */
     public readonly audiences!: pulumi.Output<string[]>;
     /**
@@ -41,11 +68,11 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly credentialsLastRotated!: pulumi.Output<string>;
     /**
-     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
+     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `"AUTO"`.
      */
     public /*out*/ readonly credentialsNextRotation!: pulumi.Output<string>;
     /**
-     * Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
+     * The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
      */
     public readonly credentialsRotationMode!: pulumi.Output<string | undefined>;
     /**
@@ -53,11 +80,11 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * allows you to use a custom issuer URL
+     * The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
      */
     public /*out*/ readonly issuer!: pulumi.Output<string>;
     /**
-     * *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
+     * Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
      */
     public readonly issuerMode!: pulumi.Output<string | undefined>;
     /**
@@ -68,6 +95,9 @@ export class Server extends pulumi.CustomResource {
      * The name of the authorization server.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The status of the auth server. It defaults to `"ACTIVE"`
+     */
     public readonly status!: pulumi.Output<string | undefined>;
 
     /**
@@ -119,7 +149,7 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerState {
     /**
-     * Currently Okta only supports a single value here
+     * The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
      */
     audiences?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -127,11 +157,11 @@ export interface ServerState {
      */
     credentialsLastRotated?: pulumi.Input<string>;
     /**
-     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
+     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `"AUTO"`.
      */
     credentialsNextRotation?: pulumi.Input<string>;
     /**
-     * Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
+     * The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
      */
     credentialsRotationMode?: pulumi.Input<string>;
     /**
@@ -139,11 +169,11 @@ export interface ServerState {
      */
     description?: pulumi.Input<string>;
     /**
-     * allows you to use a custom issuer URL
+     * The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
      */
     issuer?: pulumi.Input<string>;
     /**
-     * *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
+     * Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
      */
     issuerMode?: pulumi.Input<string>;
     /**
@@ -154,6 +184,9 @@ export interface ServerState {
      * The name of the authorization server.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The status of the auth server. It defaults to `"ACTIVE"`
+     */
     status?: pulumi.Input<string>;
 }
 
@@ -162,11 +195,11 @@ export interface ServerState {
  */
 export interface ServerArgs {
     /**
-     * Currently Okta only supports a single value here
+     * The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
      */
     audiences: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
+     * The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
      */
     credentialsRotationMode?: pulumi.Input<string>;
     /**
@@ -174,12 +207,15 @@ export interface ServerArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * *Early Access Property*. Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL
+     * Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
      */
     issuerMode?: pulumi.Input<string>;
     /**
      * The name of the authorization server.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The status of the auth server. It defaults to `"ACTIVE"`
+     */
     status?: pulumi.Input<string>;
 }

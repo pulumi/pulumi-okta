@@ -13,12 +13,13 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OAuthGroupsClaim {
     /**
-     * @return Groups claim filter. Can only be set if type is FILTER.
+     * @return Groups claim filter. Can only be set if type is `&#34;FILTER&#34;`. Valid values: `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
      * 
      */
     private @Nullable String filterType;
     /**
-     * @return Issuer mode inherited from OAuth App
+     * @return Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+     * Valid values: `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`. Default is `&#34;ORG_URL&#34;`.
      * 
      */
     private @Nullable String issuerMode;
@@ -28,7 +29,7 @@ public final class OAuthGroupsClaim {
      */
     private String name;
     /**
-     * @return Groups claim type.
+     * @return The type of OAuth application. Valid values: `&#34;web&#34;`, `&#34;native&#34;`, `&#34;browser&#34;`, `&#34;service&#34;`. For SPA apps use `browser`.
      * 
      */
     private String type;
@@ -40,14 +41,15 @@ public final class OAuthGroupsClaim {
 
     private OAuthGroupsClaim() {}
     /**
-     * @return Groups claim filter. Can only be set if type is FILTER.
+     * @return Groups claim filter. Can only be set if type is `&#34;FILTER&#34;`. Valid values: `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
      * 
      */
     public Optional<String> filterType() {
         return Optional.ofNullable(this.filterType);
     }
     /**
-     * @return Issuer mode inherited from OAuth App
+     * @return Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
+     * Valid values: `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`. Default is `&#34;ORG_URL&#34;`.
      * 
      */
     public Optional<String> issuerMode() {
@@ -61,7 +63,7 @@ public final class OAuthGroupsClaim {
         return this.name;
     }
     /**
-     * @return Groups claim type.
+     * @return The type of OAuth application. Valid values: `&#34;web&#34;`, `&#34;native&#34;`, `&#34;browser&#34;`, `&#34;service&#34;`. For SPA apps use `browser`.
      * 
      */
     public String type() {

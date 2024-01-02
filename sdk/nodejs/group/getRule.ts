@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Get a group rule from Okta.
+ * Use this data source to retrieve a group rule from Okta.
  *
  * ## Example Usage
  *
@@ -34,13 +34,16 @@ export function getRule(args?: GetRuleArgs, opts?: pulumi.InvokeOptions): Promis
  */
 export interface GetRuleArgs {
     /**
-     * The ID of the Group Rule.
+     * The ID of the group rule to retrieve.
      */
     id?: string;
     /**
-     * The name of the Group Rule.
+     * The name of the Group Rule to retrieve.
      */
     name?: string;
+    /**
+     * The status of the group rule.
+     */
     status?: string;
 }
 
@@ -68,6 +71,9 @@ export interface GetRuleResult {
      * The name of the Group Rule.
      */
     readonly name?: string;
+    /**
+     * The status of the group rule.
+     */
     readonly status?: string;
     /**
      * The list of user IDs that would be excluded when rules are processed.
@@ -75,7 +81,7 @@ export interface GetRuleResult {
     readonly usersExcludeds: string[];
 }
 /**
- * Get a group rule from Okta.
+ * Use this data source to retrieve a group rule from Okta.
  *
  * ## Example Usage
  *
@@ -97,12 +103,15 @@ export function getRuleOutput(args?: GetRuleOutputArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetRuleOutputArgs {
     /**
-     * The ID of the Group Rule.
+     * The ID of the group rule to retrieve.
      */
     id?: pulumi.Input<string>;
     /**
-     * The name of the Group Rule.
+     * The name of the Group Rule to retrieve.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The status of the group rule.
+     */
     status?: pulumi.Input<string>;
 }

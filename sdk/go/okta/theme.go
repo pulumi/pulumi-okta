@@ -12,42 +12,57 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to get and update an Okta
+// [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-object).
+//
+// The Okta Management API does not have a true Create or Delete for a theme. Therefore, the theme resource must be imported
+// first into the pulumi state before updates can be applied to the theme.
+//
+// ## Import
+//
+// An Okta Brand can be imported via the ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:index/theme:Theme example &#60;brand id&#62;/&#60;theme id&#62;
+//
+// ```
 type Theme struct {
 	pulumi.CustomResourceState
 
-	// Path to local file
+	// (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
 	BackgroundImage pulumi.StringPtrOutput `pulumi:"backgroundImage"`
-	// Background image URL
+	// (Read-Only) Background image URL
 	BackgroundImageUrl pulumi.StringOutput `pulumi:"backgroundImageUrl"`
 	// Brand ID
 	BrandId pulumi.StringOutput `pulumi:"brandId"`
-	// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+	// (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
 	EmailTemplateTouchPointVariant pulumi.StringPtrOutput `pulumi:"emailTemplateTouchPointVariant"`
-	// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+	// (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
 	EndUserDashboardTouchPointVariant pulumi.StringPtrOutput `pulumi:"endUserDashboardTouchPointVariant"`
-	// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	// (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	ErrorPageTouchPointVariant pulumi.StringPtrOutput `pulumi:"errorPageTouchPointVariant"`
-	// Path to local file
+	// (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
 	Favicon pulumi.StringPtrOutput `pulumi:"favicon"`
-	// Favicon URL
+	// (Read-Only) Favicon URL
 	FaviconUrl pulumi.StringOutput `pulumi:"faviconUrl"`
-	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
+	// Link relations for this object - JSON HAL - (Read-Only) Discoverable resources related to the brand
 	Links pulumi.StringOutput `pulumi:"links"`
-	// Path to local file
+	// (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
-	// Logo URL
+	// (Read-Only) Logo URL
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
-	// Primary color contrast hex code
+	// (Optional) Primary color contrast hex code
 	PrimaryColorContrastHex pulumi.StringPtrOutput `pulumi:"primaryColorContrastHex"`
-	// Primary color hex code
+	// (Required) Primary color hex code
 	PrimaryColorHex pulumi.StringPtrOutput `pulumi:"primaryColorHex"`
-	// Secondary color contrast hex code
+	// (Optional) Secondary color contrast hex code
 	SecondaryColorContrastHex pulumi.StringPtrOutput `pulumi:"secondaryColorContrastHex"`
-	// Secondary color hex code
+	// (Required) Secondary color hex code
 	SecondaryColorHex pulumi.StringPtrOutput `pulumi:"secondaryColorHex"`
-	// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	// (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	SignInPageTouchPointVariant pulumi.StringPtrOutput `pulumi:"signInPageTouchPointVariant"`
-	// Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
+	// Theme ID, used for read (faux-create)
 	ThemeId pulumi.StringPtrOutput `pulumi:"themeId"`
 }
 
@@ -84,76 +99,76 @@ func GetTheme(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Theme resources.
 type themeState struct {
-	// Path to local file
+	// (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
 	BackgroundImage *string `pulumi:"backgroundImage"`
-	// Background image URL
+	// (Read-Only) Background image URL
 	BackgroundImageUrl *string `pulumi:"backgroundImageUrl"`
 	// Brand ID
 	BrandId *string `pulumi:"brandId"`
-	// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+	// (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
 	EmailTemplateTouchPointVariant *string `pulumi:"emailTemplateTouchPointVariant"`
-	// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+	// (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
 	EndUserDashboardTouchPointVariant *string `pulumi:"endUserDashboardTouchPointVariant"`
-	// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	// (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	ErrorPageTouchPointVariant *string `pulumi:"errorPageTouchPointVariant"`
-	// Path to local file
+	// (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
 	Favicon *string `pulumi:"favicon"`
-	// Favicon URL
+	// (Read-Only) Favicon URL
 	FaviconUrl *string `pulumi:"faviconUrl"`
-	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
+	// Link relations for this object - JSON HAL - (Read-Only) Discoverable resources related to the brand
 	Links *string `pulumi:"links"`
-	// Path to local file
+	// (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
 	Logo *string `pulumi:"logo"`
-	// Logo URL
+	// (Read-Only) Logo URL
 	LogoUrl *string `pulumi:"logoUrl"`
-	// Primary color contrast hex code
+	// (Optional) Primary color contrast hex code
 	PrimaryColorContrastHex *string `pulumi:"primaryColorContrastHex"`
-	// Primary color hex code
+	// (Required) Primary color hex code
 	PrimaryColorHex *string `pulumi:"primaryColorHex"`
-	// Secondary color contrast hex code
+	// (Optional) Secondary color contrast hex code
 	SecondaryColorContrastHex *string `pulumi:"secondaryColorContrastHex"`
-	// Secondary color hex code
+	// (Required) Secondary color hex code
 	SecondaryColorHex *string `pulumi:"secondaryColorHex"`
-	// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	// (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	SignInPageTouchPointVariant *string `pulumi:"signInPageTouchPointVariant"`
-	// Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
+	// Theme ID, used for read (faux-create)
 	ThemeId *string `pulumi:"themeId"`
 }
 
 type ThemeState struct {
-	// Path to local file
+	// (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
 	BackgroundImage pulumi.StringPtrInput
-	// Background image URL
+	// (Read-Only) Background image URL
 	BackgroundImageUrl pulumi.StringPtrInput
 	// Brand ID
 	BrandId pulumi.StringPtrInput
-	// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+	// (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
 	EmailTemplateTouchPointVariant pulumi.StringPtrInput
-	// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+	// (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
 	EndUserDashboardTouchPointVariant pulumi.StringPtrInput
-	// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	// (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	ErrorPageTouchPointVariant pulumi.StringPtrInput
-	// Path to local file
+	// (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
 	Favicon pulumi.StringPtrInput
-	// Favicon URL
+	// (Read-Only) Favicon URL
 	FaviconUrl pulumi.StringPtrInput
-	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
+	// Link relations for this object - JSON HAL - (Read-Only) Discoverable resources related to the brand
 	Links pulumi.StringPtrInput
-	// Path to local file
+	// (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
 	Logo pulumi.StringPtrInput
-	// Logo URL
+	// (Read-Only) Logo URL
 	LogoUrl pulumi.StringPtrInput
-	// Primary color contrast hex code
+	// (Optional) Primary color contrast hex code
 	PrimaryColorContrastHex pulumi.StringPtrInput
-	// Primary color hex code
+	// (Required) Primary color hex code
 	PrimaryColorHex pulumi.StringPtrInput
-	// Secondary color contrast hex code
+	// (Optional) Secondary color contrast hex code
 	SecondaryColorContrastHex pulumi.StringPtrInput
-	// Secondary color hex code
+	// (Required) Secondary color hex code
 	SecondaryColorHex pulumi.StringPtrInput
-	// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	// (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	SignInPageTouchPointVariant pulumi.StringPtrInput
-	// Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
+	// Theme ID, used for read (faux-create)
 	ThemeId pulumi.StringPtrInput
 }
 
@@ -162,61 +177,61 @@ func (ThemeState) ElementType() reflect.Type {
 }
 
 type themeArgs struct {
-	// Path to local file
+	// (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
 	BackgroundImage *string `pulumi:"backgroundImage"`
 	// Brand ID
 	BrandId string `pulumi:"brandId"`
-	// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+	// (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
 	EmailTemplateTouchPointVariant *string `pulumi:"emailTemplateTouchPointVariant"`
-	// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+	// (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
 	EndUserDashboardTouchPointVariant *string `pulumi:"endUserDashboardTouchPointVariant"`
-	// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	// (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	ErrorPageTouchPointVariant *string `pulumi:"errorPageTouchPointVariant"`
-	// Path to local file
+	// (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
 	Favicon *string `pulumi:"favicon"`
-	// Path to local file
+	// (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
 	Logo *string `pulumi:"logo"`
-	// Primary color contrast hex code
+	// (Optional) Primary color contrast hex code
 	PrimaryColorContrastHex *string `pulumi:"primaryColorContrastHex"`
-	// Primary color hex code
+	// (Required) Primary color hex code
 	PrimaryColorHex *string `pulumi:"primaryColorHex"`
-	// Secondary color contrast hex code
+	// (Optional) Secondary color contrast hex code
 	SecondaryColorContrastHex *string `pulumi:"secondaryColorContrastHex"`
-	// Secondary color hex code
+	// (Required) Secondary color hex code
 	SecondaryColorHex *string `pulumi:"secondaryColorHex"`
-	// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	// (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	SignInPageTouchPointVariant *string `pulumi:"signInPageTouchPointVariant"`
-	// Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
+	// Theme ID, used for read (faux-create)
 	ThemeId *string `pulumi:"themeId"`
 }
 
 // The set of arguments for constructing a Theme resource.
 type ThemeArgs struct {
-	// Path to local file
+	// (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
 	BackgroundImage pulumi.StringPtrInput
 	// Brand ID
 	BrandId pulumi.StringInput
-	// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+	// (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
 	EmailTemplateTouchPointVariant pulumi.StringPtrInput
-	// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+	// (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
 	EndUserDashboardTouchPointVariant pulumi.StringPtrInput
-	// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	// (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	ErrorPageTouchPointVariant pulumi.StringPtrInput
-	// Path to local file
+	// (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
 	Favicon pulumi.StringPtrInput
-	// Path to local file
+	// (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
 	Logo pulumi.StringPtrInput
-	// Primary color contrast hex code
+	// (Optional) Primary color contrast hex code
 	PrimaryColorContrastHex pulumi.StringPtrInput
-	// Primary color hex code
+	// (Required) Primary color hex code
 	PrimaryColorHex pulumi.StringPtrInput
-	// Secondary color contrast hex code
+	// (Optional) Secondary color contrast hex code
 	SecondaryColorContrastHex pulumi.StringPtrInput
-	// Secondary color hex code
+	// (Required) Secondary color hex code
 	SecondaryColorHex pulumi.StringPtrInput
-	// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	// (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 	SignInPageTouchPointVariant pulumi.StringPtrInput
-	// Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
+	// Theme ID, used for read (faux-create)
 	ThemeId pulumi.StringPtrInput
 }
 
@@ -307,12 +322,12 @@ func (o ThemeOutput) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 	return o
 }
 
-// Path to local file
+// (Optional) Local path to background image file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
 func (o ThemeOutput) BackgroundImage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.BackgroundImage }).(pulumi.StringPtrOutput)
 }
 
-// Background image URL
+// (Read-Only) Background image URL
 func (o ThemeOutput) BackgroundImageUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.BackgroundImageUrl }).(pulumi.StringOutput)
 }
@@ -322,72 +337,72 @@ func (o ThemeOutput) BrandId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.BrandId }).(pulumi.StringOutput)
 }
 
-// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+// (Required) Variant for email templates. Valid values: (`OKTA_DEFAULT`, `FULL_THEME`)
 func (o ThemeOutput) EmailTemplateTouchPointVariant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.EmailTemplateTouchPointVariant }).(pulumi.StringPtrOutput)
 }
 
-// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+// (Required) Variant for the Okta End-User Dashboard. Valid values: (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
 func (o ThemeOutput) EndUserDashboardTouchPointVariant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.EndUserDashboardTouchPointVariant }).(pulumi.StringPtrOutput)
 }
 
-// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+// (Required) Variant for the error page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 func (o ThemeOutput) ErrorPageTouchPointVariant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.ErrorPageTouchPointVariant }).(pulumi.StringPtrOutput)
 }
 
-// Path to local file
+// (Optional) Local path to favicon file. Setting the value to the blank string `""` will delete the favicon on the theme at Okta but will not delete the local file.
 func (o ThemeOutput) Favicon() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.Favicon }).(pulumi.StringPtrOutput)
 }
 
-// Favicon URL
+// (Read-Only) Favicon URL
 func (o ThemeOutput) FaviconUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.FaviconUrl }).(pulumi.StringOutput)
 }
 
-// Link relations for this object - JSON HAL - Discoverable resources related to the email template
+// Link relations for this object - JSON HAL - (Read-Only) Discoverable resources related to the brand
 func (o ThemeOutput) Links() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Links }).(pulumi.StringOutput)
 }
 
-// Path to local file
+// (Optional) Local path to logo file. Setting the value to the blank string `""` will delete the logo on the theme at Okta but will not delete the local file.
 func (o ThemeOutput) Logo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
 }
 
-// Logo URL
+// (Read-Only) Logo URL
 func (o ThemeOutput) LogoUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
 }
 
-// Primary color contrast hex code
+// (Optional) Primary color contrast hex code
 func (o ThemeOutput) PrimaryColorContrastHex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.PrimaryColorContrastHex }).(pulumi.StringPtrOutput)
 }
 
-// Primary color hex code
+// (Required) Primary color hex code
 func (o ThemeOutput) PrimaryColorHex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.PrimaryColorHex }).(pulumi.StringPtrOutput)
 }
 
-// Secondary color contrast hex code
+// (Optional) Secondary color contrast hex code
 func (o ThemeOutput) SecondaryColorContrastHex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.SecondaryColorContrastHex }).(pulumi.StringPtrOutput)
 }
 
-// Secondary color hex code
+// (Required) Secondary color hex code
 func (o ThemeOutput) SecondaryColorHex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.SecondaryColorHex }).(pulumi.StringPtrOutput)
 }
 
-// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+// (Required) Variant for the Okta Sign-In Page. Valid values: (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 func (o ThemeOutput) SignInPageTouchPointVariant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.SignInPageTouchPointVariant }).(pulumi.StringPtrOutput)
 }
 
-// Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
+// Theme ID, used for read (faux-create)
 func (o ThemeOutput) ThemeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.ThemeId }).(pulumi.StringPtrOutput)
 }

@@ -16,14 +16,14 @@ public final class GetBehavioursArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetBehavioursArgs Empty = new GetBehavioursArgs();
 
     /**
-     * Searches the name property of behaviors for matching value
+     * Searches query to look up behaviors.
      * 
      */
     @Import(name="q")
     private @Nullable Output<String> q;
 
     /**
-     * @return Searches the name property of behaviors for matching value
+     * @return Searches query to look up behaviors.
      * 
      */
     public Optional<Output<String>> q() {
@@ -55,7 +55,7 @@ public final class GetBehavioursArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param q Searches the name property of behaviors for matching value
+         * @param q Searches query to look up behaviors.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class GetBehavioursArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param q Searches the name property of behaviors for matching value
+         * @param q Searches query to look up behaviors.
          * 
          * @return builder
          * 

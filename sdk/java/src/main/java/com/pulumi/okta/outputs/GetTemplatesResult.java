@@ -12,13 +12,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTemplatesResult {
-    /**
-     * @return Brand ID
-     * 
-     */
     private String brandId;
     /**
-     * @return List of `okta.getTemplate` belonging to a brand in the organization
+     * @return List of `okta.getTemplate` belonging to the brand
      * 
      */
     private List<GetTemplatesEmailTemplate> emailTemplates;
@@ -29,15 +25,11 @@ public final class GetTemplatesResult {
     private String id;
 
     private GetTemplatesResult() {}
-    /**
-     * @return Brand ID
-     * 
-     */
     public String brandId() {
         return this.brandId;
     }
     /**
-     * @return List of `okta.getTemplate` belonging to a brand in the organization
+     * @return List of `okta.getTemplate` belonging to the brand
      * 
      */
     public List<GetTemplatesEmailTemplate> emailTemplates() {

@@ -12,13 +12,17 @@ namespace Pulumi.Okta
     public static class GetEmailCustomization
     {
         /// <summary>
-        /// Get the email customization of an email template belonging to a brand in an Okta organization.
+        /// Use this data source to retrieve the [email
+        /// customization](https://developer.okta.com/docs/reference/api/brands/#get-email-customization)
+        /// of an email template belonging to a brand in an Okta organization.
         /// </summary>
         public static Task<GetEmailCustomizationResult> InvokeAsync(GetEmailCustomizationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmailCustomizationResult>("okta:index/getEmailCustomization:getEmailCustomization", args ?? new GetEmailCustomizationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get the email customization of an email template belonging to a brand in an Okta organization.
+        /// Use this data source to retrieve the [email
+        /// customization](https://developer.okta.com/docs/reference/api/brands/#get-email-customization)
+        /// of an email template belonging to a brand in an Okta organization.
         /// </summary>
         public static Output<GetEmailCustomizationResult> Invoke(GetEmailCustomizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailCustomizationResult>("okta:index/getEmailCustomization:getEmailCustomization", args ?? new GetEmailCustomizationInvokeArgs(), options.WithDefaults());
@@ -34,7 +38,7 @@ namespace Pulumi.Okta
         public string BrandId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the customization
+        /// Customization ID
         /// </summary>
         [Input("customizationId", required: true)]
         public string CustomizationId { get; set; } = null!;
@@ -60,7 +64,7 @@ namespace Pulumi.Okta
         public Input<string> BrandId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the customization
+        /// Customization ID
         /// </summary>
         [Input("customizationId", required: true)]
         public Input<string> CustomizationId { get; set; } = null!;
@@ -85,16 +89,10 @@ namespace Pulumi.Okta
         /// The body of the customization
         /// </summary>
         public readonly string Body;
-        /// <summary>
-        /// Brand ID
-        /// </summary>
         public readonly string BrandId;
-        /// <summary>
-        /// The ID of the customization
-        /// </summary>
         public readonly string CustomizationId;
         /// <summary>
-        /// The ID of the customization
+        /// Customization ID
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -113,9 +111,6 @@ namespace Pulumi.Okta
         /// The subject of the customization
         /// </summary>
         public readonly string Subject;
-        /// <summary>
-        /// Template Name
-        /// </summary>
         public readonly string TemplateName;
 
         [OutputConstructor]

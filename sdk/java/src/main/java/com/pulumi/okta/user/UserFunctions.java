@@ -23,7 +23,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class UserFunctions {
     /**
-     * Get a single users from Okta.
+     * Use this data source to retrieve a users from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -62,7 +62,7 @@ public final class UserFunctions {
         return getUser(GetUserArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a single users from Okta.
+     * Use this data source to retrieve a users from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -101,7 +101,7 @@ public final class UserFunctions {
         return getUserPlain(GetUserPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a single users from Okta.
+     * Use this data source to retrieve a users from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -140,7 +140,7 @@ public final class UserFunctions {
         return getUser(args, InvokeOptions.Empty);
     }
     /**
-     * Get a single users from Okta.
+     * Use this data source to retrieve a users from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -179,7 +179,7 @@ public final class UserFunctions {
         return getUserPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a single users from Okta.
+     * Use this data source to retrieve a users from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -218,7 +218,7 @@ public final class UserFunctions {
         return Deployment.getInstance().invoke("okta:user/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a single users from Okta.
+     * Use this data source to retrieve a users from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -257,10 +257,9 @@ public final class UserFunctions {
         return Deployment.getInstance().invokeAsync("okta:user/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get the base user Profile Mapping source or target from Okta.
+     * Use this data source to retrieve the base user Profile Mapping source or target from Okta.
      * 
-     * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource
-     * requires `okta.profileMappings.read` scope.
+     * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
      * 
      * ## Example Usage
      * ```java
@@ -294,10 +293,9 @@ public final class UserFunctions {
         return getUserProfileMappingSource(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get the base user Profile Mapping source or target from Okta.
+     * Use this data source to retrieve the base user Profile Mapping source or target from Okta.
      * 
-     * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource
-     * requires `okta.profileMappings.read` scope.
+     * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
      * 
      * ## Example Usage
      * ```java
@@ -331,10 +329,9 @@ public final class UserFunctions {
         return getUserProfileMappingSourcePlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get the base user Profile Mapping source or target from Okta.
+     * Use this data source to retrieve the base user Profile Mapping source or target from Okta.
      * 
-     * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource
-     * requires `okta.profileMappings.read` scope.
+     * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
      * 
      * ## Example Usage
      * ```java
@@ -368,10 +365,9 @@ public final class UserFunctions {
         return getUserProfileMappingSource(args, InvokeOptions.Empty);
     }
     /**
-     * Get the base user Profile Mapping source or target from Okta.
+     * Use this data source to retrieve the base user Profile Mapping source or target from Okta.
      * 
-     * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource
-     * requires `okta.profileMappings.read` scope.
+     * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
      * 
      * ## Example Usage
      * ```java
@@ -405,10 +401,9 @@ public final class UserFunctions {
         return getUserProfileMappingSourcePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get the base user Profile Mapping source or target from Okta.
+     * Use this data source to retrieve the base user Profile Mapping source or target from Okta.
      * 
-     * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource
-     * requires `okta.profileMappings.read` scope.
+     * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
      * 
      * ## Example Usage
      * ```java
@@ -442,10 +437,9 @@ public final class UserFunctions {
         return Deployment.getInstance().invoke("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", TypeShape.of(GetUserProfileMappingSourceResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get the base user Profile Mapping source or target from Okta.
+     * Use this data source to retrieve the base user Profile Mapping source or target from Okta.
      * 
-     * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource
-     * requires `okta.profileMappings.read` scope.
+     * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
      * 
      * ## Example Usage
      * ```java
@@ -479,7 +473,7 @@ public final class UserFunctions {
         return Deployment.getInstance().invokeAsync("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", TypeShape.of(GetUserProfileMappingSourceResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a user type from Okta.
+     * Use this data source to retrieve a user type from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -516,7 +510,7 @@ public final class UserFunctions {
         return getUserType(args, InvokeOptions.Empty);
     }
     /**
-     * Get a user type from Okta.
+     * Use this data source to retrieve a user type from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -553,7 +547,7 @@ public final class UserFunctions {
         return getUserTypePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a user type from Okta.
+     * Use this data source to retrieve a user type from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -590,7 +584,7 @@ public final class UserFunctions {
         return Deployment.getInstance().invoke("okta:user/getUserType:getUserType", TypeShape.of(GetUserTypeResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a user type from Okta.
+     * Use this data source to retrieve a user type from Okta.
      * 
      * ## Example Usage
      * ```java
@@ -627,156 +621,444 @@ public final class UserFunctions {
         return Deployment.getInstance().invokeAsync("okta:user/getUserType:getUserType", TypeShape.of(GetUserTypeResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a list of users from Okta.
+     * Use this data source to retrieve a list of users from Okta.
      * 
      * ## Example Usage
-     * 
      * ### Lookup Users by Search Criteria
+     * ```java
+     * package generated_program;
      * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     name       = &#34;profile.company&#34;
-     *     value      = &#34;Articulate&#34;
-     *     comparison = &#34;sw&#34;
-     *   }
-     * }
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
-     * # Search for multiple users based on a raw search expression string
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     expression = &#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;
-     *   }
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
+     *             .searches(GetUsersSearchArgs.builder()
+     *                 .expression(&#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
      * }
+     * ```
+     * ### Lookup Users by Group Membership
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.group.Group;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+     * 
+     *         final var exampleUsers = UserFunctions.getUsers(GetUsersArgs.builder()
+     *             .groupId(exampleGroup.id())
+     *             .includeGroups(true)
+     *             .includeRoles(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetUsersResult> getUsers() {
         return getUsers(GetUsersArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a list of users from Okta.
+     * Use this data source to retrieve a list of users from Okta.
      * 
      * ## Example Usage
-     * 
      * ### Lookup Users by Search Criteria
+     * ```java
+     * package generated_program;
      * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     name       = &#34;profile.company&#34;
-     *     value      = &#34;Articulate&#34;
-     *     comparison = &#34;sw&#34;
-     *   }
-     * }
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
-     * # Search for multiple users based on a raw search expression string
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     expression = &#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;
-     *   }
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
+     *             .searches(GetUsersSearchArgs.builder()
+     *                 .expression(&#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
      * }
+     * ```
+     * ### Lookup Users by Group Membership
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.group.Group;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+     * 
+     *         final var exampleUsers = UserFunctions.getUsers(GetUsersArgs.builder()
+     *             .groupId(exampleGroup.id())
+     *             .includeGroups(true)
+     *             .includeRoles(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain() {
         return getUsersPlain(GetUsersPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a list of users from Okta.
+     * Use this data source to retrieve a list of users from Okta.
      * 
      * ## Example Usage
-     * 
      * ### Lookup Users by Search Criteria
+     * ```java
+     * package generated_program;
      * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     name       = &#34;profile.company&#34;
-     *     value      = &#34;Articulate&#34;
-     *     comparison = &#34;sw&#34;
-     *   }
-     * }
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
-     * # Search for multiple users based on a raw search expression string
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     expression = &#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;
-     *   }
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
+     *             .searches(GetUsersSearchArgs.builder()
+     *                 .expression(&#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
      * }
+     * ```
+     * ### Lookup Users by Group Membership
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.group.Group;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+     * 
+     *         final var exampleUsers = UserFunctions.getUsers(GetUsersArgs.builder()
+     *             .groupId(exampleGroup.id())
+     *             .includeGroups(true)
+     *             .includeRoles(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args) {
         return getUsers(args, InvokeOptions.Empty);
     }
     /**
-     * Get a list of users from Okta.
+     * Use this data source to retrieve a list of users from Okta.
      * 
      * ## Example Usage
-     * 
      * ### Lookup Users by Search Criteria
+     * ```java
+     * package generated_program;
      * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     name       = &#34;profile.company&#34;
-     *     value      = &#34;Articulate&#34;
-     *     comparison = &#34;sw&#34;
-     *   }
-     * }
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
-     * # Search for multiple users based on a raw search expression string
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     expression = &#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;
-     *   }
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
+     *             .searches(GetUsersSearchArgs.builder()
+     *                 .expression(&#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
      * }
+     * ```
+     * ### Lookup Users by Group Membership
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.group.Group;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+     * 
+     *         final var exampleUsers = UserFunctions.getUsers(GetUsersArgs.builder()
+     *             .groupId(exampleGroup.id())
+     *             .includeGroups(true)
+     *             .includeRoles(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args) {
         return getUsersPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a list of users from Okta.
+     * Use this data source to retrieve a list of users from Okta.
      * 
      * ## Example Usage
-     * 
      * ### Lookup Users by Search Criteria
+     * ```java
+     * package generated_program;
      * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     name       = &#34;profile.company&#34;
-     *     value      = &#34;Articulate&#34;
-     *     comparison = &#34;sw&#34;
-     *   }
-     * }
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
-     * # Search for multiple users based on a raw search expression string
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     expression = &#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;
-     *   }
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
+     *             .searches(GetUsersSearchArgs.builder()
+     *                 .expression(&#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
      * }
+     * ```
+     * ### Lookup Users by Group Membership
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.group.Group;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+     * 
+     *         final var exampleUsers = UserFunctions.getUsers(GetUsersArgs.builder()
+     *             .groupId(exampleGroup.id())
+     *             .includeGroups(true)
+     *             .includeRoles(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:user/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a list of users from Okta.
+     * Use this data source to retrieve a list of users from Okta.
      * 
      * ## Example Usage
-     * 
      * ### Lookup Users by Search Criteria
+     * ```java
+     * package generated_program;
      * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     name       = &#34;profile.company&#34;
-     *     value      = &#34;Articulate&#34;
-     *     comparison = &#34;sw&#34;
-     *   }
-     * }
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
-     * # Search for multiple users based on a raw search expression string
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     expression = &#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;
-     *   }
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
+     *             .searches(GetUsersSearchArgs.builder()
+     *                 .expression(&#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
      * }
+     * ```
+     * ### Lookup Users by Group Membership
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.group.Group;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+     * 
+     *         final var exampleUsers = UserFunctions.getUsers(GetUsersArgs.builder()
+     *             .groupId(exampleGroup.id())
+     *             .includeGroups(true)
+     *             .includeRoles(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {

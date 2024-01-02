@@ -11,10 +11,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrandResult {
-    /**
-     * @return Brand ID
-     * 
-     */
     private String brandId;
     /**
      * @return Custom privacy policy URL
@@ -22,7 +18,7 @@ public final class GetBrandResult {
      */
     private String customPrivacyPolicyUrl;
     /**
-     * @return The ID of the Brand
+     * @return Brand ID
      * 
      */
     private String id;
@@ -37,16 +33,12 @@ public final class GetBrandResult {
      */
     private String name;
     /**
-     * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+     * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
      */
     private Boolean removePoweredByOkta;
 
     private GetBrandResult() {}
-    /**
-     * @return Brand ID
-     * 
-     */
     public String brandId() {
         return this.brandId;
     }
@@ -58,7 +50,7 @@ public final class GetBrandResult {
         return this.customPrivacyPolicyUrl;
     }
     /**
-     * @return The ID of the Brand
+     * @return Brand ID
      * 
      */
     public String id() {
@@ -79,7 +71,7 @@ public final class GetBrandResult {
         return this.name;
     }
     /**
-     * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+     * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page, and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
      * 
      */
     public Boolean removePoweredByOkta() {

@@ -34,14 +34,14 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Auth server ID
+     * Auth Server ID.
      * 
      */
     @Import(name="authServerId", required=true)
     private Output<String> authServerId;
 
     /**
-     * @return Auth server ID
+     * @return Auth Server ID.
      * 
      */
     public Output<String> authServerId() {
@@ -49,14 +49,18 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Accepted grant type values: authorization*code, implicit, password, client*credentials
+     * Accepted grant type values, `&#34;authorization_code&#34;`, `&#34;implicit&#34;`, `&#34;password&#34;`, `&#34;client_credentials&#34;`,
+     * `&#34;urn:ietf:params:oauth:grant-type:saml2-bearer&#34;` (*Early Access Property*), `&#34;urn:ietf:params:oauth:grant-type:token-exchange&#34;` (*Early Access Property*),
+     * `&#34;urn:ietf:params:oauth:grant-type:device_code&#34;` (*Early Access Property*), `&#34;interaction_code&#34;` (*OIE only*). For `&#34;implicit&#34;` value either `user_whitelist` or `group_whitelist` should be set.
      * 
      */
     @Import(name="grantTypeWhitelists", required=true)
     private Output<List<String>> grantTypeWhitelists;
 
     /**
-     * @return Accepted grant type values: authorization*code, implicit, password, client*credentials
+     * @return Accepted grant type values, `&#34;authorization_code&#34;`, `&#34;implicit&#34;`, `&#34;password&#34;`, `&#34;client_credentials&#34;`,
+     * `&#34;urn:ietf:params:oauth:grant-type:saml2-bearer&#34;` (*Early Access Property*), `&#34;urn:ietf:params:oauth:grant-type:token-exchange&#34;` (*Early Access Property*),
+     * `&#34;urn:ietf:params:oauth:grant-type:device_code&#34;` (*Early Access Property*), `&#34;interaction_code&#34;` (*OIE only*). For `&#34;implicit&#34;` value either `user_whitelist` or `group_whitelist` should be set.
      * 
      */
     public Output<List<String>> grantTypeWhitelists() {
@@ -79,14 +83,14 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
+     * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `&#34;EVERYONE&#34;`.
      * 
      */
     @Import(name="groupWhitelists")
     private @Nullable Output<List<String>> groupWhitelists;
 
     /**
-     * @return Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
+     * @return Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `&#34;EVERYONE&#34;`.
      * 
      */
     public Optional<Output<List<String>>> groupWhitelists() {
@@ -109,14 +113,14 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Auth server policy rule name
+     * Auth Server Policy Rule name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Auth server policy rule name
+     * @return Auth Server Policy Rule name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -124,14 +128,14 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Auth server policy ID
+     * Auth Server Policy ID.
      * 
      */
     @Import(name="policyId", required=true)
     private Output<String> policyId;
 
     /**
-     * @return Auth server policy ID
+     * @return Auth Server Policy ID.
      * 
      */
     public Output<String> policyId() {
@@ -139,14 +143,14 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Priority of the auth server policy rule
+     * Priority of the auth server policy rule.
      * 
      */
     @Import(name="priority", required=true)
     private Output<Integer> priority;
 
     /**
-     * @return Priority of the auth server policy rule
+     * @return Priority of the auth server policy rule.
      * 
      */
     public Output<Integer> priority() {
@@ -169,14 +173,16 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
+     * `&#34;refresh_token_window_minutes&#34;` must be between `&#34;access_token_lifetime_minutes&#34;` and `&#34;refresh_token_lifetime_minutes&#34;`.
      * 
      */
     @Import(name="refreshTokenWindowMinutes")
     private @Nullable Output<Integer> refreshTokenWindowMinutes;
 
     /**
-     * @return Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+     * @return Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
+     * `&#34;refresh_token_window_minutes&#34;` must be between `&#34;access_token_lifetime_minutes&#34;` and `&#34;refresh_token_lifetime_minutes&#34;`.
      * 
      */
     public Optional<Output<Integer>> refreshTokenWindowMinutes() {
@@ -184,36 +190,44 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
+     * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `&#34;*&#34;`.
      * 
      */
     @Import(name="scopeWhitelists")
     private @Nullable Output<List<String>> scopeWhitelists;
 
     /**
-     * @return Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
+     * @return Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `&#34;*&#34;`.
      * 
      */
     public Optional<Output<List<String>>> scopeWhitelists() {
         return Optional.ofNullable(this.scopeWhitelists);
     }
 
+    /**
+     * The status of the Auth Server Policy Rule.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return The status of the Auth Server Policy Rule.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
     /**
-     * Auth server policy rule type, unlikely this will be anything other then the default
+     * The type of the Auth Server Policy Rule.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Auth server policy rule type, unlikely this will be anything other then the default
+     * @return The type of the Auth Server Policy Rule.
      * 
      */
     public Optional<Output<String>> type() {
@@ -311,7 +325,7 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authServerId Auth server ID
+         * @param authServerId Auth Server ID.
          * 
          * @return builder
          * 
@@ -322,7 +336,7 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authServerId Auth server ID
+         * @param authServerId Auth Server ID.
          * 
          * @return builder
          * 
@@ -332,7 +346,9 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param grantTypeWhitelists Accepted grant type values: authorization*code, implicit, password, client*credentials
+         * @param grantTypeWhitelists Accepted grant type values, `&#34;authorization_code&#34;`, `&#34;implicit&#34;`, `&#34;password&#34;`, `&#34;client_credentials&#34;`,
+         * `&#34;urn:ietf:params:oauth:grant-type:saml2-bearer&#34;` (*Early Access Property*), `&#34;urn:ietf:params:oauth:grant-type:token-exchange&#34;` (*Early Access Property*),
+         * `&#34;urn:ietf:params:oauth:grant-type:device_code&#34;` (*Early Access Property*), `&#34;interaction_code&#34;` (*OIE only*). For `&#34;implicit&#34;` value either `user_whitelist` or `group_whitelist` should be set.
          * 
          * @return builder
          * 
@@ -343,7 +359,9 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param grantTypeWhitelists Accepted grant type values: authorization*code, implicit, password, client*credentials
+         * @param grantTypeWhitelists Accepted grant type values, `&#34;authorization_code&#34;`, `&#34;implicit&#34;`, `&#34;password&#34;`, `&#34;client_credentials&#34;`,
+         * `&#34;urn:ietf:params:oauth:grant-type:saml2-bearer&#34;` (*Early Access Property*), `&#34;urn:ietf:params:oauth:grant-type:token-exchange&#34;` (*Early Access Property*),
+         * `&#34;urn:ietf:params:oauth:grant-type:device_code&#34;` (*Early Access Property*), `&#34;interaction_code&#34;` (*OIE only*). For `&#34;implicit&#34;` value either `user_whitelist` or `group_whitelist` should be set.
          * 
          * @return builder
          * 
@@ -353,7 +371,9 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param grantTypeWhitelists Accepted grant type values: authorization*code, implicit, password, client*credentials
+         * @param grantTypeWhitelists Accepted grant type values, `&#34;authorization_code&#34;`, `&#34;implicit&#34;`, `&#34;password&#34;`, `&#34;client_credentials&#34;`,
+         * `&#34;urn:ietf:params:oauth:grant-type:saml2-bearer&#34;` (*Early Access Property*), `&#34;urn:ietf:params:oauth:grant-type:token-exchange&#34;` (*Early Access Property*),
+         * `&#34;urn:ietf:params:oauth:grant-type:device_code&#34;` (*Early Access Property*), `&#34;interaction_code&#34;` (*OIE only*). For `&#34;implicit&#34;` value either `user_whitelist` or `group_whitelist` should be set.
          * 
          * @return builder
          * 
@@ -394,7 +414,7 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groupWhitelists Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
+         * @param groupWhitelists Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `&#34;EVERYONE&#34;`.
          * 
          * @return builder
          * 
@@ -405,7 +425,7 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groupWhitelists Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
+         * @param groupWhitelists Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `&#34;EVERYONE&#34;`.
          * 
          * @return builder
          * 
@@ -415,7 +435,7 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groupWhitelists Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
+         * @param groupWhitelists Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `&#34;EVERYONE&#34;`.
          * 
          * @return builder
          * 
@@ -446,7 +466,7 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Auth server policy rule name
+         * @param name Auth Server Policy Rule name.
          * 
          * @return builder
          * 
@@ -457,7 +477,7 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Auth server policy rule name
+         * @param name Auth Server Policy Rule name.
          * 
          * @return builder
          * 
@@ -467,7 +487,7 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param policyId Auth server policy ID
+         * @param policyId Auth Server Policy ID.
          * 
          * @return builder
          * 
@@ -478,7 +498,7 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param policyId Auth server policy ID
+         * @param policyId Auth Server Policy ID.
          * 
          * @return builder
          * 
@@ -488,7 +508,7 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param priority Priority of the auth server policy rule
+         * @param priority Priority of the auth server policy rule.
          * 
          * @return builder
          * 
@@ -499,7 +519,7 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param priority Priority of the auth server policy rule
+         * @param priority Priority of the auth server policy rule.
          * 
          * @return builder
          * 
@@ -530,7 +550,8 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param refreshTokenWindowMinutes Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+         * @param refreshTokenWindowMinutes Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
+         * `&#34;refresh_token_window_minutes&#34;` must be between `&#34;access_token_lifetime_minutes&#34;` and `&#34;refresh_token_lifetime_minutes&#34;`.
          * 
          * @return builder
          * 
@@ -541,7 +562,8 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param refreshTokenWindowMinutes Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+         * @param refreshTokenWindowMinutes Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
+         * `&#34;refresh_token_window_minutes&#34;` must be between `&#34;access_token_lifetime_minutes&#34;` and `&#34;refresh_token_lifetime_minutes&#34;`.
          * 
          * @return builder
          * 
@@ -551,7 +573,7 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scopeWhitelists Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
+         * @param scopeWhitelists Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `&#34;*&#34;`.
          * 
          * @return builder
          * 
@@ -562,7 +584,7 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scopeWhitelists Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
+         * @param scopeWhitelists Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `&#34;*&#34;`.
          * 
          * @return builder
          * 
@@ -572,7 +594,7 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scopeWhitelists Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
+         * @param scopeWhitelists Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `&#34;*&#34;`.
          * 
          * @return builder
          * 
@@ -581,17 +603,29 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
             return scopeWhitelists(List.of(scopeWhitelists));
         }
 
+        /**
+         * @param status The status of the Auth Server Policy Rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status The status of the Auth Server Policy Rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
         /**
-         * @param type Auth server policy rule type, unlikely this will be anything other then the default
+         * @param type The type of the Auth Server Policy Rule.
          * 
          * @return builder
          * 
@@ -602,7 +636,7 @@ public final class ServerPolicyRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type Auth server policy rule type, unlikely this will be anything other then the default
+         * @param type The type of the Auth Server Policy Rule.
          * 
          * @return builder
          * 

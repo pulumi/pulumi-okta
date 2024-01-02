@@ -15,31 +15,120 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+ * 
+ * This resource allows you to configure which parts of the authentication flow requires users to pass the CAPTCHA logic.
+ * CAPTCHA org-wide settings can be disabled by unsetting `captcha_id` and `enabled_for`.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.Captcha;
+ * import com.pulumi.okta.CaptchaArgs;
+ * import com.pulumi.okta.CaptchaOrgWideSettings;
+ * import com.pulumi.okta.CaptchaOrgWideSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleCaptcha = new Captcha(&#34;exampleCaptcha&#34;, CaptchaArgs.builder()        
+ *             .type(&#34;HCAPTCHA&#34;)
+ *             .siteKey(&#34;some_key&#34;)
+ *             .secretKey(&#34;some_secret_key&#34;)
+ *             .build());
+ * 
+ *         var exampleCaptchaOrgWideSettings = new CaptchaOrgWideSettings(&#34;exampleCaptchaOrgWideSettings&#34;, CaptchaOrgWideSettingsArgs.builder()        
+ *             .captchaId(okta_captcha.test().id())
+ *             .enabledFors(&#34;SSR&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * The following example disables org-wide CAPTCHA.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.Captcha;
+ * import com.pulumi.okta.CaptchaArgs;
+ * import com.pulumi.okta.CaptchaOrgWideSettings;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleCaptcha = new Captcha(&#34;exampleCaptcha&#34;, CaptchaArgs.builder()        
+ *             .secretKey(&#34;some_secret_key&#34;)
+ *             .siteKey(&#34;some_key&#34;)
+ *             .type(&#34;HCAPTCHA&#34;)
+ *             .build());
+ * 
+ *         var exampleCaptchaOrgWideSettings = new CaptchaOrgWideSettings(&#34;exampleCaptchaOrgWideSettings&#34;);
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Org-Wide CAPTCHA settings can be imported without any parameters.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings")
 public class CaptchaOrgWideSettings extends com.pulumi.resources.CustomResource {
     /**
-     * ID of the CAPTCHA
+     * The ID of the CAPTCHA.
      * 
      */
     @Export(name="captchaId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> captchaId;
 
     /**
-     * @return ID of the CAPTCHA
+     * @return The ID of the CAPTCHA.
      * 
      */
     public Output<Optional<String>> captchaId() {
         return Codegen.optional(this.captchaId);
     }
     /**
-     * Set of pages that have CAPTCHA enabled
+     * Array of pages that have CAPTCHA enabled. Valid values: `&#34;SSR&#34;`, `&#34;SSPR&#34;` and `&#34;SIGN_IN&#34;`.
      * 
      */
     @Export(name="enabledFors", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> enabledFors;
 
     /**
-     * @return Set of pages that have CAPTCHA enabled
+     * @return Array of pages that have CAPTCHA enabled. Valid values: `&#34;SSR&#34;`, `&#34;SSPR&#34;` and `&#34;SIGN_IN&#34;`.
      * 
      */
     public Output<Optional<List<String>>> enabledFors() {

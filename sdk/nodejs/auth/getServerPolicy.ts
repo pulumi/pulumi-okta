@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Get an authorization server policy from Okta.
+ * Use this data source to retrieve an authorization server policy from Okta.
  *
  * ## Example Usage
  *
@@ -33,11 +33,11 @@ export function getServerPolicy(args: GetServerPolicyArgs, opts?: pulumi.InvokeO
  */
 export interface GetServerPolicyArgs {
     /**
-     * Auth server ID
+     * The ID of the Auth Server.
      */
     authServerId: string;
     /**
-     * Name of the policy
+     * Name of policy to retrieve.
      */
     name: string;
 }
@@ -47,32 +47,26 @@ export interface GetServerPolicyArgs {
  */
 export interface GetServerPolicyResult {
     /**
-     * List of clients this policy is assigned to. `[ALL_CLIENTS]` is a special value when policy is assigned to all clients.
+     * list of clients this policy is assigned to. `["ALL_CLIENTS"]` is a special value when policy is assigned to all clients.
      */
     readonly assignedClients: string[];
-    /**
-     * Auth server ID
-     */
     readonly authServerId: string;
     /**
-     * Description of authorization server policy.
+     * description of authorization server policy.
      */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Name of the policy
-     */
     readonly name: string;
     /**
-     * Priority of the auth server policy
+     * the priority of the Auth Server Policy.
      */
     readonly priority: number;
 }
 /**
- * Get an authorization server policy from Okta.
+ * Use this data source to retrieve an authorization server policy from Okta.
  *
  * ## Example Usage
  *
@@ -95,11 +89,11 @@ export function getServerPolicyOutput(args: GetServerPolicyOutputArgs, opts?: pu
  */
 export interface GetServerPolicyOutputArgs {
     /**
-     * Auth server ID
+     * The ID of the Auth Server.
      */
     authServerId: pulumi.Input<string>;
     /**
-     * Name of the policy
+     * Name of policy to retrieve.
      */
     name: pulumi.Input<string>;
 }

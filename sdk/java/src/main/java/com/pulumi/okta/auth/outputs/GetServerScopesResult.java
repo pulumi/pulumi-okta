@@ -12,10 +12,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServerScopesResult {
-    /**
-     * @return Auth server ID
-     * 
-     */
     private String authServerId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -23,16 +19,12 @@ public final class GetServerScopesResult {
      */
     private String id;
     /**
-     * @return Collection of authorization server scopes retrieved from Okta with the following properties.
+     * @return collection of authorization server scopes retrieved from Okta with the following properties.
      * 
      */
     private List<GetServerScopesScope> scopes;
 
     private GetServerScopesResult() {}
-    /**
-     * @return Auth server ID
-     * 
-     */
     public String authServerId() {
         return this.authServerId;
     }
@@ -44,7 +36,7 @@ public final class GetServerScopesResult {
         return this.id;
     }
     /**
-     * @return Collection of authorization server scopes retrieved from Okta with the following properties.
+     * @return collection of authorization server scopes retrieved from Okta with the following properties.
      * 
      */
     public List<GetServerScopesScope> scopes() {

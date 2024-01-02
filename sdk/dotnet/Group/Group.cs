@@ -9,23 +9,78 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Group
 {
+    /// <summary>
+    /// Creates an Okta Group.
+    /// 
+    /// This resource allows you to create and configure an Okta Group.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.Group.Group("example", new()
+    ///     {
+    ///         Description = "My Example Group",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Custom profile attributes
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.Group.Group("example", new()
+    ///     {
+    ///         Description = "My Example Group",
+    ///         CustomProfileAttributes = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["example1"] = "testing1234",
+    ///             ["example2"] = true,
+    ///             ["example3"] = 54321,
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An Okta Group can be imported via the Okta ID.
+    /// 
+    /// ```sh
+    ///  $ pulumi import okta:group/group:Group example &amp;#60;group id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:group/group:Group")]
     public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
+        /// raw JSON containing all custom profile attributes.
         /// </summary>
         [Output("customProfileAttributes")]
         public Output<string?> CustomProfileAttributes { get; private set; } = null!;
 
         /// <summary>
-        /// Group description
+        /// The description of the Okta Group.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Group name
+        /// The name of the Okta Group.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -83,19 +138,19 @@ namespace Pulumi.Okta.Group
     public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
+        /// raw JSON containing all custom profile attributes.
         /// </summary>
         [Input("customProfileAttributes")]
         public Input<string>? CustomProfileAttributes { get; set; }
 
         /// <summary>
-        /// Group description
+        /// The description of the Okta Group.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Group name
+        /// The name of the Okta Group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -115,19 +170,19 @@ namespace Pulumi.Okta.Group
     public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
+        /// raw JSON containing all custom profile attributes.
         /// </summary>
         [Input("customProfileAttributes")]
         public Input<string>? CustomProfileAttributes { get; set; }
 
         /// <summary>
-        /// Group description
+        /// The description of the Okta Group.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Group name
+        /// The name of the Okta Group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

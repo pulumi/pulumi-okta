@@ -18,14 +18,14 @@ public final class AppGroupAssignmentsGroupArgs extends com.pulumi.resources.Res
     public static final AppGroupAssignmentsGroupArgs Empty = new AppGroupAssignmentsGroupArgs();
 
     /**
-     * A group to associate with the application
+     * ID of the group to assign.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return A group to associate with the application
+     * @return ID of the group to assign.
      * 
      */
     public Output<String> id() {
@@ -89,7 +89,7 @@ public final class AppGroupAssignmentsGroupArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param id A group to associate with the application
+         * @param id ID of the group to assign.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AppGroupAssignmentsGroupArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param id A group to associate with the application
+         * @param id ID of the group to assign.
          * 
          * @return builder
          * 

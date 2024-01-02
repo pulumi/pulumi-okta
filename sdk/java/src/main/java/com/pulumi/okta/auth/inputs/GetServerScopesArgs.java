@@ -15,14 +15,14 @@ public final class GetServerScopesArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetServerScopesArgs Empty = new GetServerScopesArgs();
 
     /**
-     * Auth server ID
+     * Auth server ID.
      * 
      */
     @Import(name="authServerId", required=true)
     private Output<String> authServerId;
 
     /**
-     * @return Auth server ID
+     * @return Auth server ID.
      * 
      */
     public Output<String> authServerId() {
@@ -54,7 +54,7 @@ public final class GetServerScopesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param authServerId Auth server ID
+         * @param authServerId Auth server ID.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GetServerScopesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param authServerId Auth server ID
+         * @param authServerId Auth server ID.
          * 
          * @return builder
          * 

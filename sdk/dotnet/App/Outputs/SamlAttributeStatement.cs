@@ -14,25 +14,28 @@ namespace Pulumi.Okta.App.Outputs
     public sealed class SamlAttributeStatement
     {
         /// <summary>
-        /// Type of group attribute filter
+        /// Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
         /// </summary>
         public readonly string? FilterType;
         /// <summary>
-        /// Filter value to use
+        /// Filter value to use.
         /// </summary>
         public readonly string? FilterValue;
         /// <summary>
-        /// The reference name of the attribute statement
+        /// The name of the attribute statement.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The name format of the attribute
+        /// The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
         /// </summary>
         public readonly string? Namespace;
         /// <summary>
-        /// The type of attribute statements object
+        /// The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// Array of values to use.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

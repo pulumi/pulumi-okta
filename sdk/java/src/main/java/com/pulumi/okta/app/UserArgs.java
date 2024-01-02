@@ -18,14 +18,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     public static final UserArgs Empty = new UserArgs();
 
     /**
-     * App to associate user with
+     * App to associate user with.
      * 
      */
     @Import(name="appId", required=true)
     private Output<String> appId;
 
     /**
-     * @return App to associate user with
+     * @return App to associate user with.
      * 
      */
     public Output<String> appId() {
@@ -63,14 +63,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+     * Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      * 
      */
     @Import(name="retainAssignment")
     private @Nullable Output<Boolean> retainAssignment;
 
     /**
-     * @return Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+     * @return Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      * 
      */
     public Optional<Output<Boolean>> retainAssignment() {
@@ -78,14 +78,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User associated with the application
+     * User to associate the application with.
      * 
      */
     @Import(name="userId", required=true)
     private Output<String> userId;
 
     /**
-     * @return User associated with the application
+     * @return User to associate the application with.
      * 
      */
     public Output<String> userId() {
@@ -93,14 +93,16 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
+     * The username to use for the app user. In case the user is assigned to the app with
+     * &#39;SHARED_USERNAME_AND_PASSWORD&#39; credentials scheme, this field will be computed and should not be set.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
+     * @return The username to use for the app user. In case the user is assigned to the app with
+     * &#39;SHARED_USERNAME_AND_PASSWORD&#39; credentials scheme, this field will be computed and should not be set.
      * 
      */
     public Optional<Output<String>> username() {
@@ -137,7 +139,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appId App to associate user with
+         * @param appId App to associate user with.
          * 
          * @return builder
          * 
@@ -148,7 +150,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appId App to associate user with
+         * @param appId App to associate user with.
          * 
          * @return builder
          * 
@@ -200,7 +202,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retainAssignment Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+         * @param retainAssignment Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
          * 
          * @return builder
          * 
@@ -211,7 +213,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retainAssignment Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+         * @param retainAssignment Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
          * 
          * @return builder
          * 
@@ -221,7 +223,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userId User associated with the application
+         * @param userId User to associate the application with.
          * 
          * @return builder
          * 
@@ -232,7 +234,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userId User associated with the application
+         * @param userId User to associate the application with.
          * 
          * @return builder
          * 
@@ -242,7 +244,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
+         * @param username The username to use for the app user. In case the user is assigned to the app with
+         * &#39;SHARED_USERNAME_AND_PASSWORD&#39; credentials scheme, this field will be computed and should not be set.
          * 
          * @return builder
          * 
@@ -253,7 +256,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
+         * @param username The username to use for the app user. In case the user is assigned to the app with
+         * &#39;SHARED_USERNAME_AND_PASSWORD&#39; credentials scheme, this field will be computed and should not be set.
          * 
          * @return builder
          * 

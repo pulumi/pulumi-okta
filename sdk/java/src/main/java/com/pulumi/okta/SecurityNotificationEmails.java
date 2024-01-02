@@ -14,73 +14,123 @@ import java.lang.Boolean;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to configure Security Notification Emails.
+ * 
+ * &gt; **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
+ * 
+ * &gt; **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.SecurityNotificationEmails;
+ * import com.pulumi.okta.SecurityNotificationEmailsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new SecurityNotificationEmails(&#34;example&#34;, SecurityNotificationEmailsArgs.builder()        
+ *             .reportSuspiciousActivityEnabled(true)
+ *             .sendEmailForFactorEnrollmentEnabled(true)
+ *             .sendEmailForFactorResetEnabled(true)
+ *             .sendEmailForNewDeviceEnabled(true)
+ *             .sendEmailForPasswordChangedEnabled(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Security Notification Emails can be imported without any parameters.
+ * 
+ * ```sh
+ *  $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/securityNotificationEmails:SecurityNotificationEmails")
 public class SecurityNotificationEmails extends com.pulumi.resources.CustomResource {
     /**
-     * Notifies end users about suspicious or unrecognized activity from their account
+     * Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
      * 
      */
     @Export(name="reportSuspiciousActivityEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> reportSuspiciousActivityEnabled;
 
     /**
-     * @return Notifies end users about suspicious or unrecognized activity from their account
+     * @return Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
      * 
      */
     public Output<Optional<Boolean>> reportSuspiciousActivityEnabled() {
         return Codegen.optional(this.reportSuspiciousActivityEnabled);
     }
     /**
-     * Notifies end users of any activity on their account related to MFA factor enrollment
+     * Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
      * 
      */
     @Export(name="sendEmailForFactorEnrollmentEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendEmailForFactorEnrollmentEnabled;
 
     /**
-     * @return Notifies end users of any activity on their account related to MFA factor enrollment
+     * @return Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
      * 
      */
     public Output<Optional<Boolean>> sendEmailForFactorEnrollmentEnabled() {
         return Codegen.optional(this.sendEmailForFactorEnrollmentEnabled);
     }
     /**
-     * Notifies end users that one or more factors have been reset for their account
+     * Notifies end users that one or more factors have been reset for their account. Default is `true`.
      * 
      */
     @Export(name="sendEmailForFactorResetEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendEmailForFactorResetEnabled;
 
     /**
-     * @return Notifies end users that one or more factors have been reset for their account
+     * @return Notifies end users that one or more factors have been reset for their account. Default is `true`.
      * 
      */
     public Output<Optional<Boolean>> sendEmailForFactorResetEnabled() {
         return Codegen.optional(this.sendEmailForFactorResetEnabled);
     }
     /**
-     * Notifies end users about new sign-on activity
+     * Notifies end users about new sign-on activity. Default is `true`.
      * 
      */
     @Export(name="sendEmailForNewDeviceEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendEmailForNewDeviceEnabled;
 
     /**
-     * @return Notifies end users about new sign-on activity
+     * @return Notifies end users about new sign-on activity. Default is `true`.
      * 
      */
     public Output<Optional<Boolean>> sendEmailForNewDeviceEnabled() {
         return Codegen.optional(this.sendEmailForNewDeviceEnabled);
     }
     /**
-     * Notifies end users that the password for their account has changed
+     * Notifies end users that the password for their account has changed. Default is `true`.
      * 
      */
     @Export(name="sendEmailForPasswordChangedEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendEmailForPasswordChangedEnabled;
 
     /**
-     * @return Notifies end users that the password for their account has changed
+     * @return Notifies end users that the password for their account has changed. Default is `true`.
      * 
      */
     public Output<Optional<Boolean>> sendEmailForPasswordChangedEnabled() {

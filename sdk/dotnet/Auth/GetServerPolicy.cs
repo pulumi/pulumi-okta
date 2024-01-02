@@ -12,7 +12,7 @@ namespace Pulumi.Okta.Auth
     public static class GetServerPolicy
     {
         /// <summary>
-        /// Get an authorization server policy from Okta.
+        /// Use this data source to retrieve an authorization server policy from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -41,7 +41,7 @@ namespace Pulumi.Okta.Auth
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerPolicyResult>("okta:auth/getServerPolicy:getServerPolicy", args ?? new GetServerPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get an authorization server policy from Okta.
+        /// Use this data source to retrieve an authorization server policy from Okta.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -74,13 +74,13 @@ namespace Pulumi.Okta.Auth
     public sealed class GetServerPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Auth server ID
+        /// The ID of the Auth Server.
         /// </summary>
         [Input("authServerId", required: true)]
         public string AuthServerId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the policy
+        /// Name of policy to retrieve.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -94,13 +94,13 @@ namespace Pulumi.Okta.Auth
     public sealed class GetServerPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Auth server ID
+        /// The ID of the Auth Server.
         /// </summary>
         [Input("authServerId", required: true)]
         public Input<string> AuthServerId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the policy
+        /// Name of policy to retrieve.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -116,27 +116,21 @@ namespace Pulumi.Okta.Auth
     public sealed class GetServerPolicyResult
     {
         /// <summary>
-        /// List of clients this policy is assigned to. `[ALL_CLIENTS]` is a special value when policy is assigned to all clients.
+        /// list of clients this policy is assigned to. `["ALL_CLIENTS"]` is a special value when policy is assigned to all clients.
         /// </summary>
         public readonly ImmutableArray<string> AssignedClients;
-        /// <summary>
-        /// Auth server ID
-        /// </summary>
         public readonly string AuthServerId;
         /// <summary>
-        /// Description of authorization server policy.
+        /// description of authorization server policy.
         /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the policy
-        /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Priority of the auth server policy
+        /// the priority of the Auth Server Policy.
         /// </summary>
         public readonly int Priority;
 

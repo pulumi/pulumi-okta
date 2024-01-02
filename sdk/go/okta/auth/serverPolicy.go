@@ -12,20 +12,66 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates an Authorization Server Policy.
+//
+// This resource allows you to create and configure an Authorization Server Policy.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/auth"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := auth.NewServerPolicy(ctx, "example", &auth.ServerPolicyArgs{
+//				AuthServerId: pulumi.String("<auth server id>"),
+//				ClientWhitelists: pulumi.StringArray{
+//					pulumi.String("ALL_CLIENTS"),
+//				},
+//				Description: pulumi.String("example"),
+//				Priority:    pulumi.Int(1),
+//				Status:      pulumi.String("ACTIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Authorization Server Policy can be imported via the Auth Server ID and Policy ID.
+//
+// ```sh
+//
+//	$ pulumi import okta:auth/serverPolicy:ServerPolicy example &#60;auth server id&#62;/&#60;policy id&#62;
+//
+// ```
 type ServerPolicy struct {
 	pulumi.CustomResourceState
 
 	// The ID of the Auth Server.
 	AuthServerId pulumi.StringOutput `pulumi:"authServerId"`
-	// The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+	// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
 	ClientWhitelists pulumi.StringArrayOutput `pulumi:"clientWhitelists"`
 	// The description of the Auth Server Policy.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The name of the Auth Server Policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Priority of the auth server policy
-	Priority pulumi.IntOutput       `pulumi:"priority"`
-	Status   pulumi.StringPtrOutput `pulumi:"status"`
+	// The priority of the Auth Server Policy.
+	Priority pulumi.IntOutput `pulumi:"priority"`
+	// The status of the Auth Server Policy.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewServerPolicy registers a new resource with the given unique name, arguments, and options.
@@ -72,29 +118,31 @@ func GetServerPolicy(ctx *pulumi.Context,
 type serverPolicyState struct {
 	// The ID of the Auth Server.
 	AuthServerId *string `pulumi:"authServerId"`
-	// The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+	// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
 	ClientWhitelists []string `pulumi:"clientWhitelists"`
 	// The description of the Auth Server Policy.
 	Description *string `pulumi:"description"`
 	// The name of the Auth Server Policy.
 	Name *string `pulumi:"name"`
-	// Priority of the auth server policy
-	Priority *int    `pulumi:"priority"`
-	Status   *string `pulumi:"status"`
+	// The priority of the Auth Server Policy.
+	Priority *int `pulumi:"priority"`
+	// The status of the Auth Server Policy.
+	Status *string `pulumi:"status"`
 }
 
 type ServerPolicyState struct {
 	// The ID of the Auth Server.
 	AuthServerId pulumi.StringPtrInput
-	// The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+	// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
 	ClientWhitelists pulumi.StringArrayInput
 	// The description of the Auth Server Policy.
 	Description pulumi.StringPtrInput
 	// The name of the Auth Server Policy.
 	Name pulumi.StringPtrInput
-	// Priority of the auth server policy
+	// The priority of the Auth Server Policy.
 	Priority pulumi.IntPtrInput
-	Status   pulumi.StringPtrInput
+	// The status of the Auth Server Policy.
+	Status pulumi.StringPtrInput
 }
 
 func (ServerPolicyState) ElementType() reflect.Type {
@@ -104,30 +152,32 @@ func (ServerPolicyState) ElementType() reflect.Type {
 type serverPolicyArgs struct {
 	// The ID of the Auth Server.
 	AuthServerId string `pulumi:"authServerId"`
-	// The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+	// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
 	ClientWhitelists []string `pulumi:"clientWhitelists"`
 	// The description of the Auth Server Policy.
 	Description string `pulumi:"description"`
 	// The name of the Auth Server Policy.
 	Name *string `pulumi:"name"`
-	// Priority of the auth server policy
-	Priority int     `pulumi:"priority"`
-	Status   *string `pulumi:"status"`
+	// The priority of the Auth Server Policy.
+	Priority int `pulumi:"priority"`
+	// The status of the Auth Server Policy.
+	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a ServerPolicy resource.
 type ServerPolicyArgs struct {
 	// The ID of the Auth Server.
 	AuthServerId pulumi.StringInput
-	// The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+	// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
 	ClientWhitelists pulumi.StringArrayInput
 	// The description of the Auth Server Policy.
 	Description pulumi.StringInput
 	// The name of the Auth Server Policy.
 	Name pulumi.StringPtrInput
-	// Priority of the auth server policy
+	// The priority of the Auth Server Policy.
 	Priority pulumi.IntInput
-	Status   pulumi.StringPtrInput
+	// The status of the Auth Server Policy.
+	Status pulumi.StringPtrInput
 }
 
 func (ServerPolicyArgs) ElementType() reflect.Type {
@@ -222,7 +272,7 @@ func (o ServerPolicyOutput) AuthServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerPolicy) pulumi.StringOutput { return v.AuthServerId }).(pulumi.StringOutput)
 }
 
-// The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
 func (o ServerPolicyOutput) ClientWhitelists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerPolicy) pulumi.StringArrayOutput { return v.ClientWhitelists }).(pulumi.StringArrayOutput)
 }
@@ -237,11 +287,12 @@ func (o ServerPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Priority of the auth server policy
+// The priority of the Auth Server Policy.
 func (o ServerPolicyOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *ServerPolicy) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The status of the Auth Server Policy.
 func (o ServerPolicyOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerPolicy) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }

@@ -12,10 +12,51 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **DEPRECATED** use `Index.EmailDomainVerification` instead.
+//
+// Verifies the email sender. The resource won't be created if the email sender could not be verified.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewEmailSender(ctx, "exampleEmailSender", &okta.EmailSenderArgs{
+//				FromName:    pulumi.String("Paul Atreides"),
+//				FromAddress: pulumi.String("no-reply@caladan.planet"),
+//				Subdomain:   pulumi.String("mail"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewEmailSenderVerification(ctx, "exampleEmailSenderVerification", &okta.EmailSenderVerificationArgs{
+//				SenderId: pulumi.Any(okta_email_sender.Valid.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// This resource does not support importing.
 type EmailSenderVerification struct {
 	pulumi.CustomResourceState
 
-	// Email sender ID
+	// Email sender ID.
 	SenderId pulumi.StringOutput `pulumi:"senderId"`
 }
 
@@ -52,12 +93,12 @@ func GetEmailSenderVerification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailSenderVerification resources.
 type emailSenderVerificationState struct {
-	// Email sender ID
+	// Email sender ID.
 	SenderId *string `pulumi:"senderId"`
 }
 
 type EmailSenderVerificationState struct {
-	// Email sender ID
+	// Email sender ID.
 	SenderId pulumi.StringPtrInput
 }
 
@@ -66,13 +107,13 @@ func (EmailSenderVerificationState) ElementType() reflect.Type {
 }
 
 type emailSenderVerificationArgs struct {
-	// Email sender ID
+	// Email sender ID.
 	SenderId string `pulumi:"senderId"`
 }
 
 // The set of arguments for constructing a EmailSenderVerification resource.
 type EmailSenderVerificationArgs struct {
-	// Email sender ID
+	// Email sender ID.
 	SenderId pulumi.StringInput
 }
 
@@ -163,7 +204,7 @@ func (o EmailSenderVerificationOutput) ToEmailSenderVerificationOutputWithContex
 	return o
 }
 
-// Email sender ID
+// Email sender ID.
 func (o EmailSenderVerificationOutput) SenderId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailSenderVerification) pulumi.StringOutput { return v.SenderId }).(pulumi.StringOutput)
 }

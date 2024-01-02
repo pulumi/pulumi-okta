@@ -36,9 +36,6 @@ class GetThemesResult:
     @property
     @pulumi.getter(name="brandId")
     def brand_id(self) -> str:
-        """
-        Brand ID
-        """
         return pulumi.get(self, "brand_id")
 
     @property
@@ -53,7 +50,7 @@ class GetThemesResult:
     @pulumi.getter
     def themes(self) -> Sequence['outputs.GetThemesThemeResult']:
         """
-        List of `okta_them` belonging to the brand in the organization
+        List of `Theme` belonging to the brand.
         """
         return pulumi.get(self, "themes")
 
@@ -72,7 +69,9 @@ class AwaitableGetThemesResult(GetThemesResult):
 def get_themes(brand_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThemesResult:
     """
-    Get Themes of a Brand of an Okta Organization.
+    Use this data source to retrieve
+    [Themes](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+    of a brand for an Okta orgnanization.
 
 
     :param str brand_id: Brand ID
@@ -92,7 +91,9 @@ def get_themes(brand_id: Optional[str] = None,
 def get_themes_output(brand_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThemesResult]:
     """
-    Get Themes of a Brand of an Okta Organization.
+    Use this data source to retrieve
+    [Themes](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
+    of a brand for an Okta orgnanization.
 
 
     :param str brand_id: Brand ID

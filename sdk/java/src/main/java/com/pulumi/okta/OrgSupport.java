@@ -15,6 +15,45 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to temporarily allow Okta Support to access your org as an administrator. By default,
+ * access will be granted for eight hours. Removing this resource will revoke Okta Support access to your org.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.OrgSupport;
+ * import com.pulumi.okta.OrgSupportArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new OrgSupport(&#34;example&#34;, OrgSupportArgs.builder()        
+ *             .extendBy(1)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * This resource does not support importing.
+ * 
+ */
 @ResourceType(type="okta:index/orgSupport:OrgSupport")
 public class OrgSupport extends com.pulumi.resources.CustomResource {
     /**
@@ -32,14 +71,14 @@ public class OrgSupport extends com.pulumi.resources.CustomResource {
         return this.expiration;
     }
     /**
-     * Number of days the support should be extended by
+     * Number of days the support should be extended by in addition to the standard eight hours.
      * 
      */
     @Export(name="extendBy", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> extendBy;
 
     /**
-     * @return Number of days the support should be extended by
+     * @return Number of days the support should be extended by in addition to the standard eight hours.
      * 
      */
     public Output<Optional<Integer>> extendBy() {

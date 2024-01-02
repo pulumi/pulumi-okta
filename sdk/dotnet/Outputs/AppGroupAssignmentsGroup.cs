@@ -14,7 +14,7 @@ namespace Pulumi.Okta.Outputs
     public sealed class AppGroupAssignmentsGroup
     {
         /// <summary>
-        /// A group to associate with the application
+        /// ID of the group to assign.
         /// </summary>
         public readonly string Id;
         /// <summary>

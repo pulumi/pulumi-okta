@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get a list of groups from Okta.
+// Use this data source to retrieve a list of groups from Okta.
 //
 // ## Example Usage
 //
@@ -50,23 +50,28 @@ func GetGroups(ctx *pulumi.Context, args *GetGroupsArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getGroups.
 type GetGroupsArgs struct {
-	// Searches the name property of groups for matching value
+	// Searches the name property of groups for matching value.
 	Q *string `pulumi:"q"`
-	// Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
+	// Searches for groups with a
+	// supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
+	// all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
+	// except for `"_embedded"`, `"_links"`, and `"objectClass"`
 	Search *string `pulumi:"search"`
-	Type   *string `pulumi:"type"`
+	// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+	// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+	Type *string `pulumi:"type"`
 }
 
 // A collection of values returned by getGroups.
 type GetGroupsResult struct {
+	// collection of groups retrieved from Okta with the following properties.
 	Groups []GetGroupsGroup `pulumi:"groups"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Searches the name property of groups for matching value
-	Q *string `pulumi:"q"`
-	// Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
+	Id     string  `pulumi:"id"`
+	Q      *string `pulumi:"q"`
 	Search *string `pulumi:"search"`
-	Type   *string `pulumi:"type"`
+	// Group type.
+	Type *string `pulumi:"type"`
 }
 
 func GetGroupsOutput(ctx *pulumi.Context, args GetGroupsOutputArgs, opts ...pulumi.InvokeOption) GetGroupsResultOutput {
@@ -84,11 +89,16 @@ func GetGroupsOutput(ctx *pulumi.Context, args GetGroupsOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getGroups.
 type GetGroupsOutputArgs struct {
-	// Searches the name property of groups for matching value
+	// Searches the name property of groups for matching value.
 	Q pulumi.StringPtrInput `pulumi:"q"`
-	// Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
+	// Searches for groups with a
+	// supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
+	// all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
+	// except for `"_embedded"`, `"_links"`, and `"objectClass"`
 	Search pulumi.StringPtrInput `pulumi:"search"`
-	Type   pulumi.StringPtrInput `pulumi:"type"`
+	// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
+	// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetGroupsOutputArgs) ElementType() reflect.Type {
@@ -110,6 +120,7 @@ func (o GetGroupsResultOutput) ToGetGroupsResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// collection of groups retrieved from Okta with the following properties.
 func (o GetGroupsResultOutput) Groups() GetGroupsGroupArrayOutput {
 	return o.ApplyT(func(v GetGroupsResult) []GetGroupsGroup { return v.Groups }).(GetGroupsGroupArrayOutput)
 }
@@ -119,16 +130,15 @@ func (o GetGroupsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Searches the name property of groups for matching value
 func (o GetGroupsResultOutput) Q() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGroupsResult) *string { return v.Q }).(pulumi.StringPtrOutput)
 }
 
-// Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
 func (o GetGroupsResultOutput) Search() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGroupsResult) *string { return v.Search }).(pulumi.StringPtrOutput)
 }
 
+// Group type.
 func (o GetGroupsResultOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGroupsResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
