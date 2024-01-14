@@ -18,10 +18,12 @@ package main
 
 import (
 	"context"
+
 	_ "embed"
 
-	okta "github.com/pulumi/pulumi-okta/provider/v4"
 	"github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
+
+	okta "github.com/pulumi/pulumi-okta/provider/v4"
 )
 
 //go:embed schema-embed.json
