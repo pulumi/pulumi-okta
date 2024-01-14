@@ -26,12 +26,14 @@ import (
 	_ "embed"
 
 	"github.com/okta/terraform-provider-okta/okta"
-	"github.com/pulumi/pulumi-okta/provider/v4/pkg/version"
+
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+
+	"github.com/pulumi/pulumi-okta/provider/v4/pkg/version"
 )
 
 // all of the token components used below.
