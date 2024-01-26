@@ -14,6 +14,18 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Manages certificate for the domain.
+ * 
+ * This resource&#39;s `certificate`, `private_key`, and `certificate_chain` attributes
+ * hold actual PEM values and can be referred to by other configs requiring
+ * certificate and private key inputs. This is inline with TF&#39;s best
+ * practices
+ * of not encrypting state.
+ * 
+ * See Let&#39;s Encrypt Certbot notes at the end of this
+ * documentation for notes on how to generate a domain certificate with Let&#39;s
+ * Encrypt Certbot
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
