@@ -194,6 +194,18 @@ class DomainCertificate(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages certificate for the domain.
+
+        This resource's `certificate`, `private_key`, and `certificate_chain` attributes
+        hold actual PEM values and can be referred to by other configs requiring
+        certificate and private key inputs. This is inline with TF's best
+        practices
+        of not encrypting state.
+
+        See Let's Encrypt Certbot notes at the end of this
+        documentation for notes on how to generate a domain certificate with Let's
+        Encrypt Certbot
+
         ## Example Usage
 
         ```python
@@ -243,6 +255,18 @@ class DomainCertificate(pulumi.CustomResource):
                  args: DomainCertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages certificate for the domain.
+
+        This resource's `certificate`, `private_key`, and `certificate_chain` attributes
+        hold actual PEM values and can be referred to by other configs requiring
+        certificate and private key inputs. This is inline with TF's best
+        practices
+        of not encrypting state.
+
+        See Let's Encrypt Certbot notes at the end of this
+        documentation for notes on how to generate a domain certificate with Let's
+        Encrypt Certbot
+
         ## Example Usage
 
         ```python
