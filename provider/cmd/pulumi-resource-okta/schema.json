@@ -143,6 +143,7 @@
             "properties": {
                 "expiration": {
                     "type": "string",
+                    "description": "DNS TXT record expiration\n",
                     "deprecationMessage": "This field has been removed in the newest go sdk version and has become noop"
                 },
                 "fqdn": {
@@ -295,22 +296,28 @@
         "okta:app/OAuthJwk:OAuthJwk": {
             "properties": {
                 "e": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "RSA Exponent\n"
                 },
                 "kid": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Key ID\n"
                 },
                 "kty": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Key type\n"
                 },
                 "n": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "RSA Modulus\n"
                 },
                 "x": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "X coordinate of the elliptic curve point\n"
                 },
                 "y": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Y coordinate of the elliptic curve point\n"
                 }
             },
             "type": "object",
@@ -494,7 +501,8 @@
                     "description": "Name of the Scope\n"
                 },
                 "optional": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Whether the Scope is optional\n"
                 },
                 "system": {
                     "type": "boolean",
@@ -900,19 +908,24 @@
         "okta:index/getBrandsBrand:getBrandsBrand": {
             "properties": {
                 "customPrivacyPolicyUrl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Custom privacy policy URL\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the Brand\n"
                 },
                 "links": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Link relations for this object - JSON HAL - Discoverable resources related to the brand\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Brand name\n"
                 },
                 "removePoweredByOkta": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Removes \"Powered by Okta\" from the Okta-hosted sign-in page and \"© 2021 Okta, Inc.\" from the Okta End-User Dashboard\n"
                 }
             },
             "type": "object",
@@ -932,22 +945,28 @@
         "okta:index/getEmailCustomizationsEmailCustomization:getEmailCustomizationsEmailCustomization": {
             "properties": {
                 "body": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The body of the customization\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the customization\n"
                 },
                 "isDefault": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Whether the customization is the default\n"
                 },
                 "language": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The language supported by the customization\n"
                 },
                 "links": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Link relations for this object - JSON HAL - Discoverable resources related to the email template\n"
                 },
                 "subject": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The subject of the customization\n"
                 }
             },
             "type": "object",
@@ -1005,10 +1024,12 @@
         "okta:index/getTemplatesEmailTemplate:getTemplatesEmailTemplate": {
             "properties": {
                 "links": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Link relations for this object - JSON HAL - Discoverable resources related to the email template\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the email template\n"
                 }
             },
             "type": "object",
@@ -1025,43 +1046,56 @@
         "okta:index/getThemesTheme:getThemesTheme": {
             "properties": {
                 "backgroundImageUrl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Background image URL\n"
                 },
                 "emailTemplateTouchPointVariant": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)\n"
                 },
                 "endUserDashboardTouchPointVariant": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)\n"
                 },
                 "errorPageTouchPointVariant": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)\n"
                 },
                 "faviconUrl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Favicon URL\n"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the theme\n"
                 },
                 "links": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Link relations for this object - JSON HAL - Discoverable resources related to the email template\n"
                 },
                 "logoUrl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Logo URL\n"
                 },
                 "primaryColorContrastHex": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Primary color contrast hex code\n"
                 },
                 "primaryColorHex": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Primary color hex code\n"
                 },
                 "secondaryColorContrastHex": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Secondary color contrast hex code\n"
                 },
                 "secondaryColorHex": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Secondary color hex code\n"
                 },
                 "signInPageTouchPointVariant": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)\n"
                 }
             },
             "type": "object",
@@ -1336,7 +1370,8 @@
         "okta:user/UserPasswordHash:UserPasswordHash": {
             "properties": {
                 "algorithm": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The algorithm used to generate the hash using the password\n"
                 },
                 "salt": {
                     "type": "string",
