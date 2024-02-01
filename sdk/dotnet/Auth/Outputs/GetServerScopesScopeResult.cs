@@ -41,6 +41,9 @@ namespace Pulumi.Okta.Auth.Outputs
         /// Name of the Scope
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Whether the Scope is optional
+        /// </summary>
         public readonly bool Optional;
         /// <summary>
         /// Whether Okta created the Scope

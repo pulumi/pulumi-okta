@@ -27,8 +27,9 @@ type GetServerScopesScope struct {
 	// Whether the Scope should be included in the metadata
 	MetadataPublish string `pulumi:"metadataPublish"`
 	// Name of the Scope
-	Name     string `pulumi:"name"`
-	Optional bool   `pulumi:"optional"`
+	Name string `pulumi:"name"`
+	// Whether the Scope is optional
+	Optional bool `pulumi:"optional"`
 	// Whether Okta created the Scope
 	System bool `pulumi:"system"`
 }
@@ -58,8 +59,9 @@ type GetServerScopesScopeArgs struct {
 	// Whether the Scope should be included in the metadata
 	MetadataPublish pulumi.StringInput `pulumi:"metadataPublish"`
 	// Name of the Scope
-	Name     pulumi.StringInput `pulumi:"name"`
-	Optional pulumi.BoolInput   `pulumi:"optional"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Whether the Scope is optional
+	Optional pulumi.BoolInput `pulumi:"optional"`
 	// Whether Okta created the Scope
 	System pulumi.BoolInput `pulumi:"system"`
 }
@@ -150,6 +152,7 @@ func (o GetServerScopesScopeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerScopesScope) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether the Scope is optional
 func (o GetServerScopesScopeOutput) Optional() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetServerScopesScope) bool { return v.Optional }).(pulumi.BoolOutput)
 }

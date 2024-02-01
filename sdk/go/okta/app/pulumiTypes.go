@@ -231,12 +231,18 @@ func (o OAuthGroupsClaimPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type OAuthJwk struct {
-	E   *string `pulumi:"e"`
-	Kid string  `pulumi:"kid"`
-	Kty string  `pulumi:"kty"`
-	N   *string `pulumi:"n"`
-	X   *string `pulumi:"x"`
-	Y   *string `pulumi:"y"`
+	// RSA Exponent
+	E *string `pulumi:"e"`
+	// Key ID
+	Kid string `pulumi:"kid"`
+	// Key type
+	Kty string `pulumi:"kty"`
+	// RSA Modulus
+	N *string `pulumi:"n"`
+	// X coordinate of the elliptic curve point
+	X *string `pulumi:"x"`
+	// Y coordinate of the elliptic curve point
+	Y *string `pulumi:"y"`
 }
 
 // OAuthJwkInput is an input type that accepts OAuthJwkArgs and OAuthJwkOutput values.
@@ -251,12 +257,18 @@ type OAuthJwkInput interface {
 }
 
 type OAuthJwkArgs struct {
-	E   pulumi.StringPtrInput `pulumi:"e"`
-	Kid pulumi.StringInput    `pulumi:"kid"`
-	Kty pulumi.StringInput    `pulumi:"kty"`
-	N   pulumi.StringPtrInput `pulumi:"n"`
-	X   pulumi.StringPtrInput `pulumi:"x"`
-	Y   pulumi.StringPtrInput `pulumi:"y"`
+	// RSA Exponent
+	E pulumi.StringPtrInput `pulumi:"e"`
+	// Key ID
+	Kid pulumi.StringInput `pulumi:"kid"`
+	// Key type
+	Kty pulumi.StringInput `pulumi:"kty"`
+	// RSA Modulus
+	N pulumi.StringPtrInput `pulumi:"n"`
+	// X coordinate of the elliptic curve point
+	X pulumi.StringPtrInput `pulumi:"x"`
+	// Y coordinate of the elliptic curve point
+	Y pulumi.StringPtrInput `pulumi:"y"`
 }
 
 func (OAuthJwkArgs) ElementType() reflect.Type {
@@ -310,26 +322,32 @@ func (o OAuthJwkOutput) ToOAuthJwkOutputWithContext(ctx context.Context) OAuthJw
 	return o
 }
 
+// RSA Exponent
 func (o OAuthJwkOutput) E() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuthJwk) *string { return v.E }).(pulumi.StringPtrOutput)
 }
 
+// Key ID
 func (o OAuthJwkOutput) Kid() pulumi.StringOutput {
 	return o.ApplyT(func(v OAuthJwk) string { return v.Kid }).(pulumi.StringOutput)
 }
 
+// Key type
 func (o OAuthJwkOutput) Kty() pulumi.StringOutput {
 	return o.ApplyT(func(v OAuthJwk) string { return v.Kty }).(pulumi.StringOutput)
 }
 
+// RSA Modulus
 func (o OAuthJwkOutput) N() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuthJwk) *string { return v.N }).(pulumi.StringPtrOutput)
 }
 
+// X coordinate of the elliptic curve point
 func (o OAuthJwkOutput) X() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuthJwk) *string { return v.X }).(pulumi.StringPtrOutput)
 }
 
+// Y coordinate of the elliptic curve point
 func (o OAuthJwkOutput) Y() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuthJwk) *string { return v.Y }).(pulumi.StringPtrOutput)
 }

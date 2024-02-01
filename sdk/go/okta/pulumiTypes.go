@@ -1951,11 +1951,16 @@ func (o GetBehavioursBehaviorArrayOutput) Index(i pulumi.IntInput) GetBehaviours
 }
 
 type GetBrandsBrand struct {
+	// Custom privacy policy URL
 	CustomPrivacyPolicyUrl string `pulumi:"customPrivacyPolicyUrl"`
-	Id                     string `pulumi:"id"`
-	Links                  string `pulumi:"links"`
-	Name                   string `pulumi:"name"`
-	RemovePoweredByOkta    bool   `pulumi:"removePoweredByOkta"`
+	// The ID of the Brand
+	Id string `pulumi:"id"`
+	// Link relations for this object - JSON HAL - Discoverable resources related to the brand
+	Links string `pulumi:"links"`
+	// Brand name
+	Name string `pulumi:"name"`
+	// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+	RemovePoweredByOkta bool `pulumi:"removePoweredByOkta"`
 }
 
 // GetBrandsBrandInput is an input type that accepts GetBrandsBrandArgs and GetBrandsBrandOutput values.
@@ -1970,11 +1975,16 @@ type GetBrandsBrandInput interface {
 }
 
 type GetBrandsBrandArgs struct {
+	// Custom privacy policy URL
 	CustomPrivacyPolicyUrl pulumi.StringInput `pulumi:"customPrivacyPolicyUrl"`
-	Id                     pulumi.StringInput `pulumi:"id"`
-	Links                  pulumi.StringInput `pulumi:"links"`
-	Name                   pulumi.StringInput `pulumi:"name"`
-	RemovePoweredByOkta    pulumi.BoolInput   `pulumi:"removePoweredByOkta"`
+	// The ID of the Brand
+	Id pulumi.StringInput `pulumi:"id"`
+	// Link relations for this object - JSON HAL - Discoverable resources related to the brand
+	Links pulumi.StringInput `pulumi:"links"`
+	// Brand name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+	RemovePoweredByOkta pulumi.BoolInput `pulumi:"removePoweredByOkta"`
 }
 
 func (GetBrandsBrandArgs) ElementType() reflect.Type {
@@ -2028,22 +2038,27 @@ func (o GetBrandsBrandOutput) ToGetBrandsBrandOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Custom privacy policy URL
 func (o GetBrandsBrandOutput) CustomPrivacyPolicyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBrandsBrand) string { return v.CustomPrivacyPolicyUrl }).(pulumi.StringOutput)
 }
 
+// The ID of the Brand
 func (o GetBrandsBrandOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBrandsBrand) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Link relations for this object - JSON HAL - Discoverable resources related to the brand
 func (o GetBrandsBrandOutput) Links() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBrandsBrand) string { return v.Links }).(pulumi.StringOutput)
 }
 
+// Brand name
 func (o GetBrandsBrandOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBrandsBrand) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
 func (o GetBrandsBrandOutput) RemovePoweredByOkta() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBrandsBrand) bool { return v.RemovePoweredByOkta }).(pulumi.BoolOutput)
 }
@@ -2069,12 +2084,18 @@ func (o GetBrandsBrandArrayOutput) Index(i pulumi.IntInput) GetBrandsBrandOutput
 }
 
 type GetEmailCustomizationsEmailCustomization struct {
-	Body      string `pulumi:"body"`
-	Id        string `pulumi:"id"`
-	IsDefault bool   `pulumi:"isDefault"`
-	Language  string `pulumi:"language"`
-	Links     string `pulumi:"links"`
-	Subject   string `pulumi:"subject"`
+	// The body of the customization
+	Body string `pulumi:"body"`
+	// The ID of the customization
+	Id string `pulumi:"id"`
+	// Whether the customization is the default
+	IsDefault bool `pulumi:"isDefault"`
+	// The language supported by the customization
+	Language string `pulumi:"language"`
+	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
+	Links string `pulumi:"links"`
+	// The subject of the customization
+	Subject string `pulumi:"subject"`
 }
 
 // GetEmailCustomizationsEmailCustomizationInput is an input type that accepts GetEmailCustomizationsEmailCustomizationArgs and GetEmailCustomizationsEmailCustomizationOutput values.
@@ -2089,12 +2110,18 @@ type GetEmailCustomizationsEmailCustomizationInput interface {
 }
 
 type GetEmailCustomizationsEmailCustomizationArgs struct {
-	Body      pulumi.StringInput `pulumi:"body"`
-	Id        pulumi.StringInput `pulumi:"id"`
-	IsDefault pulumi.BoolInput   `pulumi:"isDefault"`
-	Language  pulumi.StringInput `pulumi:"language"`
-	Links     pulumi.StringInput `pulumi:"links"`
-	Subject   pulumi.StringInput `pulumi:"subject"`
+	// The body of the customization
+	Body pulumi.StringInput `pulumi:"body"`
+	// The ID of the customization
+	Id pulumi.StringInput `pulumi:"id"`
+	// Whether the customization is the default
+	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	// The language supported by the customization
+	Language pulumi.StringInput `pulumi:"language"`
+	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
+	Links pulumi.StringInput `pulumi:"links"`
+	// The subject of the customization
+	Subject pulumi.StringInput `pulumi:"subject"`
 }
 
 func (GetEmailCustomizationsEmailCustomizationArgs) ElementType() reflect.Type {
@@ -2148,26 +2175,32 @@ func (o GetEmailCustomizationsEmailCustomizationOutput) ToGetEmailCustomizations
 	return o
 }
 
+// The body of the customization
 func (o GetEmailCustomizationsEmailCustomizationOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEmailCustomizationsEmailCustomization) string { return v.Body }).(pulumi.StringOutput)
 }
 
+// The ID of the customization
 func (o GetEmailCustomizationsEmailCustomizationOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEmailCustomizationsEmailCustomization) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Whether the customization is the default
 func (o GetEmailCustomizationsEmailCustomizationOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetEmailCustomizationsEmailCustomization) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
+// The language supported by the customization
 func (o GetEmailCustomizationsEmailCustomizationOutput) Language() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEmailCustomizationsEmailCustomization) string { return v.Language }).(pulumi.StringOutput)
 }
 
+// Link relations for this object - JSON HAL - Discoverable resources related to the email template
 func (o GetEmailCustomizationsEmailCustomizationOutput) Links() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEmailCustomizationsEmailCustomization) string { return v.Links }).(pulumi.StringOutput)
 }
 
+// The subject of the customization
 func (o GetEmailCustomizationsEmailCustomizationOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEmailCustomizationsEmailCustomization) string { return v.Subject }).(pulumi.StringOutput)
 }
@@ -2329,8 +2362,10 @@ func (o GetGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetGroupsGroupOutput
 }
 
 type GetTemplatesEmailTemplate struct {
+	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
 	Links string `pulumi:"links"`
-	Name  string `pulumi:"name"`
+	// The name of the email template
+	Name string `pulumi:"name"`
 }
 
 // GetTemplatesEmailTemplateInput is an input type that accepts GetTemplatesEmailTemplateArgs and GetTemplatesEmailTemplateOutput values.
@@ -2345,8 +2380,10 @@ type GetTemplatesEmailTemplateInput interface {
 }
 
 type GetTemplatesEmailTemplateArgs struct {
+	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
 	Links pulumi.StringInput `pulumi:"links"`
-	Name  pulumi.StringInput `pulumi:"name"`
+	// The name of the email template
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetTemplatesEmailTemplateArgs) ElementType() reflect.Type {
@@ -2400,10 +2437,12 @@ func (o GetTemplatesEmailTemplateOutput) ToGetTemplatesEmailTemplateOutputWithCo
 	return o
 }
 
+// Link relations for this object - JSON HAL - Discoverable resources related to the email template
 func (o GetTemplatesEmailTemplateOutput) Links() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTemplatesEmailTemplate) string { return v.Links }).(pulumi.StringOutput)
 }
 
+// The name of the email template
 func (o GetTemplatesEmailTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTemplatesEmailTemplate) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2429,19 +2468,32 @@ func (o GetTemplatesEmailTemplateArrayOutput) Index(i pulumi.IntInput) GetTempla
 }
 
 type GetThemesTheme struct {
-	BackgroundImageUrl                string `pulumi:"backgroundImageUrl"`
-	EmailTemplateTouchPointVariant    string `pulumi:"emailTemplateTouchPointVariant"`
+	// Background image URL
+	BackgroundImageUrl string `pulumi:"backgroundImageUrl"`
+	// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+	EmailTemplateTouchPointVariant string `pulumi:"emailTemplateTouchPointVariant"`
+	// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
 	EndUserDashboardTouchPointVariant string `pulumi:"endUserDashboardTouchPointVariant"`
-	ErrorPageTouchPointVariant        string `pulumi:"errorPageTouchPointVariant"`
-	FaviconUrl                        string `pulumi:"faviconUrl"`
-	Id                                string `pulumi:"id"`
-	Links                             string `pulumi:"links"`
-	LogoUrl                           string `pulumi:"logoUrl"`
-	PrimaryColorContrastHex           string `pulumi:"primaryColorContrastHex"`
-	PrimaryColorHex                   string `pulumi:"primaryColorHex"`
-	SecondaryColorContrastHex         string `pulumi:"secondaryColorContrastHex"`
-	SecondaryColorHex                 string `pulumi:"secondaryColorHex"`
-	SignInPageTouchPointVariant       string `pulumi:"signInPageTouchPointVariant"`
+	// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	ErrorPageTouchPointVariant string `pulumi:"errorPageTouchPointVariant"`
+	// Favicon URL
+	FaviconUrl string `pulumi:"faviconUrl"`
+	// The ID of the theme
+	Id string `pulumi:"id"`
+	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
+	Links string `pulumi:"links"`
+	// Logo URL
+	LogoUrl string `pulumi:"logoUrl"`
+	// Primary color contrast hex code
+	PrimaryColorContrastHex string `pulumi:"primaryColorContrastHex"`
+	// Primary color hex code
+	PrimaryColorHex string `pulumi:"primaryColorHex"`
+	// Secondary color contrast hex code
+	SecondaryColorContrastHex string `pulumi:"secondaryColorContrastHex"`
+	// Secondary color hex code
+	SecondaryColorHex string `pulumi:"secondaryColorHex"`
+	// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	SignInPageTouchPointVariant string `pulumi:"signInPageTouchPointVariant"`
 }
 
 // GetThemesThemeInput is an input type that accepts GetThemesThemeArgs and GetThemesThemeOutput values.
@@ -2456,19 +2508,32 @@ type GetThemesThemeInput interface {
 }
 
 type GetThemesThemeArgs struct {
-	BackgroundImageUrl                pulumi.StringInput `pulumi:"backgroundImageUrl"`
-	EmailTemplateTouchPointVariant    pulumi.StringInput `pulumi:"emailTemplateTouchPointVariant"`
+	// Background image URL
+	BackgroundImageUrl pulumi.StringInput `pulumi:"backgroundImageUrl"`
+	// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+	EmailTemplateTouchPointVariant pulumi.StringInput `pulumi:"emailTemplateTouchPointVariant"`
+	// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
 	EndUserDashboardTouchPointVariant pulumi.StringInput `pulumi:"endUserDashboardTouchPointVariant"`
-	ErrorPageTouchPointVariant        pulumi.StringInput `pulumi:"errorPageTouchPointVariant"`
-	FaviconUrl                        pulumi.StringInput `pulumi:"faviconUrl"`
-	Id                                pulumi.StringInput `pulumi:"id"`
-	Links                             pulumi.StringInput `pulumi:"links"`
-	LogoUrl                           pulumi.StringInput `pulumi:"logoUrl"`
-	PrimaryColorContrastHex           pulumi.StringInput `pulumi:"primaryColorContrastHex"`
-	PrimaryColorHex                   pulumi.StringInput `pulumi:"primaryColorHex"`
-	SecondaryColorContrastHex         pulumi.StringInput `pulumi:"secondaryColorContrastHex"`
-	SecondaryColorHex                 pulumi.StringInput `pulumi:"secondaryColorHex"`
-	SignInPageTouchPointVariant       pulumi.StringInput `pulumi:"signInPageTouchPointVariant"`
+	// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	ErrorPageTouchPointVariant pulumi.StringInput `pulumi:"errorPageTouchPointVariant"`
+	// Favicon URL
+	FaviconUrl pulumi.StringInput `pulumi:"faviconUrl"`
+	// The ID of the theme
+	Id pulumi.StringInput `pulumi:"id"`
+	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
+	Links pulumi.StringInput `pulumi:"links"`
+	// Logo URL
+	LogoUrl pulumi.StringInput `pulumi:"logoUrl"`
+	// Primary color contrast hex code
+	PrimaryColorContrastHex pulumi.StringInput `pulumi:"primaryColorContrastHex"`
+	// Primary color hex code
+	PrimaryColorHex pulumi.StringInput `pulumi:"primaryColorHex"`
+	// Secondary color contrast hex code
+	SecondaryColorContrastHex pulumi.StringInput `pulumi:"secondaryColorContrastHex"`
+	// Secondary color hex code
+	SecondaryColorHex pulumi.StringInput `pulumi:"secondaryColorHex"`
+	// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+	SignInPageTouchPointVariant pulumi.StringInput `pulumi:"signInPageTouchPointVariant"`
 }
 
 func (GetThemesThemeArgs) ElementType() reflect.Type {
@@ -2522,54 +2587,67 @@ func (o GetThemesThemeOutput) ToGetThemesThemeOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Background image URL
 func (o GetThemesThemeOutput) BackgroundImageUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemesTheme) string { return v.BackgroundImageUrl }).(pulumi.StringOutput)
 }
 
+// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
 func (o GetThemesThemeOutput) EmailTemplateTouchPointVariant() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemesTheme) string { return v.EmailTemplateTouchPointVariant }).(pulumi.StringOutput)
 }
 
+// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
 func (o GetThemesThemeOutput) EndUserDashboardTouchPointVariant() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemesTheme) string { return v.EndUserDashboardTouchPointVariant }).(pulumi.StringOutput)
 }
 
+// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 func (o GetThemesThemeOutput) ErrorPageTouchPointVariant() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemesTheme) string { return v.ErrorPageTouchPointVariant }).(pulumi.StringOutput)
 }
 
+// Favicon URL
 func (o GetThemesThemeOutput) FaviconUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemesTheme) string { return v.FaviconUrl }).(pulumi.StringOutput)
 }
 
+// The ID of the theme
 func (o GetThemesThemeOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemesTheme) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Link relations for this object - JSON HAL - Discoverable resources related to the email template
 func (o GetThemesThemeOutput) Links() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemesTheme) string { return v.Links }).(pulumi.StringOutput)
 }
 
+// Logo URL
 func (o GetThemesThemeOutput) LogoUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemesTheme) string { return v.LogoUrl }).(pulumi.StringOutput)
 }
 
+// Primary color contrast hex code
 func (o GetThemesThemeOutput) PrimaryColorContrastHex() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemesTheme) string { return v.PrimaryColorContrastHex }).(pulumi.StringOutput)
 }
 
+// Primary color hex code
 func (o GetThemesThemeOutput) PrimaryColorHex() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemesTheme) string { return v.PrimaryColorHex }).(pulumi.StringOutput)
 }
 
+// Secondary color contrast hex code
 func (o GetThemesThemeOutput) SecondaryColorContrastHex() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemesTheme) string { return v.SecondaryColorContrastHex }).(pulumi.StringOutput)
 }
 
+// Secondary color hex code
 func (o GetThemesThemeOutput) SecondaryColorHex() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemesTheme) string { return v.SecondaryColorHex }).(pulumi.StringOutput)
 }
 
+// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
 func (o GetThemesThemeOutput) SignInPageTouchPointVariant() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemesTheme) string { return v.SignInPageTouchPointVariant }).(pulumi.StringOutput)
 }

@@ -11,29 +11,77 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEmailCustomizationsEmailCustomization {
+    /**
+     * @return The body of the customization
+     * 
+     */
     private String body;
+    /**
+     * @return The ID of the customization
+     * 
+     */
     private String id;
+    /**
+     * @return Whether the customization is the default
+     * 
+     */
     private Boolean isDefault;
+    /**
+     * @return The language supported by the customization
+     * 
+     */
     private String language;
+    /**
+     * @return Link relations for this object - JSON HAL - Discoverable resources related to the email template
+     * 
+     */
     private String links;
+    /**
+     * @return The subject of the customization
+     * 
+     */
     private String subject;
 
     private GetEmailCustomizationsEmailCustomization() {}
+    /**
+     * @return The body of the customization
+     * 
+     */
     public String body() {
         return this.body;
     }
+    /**
+     * @return The ID of the customization
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return Whether the customization is the default
+     * 
+     */
     public Boolean isDefault() {
         return this.isDefault;
     }
+    /**
+     * @return The language supported by the customization
+     * 
+     */
     public String language() {
         return this.language;
     }
+    /**
+     * @return Link relations for this object - JSON HAL - Discoverable resources related to the email template
+     * 
+     */
     public String links() {
         return this.links;
     }
+    /**
+     * @return The subject of the customization
+     * 
+     */
     public String subject() {
         return this.subject;
     }

@@ -771,6 +771,13 @@ class GetBrandsBrandResult(dict):
                  links: str,
                  name: str,
                  remove_powered_by_okta: bool):
+        """
+        :param str custom_privacy_policy_url: Custom privacy policy URL
+        :param str id: The ID of the Brand
+        :param str links: Link relations for this object - JSON HAL - Discoverable resources related to the brand
+        :param str name: Brand name
+        :param bool remove_powered_by_okta: Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        """
         pulumi.set(__self__, "custom_privacy_policy_url", custom_privacy_policy_url)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "links", links)
@@ -780,26 +787,41 @@ class GetBrandsBrandResult(dict):
     @property
     @pulumi.getter(name="customPrivacyPolicyUrl")
     def custom_privacy_policy_url(self) -> str:
+        """
+        Custom privacy policy URL
+        """
         return pulumi.get(self, "custom_privacy_policy_url")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The ID of the Brand
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def links(self) -> str:
+        """
+        Link relations for this object - JSON HAL - Discoverable resources related to the brand
+        """
         return pulumi.get(self, "links")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Brand name
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="removePoweredByOkta")
     def remove_powered_by_okta(self) -> bool:
+        """
+        Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        """
         return pulumi.get(self, "remove_powered_by_okta")
 
 
@@ -812,6 +834,14 @@ class GetEmailCustomizationsEmailCustomizationResult(dict):
                  language: str,
                  links: str,
                  subject: str):
+        """
+        :param str body: The body of the customization
+        :param str id: The ID of the customization
+        :param bool is_default: Whether the customization is the default
+        :param str language: The language supported by the customization
+        :param str links: Link relations for this object - JSON HAL - Discoverable resources related to the email template
+        :param str subject: The subject of the customization
+        """
         pulumi.set(__self__, "body", body)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "is_default", is_default)
@@ -822,31 +852,49 @@ class GetEmailCustomizationsEmailCustomizationResult(dict):
     @property
     @pulumi.getter
     def body(self) -> str:
+        """
+        The body of the customization
+        """
         return pulumi.get(self, "body")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The ID of the customization
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> bool:
+        """
+        Whether the customization is the default
+        """
         return pulumi.get(self, "is_default")
 
     @property
     @pulumi.getter
     def language(self) -> str:
+        """
+        The language supported by the customization
+        """
         return pulumi.get(self, "language")
 
     @property
     @pulumi.getter
     def links(self) -> str:
+        """
+        Link relations for this object - JSON HAL - Discoverable resources related to the email template
+        """
         return pulumi.get(self, "links")
 
     @property
     @pulumi.getter
     def subject(self) -> str:
+        """
+        The subject of the customization
+        """
         return pulumi.get(self, "subject")
 
 
@@ -919,17 +967,27 @@ class GetTemplatesEmailTemplateResult(dict):
     def __init__(__self__, *,
                  links: str,
                  name: str):
+        """
+        :param str links: Link relations for this object - JSON HAL - Discoverable resources related to the email template
+        :param str name: The name of the email template
+        """
         pulumi.set(__self__, "links", links)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def links(self) -> str:
+        """
+        Link relations for this object - JSON HAL - Discoverable resources related to the email template
+        """
         return pulumi.get(self, "links")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the email template
+        """
         return pulumi.get(self, "name")
 
 
@@ -949,6 +1007,21 @@ class GetThemesThemeResult(dict):
                  secondary_color_contrast_hex: str,
                  secondary_color_hex: str,
                  sign_in_page_touch_point_variant: str):
+        """
+        :param str background_image_url: Background image URL
+        :param str email_template_touch_point_variant: Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+        :param str end_user_dashboard_touch_point_variant: Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+        :param str error_page_touch_point_variant: Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        :param str favicon_url: Favicon URL
+        :param str id: The ID of the theme
+        :param str links: Link relations for this object - JSON HAL - Discoverable resources related to the email template
+        :param str logo_url: Logo URL
+        :param str primary_color_contrast_hex: Primary color contrast hex code
+        :param str primary_color_hex: Primary color hex code
+        :param str secondary_color_contrast_hex: Secondary color contrast hex code
+        :param str secondary_color_hex: Secondary color hex code
+        :param str sign_in_page_touch_point_variant: Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        """
         pulumi.set(__self__, "background_image_url", background_image_url)
         pulumi.set(__self__, "email_template_touch_point_variant", email_template_touch_point_variant)
         pulumi.set(__self__, "end_user_dashboard_touch_point_variant", end_user_dashboard_touch_point_variant)
@@ -966,66 +1039,105 @@ class GetThemesThemeResult(dict):
     @property
     @pulumi.getter(name="backgroundImageUrl")
     def background_image_url(self) -> str:
+        """
+        Background image URL
+        """
         return pulumi.get(self, "background_image_url")
 
     @property
     @pulumi.getter(name="emailTemplateTouchPointVariant")
     def email_template_touch_point_variant(self) -> str:
+        """
+        Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+        """
         return pulumi.get(self, "email_template_touch_point_variant")
 
     @property
     @pulumi.getter(name="endUserDashboardTouchPointVariant")
     def end_user_dashboard_touch_point_variant(self) -> str:
+        """
+        Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+        """
         return pulumi.get(self, "end_user_dashboard_touch_point_variant")
 
     @property
     @pulumi.getter(name="errorPageTouchPointVariant")
     def error_page_touch_point_variant(self) -> str:
+        """
+        Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        """
         return pulumi.get(self, "error_page_touch_point_variant")
 
     @property
     @pulumi.getter(name="faviconUrl")
     def favicon_url(self) -> str:
+        """
+        Favicon URL
+        """
         return pulumi.get(self, "favicon_url")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The ID of the theme
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def links(self) -> str:
+        """
+        Link relations for this object - JSON HAL - Discoverable resources related to the email template
+        """
         return pulumi.get(self, "links")
 
     @property
     @pulumi.getter(name="logoUrl")
     def logo_url(self) -> str:
+        """
+        Logo URL
+        """
         return pulumi.get(self, "logo_url")
 
     @property
     @pulumi.getter(name="primaryColorContrastHex")
     def primary_color_contrast_hex(self) -> str:
+        """
+        Primary color contrast hex code
+        """
         return pulumi.get(self, "primary_color_contrast_hex")
 
     @property
     @pulumi.getter(name="primaryColorHex")
     def primary_color_hex(self) -> str:
+        """
+        Primary color hex code
+        """
         return pulumi.get(self, "primary_color_hex")
 
     @property
     @pulumi.getter(name="secondaryColorContrastHex")
     def secondary_color_contrast_hex(self) -> str:
+        """
+        Secondary color contrast hex code
+        """
         return pulumi.get(self, "secondary_color_contrast_hex")
 
     @property
     @pulumi.getter(name="secondaryColorHex")
     def secondary_color_hex(self) -> str:
+        """
+        Secondary color hex code
+        """
         return pulumi.get(self, "secondary_color_hex")
 
     @property
     @pulumi.getter(name="signInPageTouchPointVariant")
     def sign_in_page_touch_point_variant(self) -> str:
+        """
+        Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        """
         return pulumi.get(self, "sign_in_page_touch_point_variant")
 
 

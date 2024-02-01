@@ -13,6 +13,9 @@ namespace Pulumi.Okta.User.Outputs
     [OutputType]
     public sealed class UserPasswordHash
     {
+        /// <summary>
+        /// The algorithm used to generate the hash using the password
+        /// </summary>
         public readonly string Algorithm;
         /// <summary>
         /// Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate

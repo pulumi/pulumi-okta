@@ -10,57 +10,161 @@ import java.util.Objects;
 
 @CustomType
 public final class GetThemesTheme {
+    /**
+     * @return Background image URL
+     * 
+     */
     private String backgroundImageUrl;
+    /**
+     * @return Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+     * 
+     */
     private String emailTemplateTouchPointVariant;
+    /**
+     * @return Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+     * 
+     */
     private String endUserDashboardTouchPointVariant;
+    /**
+     * @return Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * 
+     */
     private String errorPageTouchPointVariant;
+    /**
+     * @return Favicon URL
+     * 
+     */
     private String faviconUrl;
+    /**
+     * @return The ID of the theme
+     * 
+     */
     private String id;
+    /**
+     * @return Link relations for this object - JSON HAL - Discoverable resources related to the email template
+     * 
+     */
     private String links;
+    /**
+     * @return Logo URL
+     * 
+     */
     private String logoUrl;
+    /**
+     * @return Primary color contrast hex code
+     * 
+     */
     private String primaryColorContrastHex;
+    /**
+     * @return Primary color hex code
+     * 
+     */
     private String primaryColorHex;
+    /**
+     * @return Secondary color contrast hex code
+     * 
+     */
     private String secondaryColorContrastHex;
+    /**
+     * @return Secondary color hex code
+     * 
+     */
     private String secondaryColorHex;
+    /**
+     * @return Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * 
+     */
     private String signInPageTouchPointVariant;
 
     private GetThemesTheme() {}
+    /**
+     * @return Background image URL
+     * 
+     */
     public String backgroundImageUrl() {
         return this.backgroundImageUrl;
     }
+    /**
+     * @return Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+     * 
+     */
     public String emailTemplateTouchPointVariant() {
         return this.emailTemplateTouchPointVariant;
     }
+    /**
+     * @return Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+     * 
+     */
     public String endUserDashboardTouchPointVariant() {
         return this.endUserDashboardTouchPointVariant;
     }
+    /**
+     * @return Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * 
+     */
     public String errorPageTouchPointVariant() {
         return this.errorPageTouchPointVariant;
     }
+    /**
+     * @return Favicon URL
+     * 
+     */
     public String faviconUrl() {
         return this.faviconUrl;
     }
+    /**
+     * @return The ID of the theme
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return Link relations for this object - JSON HAL - Discoverable resources related to the email template
+     * 
+     */
     public String links() {
         return this.links;
     }
+    /**
+     * @return Logo URL
+     * 
+     */
     public String logoUrl() {
         return this.logoUrl;
     }
+    /**
+     * @return Primary color contrast hex code
+     * 
+     */
     public String primaryColorContrastHex() {
         return this.primaryColorContrastHex;
     }
+    /**
+     * @return Primary color hex code
+     * 
+     */
     public String primaryColorHex() {
         return this.primaryColorHex;
     }
+    /**
+     * @return Secondary color contrast hex code
+     * 
+     */
     public String secondaryColorContrastHex() {
         return this.secondaryColorContrastHex;
     }
+    /**
+     * @return Secondary color hex code
+     * 
+     */
     public String secondaryColorHex() {
         return this.secondaryColorHex;
     }
+    /**
+     * @return Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     * 
+     */
     public String signInPageTouchPointVariant() {
         return this.signInPageTouchPointVariant;
     }

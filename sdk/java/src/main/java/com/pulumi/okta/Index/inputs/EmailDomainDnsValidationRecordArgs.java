@@ -16,6 +16,8 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
     public static final EmailDomainDnsValidationRecordArgs Empty = new EmailDomainDnsValidationRecordArgs();
 
     /**
+     * DNS TXT record expiration
+     * 
      * @deprecated
      * This field has been removed in the newest go sdk version and has become noop
      * 
@@ -25,6 +27,8 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
     private @Nullable Output<String> expiration;
 
     /**
+     * @return DNS TXT record expiration
+     * 
      * @deprecated
      * This field has been removed in the newest go sdk version and has become noop
      * 
@@ -109,6 +113,8 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
         }
 
         /**
+         * @param expiration DNS TXT record expiration
+         * 
          * @return builder
          * 
          * @deprecated
@@ -122,6 +128,8 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
         }
 
         /**
+         * @param expiration DNS TXT record expiration
+         * 
          * @return builder
          * 
          * @deprecated
