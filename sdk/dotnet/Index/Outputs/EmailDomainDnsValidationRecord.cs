@@ -13,6 +13,9 @@ namespace Pulumi.Okta.Index.Outputs
     [OutputType]
     public sealed class EmailDomainDnsValidationRecord
     {
+        /// <summary>
+        /// DNS TXT record expiration
+        /// </summary>
         public readonly string? Expiration;
         /// <summary>
         /// DNS record name.

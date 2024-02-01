@@ -11,25 +11,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrandsBrand {
+    /**
+     * @return Custom privacy policy URL
+     * 
+     */
     private String customPrivacyPolicyUrl;
+    /**
+     * @return The ID of the Brand
+     * 
+     */
     private String id;
+    /**
+     * @return Link relations for this object - JSON HAL - Discoverable resources related to the brand
+     * 
+     */
     private String links;
+    /**
+     * @return Brand name
+     * 
+     */
     private String name;
+    /**
+     * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+     * 
+     */
     private Boolean removePoweredByOkta;
 
     private GetBrandsBrand() {}
+    /**
+     * @return Custom privacy policy URL
+     * 
+     */
     public String customPrivacyPolicyUrl() {
         return this.customPrivacyPolicyUrl;
     }
+    /**
+     * @return The ID of the Brand
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return Link relations for this object - JSON HAL - Discoverable resources related to the brand
+     * 
+     */
     public String links() {
         return this.links;
     }
+    /**
+     * @return Brand name
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Removes &#34;Powered by Okta&#34; from the Okta-hosted sign-in page and &#34;© 2021 Okta, Inc.&#34; from the Okta End-User Dashboard
+     * 
+     */
     public Boolean removePoweredByOkta() {
         return this.removePoweredByOkta;
     }

@@ -33,6 +33,7 @@ class GetServerScopesScopeResult(dict):
         :param str id: ID of the Scope
         :param str metadata_publish: Whether the Scope should be included in the metadata
         :param str name: Name of the Scope
+        :param bool optional: Whether the Scope is optional
         :param bool system: Whether Okta created the Scope
         """
         pulumi.set(__self__, "consent", consent)
@@ -104,6 +105,9 @@ class GetServerScopesScopeResult(dict):
     @property
     @pulumi.getter
     def optional(self) -> bool:
+        """
+        Whether the Scope is optional
+        """
         return pulumi.get(self, "optional")
 
     @property

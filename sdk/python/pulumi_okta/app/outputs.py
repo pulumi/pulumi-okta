@@ -111,6 +111,14 @@ class OAuthJwk(dict):
                  n: Optional[str] = None,
                  x: Optional[str] = None,
                  y: Optional[str] = None):
+        """
+        :param str kid: Key ID
+        :param str kty: Key type
+        :param str e: RSA Exponent
+        :param str n: RSA Modulus
+        :param str x: X coordinate of the elliptic curve point
+        :param str y: Y coordinate of the elliptic curve point
+        """
         pulumi.set(__self__, "kid", kid)
         pulumi.set(__self__, "kty", kty)
         if e is not None:
@@ -125,31 +133,49 @@ class OAuthJwk(dict):
     @property
     @pulumi.getter
     def kid(self) -> str:
+        """
+        Key ID
+        """
         return pulumi.get(self, "kid")
 
     @property
     @pulumi.getter
     def kty(self) -> str:
+        """
+        Key type
+        """
         return pulumi.get(self, "kty")
 
     @property
     @pulumi.getter
     def e(self) -> Optional[str]:
+        """
+        RSA Exponent
+        """
         return pulumi.get(self, "e")
 
     @property
     @pulumi.getter
     def n(self) -> Optional[str]:
+        """
+        RSA Modulus
+        """
         return pulumi.get(self, "n")
 
     @property
     @pulumi.getter
     def x(self) -> Optional[str]:
+        """
+        X coordinate of the elliptic curve point
+        """
         return pulumi.get(self, "x")
 
     @property
     @pulumi.getter
     def y(self) -> Optional[str]:
+        """
+        Y coordinate of the elliptic curve point
+        """
         return pulumi.get(self, "y")
 
 

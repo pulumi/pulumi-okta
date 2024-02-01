@@ -46,6 +46,10 @@ public final class GetServerScopesScope {
      * 
      */
     private String name;
+    /**
+     * @return Whether the Scope is optional
+     * 
+     */
     private Boolean optional;
     /**
      * @return Whether Okta created the Scope
@@ -103,6 +107,10 @@ public final class GetServerScopesScope {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Whether the Scope is optional
+     * 
+     */
     public Boolean optional() {
         return this.optional;
     }

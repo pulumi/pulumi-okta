@@ -13,18 +13,57 @@ namespace Pulumi.Okta.Outputs
     [OutputType]
     public sealed class GetThemesThemeResult
     {
+        /// <summary>
+        /// Background image URL
+        /// </summary>
         public readonly string BackgroundImageUrl;
+        /// <summary>
+        /// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+        /// </summary>
         public readonly string EmailTemplateTouchPointVariant;
+        /// <summary>
+        /// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+        /// </summary>
         public readonly string EndUserDashboardTouchPointVariant;
+        /// <summary>
+        /// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        /// </summary>
         public readonly string ErrorPageTouchPointVariant;
+        /// <summary>
+        /// Favicon URL
+        /// </summary>
         public readonly string FaviconUrl;
+        /// <summary>
+        /// The ID of the theme
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Link relations for this object - JSON HAL - Discoverable resources related to the email template
+        /// </summary>
         public readonly string Links;
+        /// <summary>
+        /// Logo URL
+        /// </summary>
         public readonly string LogoUrl;
+        /// <summary>
+        /// Primary color contrast hex code
+        /// </summary>
         public readonly string PrimaryColorContrastHex;
+        /// <summary>
+        /// Primary color hex code
+        /// </summary>
         public readonly string PrimaryColorHex;
+        /// <summary>
+        /// Secondary color contrast hex code
+        /// </summary>
         public readonly string SecondaryColorContrastHex;
+        /// <summary>
+        /// Secondary color hex code
+        /// </summary>
         public readonly string SecondaryColorHex;
+        /// <summary>
+        /// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        /// </summary>
         public readonly string SignInPageTouchPointVariant;
 
         [OutputConstructor]

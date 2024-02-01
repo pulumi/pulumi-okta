@@ -12,6 +12,9 @@ namespace Pulumi.Okta.Index.Inputs
 
     public sealed class EmailDomainDnsValidationRecordGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// DNS TXT record expiration
+        /// </summary>
         [Input("expiration")]
         public Input<string>? Expiration { get; set; }
 

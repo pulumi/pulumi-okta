@@ -161,19 +161,52 @@ export interface GetBehavioursBehavior {
 }
 
 export interface GetBrandsBrand {
+    /**
+     * Custom privacy policy URL
+     */
     customPrivacyPolicyUrl: string;
+    /**
+     * The ID of the Brand
+     */
     id: string;
+    /**
+     * Link relations for this object - JSON HAL - Discoverable resources related to the brand
+     */
     links: string;
+    /**
+     * Brand name
+     */
     name: string;
+    /**
+     * Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+     */
     removePoweredByOkta: boolean;
 }
 
 export interface GetEmailCustomizationsEmailCustomization {
+    /**
+     * The body of the customization
+     */
     body: string;
+    /**
+     * The ID of the customization
+     */
     id: string;
+    /**
+     * Whether the customization is the default
+     */
     isDefault: boolean;
+    /**
+     * The language supported by the customization
+     */
     language: string;
+    /**
+     * Link relations for this object - JSON HAL - Discoverable resources related to the email template
+     */
     links: string;
+    /**
+     * The subject of the customization
+     */
     subject: string;
 }
 
@@ -202,23 +235,68 @@ export interface GetGroupsGroup {
 }
 
 export interface GetTemplatesEmailTemplate {
+    /**
+     * Link relations for this object - JSON HAL - Discoverable resources related to the email template
+     */
     links: string;
+    /**
+     * The name of the email template
+     */
     name: string;
 }
 
 export interface GetThemesTheme {
+    /**
+     * Background image URL
+     */
     backgroundImageUrl: string;
+    /**
+     * Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+     */
     emailTemplateTouchPointVariant: string;
+    /**
+     * Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+     */
     endUserDashboardTouchPointVariant: string;
+    /**
+     * Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     */
     errorPageTouchPointVariant: string;
+    /**
+     * Favicon URL
+     */
     faviconUrl: string;
+    /**
+     * The ID of the theme
+     */
     id: string;
+    /**
+     * Link relations for this object - JSON HAL - Discoverable resources related to the email template
+     */
     links: string;
+    /**
+     * Logo URL
+     */
     logoUrl: string;
+    /**
+     * Primary color contrast hex code
+     */
     primaryColorContrastHex: string;
+    /**
+     * Primary color hex code
+     */
     primaryColorHex: string;
+    /**
+     * Secondary color contrast hex code
+     */
     secondaryColorContrastHex: string;
+    /**
+     * Secondary color hex code
+     */
     secondaryColorHex: string;
+    /**
+     * Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+     */
     signInPageTouchPointVariant: string;
 }
 
@@ -351,6 +429,8 @@ export interface UserSchemaPropertyOneOf {
 export namespace Index {
     export interface EmailDomainDnsValidationRecord {
         /**
+         * DNS TXT record expiration
+         *
          * @deprecated This field has been removed in the newest go sdk version and has become noop
          */
         expiration: string;
@@ -463,11 +543,29 @@ export namespace app {
     }
 
     export interface OAuthJwk {
+        /**
+         * RSA Exponent
+         */
         e?: string;
+        /**
+         * Key ID
+         */
         kid: string;
+        /**
+         * Key type
+         */
         kty: string;
+        /**
+         * RSA Modulus
+         */
         n?: string;
+        /**
+         * X coordinate of the elliptic curve point
+         */
         x?: string;
+        /**
+         * Y coordinate of the elliptic curve point
+         */
         y?: string;
     }
 
@@ -573,6 +671,9 @@ export namespace auth {
          * Name of the Scope
          */
         name: string;
+        /**
+         * Whether the Scope is optional
+         */
         optional: boolean;
         /**
          * Whether Okta created the Scope
@@ -922,6 +1023,9 @@ export namespace user {
     }
 
     export interface UserPasswordHash {
+        /**
+         * The algorithm used to generate the hash using the password
+         */
         algorithm: string;
         /**
          * Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
