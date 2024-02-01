@@ -13,7 +13,13 @@ namespace Pulumi.Okta.Outputs
     [OutputType]
     public sealed class GetTemplatesEmailTemplateResult
     {
+        /// <summary>
+        /// Link relations for this object - JSON HAL - Discoverable resources related to the email template
+        /// </summary>
         public readonly string Links;
+        /// <summary>
+        /// The name of the email template
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

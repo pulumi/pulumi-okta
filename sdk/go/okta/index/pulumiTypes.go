@@ -14,6 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type EmailDomainDnsValidationRecord struct {
+	// DNS TXT record expiration
+	//
 	// Deprecated: This field has been removed in the newest go sdk version and has become noop
 	Expiration *string `pulumi:"expiration"`
 	// DNS record name.
@@ -37,6 +39,8 @@ type EmailDomainDnsValidationRecordInput interface {
 }
 
 type EmailDomainDnsValidationRecordArgs struct {
+	// DNS TXT record expiration
+	//
 	// Deprecated: This field has been removed in the newest go sdk version and has become noop
 	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
 	// DNS record name.
@@ -99,6 +103,8 @@ func (o EmailDomainDnsValidationRecordOutput) ToEmailDomainDnsValidationRecordOu
 	return o
 }
 
+// DNS TXT record expiration
+//
 // Deprecated: This field has been removed in the newest go sdk version and has become noop
 func (o EmailDomainDnsValidationRecordOutput) Expiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.Expiration }).(pulumi.StringPtrOutput)

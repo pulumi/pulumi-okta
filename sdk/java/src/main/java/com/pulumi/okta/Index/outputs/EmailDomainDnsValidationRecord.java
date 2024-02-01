@@ -12,6 +12,8 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EmailDomainDnsValidationRecord {
     /**
+     * @return DNS TXT record expiration
+     * 
      * @deprecated
      * This field has been removed in the newest go sdk version and has become noop
      * 
@@ -37,6 +39,8 @@ public final class EmailDomainDnsValidationRecord {
 
     private EmailDomainDnsValidationRecord() {}
     /**
+     * @return DNS TXT record expiration
+     * 
      * @deprecated
      * This field has been removed in the newest go sdk version and has become noop
      * 

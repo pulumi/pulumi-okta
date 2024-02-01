@@ -13,11 +13,29 @@ namespace Pulumi.Okta.Outputs
     [OutputType]
     public sealed class GetEmailCustomizationsEmailCustomizationResult
     {
+        /// <summary>
+        /// The body of the customization
+        /// </summary>
         public readonly string Body;
+        /// <summary>
+        /// The ID of the customization
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Whether the customization is the default
+        /// </summary>
         public readonly bool IsDefault;
+        /// <summary>
+        /// The language supported by the customization
+        /// </summary>
         public readonly string Language;
+        /// <summary>
+        /// Link relations for this object - JSON HAL - Discoverable resources related to the email template
+        /// </summary>
         public readonly string Links;
+        /// <summary>
+        /// The subject of the customization
+        /// </summary>
         public readonly string Subject;
 
         [OutputConstructor]
