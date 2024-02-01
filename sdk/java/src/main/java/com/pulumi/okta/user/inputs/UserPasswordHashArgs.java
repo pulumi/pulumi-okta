@@ -17,9 +17,17 @@ public final class UserPasswordHashArgs extends com.pulumi.resources.ResourceArg
 
     public static final UserPasswordHashArgs Empty = new UserPasswordHashArgs();
 
+    /**
+     * The algorithm used to generate the hash using the password
+     * 
+     */
     @Import(name="algorithm", required=true)
     private Output<String> algorithm;
 
+    /**
+     * @return The algorithm used to generate the hash using the password
+     * 
+     */
     public Output<String> algorithm() {
         return this.algorithm;
     }
@@ -120,11 +128,23 @@ public final class UserPasswordHashArgs extends com.pulumi.resources.ResourceArg
             $ = new UserPasswordHashArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param algorithm The algorithm used to generate the hash using the password
+         * 
+         * @return builder
+         * 
+         */
         public Builder algorithm(Output<String> algorithm) {
             $.algorithm = algorithm;
             return this;
         }
 
+        /**
+         * @param algorithm The algorithm used to generate the hash using the password
+         * 
+         * @return builder
+         * 
+         */
         public Builder algorithm(String algorithm) {
             return algorithm(Output.of(algorithm));
         }

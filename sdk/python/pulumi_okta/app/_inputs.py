@@ -111,6 +111,14 @@ class OAuthJwkArgs:
                  n: Optional[pulumi.Input[str]] = None,
                  x: Optional[pulumi.Input[str]] = None,
                  y: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kid: Key ID
+        :param pulumi.Input[str] kty: Key type
+        :param pulumi.Input[str] e: RSA Exponent
+        :param pulumi.Input[str] n: RSA Modulus
+        :param pulumi.Input[str] x: X coordinate of the elliptic curve point
+        :param pulumi.Input[str] y: Y coordinate of the elliptic curve point
+        """
         pulumi.set(__self__, "kid", kid)
         pulumi.set(__self__, "kty", kty)
         if e is not None:
@@ -125,6 +133,9 @@ class OAuthJwkArgs:
     @property
     @pulumi.getter
     def kid(self) -> pulumi.Input[str]:
+        """
+        Key ID
+        """
         return pulumi.get(self, "kid")
 
     @kid.setter
@@ -134,6 +145,9 @@ class OAuthJwkArgs:
     @property
     @pulumi.getter
     def kty(self) -> pulumi.Input[str]:
+        """
+        Key type
+        """
         return pulumi.get(self, "kty")
 
     @kty.setter
@@ -143,6 +157,9 @@ class OAuthJwkArgs:
     @property
     @pulumi.getter
     def e(self) -> Optional[pulumi.Input[str]]:
+        """
+        RSA Exponent
+        """
         return pulumi.get(self, "e")
 
     @e.setter
@@ -152,6 +169,9 @@ class OAuthJwkArgs:
     @property
     @pulumi.getter
     def n(self) -> Optional[pulumi.Input[str]]:
+        """
+        RSA Modulus
+        """
         return pulumi.get(self, "n")
 
     @n.setter
@@ -161,6 +181,9 @@ class OAuthJwkArgs:
     @property
     @pulumi.getter
     def x(self) -> Optional[pulumi.Input[str]]:
+        """
+        X coordinate of the elliptic curve point
+        """
         return pulumi.get(self, "x")
 
     @x.setter
@@ -170,6 +193,9 @@ class OAuthJwkArgs:
     @property
     @pulumi.getter
     def y(self) -> Optional[pulumi.Input[str]]:
+        """
+        Y coordinate of the elliptic curve point
+        """
         return pulumi.get(self, "y")
 
     @y.setter

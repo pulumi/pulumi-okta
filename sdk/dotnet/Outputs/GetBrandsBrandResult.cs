@@ -13,10 +13,25 @@ namespace Pulumi.Okta.Outputs
     [OutputType]
     public sealed class GetBrandsBrandResult
     {
+        /// <summary>
+        /// Custom privacy policy URL
+        /// </summary>
         public readonly string CustomPrivacyPolicyUrl;
+        /// <summary>
+        /// The ID of the Brand
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Link relations for this object - JSON HAL - Discoverable resources related to the brand
+        /// </summary>
         public readonly string Links;
+        /// <summary>
+        /// Brand name
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        /// </summary>
         public readonly bool RemovePoweredByOkta;
 
         [OutputConstructor]

@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTemplatesEmailTemplate {
+    /**
+     * @return Link relations for this object - JSON HAL - Discoverable resources related to the email template
+     * 
+     */
     private String links;
+    /**
+     * @return The name of the email template
+     * 
+     */
     private String name;
 
     private GetTemplatesEmailTemplate() {}
+    /**
+     * @return Link relations for this object - JSON HAL - Discoverable resources related to the email template
+     * 
+     */
     public String links() {
         return this.links;
     }
+    /**
+     * @return The name of the email template
+     * 
+     */
     public String name() {
         return this.name;
     }

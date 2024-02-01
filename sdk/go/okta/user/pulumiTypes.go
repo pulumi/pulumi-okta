@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type UserPasswordHash struct {
+	// The algorithm used to generate the hash using the password
 	Algorithm string `pulumi:"algorithm"`
 	// Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
 	// the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
@@ -41,6 +42,7 @@ type UserPasswordHashInput interface {
 }
 
 type UserPasswordHashArgs struct {
+	// The algorithm used to generate the hash using the password
 	Algorithm pulumi.StringInput `pulumi:"algorithm"`
 	// Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
 	// the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
@@ -133,6 +135,7 @@ func (o UserPasswordHashOutput) ToUserPasswordHashPtrOutputWithContext(ctx conte
 	}).(UserPasswordHashPtrOutput)
 }
 
+// The algorithm used to generate the hash using the password
 func (o UserPasswordHashOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPasswordHash) string { return v.Algorithm }).(pulumi.StringOutput)
 }
@@ -185,6 +188,7 @@ func (o UserPasswordHashPtrOutput) Elem() UserPasswordHashOutput {
 	}).(UserPasswordHashOutput)
 }
 
+// The algorithm used to generate the hash using the password
 func (o UserPasswordHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPasswordHash) *string {
 		if v == nil {

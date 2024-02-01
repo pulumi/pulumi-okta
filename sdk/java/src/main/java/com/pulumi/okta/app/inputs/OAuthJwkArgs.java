@@ -16,44 +16,92 @@ public final class OAuthJwkArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final OAuthJwkArgs Empty = new OAuthJwkArgs();
 
+    /**
+     * RSA Exponent
+     * 
+     */
     @Import(name="e")
     private @Nullable Output<String> e;
 
+    /**
+     * @return RSA Exponent
+     * 
+     */
     public Optional<Output<String>> e() {
         return Optional.ofNullable(this.e);
     }
 
+    /**
+     * Key ID
+     * 
+     */
     @Import(name="kid", required=true)
     private Output<String> kid;
 
+    /**
+     * @return Key ID
+     * 
+     */
     public Output<String> kid() {
         return this.kid;
     }
 
+    /**
+     * Key type
+     * 
+     */
     @Import(name="kty", required=true)
     private Output<String> kty;
 
+    /**
+     * @return Key type
+     * 
+     */
     public Output<String> kty() {
         return this.kty;
     }
 
+    /**
+     * RSA Modulus
+     * 
+     */
     @Import(name="n")
     private @Nullable Output<String> n;
 
+    /**
+     * @return RSA Modulus
+     * 
+     */
     public Optional<Output<String>> n() {
         return Optional.ofNullable(this.n);
     }
 
+    /**
+     * X coordinate of the elliptic curve point
+     * 
+     */
     @Import(name="x")
     private @Nullable Output<String> x;
 
+    /**
+     * @return X coordinate of the elliptic curve point
+     * 
+     */
     public Optional<Output<String>> x() {
         return Optional.ofNullable(this.x);
     }
 
+    /**
+     * Y coordinate of the elliptic curve point
+     * 
+     */
     @Import(name="y")
     private @Nullable Output<String> y;
 
+    /**
+     * @return Y coordinate of the elliptic curve point
+     * 
+     */
     public Optional<Output<String>> y() {
         return Optional.ofNullable(this.y);
     }
@@ -87,56 +135,128 @@ public final class OAuthJwkArgs extends com.pulumi.resources.ResourceArgs {
             $ = new OAuthJwkArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param e RSA Exponent
+         * 
+         * @return builder
+         * 
+         */
         public Builder e(@Nullable Output<String> e) {
             $.e = e;
             return this;
         }
 
+        /**
+         * @param e RSA Exponent
+         * 
+         * @return builder
+         * 
+         */
         public Builder e(String e) {
             return e(Output.of(e));
         }
 
+        /**
+         * @param kid Key ID
+         * 
+         * @return builder
+         * 
+         */
         public Builder kid(Output<String> kid) {
             $.kid = kid;
             return this;
         }
 
+        /**
+         * @param kid Key ID
+         * 
+         * @return builder
+         * 
+         */
         public Builder kid(String kid) {
             return kid(Output.of(kid));
         }
 
+        /**
+         * @param kty Key type
+         * 
+         * @return builder
+         * 
+         */
         public Builder kty(Output<String> kty) {
             $.kty = kty;
             return this;
         }
 
+        /**
+         * @param kty Key type
+         * 
+         * @return builder
+         * 
+         */
         public Builder kty(String kty) {
             return kty(Output.of(kty));
         }
 
+        /**
+         * @param n RSA Modulus
+         * 
+         * @return builder
+         * 
+         */
         public Builder n(@Nullable Output<String> n) {
             $.n = n;
             return this;
         }
 
+        /**
+         * @param n RSA Modulus
+         * 
+         * @return builder
+         * 
+         */
         public Builder n(String n) {
             return n(Output.of(n));
         }
 
+        /**
+         * @param x X coordinate of the elliptic curve point
+         * 
+         * @return builder
+         * 
+         */
         public Builder x(@Nullable Output<String> x) {
             $.x = x;
             return this;
         }
 
+        /**
+         * @param x X coordinate of the elliptic curve point
+         * 
+         * @return builder
+         * 
+         */
         public Builder x(String x) {
             return x(Output.of(x));
         }
 
+        /**
+         * @param y Y coordinate of the elliptic curve point
+         * 
+         * @return builder
+         * 
+         */
         public Builder y(@Nullable Output<String> y) {
             $.y = y;
             return this;
         }
 
+        /**
+         * @param y Y coordinate of the elliptic curve point
+         * 
+         * @return builder
+         * 
+         */
         public Builder y(String y) {
             return y(Output.of(y));
         }

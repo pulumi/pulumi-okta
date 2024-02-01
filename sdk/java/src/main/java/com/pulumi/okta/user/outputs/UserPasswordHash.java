@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPasswordHash {
+    /**
+     * @return The algorithm used to generate the hash using the password
+     * 
+     */
     private String algorithm;
     /**
      * @return Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
@@ -40,6 +44,10 @@ public final class UserPasswordHash {
     private @Nullable Integer workFactor;
 
     private UserPasswordHash() {}
+    /**
+     * @return The algorithm used to generate the hash using the password
+     * 
+     */
     public String algorithm() {
         return this.algorithm;
     }

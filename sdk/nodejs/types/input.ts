@@ -196,6 +196,8 @@ export interface UserSchemaPropertyOneOf {
 export namespace Index {
     export interface EmailDomainDnsValidationRecord {
         /**
+         * DNS TXT record expiration
+         *
          * @deprecated This field has been removed in the newest go sdk version and has become noop
          */
         expiration?: pulumi.Input<string>;
@@ -281,11 +283,29 @@ export namespace app {
     }
 
     export interface OAuthJwk {
+        /**
+         * RSA Exponent
+         */
         e?: pulumi.Input<string>;
+        /**
+         * Key ID
+         */
         kid: pulumi.Input<string>;
+        /**
+         * Key type
+         */
         kty: pulumi.Input<string>;
+        /**
+         * RSA Modulus
+         */
         n?: pulumi.Input<string>;
+        /**
+         * X coordinate of the elliptic curve point
+         */
         x?: pulumi.Input<string>;
+        /**
+         * Y coordinate of the elliptic curve point
+         */
         y?: pulumi.Input<string>;
     }
 
@@ -593,6 +613,9 @@ export namespace user {
     }
 
     export interface UserPasswordHash {
+        /**
+         * The algorithm used to generate the hash using the password
+         */
         algorithm: pulumi.Input<string>;
         /**
          * Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate

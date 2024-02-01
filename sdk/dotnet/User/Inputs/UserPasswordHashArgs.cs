@@ -12,6 +12,9 @@ namespace Pulumi.Okta.User.Inputs
 
     public sealed class UserPasswordHashArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The algorithm used to generate the hash using the password
+        /// </summary>
         [Input("algorithm", required: true)]
         public Input<string> Algorithm { get; set; } = null!;
 
