@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * A Profile Enrollment Policy Apps can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &amp;#60;policy id&amp;#62;
+ * $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &amp;#60;policy id&amp;#62;
  * ```
  * 
  */

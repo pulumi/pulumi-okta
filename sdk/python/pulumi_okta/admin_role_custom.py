@@ -280,7 +280,7 @@ class AdminRoleCustom(pulumi.CustomResource):
         Okta Custom Admin Role can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62;
+        $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -349,7 +349,7 @@ class AdminRoleCustom(pulumi.CustomResource):
         Okta Custom Admin Role can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62;
+        $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62;
         ```
 
         :param str resource_name: The name of the resource.

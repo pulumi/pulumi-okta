@@ -1928,7 +1928,7 @@ class Saml(pulumi.CustomResource):
         A SAML App can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:app/saml:Saml example &#60;app id&#62;
+        $ pulumi import okta:app/saml:Saml example &#60;app id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -2138,7 +2138,7 @@ class Saml(pulumi.CustomResource):
         A SAML App can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:app/saml:Saml example &#60;app id&#62;
+        $ pulumi import okta:app/saml:Saml example &#60;app id&#62;
         ```
 
         :param str resource_name: The name of the resource.

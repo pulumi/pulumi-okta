@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * A post logout redirect URI can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &#60;app id&#62;/&#60;uri&#62;
+ * $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &#60;app id&#62;/&#60;uri&#62;
  * ```
  */
 export class OAuthPostLogoutRedirectUri extends pulumi.CustomResource {

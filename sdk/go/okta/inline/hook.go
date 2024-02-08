@@ -58,9 +58,7 @@ import (
 // An inline hook can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
-//
+// $ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
 // ```
 type Hook struct {
 	pulumi.CustomResourceState

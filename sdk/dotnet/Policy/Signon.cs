@@ -42,7 +42,7 @@ namespace Pulumi.Okta.Policy
     /// A Sign On Policy can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:policy/signon:Signon example &amp;#60;policy id&amp;#62;
+    /// $ pulumi import okta:policy/signon:Signon example &amp;#60;policy id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:policy/signon:Signon")]

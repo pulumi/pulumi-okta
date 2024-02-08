@@ -295,10 +295,10 @@ class Role(pulumi.CustomResource):
 
         ## Import
 
-        Individual admin role assignment can be imported by passing the group and role assignment IDs as follows
+        Individual admin role assignment can be imported by passing the group and role assignment IDs as follows:
 
         ```sh
-         $ pulumi import okta:group/role:Role example &#60;group id&#62;/&#60;role id&#62;
+        $ pulumi import okta:group/role:Role example &#60;group id&#62;/&#60;role id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -354,10 +354,10 @@ class Role(pulumi.CustomResource):
 
         ## Import
 
-        Individual admin role assignment can be imported by passing the group and role assignment IDs as follows
+        Individual admin role assignment can be imported by passing the group and role assignment IDs as follows:
 
         ```sh
-         $ pulumi import okta:group/role:Role example &#60;group id&#62;/&#60;role id&#62;
+        $ pulumi import okta:group/role:Role example &#60;group id&#62;/&#60;role id&#62;
         ```
 
         :param str resource_name: The name of the resource.

@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  * A Policy Rule can be imported via the Policy and Rule ID.
  * 
  * ```sh
- *  $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
+ * $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
  * ```
  * 
  */

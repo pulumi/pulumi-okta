@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * A Social IdP can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:idp/social:Social example &amp;#60;idp id&amp;#62;
+ * $ pulumi import okta:idp/social:Social example &amp;#60;idp id&amp;#62;
  * ```
  * 
  */

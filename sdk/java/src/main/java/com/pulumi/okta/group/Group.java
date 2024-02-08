@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  * An Okta Group can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:group/group:Group example &amp;#60;group id&amp;#62;
+ * $ pulumi import okta:group/group:Group example &amp;#60;group id&amp;#62;
  * ```
  * 
  */

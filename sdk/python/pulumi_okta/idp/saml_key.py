@@ -167,7 +167,7 @@ class SamlKey(pulumi.CustomResource):
         A SAML IdP Signing Key can be imported via the key id.
 
         ```sh
-         $ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
+        $ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -186,7 +186,7 @@ class SamlKey(pulumi.CustomResource):
         A SAML IdP Signing Key can be imported via the key id.
 
         ```sh
-         $ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
+        $ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
         ```
 
         :param str resource_name: The name of the resource.

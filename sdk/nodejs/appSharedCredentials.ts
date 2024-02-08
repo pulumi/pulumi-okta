@@ -44,7 +44,7 @@ import * as utilities from "./utilities";
  * Okta SWA Shared Credentials App can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;
+ * $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62;
  * ```
  */
 export class AppSharedCredentials extends pulumi.CustomResource {

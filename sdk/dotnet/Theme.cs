@@ -21,7 +21,7 @@ namespace Pulumi.Okta
     /// An Okta Brand can be imported via the ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/theme:Theme example &amp;#60;brand id&amp;#62;/&amp;#60;theme id&amp;#62;
+    /// $ pulumi import okta:index/theme:Theme example &amp;#60;brand id&amp;#62;/&amp;#60;theme id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/theme:Theme")]

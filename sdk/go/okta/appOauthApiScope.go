@@ -69,9 +69,7 @@ import (
 // OAuth API scopes can be imported via the Okta Application ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62;
-//
+// $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62;
 // ```
 type AppOauthApiScope struct {
 	pulumi.CustomResourceState

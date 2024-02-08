@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * A Bookmark App can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;
+ * $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;
  * ```
  */
 export class Bookmark extends pulumi.CustomResource {

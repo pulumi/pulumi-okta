@@ -50,9 +50,7 @@ import (
 // A Trusted Origin can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:trustedorigin/origin:Origin example &#60;trusted origin id&#62;
-//
+// $ pulumi import okta:trustedorigin/origin:Origin example &#60;trusted origin id&#62;
 // ```
 type Origin struct {
 	pulumi.CustomResourceState

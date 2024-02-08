@@ -42,7 +42,7 @@ namespace Pulumi.Okta
     /// Okta Custom Admin Role can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &amp;#60;custom role id&amp;#62;
+    /// $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &amp;#60;custom role id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/adminRoleCustom:AdminRoleCustom")]

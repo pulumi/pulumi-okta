@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * Okta SWA App can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:app/swa:Swa example &amp;#60;app id&amp;#62;
+ * $ pulumi import okta:app/swa:Swa example &amp;#60;app id&amp;#62;
  * ```
  * 
  */

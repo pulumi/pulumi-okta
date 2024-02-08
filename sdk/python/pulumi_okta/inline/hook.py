@@ -286,7 +286,7 @@ class Hook(pulumi.CustomResource):
         An inline hook can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
+        $ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -335,7 +335,7 @@ class Hook(pulumi.CustomResource):
         An inline hook can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
+        $ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
         ```
 
         :param str resource_name: The name of the resource.

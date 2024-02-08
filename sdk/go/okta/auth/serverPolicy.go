@@ -53,9 +53,7 @@ import (
 // Authorization Server Policy can be imported via the Auth Server ID and Policy ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:auth/serverPolicy:ServerPolicy example &#60;auth server id&#62;/&#60;policy id&#62;
-//
+// $ pulumi import okta:auth/serverPolicy:ServerPolicy example &#60;auth server id&#62;/&#60;policy id&#62;
 // ```
 type ServerPolicy struct {
 	pulumi.CustomResourceState

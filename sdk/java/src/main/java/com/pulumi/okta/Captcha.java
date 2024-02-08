@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * Behavior can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/captcha:Captcha example &amp;#60;captcha id&amp;#62;
+ * $ pulumi import okta:index/captcha:Captcha example &amp;#60;captcha id&amp;#62;
  * ```
  * 
  */
