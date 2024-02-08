@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  * Custom email sender can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/emailSender:EmailSender example &#60;sender id&#62;
+ * $ pulumi import okta:index/emailSender:EmailSender example &#60;sender id&#62;
  * ```
  */
 export class EmailSender extends pulumi.CustomResource {

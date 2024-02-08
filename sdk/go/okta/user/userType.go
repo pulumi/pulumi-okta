@@ -48,9 +48,7 @@ import (
 // A User Type can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:user/userType:UserType example &#60;user type id&#62;
-//
+// $ pulumi import okta:user/userType:UserType example &#60;user type id&#62;
 // ```
 type UserType struct {
 	pulumi.CustomResourceState

@@ -17,9 +17,7 @@ import (
 // A SAML IdP Signing Key can be imported via the key id.
 //
 // ```sh
-//
-//	$ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
-//
+// $ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
 // ```
 type SamlKey struct {
 	pulumi.CustomResourceState

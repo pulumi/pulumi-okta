@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
  * 
  * ```sh
- *  $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example &amp;#60;auth server id&amp;#62;/&amp;#60;policy id&amp;#62;/&amp;#60;policy rule id&amp;#62;
+ * $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example &amp;#60;auth server id&amp;#62;/&amp;#60;policy id&amp;#62;/&amp;#60;policy rule id&amp;#62;
  * ```
  * 
  * @deprecated

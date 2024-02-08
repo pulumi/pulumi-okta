@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * Authorization Server can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:auth/server:Server example &amp;#60;auth server id&amp;#62;
+ * $ pulumi import okta:auth/server:Server example &amp;#60;auth server id&amp;#62;
  * ```
  * 
  */

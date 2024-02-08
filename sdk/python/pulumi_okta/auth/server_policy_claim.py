@@ -611,7 +611,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
         Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
 
         ```sh
-         $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example &#60;auth server id&#62;/&#60;policy id&#62;/&#60;policy rule id&#62;
+        $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example &#60;auth server id&#62;/&#60;policy id&#62;/&#60;policy rule id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -663,7 +663,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
         Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
 
         ```sh
-         $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example &#60;auth server id&#62;/&#60;policy id&#62;/&#60;policy rule id&#62;
+        $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example &#60;auth server id&#62;/&#60;policy id&#62;/&#60;policy rule id&#62;
         ```
 
         :param str resource_name: The name of the resource.

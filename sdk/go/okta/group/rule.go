@@ -48,9 +48,7 @@ import (
 // An Okta Group Rule can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
-//
+// $ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
 // ```
 type Rule struct {
 	pulumi.CustomResourceState

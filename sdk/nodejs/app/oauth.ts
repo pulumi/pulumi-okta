@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  * An OIDC Application can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;
+ * $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62;
  * ```
  */
 export class OAuth extends pulumi.CustomResource {

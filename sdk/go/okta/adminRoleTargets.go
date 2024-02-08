@@ -53,9 +53,7 @@ import (
 // Okta Admin Role Targets can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &#60;user id&#62;/&#60;role type&#62;
-//
+// $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &#60;user id&#62;/&#60;role type&#62;
 // ```
 type AdminRoleTargets struct {
 	pulumi.CustomResourceState

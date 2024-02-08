@@ -83,9 +83,7 @@ import (
 // An Okta Group can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:group/group:Group example &#60;group id&#62;
-//
+// $ pulumi import okta:group/group:Group example &#60;group id&#62;
 // ```
 type Group struct {
 	pulumi.CustomResourceState

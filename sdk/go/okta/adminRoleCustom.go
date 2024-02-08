@@ -51,9 +51,7 @@ import (
 // Okta Custom Admin Role can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62;
-//
+// $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62;
 // ```
 type AdminRoleCustom struct {
 	pulumi.CustomResourceState

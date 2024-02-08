@@ -564,7 +564,7 @@ class BasicAuth(pulumi.CustomResource):
         A Basic Auth App can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
+        $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -614,7 +614,7 @@ class BasicAuth(pulumi.CustomResource):
         A Basic Auth App can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
+        $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
         ```
 
         :param str resource_name: The name of the resource.

@@ -126,7 +126,7 @@ class OAuthRedirectUri(pulumi.CustomResource):
         A redirect URI can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62;
+        $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,7 +169,7 @@ class OAuthRedirectUri(pulumi.CustomResource):
         A redirect URI can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62;
+        $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62;
         ```
 
         :param str resource_name: The name of the resource.

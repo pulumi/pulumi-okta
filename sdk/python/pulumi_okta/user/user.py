@@ -1547,7 +1547,7 @@ class User(pulumi.CustomResource):
         An Okta User can be imported via the ID.
 
         ```sh
-         $ pulumi import okta:user/user:User example &#60;user id&#62;
+        $ pulumi import okta:user/user:User example &#60;user id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -1676,7 +1676,7 @@ class User(pulumi.CustomResource):
         An Okta User can be imported via the ID.
 
         ```sh
-         $ pulumi import okta:user/user:User example &#60;user id&#62;
+        $ pulumi import okta:user/user:User example &#60;user id&#62;
         ```
 
         :param str resource_name: The name of the resource.

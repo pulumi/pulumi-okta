@@ -58,9 +58,7 @@ import (
 // An Okta SMS Template can be imported via the template type.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/templateSms:TemplateSms example &#60;template type&#62;
-//
+// $ pulumi import okta:index/templateSms:TemplateSms example &#60;template type&#62;
 // ```
 type TemplateSms struct {
 	pulumi.CustomResourceState

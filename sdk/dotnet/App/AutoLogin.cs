@@ -67,7 +67,7 @@ namespace Pulumi.Okta.App
     /// Okta Auto Login App can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:app/autoLogin:AutoLogin example &amp;#60;app id&amp;#62;
+    /// $ pulumi import okta:app/autoLogin:AutoLogin example &amp;#60;app id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/autoLogin:AutoLogin")]

@@ -257,13 +257,13 @@ class AuthServerClaimDefault(pulumi.CustomResource):
         Authorization Server Claim can be imported via the Auth Server ID and Claim ID or Claim Name.
 
         ```sh
-         $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim id&#62;
+        $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim id&#62;
         ```
 
          or
 
         ```sh
-         $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim name&#62;
+        $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim name&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -302,13 +302,13 @@ class AuthServerClaimDefault(pulumi.CustomResource):
         Authorization Server Claim can be imported via the Auth Server ID and Claim ID or Claim Name.
 
         ```sh
-         $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim id&#62;
+        $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim id&#62;
         ```
 
          or
 
         ```sh
-         $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim name&#62;
+        $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim name&#62;
         ```
 
         :param str resource_name: The name of the resource.

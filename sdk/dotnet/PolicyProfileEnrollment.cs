@@ -37,7 +37,7 @@ namespace Pulumi.Okta
     /// A Profile Enrollment Policy can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &amp;#60;policy id&amp;#62;
+    /// $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &amp;#60;policy id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/policyProfileEnrollment:PolicyProfileEnrollment")]

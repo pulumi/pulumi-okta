@@ -66,9 +66,7 @@ import (
 // A redirect URI can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62;
-//
+// $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62;
 // ```
 type OAuthRedirectUri struct {
 	pulumi.CustomResourceState

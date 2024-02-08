@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  * An Okta User can be imported via the ID.
  * 
  * ```sh
- *  $ pulumi import okta:user/user:User example &amp;#60;user id&amp;#62;
+ * $ pulumi import okta:user/user:User example &amp;#60;user id&amp;#62;
  * ```
  * 
  */

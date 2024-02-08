@@ -61,9 +61,7 @@ import (
 // An OIDC IdP can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:idp/oidc:Oidc example &#60;idp id&#62;
-//
+// $ pulumi import okta:idp/oidc:Oidc example &#60;idp id&#62;
 // ```
 type Oidc struct {
 	pulumi.CustomResourceState

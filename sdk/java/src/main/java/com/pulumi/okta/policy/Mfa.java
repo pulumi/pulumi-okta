@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * An MFA Policy can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:policy/mfa:Mfa example &amp;#60;policy id&amp;#62;
+ * $ pulumi import okta:policy/mfa:Mfa example &amp;#60;policy id&amp;#62;
  * ```
  * 
  */

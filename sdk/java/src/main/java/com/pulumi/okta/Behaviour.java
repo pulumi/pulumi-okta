@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * Behavior can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/behaviour:Behaviour example &amp;#60;behavior id&amp;#62;
+ * $ pulumi import okta:index/behaviour:Behaviour example &amp;#60;behavior id&amp;#62;
  * ```
  * 
  */

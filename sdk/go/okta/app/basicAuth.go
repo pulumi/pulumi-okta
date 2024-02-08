@@ -51,9 +51,7 @@ import (
 // A Basic Auth App can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
-//
+// $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
 // ```
 type BasicAuth struct {
 	pulumi.CustomResourceState

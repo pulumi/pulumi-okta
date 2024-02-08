@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * Okta Admin Role Targets can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &amp;#60;user id&amp;#62;/&amp;#60;role type&amp;#62;
+ * $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &amp;#60;user id&amp;#62;/&amp;#60;role type&amp;#62;
  * ```
  * 
  */

@@ -898,7 +898,7 @@ class Swa(pulumi.CustomResource):
         Okta SWA App can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:app/swa:Swa example &#60;app id&#62;
+        $ pulumi import okta:app/swa:Swa example &#60;app id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -960,7 +960,7 @@ class Swa(pulumi.CustomResource):
         Okta SWA App can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:app/swa:Swa example &#60;app id&#62;
+        $ pulumi import okta:app/swa:Swa example &#60;app id&#62;
         ```
 
         :param str resource_name: The name of the resource.

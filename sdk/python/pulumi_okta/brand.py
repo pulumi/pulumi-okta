@@ -399,7 +399,7 @@ class Brand(pulumi.CustomResource):
         An Okta Brand can be imported via the ID.
 
         ```sh
-         $ pulumi import okta:index/brand:Brand example &#60;brand id&#62;
+        $ pulumi import okta:index/brand:Brand example &#60;brand id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -429,7 +429,7 @@ class Brand(pulumi.CustomResource):
         An Okta Brand can be imported via the ID.
 
         ```sh
-         $ pulumi import okta:index/brand:Brand example &#60;brand id&#62;
+        $ pulumi import okta:index/brand:Brand example &#60;brand id&#62;
         ```
 
         :param str resource_name: The name of the resource.

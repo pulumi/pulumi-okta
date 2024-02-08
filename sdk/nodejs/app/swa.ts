@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * Okta SWA App can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:app/swa:Swa example &#60;app id&#62;
+ * $ pulumi import okta:app/swa:Swa example &#60;app id&#62;
  * ```
  */
 export class Swa extends pulumi.CustomResource {

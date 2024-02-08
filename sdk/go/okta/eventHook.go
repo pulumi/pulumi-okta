@@ -60,9 +60,7 @@ import (
 // An event hook can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/eventHook:EventHook example &#60;hook id&#62;
-//
+// $ pulumi import okta:index/eventHook:EventHook example &#60;hook id&#62;
 // ```
 type EventHook struct {
 	pulumi.CustomResourceState

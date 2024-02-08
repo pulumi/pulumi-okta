@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * OAuth Role assignment can be imported by passing the Client ID and Role Assignment ID for the specific client role.
  *
  * ```sh
- *  $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test <clientID>/<roleAssignmentID>`
+ * $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test <clientID>/<roleAssignmentID>`
  * ```
  */
 export class OauthRoleAssignment extends pulumi.CustomResource {

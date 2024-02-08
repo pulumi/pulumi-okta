@@ -154,7 +154,7 @@ import javax.annotation.Nullable;
  * An OIDC Application can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;
+ * $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62;
  * ```
  * 
  */

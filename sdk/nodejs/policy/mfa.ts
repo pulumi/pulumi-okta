@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * An MFA Policy can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:policy/mfa:Mfa example &#60;policy id&#62;
+ * $ pulumi import okta:policy/mfa:Mfa example &#60;policy id&#62;
  * ```
  */
 export class Mfa extends pulumi.CustomResource {
