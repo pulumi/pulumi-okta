@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * Authorization Server can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:auth/server:Server example &#60;auth server id&#62;
+ * $ pulumi import okta:auth/server:Server example &#60;auth server id&#62;
  * ```
  */
 export class Server extends pulumi.CustomResource {

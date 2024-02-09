@@ -74,9 +74,7 @@ import (
 // Security question factor for a user can be imported via the `user_id` and the `factor_id`.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;
-//
+// $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;
 // ```
 type UserFactorQuestion struct {
 	pulumi.CustomResourceState

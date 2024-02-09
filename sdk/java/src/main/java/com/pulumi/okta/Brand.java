@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * An Okta Brand can be imported via the ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/brand:Brand example &amp;#60;brand id&amp;#62;
+ * $ pulumi import okta:index/brand:Brand example &amp;#60;brand id&amp;#62;
  * ```
  * 
  */

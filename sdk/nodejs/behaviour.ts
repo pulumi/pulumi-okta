@@ -43,7 +43,7 @@ import * as utilities from "./utilities";
  * Behavior can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/behaviour:Behaviour example &#60;behavior id&#62;
+ * $ pulumi import okta:index/behaviour:Behaviour example &#60;behavior id&#62;
  * ```
  */
 export class Behaviour extends pulumi.CustomResource {

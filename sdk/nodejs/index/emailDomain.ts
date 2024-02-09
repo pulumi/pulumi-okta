@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * Custom email domain can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:Index/emailDomain:EmailDomain example &#60;domain id&#62;
+ * $ pulumi import okta:Index/emailDomain:EmailDomain example &#60;domain id&#62;
  * ```
  */
 export class EmailDomain extends pulumi.CustomResource {

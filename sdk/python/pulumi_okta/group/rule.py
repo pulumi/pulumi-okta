@@ -289,7 +289,7 @@ class Rule(pulumi.CustomResource):
         An Okta Group Rule can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
+        $ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -329,7 +329,7 @@ class Rule(pulumi.CustomResource):
         An Okta Group Rule can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
+        $ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
         ```
 
         :param str resource_name: The name of the resource.

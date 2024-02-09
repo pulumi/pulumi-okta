@@ -109,9 +109,7 @@ import (
 // An Okta User can be imported via the ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:user/user:User example &#60;user id&#62;
-//
+// $ pulumi import okta:user/user:User example &#60;user id&#62;
 // ```
 type User struct {
 	pulumi.CustomResourceState

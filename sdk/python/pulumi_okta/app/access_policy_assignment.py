@@ -116,7 +116,7 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         An Okta App's Access Policy Assignment can be imported via its associated Application ID.
 
         ```sh
-         $ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example &#60;app id&#62;
+        $ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example &#60;app id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -149,7 +149,7 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         An Okta App's Access Policy Assignment can be imported via its associated Application ID.
 
         ```sh
-         $ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example &#60;app id&#62;
+        $ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example &#60;app id&#62;
         ```
 
         :param str resource_name: The name of the resource.

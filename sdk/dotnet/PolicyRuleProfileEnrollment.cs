@@ -87,7 +87,7 @@ namespace Pulumi.Okta
     /// A Policy Rule can be imported via the Policy and Rule ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
+    /// $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment")]

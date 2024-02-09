@@ -30,9 +30,7 @@ import (
 // An Okta App's Access Policy Assignment can be imported via its associated Application ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example &#60;app id&#62;
-//
+// $ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example &#60;app id&#62;
 // ```
 type AccessPolicyAssignment struct {
 	pulumi.CustomResourceState

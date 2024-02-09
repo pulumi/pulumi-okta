@@ -78,9 +78,7 @@ import (
 // An MFA Policy can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:policy/mfa:Mfa example &#60;policy id&#62;
-//
+// $ pulumi import okta:policy/mfa:Mfa example &#60;policy id&#62;
 // ```
 type Mfa struct {
 	pulumi.CustomResourceState

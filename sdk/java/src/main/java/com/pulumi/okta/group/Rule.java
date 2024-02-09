@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * An Okta Group Rule can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:group/rule:Rule example &amp;#60;group rule id&amp;#62;
+ * $ pulumi import okta:group/rule:Rule example &amp;#60;group rule id&amp;#62;
  * ```
  * 
  */

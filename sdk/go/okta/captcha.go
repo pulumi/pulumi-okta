@@ -49,9 +49,7 @@ import (
 // Behavior can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/captcha:Captcha example &#60;captcha id&#62;
-//
+// $ pulumi import okta:index/captcha:Captcha example &#60;captcha id&#62;
 // ```
 type Captcha struct {
 	pulumi.CustomResourceState

@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  * Okta Network Zone can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:network/zone:Zone example &amp;#60;zone id&amp;#62;
+ * $ pulumi import okta:network/zone:Zone example &amp;#60;zone id&amp;#62;
  * ```
  * 
  */

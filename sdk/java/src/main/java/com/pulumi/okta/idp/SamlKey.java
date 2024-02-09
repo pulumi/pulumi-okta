@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * A SAML IdP Signing Key can be imported via the key id.
  * 
  * ```sh
- *  $ pulumi import okta:idp/samlKey:SamlKey example &amp;#60;key id&amp;#62;
+ * $ pulumi import okta:idp/samlKey:SamlKey example &amp;#60;key id&amp;#62;
  * ```
  * 
  */

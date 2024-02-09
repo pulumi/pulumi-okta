@@ -32,7 +32,7 @@ import javax.annotation.Nullable;
  * An Okta App&#39;s Access Policy Assignment can be imported via its associated Application ID.
  * 
  * ```sh
- *  $ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example &amp;#60;app id&amp;#62;
+ * $ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example &amp;#60;app id&amp;#62;
  * ```
  * 
  */

@@ -82,9 +82,7 @@ import (
 // Okta Network Zone can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:network/zone:Zone example &#60;zone id&#62;
-//
+// $ pulumi import okta:network/zone:Zone example &#60;zone id&#62;
 // ```
 type Zone struct {
 	pulumi.CustomResourceState

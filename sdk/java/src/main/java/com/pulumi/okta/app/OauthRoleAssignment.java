@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * OAuth Role assignment can be imported by passing the Client ID and Role Assignment ID for the specific client role.
  * 
  * ```sh
- *  $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test &lt;clientID&gt;/&lt;roleAssignmentID&gt;`
+ * $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test &lt;clientID&gt;/&lt;roleAssignmentID&gt;`
  * ```
  * 
  */

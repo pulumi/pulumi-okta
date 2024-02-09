@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * A Three Field App can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:app/threeField:ThreeField example &amp;#60;app id&amp;#62;
+ * $ pulumi import okta:app/threeField:ThreeField example &amp;#60;app id&amp;#62;
  * ```
  * 
  */

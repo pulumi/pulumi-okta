@@ -46,9 +46,7 @@ import (
 // A Profile Enrollment Policy can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &#60;policy id&#62;
-//
+// $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &#60;policy id&#62;
 // ```
 type PolicyProfileEnrollment struct {
 	pulumi.CustomResourceState

@@ -55,7 +55,7 @@ namespace Pulumi.Okta
     /// A settings for the SAML App can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &amp;#60;app id&amp;#62;
+    /// $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &amp;#60;app id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appSamlAppSettings:AppSamlAppSettings")]

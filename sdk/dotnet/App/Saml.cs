@@ -211,7 +211,7 @@ namespace Pulumi.Okta.App
     /// A SAML App can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;
+    /// $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/saml:Saml")]

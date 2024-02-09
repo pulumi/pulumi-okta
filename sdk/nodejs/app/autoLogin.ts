@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * Okta Auto Login App can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;
+ * $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;
  * ```
  */
 export class AutoLogin extends pulumi.CustomResource {

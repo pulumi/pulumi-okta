@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * Security question factor for a user can be imported via the `user_id` and the `factor_id`.
  * 
  * ```sh
- *  $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &amp;#60;user id&amp;#62;/&amp;#60;question factor id&amp;#62;
+ * $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &amp;#60;user id&amp;#62;/&amp;#60;question factor id&amp;#62;
  * ```
  * 
  */
