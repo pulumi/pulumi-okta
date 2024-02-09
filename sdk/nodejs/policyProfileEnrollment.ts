@@ -23,7 +23,7 @@ import * as utilities from "./utilities";
  * A Profile Enrollment Policy can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &#60;policy id&#62;
+ * $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &#60;policy id&#62;
  * ```
  */
 export class PolicyProfileEnrollment extends pulumi.CustomResource {

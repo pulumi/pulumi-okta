@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * A Basic Auth App can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:app/basicAuth:BasicAuth example &amp;#60;app id&amp;#62;
+ * $ pulumi import okta:app/basicAuth:BasicAuth example &amp;#60;app id&amp;#62;
  * ```
  * 
  */

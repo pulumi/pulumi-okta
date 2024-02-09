@@ -419,7 +419,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         A Policy Rule can be imported via the Policy and Rule ID.
 
         ```sh
-         $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &#60;policy id&#62;/&#60;rule id&#62;
+        $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &#60;policy id&#62;/&#60;rule id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -497,7 +497,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         A Policy Rule can be imported via the Policy and Rule ID.
 
         ```sh
-         $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &#60;policy id&#62;/&#60;rule id&#62;
+        $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &#60;policy id&#62;/&#60;rule id&#62;
         ```
 
         :param str resource_name: The name of the resource.

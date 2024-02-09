@@ -211,7 +211,7 @@ class Group(pulumi.CustomResource):
         An Okta Group can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:group/group:Group example &#60;group id&#62;
+        $ pulumi import okta:group/group:Group example &#60;group id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -261,7 +261,7 @@ class Group(pulumi.CustomResource):
         An Okta Group can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:group/group:Group example &#60;group id&#62;
+        $ pulumi import okta:group/group:Group example &#60;group id&#62;
         ```
 
         :param str resource_name: The name of the resource.

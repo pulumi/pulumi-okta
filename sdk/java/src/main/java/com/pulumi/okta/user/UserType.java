@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * A User Type can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:user/userType:UserType example &amp;#60;user type id&amp;#62;
+ * $ pulumi import okta:user/userType:UserType example &amp;#60;user type id&amp;#62;
  * ```
  * 
  */

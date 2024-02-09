@@ -50,9 +50,7 @@ import (
 // A Sign On Policy can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:policy/signon:Signon example &#60;policy id&#62;
-//
+// $ pulumi import okta:policy/signon:Signon example &#60;policy id&#62;
 // ```
 type Signon struct {
 	pulumi.CustomResourceState

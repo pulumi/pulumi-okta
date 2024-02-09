@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  * Existing user admin roles can be imported via the Okta User ID.
  *
  * ```sh
- *  $ pulumi import okta:index/userAdminRoles:UserAdminRoles example &#60;user id&#62;
+ * $ pulumi import okta:index/userAdminRoles:UserAdminRoles example &#60;user id&#62;
  * ```
  */
 export class UserAdminRoles extends pulumi.CustomResource {

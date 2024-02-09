@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * Custom email sender can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/emailSender:EmailSender example &amp;#60;sender id&amp;#62;
+ * $ pulumi import okta:index/emailSender:EmailSender example &amp;#60;sender id&amp;#62;
  * ```
  * 
  */

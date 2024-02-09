@@ -77,9 +77,7 @@ import (
 // Behavior can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/behaviour:Behaviour example &#60;behavior id&#62;
-//
+// $ pulumi import okta:index/behaviour:Behaviour example &#60;behavior id&#62;
 // ```
 type Behaviour struct {
 	pulumi.CustomResourceState

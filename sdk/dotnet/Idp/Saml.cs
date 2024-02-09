@@ -45,7 +45,7 @@ namespace Pulumi.Okta.Idp
     /// An SAML IdP can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:idp/saml:Saml example &amp;#60;idp id&amp;#62;
+    /// $ pulumi import okta:idp/saml:Saml example &amp;#60;idp id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:idp/saml:Saml")]

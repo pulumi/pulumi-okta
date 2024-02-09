@@ -53,9 +53,7 @@ import (
 // Okta SWA App can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:app/swa:Swa example &#60;app id&#62;
-//
+// $ pulumi import okta:app/swa:Swa example &#60;app id&#62;
 // ```
 type Swa struct {
 	pulumi.CustomResourceState

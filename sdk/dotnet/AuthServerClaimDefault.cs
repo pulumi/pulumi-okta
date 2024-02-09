@@ -38,13 +38,13 @@ namespace Pulumi.Okta
     /// Authorization Server Claim can be imported via the Auth Server ID and Claim ID or Claim Name.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim id&amp;#62;
+    /// $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim id&amp;#62;
     /// ```
     /// 
     ///  or
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim name&amp;#62;
+    /// $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim name&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/authServerClaimDefault:AuthServerClaimDefault")]

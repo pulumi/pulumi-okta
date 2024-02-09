@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * An inline hook can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
+ * $ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
  * ```
  */
 export class Hook extends pulumi.CustomResource {

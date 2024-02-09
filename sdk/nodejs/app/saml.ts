@@ -164,7 +164,7 @@ import * as utilities from "../utilities";
  * A SAML App can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:app/saml:Saml example &#60;app id&#62;
+ * $ pulumi import okta:app/saml:Saml example &#60;app id&#62;
  * ```
  */
 export class Saml extends pulumi.CustomResource {

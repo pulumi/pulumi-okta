@@ -55,9 +55,7 @@ import (
 // A Social IdP can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:idp/social:Social example &#60;idp id&#62;
-//
+// $ pulumi import okta:idp/social:Social example &#60;idp id&#62;
 // ```
 type Social struct {
 	pulumi.CustomResourceState

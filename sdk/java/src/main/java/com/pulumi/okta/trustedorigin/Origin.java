@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * A Trusted Origin can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:trustedorigin/origin:Origin example &amp;#60;trusted origin id&amp;#62;
+ * $ pulumi import okta:trustedorigin/origin:Origin example &amp;#60;trusted origin id&amp;#62;
  * ```
  * 
  */

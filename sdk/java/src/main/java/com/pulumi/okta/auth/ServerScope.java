@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * Okta Auth Server Scope can be imported via the Auth Server ID and Scope ID.
  * 
  * ```sh
- *  $ pulumi import okta:auth/serverScope:ServerScope example &amp;#60;auth server id&amp;#62;/&amp;#60;scope id&amp;#62;
+ * $ pulumi import okta:auth/serverScope:ServerScope example &amp;#60;auth server id&amp;#62;/&amp;#60;scope id&amp;#62;
  * ```
  * 
  */

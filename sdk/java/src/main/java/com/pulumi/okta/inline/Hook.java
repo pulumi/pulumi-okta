@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * An inline hook can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:inline/hook:Hook example &amp;#60;hook id&amp;#62;
+ * $ pulumi import okta:inline/hook:Hook example &amp;#60;hook id&amp;#62;
  * ```
  * 
  */

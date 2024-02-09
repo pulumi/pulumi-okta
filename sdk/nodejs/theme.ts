@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * An Okta Brand can be imported via the ID.
  *
  * ```sh
- *  $ pulumi import okta:index/theme:Theme example &#60;brand id&#62;/&#60;theme id&#62;
+ * $ pulumi import okta:index/theme:Theme example &#60;brand id&#62;/&#60;theme id&#62;
  * ```
  */
 export class Theme extends pulumi.CustomResource {

@@ -38,7 +38,7 @@ namespace Pulumi.Okta.Index
     /// Custom email domain can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:Index/emailDomain:EmailDomain example &amp;#60;domain id&amp;#62;
+    /// $ pulumi import okta:Index/emailDomain:EmailDomain example &amp;#60;domain id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:Index/emailDomain:EmailDomain")]

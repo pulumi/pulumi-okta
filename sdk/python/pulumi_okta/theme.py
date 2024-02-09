@@ -537,7 +537,7 @@ class Theme(pulumi.CustomResource):
         An Okta Brand can be imported via the ID.
 
         ```sh
-         $ pulumi import okta:index/theme:Theme example &#60;brand id&#62;/&#60;theme id&#62;
+        $ pulumi import okta:index/theme:Theme example &#60;brand id&#62;/&#60;theme id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -574,7 +574,7 @@ class Theme(pulumi.CustomResource):
         An Okta Brand can be imported via the ID.
 
         ```sh
-         $ pulumi import okta:index/theme:Theme example &#60;brand id&#62;/&#60;theme id&#62;
+        $ pulumi import okta:index/theme:Theme example &#60;brand id&#62;/&#60;theme id&#62;
         ```
 
         :param str resource_name: The name of the resource.

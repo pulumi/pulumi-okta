@@ -914,7 +914,7 @@ class AutoLogin(pulumi.CustomResource):
         Okta Auto Login App can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;
+        $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -992,7 +992,7 @@ class AutoLogin(pulumi.CustomResource):
         Okta Auto Login App can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;
+        $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62;
         ```
 
         :param str resource_name: The name of the resource.

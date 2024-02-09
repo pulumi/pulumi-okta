@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * A Three Field App can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;
+ * $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;
  * ```
  */
 export class ThreeField extends pulumi.CustomResource {
