@@ -191,7 +191,7 @@ namespace Pulumi.Okta.App
         public Output<bool?> AutoSubmitToolbar { get; private set; } = null!;
 
         /// <summary>
-        /// OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
+        /// The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`. This does nothing when `omit_secret` is set to true.
         /// </summary>
         [Output("clientBasicSecret")]
         public Output<string?> ClientBasicSecret { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Okta.App
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Output("clientSecret")]
         public Output<string> ClientSecret { get; private set; } = null!;
@@ -327,7 +327,7 @@ namespace Pulumi.Okta.App
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =&gt; false.
+        /// This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
         /// </summary>
         [Output("omitSecret")]
         public Output<bool?> OmitSecret { get; private set; } = null!;
@@ -340,7 +340,7 @@ namespace Pulumi.Okta.App
         /// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         [Output("pkceRequired")]
-        public Output<bool?> PkceRequired { get; private set; } = null!;
+        public Output<bool> PkceRequired { get; private set; } = null!;
 
         /// <summary>
         /// URI to web page providing client policy document.
@@ -574,7 +574,7 @@ namespace Pulumi.Okta.App
         private Input<string>? _clientBasicSecret;
 
         /// <summary>
-        /// OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
+        /// The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`. This does nothing when `omit_secret` is set to true.
         /// </summary>
         public Input<string>? ClientBasicSecret
         {
@@ -717,7 +717,7 @@ namespace Pulumi.Okta.App
         public Input<string>? LogoUri { get; set; }
 
         /// <summary>
-        /// This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =&gt; false.
+        /// This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
         /// </summary>
         [Input("omitSecret")]
         public Input<bool>? OmitSecret { get; set; }
@@ -933,7 +933,7 @@ namespace Pulumi.Okta.App
         private Input<string>? _clientBasicSecret;
 
         /// <summary>
-        /// OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
+        /// The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`. This does nothing when `omit_secret` is set to true.
         /// </summary>
         public Input<string>? ClientBasicSecret
         {
@@ -955,7 +955,7 @@ namespace Pulumi.Okta.App
         private Input<string>? _clientSecret;
 
         /// <summary>
-        /// The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         /// </summary>
         public Input<string>? ClientSecret
         {
@@ -1104,7 +1104,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =&gt; false.
+        /// This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
         /// </summary>
         [Input("omitSecret")]
         public Input<bool>? OmitSecret { get; set; }

@@ -34,6 +34,7 @@ class OidcArgs:
                  issuer_mode: Optional[pulumi.Input[str]] = None,
                  max_clock_skew: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 pkce_required: Optional[pulumi.Input[bool]] = None,
                  profile_master: Optional[pulumi.Input[bool]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[str]] = None,
@@ -68,6 +69,8 @@ class OidcArgs:
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `"ORG_URL"`, `"CUSTOM_URL"`, or `"DYNAMIC"`.
         :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[str] name: The Application's display name.
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+               https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
@@ -110,6 +113,8 @@ class OidcArgs:
             pulumi.set(__self__, "max_clock_skew", max_clock_skew)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if pkce_required is not None:
+            pulumi.set(__self__, "pkce_required", pkce_required)
         if profile_master is not None:
             pulumi.set(__self__, "profile_master", profile_master)
         if protocol_type is not None:
@@ -376,6 +381,19 @@ class OidcArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="pkceRequired")
+    def pkce_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+        https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+        """
+        return pulumi.get(self, "pkce_required")
+
+    @pkce_required.setter
+    def pkce_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "pkce_required", value)
+
+    @property
     @pulumi.getter(name="profileMaster")
     def profile_master(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -537,6 +555,7 @@ class _OidcState:
                  jwks_url: Optional[pulumi.Input[str]] = None,
                  max_clock_skew: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 pkce_required: Optional[pulumi.Input[bool]] = None,
                  profile_master: Optional[pulumi.Input[bool]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[str]] = None,
@@ -573,6 +592,8 @@ class _OidcState:
         :param pulumi.Input[str] jwks_url: Endpoint where the keys signer publishes its keys in a JWK Set.
         :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[str] name: The Application's display name.
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+               https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
@@ -624,6 +645,8 @@ class _OidcState:
             pulumi.set(__self__, "max_clock_skew", max_clock_skew)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if pkce_required is not None:
+            pulumi.set(__self__, "pkce_required", pkce_required)
         if profile_master is not None:
             pulumi.set(__self__, "profile_master", profile_master)
         if protocol_type is not None:
@@ -864,6 +887,19 @@ class _OidcState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="pkceRequired")
+    def pkce_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+        https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+        """
+        return pulumi.get(self, "pkce_required")
+
+    @pkce_required.setter
+    def pkce_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "pkce_required", value)
+
+    @property
     @pulumi.getter(name="profileMaster")
     def profile_master(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1087,6 +1123,7 @@ class Oidc(pulumi.CustomResource):
                  jwks_url: Optional[pulumi.Input[str]] = None,
                  max_clock_skew: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 pkce_required: Optional[pulumi.Input[bool]] = None,
                  profile_master: Optional[pulumi.Input[bool]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[str]] = None,
@@ -1157,6 +1194,8 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[str] jwks_url: Endpoint where the keys signer publishes its keys in a JWK Set.
         :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[str] name: The Application's display name.
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+               https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
@@ -1245,6 +1284,7 @@ class Oidc(pulumi.CustomResource):
                  jwks_url: Optional[pulumi.Input[str]] = None,
                  max_clock_skew: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 pkce_required: Optional[pulumi.Input[bool]] = None,
                  profile_master: Optional[pulumi.Input[bool]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[str]] = None,
@@ -1300,6 +1340,7 @@ class Oidc(pulumi.CustomResource):
             __props__.__dict__["jwks_url"] = jwks_url
             __props__.__dict__["max_clock_skew"] = max_clock_skew
             __props__.__dict__["name"] = name
+            __props__.__dict__["pkce_required"] = pkce_required
             __props__.__dict__["profile_master"] = profile_master
             __props__.__dict__["protocol_type"] = protocol_type
             __props__.__dict__["provisioning_action"] = provisioning_action
@@ -1352,6 +1393,7 @@ class Oidc(pulumi.CustomResource):
             jwks_url: Optional[pulumi.Input[str]] = None,
             max_clock_skew: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            pkce_required: Optional[pulumi.Input[bool]] = None,
             profile_master: Optional[pulumi.Input[bool]] = None,
             protocol_type: Optional[pulumi.Input[str]] = None,
             provisioning_action: Optional[pulumi.Input[str]] = None,
@@ -1393,6 +1435,8 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[str] jwks_url: Endpoint where the keys signer publishes its keys in a JWK Set.
         :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[str] name: The Application's display name.
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+               https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
@@ -1431,6 +1475,7 @@ class Oidc(pulumi.CustomResource):
         __props__.__dict__["jwks_url"] = jwks_url
         __props__.__dict__["max_clock_skew"] = max_clock_skew
         __props__.__dict__["name"] = name
+        __props__.__dict__["pkce_required"] = pkce_required
         __props__.__dict__["profile_master"] = profile_master
         __props__.__dict__["protocol_type"] = protocol_type
         __props__.__dict__["provisioning_action"] = provisioning_action
@@ -1585,6 +1630,15 @@ class Oidc(pulumi.CustomResource):
         The Application's display name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pkceRequired")
+    def pkce_required(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+        https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+        """
+        return pulumi.get(self, "pkce_required")
 
     @property
     @pulumi.getter(name="profileMaster")

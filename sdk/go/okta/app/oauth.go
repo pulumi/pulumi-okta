@@ -170,11 +170,11 @@ type OAuth struct {
 	AutoKeyRotation pulumi.BoolPtrOutput `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
-	// OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
+	// The user provided OAuth client secret key value, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`. This does nothing when `omitSecret` is set to true.
 	ClientBasicSecret pulumi.StringPtrOutput `pulumi:"clientBasicSecret"`
 	// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	// The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+	// OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omitSecret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
 	// URI to a web page providing information about the client.
 	ClientUri pulumi.StringPtrOutput `pulumi:"clientUri"`
@@ -218,14 +218,14 @@ type OAuth struct {
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
 	// Name of the claim that will be used in the token.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
+	// This tells the provider not manage the `clientSecret` value in state. When this is false (the default), it will cause the auto-generated `clientSecret` to be persisted in the `clientSecret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrOutput `pulumi:"omitSecret"`
 	// Require Proof Key for Code Exchange (PKCE) for
 	// additional verification.  If `pkceRequired` isn't specified when adding a new
 	// application, Okta sets it to `true` by default for `"browser"` and `"native"`
 	// application types.
 	// See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
-	PkceRequired pulumi.BoolPtrOutput `pulumi:"pkceRequired"`
+	PkceRequired pulumi.BoolOutput `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrOutput `pulumi:"policyUri"`
 	// List of URIs for redirection after logout.
@@ -345,11 +345,11 @@ type oauthState struct {
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
+	// The user provided OAuth client secret key value, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`. This does nothing when `omitSecret` is set to true.
 	ClientBasicSecret *string `pulumi:"clientBasicSecret"`
 	// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientId *string `pulumi:"clientId"`
-	// The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+	// OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omitSecret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientSecret *string `pulumi:"clientSecret"`
 	// URI to a web page providing information about the client.
 	ClientUri *string `pulumi:"clientUri"`
@@ -393,7 +393,7 @@ type oauthState struct {
 	LogoUrl *string `pulumi:"logoUrl"`
 	// Name of the claim that will be used in the token.
 	Name *string `pulumi:"name"`
-	// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
+	// This tells the provider not manage the `clientSecret` value in state. When this is false (the default), it will cause the auto-generated `clientSecret` to be persisted in the `clientSecret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret *bool `pulumi:"omitSecret"`
 	// Require Proof Key for Code Exchange (PKCE) for
 	// additional verification.  If `pkceRequired` isn't specified when adding a new
@@ -477,11 +477,11 @@ type OAuthState struct {
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
+	// The user provided OAuth client secret key value, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`. This does nothing when `omitSecret` is set to true.
 	ClientBasicSecret pulumi.StringPtrInput
 	// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientId pulumi.StringPtrInput
-	// The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+	// OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omitSecret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientSecret pulumi.StringPtrInput
 	// URI to a web page providing information about the client.
 	ClientUri pulumi.StringPtrInput
@@ -525,7 +525,7 @@ type OAuthState struct {
 	LogoUrl pulumi.StringPtrInput
 	// Name of the claim that will be used in the token.
 	Name pulumi.StringPtrInput
-	// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
+	// This tells the provider not manage the `clientSecret` value in state. When this is false (the default), it will cause the auto-generated `clientSecret` to be persisted in the `clientSecret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrInput
 	// Require Proof Key for Code Exchange (PKCE) for
 	// additional verification.  If `pkceRequired` isn't specified when adding a new
@@ -613,7 +613,7 @@ type oauthArgs struct {
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
+	// The user provided OAuth client secret key value, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`. This does nothing when `omitSecret` is set to true.
 	ClientBasicSecret *string `pulumi:"clientBasicSecret"`
 	// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientId *string `pulumi:"clientId"`
@@ -655,7 +655,7 @@ type oauthArgs struct {
 	Logo *string `pulumi:"logo"`
 	// URI that references a logo for the client.
 	LogoUri *string `pulumi:"logoUri"`
-	// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
+	// This tells the provider not manage the `clientSecret` value in state. When this is false (the default), it will cause the auto-generated `clientSecret` to be persisted in the `clientSecret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret *bool `pulumi:"omitSecret"`
 	// Require Proof Key for Code Exchange (PKCE) for
 	// additional verification.  If `pkceRequired` isn't specified when adding a new
@@ -738,7 +738,7 @@ type OAuthArgs struct {
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
+	// The user provided OAuth client secret key value, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`. This does nothing when `omitSecret` is set to true.
 	ClientBasicSecret pulumi.StringPtrInput
 	// OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	ClientId pulumi.StringPtrInput
@@ -780,7 +780,7 @@ type OAuthArgs struct {
 	Logo pulumi.StringPtrInput
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrInput
-	// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
+	// This tells the provider not manage the `clientSecret` value in state. When this is false (the default), it will cause the auto-generated `clientSecret` to be persisted in the `clientSecret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrInput
 	// Require Proof Key for Code Exchange (PKCE) for
 	// additional verification.  If `pkceRequired` isn't specified when adding a new
@@ -975,7 +975,7 @@ func (o OAuthOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
 }
 
-// OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
+// The user provided OAuth client secret key value, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`. This does nothing when `omitSecret` is set to true.
 func (o OAuthOutput) ClientBasicSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.ClientBasicSecret }).(pulumi.StringPtrOutput)
 }
@@ -985,7 +985,7 @@ func (o OAuthOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+// OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omitSecret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 func (o OAuthOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
 }
@@ -1089,7 +1089,7 @@ func (o OAuthOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
+// This tells the provider not manage the `clientSecret` value in state. When this is false (the default), it will cause the auto-generated `clientSecret` to be persisted in the `clientSecret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 func (o OAuthOutput) OmitSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.OmitSecret }).(pulumi.BoolPtrOutput)
 }
@@ -1099,8 +1099,8 @@ func (o OAuthOutput) OmitSecret() pulumi.BoolPtrOutput {
 // application, Okta sets it to `true` by default for `"browser"` and `"native"`
 // application types.
 // See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
-func (o OAuthOutput) PkceRequired() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.PkceRequired }).(pulumi.BoolPtrOutput)
+func (o OAuthOutput) PkceRequired() pulumi.BoolOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.BoolOutput { return v.PkceRequired }).(pulumi.BoolOutput)
 }
 
 // URI to web page providing client policy document.
