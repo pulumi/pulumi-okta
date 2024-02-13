@@ -324,13 +324,21 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	for _, r := range []string{
+		"okta_customized_signin_page",
 		"okta_policy_device_assurance_android",
 		"okta_policy_device_assurance_chromeos",
 		"okta_policy_device_assurance_ios",
 		"okta_policy_device_assurance_macos",
 		"okta_policy_device_assurance_windows",
+		"okta_preview_signin_page",
 	} {
 		prov.Resources[r].Docs = &tfbridge.DocInfo{AllowMissing: true}
+	}
+
+	for _, d := range []string{
+		"okta_default_signin_page",
+	} {
+		prov.DataSources[d].Docs = &tfbridge.DocInfo{AllowMissing: true}
 	}
 
 	return prov

@@ -139,6 +139,104 @@
         }
     },
     "types": {
+        "okta:Index/CustomizedSigninPageContentSecurityPolicySetting:CustomizedSigninPageContentSecurityPolicySetting": {
+            "properties": {
+                "mode": {
+                    "type": "string",
+                    "description": "enforced or report_only\n"
+                },
+                "reportUri": {
+                    "type": "string"
+                },
+                "srcLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "okta:Index/CustomizedSigninPageWidgetCustomizations:CustomizedSigninPageWidgetCustomizations": {
+            "properties": {
+                "authenticatorPageCustomLinkLabel": {
+                    "type": "string"
+                },
+                "authenticatorPageCustomLinkUrl": {
+                    "type": "string"
+                },
+                "classicRecoveryFlowEmailOrUsernameLabel": {
+                    "type": "string"
+                },
+                "customLink1Label": {
+                    "type": "string"
+                },
+                "customLink1Url": {
+                    "type": "string"
+                },
+                "customLink2Label": {
+                    "type": "string"
+                },
+                "customLink2Url": {
+                    "type": "string"
+                },
+                "forgotPasswordLabel": {
+                    "type": "string"
+                },
+                "forgotPasswordUrl": {
+                    "type": "string"
+                },
+                "helpLabel": {
+                    "type": "string"
+                },
+                "helpUrl": {
+                    "type": "string"
+                },
+                "passwordInfoTip": {
+                    "type": "string"
+                },
+                "passwordLabel": {
+                    "type": "string"
+                },
+                "showPasswordVisibilityToggle": {
+                    "type": "boolean"
+                },
+                "showUserIdentifier": {
+                    "type": "boolean"
+                },
+                "signInLabel": {
+                    "type": "string"
+                },
+                "unlockAccountLabel": {
+                    "type": "string"
+                },
+                "unlockAccountUrl": {
+                    "type": "string"
+                },
+                "usernameInfoTip": {
+                    "type": "string"
+                },
+                "usernameLabel": {
+                    "type": "string"
+                },
+                "widgetGeneration": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "widgetGeneration"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "showPasswordVisibilityToggle",
+                        "showUserIdentifier",
+                        "widgetGeneration"
+                    ]
+                }
+            }
+        },
         "okta:Index/EmailDomainDnsValidationRecord:EmailDomainDnsValidationRecord": {
             "properties": {
                 "expiration": {
@@ -171,6 +269,258 @@
                 }
             }
         },
+        "okta:Index/LogStreamSettings:LogStreamSettings": {
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "AWS account ID.\n"
+                },
+                "edition": {
+                    "type": "string",
+                    "description": "Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.\n"
+                },
+                "eventSourceName": {
+                    "type": "string",
+                    "description": "An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.\n"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The destination AWS region where event source is located.\n"
+                },
+                "token": {
+                    "type": "string",
+                    "description": "The HEC token for your Splunk Cloud HTTP Event Collector.\n",
+                    "secret": true
+                }
+            },
+            "type": "object"
+        },
+        "okta:Index/PreviewSigninPageContentSecurityPolicySetting:PreviewSigninPageContentSecurityPolicySetting": {
+            "properties": {
+                "mode": {
+                    "type": "string",
+                    "description": "enforced or report_only\n"
+                },
+                "reportUri": {
+                    "type": "string"
+                },
+                "srcLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "okta:Index/PreviewSigninPageWidgetCustomizations:PreviewSigninPageWidgetCustomizations": {
+            "properties": {
+                "authenticatorPageCustomLinkLabel": {
+                    "type": "string"
+                },
+                "authenticatorPageCustomLinkUrl": {
+                    "type": "string"
+                },
+                "classicRecoveryFlowEmailOrUsernameLabel": {
+                    "type": "string"
+                },
+                "customLink1Label": {
+                    "type": "string"
+                },
+                "customLink1Url": {
+                    "type": "string"
+                },
+                "customLink2Label": {
+                    "type": "string"
+                },
+                "customLink2Url": {
+                    "type": "string"
+                },
+                "forgotPasswordLabel": {
+                    "type": "string"
+                },
+                "forgotPasswordUrl": {
+                    "type": "string"
+                },
+                "helpLabel": {
+                    "type": "string"
+                },
+                "helpUrl": {
+                    "type": "string"
+                },
+                "passwordInfoTip": {
+                    "type": "string"
+                },
+                "passwordLabel": {
+                    "type": "string"
+                },
+                "showPasswordVisibilityToggle": {
+                    "type": "boolean"
+                },
+                "showUserIdentifier": {
+                    "type": "boolean"
+                },
+                "signInLabel": {
+                    "type": "string"
+                },
+                "unlockAccountLabel": {
+                    "type": "string"
+                },
+                "unlockAccountUrl": {
+                    "type": "string"
+                },
+                "usernameInfoTip": {
+                    "type": "string"
+                },
+                "usernameLabel": {
+                    "type": "string"
+                },
+                "widgetGeneration": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "widgetGeneration"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "showPasswordVisibilityToggle",
+                        "showUserIdentifier",
+                        "widgetGeneration"
+                    ]
+                }
+            }
+        },
+        "okta:Index/getDefaultSigninPageContentSecurityPolicySetting:getDefaultSigninPageContentSecurityPolicySetting": {
+            "properties": {
+                "mode": {
+                    "type": "string",
+                    "description": "enforced or report_only\n"
+                },
+                "reportUri": {
+                    "type": "string"
+                },
+                "srcLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "mode",
+                "reportUri",
+                "srcLists"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:Index/getDefaultSigninPageWidgetCustomizations:getDefaultSigninPageWidgetCustomizations": {
+            "properties": {
+                "authenticatorPageCustomLinkLabel": {
+                    "type": "string"
+                },
+                "authenticatorPageCustomLinkUrl": {
+                    "type": "string"
+                },
+                "classicRecoveryFlowEmailOrUsernameLabel": {
+                    "type": "string"
+                },
+                "customLink1Label": {
+                    "type": "string"
+                },
+                "customLink1Url": {
+                    "type": "string"
+                },
+                "customLink2Label": {
+                    "type": "string"
+                },
+                "customLink2Url": {
+                    "type": "string"
+                },
+                "forgotPasswordLabel": {
+                    "type": "string"
+                },
+                "forgotPasswordUrl": {
+                    "type": "string"
+                },
+                "helpLabel": {
+                    "type": "string"
+                },
+                "helpUrl": {
+                    "type": "string"
+                },
+                "passwordInfoTip": {
+                    "type": "string"
+                },
+                "passwordLabel": {
+                    "type": "string"
+                },
+                "showPasswordVisibilityToggle": {
+                    "type": "boolean"
+                },
+                "showUserIdentifier": {
+                    "type": "boolean"
+                },
+                "signInLabel": {
+                    "type": "string"
+                },
+                "unlockAccountLabel": {
+                    "type": "string"
+                },
+                "unlockAccountUrl": {
+                    "type": "string"
+                },
+                "usernameInfoTip": {
+                    "type": "string"
+                },
+                "usernameLabel": {
+                    "type": "string"
+                },
+                "widgetGeneration": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "authenticatorPageCustomLinkLabel",
+                "authenticatorPageCustomLinkUrl",
+                "classicRecoveryFlowEmailOrUsernameLabel",
+                "customLink1Label",
+                "customLink1Url",
+                "customLink2Label",
+                "customLink2Url",
+                "forgotPasswordLabel",
+                "forgotPasswordUrl",
+                "helpLabel",
+                "helpUrl",
+                "passwordInfoTip",
+                "passwordLabel",
+                "showPasswordVisibilityToggle",
+                "showUserIdentifier",
+                "signInLabel",
+                "unlockAccountLabel",
+                "unlockAccountUrl",
+                "usernameInfoTip",
+                "usernameLabel",
+                "widgetGeneration"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "okta:Index/getDomainDnsRecord:getDomainDnsRecord": {
             "properties": {
                 "expiration": {
@@ -199,6 +549,48 @@
                 "fqdn",
                 "recordType",
                 "values"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:Index/getLogStreamSettings:getLogStreamSettings": {
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "AWS account ID. Required only for 'aws_eventbridge' type\n"
+                },
+                "edition": {
+                    "type": "string",
+                    "description": "Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type\n"
+                },
+                "eventSourceName": {
+                    "type": "string",
+                    "description": "An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type\n"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The destination AWS region where event source is located. Required only for 'aws_eventbridge' type\n"
+                },
+                "token": {
+                    "type": "string",
+                    "description": "The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "accountId",
+                "edition",
+                "eventSourceName",
+                "host",
+                "region",
+                "token"
             ],
             "language": {
                 "nodejs": {
@@ -1793,6 +2185,82 @@
         }
     },
     "resources": {
+        "okta:Index/customizedSigninPage:CustomizedSigninPage": {
+            "properties": {
+                "brandId": {
+                    "type": "string",
+                    "description": "brand id of the preview signin page\n"
+                },
+                "contentSecurityPolicySetting": {
+                    "$ref": "#/types/okta:Index/CustomizedSigninPageContentSecurityPolicySetting:CustomizedSigninPageContentSecurityPolicySetting"
+                },
+                "pageContent": {
+                    "type": "string",
+                    "description": "page content of the preview signin page\n"
+                },
+                "widgetCustomizations": {
+                    "$ref": "#/types/okta:Index/CustomizedSigninPageWidgetCustomizations:CustomizedSigninPageWidgetCustomizations"
+                },
+                "widgetVersion": {
+                    "type": "string",
+                    "description": "widget version specified as a Semver. The following are currently supported *, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7,\n1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16,\n2.17, 2.18, 2.19, 2.20, 2.21, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1,\n5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6,\n6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
+                }
+            },
+            "required": [
+                "brandId",
+                "pageContent",
+                "widgetVersion"
+            ],
+            "inputProperties": {
+                "brandId": {
+                    "type": "string",
+                    "description": "brand id of the preview signin page\n"
+                },
+                "contentSecurityPolicySetting": {
+                    "$ref": "#/types/okta:Index/CustomizedSigninPageContentSecurityPolicySetting:CustomizedSigninPageContentSecurityPolicySetting"
+                },
+                "pageContent": {
+                    "type": "string",
+                    "description": "page content of the preview signin page\n"
+                },
+                "widgetCustomizations": {
+                    "$ref": "#/types/okta:Index/CustomizedSigninPageWidgetCustomizations:CustomizedSigninPageWidgetCustomizations"
+                },
+                "widgetVersion": {
+                    "type": "string",
+                    "description": "widget version specified as a Semver. The following are currently supported *, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7,\n1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16,\n2.17, 2.18, 2.19, 2.20, 2.21, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1,\n5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6,\n6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
+                }
+            },
+            "requiredInputs": [
+                "brandId",
+                "pageContent",
+                "widgetVersion"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CustomizedSigninPage resources.\n",
+                "properties": {
+                    "brandId": {
+                        "type": "string",
+                        "description": "brand id of the preview signin page\n"
+                    },
+                    "contentSecurityPolicySetting": {
+                        "$ref": "#/types/okta:Index/CustomizedSigninPageContentSecurityPolicySetting:CustomizedSigninPageContentSecurityPolicySetting"
+                    },
+                    "pageContent": {
+                        "type": "string",
+                        "description": "page content of the preview signin page\n"
+                    },
+                    "widgetCustomizations": {
+                        "$ref": "#/types/okta:Index/CustomizedSigninPageWidgetCustomizations:CustomizedSigninPageWidgetCustomizations"
+                    },
+                    "widgetVersion": {
+                        "type": "string",
+                        "description": "widget version specified as a Semver. The following are currently supported *, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7,\n1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16,\n2.17, 2.18, 2.19, 2.20, 2.21, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1,\n5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6,\n6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:Index/emailDomain:EmailDomain": {
             "description": "This resource allows you to create and configure an email domain.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.index.EmailDomain(\"example\", {\n    brandId: \"abc123\",\n    displayName: \"test\",\n    domain: \"example.com\",\n    userName: \"paul_atreides\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.index.EmailDomain(\"example\",\n    brand_id=\"abc123\",\n    display_name=\"test\",\n    domain=\"example.com\",\n    user_name=\"paul_atreides\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.Index.EmailDomain(\"example\", new()\n    {\n        BrandId = \"abc123\",\n        DisplayName = \"test\",\n        Domain = \"example.com\",\n        UserName = \"paul_atreides\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/Index\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := Index.NewEmailDomain(ctx, \"example\", \u0026Index.EmailDomainArgs{\n\t\t\tBrandId:     pulumi.String(\"abc123\"),\n\t\t\tDisplayName: pulumi.String(\"test\"),\n\t\t\tDomain:      pulumi.String(\"example.com\"),\n\t\t\tUserName:    pulumi.String(\"paul_atreides\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Index.EmailDomain;\nimport com.pulumi.okta.Index.EmailDomainArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new EmailDomain(\"example\", EmailDomainArgs.builder()        \n            .brandId(\"abc123\")\n            .displayName(\"test\")\n            .domain(\"example.com\")\n            .userName(\"paul_atreides\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:Index:EmailDomain\n    properties:\n      brandId: abc123\n      displayName: test\n      domain: example.com\n      userName: paul_atreides\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nCustom email domain can be imported via the Okta ID.\n\n ```sh\n $ pulumi import okta:Index/emailDomain:EmailDomain example \u0026#60;domain id\u0026#62;\n```\n\n ",
             "properties": {
@@ -1918,6 +2386,150 @@
                         "type": "string",
                         "description": "Email domain ID.\n",
                         "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:Index/logStream:LogStream": {
+            "description": "Creates an Okta Log Stream.\n\nThis resource allows you to create and configure an Okta Log Stream.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### AWS EventBridge\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Index.LogStream;\nimport com.pulumi.okta.Index.LogStreamArgs;\nimport com.pulumi.okta.Index.inputs.LogStreamSettingsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new LogStream(\"example\", LogStreamArgs.builder()        \n            .settings(LogStreamSettingsArgs.builder()\n                .account_id(\"123456789012\")\n                .event_source_name(\"okta_log_stream\")\n                .region(\"us-north-1\")\n                .build())\n            .status(\"ACTIVE\")\n            .type(\"aws_eventbridge\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:Index:LogStream\n    properties:\n      settings:\n        account_id: '123456789012'\n        event_source_name: okta_log_stream\n        region: us-north-1\n      status: ACTIVE\n      type: aws_eventbridge\n```\n{{% /example %}}\n{{% example %}}\n### Splunk Event Collector\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.index.LogStream(\"example\", {\n    settings: {\n        edition: \"gcp\",\n        host: \"acme.splunkcloud.com\",\n        token: \"YOUR_HEC_TOKEN\",\n    },\n    status: \"ACTIVE\",\n    type: \"splunk_cloud_logstreaming\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.index.LogStream(\"example\",\n    settings=okta.index.LogStreamSettingsArgs(\n        edition=\"gcp\",\n        host=\"acme.splunkcloud.com\",\n        token=\"YOUR_HEC_TOKEN\",\n    ),\n    status=\"ACTIVE\",\n    type=\"splunk_cloud_logstreaming\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.Index.LogStream(\"example\", new()\n    {\n        Settings = new Okta.Inputs.LogStreamSettingsArgs\n        {\n            Edition = \"gcp\",\n            Host = \"acme.splunkcloud.com\",\n            Token = \"YOUR_HEC_TOKEN\",\n        },\n        Status = \"ACTIVE\",\n        Type = \"splunk_cloud_logstreaming\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/Index\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := Index.NewLogStream(ctx, \"example\", \u0026Index.LogStreamArgs{\n\t\t\tSettings: \u0026index.LogStreamSettingsArgs{\n\t\t\t\tEdition: pulumi.String(\"gcp\"),\n\t\t\t\tHost:    pulumi.String(\"acme.splunkcloud.com\"),\n\t\t\t\tToken:   pulumi.String(\"YOUR_HEC_TOKEN\"),\n\t\t\t},\n\t\t\tStatus: pulumi.String(\"ACTIVE\"),\n\t\t\tType:   pulumi.String(\"splunk_cloud_logstreaming\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Index.LogStream;\nimport com.pulumi.okta.Index.LogStreamArgs;\nimport com.pulumi.okta.Index.inputs.LogStreamSettingsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new LogStream(\"example\", LogStreamArgs.builder()        \n            .settings(LogStreamSettingsArgs.builder()\n                .edition(\"gcp\")\n                .host(\"acme.splunkcloud.com\")\n                .token(\"YOUR_HEC_TOKEN\")\n                .build())\n            .status(\"ACTIVE\")\n            .type(\"splunk_cloud_logstreaming\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:Index:LogStream\n    properties:\n      settings:\n        edition: gcp\n        host: acme.splunkcloud.com\n        token: YOUR_HEC_TOKEN\n      status: ACTIVE\n      type: splunk_cloud_logstreaming\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nOkta Log Stream can be imported via the Okta ID.\n\n ```sh\n $ pulumi import okta:Index/logStream:LogStream example \u0026#60;strema id\u0026#62;\n```\n\n ",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Log Stream Resource.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/okta:Index/LogStreamSettings:LogStreamSettings",
+                    "description": "Stream provider specific configuration.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the Log Stream - can either be `\"aws_eventbridge\"` or `\"splunk_cloud_logstreaming\"` only.\n"
+                }
+            },
+            "required": [
+                "name",
+                "type"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Log Stream Resource.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/okta:Index/LogStreamSettings:LogStreamSettings",
+                    "description": "Stream provider specific configuration.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the Log Stream - can either be `\"aws_eventbridge\"` or `\"splunk_cloud_logstreaming\"` only.\n"
+                }
+            },
+            "requiredInputs": [
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering LogStream resources.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Log Stream Resource.\n"
+                    },
+                    "settings": {
+                        "$ref": "#/types/okta:Index/LogStreamSettings:LogStreamSettings",
+                        "description": "Stream provider specific configuration.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Type of the Log Stream - can either be `\"aws_eventbridge\"` or `\"splunk_cloud_logstreaming\"` only.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:Index/previewSigninPage:PreviewSigninPage": {
+            "properties": {
+                "brandId": {
+                    "type": "string",
+                    "description": "brand id of the preview signin page\n"
+                },
+                "contentSecurityPolicySetting": {
+                    "$ref": "#/types/okta:Index/PreviewSigninPageContentSecurityPolicySetting:PreviewSigninPageContentSecurityPolicySetting"
+                },
+                "pageContent": {
+                    "type": "string",
+                    "description": "page content of the preview signin page\n"
+                },
+                "widgetCustomizations": {
+                    "$ref": "#/types/okta:Index/PreviewSigninPageWidgetCustomizations:PreviewSigninPageWidgetCustomizations"
+                },
+                "widgetVersion": {
+                    "type": "string",
+                    "description": "widget version specified as a Semver. The following are currently supported *, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7,\n1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16,\n2.17, 2.18, 2.19, 2.20, 2.21, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1,\n5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6,\n6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
+                }
+            },
+            "required": [
+                "brandId",
+                "pageContent",
+                "widgetVersion"
+            ],
+            "inputProperties": {
+                "brandId": {
+                    "type": "string",
+                    "description": "brand id of the preview signin page\n"
+                },
+                "contentSecurityPolicySetting": {
+                    "$ref": "#/types/okta:Index/PreviewSigninPageContentSecurityPolicySetting:PreviewSigninPageContentSecurityPolicySetting"
+                },
+                "pageContent": {
+                    "type": "string",
+                    "description": "page content of the preview signin page\n"
+                },
+                "widgetCustomizations": {
+                    "$ref": "#/types/okta:Index/PreviewSigninPageWidgetCustomizations:PreviewSigninPageWidgetCustomizations"
+                },
+                "widgetVersion": {
+                    "type": "string",
+                    "description": "widget version specified as a Semver. The following are currently supported *, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7,\n1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16,\n2.17, 2.18, 2.19, 2.20, 2.21, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1,\n5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6,\n6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
+                }
+            },
+            "requiredInputs": [
+                "brandId",
+                "pageContent",
+                "widgetVersion"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering PreviewSigninPage resources.\n",
+                "properties": {
+                    "brandId": {
+                        "type": "string",
+                        "description": "brand id of the preview signin page\n"
+                    },
+                    "contentSecurityPolicySetting": {
+                        "$ref": "#/types/okta:Index/PreviewSigninPageContentSecurityPolicySetting:PreviewSigninPageContentSecurityPolicySetting"
+                    },
+                    "pageContent": {
+                        "type": "string",
+                        "description": "page content of the preview signin page\n"
+                    },
+                    "widgetCustomizations": {
+                        "$ref": "#/types/okta:Index/PreviewSigninPageWidgetCustomizations:PreviewSigninPageWidgetCustomizations"
+                    },
+                    "widgetVersion": {
+                        "type": "string",
+                        "description": "widget version specified as a Semver. The following are currently supported *, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7,\n1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16,\n2.17, 2.18, 2.19, 2.20, 2.21, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1,\n5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6,\n6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
                     }
                 },
                 "type": "object"
@@ -2874,7 +3486,7 @@
                 },
                 "clientBasicSecret": {
                     "type": "string",
-                    "description": "OAuth client secret key, this can be set when `token_endpoint_auth_method` is `\"client_secret_basic\"`.\n",
+                    "description": "The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `\"client_secret_basic\"`. This does nothing when `omit_secret` is set to true.\n",
                     "secret": true
                 },
                 "clientId": {
@@ -2883,7 +3495,7 @@
                 },
                 "clientSecret": {
                     "type": "string",
-                    "description": "The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n",
+                    "description": "OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n",
                     "secret": true
                 },
                 "clientUri": {
@@ -2973,7 +3585,7 @@
                 },
                 "omitSecret": {
                     "type": "boolean",
-                    "description": "This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =\u003e false.\n"
+                    "description": "This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =\u003e true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =\u003e false your app will be recreated, due to the need to regenerate a secret we can store in state.\n"
                 },
                 "pkceRequired": {
                     "type": "boolean",
@@ -3063,6 +3675,7 @@
                 "label",
                 "logoUrl",
                 "name",
+                "pkceRequired",
                 "signOnMode",
                 "type"
             ],
@@ -3105,7 +3718,7 @@
                 },
                 "clientBasicSecret": {
                     "type": "string",
-                    "description": "OAuth client secret key, this can be set when `token_endpoint_auth_method` is `\"client_secret_basic\"`.\n",
+                    "description": "The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `\"client_secret_basic\"`. This does nothing when `omit_secret` is set to true.\n",
                     "secret": true
                 },
                 "clientId": {
@@ -3192,7 +3805,7 @@
                 },
                 "omitSecret": {
                     "type": "boolean",
-                    "description": "This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =\u003e false.\n"
+                    "description": "This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =\u003e true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =\u003e false your app will be recreated, due to the need to regenerate a secret we can store in state.\n"
                 },
                 "pkceRequired": {
                     "type": "boolean",
@@ -3318,7 +3931,7 @@
                     },
                     "clientBasicSecret": {
                         "type": "string",
-                        "description": "OAuth client secret key, this can be set when `token_endpoint_auth_method` is `\"client_secret_basic\"`.\n",
+                        "description": "The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `\"client_secret_basic\"`. This does nothing when `omit_secret` is set to true.\n",
                         "secret": true
                     },
                     "clientId": {
@@ -3328,7 +3941,7 @@
                     },
                     "clientSecret": {
                         "type": "string",
-                        "description": "The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n",
+                        "description": "OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object\n",
                         "secret": true
                     },
                     "clientUri": {
@@ -3418,7 +4031,7 @@
                     },
                     "omitSecret": {
                         "type": "boolean",
-                        "description": "This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true =\u003e false.\n"
+                        "description": "This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =\u003e true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =\u003e false your app will be recreated, due to the need to regenerate a secret we can store in state.\n"
                     },
                     "pkceRequired": {
                         "type": "boolean",
@@ -7135,6 +7748,10 @@
                     "type": "string",
                     "description": "The Application's display name.\n"
                 },
+                "pkceRequired": {
+                    "type": "boolean",
+                    "description": "Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:\nhttps://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object\n"
+                },
                 "profileMaster": {
                     "type": "boolean",
                     "description": "Determines if the IdP should act as a source of truth for user profile attributes.\n"
@@ -7300,6 +7917,10 @@
                     "type": "string",
                     "description": "The Application's display name.\n"
                 },
+                "pkceRequired": {
+                    "type": "boolean",
+                    "description": "Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:\nhttps://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object\n"
+                },
                 "profileMaster": {
                     "type": "boolean",
                     "description": "Determines if the IdP should act as a source of truth for user profile attributes.\n"
@@ -7455,6 +8076,10 @@
                     "name": {
                         "type": "string",
                         "description": "The Application's display name.\n"
+                    },
+                    "pkceRequired": {
+                        "type": "boolean",
+                        "description": "Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:\nhttps://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object\n"
                     },
                     "profileMaster": {
                         "type": "boolean",
@@ -19243,6 +19868,56 @@
         }
     },
     "functions": {
+        "okta:Index/getDefaultSigninPage:getDefaultSigninPage": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getDefaultSigninPage.\n",
+                "properties": {
+                    "brandId": {
+                        "type": "string"
+                    },
+                    "contentSecurityPolicySetting": {
+                        "$ref": "#/types/okta:Index/getDefaultSigninPageContentSecurityPolicySetting:getDefaultSigninPageContentSecurityPolicySetting"
+                    },
+                    "widgetCustomizations": {
+                        "$ref": "#/types/okta:Index/getDefaultSigninPageWidgetCustomizations:getDefaultSigninPageWidgetCustomizations"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "brandId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDefaultSigninPage.\n",
+                "properties": {
+                    "brandId": {
+                        "type": "string"
+                    },
+                    "contentSecurityPolicySetting": {
+                        "$ref": "#/types/okta:Index/getDefaultSigninPageContentSecurityPolicySetting:getDefaultSigninPageContentSecurityPolicySetting"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "pageContent": {
+                        "type": "string"
+                    },
+                    "widgetCustomizations": {
+                        "$ref": "#/types/okta:Index/getDefaultSigninPageWidgetCustomizations:getDefaultSigninPageWidgetCustomizations"
+                    },
+                    "widgetVersion": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "brandId",
+                    "id",
+                    "pageContent",
+                    "widgetVersion"
+                ]
+            }
+        },
         "okta:Index/getDomain:getDomain": {
             "description": "Use this data source to retrieve a domain from Okta.\n\n- https://developer.okta.com/docs/reference/api/domains/#get-domain\n- https://developer.okta.com/docs/reference/api/domains/#domainresponse-object\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.Domain(\"example\", {});\nconst by-name = okta.Index.getDomain({\n    domainIdOrName: \"www.example.com\",\n});\nconst by-id = okta.Index.getDomainOutput({\n    domainIdOrName: example.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.Domain(\"example\")\nby_name = okta.Index.get_domain(domain_id_or_name=\"www.example.com\")\nby_id = okta.Index.get_domain_output(domain_id_or_name=example.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.Domain(\"example\");\n\n    var by_name = Okta.Index.GetDomain.Invoke(new()\n    {\n        DomainIdOrName = \"www.example.com\",\n    });\n\n    var by_id = Okta.Index.GetDomain.Invoke(new()\n    {\n        DomainIdOrName = example.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/Index\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.NewDomain(ctx, \"example\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = Index.GetDomain(ctx, \u0026index.GetDomainArgs{\n\t\t\tDomainIdOrName: \"www.example.com\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_ = Index.GetDomainOutput(ctx, index.GetDomainOutputArgs{\n\t\t\tDomainIdOrName: example.ID(),\n\t\t}, nil)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Domain;\nimport com.pulumi.okta.Index.IndexFunctions;\nimport com.pulumi.okta.Index.inputs.GetDomainArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Domain(\"example\");\n\n        final var by-name = IndexFunctions.getDomain(GetDomainArgs.builder()\n            .domainIdOrName(\"www.example.com\")\n            .build());\n\n        final var by-id = IndexFunctions.getDomain(GetDomainArgs.builder()\n            .domainIdOrName(example.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:Domain\nvariables:\n  by-name:\n    fn::invoke:\n      Function: okta:Index:getDomain\n      Arguments:\n        domainIdOrName: www.example.com\n  by-id:\n    fn::invoke:\n      Function: okta:Index:getDomain\n      Arguments:\n        domainIdOrName: ${example.id}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -19304,6 +19979,57 @@
                     "id",
                     "publicCertificate",
                     "validationStatus"
+                ]
+            }
+        },
+        "okta:Index/getLogStream:getLogStream": {
+            "description": "Use this data source to retrieve a log stream from Okta.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.Index.getLogStream({\n    name: \"Example Stream\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.Index.get_log_stream(name=\"Example Stream\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.Index.GetLogStream.Invoke(new()\n    {\n        Name = \"Example Stream\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/Index\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := Index.GetLogStream(ctx, \u0026index.GetLogStreamArgs{\n\t\t\tName: pulumi.StringRef(\"Example Stream\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Index.IndexFunctions;\nimport com.pulumi.okta.Index.inputs.GetLogStreamArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = IndexFunctions.getLogStream(GetLogStreamArgs.builder()\n            .name(\"Example Stream\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: okta:Index:getLogStream\n      Arguments:\n        name: Example Stream\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getLogStream.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "ID of the log stream to retrieve, conflicts with `name`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the log stream to retrieve, conflicts with `id`.\n"
+                    },
+                    "settings": {
+                        "$ref": "#/types/okta:Index/getLogStreamSettings:getLogStreamSettings",
+                        "description": "Provider specific configuration.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLogStream.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "ID of the log stream.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the log stream.\n"
+                    },
+                    "settings": {
+                        "$ref": "#/types/okta:Index/getLogStreamSettings:getLogStreamSettings",
+                        "description": "Provider specific configuration.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Log Stream Status - can either be ACTIVE or INACTIVE only.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Type of the Log Stream.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "status",
+                    "type"
                 ]
             }
         },
