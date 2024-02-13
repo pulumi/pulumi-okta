@@ -79,7 +79,7 @@ class OAuthArgs:
                UI.
                See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
+        :param pulumi.Input[str] client_basic_secret: The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`. This does nothing when `omit_secret` is set to true.
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
@@ -101,7 +101,7 @@ class OAuthArgs:
         :param pulumi.Input[str] login_uri: URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
-        :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
+        :param pulumi.Input[bool] omit_secret: This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for
                additional verification.  If `pkce_required` isn't specified when adding a new
                application, Okta sets it to `true` by default for `"browser"` and `"native"`
@@ -371,7 +371,7 @@ class OAuthArgs:
     @pulumi.getter(name="clientBasicSecret")
     def client_basic_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
+        The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`. This does nothing when `omit_secret` is set to true.
         """
         return pulumi.get(self, "client_basic_secret")
 
@@ -591,7 +591,7 @@ class OAuthArgs:
     @pulumi.getter(name="omitSecret")
     def omit_secret(self) -> Optional[pulumi.Input[bool]]:
         """
-        This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
+        This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         """
         return pulumi.get(self, "omit_secret")
 
@@ -881,9 +881,9 @@ class _OAuthState:
                UI.
                See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
+        :param pulumi.Input[str] client_basic_secret: The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`. This does nothing when `omit_secret` is set to true.
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
-        :param pulumi.Input[str] client_secret: The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[str] client_secret: OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
@@ -907,7 +907,7 @@ class _OAuthState:
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name of the claim that will be used in the token.
-        :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
+        :param pulumi.Input[bool] omit_secret: This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for
                additional verification.  If `pkce_required` isn't specified when adding a new
                application, Okta sets it to `true` by default for `"browser"` and `"native"`
@@ -1165,7 +1165,7 @@ class _OAuthState:
     @pulumi.getter(name="clientBasicSecret")
     def client_basic_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
+        The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`. This does nothing when `omit_secret` is set to true.
         """
         return pulumi.get(self, "client_basic_secret")
 
@@ -1189,7 +1189,7 @@ class _OAuthState:
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "client_secret")
 
@@ -1433,7 +1433,7 @@ class _OAuthState:
     @pulumi.getter(name="omitSecret")
     def omit_secret(self) -> Optional[pulumi.Input[bool]]:
         """
-        This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
+        This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         """
         return pulumi.get(self, "omit_secret")
 
@@ -1826,7 +1826,7 @@ class OAuth(pulumi.CustomResource):
                UI.
                See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
+        :param pulumi.Input[str] client_basic_secret: The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`. This does nothing when `omit_secret` is set to true.
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
@@ -1849,7 +1849,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] login_uri: URI that initiates login. Required when `login_mode` is NOT `DISABLED`.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
-        :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
+        :param pulumi.Input[bool] omit_secret: This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for
                additional verification.  If `pkce_required` isn't specified when adding a new
                application, Okta sets it to `true` by default for `"browser"` and `"native"`
@@ -2181,9 +2181,9 @@ class OAuth(pulumi.CustomResource):
                UI.
                See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
-        :param pulumi.Input[str] client_basic_secret: OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
+        :param pulumi.Input[str] client_basic_secret: The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`. This does nothing when `omit_secret` is set to true.
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
-        :param pulumi.Input[str] client_secret: The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[str] client_secret: OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: Indicates whether user consent is required or implicit. Valid values: `"REQUIRED"`, `"TRUSTED"`. Default value is `"TRUSTED"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
@@ -2207,7 +2207,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] name: Name of the claim that will be used in the token.
-        :param pulumi.Input[bool] omit_secret: This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
+        :param pulumi.Input[bool] omit_secret: This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for
                additional verification.  If `pkce_required` isn't specified when adding a new
                application, Okta sets it to `true` by default for `"browser"` and `"native"`
@@ -2384,7 +2384,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="clientBasicSecret")
     def client_basic_secret(self) -> pulumi.Output[Optional[str]]:
         """
-        OAuth client secret key, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`.
+        The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `"client_secret_basic"`. This does nothing when `omit_secret` is set to true.
         """
         return pulumi.get(self, "client_basic_secret")
 
@@ -2400,7 +2400,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Output[str]:
         """
-        The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "client_secret")
 
@@ -2564,13 +2564,13 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="omitSecret")
     def omit_secret(self) -> pulumi.Output[Optional[bool]]:
         """
-        This tells the provider not to persist the application's secret to state. Your app's `client_secret` will be recreated if this ever changes from true => false.
+        This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         """
         return pulumi.get(self, "omit_secret")
 
     @property
     @pulumi.getter(name="pkceRequired")
-    def pkce_required(self) -> pulumi.Output[Optional[bool]]:
+    def pkce_required(self) -> pulumi.Output[bool]:
         """
         Require Proof Key for Code Exchange (PKCE) for
         additional verification.  If `pkce_required` isn't specified when adding a new

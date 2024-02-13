@@ -295,14 +295,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoSubmitToolbar);
     }
     /**
-     * OAuth client secret key, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`.
+     * The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`. This does nothing when `omit_secret` is set to true.
      * 
      */
     @Export(name="clientBasicSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientBasicSecret;
 
     /**
-     * @return OAuth client secret key, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`.
+     * @return The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`. This does nothing when `omit_secret` is set to true.
      * 
      */
     public Output<Optional<String>> clientBasicSecret() {
@@ -323,14 +323,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return this.clientId;
     }
     /**
-     * The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output<String> clientSecret;
 
     /**
-     * @return The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * @return OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
     public Output<String> clientSecret() {
@@ -611,14 +611,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * This tells the provider not to persist the application&#39;s secret to state. Your app&#39;s `client_secret` will be recreated if this ever changes from true =&gt; false.
+     * This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
      * 
      */
     @Export(name="omitSecret", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> omitSecret;
 
     /**
-     * @return This tells the provider not to persist the application&#39;s secret to state. Your app&#39;s `client_secret` will be recreated if this ever changes from true =&gt; false.
+     * @return This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
      * 
      */
     public Output<Optional<Boolean>> omitSecret() {
@@ -633,7 +633,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="pkceRequired", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> pkceRequired;
+    private Output<Boolean> pkceRequired;
 
     /**
      * @return Require Proof Key for Code Exchange (PKCE) for
@@ -643,8 +643,8 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      * 
      */
-    public Output<Optional<Boolean>> pkceRequired() {
-        return Codegen.optional(this.pkceRequired);
+    public Output<Boolean> pkceRequired() {
+        return this.pkceRequired;
     }
     /**
      * URI to web page providing client policy document.

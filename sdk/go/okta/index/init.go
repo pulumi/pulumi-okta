@@ -21,10 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "okta:Index/customizedSigninPage:CustomizedSigninPage":
+		r = &CustomizedSigninPage{}
 	case "okta:Index/emailDomain:EmailDomain":
 		r = &EmailDomain{}
 	case "okta:Index/emailDomainVerification:EmailDomainVerification":
 		r = &EmailDomainVerification{}
+	case "okta:Index/logStream:LogStream":
+		r = &LogStream{}
+	case "okta:Index/previewSigninPage:PreviewSigninPage":
+		r = &PreviewSigninPage{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -40,12 +46,27 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"okta",
+		"Index/customizedSigninPage",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"Index/emailDomain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
 		"Index/emailDomainVerification",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"Index/logStream",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"Index/previewSigninPage",
 		&module{version},
 	)
 }

@@ -137,6 +137,11 @@ export class Oidc extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+     * https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+     */
+    public readonly pkceRequired!: pulumi.Output<boolean | undefined>;
+    /**
      * Determines if the IdP should act as a source of truth for user profile attributes.
      */
     public readonly profileMaster!: pulumi.Output<boolean | undefined>;
@@ -232,6 +237,7 @@ export class Oidc extends pulumi.CustomResource {
             resourceInputs["jwksUrl"] = state ? state.jwksUrl : undefined;
             resourceInputs["maxClockSkew"] = state ? state.maxClockSkew : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pkceRequired"] = state ? state.pkceRequired : undefined;
             resourceInputs["profileMaster"] = state ? state.profileMaster : undefined;
             resourceInputs["protocolType"] = state ? state.protocolType : undefined;
             resourceInputs["provisioningAction"] = state ? state.provisioningAction : undefined;
@@ -298,6 +304,7 @@ export class Oidc extends pulumi.CustomResource {
             resourceInputs["jwksUrl"] = args ? args.jwksUrl : undefined;
             resourceInputs["maxClockSkew"] = args ? args.maxClockSkew : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pkceRequired"] = args ? args.pkceRequired : undefined;
             resourceInputs["profileMaster"] = args ? args.profileMaster : undefined;
             resourceInputs["protocolType"] = args ? args.protocolType : undefined;
             resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
@@ -395,6 +402,11 @@ export interface OidcState {
      * The Application's display name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+     * https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+     */
+    pkceRequired?: pulumi.Input<boolean>;
     /**
      * Determines if the IdP should act as a source of truth for user profile attributes.
      */
@@ -534,6 +546,11 @@ export interface OidcArgs {
      * The Application's display name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+     * https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+     */
+    pkceRequired?: pulumi.Input<boolean>;
     /**
      * Determines if the IdP should act as a source of truth for user profile attributes.
      */

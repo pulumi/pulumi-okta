@@ -10,10 +10,321 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CustomizedSigninPageContentSecurityPolicySettingArgs',
+    'CustomizedSigninPageWidgetCustomizationsArgs',
     'EmailDomainDnsValidationRecordArgs',
+    'LogStreamSettingsArgs',
+    'PreviewSigninPageContentSecurityPolicySettingArgs',
+    'PreviewSigninPageWidgetCustomizationsArgs',
+    'GetDefaultSigninPageContentSecurityPolicySettingArgs',
+    'GetDefaultSigninPageWidgetCustomizationsArgs',
+    'GetLogStreamSettingsArgs',
     'GetOrgMetadataDomainsArgs',
     'GetOrgMetadataSettingsArgs',
 ]
+
+@pulumi.input_type
+class CustomizedSigninPageContentSecurityPolicySettingArgs:
+    def __init__(__self__, *,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 report_uri: Optional[pulumi.Input[str]] = None,
+                 src_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] mode: enforced or report_only
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if report_uri is not None:
+            pulumi.set(__self__, "report_uri", report_uri)
+        if src_lists is not None:
+            pulumi.set(__self__, "src_lists", src_lists)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        enforced or report_only
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="reportUri")
+    def report_uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "report_uri")
+
+    @report_uri.setter
+    def report_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "report_uri", value)
+
+    @property
+    @pulumi.getter(name="srcLists")
+    def src_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "src_lists")
+
+    @src_lists.setter
+    def src_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "src_lists", value)
+
+
+@pulumi.input_type
+class CustomizedSigninPageWidgetCustomizationsArgs:
+    def __init__(__self__, *,
+                 widget_generation: pulumi.Input[str],
+                 authenticator_page_custom_link_label: Optional[pulumi.Input[str]] = None,
+                 authenticator_page_custom_link_url: Optional[pulumi.Input[str]] = None,
+                 classic_recovery_flow_email_or_username_label: Optional[pulumi.Input[str]] = None,
+                 custom_link1_label: Optional[pulumi.Input[str]] = None,
+                 custom_link1_url: Optional[pulumi.Input[str]] = None,
+                 custom_link2_label: Optional[pulumi.Input[str]] = None,
+                 custom_link2_url: Optional[pulumi.Input[str]] = None,
+                 forgot_password_label: Optional[pulumi.Input[str]] = None,
+                 forgot_password_url: Optional[pulumi.Input[str]] = None,
+                 help_label: Optional[pulumi.Input[str]] = None,
+                 help_url: Optional[pulumi.Input[str]] = None,
+                 password_info_tip: Optional[pulumi.Input[str]] = None,
+                 password_label: Optional[pulumi.Input[str]] = None,
+                 show_password_visibility_toggle: Optional[pulumi.Input[bool]] = None,
+                 show_user_identifier: Optional[pulumi.Input[bool]] = None,
+                 sign_in_label: Optional[pulumi.Input[str]] = None,
+                 unlock_account_label: Optional[pulumi.Input[str]] = None,
+                 unlock_account_url: Optional[pulumi.Input[str]] = None,
+                 username_info_tip: Optional[pulumi.Input[str]] = None,
+                 username_label: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "widget_generation", widget_generation)
+        if authenticator_page_custom_link_label is not None:
+            pulumi.set(__self__, "authenticator_page_custom_link_label", authenticator_page_custom_link_label)
+        if authenticator_page_custom_link_url is not None:
+            pulumi.set(__self__, "authenticator_page_custom_link_url", authenticator_page_custom_link_url)
+        if classic_recovery_flow_email_or_username_label is not None:
+            pulumi.set(__self__, "classic_recovery_flow_email_or_username_label", classic_recovery_flow_email_or_username_label)
+        if custom_link1_label is not None:
+            pulumi.set(__self__, "custom_link1_label", custom_link1_label)
+        if custom_link1_url is not None:
+            pulumi.set(__self__, "custom_link1_url", custom_link1_url)
+        if custom_link2_label is not None:
+            pulumi.set(__self__, "custom_link2_label", custom_link2_label)
+        if custom_link2_url is not None:
+            pulumi.set(__self__, "custom_link2_url", custom_link2_url)
+        if forgot_password_label is not None:
+            pulumi.set(__self__, "forgot_password_label", forgot_password_label)
+        if forgot_password_url is not None:
+            pulumi.set(__self__, "forgot_password_url", forgot_password_url)
+        if help_label is not None:
+            pulumi.set(__self__, "help_label", help_label)
+        if help_url is not None:
+            pulumi.set(__self__, "help_url", help_url)
+        if password_info_tip is not None:
+            pulumi.set(__self__, "password_info_tip", password_info_tip)
+        if password_label is not None:
+            pulumi.set(__self__, "password_label", password_label)
+        if show_password_visibility_toggle is not None:
+            pulumi.set(__self__, "show_password_visibility_toggle", show_password_visibility_toggle)
+        if show_user_identifier is not None:
+            pulumi.set(__self__, "show_user_identifier", show_user_identifier)
+        if sign_in_label is not None:
+            pulumi.set(__self__, "sign_in_label", sign_in_label)
+        if unlock_account_label is not None:
+            pulumi.set(__self__, "unlock_account_label", unlock_account_label)
+        if unlock_account_url is not None:
+            pulumi.set(__self__, "unlock_account_url", unlock_account_url)
+        if username_info_tip is not None:
+            pulumi.set(__self__, "username_info_tip", username_info_tip)
+        if username_label is not None:
+            pulumi.set(__self__, "username_label", username_label)
+
+    @property
+    @pulumi.getter(name="widgetGeneration")
+    def widget_generation(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "widget_generation")
+
+    @widget_generation.setter
+    def widget_generation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "widget_generation", value)
+
+    @property
+    @pulumi.getter(name="authenticatorPageCustomLinkLabel")
+    def authenticator_page_custom_link_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "authenticator_page_custom_link_label")
+
+    @authenticator_page_custom_link_label.setter
+    def authenticator_page_custom_link_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authenticator_page_custom_link_label", value)
+
+    @property
+    @pulumi.getter(name="authenticatorPageCustomLinkUrl")
+    def authenticator_page_custom_link_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "authenticator_page_custom_link_url")
+
+    @authenticator_page_custom_link_url.setter
+    def authenticator_page_custom_link_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authenticator_page_custom_link_url", value)
+
+    @property
+    @pulumi.getter(name="classicRecoveryFlowEmailOrUsernameLabel")
+    def classic_recovery_flow_email_or_username_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "classic_recovery_flow_email_or_username_label")
+
+    @classic_recovery_flow_email_or_username_label.setter
+    def classic_recovery_flow_email_or_username_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "classic_recovery_flow_email_or_username_label", value)
+
+    @property
+    @pulumi.getter(name="customLink1Label")
+    def custom_link1_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_link1_label")
+
+    @custom_link1_label.setter
+    def custom_link1_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_link1_label", value)
+
+    @property
+    @pulumi.getter(name="customLink1Url")
+    def custom_link1_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_link1_url")
+
+    @custom_link1_url.setter
+    def custom_link1_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_link1_url", value)
+
+    @property
+    @pulumi.getter(name="customLink2Label")
+    def custom_link2_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_link2_label")
+
+    @custom_link2_label.setter
+    def custom_link2_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_link2_label", value)
+
+    @property
+    @pulumi.getter(name="customLink2Url")
+    def custom_link2_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_link2_url")
+
+    @custom_link2_url.setter
+    def custom_link2_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_link2_url", value)
+
+    @property
+    @pulumi.getter(name="forgotPasswordLabel")
+    def forgot_password_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "forgot_password_label")
+
+    @forgot_password_label.setter
+    def forgot_password_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forgot_password_label", value)
+
+    @property
+    @pulumi.getter(name="forgotPasswordUrl")
+    def forgot_password_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "forgot_password_url")
+
+    @forgot_password_url.setter
+    def forgot_password_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forgot_password_url", value)
+
+    @property
+    @pulumi.getter(name="helpLabel")
+    def help_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "help_label")
+
+    @help_label.setter
+    def help_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "help_label", value)
+
+    @property
+    @pulumi.getter(name="helpUrl")
+    def help_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "help_url")
+
+    @help_url.setter
+    def help_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "help_url", value)
+
+    @property
+    @pulumi.getter(name="passwordInfoTip")
+    def password_info_tip(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "password_info_tip")
+
+    @password_info_tip.setter
+    def password_info_tip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_info_tip", value)
+
+    @property
+    @pulumi.getter(name="passwordLabel")
+    def password_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "password_label")
+
+    @password_label.setter
+    def password_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_label", value)
+
+    @property
+    @pulumi.getter(name="showPasswordVisibilityToggle")
+    def show_password_visibility_toggle(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "show_password_visibility_toggle")
+
+    @show_password_visibility_toggle.setter
+    def show_password_visibility_toggle(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "show_password_visibility_toggle", value)
+
+    @property
+    @pulumi.getter(name="showUserIdentifier")
+    def show_user_identifier(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "show_user_identifier")
+
+    @show_user_identifier.setter
+    def show_user_identifier(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "show_user_identifier", value)
+
+    @property
+    @pulumi.getter(name="signInLabel")
+    def sign_in_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sign_in_label")
+
+    @sign_in_label.setter
+    def sign_in_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sign_in_label", value)
+
+    @property
+    @pulumi.getter(name="unlockAccountLabel")
+    def unlock_account_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "unlock_account_label")
+
+    @unlock_account_label.setter
+    def unlock_account_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unlock_account_label", value)
+
+    @property
+    @pulumi.getter(name="unlockAccountUrl")
+    def unlock_account_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "unlock_account_url")
+
+    @unlock_account_url.setter
+    def unlock_account_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unlock_account_url", value)
+
+    @property
+    @pulumi.getter(name="usernameInfoTip")
+    def username_info_tip(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "username_info_tip")
+
+    @username_info_tip.setter
+    def username_info_tip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username_info_tip", value)
+
+    @property
+    @pulumi.getter(name="usernameLabel")
+    def username_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "username_label")
+
+    @username_label.setter
+    def username_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username_label", value)
+
 
 @pulumi.input_type
 class EmailDomainDnsValidationRecordArgs:
@@ -92,6 +403,789 @@ class EmailDomainDnsValidationRecordArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class LogStreamSettingsArgs:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 edition: Optional[pulumi.Input[str]] = None,
+                 event_source_name: Optional[pulumi.Input[str]] = None,
+                 host: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 token: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] account_id: AWS account ID.
+        :param pulumi.Input[str] edition: Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
+        :param pulumi.Input[str] event_source_name: An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+        :param pulumi.Input[str] host: The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
+        :param pulumi.Input[str] region: The destination AWS region where event source is located.
+        :param pulumi.Input[str] token: The HEC token for your Splunk Cloud HTTP Event Collector.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if edition is not None:
+            pulumi.set(__self__, "edition", edition)
+        if event_source_name is not None:
+            pulumi.set(__self__, "event_source_name", event_source_name)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if token is not None:
+            pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS account ID.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def edition(self) -> Optional[pulumi.Input[str]]:
+        """
+        Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
+        """
+        return pulumi.get(self, "edition")
+
+    @edition.setter
+    def edition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edition", value)
+
+    @property
+    @pulumi.getter(name="eventSourceName")
+    def event_source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+        """
+        return pulumi.get(self, "event_source_name")
+
+    @event_source_name.setter
+    def event_source_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_source_name", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination AWS region where event source is located.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
+    def token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HEC token for your Splunk Cloud HTTP Event Collector.
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token", value)
+
+
+@pulumi.input_type
+class PreviewSigninPageContentSecurityPolicySettingArgs:
+    def __init__(__self__, *,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 report_uri: Optional[pulumi.Input[str]] = None,
+                 src_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] mode: enforced or report_only
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if report_uri is not None:
+            pulumi.set(__self__, "report_uri", report_uri)
+        if src_lists is not None:
+            pulumi.set(__self__, "src_lists", src_lists)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        enforced or report_only
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="reportUri")
+    def report_uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "report_uri")
+
+    @report_uri.setter
+    def report_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "report_uri", value)
+
+    @property
+    @pulumi.getter(name="srcLists")
+    def src_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "src_lists")
+
+    @src_lists.setter
+    def src_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "src_lists", value)
+
+
+@pulumi.input_type
+class PreviewSigninPageWidgetCustomizationsArgs:
+    def __init__(__self__, *,
+                 widget_generation: pulumi.Input[str],
+                 authenticator_page_custom_link_label: Optional[pulumi.Input[str]] = None,
+                 authenticator_page_custom_link_url: Optional[pulumi.Input[str]] = None,
+                 classic_recovery_flow_email_or_username_label: Optional[pulumi.Input[str]] = None,
+                 custom_link1_label: Optional[pulumi.Input[str]] = None,
+                 custom_link1_url: Optional[pulumi.Input[str]] = None,
+                 custom_link2_label: Optional[pulumi.Input[str]] = None,
+                 custom_link2_url: Optional[pulumi.Input[str]] = None,
+                 forgot_password_label: Optional[pulumi.Input[str]] = None,
+                 forgot_password_url: Optional[pulumi.Input[str]] = None,
+                 help_label: Optional[pulumi.Input[str]] = None,
+                 help_url: Optional[pulumi.Input[str]] = None,
+                 password_info_tip: Optional[pulumi.Input[str]] = None,
+                 password_label: Optional[pulumi.Input[str]] = None,
+                 show_password_visibility_toggle: Optional[pulumi.Input[bool]] = None,
+                 show_user_identifier: Optional[pulumi.Input[bool]] = None,
+                 sign_in_label: Optional[pulumi.Input[str]] = None,
+                 unlock_account_label: Optional[pulumi.Input[str]] = None,
+                 unlock_account_url: Optional[pulumi.Input[str]] = None,
+                 username_info_tip: Optional[pulumi.Input[str]] = None,
+                 username_label: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "widget_generation", widget_generation)
+        if authenticator_page_custom_link_label is not None:
+            pulumi.set(__self__, "authenticator_page_custom_link_label", authenticator_page_custom_link_label)
+        if authenticator_page_custom_link_url is not None:
+            pulumi.set(__self__, "authenticator_page_custom_link_url", authenticator_page_custom_link_url)
+        if classic_recovery_flow_email_or_username_label is not None:
+            pulumi.set(__self__, "classic_recovery_flow_email_or_username_label", classic_recovery_flow_email_or_username_label)
+        if custom_link1_label is not None:
+            pulumi.set(__self__, "custom_link1_label", custom_link1_label)
+        if custom_link1_url is not None:
+            pulumi.set(__self__, "custom_link1_url", custom_link1_url)
+        if custom_link2_label is not None:
+            pulumi.set(__self__, "custom_link2_label", custom_link2_label)
+        if custom_link2_url is not None:
+            pulumi.set(__self__, "custom_link2_url", custom_link2_url)
+        if forgot_password_label is not None:
+            pulumi.set(__self__, "forgot_password_label", forgot_password_label)
+        if forgot_password_url is not None:
+            pulumi.set(__self__, "forgot_password_url", forgot_password_url)
+        if help_label is not None:
+            pulumi.set(__self__, "help_label", help_label)
+        if help_url is not None:
+            pulumi.set(__self__, "help_url", help_url)
+        if password_info_tip is not None:
+            pulumi.set(__self__, "password_info_tip", password_info_tip)
+        if password_label is not None:
+            pulumi.set(__self__, "password_label", password_label)
+        if show_password_visibility_toggle is not None:
+            pulumi.set(__self__, "show_password_visibility_toggle", show_password_visibility_toggle)
+        if show_user_identifier is not None:
+            pulumi.set(__self__, "show_user_identifier", show_user_identifier)
+        if sign_in_label is not None:
+            pulumi.set(__self__, "sign_in_label", sign_in_label)
+        if unlock_account_label is not None:
+            pulumi.set(__self__, "unlock_account_label", unlock_account_label)
+        if unlock_account_url is not None:
+            pulumi.set(__self__, "unlock_account_url", unlock_account_url)
+        if username_info_tip is not None:
+            pulumi.set(__self__, "username_info_tip", username_info_tip)
+        if username_label is not None:
+            pulumi.set(__self__, "username_label", username_label)
+
+    @property
+    @pulumi.getter(name="widgetGeneration")
+    def widget_generation(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "widget_generation")
+
+    @widget_generation.setter
+    def widget_generation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "widget_generation", value)
+
+    @property
+    @pulumi.getter(name="authenticatorPageCustomLinkLabel")
+    def authenticator_page_custom_link_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "authenticator_page_custom_link_label")
+
+    @authenticator_page_custom_link_label.setter
+    def authenticator_page_custom_link_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authenticator_page_custom_link_label", value)
+
+    @property
+    @pulumi.getter(name="authenticatorPageCustomLinkUrl")
+    def authenticator_page_custom_link_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "authenticator_page_custom_link_url")
+
+    @authenticator_page_custom_link_url.setter
+    def authenticator_page_custom_link_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authenticator_page_custom_link_url", value)
+
+    @property
+    @pulumi.getter(name="classicRecoveryFlowEmailOrUsernameLabel")
+    def classic_recovery_flow_email_or_username_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "classic_recovery_flow_email_or_username_label")
+
+    @classic_recovery_flow_email_or_username_label.setter
+    def classic_recovery_flow_email_or_username_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "classic_recovery_flow_email_or_username_label", value)
+
+    @property
+    @pulumi.getter(name="customLink1Label")
+    def custom_link1_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_link1_label")
+
+    @custom_link1_label.setter
+    def custom_link1_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_link1_label", value)
+
+    @property
+    @pulumi.getter(name="customLink1Url")
+    def custom_link1_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_link1_url")
+
+    @custom_link1_url.setter
+    def custom_link1_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_link1_url", value)
+
+    @property
+    @pulumi.getter(name="customLink2Label")
+    def custom_link2_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_link2_label")
+
+    @custom_link2_label.setter
+    def custom_link2_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_link2_label", value)
+
+    @property
+    @pulumi.getter(name="customLink2Url")
+    def custom_link2_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_link2_url")
+
+    @custom_link2_url.setter
+    def custom_link2_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_link2_url", value)
+
+    @property
+    @pulumi.getter(name="forgotPasswordLabel")
+    def forgot_password_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "forgot_password_label")
+
+    @forgot_password_label.setter
+    def forgot_password_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forgot_password_label", value)
+
+    @property
+    @pulumi.getter(name="forgotPasswordUrl")
+    def forgot_password_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "forgot_password_url")
+
+    @forgot_password_url.setter
+    def forgot_password_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forgot_password_url", value)
+
+    @property
+    @pulumi.getter(name="helpLabel")
+    def help_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "help_label")
+
+    @help_label.setter
+    def help_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "help_label", value)
+
+    @property
+    @pulumi.getter(name="helpUrl")
+    def help_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "help_url")
+
+    @help_url.setter
+    def help_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "help_url", value)
+
+    @property
+    @pulumi.getter(name="passwordInfoTip")
+    def password_info_tip(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "password_info_tip")
+
+    @password_info_tip.setter
+    def password_info_tip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_info_tip", value)
+
+    @property
+    @pulumi.getter(name="passwordLabel")
+    def password_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "password_label")
+
+    @password_label.setter
+    def password_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_label", value)
+
+    @property
+    @pulumi.getter(name="showPasswordVisibilityToggle")
+    def show_password_visibility_toggle(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "show_password_visibility_toggle")
+
+    @show_password_visibility_toggle.setter
+    def show_password_visibility_toggle(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "show_password_visibility_toggle", value)
+
+    @property
+    @pulumi.getter(name="showUserIdentifier")
+    def show_user_identifier(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "show_user_identifier")
+
+    @show_user_identifier.setter
+    def show_user_identifier(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "show_user_identifier", value)
+
+    @property
+    @pulumi.getter(name="signInLabel")
+    def sign_in_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sign_in_label")
+
+    @sign_in_label.setter
+    def sign_in_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sign_in_label", value)
+
+    @property
+    @pulumi.getter(name="unlockAccountLabel")
+    def unlock_account_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "unlock_account_label")
+
+    @unlock_account_label.setter
+    def unlock_account_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unlock_account_label", value)
+
+    @property
+    @pulumi.getter(name="unlockAccountUrl")
+    def unlock_account_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "unlock_account_url")
+
+    @unlock_account_url.setter
+    def unlock_account_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unlock_account_url", value)
+
+    @property
+    @pulumi.getter(name="usernameInfoTip")
+    def username_info_tip(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "username_info_tip")
+
+    @username_info_tip.setter
+    def username_info_tip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username_info_tip", value)
+
+    @property
+    @pulumi.getter(name="usernameLabel")
+    def username_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "username_label")
+
+    @username_label.setter
+    def username_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username_label", value)
+
+
+@pulumi.input_type
+class GetDefaultSigninPageContentSecurityPolicySettingArgs:
+    def __init__(__self__, *,
+                 mode: str,
+                 report_uri: str,
+                 src_lists: Sequence[str]):
+        """
+        :param str mode: enforced or report_only
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "report_uri", report_uri)
+        pulumi.set(__self__, "src_lists", src_lists)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        enforced or report_only
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: str):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="reportUri")
+    def report_uri(self) -> str:
+        return pulumi.get(self, "report_uri")
+
+    @report_uri.setter
+    def report_uri(self, value: str):
+        pulumi.set(self, "report_uri", value)
+
+    @property
+    @pulumi.getter(name="srcLists")
+    def src_lists(self) -> Sequence[str]:
+        return pulumi.get(self, "src_lists")
+
+    @src_lists.setter
+    def src_lists(self, value: Sequence[str]):
+        pulumi.set(self, "src_lists", value)
+
+
+@pulumi.input_type
+class GetDefaultSigninPageWidgetCustomizationsArgs:
+    def __init__(__self__, *,
+                 authenticator_page_custom_link_label: str,
+                 authenticator_page_custom_link_url: str,
+                 classic_recovery_flow_email_or_username_label: str,
+                 custom_link1_label: str,
+                 custom_link1_url: str,
+                 custom_link2_label: str,
+                 custom_link2_url: str,
+                 forgot_password_label: str,
+                 forgot_password_url: str,
+                 help_label: str,
+                 help_url: str,
+                 password_info_tip: str,
+                 password_label: str,
+                 show_password_visibility_toggle: bool,
+                 show_user_identifier: bool,
+                 sign_in_label: str,
+                 unlock_account_label: str,
+                 unlock_account_url: str,
+                 username_info_tip: str,
+                 username_label: str,
+                 widget_generation: str):
+        pulumi.set(__self__, "authenticator_page_custom_link_label", authenticator_page_custom_link_label)
+        pulumi.set(__self__, "authenticator_page_custom_link_url", authenticator_page_custom_link_url)
+        pulumi.set(__self__, "classic_recovery_flow_email_or_username_label", classic_recovery_flow_email_or_username_label)
+        pulumi.set(__self__, "custom_link1_label", custom_link1_label)
+        pulumi.set(__self__, "custom_link1_url", custom_link1_url)
+        pulumi.set(__self__, "custom_link2_label", custom_link2_label)
+        pulumi.set(__self__, "custom_link2_url", custom_link2_url)
+        pulumi.set(__self__, "forgot_password_label", forgot_password_label)
+        pulumi.set(__self__, "forgot_password_url", forgot_password_url)
+        pulumi.set(__self__, "help_label", help_label)
+        pulumi.set(__self__, "help_url", help_url)
+        pulumi.set(__self__, "password_info_tip", password_info_tip)
+        pulumi.set(__self__, "password_label", password_label)
+        pulumi.set(__self__, "show_password_visibility_toggle", show_password_visibility_toggle)
+        pulumi.set(__self__, "show_user_identifier", show_user_identifier)
+        pulumi.set(__self__, "sign_in_label", sign_in_label)
+        pulumi.set(__self__, "unlock_account_label", unlock_account_label)
+        pulumi.set(__self__, "unlock_account_url", unlock_account_url)
+        pulumi.set(__self__, "username_info_tip", username_info_tip)
+        pulumi.set(__self__, "username_label", username_label)
+        pulumi.set(__self__, "widget_generation", widget_generation)
+
+    @property
+    @pulumi.getter(name="authenticatorPageCustomLinkLabel")
+    def authenticator_page_custom_link_label(self) -> str:
+        return pulumi.get(self, "authenticator_page_custom_link_label")
+
+    @authenticator_page_custom_link_label.setter
+    def authenticator_page_custom_link_label(self, value: str):
+        pulumi.set(self, "authenticator_page_custom_link_label", value)
+
+    @property
+    @pulumi.getter(name="authenticatorPageCustomLinkUrl")
+    def authenticator_page_custom_link_url(self) -> str:
+        return pulumi.get(self, "authenticator_page_custom_link_url")
+
+    @authenticator_page_custom_link_url.setter
+    def authenticator_page_custom_link_url(self, value: str):
+        pulumi.set(self, "authenticator_page_custom_link_url", value)
+
+    @property
+    @pulumi.getter(name="classicRecoveryFlowEmailOrUsernameLabel")
+    def classic_recovery_flow_email_or_username_label(self) -> str:
+        return pulumi.get(self, "classic_recovery_flow_email_or_username_label")
+
+    @classic_recovery_flow_email_or_username_label.setter
+    def classic_recovery_flow_email_or_username_label(self, value: str):
+        pulumi.set(self, "classic_recovery_flow_email_or_username_label", value)
+
+    @property
+    @pulumi.getter(name="customLink1Label")
+    def custom_link1_label(self) -> str:
+        return pulumi.get(self, "custom_link1_label")
+
+    @custom_link1_label.setter
+    def custom_link1_label(self, value: str):
+        pulumi.set(self, "custom_link1_label", value)
+
+    @property
+    @pulumi.getter(name="customLink1Url")
+    def custom_link1_url(self) -> str:
+        return pulumi.get(self, "custom_link1_url")
+
+    @custom_link1_url.setter
+    def custom_link1_url(self, value: str):
+        pulumi.set(self, "custom_link1_url", value)
+
+    @property
+    @pulumi.getter(name="customLink2Label")
+    def custom_link2_label(self) -> str:
+        return pulumi.get(self, "custom_link2_label")
+
+    @custom_link2_label.setter
+    def custom_link2_label(self, value: str):
+        pulumi.set(self, "custom_link2_label", value)
+
+    @property
+    @pulumi.getter(name="customLink2Url")
+    def custom_link2_url(self) -> str:
+        return pulumi.get(self, "custom_link2_url")
+
+    @custom_link2_url.setter
+    def custom_link2_url(self, value: str):
+        pulumi.set(self, "custom_link2_url", value)
+
+    @property
+    @pulumi.getter(name="forgotPasswordLabel")
+    def forgot_password_label(self) -> str:
+        return pulumi.get(self, "forgot_password_label")
+
+    @forgot_password_label.setter
+    def forgot_password_label(self, value: str):
+        pulumi.set(self, "forgot_password_label", value)
+
+    @property
+    @pulumi.getter(name="forgotPasswordUrl")
+    def forgot_password_url(self) -> str:
+        return pulumi.get(self, "forgot_password_url")
+
+    @forgot_password_url.setter
+    def forgot_password_url(self, value: str):
+        pulumi.set(self, "forgot_password_url", value)
+
+    @property
+    @pulumi.getter(name="helpLabel")
+    def help_label(self) -> str:
+        return pulumi.get(self, "help_label")
+
+    @help_label.setter
+    def help_label(self, value: str):
+        pulumi.set(self, "help_label", value)
+
+    @property
+    @pulumi.getter(name="helpUrl")
+    def help_url(self) -> str:
+        return pulumi.get(self, "help_url")
+
+    @help_url.setter
+    def help_url(self, value: str):
+        pulumi.set(self, "help_url", value)
+
+    @property
+    @pulumi.getter(name="passwordInfoTip")
+    def password_info_tip(self) -> str:
+        return pulumi.get(self, "password_info_tip")
+
+    @password_info_tip.setter
+    def password_info_tip(self, value: str):
+        pulumi.set(self, "password_info_tip", value)
+
+    @property
+    @pulumi.getter(name="passwordLabel")
+    def password_label(self) -> str:
+        return pulumi.get(self, "password_label")
+
+    @password_label.setter
+    def password_label(self, value: str):
+        pulumi.set(self, "password_label", value)
+
+    @property
+    @pulumi.getter(name="showPasswordVisibilityToggle")
+    def show_password_visibility_toggle(self) -> bool:
+        return pulumi.get(self, "show_password_visibility_toggle")
+
+    @show_password_visibility_toggle.setter
+    def show_password_visibility_toggle(self, value: bool):
+        pulumi.set(self, "show_password_visibility_toggle", value)
+
+    @property
+    @pulumi.getter(name="showUserIdentifier")
+    def show_user_identifier(self) -> bool:
+        return pulumi.get(self, "show_user_identifier")
+
+    @show_user_identifier.setter
+    def show_user_identifier(self, value: bool):
+        pulumi.set(self, "show_user_identifier", value)
+
+    @property
+    @pulumi.getter(name="signInLabel")
+    def sign_in_label(self) -> str:
+        return pulumi.get(self, "sign_in_label")
+
+    @sign_in_label.setter
+    def sign_in_label(self, value: str):
+        pulumi.set(self, "sign_in_label", value)
+
+    @property
+    @pulumi.getter(name="unlockAccountLabel")
+    def unlock_account_label(self) -> str:
+        return pulumi.get(self, "unlock_account_label")
+
+    @unlock_account_label.setter
+    def unlock_account_label(self, value: str):
+        pulumi.set(self, "unlock_account_label", value)
+
+    @property
+    @pulumi.getter(name="unlockAccountUrl")
+    def unlock_account_url(self) -> str:
+        return pulumi.get(self, "unlock_account_url")
+
+    @unlock_account_url.setter
+    def unlock_account_url(self, value: str):
+        pulumi.set(self, "unlock_account_url", value)
+
+    @property
+    @pulumi.getter(name="usernameInfoTip")
+    def username_info_tip(self) -> str:
+        return pulumi.get(self, "username_info_tip")
+
+    @username_info_tip.setter
+    def username_info_tip(self, value: str):
+        pulumi.set(self, "username_info_tip", value)
+
+    @property
+    @pulumi.getter(name="usernameLabel")
+    def username_label(self) -> str:
+        return pulumi.get(self, "username_label")
+
+    @username_label.setter
+    def username_label(self, value: str):
+        pulumi.set(self, "username_label", value)
+
+    @property
+    @pulumi.getter(name="widgetGeneration")
+    def widget_generation(self) -> str:
+        return pulumi.get(self, "widget_generation")
+
+    @widget_generation.setter
+    def widget_generation(self, value: str):
+        pulumi.set(self, "widget_generation", value)
+
+
+@pulumi.input_type
+class GetLogStreamSettingsArgs:
+    def __init__(__self__, *,
+                 account_id: str,
+                 edition: str,
+                 event_source_name: str,
+                 host: str,
+                 region: str,
+                 token: str):
+        """
+        :param str account_id: AWS account ID. Required only for 'aws_eventbridge' type
+        :param str edition: Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+        :param str event_source_name: An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
+        :param str host: The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+        :param str region: The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
+        :param str token: The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "edition", edition)
+        pulumi.set(__self__, "event_source_name", event_source_name)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        """
+        AWS account ID. Required only for 'aws_eventbridge' type
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: str):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def edition(self) -> str:
+        """
+        Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+        """
+        return pulumi.get(self, "edition")
+
+    @edition.setter
+    def edition(self, value: str):
+        pulumi.set(self, "edition", value)
+
+    @property
+    @pulumi.getter(name="eventSourceName")
+    def event_source_name(self) -> str:
+        """
+        An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
+        """
+        return pulumi.get(self, "event_source_name")
+
+    @event_source_name.setter
+    def event_source_name(self, value: str):
+        pulumi.set(self, "event_source_name", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> str:
+        """
+        The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: str):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: str):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
+        """
+        The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: str):
+        pulumi.set(self, "token", value)
 
 
 @pulumi.input_type

@@ -161,6 +161,13 @@ namespace Pulumi.Okta.Idp
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+        /// https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+        /// </summary>
+        [Output("pkceRequired")]
+        public Output<bool?> PkceRequired { get; private set; } = null!;
+
+        /// <summary>
         /// Determines if the IdP should act as a source of truth for user profile attributes.
         /// </summary>
         [Output("profileMaster")]
@@ -440,6 +447,13 @@ namespace Pulumi.Okta.Idp
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+        /// https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+        /// </summary>
+        [Input("pkceRequired")]
+        public Input<bool>? PkceRequired { get; set; }
+
+        /// <summary>
         /// Determines if the IdP should act as a source of truth for user profile attributes.
         /// </summary>
         [Input("profileMaster")]
@@ -669,6 +683,13 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
+        /// https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+        /// </summary>
+        [Input("pkceRequired")]
+        public Input<bool>? PkceRequired { get; set; }
 
         /// <summary>
         /// Determines if the IdP should act as a source of truth for user profile attributes.

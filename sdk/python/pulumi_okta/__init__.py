@@ -128,6 +128,14 @@ _utilities.register(
 [
  {
   "pkg": "okta",
+  "mod": "Index/customizedSigninPage",
+  "fqn": "pulumi_okta.index",
+  "classes": {
+   "okta:Index/customizedSigninPage:CustomizedSigninPage": "CustomizedSigninPage"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "Index/emailDomain",
   "fqn": "pulumi_okta.index",
   "classes": {
@@ -140,6 +148,22 @@ _utilities.register(
   "fqn": "pulumi_okta.index",
   "classes": {
    "okta:Index/emailDomainVerification:EmailDomainVerification": "EmailDomainVerification"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "Index/logStream",
+  "fqn": "pulumi_okta.index",
+  "classes": {
+   "okta:Index/logStream:LogStream": "LogStream"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "Index/previewSigninPage",
+  "fqn": "pulumi_okta.index",
+  "classes": {
+   "okta:Index/previewSigninPage:PreviewSigninPage": "PreviewSigninPage"
   }
  },
  {

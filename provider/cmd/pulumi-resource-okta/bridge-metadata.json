@@ -334,6 +334,19 @@
                     }
                 }
             },
+            "okta_customized_signin_page": {
+                "current": "okta:Index/customizedSigninPage:CustomizedSigninPage",
+                "majorVersion": 4,
+                "fields": {
+                    "content_security_policy_setting": {
+                        "fields": {
+                            "src_list": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
             "okta_domain": {
                 "current": "okta:index/domain:Domain",
                 "majorVersion": 4,
@@ -554,6 +567,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "okta_log_stream": {
+                "current": "okta:Index/logStream:LogStream",
+                "majorVersion": 4
             },
             "okta_network_zone": {
                 "current": "okta:network/zone:Zone",
@@ -783,6 +800,19 @@
                 "fields": {
                     "groups_included": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "okta_preview_signin_page": {
+                "current": "okta:Index/previewSigninPage:PreviewSigninPage",
+                "majorVersion": 4,
+                "fields": {
+                    "content_security_policy_setting": {
+                        "fields": {
+                            "src_list": {
+                                "maxItemsOne": false
+                            }
+                        }
                     }
                 }
             },
@@ -1085,6 +1115,19 @@
                 "current": "okta:policy/getDefaultPolicy:getDefaultPolicy",
                 "majorVersion": 4
             },
+            "okta_default_signin_page": {
+                "current": "okta:Index/getDefaultSigninPage:getDefaultSigninPage",
+                "majorVersion": 4,
+                "fields": {
+                    "content_security_policy_setting": {
+                        "fields": {
+                            "src_list": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
             "okta_domain": {
                 "current": "okta:Index/getDomain:getDomain",
                 "majorVersion": 4,
@@ -1200,6 +1243,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "okta_log_stream": {
+                "current": "okta:Index/getLogStream:getLogStream",
+                "majorVersion": 4
             },
             "okta_network_zone": {
                 "current": "okta:index/getNetworkZone:getNetworkZone",
@@ -1333,8 +1380,11 @@
     },
     "mux": {
         "resources": {
+            "okta:Index/customizedSigninPage:CustomizedSigninPage": 1,
             "okta:Index/emailDomain:EmailDomain": 0,
             "okta:Index/emailDomainVerification:EmailDomainVerification": 0,
+            "okta:Index/logStream:LogStream": 1,
+            "okta:Index/previewSigninPage:PreviewSigninPage": 1,
             "okta:app/accessPolicyAssignment:AccessPolicyAssignment": 1,
             "okta:app/autoLogin:AutoLogin": 0,
             "okta:app/basicAuth:BasicAuth": 0,
@@ -1433,7 +1483,9 @@
             "okta:user/userType:UserType": 0
         },
         "functions": {
+            "okta:Index/getDefaultSigninPage:getDefaultSigninPage": 1,
             "okta:Index/getDomain:getDomain": 0,
+            "okta:Index/getLogStream:getLogStream": 1,
             "okta:Index/getOrgMetadata:getOrgMetadata": 1,
             "okta:app/getApp:getApp": 0,
             "okta:app/getMetadataSaml:getMetadataSaml": 0,
@@ -1480,8 +1532,11 @@
     },
     "renames": {
         "resources": {
+            "okta:Index/customizedSigninPage:CustomizedSigninPage": "okta_customized_signin_page",
             "okta:Index/emailDomain:EmailDomain": "okta_email_domain",
             "okta:Index/emailDomainVerification:EmailDomainVerification": "okta_email_domain_verification",
+            "okta:Index/logStream:LogStream": "okta_log_stream",
+            "okta:Index/previewSigninPage:PreviewSigninPage": "okta_preview_signin_page",
             "okta:app/accessPolicyAssignment:AccessPolicyAssignment": "okta_app_access_policy_assignment",
             "okta:app/autoLogin:AutoLogin": "okta_app_auto_login",
             "okta:app/basicAuth:BasicAuth": "okta_app_basic_auth",
@@ -1580,7 +1635,9 @@
             "okta:user/userType:UserType": "okta_user_type"
         },
         "functions": {
+            "okta:Index/getDefaultSigninPage:getDefaultSigninPage": "okta_default_signin_page",
             "okta:Index/getDomain:getDomain": "okta_domain",
+            "okta:Index/getLogStream:getLogStream": "okta_log_stream",
             "okta:Index/getOrgMetadata:getOrgMetadata": "okta_org_metadata",
             "okta:app/getApp:getApp": "okta_app",
             "okta:app/getMetadataSaml:getMetadataSaml": "okta_app_metadata_saml",
@@ -1625,8 +1682,73 @@
             "okta:user/getUsers:getUsers": "okta_users"
         },
         "renamedProperties": {
+            "okta:Index/CustomizedSigninPageContentSecurityPolicySetting:CustomizedSigninPageContentSecurityPolicySetting": {
+                "reportUri": "report_uri",
+                "srcLists": "src_list"
+            },
+            "okta:Index/CustomizedSigninPageWidgetCustomizations:CustomizedSigninPageWidgetCustomizations": {
+                "authenticatorPageCustomLinkLabel": "authenticator_page_custom_link_label",
+                "authenticatorPageCustomLinkUrl": "authenticator_page_custom_link_url",
+                "classicRecoveryFlowEmailOrUsernameLabel": "classic_recovery_flow_email_or_username_label",
+                "customLink1Label": "custom_link_1_label",
+                "customLink1Url": "custom_link_1_url",
+                "customLink2Label": "custom_link_2_label",
+                "customLink2Url": "custom_link_2_url",
+                "forgotPasswordLabel": "forgot_password_label",
+                "forgotPasswordUrl": "forgot_password_url",
+                "helpLabel": "help_label",
+                "helpUrl": "help_url",
+                "passwordInfoTip": "password_info_tip",
+                "passwordLabel": "password_label",
+                "showPasswordVisibilityToggle": "show_password_visibility_toggle",
+                "showUserIdentifier": "show_user_identifier",
+                "signInLabel": "sign_in_label",
+                "unlockAccountLabel": "unlock_account_label",
+                "unlockAccountUrl": "unlock_account_url",
+                "usernameInfoTip": "username_info_tip",
+                "usernameLabel": "username_label",
+                "widgetGeneration": "widget_generation"
+            },
             "okta:Index/EmailDomainDnsValidationRecord:EmailDomainDnsValidationRecord": {
                 "recordType": "record_type"
+            },
+            "okta:Index/LogStreamSettings:LogStreamSettings": {
+                "accountId": "account_id",
+                "eventSourceName": "event_source_name"
+            },
+            "okta:Index/PreviewSigninPageContentSecurityPolicySetting:PreviewSigninPageContentSecurityPolicySetting": {
+                "reportUri": "report_uri",
+                "srcLists": "src_list"
+            },
+            "okta:Index/PreviewSigninPageWidgetCustomizations:PreviewSigninPageWidgetCustomizations": {
+                "authenticatorPageCustomLinkLabel": "authenticator_page_custom_link_label",
+                "authenticatorPageCustomLinkUrl": "authenticator_page_custom_link_url",
+                "classicRecoveryFlowEmailOrUsernameLabel": "classic_recovery_flow_email_or_username_label",
+                "customLink1Label": "custom_link_1_label",
+                "customLink1Url": "custom_link_1_url",
+                "customLink2Label": "custom_link_2_label",
+                "customLink2Url": "custom_link_2_url",
+                "forgotPasswordLabel": "forgot_password_label",
+                "forgotPasswordUrl": "forgot_password_url",
+                "helpLabel": "help_label",
+                "helpUrl": "help_url",
+                "passwordInfoTip": "password_info_tip",
+                "passwordLabel": "password_label",
+                "showPasswordVisibilityToggle": "show_password_visibility_toggle",
+                "showUserIdentifier": "show_user_identifier",
+                "signInLabel": "sign_in_label",
+                "unlockAccountLabel": "unlock_account_label",
+                "unlockAccountUrl": "unlock_account_url",
+                "usernameInfoTip": "username_info_tip",
+                "usernameLabel": "username_label",
+                "widgetGeneration": "widget_generation"
+            },
+            "okta:Index/customizedSigninPage:CustomizedSigninPage": {
+                "brandId": "brand_id",
+                "contentSecurityPolicySetting": "content_security_policy_setting",
+                "pageContent": "page_content",
+                "widgetCustomizations": "widget_customizations",
+                "widgetVersion": "widget_version"
             },
             "okta:Index/emailDomain:EmailDomain": {
                 "brandId": "brand_id",
@@ -1638,6 +1760,40 @@
             "okta:Index/emailDomainVerification:EmailDomainVerification": {
                 "emailDomainId": "email_domain_id"
             },
+            "okta:Index/getDefaultSigninPage:getDefaultSigninPage": {
+                "brandId": "brand_id",
+                "contentSecurityPolicySetting": "content_security_policy_setting",
+                "pageContent": "page_content",
+                "widgetCustomizations": "widget_customizations",
+                "widgetVersion": "widget_version"
+            },
+            "okta:Index/getDefaultSigninPageContentSecurityPolicySetting:getDefaultSigninPageContentSecurityPolicySetting": {
+                "reportUri": "report_uri",
+                "srcLists": "src_list"
+            },
+            "okta:Index/getDefaultSigninPageWidgetCustomizations:getDefaultSigninPageWidgetCustomizations": {
+                "authenticatorPageCustomLinkLabel": "authenticator_page_custom_link_label",
+                "authenticatorPageCustomLinkUrl": "authenticator_page_custom_link_url",
+                "classicRecoveryFlowEmailOrUsernameLabel": "classic_recovery_flow_email_or_username_label",
+                "customLink1Label": "custom_link_1_label",
+                "customLink1Url": "custom_link_1_url",
+                "customLink2Label": "custom_link_2_label",
+                "customLink2Url": "custom_link_2_url",
+                "forgotPasswordLabel": "forgot_password_label",
+                "forgotPasswordUrl": "forgot_password_url",
+                "helpLabel": "help_label",
+                "helpUrl": "help_url",
+                "passwordInfoTip": "password_info_tip",
+                "passwordLabel": "password_label",
+                "showPasswordVisibilityToggle": "show_password_visibility_toggle",
+                "showUserIdentifier": "show_user_identifier",
+                "signInLabel": "sign_in_label",
+                "unlockAccountLabel": "unlock_account_label",
+                "unlockAccountUrl": "unlock_account_url",
+                "usernameInfoTip": "username_info_tip",
+                "usernameLabel": "username_label",
+                "widgetGeneration": "widget_generation"
+            },
             "okta:Index/getDomain:getDomain": {
                 "certificateSourceType": "certificate_source_type",
                 "dnsRecords": "dns_records",
@@ -1648,10 +1804,21 @@
             "okta:Index/getDomainDnsRecord:getDomainDnsRecord": {
                 "recordType": "record_type"
             },
+            "okta:Index/getLogStreamSettings:getLogStreamSettings": {
+                "accountId": "account_id",
+                "eventSourceName": "event_source_name"
+            },
             "okta:Index/getOrgMetadataSettings:getOrgMetadataSettings": {
                 "analyticsCollectionEnabled": "analytics_collection_enabled",
                 "bugReportingEnabled": "bug_reporting_enabled",
                 "omEnabled": "om_enabled"
+            },
+            "okta:Index/previewSigninPage:PreviewSigninPage": {
+                "brandId": "brand_id",
+                "contentSecurityPolicySetting": "content_security_policy_setting",
+                "pageContent": "page_content",
+                "widgetCustomizations": "widget_customizations",
+                "widgetVersion": "widget_version"
             },
             "okta:app/OAuthGroupsClaim:OAuthGroupsClaim": {
                 "filterType": "filter_type",
@@ -2177,6 +2344,7 @@
                 "jwksBinding": "jwks_binding",
                 "jwksUrl": "jwks_url",
                 "maxClockSkew": "max_clock_skew",
+                "pkceRequired": "pkce_required",
                 "profileMaster": "profile_master",
                 "protocolType": "protocol_type",
                 "provisioningAction": "provisioning_action",

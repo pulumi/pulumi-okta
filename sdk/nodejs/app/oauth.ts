@@ -157,7 +157,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
     /**
-     * OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
+     * The user provided OAuth client secret key value, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`. This does nothing when `omitSecret` is set to true.
      */
     public readonly clientBasicSecret!: pulumi.Output<string | undefined>;
     /**
@@ -165,7 +165,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
-     * The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omitSecret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     public /*out*/ readonly clientSecret!: pulumi.Output<string>;
     /**
@@ -249,7 +249,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
+     * This tells the provider not manage the `clientSecret` value in state. When this is false (the default), it will cause the auto-generated `clientSecret` to be persisted in the `clientSecret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
      */
     public readonly omitSecret!: pulumi.Output<boolean | undefined>;
     /**
@@ -259,7 +259,7 @@ export class OAuth extends pulumi.CustomResource {
      * application types.
      * See https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
-    public readonly pkceRequired!: pulumi.Output<boolean | undefined>;
+    public readonly pkceRequired!: pulumi.Output<boolean>;
     /**
      * URI to web page providing client policy document.
      */
@@ -520,7 +520,7 @@ export interface OAuthState {
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
+     * The user provided OAuth client secret key value, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`. This does nothing when `omitSecret` is set to true.
      */
     clientBasicSecret?: pulumi.Input<string>;
     /**
@@ -528,7 +528,7 @@ export interface OAuthState {
      */
     clientId?: pulumi.Input<string>;
     /**
-     * The client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omitSecret above. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
     clientSecret?: pulumi.Input<string>;
     /**
@@ -612,7 +612,7 @@ export interface OAuthState {
      */
     name?: pulumi.Input<string>;
     /**
-     * This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
+     * This tells the provider not manage the `clientSecret` value in state. When this is false (the default), it will cause the auto-generated `clientSecret` to be persisted in the `clientSecret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
      */
     omitSecret?: pulumi.Input<boolean>;
     /**
@@ -755,7 +755,7 @@ export interface OAuthArgs {
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * OAuth client secret key, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`.
+     * The user provided OAuth client secret key value, this can be set when `tokenEndpointAuthMethod` is `"clientSecretBasic"`. This does nothing when `omitSecret` is set to true.
      */
     clientBasicSecret?: pulumi.Input<string>;
     /**
@@ -835,7 +835,7 @@ export interface OAuthArgs {
      */
     logoUri?: pulumi.Input<string>;
     /**
-     * This tells the provider not to persist the application's secret to state. Your app's `clientSecret` will be recreated if this ever changes from true => false.
+     * This tells the provider not manage the `clientSecret` value in state. When this is false (the default), it will cause the auto-generated `clientSecret` to be persisted in the `clientSecret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
      */
     omitSecret?: pulumi.Input<boolean>;
     /**

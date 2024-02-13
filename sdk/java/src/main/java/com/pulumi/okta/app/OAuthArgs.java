@@ -165,14 +165,14 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * OAuth client secret key, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`.
+     * The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`. This does nothing when `omit_secret` is set to true.
      * 
      */
     @Import(name="clientBasicSecret")
     private @Nullable Output<String> clientBasicSecret;
 
     /**
-     * @return OAuth client secret key, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`.
+     * @return The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`. This does nothing when `omit_secret` is set to true.
      * 
      */
     public Optional<Output<String>> clientBasicSecret() {
@@ -458,14 +458,14 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * This tells the provider not to persist the application&#39;s secret to state. Your app&#39;s `client_secret` will be recreated if this ever changes from true =&gt; false.
+     * This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
      * 
      */
     @Import(name="omitSecret")
     private @Nullable Output<Boolean> omitSecret;
 
     /**
-     * @return This tells the provider not to persist the application&#39;s secret to state. Your app&#39;s `client_secret` will be recreated if this ever changes from true =&gt; false.
+     * @return This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
      * 
      */
     public Optional<Output<Boolean>> omitSecret() {
@@ -1036,7 +1036,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientBasicSecret OAuth client secret key, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`.
+         * @param clientBasicSecret The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`. This does nothing when `omit_secret` is set to true.
          * 
          * @return builder
          * 
@@ -1047,7 +1047,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientBasicSecret OAuth client secret key, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`.
+         * @param clientBasicSecret The user provided OAuth client secret key value, this can be set when `token_endpoint_auth_method` is `&#34;client_secret_basic&#34;`. This does nothing when `omit_secret` is set to true.
          * 
          * @return builder
          * 
@@ -1476,7 +1476,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param omitSecret This tells the provider not to persist the application&#39;s secret to state. Your app&#39;s `client_secret` will be recreated if this ever changes from true =&gt; false.
+         * @param omitSecret This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
          * 
          * @return builder
          * 
@@ -1487,7 +1487,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param omitSecret This tells the provider not to persist the application&#39;s secret to state. Your app&#39;s `client_secret` will be recreated if this ever changes from true =&gt; false.
+         * @param omitSecret This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
          * 
          * @return builder
          * 
