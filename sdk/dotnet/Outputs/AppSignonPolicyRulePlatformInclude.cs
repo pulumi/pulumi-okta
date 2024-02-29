@@ -18,7 +18,7 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly string? OsExpression;
         /// <summary>
-        /// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+        /// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
         /// </summary>
         public readonly string? OsType;
         /// <summary>

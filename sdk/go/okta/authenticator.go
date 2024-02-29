@@ -63,6 +63,46 @@ import (
 //
 // ```
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"protocol":                    "TOTP",
+//				"acceptableAdjacentIntervals": 3,
+//				"timeIntervalInSeconds":       30,
+//				"encoding":                    "base32",
+//				"algorithm":                   "HMacSHA256",
+//				"passCodeLength":              6,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = okta.NewAuthenticator(ctx, "test", &okta.AuthenticatorArgs{
+//				Key:      pulumi.String("custom_otp"),
+//				Status:   pulumi.String("ACTIVE"),
+//				Settings: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Okta authenticator can be imported via the Okta ID.
@@ -75,7 +115,7 @@ import (
 type Authenticator struct {
 	pulumi.CustomResourceState
 
-	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`, `customOtp`
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Name of the authenticator.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -153,7 +193,7 @@ func GetAuthenticator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Authenticator resources.
 type authenticatorState struct {
-	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`, `customOtp`
 	Key *string `pulumi:"key"`
 	// Name of the authenticator.
 	Name *string `pulumi:"name"`
@@ -192,7 +232,7 @@ type authenticatorState struct {
 }
 
 type AuthenticatorState struct {
-	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`, `customOtp`
 	Key pulumi.StringPtrInput
 	// Name of the authenticator.
 	Name pulumi.StringPtrInput
@@ -235,7 +275,7 @@ func (AuthenticatorState) ElementType() reflect.Type {
 }
 
 type authenticatorArgs struct {
-	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`, `customOtp`
 	Key string `pulumi:"key"`
 	// Name of the authenticator.
 	Name *string `pulumi:"name"`
@@ -269,7 +309,7 @@ type authenticatorArgs struct {
 
 // The set of arguments for constructing a Authenticator resource.
 type AuthenticatorArgs struct {
-	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`, `customOtp`
 	Key pulumi.StringInput
 	// Name of the authenticator.
 	Name pulumi.StringPtrInput
@@ -388,7 +428,7 @@ func (o AuthenticatorOutput) ToAuthenticatorOutputWithContext(ctx context.Contex
 	return o
 }
 
-// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`, `customOtp`
 func (o AuthenticatorOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authenticator) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

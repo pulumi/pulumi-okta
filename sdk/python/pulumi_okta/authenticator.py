@@ -28,7 +28,7 @@ class AuthenticatorArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Authenticator resource.
-        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`, `custom_otp`
         :param pulumi.Input[str] name: Name of the authenticator.
         :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         :param pulumi.Input[str] provider_host: (DUO specific) - The Duo Security API hostname". Conflicts with `provider_json` argument.
@@ -75,7 +75,7 @@ class AuthenticatorArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`, `custom_otp`
         """
         return pulumi.get(self, "key")
 
@@ -242,7 +242,7 @@ class _AuthenticatorState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Authenticator resources.
-        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`, `custom_otp`
         :param pulumi.Input[str] name: Name of the authenticator.
         :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         :param pulumi.Input[str] provider_host: (DUO specific) - The Duo Security API hostname". Conflicts with `provider_json` argument.
@@ -299,7 +299,7 @@ class _AuthenticatorState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`, `custom_otp`
         """
         return pulumi.get(self, "key")
 
@@ -530,6 +530,24 @@ class Authenticator(pulumi.CustomResource):
             }))
         ```
 
+        ```python
+        import pulumi
+        import json
+        import pulumi_okta as okta
+
+        test = okta.Authenticator("test",
+            key="custom_otp",
+            status="ACTIVE",
+            settings=json.dumps({
+                "protocol": "TOTP",
+                "acceptableAdjacentIntervals": 3,
+                "timeIntervalInSeconds": 30,
+                "encoding": "base32",
+                "algorithm": "HMacSHA256",
+                "passCodeLength": 6,
+            }))
+        ```
+
         ## Import
 
         Okta authenticator can be imported via the Okta ID.
@@ -540,7 +558,7 @@ class Authenticator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`, `custom_otp`
         :param pulumi.Input[str] name: Name of the authenticator.
         :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         :param pulumi.Input[str] provider_host: (DUO specific) - The Duo Security API hostname". Conflicts with `provider_json` argument.
@@ -592,6 +610,24 @@ class Authenticator(pulumi.CustomResource):
             key="security_question",
             settings=json.dumps({
                 "allowedFor": "recovery",
+            }))
+        ```
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_okta as okta
+
+        test = okta.Authenticator("test",
+            key="custom_otp",
+            status="ACTIVE",
+            settings=json.dumps({
+                "protocol": "TOTP",
+                "acceptableAdjacentIntervals": 3,
+                "timeIntervalInSeconds": 30,
+                "encoding": "base32",
+                "algorithm": "HMacSHA256",
+                "passCodeLength": 6,
             }))
         ```
 
@@ -690,7 +726,7 @@ class Authenticator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        :param pulumi.Input[str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`, `custom_otp`
         :param pulumi.Input[str] name: Name of the authenticator.
         :param pulumi.Input[int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
         :param pulumi.Input[str] provider_host: (DUO specific) - The Duo Security API hostname". Conflicts with `provider_json` argument.
@@ -737,7 +773,7 @@ class Authenticator(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`, `custom_otp`
         """
         return pulumi.get(self, "key")
 

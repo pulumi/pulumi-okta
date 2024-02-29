@@ -1073,6 +1073,10 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                     os_type="WINDOWS",
                     type="DESKTOP",
                 ),
+                okta.AppSignonPolicyRulePlatformIncludeArgs(
+                    os_type="CHROMEOS",
+                    type="DESKTOP",
+                ),
             ],
             priority=98,
             re_authentication_frequency="PT43800H",
@@ -1340,6 +1344,10 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                 ),
                 okta.AppSignonPolicyRulePlatformIncludeArgs(
                     os_type="WINDOWS",
+                    type="DESKTOP",
+                ),
+                okta.AppSignonPolicyRulePlatformIncludeArgs(
+                    os_type="CHROMEOS",
                     type="DESKTOP",
                 ),
             ],

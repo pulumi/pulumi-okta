@@ -370,6 +370,10 @@ import (
 //						OsType: pulumi.String("WINDOWS"),
 //						Type:   pulumi.String("DESKTOP"),
 //					},
+//					&okta.AppSignonPolicyRulePlatformIncludeArgs{
+//						OsType: pulumi.String("CHROMEOS"),
+//						Type:   pulumi.String("DESKTOP"),
+//					},
 //				},
 //				Priority:                  pulumi.Int(98),
 //				ReAuthenticationFrequency: pulumi.String("PT43800H"),

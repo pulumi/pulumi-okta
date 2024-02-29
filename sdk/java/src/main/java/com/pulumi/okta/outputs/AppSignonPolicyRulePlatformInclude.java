@@ -17,7 +17,7 @@ public final class AppSignonPolicyRulePlatformInclude {
      */
     private @Nullable String osExpression;
     /**
-     * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`
+     * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`, `&#34;CHROMEOS&#34;`
      * 
      */
     private @Nullable String osType;
@@ -36,7 +36,7 @@ public final class AppSignonPolicyRulePlatformInclude {
         return Optional.ofNullable(this.osExpression);
     }
     /**
-     * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`
+     * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`, `&#34;CHROMEOS&#34;`
      * 
      */
     public Optional<String> osType() {

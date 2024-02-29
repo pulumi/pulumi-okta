@@ -34,6 +34,24 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = new okta.Authenticator("test", {
+ *     key: "custom_otp",
+ *     status: "ACTIVE",
+ *     settings: JSON.stringify({
+ *         protocol: "TOTP",
+ *         acceptableAdjacentIntervals: 3,
+ *         timeIntervalInSeconds: 30,
+ *         encoding: "base32",
+ *         algorithm: "HMacSHA256",
+ *         passCodeLength: 6,
+ *     }),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Okta authenticator can be imported via the Okta ID.
@@ -71,7 +89,7 @@ export class Authenticator extends pulumi.CustomResource {
     }
 
     /**
-     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`, `customOtp`
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -198,7 +216,7 @@ export class Authenticator extends pulumi.CustomResource {
  */
 export interface AuthenticatorState {
     /**
-     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`, `customOtp`
      */
     key?: pulumi.Input<string>;
     /**
@@ -270,7 +288,7 @@ export interface AuthenticatorState {
  */
 export interface AuthenticatorArgs {
     /**
-     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`, `customOtp`
      */
     key: pulumi.Input<string>;
     /**

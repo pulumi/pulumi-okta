@@ -26,7 +26,7 @@ export interface AppSignonPolicyRulePlatformInclude {
      */
     osExpression?: pulumi.Input<string>;
     /**
-     * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+     * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
      */
     osType?: pulumi.Input<string>;
     /**

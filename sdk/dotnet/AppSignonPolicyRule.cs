@@ -301,6 +301,11 @@ namespace Pulumi.Okta
     ///                 OsType = "WINDOWS",
     ///                 Type = "DESKTOP",
     ///             },
+    ///             new Okta.Inputs.AppSignonPolicyRulePlatformIncludeArgs
+    ///             {
+    ///                 OsType = "CHROMEOS",
+    ///                 Type = "DESKTOP",
+    ///             },
     ///         },
     ///         Priority = 98,
     ///         ReAuthenticationFrequency = "PT43800H",
