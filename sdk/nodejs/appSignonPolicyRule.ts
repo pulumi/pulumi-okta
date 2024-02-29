@@ -206,6 +206,10 @@ import * as utilities from "./utilities";
  *             osType: "WINDOWS",
  *             type: "DESKTOP",
  *         },
+ *         {
+ *             osType: "CHROMEOS",
+ *             type: "DESKTOP",
+ *         },
  *     ],
  *     priority: 98,
  *     reAuthenticationFrequency: "PT43800H",

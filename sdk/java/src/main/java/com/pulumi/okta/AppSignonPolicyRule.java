@@ -338,6 +338,10 @@ import javax.annotation.Nullable;
  *                 AppSignonPolicyRulePlatformIncludeArgs.builder()
  *                     .osType(&#34;WINDOWS&#34;)
  *                     .type(&#34;DESKTOP&#34;)
+ *                     .build(),
+ *                 AppSignonPolicyRulePlatformIncludeArgs.builder()
+ *                     .osType(&#34;CHROMEOS&#34;)
+ *                     .type(&#34;DESKTOP&#34;)
  *                     .build())
  *             .priority(98)
  *             .reAuthenticationFrequency(&#34;PT43800H&#34;)

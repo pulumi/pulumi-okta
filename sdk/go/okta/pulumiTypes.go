@@ -131,7 +131,7 @@ func (o AppGroupAssignmentsGroupArrayOutput) Index(i pulumi.IntInput) AppGroupAs
 type AppSignonPolicyRulePlatformInclude struct {
 	// Only available and required when using `osType = "OTHER"`
 	OsExpression *string `pulumi:"osExpression"`
-	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
 	OsType *string `pulumi:"osType"`
 	// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
 	Type *string `pulumi:"type"`
@@ -151,7 +151,7 @@ type AppSignonPolicyRulePlatformIncludeInput interface {
 type AppSignonPolicyRulePlatformIncludeArgs struct {
 	// Only available and required when using `osType = "OTHER"`
 	OsExpression pulumi.StringPtrInput `pulumi:"osExpression"`
-	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -213,7 +213,7 @@ func (o AppSignonPolicyRulePlatformIncludeOutput) OsExpression() pulumi.StringPt
 	return o.ApplyT(func(v AppSignonPolicyRulePlatformInclude) *string { return v.OsExpression }).(pulumi.StringPtrOutput)
 }
 
-// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
 func (o AppSignonPolicyRulePlatformIncludeOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppSignonPolicyRulePlatformInclude) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }

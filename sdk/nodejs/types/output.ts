@@ -26,7 +26,7 @@ export interface AppSignonPolicyRulePlatformInclude {
      */
     osExpression?: string;
     /**
-     * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+     * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
      */
     osType?: string;
     /**

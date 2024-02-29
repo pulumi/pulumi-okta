@@ -19,7 +19,7 @@ namespace Pulumi.Okta.Inputs
         public Input<string>? OsExpression { get; set; }
 
         /// <summary>
-        /// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`
+        /// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }

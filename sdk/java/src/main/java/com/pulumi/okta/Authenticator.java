@@ -66,6 +66,45 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.Authenticator;
+ * import com.pulumi.okta.AuthenticatorArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Authenticator(&#34;test&#34;, AuthenticatorArgs.builder()        
+ *             .key(&#34;custom_otp&#34;)
+ *             .status(&#34;ACTIVE&#34;)
+ *             .settings(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;protocol&#34;, &#34;TOTP&#34;),
+ *                     jsonProperty(&#34;acceptableAdjacentIntervals&#34;, 3),
+ *                     jsonProperty(&#34;timeIntervalInSeconds&#34;, 30),
+ *                     jsonProperty(&#34;encoding&#34;, &#34;base32&#34;),
+ *                     jsonProperty(&#34;algorithm&#34;, &#34;HMacSHA256&#34;),
+ *                     jsonProperty(&#34;passCodeLength&#34;, 6)
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -79,14 +118,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/authenticator:Authenticator")
 public class Authenticator extends com.pulumi.resources.CustomResource {
     /**
-     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`, `custom_otp`
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
-     * @return A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+     * @return A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`, `custom_otp`
      * 
      */
     public Output<String> key() {

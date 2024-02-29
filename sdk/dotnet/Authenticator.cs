@@ -48,6 +48,33 @@ namespace Pulumi.Okta
     /// });
     /// ```
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Okta.Authenticator("test", new()
+    ///     {
+    ///         Key = "custom_otp",
+    ///         Status = "ACTIVE",
+    ///         Settings = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["protocol"] = "TOTP",
+    ///             ["acceptableAdjacentIntervals"] = 3,
+    ///             ["timeIntervalInSeconds"] = 30,
+    ///             ["encoding"] = "base32",
+    ///             ["algorithm"] = "HMacSHA256",
+    ///             ["passCodeLength"] = 6,
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Okta authenticator can be imported via the Okta ID.
@@ -60,7 +87,7 @@ namespace Pulumi.Okta
     public partial class Authenticator : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`, `custom_otp`
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -206,7 +233,7 @@ namespace Pulumi.Okta
     public sealed class AuthenticatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`, `custom_otp`
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -302,7 +329,7 @@ namespace Pulumi.Okta
     public sealed class AuthenticatorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`, `custom_otp`
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

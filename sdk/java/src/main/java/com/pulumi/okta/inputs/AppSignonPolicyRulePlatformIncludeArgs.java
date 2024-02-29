@@ -31,14 +31,14 @@ public final class AppSignonPolicyRulePlatformIncludeArgs extends com.pulumi.res
     }
 
     /**
-     * One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`
+     * One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`, `&#34;CHROMEOS&#34;`
      * 
      */
     @Import(name="osType")
     private @Nullable Output<String> osType;
 
     /**
-     * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`
+     * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`, `&#34;CHROMEOS&#34;`
      * 
      */
     public Optional<Output<String>> osType() {
@@ -108,7 +108,7 @@ public final class AppSignonPolicyRulePlatformIncludeArgs extends com.pulumi.res
         }
 
         /**
-         * @param osType One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`
+         * @param osType One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`, `&#34;CHROMEOS&#34;`
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class AppSignonPolicyRulePlatformIncludeArgs extends com.pulumi.res
         }
 
         /**
-         * @param osType One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`
+         * @param osType One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`, `&#34;CHROMEOS&#34;`
          * 
          * @return builder
          * 
