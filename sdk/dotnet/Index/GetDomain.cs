@@ -17,10 +17,9 @@ namespace Pulumi.Okta.Index
         /// - https://developer.okta.com/docs/reference/api/domains/#get-domain
         /// - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,8 +42,7 @@ namespace Pulumi.Okta.Index
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("okta:Index/getDomain:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
@@ -55,10 +53,9 @@ namespace Pulumi.Okta.Index
         /// - https://developer.okta.com/docs/reference/api/domains/#get-domain
         /// - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -81,8 +78,7 @@ namespace Pulumi.Okta.Index
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("okta:Index/getDomain:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());

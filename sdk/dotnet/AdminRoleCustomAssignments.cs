@@ -21,7 +21,7 @@ namespace Pulumi.Okta
     /// Okta Custom Admin Role Assignments can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example &amp;#60;resource_set_id&amp;#62;/&amp;#60;custom_role_id&amp;#62;
+    /// $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example &amp;#60;resource_set_id&amp;#62;/&amp;#60;custom_role_id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments")]

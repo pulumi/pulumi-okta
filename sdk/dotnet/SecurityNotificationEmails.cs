@@ -18,6 +18,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,13 +38,14 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Security Notification Emails can be imported without any parameters.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
+    /// $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/securityNotificationEmails:SecurityNotificationEmails")]

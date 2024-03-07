@@ -518,6 +518,7 @@ class Authenticator(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -529,7 +530,9 @@ class Authenticator(pulumi.CustomResource):
                 "allowedFor": "recovery",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -547,13 +550,14 @@ class Authenticator(pulumi.CustomResource):
                 "passCodeLength": 6,
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Okta authenticator can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/authenticator:Authenticator example &#60;authenticator_id&#62;
+        $ pulumi import okta:index/authenticator:Authenticator example &#60;authenticator_id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -601,6 +605,7 @@ class Authenticator(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -612,7 +617,9 @@ class Authenticator(pulumi.CustomResource):
                 "allowedFor": "recovery",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -630,13 +637,14 @@ class Authenticator(pulumi.CustomResource):
                 "passCodeLength": 6,
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Okta authenticator can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/authenticator:Authenticator example &#60;authenticator_id&#62;
+        $ pulumi import okta:index/authenticator:Authenticator example &#60;authenticator_id&#62;
         ```
 
         :param str resource_name: The name of the resource.

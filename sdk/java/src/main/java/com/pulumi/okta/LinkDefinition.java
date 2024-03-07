@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Links reappear if you recreate the definition. However, Okta is likely to change this behavior so that links don&#39;t reappear. Don&#39;t rely on this behavior in production environments.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Okta Link Definition can be imported via the Okta Primary Link Name.
  * 
  * ```sh
- *  $ pulumi import okta:index/linkDefinition:LinkDefinition example &amp;#60;primary_name&amp;#62;
+ * $ pulumi import okta:index/linkDefinition:LinkDefinition example &amp;#60;primary_name&amp;#62;
  * ```
  * 
  */

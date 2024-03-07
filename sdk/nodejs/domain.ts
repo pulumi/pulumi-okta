@@ -11,19 +11,21 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.Domain("example", {});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Okta Admin Role Targets can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
+ * $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
  * ```
  */
 export class Domain extends pulumi.CustomResource {

@@ -35,9 +35,11 @@ class RuleIdpDiscoveryArgs:
         The set of arguments for constructing a RuleIdpDiscovery resource.
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]] app_excludes: Applications to exclude in discovery. See `app_include` for details.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]] app_includes: Applications to include in discovery rule.
         :param pulumi.Input[str] idp_id: The identifier for the Idp the rule should route to if all conditions are met.
         :param pulumi.Input[str] idp_type: Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
@@ -89,9 +91,11 @@ class RuleIdpDiscoveryArgs:
         """
         Applications to exclude in discovery. See `app_include` for details.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "app_excludes")
 
@@ -287,9 +291,11 @@ class _RuleIdpDiscoveryState:
         Input properties used for looking up and filtering RuleIdpDiscovery resources.
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]] app_excludes: Applications to exclude in discovery. See `app_include` for details.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]] app_includes: Applications to include in discovery rule.
         :param pulumi.Input[str] idp_id: The identifier for the Idp the rule should route to if all conditions are met.
         :param pulumi.Input[str] idp_type: Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
@@ -341,9 +347,11 @@ class _RuleIdpDiscoveryState:
         """
         Applications to exclude in discovery. See `app_include` for details.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "app_excludes")
 
@@ -547,6 +555,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -591,6 +600,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                 value="Articulate",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -604,9 +614,11 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppExcludeArgs']]]] app_excludes: Applications to exclude in discovery. See `app_include` for details.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppIncludeArgs']]]] app_includes: Applications to include in discovery rule.
         :param pulumi.Input[str] idp_id: The identifier for the Idp the rule should route to if all conditions are met.
         :param pulumi.Input[str] idp_type: Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
@@ -636,6 +648,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -680,6 +693,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                 value="Articulate",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -777,9 +791,11 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppExcludeArgs']]]] app_excludes: Applications to exclude in discovery. See `app_include` for details.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryAppIncludeArgs']]]] app_includes: Applications to include in discovery rule.
         :param pulumi.Input[str] idp_id: The identifier for the Idp the rule should route to if all conditions are met.
         :param pulumi.Input[str] idp_type: Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
@@ -821,9 +837,11 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         """
         Applications to exclude in discovery. See `app_include` for details.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "app_excludes")
 

@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -25,13 +26,14 @@ import * as utilities from "./utilities";
  *     primaryTitle: "Emperor",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Okta Link Definition can be imported via the Okta Primary Link Name.
  *
  * ```sh
- *  $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
+ * $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
  * ```
  */
 export class LinkDefinition extends pulumi.CustomResource {

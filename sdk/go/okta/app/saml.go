@@ -24,6 +24,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,8 +67,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With inline hook
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -133,8 +137,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Pre-configured app with SAML 1.1 sign-on mode
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -170,8 +177,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Pre-configured app with SAML 1.1 sign-on mode, `appSettingsJson` and `appLinksJson`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -234,6 +244,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

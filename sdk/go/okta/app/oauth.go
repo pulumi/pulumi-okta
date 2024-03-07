@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,10 +54,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With JWKS value
 //
 // See also Advanced PEM secrets and JWKS example.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -102,6 +106,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Etc.
 //
 // ### Resetting client secret
@@ -121,6 +127,7 @@ import (
 // `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
 // key with `openssl`:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -137,6 +144,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -135,6 +135,7 @@ class LinkValue(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -169,13 +170,14 @@ class LinkValue(pulumi.CustomResource):
                 sardaukars[4].id,
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Okta Link Value can be imported via Primary Name and Primary User ID.
 
         ```sh
-         $ pulumi import okta:index/linkValue:LinkValue example &#60;primary_name&#62;/&#60;primary_user_id&#62;
+        $ pulumi import okta:index/linkValue:LinkValue example &#60;primary_name&#62;/&#60;primary_user_id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -195,6 +197,7 @@ class LinkValue(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -229,13 +232,14 @@ class LinkValue(pulumi.CustomResource):
                 sardaukars[4].id,
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Okta Link Value can be imported via Primary Name and Primary User ID.
 
         ```sh
-         $ pulumi import okta:index/linkValue:LinkValue example &#60;primary_name&#62;/&#60;primary_user_id&#62;
+        $ pulumi import okta:index/linkValue:LinkValue example &#60;primary_name&#62;/&#60;primary_user_id&#62;
         ```
 
         :param str resource_name: The name of the resource.

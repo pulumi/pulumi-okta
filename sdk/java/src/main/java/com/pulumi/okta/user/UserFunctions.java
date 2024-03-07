@@ -26,6 +26,8 @@ public final class UserFunctions {
      * Use this data source to retrieve a users from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -56,6 +58,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser() {
@@ -65,6 +68,8 @@ public final class UserFunctions {
      * Use this data source to retrieve a users from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -95,6 +100,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain() {
@@ -104,6 +110,8 @@ public final class UserFunctions {
      * Use this data source to retrieve a users from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -134,6 +142,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args) {
@@ -143,6 +152,8 @@ public final class UserFunctions {
      * Use this data source to retrieve a users from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -173,6 +184,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
@@ -182,6 +194,8 @@ public final class UserFunctions {
      * Use this data source to retrieve a users from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -212,6 +226,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
@@ -221,6 +236,8 @@ public final class UserFunctions {
      * Use this data source to retrieve a users from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -251,6 +268,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
@@ -262,6 +280,8 @@ public final class UserFunctions {
      * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -287,6 +307,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserProfileMappingSourceResult> getUserProfileMappingSource() {
@@ -298,6 +319,8 @@ public final class UserFunctions {
      * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -323,6 +346,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserProfileMappingSourceResult> getUserProfileMappingSourcePlain() {
@@ -334,6 +358,8 @@ public final class UserFunctions {
      * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -359,6 +385,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserProfileMappingSourceResult> getUserProfileMappingSource(InvokeArgs args) {
@@ -370,6 +397,8 @@ public final class UserFunctions {
      * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -395,6 +424,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserProfileMappingSourceResult> getUserProfileMappingSourcePlain(InvokeArgs args) {
@@ -406,6 +436,8 @@ public final class UserFunctions {
      * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -431,6 +463,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserProfileMappingSourceResult> getUserProfileMappingSource(InvokeArgs args, InvokeOptions options) {
@@ -442,6 +475,8 @@ public final class UserFunctions {
      * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -467,6 +502,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserProfileMappingSourceResult> getUserProfileMappingSourcePlain(InvokeArgs args, InvokeOptions options) {
@@ -476,6 +512,8 @@ public final class UserFunctions {
      * Use this data source to retrieve a user type from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -504,6 +542,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserTypeResult> getUserType(GetUserTypeArgs args) {
@@ -513,6 +552,8 @@ public final class UserFunctions {
      * Use this data source to retrieve a user type from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -541,6 +582,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserTypeResult> getUserTypePlain(GetUserTypePlainArgs args) {
@@ -550,6 +592,8 @@ public final class UserFunctions {
      * Use this data source to retrieve a user type from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -578,6 +622,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserTypeResult> getUserType(GetUserTypeArgs args, InvokeOptions options) {
@@ -587,6 +632,8 @@ public final class UserFunctions {
      * Use this data source to retrieve a user type from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -615,6 +662,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserTypeResult> getUserTypePlain(GetUserTypePlainArgs args, InvokeOptions options) {
@@ -624,7 +672,10 @@ public final class UserFunctions {
      * Use this data source to retrieve a list of users from Okta.
      * 
      * ## Example Usage
+     * 
      * ### Lookup Users by Search Criteria
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -655,7 +706,10 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Lookup Users by Group Membership
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -689,6 +743,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUsersResult> getUsers() {
@@ -698,7 +753,10 @@ public final class UserFunctions {
      * Use this data source to retrieve a list of users from Okta.
      * 
      * ## Example Usage
+     * 
      * ### Lookup Users by Search Criteria
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -729,7 +787,10 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Lookup Users by Group Membership
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -763,6 +824,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain() {
@@ -772,7 +834,10 @@ public final class UserFunctions {
      * Use this data source to retrieve a list of users from Okta.
      * 
      * ## Example Usage
+     * 
      * ### Lookup Users by Search Criteria
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -803,7 +868,10 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Lookup Users by Group Membership
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -837,6 +905,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args) {
@@ -846,7 +915,10 @@ public final class UserFunctions {
      * Use this data source to retrieve a list of users from Okta.
      * 
      * ## Example Usage
+     * 
      * ### Lookup Users by Search Criteria
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -877,7 +949,10 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Lookup Users by Group Membership
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -911,6 +986,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args) {
@@ -920,7 +996,10 @@ public final class UserFunctions {
      * Use this data source to retrieve a list of users from Okta.
      * 
      * ## Example Usage
+     * 
      * ### Lookup Users by Search Criteria
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -951,7 +1030,10 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Lookup Users by Group Membership
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -985,6 +1067,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
@@ -994,7 +1077,10 @@ public final class UserFunctions {
      * Use this data source to retrieve a list of users from Okta.
      * 
      * ## Example Usage
+     * 
      * ### Lookup Users by Search Criteria
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1025,7 +1111,10 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Lookup Users by Group Membership
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1059,6 +1148,7 @@ public final class UserFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {

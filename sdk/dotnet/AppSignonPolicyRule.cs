@@ -21,9 +21,53 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
-    /// ### Rule with Constraints
+    /// ### Simple usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testSaml = new Okta.App.Saml("testSaml", new()
+    ///     {
+    ///         Label = "My App",
+    ///         SsoUrl = "https://google.com",
+    ///         Recipient = "https://here.com",
+    ///         Destination = "https://its-about-the-journey.com",
+    ///         Audience = "https://audience.com",
+    ///         Status = "ACTIVE",
+    ///         SubjectNameIdTemplate = "${user.userName}",
+    ///         SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+    ///         SignatureAlgorithm = "RSA_SHA256",
+    ///         ResponseSigned = true,
+    ///         DigestAlgorithm = "SHA256",
+    ///         HonorForceAuthn = false,
+    ///         AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+    ///     });
+    /// 
+    ///     var testAppSignonPolicy = Okta.GetAppSignonPolicy.Invoke(new()
+    ///     {
+    ///         AppId = testSaml.Id,
+    ///     });
+    /// 
+    ///     var testAppSignonPolicyRule = new Okta.AppSignonPolicyRule("testAppSignonPolicyRule", new()
+    ///     {
+    ///         PolicyId = testAppSignonPolicy.Apply(getAppSignonPolicyResult =&gt; getAppSignonPolicyResult.Id),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// This will create an app sign-on policy rule with the following `THEN` block:
+    /// 
     /// ### Example 1:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,9 +97,11 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// This will create an app sign-on policy rule with the following `THEN` block:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,8 +111,11 @@ namespace Pulumi.Okta
     /// {
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example 2:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -102,9 +151,11 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// This will create an app sign-on policy rule with the following `THEN` block:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -114,11 +165,14 @@ namespace Pulumi.Okta
     /// {
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// More examples can be
     /// found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
+    /// 
     /// ### Complex example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -360,13 +414,14 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Okta app sign-on policy rule can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &amp;#60;policy_id&amp;#62;/&amp;#60;rule_id&amp;#62;
+    /// $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &amp;#60;policy_id&amp;#62;/&amp;#60;rule_id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appSignonPolicyRule:AppSignonPolicyRule")]

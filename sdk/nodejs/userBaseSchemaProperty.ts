@@ -19,6 +19,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -32,6 +33,7 @@ import * as utilities from "./utilities";
  *     userType: data.okta_user_type.example.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -41,7 +43,7 @@ import * as utilities from "./utilities";
  * $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;property name&#62;
  * ```
  *
- *  User schema property of custom user type can be imported via user type id and property index
+ * User schema property of custom user type can be imported via user type id and property index
  *
  * ```sh
  * $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;user type id&#62;.&#60;property name&#62;

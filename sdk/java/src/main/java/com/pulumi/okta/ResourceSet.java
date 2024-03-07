@@ -34,7 +34,7 @@ import javax.annotation.Nullable;
  * Okta Resource Set can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/resourceSet:ResourceSet example &amp;#60;resource_set_id&amp;#62;
+ * $ pulumi import okta:index/resourceSet:ResourceSet example &amp;#60;resource_set_id&amp;#62;
  * ```
  * 
  */

@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Rate limit settings can be imported without any parameters.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/rateLimiting:RateLimiting example .
-//
+// $ pulumi import okta:index/rateLimiting:RateLimiting example .
 // ```
 type RateLimiting struct {
 	pulumi.CustomResourceState

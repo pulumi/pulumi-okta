@@ -16,10 +16,9 @@ namespace Pulumi.Okta
         /// 
         /// Use this data source to retrieve an authenticator.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,9 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -51,8 +52,7 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAuthenticatorResult> InvokeAsync(GetAuthenticatorArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthenticatorResult>("okta:index/getAuthenticator:getAuthenticator", args ?? new GetAuthenticatorArgs(), options.WithDefaults());
@@ -62,10 +62,9 @@ namespace Pulumi.Okta
         /// 
         /// Use this data source to retrieve an authenticator.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -81,7 +80,9 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -97,8 +98,7 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAuthenticatorResult> Invoke(GetAuthenticatorInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthenticatorResult>("okta:index/getAuthenticator:getAuthenticator", args ?? new GetAuthenticatorInvokeArgs(), options.WithDefaults());

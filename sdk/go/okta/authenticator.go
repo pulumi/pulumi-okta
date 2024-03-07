@@ -29,6 +29,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,7 +63,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -102,15 +105,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Okta authenticator can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/authenticator:Authenticator example &#60;authenticator_id&#62;
-//
+// $ pulumi import okta:index/authenticator:Authenticator example &#60;authenticator_id&#62;
 // ```
 type Authenticator struct {
 	pulumi.CustomResourceState

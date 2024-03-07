@@ -15,10 +15,9 @@ namespace Pulumi.Okta.Group
         /// Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data
         /// source with `name = "Everyone"`. This is simply a shortcut.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,8 +30,7 @@ namespace Pulumi.Okta.Group
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEveryoneGroupResult> InvokeAsync(GetEveryoneGroupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEveryoneGroupResult>("okta:group/getEveryoneGroup:getEveryoneGroup", args ?? new GetEveryoneGroupArgs(), options.WithDefaults());
@@ -41,10 +39,9 @@ namespace Pulumi.Okta.Group
         /// Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data
         /// source with `name = "Everyone"`. This is simply a shortcut.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,8 +54,7 @@ namespace Pulumi.Okta.Group
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEveryoneGroupResult> Invoke(GetEveryoneGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEveryoneGroupResult>("okta:group/getEveryoneGroup:getEveryoneGroup", args ?? new GetEveryoneGroupInvokeArgs(), options.WithDefaults());

@@ -256,12 +256,14 @@ def get_oidc(id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.idp.get_oidc(name="Example Provider")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: The id of the idp to retrieve, conflicts with `name`.
@@ -303,12 +305,14 @@ def get_oidc_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.idp.get_oidc(name="Example Provider")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: The id of the idp to retrieve, conflicts with `name`.

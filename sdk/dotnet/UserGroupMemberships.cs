@@ -12,6 +12,7 @@ namespace Pulumi.Okta
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,6 +41,7 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [OktaResourceType("okta:index/userGroupMemberships:UserGroupMemberships")]
     public partial class UserGroupMemberships : global::Pulumi.CustomResource

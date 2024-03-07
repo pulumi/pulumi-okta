@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,15 +62,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // An application's group assignments can be imported via `app_id`.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
-//
+// $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
 // ```
 type AppGroupAssignments struct {
 	pulumi.CustomResourceState

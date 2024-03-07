@@ -19,6 +19,54 @@ import javax.annotation.Nullable;
  * 
  * This resource allows you to assign an Okta admin role to a OAuth service application. This requires the Okta tenant feature flag for this function to be enabled.
  * 
+ * ## Example Usage
+ * 
+ * Standard Role:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.OAuth;
+ * import com.pulumi.okta.app.OAuthArgs;
+ * import com.pulumi.okta.app.OauthRoleAssignment;
+ * import com.pulumi.okta.app.OauthRoleAssignmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testOAuth = new OAuth(&#34;testOAuth&#34;, OAuthArgs.builder()        
+ *             .label(&#34;test&#34;)
+ *             .type(&#34;service&#34;)
+ *             .responseTypes(&#34;token&#34;)
+ *             .grantTypes(&#34;client_credentials&#34;)
+ *             .jwksUri(&#34;https://example.com&#34;)
+ *             .build());
+ * 
+ *         var testOauthRoleAssignment = new OauthRoleAssignment(&#34;testOauthRoleAssignment&#34;, OauthRoleAssignmentArgs.builder()        
+ *             .clientId(testOAuth.clientId())
+ *             .type(&#34;HELP_DESK_ADMIN&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * Custom Role:
+ * 
  * ## Import
  * 
  * OAuth Role assignment can be imported by passing the Client ID and Role Assignment ID for the specific client role.

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetUserProfileMappingSource(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetUserProfileMappingSourceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserProfileMappingSourceResult

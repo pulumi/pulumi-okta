@@ -77,6 +77,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -105,6 +107,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppGroupAssignmentsResult> getAppGroupAssignments(GetAppGroupAssignmentsArgs args) {
@@ -114,6 +117,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -142,6 +147,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppGroupAssignmentsResult> getAppGroupAssignmentsPlain(GetAppGroupAssignmentsPlainArgs args) {
@@ -151,6 +157,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -179,6 +187,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppGroupAssignmentsResult> getAppGroupAssignments(GetAppGroupAssignmentsArgs args, InvokeOptions options) {
@@ -188,6 +197,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -216,6 +227,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppGroupAssignmentsResult> getAppGroupAssignmentsPlain(GetAppGroupAssignmentsPlainArgs args, InvokeOptions options) {
@@ -231,6 +243,8 @@ public final class OktaFunctions {
      * [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -259,6 +273,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppSignonPolicyResult> getAppSignonPolicy(GetAppSignonPolicyArgs args) {
@@ -274,6 +289,8 @@ public final class OktaFunctions {
      * [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -302,6 +319,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppSignonPolicyResult> getAppSignonPolicyPlain(GetAppSignonPolicyPlainArgs args) {
@@ -317,6 +335,8 @@ public final class OktaFunctions {
      * [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -345,6 +365,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppSignonPolicyResult> getAppSignonPolicy(GetAppSignonPolicyArgs args, InvokeOptions options) {
@@ -360,6 +381,8 @@ public final class OktaFunctions {
      * [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -388,6 +411,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppSignonPolicyResult> getAppSignonPolicyPlain(GetAppSignonPolicyPlainArgs args, InvokeOptions options) {
@@ -397,6 +421,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve the list of users assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -425,6 +451,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppUserAssignmentsResult> getAppUserAssignments(GetAppUserAssignmentsArgs args) {
@@ -434,6 +461,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve the list of users assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -462,6 +491,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppUserAssignmentsResult> getAppUserAssignmentsPlain(GetAppUserAssignmentsPlainArgs args) {
@@ -471,6 +501,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve the list of users assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -499,6 +531,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppUserAssignmentsResult> getAppUserAssignments(GetAppUserAssignmentsArgs args, InvokeOptions options) {
@@ -508,6 +541,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve the list of users assigned to the given Okta application (by ID).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -536,6 +571,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppUserAssignmentsResult> getAppUserAssignmentsPlain(GetAppUserAssignmentsPlainArgs args, InvokeOptions options) {
@@ -545,6 +581,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve authorization server claim from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -574,6 +612,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthServerClaimResult> getAuthServerClaim(GetAuthServerClaimArgs args) {
@@ -583,6 +622,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve authorization server claim from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -612,6 +653,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthServerClaimResult> getAuthServerClaimPlain(GetAuthServerClaimPlainArgs args) {
@@ -621,6 +663,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve authorization server claim from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -650,6 +694,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthServerClaimResult> getAuthServerClaim(GetAuthServerClaimArgs args, InvokeOptions options) {
@@ -659,6 +704,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve authorization server claim from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -688,6 +735,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthServerClaimResult> getAuthServerClaimPlain(GetAuthServerClaimPlainArgs args, InvokeOptions options) {
@@ -697,6 +745,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a list of authorization server claims from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -725,6 +775,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthServerClaimsResult> getAuthServerClaims(GetAuthServerClaimsArgs args) {
@@ -734,6 +785,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a list of authorization server claims from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -762,6 +815,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthServerClaimsResult> getAuthServerClaimsPlain(GetAuthServerClaimsPlainArgs args) {
@@ -771,6 +825,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a list of authorization server claims from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -799,6 +855,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthServerClaimsResult> getAuthServerClaims(GetAuthServerClaimsArgs args, InvokeOptions options) {
@@ -808,6 +865,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a list of authorization server claims from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -836,6 +895,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthServerClaimsResult> getAuthServerClaimsPlain(GetAuthServerClaimsPlainArgs args, InvokeOptions options) {
@@ -847,6 +907,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve an authenticator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -875,6 +937,9 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -903,6 +968,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthenticatorResult> getAuthenticator() {
@@ -914,6 +980,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve an authenticator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -942,6 +1010,9 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -970,6 +1041,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthenticatorResult> getAuthenticatorPlain() {
@@ -981,6 +1053,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve an authenticator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1009,6 +1083,9 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1037,6 +1114,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthenticatorResult> getAuthenticator(GetAuthenticatorArgs args) {
@@ -1048,6 +1126,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve an authenticator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1076,6 +1156,9 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1104,6 +1187,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthenticatorResult> getAuthenticatorPlain(GetAuthenticatorPlainArgs args) {
@@ -1115,6 +1199,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve an authenticator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1143,6 +1229,9 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1171,6 +1260,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthenticatorResult> getAuthenticator(GetAuthenticatorArgs args, InvokeOptions options) {
@@ -1182,6 +1272,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve an authenticator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1210,6 +1302,9 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1238,6 +1333,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthenticatorResult> getAuthenticatorPlain(GetAuthenticatorPlainArgs args, InvokeOptions options) {
@@ -1248,6 +1344,7 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1276,6 +1373,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBehaviourResult> getBehaviour() {
@@ -1286,6 +1384,7 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1314,6 +1413,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBehaviourResult> getBehaviourPlain() {
@@ -1324,6 +1424,7 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1352,6 +1453,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBehaviourResult> getBehaviour(GetBehaviourArgs args) {
@@ -1362,6 +1464,7 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1390,6 +1493,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBehaviourResult> getBehaviourPlain(GetBehaviourPlainArgs args) {
@@ -1400,6 +1504,7 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1428,6 +1533,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBehaviourResult> getBehaviour(GetBehaviourArgs args, InvokeOptions options) {
@@ -1438,6 +1544,7 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1466,6 +1573,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBehaviourResult> getBehaviourPlain(GetBehaviourPlainArgs args, InvokeOptions options) {
@@ -1475,6 +1583,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a behaviors from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1503,6 +1613,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBehavioursResult> getBehaviours() {
@@ -1512,6 +1623,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a behaviors from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1540,6 +1653,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBehavioursResult> getBehavioursPlain() {
@@ -1549,6 +1663,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a behaviors from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1577,6 +1693,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBehavioursResult> getBehaviours(GetBehavioursArgs args) {
@@ -1586,6 +1703,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a behaviors from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1614,6 +1733,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBehavioursResult> getBehavioursPlain(GetBehavioursPlainArgs args) {
@@ -1623,6 +1743,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a behaviors from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1651,6 +1773,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBehavioursResult> getBehaviours(GetBehavioursArgs args, InvokeOptions options) {
@@ -1660,6 +1783,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a behaviors from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1688,6 +1813,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBehavioursResult> getBehavioursPlain(GetBehavioursPlainArgs args, InvokeOptions options) {
@@ -1725,6 +1851,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1750,6 +1878,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrandsResult> getBrands() {
@@ -1759,6 +1888,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1784,6 +1915,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrandsResult> getBrandsPlain() {
@@ -1793,6 +1925,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1818,6 +1952,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrandsResult> getBrands(InvokeArgs args) {
@@ -1827,6 +1962,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1852,6 +1989,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrandsResult> getBrandsPlain(InvokeArgs args) {
@@ -1861,6 +1999,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1886,6 +2026,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrandsResult> getBrands(InvokeArgs args, InvokeOptions options) {
@@ -1895,6 +2036,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve the brands belonging to an Okta organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1920,6 +2063,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrandsResult> getBrandsPlain(InvokeArgs args, InvokeOptions options) {
@@ -2001,6 +2145,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a list of groups from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2029,6 +2175,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupsResult> getGroups() {
@@ -2038,6 +2185,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a list of groups from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2066,6 +2215,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupsResult> getGroupsPlain() {
@@ -2075,6 +2225,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a list of groups from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2103,6 +2255,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupsResult> getGroups(GetGroupsArgs args) {
@@ -2112,6 +2265,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a list of groups from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2140,6 +2295,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupsResult> getGroupsPlain(GetGroupsPlainArgs args) {
@@ -2149,6 +2305,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a list of groups from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2177,6 +2335,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupsResult> getGroups(GetGroupsArgs args, InvokeOptions options) {
@@ -2186,6 +2345,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a list of groups from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2214,6 +2375,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupsResult> getGroupsPlain(GetGroupsPlainArgs args, InvokeOptions options) {
@@ -2223,6 +2385,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a network zone from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2251,6 +2415,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkZoneResult> getNetworkZone() {
@@ -2260,6 +2425,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a network zone from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2288,6 +2455,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkZoneResult> getNetworkZonePlain() {
@@ -2297,6 +2465,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a network zone from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2325,6 +2495,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkZoneResult> getNetworkZone(GetNetworkZoneArgs args) {
@@ -2334,6 +2505,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a network zone from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2362,6 +2535,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkZoneResult> getNetworkZonePlain(GetNetworkZonePlainArgs args) {
@@ -2371,6 +2545,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a network zone from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2399,6 +2575,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkZoneResult> getNetworkZone(GetNetworkZoneArgs args, InvokeOptions options) {
@@ -2408,6 +2585,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a network zone from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2436,6 +2615,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkZoneResult> getNetworkZonePlain(GetNetworkZonePlainArgs args, InvokeOptions options) {
@@ -2445,6 +2625,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve role subscription with a specific type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2474,6 +2656,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRoleSubscriptionResult> getRoleSubscription(GetRoleSubscriptionArgs args) {
@@ -2483,6 +2666,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve role subscription with a specific type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2512,6 +2697,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRoleSubscriptionResult> getRoleSubscriptionPlain(GetRoleSubscriptionPlainArgs args) {
@@ -2521,6 +2707,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve role subscription with a specific type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2550,6 +2738,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRoleSubscriptionResult> getRoleSubscription(GetRoleSubscriptionArgs args, InvokeOptions options) {
@@ -2559,6 +2748,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve role subscription with a specific type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2588,6 +2779,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRoleSubscriptionResult> getRoleSubscriptionPlain(GetRoleSubscriptionPlainArgs args, InvokeOptions options) {
@@ -2741,6 +2933,8 @@ public final class OktaFunctions {
      * This resource allows you to retrieve a list of trusted origins from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2767,6 +2961,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrustedOriginsResult> getTrustedOrigins() {
@@ -2776,6 +2971,8 @@ public final class OktaFunctions {
      * This resource allows you to retrieve a list of trusted origins from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2802,6 +2999,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrustedOriginsResult> getTrustedOriginsPlain() {
@@ -2811,6 +3009,8 @@ public final class OktaFunctions {
      * This resource allows you to retrieve a list of trusted origins from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2837,6 +3037,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrustedOriginsResult> getTrustedOrigins(GetTrustedOriginsArgs args) {
@@ -2846,6 +3047,8 @@ public final class OktaFunctions {
      * This resource allows you to retrieve a list of trusted origins from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2872,6 +3075,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrustedOriginsResult> getTrustedOriginsPlain(GetTrustedOriginsPlainArgs args) {
@@ -2881,6 +3085,8 @@ public final class OktaFunctions {
      * This resource allows you to retrieve a list of trusted origins from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2907,6 +3113,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrustedOriginsResult> getTrustedOrigins(GetTrustedOriginsArgs args, InvokeOptions options) {
@@ -2916,6 +3123,8 @@ public final class OktaFunctions {
      * This resource allows you to retrieve a list of trusted origins from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2942,6 +3151,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrustedOriginsResult> getTrustedOriginsPlain(GetTrustedOriginsPlainArgs args, InvokeOptions options) {
@@ -2951,6 +3161,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a list of user&#39;s security questions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2988,6 +3200,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserSecurityQuestionsResult> getUserSecurityQuestions(GetUserSecurityQuestionsArgs args) {
@@ -2997,6 +3210,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a list of user&#39;s security questions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3034,6 +3249,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserSecurityQuestionsResult> getUserSecurityQuestionsPlain(GetUserSecurityQuestionsPlainArgs args) {
@@ -3043,6 +3259,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a list of user&#39;s security questions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3080,6 +3298,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserSecurityQuestionsResult> getUserSecurityQuestions(GetUserSecurityQuestionsArgs args, InvokeOptions options) {
@@ -3089,6 +3308,8 @@ public final class OktaFunctions {
      * Use this data source to retrieve a list of user&#39;s security questions.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3126,6 +3347,7 @@ public final class OktaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserSecurityQuestionsResult> getUserSecurityQuestionsPlain(GetUserSecurityQuestionsPlainArgs args, InvokeOptions options) {

@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * This resource allows you to configure default password policy.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Default Password Policy can be imported without providing Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
+ * $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
  * ```
  * 
  */

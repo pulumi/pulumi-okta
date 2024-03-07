@@ -11,12 +11,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const example = okta.user.getUserProfileMappingSource({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserProfileMappingSource(opts?: pulumi.InvokeOptions): Promise<GetUserProfileMappingSourceResult> {
 
@@ -49,12 +51,14 @@ export interface GetUserProfileMappingSourceResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const example = okta.user.getUserProfileMappingSource({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserProfileMappingSourceOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetUserProfileMappingSourceResult> {
     return pulumi.output(getUserProfileMappingSource(opts))

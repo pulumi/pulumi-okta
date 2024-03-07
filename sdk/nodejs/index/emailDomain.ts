@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -22,6 +23,7 @@ import * as utilities from "../utilities";
  *     userName: "paul_atreides",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

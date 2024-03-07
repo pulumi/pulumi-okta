@@ -292,6 +292,7 @@ class Behaviour(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -315,6 +316,7 @@ class Behaviour(pulumi.CustomResource):
             type="VELOCITY",
             velocity=25)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -351,6 +353,7 @@ class Behaviour(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -374,6 +377,7 @@ class Behaviour(pulumi.CustomResource):
             type="VELOCITY",
             velocity=25)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

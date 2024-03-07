@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * Use this data source to retrieve a list of users from Okta.
  *
  * ## Example Usage
+ *
  * ### Lookup Users by Search Criteria
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -22,7 +24,10 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lookup Users by Group Membership
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -34,6 +39,7 @@ import * as utilities from "../utilities";
  *     includeRoles: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
@@ -102,8 +108,10 @@ export interface GetUsersResult {
  * Use this data source to retrieve a list of users from Okta.
  *
  * ## Example Usage
+ *
  * ### Lookup Users by Search Criteria
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -114,7 +122,10 @@ export interface GetUsersResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lookup Users by Group Membership
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -126,6 +137,7 @@ export interface GetUsersResult {
  *     includeRoles: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
     return pulumi.output(args).apply((a: any) => getUsers(a, opts))

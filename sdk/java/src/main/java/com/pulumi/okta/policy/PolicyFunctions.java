@@ -21,6 +21,8 @@ public final class PolicyFunctions {
      * Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `okta.policy.getPolicy` with default names, this is simply a shortcut.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -49,6 +51,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDefaultPolicyResult> getDefaultPolicy(GetDefaultPolicyArgs args) {
@@ -58,6 +61,8 @@ public final class PolicyFunctions {
      * Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `okta.policy.getPolicy` with default names, this is simply a shortcut.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -86,6 +91,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDefaultPolicyResult> getDefaultPolicyPlain(GetDefaultPolicyPlainArgs args) {
@@ -95,6 +101,8 @@ public final class PolicyFunctions {
      * Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `okta.policy.getPolicy` with default names, this is simply a shortcut.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -123,6 +131,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDefaultPolicyResult> getDefaultPolicy(GetDefaultPolicyArgs args, InvokeOptions options) {
@@ -132,6 +141,8 @@ public final class PolicyFunctions {
      * Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `okta.policy.getPolicy` with default names, this is simply a shortcut.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -160,6 +171,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDefaultPolicyResult> getDefaultPolicyPlain(GetDefaultPolicyPlainArgs args, InvokeOptions options) {
@@ -169,6 +181,8 @@ public final class PolicyFunctions {
      * Use this data source to retrieve a policy from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -198,6 +212,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args) {
@@ -207,6 +222,8 @@ public final class PolicyFunctions {
      * Use this data source to retrieve a policy from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -236,6 +253,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args) {
@@ -245,6 +263,8 @@ public final class PolicyFunctions {
      * Use this data source to retrieve a policy from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -274,6 +294,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOptions options) {
@@ -283,6 +304,8 @@ public final class PolicyFunctions {
      * Use this data source to retrieve a policy from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -312,6 +335,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args, InvokeOptions options) {

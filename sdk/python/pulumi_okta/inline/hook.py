@@ -262,6 +262,7 @@ class Hook(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -280,6 +281,7 @@ class Hook(pulumi.CustomResource):
             type="com.okta.oauth2.tokens.transform",
             version="1.0.0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -311,6 +313,7 @@ class Hook(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -329,6 +332,7 @@ class Hook(pulumi.CustomResource):
             type="com.okta.oauth2.tokens.transform",
             version="1.0.0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

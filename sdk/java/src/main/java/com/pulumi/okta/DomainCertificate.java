@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * Encrypt Certbot
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -80,10 +82,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
- * ## Import
- * 
- * This resource does not support importing.
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="okta:index/domainCertificate:DomainCertificate")

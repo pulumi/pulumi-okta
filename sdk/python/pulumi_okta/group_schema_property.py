@@ -662,6 +662,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -674,13 +675,14 @@ class GroupSchemaProperty(pulumi.CustomResource):
             title="customPropertyName",
             type="string")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Group schema property can be imported via the property index.
 
         ```sh
-         $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
+        $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -714,6 +716,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -726,13 +729,14 @@ class GroupSchemaProperty(pulumi.CustomResource):
             title="customPropertyName",
             type="string")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Group schema property can be imported via the property index.
 
         ```sh
-         $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
+        $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
         ```
 
         :param str resource_name: The name of the resource.

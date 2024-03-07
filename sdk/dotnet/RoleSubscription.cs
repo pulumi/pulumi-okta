@@ -16,6 +16,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,13 +34,14 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// A role subscription can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/roleSubscription:RoleSubscription example &amp;#60;role_type&amp;#62;/&amp;#60;notification_type&amp;#62;
+    /// $ pulumi import okta:index/roleSubscription:RoleSubscription example &amp;#60;role_type&amp;#62;/&amp;#60;notification_type&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/roleSubscription:RoleSubscription")]

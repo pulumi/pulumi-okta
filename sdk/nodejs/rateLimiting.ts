@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -23,13 +24,14 @@ import * as utilities from "./utilities";
  *     login: "ENFORCE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Rate limit settings can be imported without any parameters.
  *
  * ```sh
- *  $ pulumi import okta:index/rateLimiting:RateLimiting example .
+ * $ pulumi import okta:index/rateLimiting:RateLimiting example .
  * ```
  */
 export class RateLimiting extends pulumi.CustomResource {

@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -34,13 +35,14 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * An application's group assignments can be imported via `app_id`.
  *
  * ```sh
- *  $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
+ * $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
  * ```
  */
 export class AppGroupAssignments extends pulumi.CustomResource {

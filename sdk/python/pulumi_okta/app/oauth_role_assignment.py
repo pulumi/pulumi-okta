@@ -200,6 +200,29 @@ class OauthRoleAssignment(pulumi.CustomResource):
 
         This resource allows you to assign an Okta admin role to a OAuth service application. This requires the Okta tenant feature flag for this function to be enabled.
 
+        ## Example Usage
+
+        Standard Role:
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test_o_auth = okta.app.OAuth("testOAuth",
+            label="test",
+            type="service",
+            response_types=["token"],
+            grant_types=["client_credentials"],
+            jwks_uri="https://example.com")
+        test_oauth_role_assignment = okta.app.OauthRoleAssignment("testOauthRoleAssignment",
+            client_id=test_o_auth.client_id,
+            type="HELP_DESK_ADMIN")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        Custom Role:
+
         ## Import
 
         OAuth Role assignment can be imported by passing the Client ID and Role Assignment ID for the specific client role.
@@ -225,6 +248,29 @@ class OauthRoleAssignment(pulumi.CustomResource):
         Manages assignment of an admin role to an OAuth application.
 
         This resource allows you to assign an Okta admin role to a OAuth service application. This requires the Okta tenant feature flag for this function to be enabled.
+
+        ## Example Usage
+
+        Standard Role:
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test_o_auth = okta.app.OAuth("testOAuth",
+            label="test",
+            type="service",
+            response_types=["token"],
+            grant_types=["client_credentials"],
+            jwks_uri="https://example.com")
+        test_oauth_role_assignment = okta.app.OauthRoleAssignment("testOauthRoleAssignment",
+            client_id=test_o_auth.client_id,
+            type="HELP_DESK_ADMIN")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        Custom Role:
 
         ## Import
 

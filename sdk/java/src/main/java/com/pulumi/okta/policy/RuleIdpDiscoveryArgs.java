@@ -23,6 +23,8 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * Applications to exclude in discovery. See `app_include` for details.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -45,6 +47,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="appExcludes")
@@ -52,6 +55,8 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * @return Applications to exclude in discovery. See `app_include` for details.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -74,6 +79,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<List<RuleIdpDiscoveryAppExcludeArgs>>> appExcludes() {
@@ -322,6 +328,8 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param appExcludes Applications to exclude in discovery. See `app_include` for details.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -344,6 +352,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -355,6 +364,8 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param appExcludes Applications to exclude in discovery. See `app_include` for details.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -377,6 +388,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -387,6 +399,8 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param appExcludes Applications to exclude in discovery. See `app_include` for details.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -409,6 +423,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -18,6 +19,7 @@ import * as utilities from "../utilities";
  *     name: "staff",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerPolicy(args: GetServerPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerPolicyResult> {
 
@@ -70,6 +72,7 @@ export interface GetServerPolicyResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -79,6 +82,7 @@ export interface GetServerPolicyResult {
  *     name: "staff",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerPolicyOutput(args: GetServerPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerPolicyResult> {
     return pulumi.output(args).apply((a: any) => getServerPolicy(a, opts))

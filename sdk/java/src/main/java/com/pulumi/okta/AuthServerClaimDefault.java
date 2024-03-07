@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * This resource allows you to configure Default Authorization Server Claims.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,6 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -60,7 +63,7 @@ import javax.annotation.Nullable;
  * $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim id&amp;#62;
  * ```
  * 
- *  or
+ * or
  * 
  * ```sh
  * $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim name&amp;#62;

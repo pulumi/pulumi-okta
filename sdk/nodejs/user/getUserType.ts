@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserType(args: GetUserTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetUserTypeResult> {
 
@@ -62,6 +64,7 @@ export interface GetUserTypeResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -70,6 +73,7 @@ export interface GetUserTypeResult {
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserTypeOutput(args: GetUserTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserTypeResult> {
     return pulumi.output(args).apply((a: any) => getUserType(a, opts))

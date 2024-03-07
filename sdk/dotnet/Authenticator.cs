@@ -27,6 +27,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,7 +48,9 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,13 +77,14 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Okta authenticator can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/authenticator:Authenticator example &amp;#60;authenticator_id&amp;#62;
+    /// $ pulumi import okta:index/authenticator:Authenticator example &amp;#60;authenticator_id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/authenticator:Authenticator")]
