@@ -156,12 +156,14 @@ def get_metadata_saml(idp_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.idp.get_metadata_saml(idp_id="<idp id>")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str idp_id: The id of the IdP to retrieve metadata for.
@@ -192,12 +194,14 @@ def get_metadata_saml_output(idp_id: Optional[pulumi.Input[Optional[str]]] = Non
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.idp.get_metadata_saml(idp_id="<idp id>")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str idp_id: The id of the IdP to retrieve metadata for.

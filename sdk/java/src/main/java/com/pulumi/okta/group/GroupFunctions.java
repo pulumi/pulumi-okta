@@ -25,6 +25,8 @@ public final class GroupFunctions {
      * source with `name = &#34;Everyone&#34;`. This is simply a shortcut.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -51,6 +53,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEveryoneGroupResult> getEveryoneGroup() {
@@ -61,6 +64,8 @@ public final class GroupFunctions {
      * source with `name = &#34;Everyone&#34;`. This is simply a shortcut.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -87,6 +92,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEveryoneGroupResult> getEveryoneGroupPlain() {
@@ -97,6 +103,8 @@ public final class GroupFunctions {
      * source with `name = &#34;Everyone&#34;`. This is simply a shortcut.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -123,6 +131,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEveryoneGroupResult> getEveryoneGroup(GetEveryoneGroupArgs args) {
@@ -133,6 +142,8 @@ public final class GroupFunctions {
      * source with `name = &#34;Everyone&#34;`. This is simply a shortcut.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -159,6 +170,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEveryoneGroupResult> getEveryoneGroupPlain(GetEveryoneGroupPlainArgs args) {
@@ -169,6 +181,8 @@ public final class GroupFunctions {
      * source with `name = &#34;Everyone&#34;`. This is simply a shortcut.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -195,6 +209,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEveryoneGroupResult> getEveryoneGroup(GetEveryoneGroupArgs args, InvokeOptions options) {
@@ -205,6 +220,8 @@ public final class GroupFunctions {
      * source with `name = &#34;Everyone&#34;`. This is simply a shortcut.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -231,6 +248,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEveryoneGroupResult> getEveryoneGroupPlain(GetEveryoneGroupPlainArgs args, InvokeOptions options) {
@@ -240,6 +258,8 @@ public final class GroupFunctions {
      * Use this data source to retrieve a group from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -268,6 +288,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup() {
@@ -277,6 +298,8 @@ public final class GroupFunctions {
      * Use this data source to retrieve a group from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -305,6 +328,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain() {
@@ -314,6 +338,8 @@ public final class GroupFunctions {
      * Use this data source to retrieve a group from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -342,6 +368,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
@@ -351,6 +378,8 @@ public final class GroupFunctions {
      * Use this data source to retrieve a group from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -379,6 +408,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -388,6 +418,8 @@ public final class GroupFunctions {
      * Use this data source to retrieve a group from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -416,6 +448,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
@@ -425,6 +458,8 @@ public final class GroupFunctions {
      * Use this data source to retrieve a group from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -453,6 +488,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
@@ -462,6 +498,8 @@ public final class GroupFunctions {
      * Use this data source to retrieve a group rule from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -490,6 +528,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRuleResult> getRule() {
@@ -499,6 +538,8 @@ public final class GroupFunctions {
      * Use this data source to retrieve a group rule from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -527,6 +568,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRuleResult> getRulePlain() {
@@ -536,6 +578,8 @@ public final class GroupFunctions {
      * Use this data source to retrieve a group rule from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -564,6 +608,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRuleResult> getRule(GetRuleArgs args) {
@@ -573,6 +618,8 @@ public final class GroupFunctions {
      * Use this data source to retrieve a group rule from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -601,6 +648,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args) {
@@ -610,6 +658,8 @@ public final class GroupFunctions {
      * Use this data source to retrieve a group rule from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -638,6 +688,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRuleResult> getRule(GetRuleArgs args, InvokeOptions options) {
@@ -647,6 +698,8 @@ public final class GroupFunctions {
      * Use this data source to retrieve a group rule from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -675,6 +728,7 @@ public final class GroupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args, InvokeOptions options) {

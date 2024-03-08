@@ -172,8 +172,10 @@ class LogStream(pulumi.CustomResource):
         This resource allows you to create and configure an Okta Log Stream.
 
         ## Example Usage
+
         ### Splunk Event Collector
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -187,6 +189,7 @@ class LogStream(pulumi.CustomResource):
             status="ACTIVE",
             type="splunk_cloud_logstreaming")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -215,8 +218,10 @@ class LogStream(pulumi.CustomResource):
         This resource allows you to create and configure an Okta Log Stream.
 
         ## Example Usage
+
         ### Splunk Event Collector
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -230,6 +235,7 @@ class LogStream(pulumi.CustomResource):
             status="ACTIVE",
             type="splunk_cloud_logstreaming")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

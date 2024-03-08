@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * other arguments that changed will be applied.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,9 +61,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With JWKS value
  * 
  * See also Advanced PEM secrets and JWKS example.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -108,6 +114,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Etc.
  * 
  * ### Resetting client secret
@@ -126,6 +134,8 @@ import javax.annotation.Nullable;
  * operator has a PKCS#1 (unencrypted) format private key (the header starts with
  * `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
  * key with `openssl`:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -148,6 +158,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

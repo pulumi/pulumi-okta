@@ -9,6 +9,31 @@ import * as utilities from "../utilities";
  *
  * This resource allows you to assign an Okta admin role to a OAuth service application. This requires the Okta tenant feature flag for this function to be enabled.
  *
+ * ## Example Usage
+ *
+ * Standard Role:
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const testOAuth = new okta.app.OAuth("testOAuth", {
+ *     label: "test",
+ *     type: "service",
+ *     responseTypes: ["token"],
+ *     grantTypes: ["client_credentials"],
+ *     jwksUri: "https://example.com",
+ * });
+ * const testOauthRoleAssignment = new okta.app.OauthRoleAssignment("testOauthRoleAssignment", {
+ *     clientId: testOAuth.clientId,
+ *     type: "HELP_DESK_ADMIN",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * Custom Role:
+ *
  * ## Import
  *
  * OAuth Role assignment can be imported by passing the Client ID and Role Assignment ID for the specific client role.

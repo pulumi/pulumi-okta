@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -22,9 +23,11 @@ import * as utilities from "./utilities";
  *     authenticationPolicy: myAppPolicy.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The created policy can be extended using `appSignonPolicyRules`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -41,6 +44,7 @@ import * as utilities from "./utilities";
  *     })],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class AppSignonPolicy extends pulumi.CustomResource {
     /**

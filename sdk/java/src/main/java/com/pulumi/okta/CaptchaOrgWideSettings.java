@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * CAPTCHA org-wide settings can be disabled by unsetting `captcha_id` and `enabled_for`.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,8 +61,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * The following example disables org-wide CAPTCHA.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -94,13 +99,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Org-Wide CAPTCHA settings can be imported without any parameters.
  * 
  * ```sh
- *  $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
+ * $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
  * ```
  * 
  */

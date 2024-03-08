@@ -32,6 +32,8 @@ public final class RuleIdpDiscoveryUserIdentifierPatternArgs extends com.pulumi.
 
     /**
      * The regex or simple match string to match against.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -54,6 +56,7 @@ public final class RuleIdpDiscoveryUserIdentifierPatternArgs extends com.pulumi.
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="value")
@@ -61,6 +64,8 @@ public final class RuleIdpDiscoveryUserIdentifierPatternArgs extends com.pulumi.
 
     /**
      * @return The regex or simple match string to match against.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -83,6 +88,7 @@ public final class RuleIdpDiscoveryUserIdentifierPatternArgs extends com.pulumi.
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<String>> value() {
@@ -137,6 +143,8 @@ public final class RuleIdpDiscoveryUserIdentifierPatternArgs extends com.pulumi.
 
         /**
          * @param value The regex or simple match string to match against.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -159,6 +167,7 @@ public final class RuleIdpDiscoveryUserIdentifierPatternArgs extends com.pulumi.
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -170,6 +179,8 @@ public final class RuleIdpDiscoveryUserIdentifierPatternArgs extends com.pulumi.
 
         /**
          * @param value The regex or simple match string to match against.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -192,6 +203,7 @@ public final class RuleIdpDiscoveryUserIdentifierPatternArgs extends com.pulumi.
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

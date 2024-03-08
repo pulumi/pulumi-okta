@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -27,10 +28,13 @@ import * as utilities from "../utilities";
  *     type: "web",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With JWKS value
  *
  * See also Advanced PEM secrets and JWKS example.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -57,6 +61,8 @@ import * as utilities from "../utilities";
  *     type: "service",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Etc.
  *
  * ### Resetting client secret
@@ -76,9 +82,11 @@ import * as utilities from "../utilities";
  * `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
  * key with `openssl`:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

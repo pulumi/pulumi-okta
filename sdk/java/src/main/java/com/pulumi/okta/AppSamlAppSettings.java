@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * `app_settings_json` field in `okta.app.Saml` resource and can be used in cases where settings require to be managed separately.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,6 +68,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

@@ -139,6 +139,7 @@ class TemplateSms(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -157,6 +158,7 @@ class TemplateSms(pulumi.CustomResource):
             ],
             type="SMS_VERIFY_CODE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -185,6 +187,7 @@ class TemplateSms(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -203,6 +206,7 @@ class TemplateSms(pulumi.CustomResource):
             ],
             type="SMS_VERIFY_CODE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

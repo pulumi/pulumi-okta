@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     name: "Block Antarctica",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworkZone(args?: GetNetworkZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkZoneResult> {
     args = args || {};
@@ -92,6 +94,7 @@ export interface GetNetworkZoneResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -100,6 +103,7 @@ export interface GetNetworkZoneResult {
  *     name: "Block Antarctica",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworkZoneOutput(args?: GetNetworkZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkZoneResult> {
     return pulumi.output(args).apply((a: any) => getNetworkZone(a, opts))

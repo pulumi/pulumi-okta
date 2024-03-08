@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Manages custom domain for your organization.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,13 +47,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Okta Admin Role Targets can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/domain:Domain example &amp;#60;domain_id&amp;#62;
+ * $ pulumi import okta:index/domain:Domain example &amp;#60;domain_id&amp;#62;
  * ```
  * 
  */

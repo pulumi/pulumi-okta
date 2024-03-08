@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,15 +58,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Threat Insight Settings can be imported without any parameters.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/threatInsightSettings:ThreatInsightSettings example _
-//
+// $ pulumi import okta:index/threatInsightSettings:ThreatInsightSettings example _
 // ```
 type ThreatInsightSettings struct {
 	pulumi.CustomResourceState

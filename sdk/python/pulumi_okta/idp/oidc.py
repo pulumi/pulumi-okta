@@ -1147,6 +1147,7 @@ class Oidc(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1166,6 +1167,7 @@ class Oidc(pulumi.CustomResource):
             user_info_url="https://idp.example.com/userinfo",
             username_template="idpuser.email")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1224,6 +1226,7 @@ class Oidc(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1243,6 +1246,7 @@ class Oidc(pulumi.CustomResource):
             user_info_url="https://idp.example.com/userinfo",
             username_template="idpuser.email")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

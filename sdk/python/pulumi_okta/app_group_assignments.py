@@ -106,6 +106,7 @@ class AppGroupAssignments(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -127,13 +128,14 @@ class AppGroupAssignments(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         An application's group assignments can be imported via `app_id`.
 
         ```sh
-         $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
+        $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -154,6 +156,7 @@ class AppGroupAssignments(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -175,13 +178,14 @@ class AppGroupAssignments(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         An application's group assignments can be imported via `app_id`.
 
         ```sh
-         $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
+        $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
         ```
 
         :param str resource_name: The name of the resource.

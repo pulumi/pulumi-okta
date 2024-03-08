@@ -27,6 +27,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -55,6 +57,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppResult> getApp() {
@@ -64,6 +67,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -92,6 +97,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppResult> getAppPlain() {
@@ -101,6 +107,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +137,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppResult> getApp(GetAppArgs args) {
@@ -138,6 +147,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -166,6 +177,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppResult> getAppPlain(GetAppPlainArgs args) {
@@ -175,6 +187,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -203,6 +217,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppResult> getApp(GetAppArgs args, InvokeOptions options) {
@@ -212,6 +227,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -240,6 +257,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppResult> getAppPlain(GetAppPlainArgs args, InvokeOptions options) {
@@ -249,6 +267,8 @@ public final class AppFunctions {
      * Use this data source to retrieve the metadata for SAML application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -278,6 +298,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMetadataSamlResult> getMetadataSaml(GetMetadataSamlArgs args) {
@@ -287,6 +308,8 @@ public final class AppFunctions {
      * Use this data source to retrieve the metadata for SAML application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -316,6 +339,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMetadataSamlResult> getMetadataSamlPlain(GetMetadataSamlPlainArgs args) {
@@ -325,6 +349,8 @@ public final class AppFunctions {
      * Use this data source to retrieve the metadata for SAML application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -354,6 +380,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMetadataSamlResult> getMetadataSaml(GetMetadataSamlArgs args, InvokeOptions options) {
@@ -363,6 +390,8 @@ public final class AppFunctions {
      * Use this data source to retrieve the metadata for SAML application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -392,6 +421,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMetadataSamlResult> getMetadataSamlPlain(GetMetadataSamlPlainArgs args, InvokeOptions options) {
@@ -401,6 +431,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an OIDC application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -429,6 +461,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOauthResult> getOauth() {
@@ -438,6 +471,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an OIDC application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -466,6 +501,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOauthResult> getOauthPlain() {
@@ -475,6 +511,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an OIDC application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -503,6 +541,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOauthResult> getOauth(GetOauthArgs args) {
@@ -512,6 +551,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an OIDC application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -540,6 +581,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOauthResult> getOauthPlain(GetOauthPlainArgs args) {
@@ -549,6 +591,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an OIDC application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -577,6 +621,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOauthResult> getOauth(GetOauthArgs args, InvokeOptions options) {
@@ -586,6 +631,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an OIDC application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -614,6 +661,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOauthResult> getOauthPlain(GetOauthPlainArgs args, InvokeOptions options) {
@@ -623,6 +671,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an SAML application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -651,6 +701,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSamlResult> getSaml() {
@@ -660,6 +711,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an SAML application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -688,6 +741,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSamlResult> getSamlPlain() {
@@ -697,6 +751,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an SAML application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -725,6 +781,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSamlResult> getSaml(GetSamlArgs args) {
@@ -734,6 +791,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an SAML application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -762,6 +821,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSamlResult> getSamlPlain(GetSamlPlainArgs args) {
@@ -771,6 +831,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an SAML application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -799,6 +861,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSamlResult> getSaml(GetSamlArgs args, InvokeOptions options) {
@@ -808,6 +871,8 @@ public final class AppFunctions {
      * Use this data source to retrieve an SAML application from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -836,6 +901,7 @@ public final class AppFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSamlResult> getSamlPlain(GetSamlPlainArgs args, InvokeOptions options) {

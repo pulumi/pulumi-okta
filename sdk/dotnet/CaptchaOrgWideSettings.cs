@@ -17,6 +17,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,9 +44,11 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// The following example disables org-wide CAPTCHA.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,13 +68,14 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Org-Wide CAPTCHA settings can be imported without any parameters.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
+    /// $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings")]

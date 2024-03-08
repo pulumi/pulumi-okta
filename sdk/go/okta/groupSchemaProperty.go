@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Group schema property can be imported via the property index.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
-//
+// $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
 // ```
 type GroupSchemaProperty struct {
 	pulumi.CustomResourceState

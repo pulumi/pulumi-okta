@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     name: "My Facebook IdP",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSocial(args?: GetSocialArgs, opts?: pulumi.InvokeOptions): Promise<GetSocialResult> {
     args = args || {};
@@ -154,6 +156,7 @@ export interface GetSocialResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -162,6 +165,7 @@ export interface GetSocialResult {
  *     name: "My Facebook IdP",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSocialOutput(args?: GetSocialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSocialResult> {
     return pulumi.output(args).apply((a: any) => getSocial(a, opts))

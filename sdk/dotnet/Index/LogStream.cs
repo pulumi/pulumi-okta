@@ -15,8 +15,10 @@ namespace Pulumi.Okta.Index
     /// This resource allows you to create and configure an Okta Log Stream.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Splunk Event Collector
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,6 +41,7 @@ namespace Pulumi.Okta.Index
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

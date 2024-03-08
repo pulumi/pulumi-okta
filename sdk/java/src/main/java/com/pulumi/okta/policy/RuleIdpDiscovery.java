@@ -28,6 +28,8 @@ import javax.annotation.Nullable;
  * request feature flag `ADVANCED_SSO` be applied to your org.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -100,6 +102,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -114,6 +117,8 @@ import javax.annotation.Nullable;
 public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
     /**
      * Applications to exclude in discovery. See `app_include` for details.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -136,6 +141,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Export(name="appExcludes", refs={List.class,RuleIdpDiscoveryAppExclude.class}, tree="[0,1]")
@@ -143,6 +149,8 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Applications to exclude in discovery. See `app_include` for details.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -165,6 +173,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<Optional<List<RuleIdpDiscoveryAppExclude>>> appExcludes() {

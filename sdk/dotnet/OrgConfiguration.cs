@@ -16,6 +16,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,13 +33,14 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Okta Org Configuration can be imported even without specifying the Org ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
+    /// $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/orgConfiguration:OrgConfiguration")]

@@ -27,6 +27,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve SAML IdP metadata from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -55,6 +57,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMetadataSamlResult> getMetadataSaml() {
@@ -64,6 +67,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve SAML IdP metadata from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -92,6 +97,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMetadataSamlResult> getMetadataSamlPlain() {
@@ -101,6 +107,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve SAML IdP metadata from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +137,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMetadataSamlResult> getMetadataSaml(GetMetadataSamlArgs args) {
@@ -138,6 +147,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve SAML IdP metadata from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -166,6 +177,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMetadataSamlResult> getMetadataSamlPlain(GetMetadataSamlPlainArgs args) {
@@ -175,6 +187,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve SAML IdP metadata from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -203,6 +217,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMetadataSamlResult> getMetadataSaml(GetMetadataSamlArgs args, InvokeOptions options) {
@@ -212,6 +227,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve SAML IdP metadata from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -240,6 +257,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMetadataSamlResult> getMetadataSamlPlain(GetMetadataSamlPlainArgs args, InvokeOptions options) {
@@ -249,6 +267,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a OIDC IdP from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -277,6 +297,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOidcResult> getOidc() {
@@ -286,6 +307,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a OIDC IdP from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -314,6 +337,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOidcResult> getOidcPlain() {
@@ -323,6 +347,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a OIDC IdP from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -351,6 +377,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOidcResult> getOidc(GetOidcArgs args) {
@@ -360,6 +387,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a OIDC IdP from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -388,6 +417,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOidcResult> getOidcPlain(GetOidcPlainArgs args) {
@@ -397,6 +427,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a OIDC IdP from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -425,6 +457,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOidcResult> getOidc(GetOidcArgs args, InvokeOptions options) {
@@ -434,6 +467,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a OIDC IdP from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -462,6 +497,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOidcResult> getOidcPlain(GetOidcPlainArgs args, InvokeOptions options) {
@@ -471,6 +507,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a SAML IdP from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -499,6 +537,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSamlResult> getSaml() {
@@ -508,6 +547,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a SAML IdP from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -536,6 +577,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSamlResult> getSamlPlain() {
@@ -545,6 +587,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a SAML IdP from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -573,6 +617,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSamlResult> getSaml(GetSamlArgs args) {
@@ -582,6 +627,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a SAML IdP from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -610,6 +657,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSamlResult> getSamlPlain(GetSamlPlainArgs args) {
@@ -619,6 +667,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a SAML IdP from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -647,6 +697,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSamlResult> getSaml(GetSamlArgs args, InvokeOptions options) {
@@ -656,6 +707,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a SAML IdP from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -684,6 +737,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSamlResult> getSamlPlain(GetSamlPlainArgs args, InvokeOptions options) {
@@ -693,6 +747,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -721,6 +777,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSocialResult> getSocial() {
@@ -730,6 +787,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -758,6 +817,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSocialResult> getSocialPlain() {
@@ -767,6 +827,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -795,6 +857,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSocialResult> getSocial(GetSocialArgs args) {
@@ -804,6 +867,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -832,6 +897,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSocialResult> getSocialPlain(GetSocialPlainArgs args) {
@@ -841,6 +907,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -869,6 +937,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSocialResult> getSocial(GetSocialArgs args, InvokeOptions options) {
@@ -878,6 +947,8 @@ public final class IdpFunctions {
      * Use this data source to retrieve a social IdP from Okta, namely `APPLE`, `FACEBOOK`, `LINKEDIN`, `MICROSOFT`, or  `GOOGLE`.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -906,6 +977,7 @@ public final class IdpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSocialResult> getSocialPlain(GetSocialPlainArgs args, InvokeOptions options) {

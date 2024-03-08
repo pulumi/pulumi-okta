@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     label: "Example App",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getApp(args?: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
     args = args || {};
@@ -115,6 +117,7 @@ export interface GetAppResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -123,6 +126,7 @@ export interface GetAppResult {
  *     label: "Example App",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAppOutput(args?: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
     return pulumi.output(args).apply((a: any) => getApp(a, opts))

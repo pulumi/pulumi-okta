@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,6 +44,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -52,7 +54,7 @@ import (
 // $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;variableName&#62;
 // ```
 //
-//	User schema property of custom user type can be imported via user type id and property index
+// # User schema property of custom user type can be imported via user type id and property index
 //
 // ```sh
 // $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;user type id&#62;.&#60;index&#62;

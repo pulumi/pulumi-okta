@@ -583,6 +583,7 @@ class Bookmark(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -591,6 +592,7 @@ class Bookmark(pulumi.CustomResource):
             label="Example",
             url="https://example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -633,6 +635,7 @@ class Bookmark(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -641,6 +644,7 @@ class Bookmark(pulumi.CustomResource):
             label="Example",
             url="https://example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

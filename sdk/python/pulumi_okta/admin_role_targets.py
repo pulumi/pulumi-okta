@@ -187,6 +187,7 @@ class AdminRoleTargets(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -199,6 +200,7 @@ class AdminRoleTargets(pulumi.CustomResource):
             role_type="APP_ADMIN",
             user_id="<user_id>")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -229,6 +231,7 @@ class AdminRoleTargets(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -241,6 +244,7 @@ class AdminRoleTargets(pulumi.CustomResource):
             role_type="APP_ADMIN",
             user_id="<user_id>")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -11,12 +11,14 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const test = okta.getBrands({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBrands(opts?: pulumi.InvokeOptions): Promise<GetBrandsResult> {
 
@@ -43,12 +45,14 @@ export interface GetBrandsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const test = okta.getBrands({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBrandsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetBrandsResult> {
     return pulumi.output(getBrands(opts))

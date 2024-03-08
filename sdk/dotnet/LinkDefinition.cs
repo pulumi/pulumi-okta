@@ -17,6 +17,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,13 +38,14 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Okta Link Definition can be imported via the Okta Primary Link Name.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/linkDefinition:LinkDefinition example &amp;#60;primary_name&amp;#62;
+    /// $ pulumi import okta:index/linkDefinition:LinkDefinition example &amp;#60;primary_name&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/linkDefinition:LinkDefinition")]

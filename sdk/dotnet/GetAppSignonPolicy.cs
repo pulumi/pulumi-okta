@@ -20,10 +20,9 @@ namespace Pulumi.Okta
         /// policy_, in the public API the policy is of type
         /// [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAppSignonPolicyResult> InvokeAsync(GetAppSignonPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppSignonPolicyResult>("okta:index/getAppSignonPolicy:getAppSignonPolicy", args ?? new GetAppSignonPolicyArgs(), options.WithDefaults());
@@ -54,10 +52,9 @@ namespace Pulumi.Okta
         /// policy_, in the public API the policy is of type
         /// [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAppSignonPolicyResult> Invoke(GetAppSignonPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppSignonPolicyResult>("okta:index/getAppSignonPolicy:getAppSignonPolicy", args ?? new GetAppSignonPolicyInvokeArgs(), options.WithDefaults());

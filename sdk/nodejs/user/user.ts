@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  *
  * Full profile:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -53,9 +54,11 @@ import * as utilities from "../utilities";
  *     zipCode: "11111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * With Password Inline Hook:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -68,6 +71,7 @@ import * as utilities from "../utilities";
  *     passwordInlineHook: "default",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

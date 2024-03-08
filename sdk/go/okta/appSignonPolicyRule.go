@@ -23,9 +23,63 @@ import (
 //
 // ## Example Usage
 //
-// ### Rule with Constraints
+// ### Simple usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testSaml, err := app.NewSaml(ctx, "testSaml", &app.SamlArgs{
+//				Label:                 pulumi.String("My App"),
+//				SsoUrl:                pulumi.String("https://google.com"),
+//				Recipient:             pulumi.String("https://here.com"),
+//				Destination:           pulumi.String("https://its-about-the-journey.com"),
+//				Audience:              pulumi.String("https://audience.com"),
+//				Status:                pulumi.String("ACTIVE"),
+//				SubjectNameIdTemplate: pulumi.String("${user.userName}"),
+//				SubjectNameIdFormat:   pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"),
+//				SignatureAlgorithm:    pulumi.String("RSA_SHA256"),
+//				ResponseSigned:        pulumi.Bool(true),
+//				DigestAlgorithm:       pulumi.String("SHA256"),
+//				HonorForceAuthn:       pulumi.Bool(false),
+//				AuthnContextClassRef:  pulumi.String("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testAppSignonPolicy := okta.LookupAppSignonPolicyOutput(ctx, okta.GetAppSignonPolicyOutputArgs{
+//				AppId: testSaml.ID(),
+//			}, nil)
+//			_, err = okta.NewAppSignonPolicyRule(ctx, "testAppSignonPolicyRule", &okta.AppSignonPolicyRuleArgs{
+//				PolicyId: testAppSignonPolicy.ApplyT(func(testAppSignonPolicy okta.GetAppSignonPolicyResult) (*string, error) {
+//					return &testAppSignonPolicy.Id, nil
+//				}).(pulumi.StringPtrOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// This will create an app sign-on policy rule with the following `THEN` block:
+//
 // ### Example 1:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,9 +119,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // This will create an app sign-on policy rule with the following `THEN` block:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,8 +140,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example 2:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -130,9 +189,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // This will create an app sign-on policy rule with the following `THEN` block:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -149,11 +210,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // More examples can be
 // found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
+//
 // ### Complex example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -406,15 +470,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Okta app sign-on policy rule can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
-//
+// $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
 // ```
 type AppSignonPolicyRule struct {
 	pulumi.CustomResourceState

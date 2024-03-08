@@ -121,12 +121,14 @@ def get_group(delay_read_seconds: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.group.get_group(name="Example App")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str delay_read_seconds: Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
@@ -169,12 +171,14 @@ def get_group_output(delay_read_seconds: Optional[pulumi.Input[Optional[str]]] =
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.group.get_group(name="Example App")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str delay_read_seconds: Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.

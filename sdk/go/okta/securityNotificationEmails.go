@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Security Notification Emails can be imported without any parameters.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
-//
+// $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
 // ```
 type SecurityNotificationEmails struct {
 	pulumi.CustomResourceState

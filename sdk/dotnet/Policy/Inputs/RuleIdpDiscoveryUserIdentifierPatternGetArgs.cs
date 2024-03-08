@@ -21,6 +21,7 @@ namespace Pulumi.Okta.Policy.Inputs
         /// <summary>
         /// The regex or simple match string to match against.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,6 +31,7 @@ namespace Pulumi.Okta.Policy.Inputs
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

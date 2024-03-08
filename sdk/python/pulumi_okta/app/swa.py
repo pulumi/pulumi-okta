@@ -881,6 +881,7 @@ class Swa(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -892,6 +893,7 @@ class Swa(pulumi.CustomResource):
             url="https://example.com/login.html",
             username_field="txtbox-username")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -943,6 +945,7 @@ class Swa(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -954,6 +957,7 @@ class Swa(pulumi.CustomResource):
             url="https://example.com/login.html",
             username_field="txtbox-username")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -25,6 +26,7 @@ import * as utilities from "./utilities";
  *     userId: exampleUser.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserSecurityQuestions(args: GetUserSecurityQuestionsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSecurityQuestionsResult> {
 
@@ -63,6 +65,7 @@ export interface GetUserSecurityQuestionsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -77,6 +80,7 @@ export interface GetUserSecurityQuestionsResult {
  *     userId: exampleUser.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserSecurityQuestionsOutput(args: GetUserSecurityQuestionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSecurityQuestionsResult> {
     return pulumi.output(args).apply((a: any) => getUserSecurityQuestions(a, opts))

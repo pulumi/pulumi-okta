@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Default Password Policy can be imported without providing Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
-//
+// $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
 // ```
 type PolicyPasswordDefault struct {
 	pulumi.CustomResourceState

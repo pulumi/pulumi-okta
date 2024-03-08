@@ -18,6 +18,8 @@ public final class RuleIdpDiscoveryUserIdentifierPattern {
     private @Nullable String matchType;
     /**
      * @return The regex or simple match string to match against.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -40,6 +42,7 @@ public final class RuleIdpDiscoveryUserIdentifierPattern {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     private @Nullable String value;
@@ -54,6 +57,8 @@ public final class RuleIdpDiscoveryUserIdentifierPattern {
     }
     /**
      * @return The regex or simple match string to match against.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -76,6 +81,7 @@ public final class RuleIdpDiscoveryUserIdentifierPattern {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<String> value() {

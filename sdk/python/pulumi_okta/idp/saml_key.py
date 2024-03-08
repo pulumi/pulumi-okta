@@ -162,6 +162,8 @@ class SamlKey(pulumi.CustomResource):
                  x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
         ## Import
 
         A SAML IdP Signing Key can be imported via the key id.
@@ -181,6 +183,8 @@ class SamlKey(pulumi.CustomResource):
                  args: SamlKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
         ## Import
 
         A SAML IdP Signing Key can be imported via the key id.

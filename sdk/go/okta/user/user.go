@@ -20,6 +20,7 @@ import (
 //
 // Full profile:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,9 +74,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // With Password Inline Hook:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -103,6 +106,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -1740,6 +1740,7 @@ class OAuth(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1751,10 +1752,13 @@ class OAuth(pulumi.CustomResource):
             response_types=["code"],
             type="web")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With JWKS value
 
         See also Advanced PEM secrets and JWKS example.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1780,6 +1784,8 @@ class OAuth(pulumi.CustomResource):
             token_endpoint_auth_method="private_key_jwt",
             type="service")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Etc.
 
         ### Resetting client secret
@@ -1799,9 +1805,11 @@ class OAuth(pulumi.CustomResource):
         `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
         key with `openssl`:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1904,6 +1912,7 @@ class OAuth(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1915,10 +1924,13 @@ class OAuth(pulumi.CustomResource):
             response_types=["code"],
             type="web")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With JWKS value
 
         See also Advanced PEM secrets and JWKS example.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1944,6 +1956,8 @@ class OAuth(pulumi.CustomResource):
             token_endpoint_auth_method="private_key_jwt",
             type="service")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Etc.
 
         ### Resetting client secret
@@ -1963,9 +1977,11 @@ class OAuth(pulumi.CustomResource):
         `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
         key with `openssl`:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

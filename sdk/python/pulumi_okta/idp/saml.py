@@ -1087,6 +1087,7 @@ class Saml(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1102,6 +1103,7 @@ class Saml(pulumi.CustomResource):
             sso_url="https://idp.example.com",
             username_template="idpuser.email")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1157,6 +1159,7 @@ class Saml(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1172,6 +1175,7 @@ class Saml(pulumi.CustomResource):
             sso_url="https://idp.example.com",
             username_template="idpuser.email")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

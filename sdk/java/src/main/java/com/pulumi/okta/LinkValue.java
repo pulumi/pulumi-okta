@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Link value operations allow you to create relationships between primary and associated users.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -85,13 +87,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Okta Link Value can be imported via Primary Name and Primary User ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/linkValue:LinkValue example &amp;#60;primary_name&amp;#62;/&amp;#60;primary_user_id&amp;#62;
+ * $ pulumi import okta:index/linkValue:LinkValue example &amp;#60;primary_name&amp;#62;/&amp;#60;primary_user_id&amp;#62;
  * ```
  * 
  */

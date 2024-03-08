@@ -319,6 +319,7 @@ class ServerScope(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -328,6 +329,7 @@ class ServerScope(pulumi.CustomResource):
             consent="IMPLICIT",
             metadata_publish="NO_CLIENTS")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -361,6 +363,7 @@ class ServerScope(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -370,6 +373,7 @@ class ServerScope(pulumi.CustomResource):
             consent="IMPLICIT",
             metadata_publish="NO_CLIENTS")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

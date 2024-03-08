@@ -728,6 +728,7 @@ class UserSchemaProperty(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -741,6 +742,7 @@ class UserSchemaProperty(pulumi.CustomResource):
             type="string",
             user_type=data["okta_user_type"]["example"]["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -750,7 +752,7 @@ class UserSchemaProperty(pulumi.CustomResource):
         $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;variableName&#62;
         ```
 
-         User schema property of custom user type can be imported via user type id and property index
+        User schema property of custom user type can be imported via user type id and property index
 
         ```sh
         $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;user type id&#62;.&#60;index&#62;
@@ -789,6 +791,7 @@ class UserSchemaProperty(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -802,6 +805,7 @@ class UserSchemaProperty(pulumi.CustomResource):
             type="string",
             user_type=data["okta_user_type"]["example"]["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -811,7 +815,7 @@ class UserSchemaProperty(pulumi.CustomResource):
         $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;variableName&#62;
         ```
 
-         User schema property of custom user type can be imported via user type id and property index
+        User schema property of custom user type can be imported via user type id and property index
 
         ```sh
         $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;user type id&#62;.&#60;index&#62;

@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -22,6 +23,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleEmailSenderVerification = new okta.EmailSenderVerification("exampleEmailSenderVerification", {senderId: okta_email_sender.valid.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

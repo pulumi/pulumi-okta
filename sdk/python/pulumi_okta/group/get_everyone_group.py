@@ -73,12 +73,14 @@ def get_everyone_group(include_users: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.group.get_everyone_group()
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool include_users: whether to retrieve all member ids.
@@ -103,12 +105,14 @@ def get_everyone_group_output(include_users: Optional[pulumi.Input[Optional[bool
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.group.get_everyone_group()
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool include_users: whether to retrieve all member ids.

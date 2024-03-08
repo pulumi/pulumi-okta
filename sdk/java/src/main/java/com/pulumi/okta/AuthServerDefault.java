@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * This resource allows you to configure Default Authorization Server.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Authorization Server can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/authServerDefault:AuthServerDefault example &amp;#60;default&amp;#62;
+ * $ pulumi import okta:index/authServerDefault:AuthServerDefault example &amp;#60;default&amp;#62;
  * ```
  * 
  */

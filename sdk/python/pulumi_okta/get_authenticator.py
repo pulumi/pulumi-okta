@@ -181,19 +181,23 @@ def get_authenticator(id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     test = okta.get_authenticator(name="Security Question")
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     test = okta.get_authenticator(key="okta_email")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the authenticator.
@@ -234,19 +238,23 @@ def get_authenticator_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     test = okta.get_authenticator(name="Security Question")
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     test = okta.get_authenticator(key="okta_email")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the authenticator.

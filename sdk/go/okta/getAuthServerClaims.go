@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetAuthServerClaims(ctx *pulumi.Context, args *GetAuthServerClaimsArgs, opts ...pulumi.InvokeOption) (*GetAuthServerClaimsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAuthServerClaimsResult

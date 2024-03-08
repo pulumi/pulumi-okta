@@ -72,6 +72,7 @@ class EmailSenderVerification(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -82,6 +83,7 @@ class EmailSenderVerification(pulumi.CustomResource):
             subdomain="mail")
         example_email_sender_verification = okta.EmailSenderVerification("exampleEmailSenderVerification", sender_id=okta_email_sender["valid"]["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -104,6 +106,7 @@ class EmailSenderVerification(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -114,6 +117,7 @@ class EmailSenderVerification(pulumi.CustomResource):
             subdomain="mail")
         example_email_sender_verification = okta.EmailSenderVerification("exampleEmailSenderVerification", sender_id=okta_email_sender["valid"]["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -23,7 +23,7 @@ import * as utilities from "./utilities";
  * Okta Resource Set can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/resourceSet:ResourceSet example &#60;resource_set_id&#62;
+ * $ pulumi import okta:index/resourceSet:ResourceSet example &#60;resource_set_id&#62;
  * ```
  */
 export class ResourceSet extends pulumi.CustomResource {
