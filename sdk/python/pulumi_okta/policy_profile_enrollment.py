@@ -106,12 +106,14 @@ class PolicyProfileEnrollment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
 
         example = okta.PolicyProfileEnrollment("example", status="ACTIVE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -139,12 +141,14 @@ class PolicyProfileEnrollment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
 
         example = okta.PolicyProfileEnrollment("example", status="ACTIVE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

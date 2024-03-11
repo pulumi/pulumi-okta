@@ -134,9 +134,11 @@ class RuleIdpDiscoveryPlatformInclude(dict):
         :param str os_expression: Only available when using `os_type = "OTHER"`
         :param str os_type: One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         """
         if os_expression is not None:
@@ -160,9 +162,11 @@ class RuleIdpDiscoveryPlatformInclude(dict):
         """
         One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "os_type")
 
@@ -201,9 +205,11 @@ class RuleIdpDiscoveryUserIdentifierPattern(dict):
         :param str match_type: The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
         :param str value: The regex or simple match string to match against.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         """
         if match_type is not None:
             pulumi.set(__self__, "match_type", match_type)
@@ -224,9 +230,11 @@ class RuleIdpDiscoveryUserIdentifierPattern(dict):
         """
         The regex or simple match string to match against.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "value")
 

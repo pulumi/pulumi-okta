@@ -96,12 +96,14 @@ def get_groups(q: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.get_groups(q="Engineering - ")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str q: Searches the name property of groups for matching value.
@@ -137,12 +139,14 @@ def get_groups_output(q: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.get_groups(q="Engineering - ")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str q: Searches the name property of groups for matching value.

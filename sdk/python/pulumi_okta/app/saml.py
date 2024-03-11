@@ -1789,6 +1789,7 @@ class Saml(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1813,8 +1814,11 @@ class Saml(pulumi.CustomResource):
             subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
             subject_name_id_template="${user.userName}")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With inline hook
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1856,8 +1860,11 @@ class Saml(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[test_hook]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Pre-configured app with SAML 1.1 sign-on mode
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1876,8 +1883,11 @@ class Saml(pulumi.CustomResource):
             user_name_template="${source.login}",
             user_name_template_type="BUILT_IN")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Pre-configured app with SAML 1.1 sign-on mode, `app_settings_json` and `app_links_json`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1922,6 +1932,7 @@ class Saml(pulumi.CustomResource):
             saml_version="1.1",
             status="ACTIVE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1999,6 +2010,7 @@ class Saml(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -2023,8 +2035,11 @@ class Saml(pulumi.CustomResource):
             subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
             subject_name_id_template="${user.userName}")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With inline hook
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -2066,8 +2081,11 @@ class Saml(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[test_hook]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Pre-configured app with SAML 1.1 sign-on mode
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -2086,8 +2104,11 @@ class Saml(pulumi.CustomResource):
             user_name_template="${source.login}",
             user_name_template_type="BUILT_IN")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Pre-configured app with SAML 1.1 sign-on mode, `app_settings_json` and `app_links_json`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -2132,6 +2153,7 @@ class Saml(pulumi.CustomResource):
             saml_version="1.1",
             status="ACTIVE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

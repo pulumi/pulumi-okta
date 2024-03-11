@@ -20,6 +20,7 @@ namespace Pulumi.Okta.Policy.Outputs
         /// <summary>
         /// The regex or simple match string to match against.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,6 +30,7 @@ namespace Pulumi.Okta.Policy.Outputs
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public readonly string? Value;
 

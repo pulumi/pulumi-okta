@@ -73,6 +73,7 @@ def get_user_security_questions(user_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -84,6 +85,7 @@ def get_user_security_questions(user_id: Optional[str] = None,
         email="john.smith@example.com")
     example_user_security_questions = okta.get_user_security_questions_output(user_id=example_user.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str user_id: User ID.
@@ -107,6 +109,7 @@ def get_user_security_questions_output(user_id: Optional[pulumi.Input[str]] = No
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -118,6 +121,7 @@ def get_user_security_questions_output(user_id: Optional[pulumi.Input[str]] = No
         email="john.smith@example.com")
     example_user_security_questions = okta.get_user_security_questions_output(user_id=example_user.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str user_id: User ID.

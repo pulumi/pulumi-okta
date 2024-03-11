@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -18,6 +19,7 @@ import * as utilities from "../utilities";
  *     keyId: "<cert key id>",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getMetadataSaml(args: GetMetadataSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataSamlResult> {
 
@@ -82,6 +84,7 @@ export interface GetMetadataSamlResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -91,6 +94,7 @@ export interface GetMetadataSamlResult {
  *     keyId: "<cert key id>",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getMetadataSamlOutput(args: GetMetadataSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataSamlResult> {
     return pulumi.output(args).apply((a: any) => getMetadataSaml(a, opts))

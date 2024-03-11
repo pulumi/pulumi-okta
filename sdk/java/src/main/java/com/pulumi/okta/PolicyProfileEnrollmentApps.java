@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  *      unexpected behavior, since if the app is unassigned from the policy it is just assigned to the `Default` one.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -68,6 +70,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

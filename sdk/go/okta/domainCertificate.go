@@ -26,6 +26,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,10 +79,7 @@ import (
 //	}
 //
 // ```
-//
-// ## Import
-//
-// This resource does not support importing.
+// <!--End PulumiCodeChooser -->
 type DomainCertificate struct {
 	pulumi.CustomResourceState
 

@@ -1490,6 +1490,7 @@ class User(pulumi.CustomResource):
 
         Full profile:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1527,9 +1528,11 @@ class User(pulumi.CustomResource):
             user_type="Employee",
             zip_code="11111")
         ```
+        <!--End PulumiCodeChooser -->
 
         With Password Inline Hook:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1541,6 +1544,7 @@ class User(pulumi.CustomResource):
             login="example@example.com",
             password_inline_hook="default")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1619,6 +1623,7 @@ class User(pulumi.CustomResource):
 
         Full profile:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1656,9 +1661,11 @@ class User(pulumi.CustomResource):
             user_type="Employee",
             zip_code="11111")
         ```
+        <!--End PulumiCodeChooser -->
 
         With Password Inline Hook:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1670,6 +1677,7 @@ class User(pulumi.CustomResource):
             login="example@example.com",
             password_inline_hook="default")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

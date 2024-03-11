@@ -18,9 +18,40 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * ### Rule with Constraints
+ * ### Simple usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const testSaml = new okta.app.Saml("testSaml", {
+ *     label: "My App",
+ *     ssoUrl: "https://google.com",
+ *     recipient: "https://here.com",
+ *     destination: "https://its-about-the-journey.com",
+ *     audience: "https://audience.com",
+ *     status: "ACTIVE",
+ *     subjectNameIdTemplate: "${user.userName}",
+ *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+ *     signatureAlgorithm: "RSA_SHA256",
+ *     responseSigned: true,
+ *     digestAlgorithm: "SHA256",
+ *     honorForceAuthn: false,
+ *     authnContextClassRef: "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+ * });
+ * const testAppSignonPolicy = okta.getAppSignonPolicyOutput({
+ *     appId: testSaml.id,
+ * });
+ * const testAppSignonPolicyRule = new okta.AppSignonPolicyRule("testAppSignonPolicyRule", {policyId: testAppSignonPolicy.apply(testAppSignonPolicy => testAppSignonPolicy.id)});
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * This will create an app sign-on policy rule with the following `THEN` block:
+ *
  * ### Example 1:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -34,14 +65,19 @@ import * as utilities from "./utilities";
  *     })],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * This will create an app sign-on policy rule with the following `THEN` block:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example 2:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -60,17 +96,22 @@ import * as utilities from "./utilities";
  *     })],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * This will create an app sign-on policy rule with the following `THEN` block:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * More examples can be
  * found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
+ *
  * ### Complex example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -245,13 +286,14 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Okta app sign-on policy rule can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
+ * $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
  * ```
  */
 export class AppSignonPolicyRule extends pulumi.CustomResource {

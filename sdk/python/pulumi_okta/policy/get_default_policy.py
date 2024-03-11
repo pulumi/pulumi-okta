@@ -63,12 +63,14 @@ def get_default_policy(type: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.policy.get_default_policy(type="PASSWORD")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str type: Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`
@@ -92,12 +94,14 @@ def get_default_policy_output(type: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.policy.get_default_policy(type="PASSWORD")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str type: Type of policy to retrieve.  Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`

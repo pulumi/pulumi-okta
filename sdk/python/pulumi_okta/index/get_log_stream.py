@@ -103,12 +103,14 @@ def get_log_stream(id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.Index.get_log_stream(name="Example Stream")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the log stream to retrieve, conflicts with `name`.
@@ -140,12 +142,14 @@ def get_log_stream_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.Index.get_log_stream(name="Example Stream")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the log stream to retrieve, conflicts with `name`.

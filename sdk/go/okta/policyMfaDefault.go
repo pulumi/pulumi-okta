@@ -21,6 +21,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,6 +63,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // > If the `PolicyMfaDefault` is used in conjunction with `policy.Mfa` resources, ensure to use a `dependsOn` attribute for the default policy to ensure that all other policies are created/updated first such that the `priority` field can be appropriately computed on the first plan/apply.
 //
@@ -70,9 +72,7 @@ import (
 // Default MFA Policy can be imported without providing Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/policyMfaDefault:PolicyMfaDefault example .
-//
+// $ pulumi import okta:index/policyMfaDefault:PolicyMfaDefault example .
 // ```
 type PolicyMfaDefault struct {
 	pulumi.CustomResourceState

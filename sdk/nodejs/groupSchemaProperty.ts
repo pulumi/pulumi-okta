@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -22,13 +23,14 @@ import * as utilities from "./utilities";
  *     type: "string",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Group schema property can be imported via the property index.
  *
  * ```sh
- *  $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
+ * $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
  * ```
  */
 export class GroupSchemaProperty extends pulumi.CustomResource {

@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     authServerId: "default",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAuthServerClaims(args: GetAuthServerClaimsArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthServerClaimsResult> {
 
@@ -57,6 +59,7 @@ export interface GetAuthServerClaimsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -65,6 +68,7 @@ export interface GetAuthServerClaimsResult {
  *     authServerId: "default",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAuthServerClaimsOutput(args: GetAuthServerClaimsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthServerClaimsResult> {
     return pulumi.output(args).apply((a: any) => getAuthServerClaims(a, opts))

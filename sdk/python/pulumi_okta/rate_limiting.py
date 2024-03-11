@@ -147,6 +147,7 @@ class RateLimiting(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -156,13 +157,14 @@ class RateLimiting(pulumi.CustomResource):
             communications_enabled=True,
             login="ENFORCE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Rate limit settings can be imported without any parameters.
 
         ```sh
-         $ pulumi import okta:index/rateLimiting:RateLimiting example .
+        $ pulumi import okta:index/rateLimiting:RateLimiting example .
         ```
 
         :param str resource_name: The name of the resource.
@@ -188,6 +190,7 @@ class RateLimiting(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -197,13 +200,14 @@ class RateLimiting(pulumi.CustomResource):
             communications_enabled=True,
             login="ENFORCE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Rate limit settings can be imported without any parameters.
 
         ```sh
-         $ pulumi import okta:index/rateLimiting:RateLimiting example .
+        $ pulumi import okta:index/rateLimiting:RateLimiting example .
         ```
 
         :param str resource_name: The name of the resource.

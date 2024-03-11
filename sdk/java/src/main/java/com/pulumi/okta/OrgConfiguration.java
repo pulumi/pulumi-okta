@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **IMPORTANT:** You must specify all Org Setting properties when you update an org&#39;s profile. Any property not specified in the script will be deleted.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Okta Org Configuration can be imported even without specifying the Org ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
+ * $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
  * ```
  * 
  */

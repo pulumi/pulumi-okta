@@ -16,6 +16,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +36,14 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Authorization Server can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/authServerDefault:AuthServerDefault example &amp;#60;default&amp;#62;
+    /// $ pulumi import okta:index/authServerDefault:AuthServerDefault example &amp;#60;default&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/authServerDefault:AuthServerDefault")]

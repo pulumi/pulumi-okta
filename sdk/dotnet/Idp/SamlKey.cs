@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Idp
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
     /// A SAML IdP Signing Key can be imported via the key id.

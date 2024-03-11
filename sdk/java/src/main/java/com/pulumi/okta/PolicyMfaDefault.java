@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * &gt; Unless Org Feature Flag `ENG_ENABLE_OPTIONAL_PASSWORD_ENROLLMENT` is ***disabled*** `okta_password` or `okta_email` must be present and its `enroll` value set to `REQUIRED`. Contact support to have this feature flag ***disabled***.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -63,6 +65,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; If the `okta.PolicyMfaDefault` is used in conjunction with `okta.policy.Mfa` resources, ensure to use a `depends_on` attribute for the default policy to ensure that all other policies are created/updated first such that the `priority` field can be appropriately computed on the first plan/apply.
  * 
@@ -71,7 +74,7 @@ import javax.annotation.Nullable;
  * Default MFA Policy can be imported without providing Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/policyMfaDefault:PolicyMfaDefault example .
+ * $ pulumi import okta:index/policyMfaDefault:PolicyMfaDefault example .
  * ```
  * 
  */

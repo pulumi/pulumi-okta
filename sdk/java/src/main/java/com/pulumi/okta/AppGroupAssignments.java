@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * This resource allows you to create multiple App Group assignments.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,13 +66,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * An application&#39;s group assignments can be imported via `app_id`.
  * 
  * ```sh
- *  $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &amp;#60;app_id&amp;#62;
+ * $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &amp;#60;app_id&amp;#62;
  * ```
  * 
  */

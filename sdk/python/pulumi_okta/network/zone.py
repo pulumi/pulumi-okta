@@ -340,6 +340,7 @@ class Zone(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -355,8 +356,11 @@ class Zone(pulumi.CustomResource):
             ],
             type="IP")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Dynamic Tor Blocker
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -366,6 +370,7 @@ class Zone(pulumi.CustomResource):
             type="DYNAMIC",
             usage="BLOCKLIST")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -401,6 +406,7 @@ class Zone(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -416,8 +422,11 @@ class Zone(pulumi.CustomResource):
             ],
             type="IP")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Dynamic Tor Blocker
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -427,6 +436,7 @@ class Zone(pulumi.CustomResource):
             type="DYNAMIC",
             usage="BLOCKLIST")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

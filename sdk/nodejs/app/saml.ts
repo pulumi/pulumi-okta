@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -44,8 +45,11 @@ import * as utilities from "../utilities";
  *     subjectNameIdTemplate: "${user.userName}",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With inline hook
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -90,8 +94,11 @@ import * as utilities from "../utilities";
  *     dependsOn: [testHook],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Pre-configured app with SAML 1.1 sign-on mode
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -111,8 +118,11 @@ import * as utilities from "../utilities";
  *     userNameTemplateType: "BUILT_IN",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Pre-configured app with SAML 1.1 sign-on mode, `appSettingsJson` and `appLinksJson`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -158,6 +168,7 @@ import * as utilities from "../utilities";
  *     status: "ACTIVE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

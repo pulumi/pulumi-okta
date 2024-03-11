@@ -170,6 +170,7 @@ class Origin(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -178,6 +179,7 @@ class Origin(pulumi.CustomResource):
             origin="https://example.com",
             scopes=["CORS"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -207,6 +209,7 @@ class Origin(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -215,6 +218,7 @@ class Origin(pulumi.CustomResource):
             origin="https://example.com",
             scopes=["CORS"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

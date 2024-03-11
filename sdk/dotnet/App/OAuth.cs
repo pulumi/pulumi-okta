@@ -18,6 +18,7 @@ namespace Pulumi.Okta.App
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,10 +47,13 @@ namespace Pulumi.Okta.App
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With JWKS value
     /// 
     /// See also Advanced PEM secrets and JWKS example.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,6 +96,8 @@ namespace Pulumi.Okta.App
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Etc.
     /// 
     /// ### Resetting client secret
@@ -111,6 +117,7 @@ namespace Pulumi.Okta.App
     /// `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
     /// key with `openssl`:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -120,6 +127,7 @@ namespace Pulumi.Okta.App
     /// {
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

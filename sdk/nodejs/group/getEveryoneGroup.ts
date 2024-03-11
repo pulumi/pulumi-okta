@@ -10,12 +10,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const example = okta.group.getEveryoneGroup({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEveryoneGroup(args?: GetEveryoneGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetEveryoneGroupResult> {
     args = args || {};
@@ -56,12 +58,14 @@ export interface GetEveryoneGroupResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const example = okta.group.getEveryoneGroup({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEveryoneGroupOutput(args?: GetEveryoneGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEveryoneGroupResult> {
     return pulumi.output(args).apply((a: any) => getEveryoneGroup(a, opts))

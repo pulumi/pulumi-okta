@@ -146,6 +146,7 @@ class GroupMemberships(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -158,6 +159,7 @@ class GroupMemberships(pulumi.CustomResource):
                 okta_user["test2"]["id"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -167,7 +169,7 @@ class GroupMemberships(pulumi.CustomResource):
         $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;
         ```
 
-         optional parameter track all users will also import all user id currently assigned to the group
+        optional parameter track all users will also import all user id currently assigned to the group
 
         ```sh
         $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;/&#60;true&#62;
@@ -201,6 +203,7 @@ class GroupMemberships(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -213,6 +216,7 @@ class GroupMemberships(pulumi.CustomResource):
                 okta_user["test2"]["id"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -222,7 +226,7 @@ class GroupMemberships(pulumi.CustomResource):
         $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;
         ```
 
-         optional parameter track all users will also import all user id currently assigned to the group
+        optional parameter track all users will also import all user id currently assigned to the group
 
         ```sh
         $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;/&#60;true&#62;

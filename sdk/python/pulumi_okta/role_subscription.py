@@ -237,6 +237,7 @@ class RoleSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -246,13 +247,14 @@ class RoleSubscription(pulumi.CustomResource):
             role_type="SUPER_ADMIN",
             status="unsubscribed")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         A role subscription can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/roleSubscription:RoleSubscription example &#60;role_type&#62;/&#60;notification_type&#62;
+        $ pulumi import okta:index/roleSubscription:RoleSubscription example &#60;role_type&#62;/&#60;notification_type&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -299,6 +301,7 @@ class RoleSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -308,13 +311,14 @@ class RoleSubscription(pulumi.CustomResource):
             role_type="SUPER_ADMIN",
             status="unsubscribed")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         A role subscription can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/roleSubscription:RoleSubscription example &#60;role_type&#62;/&#60;notification_type&#62;
+        $ pulumi import okta:index/roleSubscription:RoleSubscription example &#60;role_type&#62;/&#60;notification_type&#62;
         ```
 
         :param str resource_name: The name of the resource.

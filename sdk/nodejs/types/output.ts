@@ -889,9 +889,11 @@ export namespace policy {
         /**
          * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
          *
+         * <!--Start PulumiCodeChooser -->
          * ```typescript
          * import * as pulumi from "@pulumi/pulumi";
          * ```
+         * <!--End PulumiCodeChooser -->
          */
         osType?: string;
         /**
@@ -908,9 +910,11 @@ export namespace policy {
         /**
          * The regex or simple match string to match against.
          *
+         * <!--Start PulumiCodeChooser -->
          * ```typescript
          * import * as pulumi from "@pulumi/pulumi";
          * ```
+         * <!--End PulumiCodeChooser -->
          */
         value?: string;
     }

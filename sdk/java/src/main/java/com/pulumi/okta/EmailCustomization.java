@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  * An email customization can be imported using the customization ID, brand ID and template name.
  * 
  * ```sh
- *  $ pulumi import okta:index/emailCustomization:EmailCustomization example &amp;#60;customization_id&amp;#62;/&amp;#60;brand_id&amp;#62;/&amp;#60;template_name&amp;#62;
+ * $ pulumi import okta:index/emailCustomization:EmailCustomization example &amp;#60;customization_id&amp;#62;/&amp;#60;brand_id&amp;#62;/&amp;#60;template_name&amp;#62;
  * ```
  * 
  */

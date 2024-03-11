@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  * An application group assignment can be imported via the `app_id` and the `group_id`.
  *
  * ```sh
- *  $ pulumi import okta:app/groupAssignment:GroupAssignment example &#60;app_id&#62;/&#60;group_id&#62;
+ * $ pulumi import okta:app/groupAssignment:GroupAssignment example &#60;app_id&#62;/&#60;group_id&#62;
  * ```
  */
 export class GroupAssignment extends pulumi.CustomResource {

@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,6 +89,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -101,6 +103,7 @@ type RuleIdpDiscovery struct {
 
 	// Applications to exclude in discovery. See `appInclude` for details.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -114,6 +117,7 @@ type RuleIdpDiscovery struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	AppExcludes RuleIdpDiscoveryAppExcludeArrayOutput `pulumi:"appExcludes"`
 	// Applications to include in discovery rule.
 	AppIncludes RuleIdpDiscoveryAppIncludeArrayOutput `pulumi:"appIncludes"`
@@ -176,6 +180,7 @@ func GetRuleIdpDiscovery(ctx *pulumi.Context,
 type ruleIdpDiscoveryState struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -189,6 +194,7 @@ type ruleIdpDiscoveryState struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	AppExcludes []RuleIdpDiscoveryAppExclude `pulumi:"appExcludes"`
 	// Applications to include in discovery rule.
 	AppIncludes []RuleIdpDiscoveryAppInclude `pulumi:"appIncludes"`
@@ -222,6 +228,7 @@ type ruleIdpDiscoveryState struct {
 type RuleIdpDiscoveryState struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -235,6 +242,7 @@ type RuleIdpDiscoveryState struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	AppExcludes RuleIdpDiscoveryAppExcludeArrayInput
 	// Applications to include in discovery rule.
 	AppIncludes RuleIdpDiscoveryAppIncludeArrayInput
@@ -272,6 +280,7 @@ func (RuleIdpDiscoveryState) ElementType() reflect.Type {
 type ruleIdpDiscoveryArgs struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -285,6 +294,7 @@ type ruleIdpDiscoveryArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	AppExcludes []RuleIdpDiscoveryAppExclude `pulumi:"appExcludes"`
 	// Applications to include in discovery rule.
 	AppIncludes []RuleIdpDiscoveryAppInclude `pulumi:"appIncludes"`
@@ -319,6 +329,7 @@ type ruleIdpDiscoveryArgs struct {
 type RuleIdpDiscoveryArgs struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -332,6 +343,7 @@ type RuleIdpDiscoveryArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	AppExcludes RuleIdpDiscoveryAppExcludeArrayInput
 	// Applications to include in discovery rule.
 	AppIncludes RuleIdpDiscoveryAppIncludeArrayInput
@@ -451,6 +463,7 @@ func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryOutputWithContext(ctx context.
 
 // Applications to exclude in discovery. See `appInclude` for details.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -467,6 +480,7 @@ func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryOutputWithContext(ctx context.
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o RuleIdpDiscoveryOutput) AppExcludes() RuleIdpDiscoveryAppExcludeArrayOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscoveryAppExcludeArrayOutput { return v.AppExcludes }).(RuleIdpDiscoveryAppExcludeArrayOutput)
 }

@@ -17,8 +17,10 @@ import (
 // This resource allows you to create and configure an Okta Log Stream.
 //
 // ## Example Usage
+//
 // ### Splunk Event Collector
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,6 +50,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

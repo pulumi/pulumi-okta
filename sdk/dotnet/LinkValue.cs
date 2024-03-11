@@ -14,6 +14,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,13 +69,14 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Okta Link Value can be imported via Primary Name and Primary User ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/linkValue:LinkValue example &amp;#60;primary_name&amp;#62;/&amp;#60;primary_user_id&amp;#62;
+    /// $ pulumi import okta:index/linkValue:LinkValue example &amp;#60;primary_name&amp;#62;/&amp;#60;primary_user_id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/linkValue:LinkValue")]

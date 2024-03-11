@@ -14,10 +14,9 @@ namespace Pulumi.Okta
         /// <summary>
         /// Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAppGroupAssignmentsResult> InvokeAsync(GetAppGroupAssignmentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppGroupAssignmentsResult>("okta:index/getAppGroupAssignments:getAppGroupAssignments", args ?? new GetAppGroupAssignmentsArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Okta
         /// <summary>
         /// Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAppGroupAssignmentsResult> Invoke(GetAppGroupAssignmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppGroupAssignmentsResult>("okta:index/getAppGroupAssignments:getAppGroupAssignments", args ?? new GetAppGroupAssignmentsInvokeArgs(), options.WithDefaults());

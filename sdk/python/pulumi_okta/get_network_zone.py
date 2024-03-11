@@ -160,12 +160,14 @@ def get_network_zone(id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.get_network_zone(name="Block Antarctica")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the network zone to retrieve, conflicts with `name`.
@@ -199,12 +201,14 @@ def get_network_zone_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.get_network_zone(name="Block Antarctica")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the network zone to retrieve, conflicts with `name`.

@@ -944,19 +944,21 @@ class PolicyPasswordDefault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
 
         default = okta.PolicyPasswordDefault("default")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Default Password Policy can be imported without providing Okta ID.
 
         ```sh
-         $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
+        $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
         ```
 
         :param str resource_name: The name of the resource.
@@ -1003,19 +1005,21 @@ class PolicyPasswordDefault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
 
         default = okta.PolicyPasswordDefault("default")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Default Password Policy can be imported without providing Okta ID.
 
         ```sh
-         $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
+        $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
         ```
 
         :param str resource_name: The name of the resource.

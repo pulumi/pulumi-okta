@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,15 +37,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Okta Admin Role Targets can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
-//
+// $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
 // ```
 type Domain struct {
 	pulumi.CustomResourceState

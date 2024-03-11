@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * page regarding what notifications are available for specific admin roles.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * A role subscription can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/roleSubscription:RoleSubscription example &amp;#60;role_type&amp;#62;/&amp;#60;notification_type&amp;#62;
+ * $ pulumi import okta:index/roleSubscription:RoleSubscription example &amp;#60;role_type&amp;#62;/&amp;#60;notification_type&amp;#62;
  * ```
  * 
  */

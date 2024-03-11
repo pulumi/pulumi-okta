@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupSocial(ctx *pulumi.Context, args *LookupSocialArgs, opts ...pulumi.InvokeOption) (*LookupSocialResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSocialResult

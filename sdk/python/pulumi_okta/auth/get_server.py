@@ -171,12 +171,14 @@ def get_server(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.auth.get_server(name="Example Auth")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the auth server to retrieve.
@@ -208,12 +210,14 @@ def get_server_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.auth.get_server(name="Example Auth")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the auth server to retrieve.

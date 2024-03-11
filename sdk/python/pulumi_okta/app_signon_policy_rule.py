@@ -895,9 +895,37 @@ class AppSignonPolicyRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Rule with Constraints
+        ### Simple usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test_saml = okta.app.Saml("testSaml",
+            label="My App",
+            sso_url="https://google.com",
+            recipient="https://here.com",
+            destination="https://its-about-the-journey.com",
+            audience="https://audience.com",
+            status="ACTIVE",
+            subject_name_id_template="${user.userName}",
+            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+            signature_algorithm="RSA_SHA256",
+            response_signed=True,
+            digest_algorithm="SHA256",
+            honor_force_authn=False,
+            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport")
+        test_app_signon_policy = okta.get_app_signon_policy_output(app_id=test_saml.id)
+        test_app_signon_policy_rule = okta.AppSignonPolicyRule("testAppSignonPolicyRule", policy_id=test_app_signon_policy.id)
+        ```
+        <!--End PulumiCodeChooser -->
+
+        This will create an app sign-on policy rule with the following `THEN` block:
+
         ### Example 1:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -911,14 +939,19 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                 },
             })])
         ```
+        <!--End PulumiCodeChooser -->
 
         This will create an app sign-on policy rule with the following `THEN` block:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example 2:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -937,17 +970,22 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                 },
             })])
         ```
+        <!--End PulumiCodeChooser -->
 
         This will create an app sign-on policy rule with the following `THEN` block:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
 
         More examples can be
         found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
+
         ### Complex example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1111,13 +1149,14 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                 }),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Okta app sign-on policy rule can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
+        $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -1168,9 +1207,37 @@ class AppSignonPolicyRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Rule with Constraints
+        ### Simple usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test_saml = okta.app.Saml("testSaml",
+            label="My App",
+            sso_url="https://google.com",
+            recipient="https://here.com",
+            destination="https://its-about-the-journey.com",
+            audience="https://audience.com",
+            status="ACTIVE",
+            subject_name_id_template="${user.userName}",
+            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+            signature_algorithm="RSA_SHA256",
+            response_signed=True,
+            digest_algorithm="SHA256",
+            honor_force_authn=False,
+            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport")
+        test_app_signon_policy = okta.get_app_signon_policy_output(app_id=test_saml.id)
+        test_app_signon_policy_rule = okta.AppSignonPolicyRule("testAppSignonPolicyRule", policy_id=test_app_signon_policy.id)
+        ```
+        <!--End PulumiCodeChooser -->
+
+        This will create an app sign-on policy rule with the following `THEN` block:
+
         ### Example 1:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1184,14 +1251,19 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                 },
             })])
         ```
+        <!--End PulumiCodeChooser -->
 
         This will create an app sign-on policy rule with the following `THEN` block:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example 2:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1210,17 +1282,22 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                 },
             })])
         ```
+        <!--End PulumiCodeChooser -->
 
         This will create an app sign-on policy rule with the following `THEN` block:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
 
         More examples can be
         found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
+
         ### Complex example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1384,13 +1461,14 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                 }),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Okta app sign-on policy rule can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
+        $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
         ```
 
         :param str resource_name: The name of the resource.

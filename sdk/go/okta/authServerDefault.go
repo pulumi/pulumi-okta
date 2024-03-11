@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Authorization Server can be imported via the Okta ID.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;default&#62;
-//
+// $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;default&#62;
 // ```
 type AuthServerDefault struct {
 	pulumi.CustomResourceState

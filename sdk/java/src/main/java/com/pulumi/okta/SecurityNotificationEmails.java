@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Security Notification Emails can be imported without any parameters.
  * 
  * ```sh
- *  $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
+ * $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
  * ```
  * 
  */

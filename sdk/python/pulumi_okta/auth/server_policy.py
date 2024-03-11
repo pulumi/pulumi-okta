@@ -234,6 +234,7 @@ class ServerPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -245,6 +246,7 @@ class ServerPolicy(pulumi.CustomResource):
             priority=1,
             status="ACTIVE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -276,6 +278,7 @@ class ServerPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -287,6 +290,7 @@ class ServerPolicy(pulumi.CustomResource):
             priority=1,
             status="ACTIVE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

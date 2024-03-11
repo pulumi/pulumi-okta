@@ -63,12 +63,14 @@ def get_brands(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrand
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     test = okta.get_brands()
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -86,11 +88,13 @@ def get_brands_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Out
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     test = okta.get_brands()
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

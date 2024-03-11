@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * deactivated if it&#39;s not in use by any other policy.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,6 +68,9 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -105,13 +110,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Okta authenticator can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/authenticator:Authenticator example &amp;#60;authenticator_id&amp;#62;
+ * $ pulumi import okta:index/authenticator:Authenticator example &amp;#60;authenticator_id&amp;#62;
  * ```
  * 
  */

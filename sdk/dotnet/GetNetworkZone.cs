@@ -14,10 +14,9 @@ namespace Pulumi.Okta
         /// <summary>
         /// Use this data source to retrieve a network zone from Okta.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetNetworkZoneResult> InvokeAsync(GetNetworkZoneArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkZoneResult>("okta:index/getNetworkZone:getNetworkZone", args ?? new GetNetworkZoneArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Okta
         /// <summary>
         /// Use this data source to retrieve a network zone from Okta.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetNetworkZoneResult> Invoke(GetNetworkZoneInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkZoneResult>("okta:index/getNetworkZone:getNetworkZone", args ?? new GetNetworkZoneInvokeArgs(), options.WithDefaults());

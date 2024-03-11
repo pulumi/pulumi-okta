@@ -179,19 +179,21 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
 
         example = okta.Domain("example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Okta Admin Role Targets can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
+        $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -213,19 +215,21 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
 
         example = okta.Domain("example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Okta Admin Role Targets can be imported via the Okta ID.
 
         ```sh
-         $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
+        $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
         ```
 
         :param str resource_name: The name of the resource.

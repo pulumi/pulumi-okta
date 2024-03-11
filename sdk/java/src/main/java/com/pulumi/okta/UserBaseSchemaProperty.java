@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * a breaking change.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -62,6 +64,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -71,7 +74,7 @@ import javax.annotation.Nullable;
  * $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &amp;#60;property name&amp;#62;
  * ```
  * 
- *  User schema property of custom user type can be imported via user type id and property index
+ * User schema property of custom user type can be imported via user type id and property index
  * 
  * ```sh
  * $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &amp;#60;user type id&amp;#62;.&amp;#60;property name&amp;#62;

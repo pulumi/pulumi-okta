@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetServerScopes(ctx *pulumi.Context, args *GetServerScopesArgs, opts ...pulumi.InvokeOption) (*GetServerScopesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServerScopesResult

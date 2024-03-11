@@ -12,8 +12,10 @@ import * as utilities from "../utilities";
  * This resource allows you to create and configure an Okta Log Stream.
  *
  * ## Example Usage
+ *
  * ### Splunk Event Collector
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -28,6 +30,7 @@ import * as utilities from "../utilities";
  *     type: "splunk_cloud_logstreaming",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

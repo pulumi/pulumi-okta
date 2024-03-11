@@ -538,6 +538,7 @@ def get_user(compound_search_operator: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -546,6 +547,7 @@ def get_user(compound_search_operator: Optional[str] = None,
         expression="profile.firstName eq \\"John\\"",
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
@@ -622,6 +624,7 @@ def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[str
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -630,6 +633,7 @@ def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[str
         expression="profile.firstName eq \\"John\\"",
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.

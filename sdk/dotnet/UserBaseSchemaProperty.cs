@@ -24,6 +24,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,6 +45,7 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -53,7 +55,7 @@ namespace Pulumi.Okta
     /// $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &amp;#60;property name&amp;#62;
     /// ```
     /// 
-    ///  User schema property of custom user type can be imported via user type id and property index
+    /// User schema property of custom user type can be imported via user type id and property index
     /// 
     /// ```sh
     /// $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &amp;#60;user type id&amp;#62;.&amp;#60;property name&amp;#62;

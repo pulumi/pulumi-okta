@@ -16,6 +16,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,6 +33,7 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -41,7 +43,7 @@ namespace Pulumi.Okta
     /// $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim id&amp;#62;
     /// ```
     /// 
-    ///  or
+    /// or
     /// 
     /// ```sh
     /// $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim name&amp;#62;

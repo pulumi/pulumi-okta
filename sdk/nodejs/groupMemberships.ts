@@ -20,6 +20,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -33,6 +34,7 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -42,7 +44,7 @@ import * as utilities from "./utilities";
  * $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;
  * ```
  *
- *  optional parameter track all users will also import all user id currently assigned to the group
+ * optional parameter track all users will also import all user id currently assigned to the group
  *
  * ```sh
  * $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;/&#60;true&#62;

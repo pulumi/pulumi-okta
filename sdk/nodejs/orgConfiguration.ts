@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -20,13 +21,14 @@ import * as utilities from "./utilities";
  *     website: "https://terraform.io",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Okta Org Configuration can be imported even without specifying the Org ID.
  *
  * ```sh
- *  $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
+ * $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
  * ```
  */
 export class OrgConfiguration extends pulumi.CustomResource {

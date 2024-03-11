@@ -18,6 +18,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +36,14 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Rate limit settings can be imported without any parameters.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/rateLimiting:RateLimiting example .
+    /// $ pulumi import okta:index/rateLimiting:RateLimiting example .
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/rateLimiting:RateLimiting")]

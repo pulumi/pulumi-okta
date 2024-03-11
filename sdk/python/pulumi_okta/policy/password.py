@@ -1030,6 +1030,7 @@ class Password(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1040,6 +1041,7 @@ class Password(pulumi.CustomResource):
             password_history_count=4,
             status="ACTIVE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1095,6 +1097,7 @@ class Password(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1105,6 +1108,7 @@ class Password(pulumi.CustomResource):
             password_history_count=4,
             status="ACTIVE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
