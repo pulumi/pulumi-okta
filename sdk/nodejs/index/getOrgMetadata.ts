@@ -13,12 +13,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const test = okta.Index.getOrgMetadata({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrgMetadata(args?: GetOrgMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetOrgMetadataResult> {
     args = args || {};
@@ -72,12 +74,14 @@ export interface GetOrgMetadataResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const test = okta.Index.getOrgMetadata({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrgMetadataOutput(args?: GetOrgMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrgMetadataResult> {
     return pulumi.output(args).apply((a: any) => getOrgMetadata(a, opts))

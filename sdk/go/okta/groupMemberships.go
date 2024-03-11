@@ -27,6 +27,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,6 +62,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -70,7 +72,7 @@ import (
 // $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;
 // ```
 //
-//	optional parameter track all users will also import all user id currently assigned to the group
+// optional parameter track all users will also import all user id currently assigned to the group
 //
 // ```sh
 // $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;/&#60;true&#62;

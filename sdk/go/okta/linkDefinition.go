@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Okta Link Definition can be imported via the Okta Primary Link Name.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
-//
+// $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
 // ```
 type LinkDefinition struct {
 	pulumi.CustomResourceState

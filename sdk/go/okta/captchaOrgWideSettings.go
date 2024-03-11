@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,9 +53,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // The following example disables org-wide CAPTCHA.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,15 +87,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Org-Wide CAPTCHA settings can be imported without any parameters.
 //
 // ```sh
-//
-//	$ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
-//
+// $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
 // ```
 type CaptchaOrgWideSettings struct {
 	pulumi.CustomResourceState

@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -26,9 +27,11 @@ import * as utilities from "./utilities";
  *     enabledFors: ["SSR"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The following example disables org-wide CAPTCHA.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -40,13 +43,14 @@ import * as utilities from "./utilities";
  * });
  * const exampleCaptchaOrgWideSettings = new okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings", {});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Org-Wide CAPTCHA settings can be imported without any parameters.
  *
  * ```sh
- *  $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
+ * $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
  * ```
  */
 export class CaptchaOrgWideSettings extends pulumi.CustomResource {

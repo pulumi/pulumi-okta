@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,13 +57,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Group schema property can be imported via the property index.
  * 
  * ```sh
- *  $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &amp;#60;index&amp;#62;
+ * $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &amp;#60;index&amp;#62;
  * ```
  * 
  */

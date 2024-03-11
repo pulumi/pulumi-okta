@@ -127,6 +127,7 @@ class ThreatInsightSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -145,13 +146,14 @@ class ThreatInsightSettings(pulumi.CustomResource):
             action="block",
             network_excludes=[ip_network_zone_example.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Threat Insight Settings can be imported without any parameters.
 
         ```sh
-         $ pulumi import okta:index/threatInsightSettings:ThreatInsightSettings example _
+        $ pulumi import okta:index/threatInsightSettings:ThreatInsightSettings example _
         ```
 
         :param str resource_name: The name of the resource.
@@ -176,6 +178,7 @@ class ThreatInsightSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -194,13 +197,14 @@ class ThreatInsightSettings(pulumi.CustomResource):
             action="block",
             network_excludes=[ip_network_zone_example.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Threat Insight Settings can be imported without any parameters.
 
         ```sh
-         $ pulumi import okta:index/threatInsightSettings:ThreatInsightSettings example _
+        $ pulumi import okta:index/threatInsightSettings:ThreatInsightSettings example _
         ```
 
         :param str resource_name: The name of the resource.

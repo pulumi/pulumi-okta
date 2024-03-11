@@ -273,6 +273,7 @@ class Rule(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -283,6 +284,7 @@ class Rule(pulumi.CustomResource):
             group_assignments=["<group id>"],
             status="ACTIVE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -313,6 +315,7 @@ class Rule(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -323,6 +326,7 @@ class Rule(pulumi.CustomResource):
             group_assignments=["<group id>"],
             status="ACTIVE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

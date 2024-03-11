@@ -106,6 +106,7 @@ class OAuthRedirectUri(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -120,6 +121,7 @@ class OAuthRedirectUri(pulumi.CustomResource):
             app_id=test_o_auth.id,
             uri="http://google.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -149,6 +151,7 @@ class OAuthRedirectUri(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -163,6 +166,7 @@ class OAuthRedirectUri(pulumi.CustomResource):
             app_id=test_o_auth.id,
             uri="http://google.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

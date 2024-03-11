@@ -107,6 +107,7 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -119,9 +120,11 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
             captcha_id=okta_captcha["test"]["id"],
             enabled_fors=["SSR"])
         ```
+        <!--End PulumiCodeChooser -->
 
         The following example disables org-wide CAPTCHA.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -132,13 +135,14 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
             type="HCAPTCHA")
         example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Org-Wide CAPTCHA settings can be imported without any parameters.
 
         ```sh
-         $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
+        $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
         ```
 
         :param str resource_name: The name of the resource.
@@ -160,6 +164,7 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -172,9 +177,11 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
             captcha_id=okta_captcha["test"]["id"],
             enabled_fors=["SSR"])
         ```
+        <!--End PulumiCodeChooser -->
 
         The following example disables org-wide CAPTCHA.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -185,13 +192,14 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
             type="HCAPTCHA")
         example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Org-Wide CAPTCHA settings can be imported without any parameters.
 
         ```sh
-         $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
+        $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
         ```
 
         :param str resource_name: The name of the resource.

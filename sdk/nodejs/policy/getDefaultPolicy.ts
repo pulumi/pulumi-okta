@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     type: "PASSWORD",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDefaultPolicy(args: GetDefaultPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultPolicyResult> {
 
@@ -55,6 +57,7 @@ export interface GetDefaultPolicyResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -63,6 +66,7 @@ export interface GetDefaultPolicyResult {
  *     type: "PASSWORD",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDefaultPolicyOutput(args: GetDefaultPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDefaultPolicy(a, opts))

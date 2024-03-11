@@ -566,6 +566,7 @@ class OrgConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -574,13 +575,14 @@ class OrgConfiguration(pulumi.CustomResource):
             company_name="Umbrella Corporation",
             website="https://terraform.io")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Okta Org Configuration can be imported even without specifying the Org ID.
 
         ```sh
-         $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
+        $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
         ```
 
         :param str resource_name: The name of the resource.
@@ -614,6 +616,7 @@ class OrgConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -622,13 +625,14 @@ class OrgConfiguration(pulumi.CustomResource):
             company_name="Umbrella Corporation",
             website="https://terraform.io")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Okta Org Configuration can be imported even without specifying the Org ID.
 
         ```sh
-         $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
+        $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
         ```
 
         :param str resource_name: The name of the resource.

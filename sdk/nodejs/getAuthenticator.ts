@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -19,7 +20,9 @@ import * as utilities from "./utilities";
  *     name: "Security Question",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -28,6 +31,7 @@ import * as utilities from "./utilities";
  *     key: "okta_email",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAuthenticator(args?: GetAuthenticatorArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthenticatorResult> {
     args = args || {};
@@ -112,6 +116,7 @@ export interface GetAuthenticatorResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -120,7 +125,9 @@ export interface GetAuthenticatorResult {
  *     name: "Security Question",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -129,6 +136,7 @@ export interface GetAuthenticatorResult {
  *     key: "okta_email",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAuthenticatorOutput(args?: GetAuthenticatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthenticatorResult> {
     return pulumi.output(args).apply((a: any) => getAuthenticator(a, opts))

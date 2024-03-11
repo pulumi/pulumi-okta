@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -20,13 +21,14 @@ import * as utilities from "./utilities";
  *     description: "Default Authorization Server for your Applications",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Authorization Server can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;default&#62;
+ * $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;default&#62;
  * ```
  */
 export class AuthServerDefault extends pulumi.CustomResource {

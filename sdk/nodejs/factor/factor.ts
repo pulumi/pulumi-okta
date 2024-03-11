@@ -11,12 +11,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.factor.Factor("example", {providerId: "google_otp"});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class Factor extends pulumi.CustomResource {
     /**

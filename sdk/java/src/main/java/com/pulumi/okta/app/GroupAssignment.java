@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * An application group assignment can be imported via the `app_id` and the `group_id`.
  * 
  * ```sh
- *  $ pulumi import okta:app/groupAssignment:GroupAssignment example &amp;#60;app_id&amp;#62;/&amp;#60;group_id&amp;#62;
+ * $ pulumi import okta:app/groupAssignment:GroupAssignment example &amp;#60;app_id&amp;#62;/&amp;#60;group_id&amp;#62;
  * ```
  * 
  */

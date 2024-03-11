@@ -22,6 +22,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -33,7 +34,9 @@ import * as utilities from "./utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -51,13 +54,14 @@ import * as utilities from "./utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Okta authenticator can be imported via the Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/authenticator:Authenticator example &#60;authenticator_id&#62;
+ * $ pulumi import okta:index/authenticator:Authenticator example &#60;authenticator_id&#62;
  * ```
  */
 export class Authenticator extends pulumi.CustomResource {

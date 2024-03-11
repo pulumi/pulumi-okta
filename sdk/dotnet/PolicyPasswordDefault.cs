@@ -16,6 +16,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,13 +29,14 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Default Password Policy can be imported without providing Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
+    /// $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/policyPasswordDefault:PolicyPasswordDefault")]

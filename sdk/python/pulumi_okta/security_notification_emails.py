@@ -207,6 +207,7 @@ class SecurityNotificationEmails(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -218,13 +219,14 @@ class SecurityNotificationEmails(pulumi.CustomResource):
             send_email_for_new_device_enabled=True,
             send_email_for_password_changed_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Security Notification Emails can be imported without any parameters.
 
         ```sh
-         $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
+        $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
         ```
 
         :param str resource_name: The name of the resource.
@@ -250,6 +252,7 @@ class SecurityNotificationEmails(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -261,13 +264,14 @@ class SecurityNotificationEmails(pulumi.CustomResource):
             send_email_for_new_device_enabled=True,
             send_email_for_password_changed_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Security Notification Emails can be imported without any parameters.
 
         ```sh
-         $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
+        $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
         ```
 
         :param str resource_name: The name of the resource.

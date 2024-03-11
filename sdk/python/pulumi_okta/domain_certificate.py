@@ -208,6 +208,7 @@ class DomainCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -235,10 +236,7 @@ class DomainCertificate(pulumi.CustomResource):
         -----END PRIVATE KEY-----
         \"\"\")
         ```
-
-        ## Import
-
-        This resource does not support importing.
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -269,6 +267,7 @@ class DomainCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -296,10 +295,7 @@ class DomainCertificate(pulumi.CustomResource):
         -----END PRIVATE KEY-----
         \"\"\")
         ```
-
-        ## Import
-
-        This resource does not support importing.
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param DomainCertificateArgs args: The arguments to use to populate this resource's properties.

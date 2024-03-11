@@ -106,6 +106,7 @@ def get_server_policy(auth_server_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -113,6 +114,7 @@ def get_server_policy(auth_server_id: Optional[str] = None,
     example = okta.auth.get_server_policy(auth_server_id="<auth server id>",
         name="staff")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str auth_server_id: The ID of the Auth Server.
@@ -142,6 +144,7 @@ def get_server_policy_output(auth_server_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -149,6 +152,7 @@ def get_server_policy_output(auth_server_id: Optional[pulumi.Input[str]] = None,
     example = okta.auth.get_server_policy(auth_server_id="<auth server id>",
         name="staff")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str auth_server_id: The ID of the Auth Server.

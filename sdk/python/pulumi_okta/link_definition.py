@@ -233,6 +233,7 @@ class LinkDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -245,13 +246,14 @@ class LinkDefinition(pulumi.CustomResource):
             primary_name="emperor",
             primary_title="Emperor")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Okta Link Definition can be imported via the Okta Primary Link Name.
 
         ```sh
-         $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
+        $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -277,6 +279,7 @@ class LinkDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -289,13 +292,14 @@ class LinkDefinition(pulumi.CustomResource):
             primary_name="emperor",
             primary_title="Emperor")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Okta Link Definition can be imported via the Okta Primary Link Name.
 
         ```sh
-         $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
+        $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
         ```
 
         :param str resource_name: The name of the resource.

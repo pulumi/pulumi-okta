@@ -20,6 +20,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,6 +57,7 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; If the `okta.PolicyMfaDefault` is used in conjunction with `okta.policy.Mfa` resources, ensure to use a `depends_on` attribute for the default policy to ensure that all other policies are created/updated first such that the `priority` field can be appropriately computed on the first plan/apply.
     /// 
@@ -64,7 +66,7 @@ namespace Pulumi.Okta
     /// Default MFA Policy can be imported without providing Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/policyMfaDefault:PolicyMfaDefault example .
+    /// $ pulumi import okta:index/policyMfaDefault:PolicyMfaDefault example .
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/policyMfaDefault:PolicyMfaDefault")]

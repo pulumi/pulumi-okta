@@ -14,6 +14,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,13 +27,14 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Okta Admin Role Targets can be imported via the Okta ID.
     /// 
     /// ```sh
-    ///  $ pulumi import okta:index/domain:Domain example &amp;#60;domain_id&amp;#62;
+    /// $ pulumi import okta:index/domain:Domain example &amp;#60;domain_id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/domain:Domain")]

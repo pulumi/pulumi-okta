@@ -126,6 +126,7 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -137,6 +138,7 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
             policy_id=okta_policy["example"]["id"],
             apps=[data["okta_app"]["id"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -169,6 +171,7 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -180,6 +183,7 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
             policy_id=okta_policy["example"]["id"],
             apps=[data["okta_app"]["id"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -935,6 +935,7 @@ class Social(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -950,6 +951,7 @@ class Social(pulumi.CustomResource):
             type="FACEBOOK",
             username_template="idpuser.email")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1002,6 +1004,7 @@ class Social(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1017,6 +1020,7 @@ class Social(pulumi.CustomResource):
             type="FACEBOOK",
             username_template="idpuser.email")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

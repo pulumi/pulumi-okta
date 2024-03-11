@@ -1043,6 +1043,7 @@ class SecurePasswordStore(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1054,6 +1055,7 @@ class SecurePasswordStore(pulumi.CustomResource):
             url="https://test.com",
             username_field="user")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1110,6 +1112,7 @@ class SecurePasswordStore(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1121,6 +1124,7 @@ class SecurePasswordStore(pulumi.CustomResource):
             url="https://test.com",
             username_field="user")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

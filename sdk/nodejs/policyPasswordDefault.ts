@@ -11,19 +11,21 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const _default = new okta.PolicyPasswordDefault("default", {});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Default Password Policy can be imported without providing Okta ID.
  *
  * ```sh
- *  $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
+ * $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
  * ```
  */
 export class PolicyPasswordDefault extends pulumi.CustomResource {

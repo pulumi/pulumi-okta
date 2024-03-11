@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * This resource allows you to configure Threat Insight Settings.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,13 +62,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Threat Insight Settings can be imported without any parameters.
  * 
  * ```sh
- *  $ pulumi import okta:index/threatInsightSettings:ThreatInsightSettings example _
+ * $ pulumi import okta:index/threatInsightSettings:ThreatInsightSettings example _
  * ```
  * 
  */

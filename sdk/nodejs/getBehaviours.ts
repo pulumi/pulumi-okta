@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     q: "New",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBehaviours(args?: GetBehavioursArgs, opts?: pulumi.InvokeOptions): Promise<GetBehavioursResult> {
     args = args || {};
@@ -58,6 +60,7 @@ export interface GetBehavioursResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -66,6 +69,7 @@ export interface GetBehavioursResult {
  *     q: "New",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBehavioursOutput(args?: GetBehavioursOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBehavioursResult> {
     return pulumi.output(args).apply((a: any) => getBehaviours(a, opts))

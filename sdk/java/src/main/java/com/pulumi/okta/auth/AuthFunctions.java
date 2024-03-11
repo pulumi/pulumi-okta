@@ -24,6 +24,8 @@ public final class AuthFunctions {
      * Use this data source to retrieve an auth server from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -52,6 +54,7 @@ public final class AuthFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args) {
@@ -61,6 +64,8 @@ public final class AuthFunctions {
      * Use this data source to retrieve an auth server from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -89,6 +94,7 @@ public final class AuthFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args) {
@@ -98,6 +104,8 @@ public final class AuthFunctions {
      * Use this data source to retrieve an auth server from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +134,7 @@ public final class AuthFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOptions options) {
@@ -135,6 +144,8 @@ public final class AuthFunctions {
      * Use this data source to retrieve an auth server from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -163,6 +174,7 @@ public final class AuthFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args, InvokeOptions options) {
@@ -172,6 +184,8 @@ public final class AuthFunctions {
      * Use this data source to retrieve an authorization server policy from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -201,6 +215,7 @@ public final class AuthFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerPolicyResult> getServerPolicy(GetServerPolicyArgs args) {
@@ -210,6 +225,8 @@ public final class AuthFunctions {
      * Use this data source to retrieve an authorization server policy from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -239,6 +256,7 @@ public final class AuthFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerPolicyResult> getServerPolicyPlain(GetServerPolicyPlainArgs args) {
@@ -248,6 +266,8 @@ public final class AuthFunctions {
      * Use this data source to retrieve an authorization server policy from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -277,6 +297,7 @@ public final class AuthFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerPolicyResult> getServerPolicy(GetServerPolicyArgs args, InvokeOptions options) {
@@ -286,6 +307,8 @@ public final class AuthFunctions {
      * Use this data source to retrieve an authorization server policy from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -315,6 +338,7 @@ public final class AuthFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerPolicyResult> getServerPolicyPlain(GetServerPolicyPlainArgs args, InvokeOptions options) {
@@ -324,6 +348,8 @@ public final class AuthFunctions {
      * Use this data source to retrieve a list of authorization server scopes from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -352,6 +378,7 @@ public final class AuthFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerScopesResult> getServerScopes(GetServerScopesArgs args) {
@@ -361,6 +388,8 @@ public final class AuthFunctions {
      * Use this data source to retrieve a list of authorization server scopes from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -389,6 +418,7 @@ public final class AuthFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerScopesResult> getServerScopesPlain(GetServerScopesPlainArgs args) {
@@ -398,6 +428,8 @@ public final class AuthFunctions {
      * Use this data source to retrieve a list of authorization server scopes from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -426,6 +458,7 @@ public final class AuthFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerScopesResult> getServerScopes(GetServerScopesArgs args, InvokeOptions options) {
@@ -435,6 +468,8 @@ public final class AuthFunctions {
      * Use this data source to retrieve a list of authorization server scopes from Okta.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -463,6 +498,7 @@ public final class AuthFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerScopesResult> getServerScopesPlain(GetServerScopesPlainArgs args, InvokeOptions options) {

@@ -24,6 +24,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,10 +61,7 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// This resource does not support importing.
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [OktaResourceType("okta:index/domainCertificate:DomainCertificate")]
     public partial class DomainCertificate : global::Pulumi.CustomResource

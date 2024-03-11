@@ -881,6 +881,7 @@ class AutoLogin(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -892,7 +893,10 @@ class AutoLogin(pulumi.CustomResource):
             sign_on_redirect_url="https://example.com",
             sign_on_url="https://example.com/login.html")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Pre-configured application
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -908,6 +912,7 @@ class AutoLogin(pulumi.CustomResource):
             preconfigured_app="google",
             status="ACTIVE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -959,6 +964,7 @@ class AutoLogin(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -970,7 +976,10 @@ class AutoLogin(pulumi.CustomResource):
             sign_on_redirect_url="https://example.com",
             sign_on_url="https://example.com/login.html")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Pre-configured application
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -986,6 +995,7 @@ class AutoLogin(pulumi.CustomResource):
             preconfigured_app="google",
             status="ACTIVE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

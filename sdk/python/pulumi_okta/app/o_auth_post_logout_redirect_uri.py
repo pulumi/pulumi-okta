@@ -106,6 +106,7 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -121,6 +122,7 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
             app_id=test_o_auth.id,
             uri="https://www.example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -150,6 +152,7 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -165,6 +168,7 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
             app_id=test_o_auth.id,
             uri="https://www.example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

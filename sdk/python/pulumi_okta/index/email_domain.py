@@ -200,6 +200,7 @@ class EmailDomain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -210,6 +211,7 @@ class EmailDomain(pulumi.CustomResource):
             domain="example.com",
             user_name="paul_atreides")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -237,6 +239,7 @@ class EmailDomain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -247,6 +250,7 @@ class EmailDomain(pulumi.CustomResource):
             domain="example.com",
             user_name="paul_atreides")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

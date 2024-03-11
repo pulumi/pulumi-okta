@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -23,6 +24,7 @@ import * as utilities from "./utilities";
  *     appId: "app_id",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAppSignonPolicy(args: GetAppSignonPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAppSignonPolicyResult> {
 
@@ -64,6 +66,7 @@ export interface GetAppSignonPolicyResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -72,6 +75,7 @@ export interface GetAppSignonPolicyResult {
  *     appId: "app_id",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAppSignonPolicyOutput(args: GetAppSignonPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppSignonPolicyResult> {
     return pulumi.output(args).apply((a: any) => getAppSignonPolicy(a, opts))

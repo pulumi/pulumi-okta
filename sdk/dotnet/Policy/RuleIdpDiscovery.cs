@@ -18,6 +18,7 @@ namespace Pulumi.Okta.Policy
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -88,6 +89,7 @@ namespace Pulumi.Okta.Policy
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -103,6 +105,7 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Applications to exclude in discovery. See `app_include` for details.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -112,6 +115,7 @@ namespace Pulumi.Okta.Policy
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Output("appExcludes")]
         public Output<ImmutableArray<Outputs.RuleIdpDiscoveryAppExclude>> AppExcludes { get; private set; } = null!;
@@ -249,6 +253,7 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Applications to exclude in discovery. See `app_include` for details.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -258,6 +263,7 @@ namespace Pulumi.Okta.Policy
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryAppExcludeArgs> AppExcludes
         {
@@ -389,6 +395,7 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Applications to exclude in discovery. See `app_include` for details.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -398,6 +405,7 @@ namespace Pulumi.Okta.Policy
         /// {
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryAppExcludeGetArgs> AppExcludes
         {

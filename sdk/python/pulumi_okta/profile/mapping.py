@@ -285,6 +285,7 @@ class Mapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -313,6 +314,7 @@ class Mapping(pulumi.CustomResource):
             source_id="<source id>",
             target_id=user.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -343,6 +345,7 @@ class Mapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -371,6 +374,7 @@ class Mapping(pulumi.CustomResource):
             source_id="<source id>",
             target_id=user.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

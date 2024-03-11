@@ -32,6 +32,8 @@ public final class RuleIdpDiscoveryPlatformIncludeArgs extends com.pulumi.resour
 
     /**
      * One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -54,6 +56,7 @@ public final class RuleIdpDiscoveryPlatformIncludeArgs extends com.pulumi.resour
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="osType")
@@ -61,6 +64,8 @@ public final class RuleIdpDiscoveryPlatformIncludeArgs extends com.pulumi.resour
 
     /**
      * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -83,6 +88,7 @@ public final class RuleIdpDiscoveryPlatformIncludeArgs extends com.pulumi.resour
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<String>> osType() {
@@ -153,6 +159,8 @@ public final class RuleIdpDiscoveryPlatformIncludeArgs extends com.pulumi.resour
 
         /**
          * @param osType One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -175,6 +183,7 @@ public final class RuleIdpDiscoveryPlatformIncludeArgs extends com.pulumi.resour
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -186,6 +195,8 @@ public final class RuleIdpDiscoveryPlatformIncludeArgs extends com.pulumi.resour
 
         /**
          * @param osType One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -208,6 +219,7 @@ public final class RuleIdpDiscoveryPlatformIncludeArgs extends com.pulumi.resour
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

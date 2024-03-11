@@ -30,8 +30,68 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Rule with Constraints
+ * ### Simple usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.Saml;
+ * import com.pulumi.okta.app.SamlArgs;
+ * import com.pulumi.okta.OktaFunctions;
+ * import com.pulumi.okta.inputs.GetAppSignonPolicyArgs;
+ * import com.pulumi.okta.AppSignonPolicyRule;
+ * import com.pulumi.okta.AppSignonPolicyRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testSaml = new Saml(&#34;testSaml&#34;, SamlArgs.builder()        
+ *             .label(&#34;My App&#34;)
+ *             .ssoUrl(&#34;https://google.com&#34;)
+ *             .recipient(&#34;https://here.com&#34;)
+ *             .destination(&#34;https://its-about-the-journey.com&#34;)
+ *             .audience(&#34;https://audience.com&#34;)
+ *             .status(&#34;ACTIVE&#34;)
+ *             .subjectNameIdTemplate(&#34;${user.userName}&#34;)
+ *             .subjectNameIdFormat(&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&#34;)
+ *             .signatureAlgorithm(&#34;RSA_SHA256&#34;)
+ *             .responseSigned(true)
+ *             .digestAlgorithm(&#34;SHA256&#34;)
+ *             .honorForceAuthn(false)
+ *             .authnContextClassRef(&#34;urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport&#34;)
+ *             .build());
+ * 
+ *         final var testAppSignonPolicy = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
+ *             .appId(testSaml.id())
+ *             .build());
+ * 
+ *         var testAppSignonPolicyRule = new AppSignonPolicyRule(&#34;testAppSignonPolicyRule&#34;, AppSignonPolicyRuleArgs.builder()        
+ *             .policyId(testAppSignonPolicy.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult).applyValue(testAppSignonPolicy -&gt; testAppSignonPolicy.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult.id())))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * This will create an app sign-on policy rule with the following `THEN` block:
+ * 
  * ### Example 1:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,8 +127,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * This will create an app sign-on policy rule with the following `THEN` block:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -91,7 +154,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example 2:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -132,8 +199,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * This will create an app sign-on policy rule with the following `THEN` block:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -156,10 +226,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * More examples can be
  * found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
+ * 
  * ### Complex example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -379,13 +453,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Okta app sign-on policy rule can be imported via the Okta ID.
  * 
  * ```sh
- *  $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &amp;#60;policy_id&amp;#62;/&amp;#60;rule_id&amp;#62;
+ * $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &amp;#60;policy_id&amp;#62;/&amp;#60;rule_id&amp;#62;
  * ```
  * 
  */

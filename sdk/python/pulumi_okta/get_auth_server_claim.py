@@ -146,6 +146,7 @@ def get_auth_server_claim(auth_server_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -153,6 +154,7 @@ def get_auth_server_claim(auth_server_id: Optional[str] = None,
     test = okta.get_auth_server_claim(auth_server_id="default",
         name="birthdate")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str auth_server_id: Auth server ID.
@@ -188,6 +190,7 @@ def get_auth_server_claim_output(auth_server_id: Optional[pulumi.Input[str]] = N
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -195,6 +198,7 @@ def get_auth_server_claim_output(auth_server_id: Optional[pulumi.Input[str]] = N
     test = okta.get_auth_server_claim(auth_server_id="default",
         name="birthdate")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str auth_server_id: Auth server ID.

@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -29,13 +30,14 @@ import * as utilities from "./utilities";
  *     networkExcludes: [ipNetworkZoneExample.id],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Threat Insight Settings can be imported without any parameters.
  *
  * ```sh
- *  $ pulumi import okta:index/threatInsightSettings:ThreatInsightSettings example _
+ * $ pulumi import okta:index/threatInsightSettings:ThreatInsightSettings example _
  * ```
  */
 export class ThreatInsightSettings extends pulumi.CustomResource {

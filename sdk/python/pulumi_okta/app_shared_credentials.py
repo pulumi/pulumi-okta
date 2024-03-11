@@ -947,6 +947,7 @@ class AppSharedCredentials(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -971,6 +972,7 @@ class AppSharedCredentials(pulumi.CustomResource):
             user_name_template_type="CUSTOM",
             username_field="txtbox-username")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1024,6 +1026,7 @@ class AppSharedCredentials(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1048,6 +1051,7 @@ class AppSharedCredentials(pulumi.CustomResource):
             user_name_template_type="CUSTOM",
             username_field="txtbox-username")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

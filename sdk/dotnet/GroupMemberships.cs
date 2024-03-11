@@ -25,6 +25,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,6 +51,7 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -59,7 +61,7 @@ namespace Pulumi.Okta
     /// $ pulumi import okta:index/groupMemberships:GroupMemberships test &amp;#60;group id&amp;#62;
     /// ```
     /// 
-    ///  optional parameter track all users will also import all user id currently assigned to the group
+    /// optional parameter track all users will also import all user id currently assigned to the group
     /// 
     /// ```sh
     /// $ pulumi import okta:index/groupMemberships:GroupMemberships test &amp;#60;group id&amp;#62;/&amp;#60;true&amp;#62;
