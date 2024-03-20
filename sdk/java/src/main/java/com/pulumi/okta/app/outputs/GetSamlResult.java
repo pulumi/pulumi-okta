@@ -90,10 +90,10 @@ public final class GetSamlResult {
      * @return List of groups IDs assigned to the application.
      * 
      * @deprecated
-     * The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
+     * The `groups` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.AppGroupAssignments`
      * 
      */
-    @Deprecated /* The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments` */
+    @Deprecated /* The `groups` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.AppGroupAssignments` */
     private List<String> groups;
     /**
      * @return Do not display application icon on mobile app.
@@ -247,10 +247,10 @@ public final class GetSamlResult {
     private String userNameTemplateType;
     /**
      * @deprecated
-     * The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
+     * The `users` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.getAppUserAssignments`
      * 
      */
-    @Deprecated /* The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments` */
+    @Deprecated /* The `users` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.getAppUserAssignments` */
     private List<String> users;
 
     private GetSamlResult() {}
@@ -359,10 +359,10 @@ public final class GetSamlResult {
      * @return List of groups IDs assigned to the application.
      * 
      * @deprecated
-     * The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
+     * The `groups` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.AppGroupAssignments`
      * 
      */
-    @Deprecated /* The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments` */
+    @Deprecated /* The `groups` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.AppGroupAssignments` */
     public List<String> groups() {
         return this.groups;
     }
@@ -578,10 +578,10 @@ public final class GetSamlResult {
     }
     /**
      * @deprecated
-     * The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
+     * The `users` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.getAppUserAssignments`
      * 
      */
-    @Deprecated /* The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments` */
+    @Deprecated /* The `users` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.getAppUserAssignments` */
     public List<String> users() {
         return this.users;
     }

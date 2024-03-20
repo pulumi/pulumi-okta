@@ -446,7 +446,7 @@ import (
 //					testUserType.ID(),
 //				},
 //				UserTypesIncludeds: pulumi.StringArray{
-//					*pulumi.String(_default.Id),
+//					pulumi.String(_default.Id),
 //				},
 //				UsersExcludeds: pulumi.StringArray{
 //					testUser[2].ID(),

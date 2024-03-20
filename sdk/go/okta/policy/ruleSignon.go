@@ -51,7 +51,7 @@ import (
 //				Status:            pulumi.String("ACTIVE"),
 //				RiscLevel:         pulumi.String("HIGH"),
 //				Behaviors: pulumi.StringArray{
-//					*pulumi.String(newCity.Id),
+//					pulumi.String(newCity.Id),
 //				},
 //				FactorSequences: policy.RuleSignonFactorSequenceArray{
 //					&policy.RuleSignonFactorSequenceArgs{

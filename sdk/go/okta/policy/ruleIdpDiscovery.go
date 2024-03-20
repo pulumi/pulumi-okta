@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = policy.NewRuleIdpDiscovery(ctx, "example", &policy.RuleIdpDiscoveryArgs{
-//				PolicyId:                *pulumi.String(idpDiscoveryPolicy.Id),
+//				PolicyId:                pulumi.String(idpDiscoveryPolicy.Id),
 //				IdpId:                   pulumi.String("<idp id>"),
 //				IdpType:                 pulumi.String("OIDC"),
 //				NetworkConnection:       pulumi.String("ANYWHERE"),

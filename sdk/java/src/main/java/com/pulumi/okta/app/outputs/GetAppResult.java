@@ -17,10 +17,10 @@ public final class GetAppResult {
     private @Nullable Boolean activeOnly;
     /**
      * @deprecated
-     * The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
+     * The `groups` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.AppGroupAssignments`
      * 
      */
-    @Deprecated /* The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments` */
+    @Deprecated /* The `groups` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.AppGroupAssignments` */
     private List<String> groups;
     /**
      * @return Application ID.
@@ -64,10 +64,10 @@ public final class GetAppResult {
     private String status;
     /**
      * @deprecated
-     * The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
+     * The `users` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.getAppUserAssignments`
      * 
      */
-    @Deprecated /* The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments` */
+    @Deprecated /* The `users` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.getAppUserAssignments` */
     private List<String> users;
 
     private GetAppResult() {}
@@ -76,10 +76,10 @@ public final class GetAppResult {
     }
     /**
      * @deprecated
-     * The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
+     * The `groups` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.AppGroupAssignments`
      * 
      */
-    @Deprecated /* The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments` */
+    @Deprecated /* The `groups` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.AppGroupAssignments` */
     public List<String> groups() {
         return this.groups;
     }
@@ -141,10 +141,10 @@ public final class GetAppResult {
     }
     /**
      * @deprecated
-     * The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
+     * The `users` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.getAppUserAssignments`
      * 
      */
-    @Deprecated /* The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments` */
+    @Deprecated /* The `users` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.getAppUserAssignments` */
     public List<String> users() {
         return this.users;
     }
