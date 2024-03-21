@@ -57,7 +57,7 @@ import (
 //					},
 //				},
 //				SourceId: pulumi.String("<source id>"),
-//				TargetId: *pulumi.String(user.Id),
+//				TargetId: pulumi.String(user.Id),
 //			})
 //			if err != nil {
 //				return err

@@ -84,7 +84,7 @@ export class EmailCustomization extends pulumi.CustomResource {
     /**
      * `forceIsDefault` is deprecated and now is a no-op in behavior. Rely upon the `dependsOn` meta argument to force dependency of secondary templates to the default template",
      *
-     * @deprecated force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
+     * @deprecated force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
      */
     public readonly forceIsDefault!: pulumi.Output<string | undefined>;
     /**
@@ -226,7 +226,7 @@ export interface EmailCustomizationState {
     /**
      * `forceIsDefault` is deprecated and now is a no-op in behavior. Rely upon the `dependsOn` meta argument to force dependency of secondary templates to the default template",
      *
-     * @deprecated force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
+     * @deprecated force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
      */
     forceIsDefault?: pulumi.Input<string>;
     /**
@@ -326,7 +326,7 @@ export interface EmailCustomizationArgs {
     /**
      * `forceIsDefault` is deprecated and now is a no-op in behavior. Rely upon the `dependsOn` meta argument to force dependency of secondary templates to the default template",
      *
-     * @deprecated force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
+     * @deprecated force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
      */
     forceIsDefault?: pulumi.Input<string>;
     /**
