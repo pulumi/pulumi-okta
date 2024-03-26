@@ -64,8 +64,8 @@ class GetAppResult:
     @property
     @pulumi.getter
     def groups(self) -> Sequence[str]:
-        warnings.warn("""The `groups` field is now deprecated for the data source `app_get_app`, please replace all uses of this with: `AppGroupAssignments`""", DeprecationWarning)
-        pulumi.log.warn("""groups is deprecated: The `groups` field is now deprecated for the data source `app_get_app`, please replace all uses of this with: `AppGroupAssignments`""")
+        warnings.warn("""The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`""", DeprecationWarning)
+        pulumi.log.warn("""groups is deprecated: The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`""")
 
         return pulumi.get(self, "groups")
 
@@ -133,8 +133,8 @@ class GetAppResult:
     @property
     @pulumi.getter
     def users(self) -> Sequence[str]:
-        warnings.warn("""The `users` field is now deprecated for the data source `app_get_app`, please replace all uses of this with: `get_app_user_assignments`""", DeprecationWarning)
-        pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the data source `app_get_app`, please replace all uses of this with: `get_app_user_assignments`""")
+        warnings.warn("""The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`""", DeprecationWarning)
+        pulumi.log.warn("""users is deprecated: The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`""")
 
         return pulumi.get(self, "users")
 

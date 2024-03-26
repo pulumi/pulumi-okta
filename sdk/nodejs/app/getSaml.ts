@@ -138,7 +138,7 @@ export interface GetSamlResult {
     /**
      * List of groups IDs assigned to the application.
      *
-     * @deprecated The `groups` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.AppGroupAssignments`
+     * @deprecated The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
      */
     readonly groups: string[];
     /**
@@ -259,7 +259,7 @@ export interface GetSamlResult {
      */
     readonly userNameTemplateType: string;
     /**
-     * @deprecated The `users` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.getAppUserAssignments`
+     * @deprecated The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
      */
     readonly users: string[];
 }

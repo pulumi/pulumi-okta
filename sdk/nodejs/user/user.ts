@@ -261,7 +261,7 @@ export class User extends pulumi.CustomResource {
     /**
      * Do not populate user roles information (prevents additional API call)
      *
-     * @deprecated Because adminRoles has been removed, this attribute is a no op and will be removed
+     * @deprecated Because admin_roles has been removed, this attribute is a no op and will be removed
      */
     public readonly skipRoles!: pulumi.Output<boolean | undefined>;
     /**
@@ -570,7 +570,7 @@ export interface UserState {
     /**
      * Do not populate user roles information (prevents additional API call)
      *
-     * @deprecated Because adminRoles has been removed, this attribute is a no op and will be removed
+     * @deprecated Because admin_roles has been removed, this attribute is a no op and will be removed
      */
     skipRoles?: pulumi.Input<boolean>;
     /**
@@ -755,7 +755,7 @@ export interface UserArgs {
     /**
      * Do not populate user roles information (prevents additional API call)
      *
-     * @deprecated Because adminRoles has been removed, this attribute is a no op and will be removed
+     * @deprecated Because admin_roles has been removed, this attribute is a no op and will be removed
      */
     skipRoles?: pulumi.Input<boolean>;
     /**

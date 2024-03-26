@@ -75,7 +75,7 @@ export interface GetAppArgs {
 export interface GetAppResult {
     readonly activeOnly?: boolean;
     /**
-     * @deprecated The `groups` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.AppGroupAssignments`
+     * @deprecated The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
      */
     readonly groups: string[];
     /**
@@ -108,7 +108,7 @@ export interface GetAppResult {
      */
     readonly status: string;
     /**
-     * @deprecated The `users` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.getAppUserAssignments`
+     * @deprecated The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
      */
     readonly users: string[];
 }

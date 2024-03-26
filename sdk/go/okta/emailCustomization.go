@@ -60,7 +60,7 @@ type EmailCustomization struct {
 	BrandId pulumi.StringOutput `pulumi:"brandId"`
 	// `forceIsDefault` is deprecated and now is a no-op in behavior. Rely upon the `dependsOn` meta argument to force dependency of secondary templates to the default template",
 	//
-	// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
+	// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
 	ForceIsDefault pulumi.StringPtrOutput `pulumi:"forceIsDefault"`
 	// Whether the customization is the default
 	IsDefault pulumi.BoolPtrOutput `pulumi:"isDefault"`
@@ -176,7 +176,7 @@ type emailCustomizationState struct {
 	BrandId *string `pulumi:"brandId"`
 	// `forceIsDefault` is deprecated and now is a no-op in behavior. Rely upon the `dependsOn` meta argument to force dependency of secondary templates to the default template",
 	//
-	// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
+	// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
 	ForceIsDefault *string `pulumi:"forceIsDefault"`
 	// Whether the customization is the default
 	IsDefault *bool `pulumi:"isDefault"`
@@ -257,7 +257,7 @@ type EmailCustomizationState struct {
 	BrandId pulumi.StringPtrInput
 	// `forceIsDefault` is deprecated and now is a no-op in behavior. Rely upon the `dependsOn` meta argument to force dependency of secondary templates to the default template",
 	//
-	// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
+	// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
 	ForceIsDefault pulumi.StringPtrInput
 	// Whether the customization is the default
 	IsDefault pulumi.BoolPtrInput
@@ -342,7 +342,7 @@ type emailCustomizationArgs struct {
 	BrandId string `pulumi:"brandId"`
 	// `forceIsDefault` is deprecated and now is a no-op in behavior. Rely upon the `dependsOn` meta argument to force dependency of secondary templates to the default template",
 	//
-	// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
+	// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
 	ForceIsDefault *string `pulumi:"forceIsDefault"`
 	// Whether the customization is the default
 	IsDefault *bool `pulumi:"isDefault"`
@@ -422,7 +422,7 @@ type EmailCustomizationArgs struct {
 	BrandId pulumi.StringInput
 	// `forceIsDefault` is deprecated and now is a no-op in behavior. Rely upon the `dependsOn` meta argument to force dependency of secondary templates to the default template",
 	//
-	// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
+	// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
 	ForceIsDefault pulumi.StringPtrInput
 	// Whether the customization is the default
 	IsDefault pulumi.BoolPtrInput
@@ -593,7 +593,7 @@ func (o EmailCustomizationOutput) BrandId() pulumi.StringOutput {
 
 // `forceIsDefault` is deprecated and now is a no-op in behavior. Rely upon the `dependsOn` meta argument to force dependency of secondary templates to the default template",
 //
-// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
+// Deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
 func (o EmailCustomizationOutput) ForceIsDefault() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailCustomization) pulumi.StringPtrOutput { return v.ForceIsDefault }).(pulumi.StringPtrOutput)
 }

@@ -104,7 +104,7 @@ type LookupSamlResult struct {
 	Features []string `pulumi:"features"`
 	// List of groups IDs assigned to the application.
 	//
-	// Deprecated: The `groups` field is now deprecated for the data source `app.Saml`, please replace all uses of this with: `AppGroupAssignments`
+	// Deprecated: The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
 	Groups []string `pulumi:"groups"`
 	// Do not display application icon on mobile app.
 	HideIos bool `pulumi:"hideIos"`
@@ -165,7 +165,7 @@ type LookupSamlResult struct {
 	UserNameTemplateSuffix string `pulumi:"userNameTemplateSuffix"`
 	// Username template type.
 	UserNameTemplateType string `pulumi:"userNameTemplateType"`
-	// Deprecated: The `users` field is now deprecated for the data source `app.Saml`, please replace all uses of this with: `getAppUserAssignments`
+	// Deprecated: The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
 	Users []string `pulumi:"users"`
 }
 
@@ -298,7 +298,7 @@ func (o LookupSamlResultOutput) Features() pulumi.StringArrayOutput {
 
 // List of groups IDs assigned to the application.
 //
-// Deprecated: The `groups` field is now deprecated for the data source `app.Saml`, please replace all uses of this with: `AppGroupAssignments`
+// Deprecated: The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`
 func (o LookupSamlResultOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSamlResult) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
@@ -452,7 +452,7 @@ func (o LookupSamlResultOutput) UserNameTemplateType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.UserNameTemplateType }).(pulumi.StringOutput)
 }
 
-// Deprecated: The `users` field is now deprecated for the data source `app.Saml`, please replace all uses of this with: `getAppUserAssignments`
+// Deprecated: The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`
 func (o LookupSamlResultOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSamlResult) []string { return v.Users }).(pulumi.StringArrayOutput)
 }
