@@ -20119,7 +20119,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "deprecationMessage": "The `groups` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.AppGroupAssignments`"
+                        "deprecationMessage": "The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`"
                     },
                     "id": {
                         "type": "string",
@@ -20157,7 +20157,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "deprecationMessage": "The `users` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.getAppUserAssignments`"
+                        "deprecationMessage": "The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`"
                     }
                 },
                 "type": "object",
@@ -20531,7 +20531,7 @@
                             "type": "string"
                         },
                         "description": "List of groups IDs assigned to the application.\n",
-                        "deprecationMessage": "The `groups` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.AppGroupAssignments`"
+                        "deprecationMessage": "The `groups` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_group_assignments`"
                     },
                     "hideIos": {
                         "type": "boolean",
@@ -20657,7 +20657,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "deprecationMessage": "The `users` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.getAppUserAssignments`"
+                        "deprecationMessage": "The `users` field is now deprecated for the data source `okta_app_saml`, please replace all uses of this with: `okta_app_user_assignments`"
                     }
                 },
                 "type": "object",
