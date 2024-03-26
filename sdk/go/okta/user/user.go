@@ -199,7 +199,7 @@ type User struct {
 	SecondEmail pulumi.StringPtrOutput `pulumi:"secondEmail"`
 	// Do not populate user roles information (prevents additional API call)
 	//
-	// Deprecated: Because adminRoles has been removed, this attribute is a no op and will be removed
+	// Deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed
 	SkipRoles pulumi.BoolPtrOutput `pulumi:"skipRoles"`
 	// User profile property.
 	State pulumi.StringPtrOutput `pulumi:"state"`
@@ -355,7 +355,7 @@ type userState struct {
 	SecondEmail *string `pulumi:"secondEmail"`
 	// Do not populate user roles information (prevents additional API call)
 	//
-	// Deprecated: Because adminRoles has been removed, this attribute is a no op and will be removed
+	// Deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed
 	SkipRoles *bool `pulumi:"skipRoles"`
 	// User profile property.
 	State *string `pulumi:"state"`
@@ -455,7 +455,7 @@ type UserState struct {
 	SecondEmail pulumi.StringPtrInput
 	// Do not populate user roles information (prevents additional API call)
 	//
-	// Deprecated: Because adminRoles has been removed, this attribute is a no op and will be removed
+	// Deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed
 	SkipRoles pulumi.BoolPtrInput
 	// User profile property.
 	State pulumi.StringPtrInput
@@ -557,7 +557,7 @@ type userArgs struct {
 	SecondEmail *string `pulumi:"secondEmail"`
 	// Do not populate user roles information (prevents additional API call)
 	//
-	// Deprecated: Because adminRoles has been removed, this attribute is a no op and will be removed
+	// Deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed
 	SkipRoles *bool `pulumi:"skipRoles"`
 	// User profile property.
 	State *string `pulumi:"state"`
@@ -656,7 +656,7 @@ type UserArgs struct {
 	SecondEmail pulumi.StringPtrInput
 	// Do not populate user roles information (prevents additional API call)
 	//
-	// Deprecated: Because adminRoles has been removed, this attribute is a no op and will be removed
+	// Deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed
 	SkipRoles pulumi.BoolPtrInput
 	// User profile property.
 	State pulumi.StringPtrInput
@@ -947,7 +947,7 @@ func (o UserOutput) SecondEmail() pulumi.StringPtrOutput {
 
 // Do not populate user roles information (prevents additional API call)
 //
-// Deprecated: Because adminRoles has been removed, this attribute is a no op and will be removed
+// Deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed
 func (o UserOutput) SkipRoles() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.SkipRoles }).(pulumi.BoolPtrOutput)
 }

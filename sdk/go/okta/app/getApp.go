@@ -74,7 +74,7 @@ type GetAppArgs struct {
 // A collection of values returned by getApp.
 type GetAppResult struct {
 	ActiveOnly *bool `pulumi:"activeOnly"`
-	// Deprecated: The `groups` field is now deprecated for the data source `app.getApp`, please replace all uses of this with: `AppGroupAssignments`
+	// Deprecated: The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
 	Groups []string `pulumi:"groups"`
 	// Application ID.
 	Id *string `pulumi:"id"`
@@ -91,7 +91,7 @@ type GetAppResult struct {
 	SkipUsers *bool `pulumi:"skipUsers"`
 	// Application status.
 	Status string `pulumi:"status"`
-	// Deprecated: The `users` field is now deprecated for the data source `app.getApp`, please replace all uses of this with: `getAppUserAssignments`
+	// Deprecated: The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
 	Users []string `pulumi:"users"`
 }
 
@@ -152,7 +152,7 @@ func (o GetAppResultOutput) ActiveOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetAppResult) *bool { return v.ActiveOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated: The `groups` field is now deprecated for the data source `app.getApp`, please replace all uses of this with: `AppGroupAssignments`
+// Deprecated: The `groups` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_group_assignments`
 func (o GetAppResultOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAppResult) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
@@ -196,7 +196,7 @@ func (o GetAppResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Deprecated: The `users` field is now deprecated for the data source `app.getApp`, please replace all uses of this with: `getAppUserAssignments`
+// Deprecated: The `users` field is now deprecated for the data source `okta_app`, please replace all uses of this with: `okta_app_user_assignments`
 func (o GetAppResultOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAppResult) []string { return v.Users }).(pulumi.StringArrayOutput)
 }
