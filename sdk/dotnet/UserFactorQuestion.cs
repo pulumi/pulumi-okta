@@ -51,9 +51,9 @@ namespace Pulumi.Okta
     ///         Answer = "meatball",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             exampleFactor,
+    ///             exampleFactor, 
     ///         },
     ///     });
     /// 

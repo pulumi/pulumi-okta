@@ -119,9 +119,9 @@ namespace Pulumi.Okta.App
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             testHook,
+    ///             testHook, 
     ///         },
     ///     });
     /// 
