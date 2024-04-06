@@ -127,25 +127,6 @@ import (
 // `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
 // key with `openssl`:
 //
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ## Import
 //
 // An OIDC Application can be imported via the Okta ID.

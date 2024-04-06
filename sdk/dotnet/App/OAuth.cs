@@ -117,18 +117,6 @@ namespace Pulumi.Okta.App
     /// `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
     /// key with `openssl`:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// An OIDC Application can be imported via the Okta ID.

@@ -49,6 +49,8 @@ import * as utilities from "./utilities";
  *
  * This will create an app sign-on policy rule with the following `THEN` block:
  *
+ * ### Rule with Constraints
+ *
  * ### Example 1:
  *
  * <!--Start PulumiCodeChooser -->
@@ -68,12 +70,6 @@ import * as utilities from "./utilities";
  * <!--End PulumiCodeChooser -->
  *
  * This will create an app sign-on policy rule with the following `THEN` block:
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example 2:
  *
@@ -99,12 +95,6 @@ import * as utilities from "./utilities";
  * <!--End PulumiCodeChooser -->
  *
  * This will create an app sign-on policy rule with the following `THEN` block:
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * <!--End PulumiCodeChooser -->
  *
  * More examples can be
  * found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
