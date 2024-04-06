@@ -82,12 +82,6 @@ import * as utilities from "../utilities";
  * `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
  * key with `openssl`:
  *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * An OIDC Application can be imported via the Okta ID.

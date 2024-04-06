@@ -62,6 +62,25 @@ namespace Pulumi.Okta
     /// });
     /// ```
     /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## Let's Encrypt Certbot
+    /// 
+    /// This example demonstrates generatoring a domain certificate with letsencrypt
+    /// certbot https://letsencrypt.org/getting-started/
+    /// 
+    /// Use letsencrypt's certbot to generate domain certificates in RSA output mode.
+    /// The generator's output corresponds to `okta.DomainCertificate` fields in the
+    /// following manner.
+    /// 
+    /// Okta Field          | Certbot file
+    /// --------------------|--------------
+    /// `certificate`       | `cert.pem`
+    /// `certificate_chain` | `chain.pem`
+    /// `private_key`       | `privkey.pem`
+    /// 
+    /// ## Import
+    /// 
+    /// This resource does not support importing.
     /// </summary>
     [OktaResourceType("okta:index/domainCertificate:DomainCertificate")]
     public partial class DomainCertificate : global::Pulumi.CustomResource

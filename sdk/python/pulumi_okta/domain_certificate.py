@@ -238,6 +238,25 @@ class DomainCertificate(pulumi.CustomResource):
         ```
         <!--End PulumiCodeChooser -->
 
+        ## Let's Encrypt Certbot
+
+        This example demonstrates generatoring a domain certificate with letsencrypt
+        certbot https://letsencrypt.org/getting-started/
+
+        Use letsencrypt's certbot to generate domain certificates in RSA output mode.
+        The generator's output corresponds to `DomainCertificate` fields in the
+        following manner.
+
+        Okta Field          | Certbot file
+        --------------------|--------------
+        `certificate`       | `cert.pem`
+        `certificate_chain` | `chain.pem`
+        `private_key`       | `privkey.pem`
+
+        ## Import
+
+        This resource does not support importing.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate: Certificate content.
@@ -296,6 +315,25 @@ class DomainCertificate(pulumi.CustomResource):
         \"\"\")
         ```
         <!--End PulumiCodeChooser -->
+
+        ## Let's Encrypt Certbot
+
+        This example demonstrates generatoring a domain certificate with letsencrypt
+        certbot https://letsencrypt.org/getting-started/
+
+        Use letsencrypt's certbot to generate domain certificates in RSA output mode.
+        The generator's output corresponds to `DomainCertificate` fields in the
+        following manner.
+
+        Okta Field          | Certbot file
+        --------------------|--------------
+        `certificate`       | `cert.pem`
+        `certificate_chain` | `chain.pem`
+        `private_key`       | `privkey.pem`
+
+        ## Import
+
+        This resource does not support importing.
 
         :param str resource_name: The name of the resource.
         :param DomainCertificateArgs args: The arguments to use to populate this resource's properties.

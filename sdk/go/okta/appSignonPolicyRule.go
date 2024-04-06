@@ -77,6 +77,8 @@ import (
 //
 // This will create an app sign-on policy rule with the following `THEN` block:
 //
+// ### Rule with Constraints
+//
 // ### Example 1:
 //
 // <!--Start PulumiCodeChooser -->
@@ -122,25 +124,6 @@ import (
 // <!--End PulumiCodeChooser -->
 //
 // This will create an app sign-on policy rule with the following `THEN` block:
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example 2:
 //
@@ -192,25 +175,6 @@ import (
 // <!--End PulumiCodeChooser -->
 //
 // This will create an app sign-on policy rule with the following `THEN` block:
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 //
 // More examples can be
 // found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
