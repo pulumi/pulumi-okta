@@ -1,0 +1,14 @@
+name: auth_serverPYF6KeY0xHye
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/59171b1f-eb69-4156-a79e-fb81a31afd95.zip
+resources:
+  myOktaAuthServer:
+    properties:
+      audiences:
+        - api://default
+
+    type: okta:auth:Server
