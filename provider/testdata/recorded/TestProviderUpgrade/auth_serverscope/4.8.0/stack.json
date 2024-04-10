@@ -1,0 +1,123 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-04-10T11:58:29.049454+01:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:eU1TUDl6xkY=:v1:CyUO3ygV+dKTfiCU:NQUP/RBItA0RU5JXQ/oBdHKbp4Wp0w=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::auth_serverscopeRE6NqW4vH623::pulumi:pulumi:Stack::auth_serverscopeRE6NqW4vH623-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-04-10T10:58:25.77982Z",
+        "modified": "2024-04-10T10:58:25.77982Z"
+      },
+      {
+        "urn": "urn:pulumi:test::auth_serverscopeRE6NqW4vH623::pulumi:providers:okta::default",
+        "custom": true,
+        "id": "fc465a64-5023-4067-87e3-851b3be6e7d1",
+        "type": "pulumi:providers:okta",
+        "created": "2024-04-10T10:58:25.841933Z",
+        "modified": "2024-04-10T10:58:25.841933Z"
+      },
+      {
+        "urn": "urn:pulumi:test::auth_serverscopeRE6NqW4vH623::okta:auth/server:Server::myOktaAuthServer",
+        "custom": true,
+        "id": "aus13bnicl1ebmz2T358",
+        "type": "okta:auth/server:Server",
+        "inputs": {
+          "__defaults": [
+            "credentialsRotationMode",
+            "issuerMode",
+            "name",
+            "status"
+          ],
+          "audiences": [
+            "api://default"
+          ],
+          "credentialsRotationMode": "AUTO",
+          "description": "Example Authorization Server",
+          "issuerMode": "ORG_URL",
+          "name": "myOktaAuthServer-261664b",
+          "status": "ACTIVE"
+        },
+        "outputs": {
+          "audiences": [
+            "api://default"
+          ],
+          "credentialsLastRotated": "2024-04-10 10:58:27 +0000 UTC",
+          "credentialsNextRotation": "2024-07-09 10:58:27 +0000 UTC",
+          "credentialsRotationMode": "AUTO",
+          "description": "Example Authorization Server",
+          "id": "aus13bnicl1ebmz2T358",
+          "issuer": "https://pulumidev.okta.com/oauth2/aus13bnicl1ebmz2T358",
+          "issuerMode": "ORG_URL",
+          "kid": "Cp6GPtTWMp-2jhcEGA6yUY5af-Xk0XznjcG2mwrAw7g",
+          "name": "myOktaAuthServer-261664b",
+          "status": "ACTIVE"
+        },
+        "parent": "urn:pulumi:test::auth_serverscopeRE6NqW4vH623::pulumi:pulumi:Stack::auth_serverscopeRE6NqW4vH623-test",
+        "provider": "urn:pulumi:test::auth_serverscopeRE6NqW4vH623::pulumi:providers:okta::default::fc465a64-5023-4067-87e3-851b3be6e7d1",
+        "propertyDependencies": {
+          "audiences": [],
+          "description": []
+        },
+        "created": "2024-04-10T10:58:28.130596Z",
+        "modified": "2024-04-10T10:58:28.130596Z"
+      },
+      {
+        "urn": "urn:pulumi:test::auth_serverscopeRE6NqW4vH623::okta:auth/serverScope:ServerScope::myOktaAuthServerScope",
+        "custom": true,
+        "id": "scp13bngsax3E92uT358",
+        "type": "okta:auth/serverScope:ServerScope",
+        "inputs": {
+          "__defaults": [
+            "consent",
+            "default",
+            "metadataPublish",
+            "name"
+          ],
+          "authServerId": "aus13bnicl1ebmz2T358",
+          "consent": "IMPLICIT",
+          "default": false,
+          "description": "Example Server Scope",
+          "metadataPublish": "ALL_CLIENTS",
+          "name": "myOktaAuthServerScope-cd24e53"
+        },
+        "outputs": {
+          "authServerId": "aus13bnicl1ebmz2T358",
+          "consent": "IMPLICIT",
+          "default": false,
+          "description": "Example Server Scope",
+          "displayName": "",
+          "id": "scp13bngsax3E92uT358",
+          "metadataPublish": "ALL_CLIENTS",
+          "name": "myOktaAuthServerScope-cd24e53",
+          "optional": false,
+          "system": false
+        },
+        "parent": "urn:pulumi:test::auth_serverscopeRE6NqW4vH623::pulumi:pulumi:Stack::auth_serverscopeRE6NqW4vH623-test",
+        "dependencies": [
+          "urn:pulumi:test::auth_serverscopeRE6NqW4vH623::okta:auth/server:Server::myOktaAuthServer"
+        ],
+        "provider": "urn:pulumi:test::auth_serverscopeRE6NqW4vH623::pulumi:providers:okta::default::fc465a64-5023-4067-87e3-851b3be6e7d1",
+        "propertyDependencies": {
+          "authServerId": [
+            "urn:pulumi:test::auth_serverscopeRE6NqW4vH623::okta:auth/server:Server::myOktaAuthServer"
+          ],
+          "description": []
+        },
+        "created": "2024-04-10T10:58:29.049403Z",
+        "modified": "2024-04-10T10:58:29.049403Z"
+      }
+    ]
+  }
+}

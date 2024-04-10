@@ -1,0 +1,82 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-04-10T11:58:37.303135+01:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:prtnpokKWTg=:v1:XWfG9Ql34BptxAkN:dpvJXnNQXzl1ZMH7IcURlEfMTmjhJw=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_userschemapropertyOEaXDw7njnL9::pulumi:pulumi:Stack::index_userschemapropertyOEaXDw7njnL9-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-04-10T10:58:35.308666Z",
+        "modified": "2024-04-10T10:58:35.308666Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_userschemapropertyOEaXDw7njnL9::pulumi:providers:okta::default",
+        "custom": true,
+        "id": "a3d07266-9eaa-43f5-807c-6860f647f2fd",
+        "type": "pulumi:providers:okta",
+        "created": "2024-04-10T10:58:35.367851Z",
+        "modified": "2024-04-10T10:58:35.367851Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_userschemapropertyOEaXDw7njnL9::okta:index/userSchemaProperty:UserSchemaProperty::userSchemaProperty",
+        "custom": true,
+        "id": "customProperty",
+        "type": "okta:index/userSchemaProperty:UserSchemaProperty",
+        "inputs": {
+          "__defaults": [
+            "master",
+            "permissions",
+            "scope",
+            "userType"
+          ],
+          "index": "customProperty",
+          "master": "PROFILE_MASTER",
+          "permissions": "READ_ONLY",
+          "required": true,
+          "scope": "NONE",
+          "title": "Custom Property",
+          "type": "string",
+          "userType": "default"
+        },
+        "outputs": {
+          "__meta": "{\"schema_version\":\"1\"}",
+          "description": "",
+          "externalName": "",
+          "externalNamespace": "",
+          "id": "customProperty",
+          "index": "customProperty",
+          "master": "PROFILE_MASTER",
+          "oneOfs": [],
+          "permissions": "READ_ONLY",
+          "required": true,
+          "scope": "NONE",
+          "title": "Custom Property",
+          "type": "string",
+          "unique": "",
+          "userType": "default"
+        },
+        "parent": "urn:pulumi:test::index_userschemapropertyOEaXDw7njnL9::pulumi:pulumi:Stack::index_userschemapropertyOEaXDw7njnL9-test",
+        "provider": "urn:pulumi:test::index_userschemapropertyOEaXDw7njnL9::pulumi:providers:okta::default::a3d07266-9eaa-43f5-807c-6860f647f2fd",
+        "propertyDependencies": {
+          "index": [],
+          "required": [],
+          "title": [],
+          "type": []
+        },
+        "created": "2024-04-10T10:58:37.302774Z",
+        "modified": "2024-04-10T10:58:37.302774Z"
+      }
+    ]
+  }
+}
