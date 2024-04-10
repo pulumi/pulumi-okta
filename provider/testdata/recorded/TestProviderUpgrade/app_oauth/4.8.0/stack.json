@@ -1,0 +1,160 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-04-10T11:58:46.162861+01:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:AKZhAPTfDcY=:v1:sVyKlwvh7rhVE3Xa:sr8wFA0v/H6ch1fj33db6SmpLSxNxw=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::app_oauthXC7IRKIfqYeK::pulumi:pulumi:Stack::app_oauthXC7IRKIfqYeK-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-04-10T10:58:43.866302Z",
+        "modified": "2024-04-10T10:58:43.866302Z"
+      },
+      {
+        "urn": "urn:pulumi:test::app_oauthXC7IRKIfqYeK::pulumi:providers:okta::default",
+        "custom": true,
+        "id": "4870cfdc-95a7-49bf-b720-f52ff59a4f7f",
+        "type": "pulumi:providers:okta",
+        "created": "2024-04-10T10:58:43.927173Z",
+        "modified": "2024-04-10T10:58:43.927173Z"
+      },
+      {
+        "urn": "urn:pulumi:test::app_oauthXC7IRKIfqYeK::okta:app/oAuth:OAuth::myOktaAppOauth",
+        "custom": true,
+        "id": "0oa13bnhy3lsWJMr2358",
+        "type": "okta:app/oAuth:OAuth",
+        "inputs": {
+          "__defaults": [
+            "accessibilitySelfService",
+            "autoKeyRotation",
+            "autoSubmitToolbar",
+            "consentMethod",
+            "hideIos",
+            "hideWeb",
+            "issuerMode",
+            "loginMode",
+            "omitSecret",
+            "refreshTokenLeeway",
+            "refreshTokenRotation",
+            "status",
+            "userNameTemplate",
+            "userNameTemplateType",
+            "wildcardRedirect"
+          ],
+          "accessibilitySelfService": false,
+          "autoKeyRotation": true,
+          "autoSubmitToolbar": false,
+          "consentMethod": "TRUSTED",
+          "grantTypes": [
+            "authorization_code"
+          ],
+          "hideIos": true,
+          "hideWeb": true,
+          "issuerMode": "ORG_URL",
+          "label": "MyOAuthApp",
+          "loginMode": "DISABLED",
+          "omitSecret": false,
+          "redirectUris": [
+            "https://example.com/oauth/callback"
+          ],
+          "refreshTokenLeeway": 0,
+          "refreshTokenRotation": "STATIC",
+          "responseTypes": [
+            "code"
+          ],
+          "status": "ACTIVE",
+          "tokenEndpointAuthMethod": "client_secret_basic",
+          "type": "web",
+          "userNameTemplate": "${source.login}",
+          "userNameTemplateType": "BUILT_IN",
+          "wildcardRedirect": "DISABLED"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":3600000000000,\"read\":3600000000000,\"update\":3600000000000}}",
+          "accessibilityErrorRedirectUrl": "",
+          "accessibilityLoginRedirectUrl": "",
+          "accessibilitySelfService": false,
+          "adminNote": "",
+          "appLinksJson": "{\"oidc_client_link\":true}",
+          "appSettingsJson": "{}",
+          "autoKeyRotation": true,
+          "autoSubmitToolbar": false,
+          "clientId": "0oa13bnhy3lsWJMr2358",
+          "clientSecret": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"0FRZ8p2d-_czPy7VlP2rRdzmG6Z-odypkYZ8aU2laGRwIqFzuDhSScxVtuRBP7Yx\""
+          },
+          "clientUri": "",
+          "consentMethod": "TRUSTED",
+          "enduserNote": "",
+          "grantTypes": [
+            "authorization_code"
+          ],
+          "groupsClaim": null,
+          "hideIos": true,
+          "hideWeb": true,
+          "id": "0oa13bnhy3lsWJMr2358",
+          "implicitAssignment": false,
+          "issuerMode": "ORG_URL",
+          "jwksUri": "",
+          "label": "MyOAuthApp",
+          "loginMode": "DISABLED",
+          "loginScopes": [],
+          "loginUri": "",
+          "logoUri": "",
+          "logoUrl": "https://ok7static.oktacdn.com/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
+          "name": "oidc_client",
+          "omitSecret": false,
+          "pkceRequired": false,
+          "policyUri": "",
+          "postLogoutRedirectUris": [],
+          "profile": "",
+          "redirectUris": [
+            "https://example.com/oauth/callback"
+          ],
+          "refreshTokenLeeway": 0,
+          "refreshTokenRotation": "STATIC",
+          "responseTypes": [
+            "code"
+          ],
+          "signOnMode": "OPENID_CONNECT",
+          "status": "ACTIVE",
+          "tokenEndpointAuthMethod": "client_secret_basic",
+          "tosUri": "",
+          "type": "web",
+          "userNameTemplate": "${source.login}",
+          "userNameTemplatePushStatus": "",
+          "userNameTemplateSuffix": "",
+          "userNameTemplateType": "BUILT_IN",
+          "wildcardRedirect": "DISABLED"
+        },
+        "parent": "urn:pulumi:test::app_oauthXC7IRKIfqYeK::pulumi:pulumi:Stack::app_oauthXC7IRKIfqYeK-test",
+        "provider": "urn:pulumi:test::app_oauthXC7IRKIfqYeK::pulumi:providers:okta::default::4870cfdc-95a7-49bf-b720-f52ff59a4f7f",
+        "propertyDependencies": {
+          "grantTypes": [],
+          "label": [],
+          "redirectUris": [],
+          "responseTypes": [],
+          "tokenEndpointAuthMethod": [],
+          "type": []
+        },
+        "additionalSecretOutputs": [
+          "clientBasicSecret",
+          "clientSecret"
+        ],
+        "created": "2024-04-10T10:58:46.16214Z",
+        "modified": "2024-04-10T10:58:46.16214Z"
+      }
+    ]
+  }
+}

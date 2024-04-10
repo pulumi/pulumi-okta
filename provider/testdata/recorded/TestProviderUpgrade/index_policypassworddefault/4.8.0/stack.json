@@ -1,0 +1,125 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-04-10T11:57:55.031258+01:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:hNHnK4iuQA4=:v1:t+BXPgbk2KtRfwaH:32cQTCDtlAB9q8EcGb+UKiPGrFqzUQ=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_policypassworddefaultZQel6NRqUvdz::pulumi:pulumi:Stack::index_policypassworddefaultZQel6NRqUvdz-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "outputs": {
+          "passwordPolicyId": "00p1ivzt93FKr0peL357"
+        },
+        "created": "2024-04-10T10:57:53.234858Z",
+        "modified": "2024-04-10T10:57:53.234858Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_policypassworddefaultZQel6NRqUvdz::pulumi:providers:okta::default",
+        "custom": true,
+        "id": "268392f0-9da7-45a5-b372-15fe4d8697ab",
+        "type": "pulumi:providers:okta",
+        "created": "2024-04-10T10:57:53.296917Z",
+        "modified": "2024-04-10T10:57:53.296917Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_policypassworddefaultZQel6NRqUvdz::okta:index/policyPasswordDefault:PolicyPasswordDefault::defaultPasswordPolicy",
+        "custom": true,
+        "id": "00p1ivzt93FKr0peL357",
+        "type": "okta:index/policyPasswordDefault:PolicyPasswordDefault",
+        "inputs": {
+          "__defaults": [
+            "callRecovery",
+            "emailRecovery",
+            "passwordDictionaryLookup",
+            "passwordExcludeUsername",
+            "passwordHistoryCount",
+            "passwordMinAgeMinutes",
+            "passwordShowLockoutFailures",
+            "questionMinLength",
+            "questionRecovery",
+            "recoveryEmailToken",
+            "skipUnlock",
+            "smsRecovery"
+          ],
+          "callRecovery": "INACTIVE",
+          "emailRecovery": "ACTIVE",
+          "passwordAutoUnlockMinutes": 30,
+          "passwordDictionaryLookup": false,
+          "passwordExcludeUsername": true,
+          "passwordExpireWarnDays": 15,
+          "passwordHistoryCount": 4,
+          "passwordMaxAgeDays": 60,
+          "passwordMaxLockoutAttempts": 5,
+          "passwordMinAgeMinutes": 0,
+          "passwordMinLength": 8,
+          "passwordMinLowercase": 1,
+          "passwordMinNumber": 1,
+          "passwordMinSymbol": 1,
+          "passwordMinUppercase": 1,
+          "passwordShowLockoutFailures": false,
+          "questionMinLength": 4,
+          "questionRecovery": "ACTIVE",
+          "recoveryEmailToken": 60,
+          "skipUnlock": false,
+          "smsRecovery": "INACTIVE"
+        },
+        "outputs": {
+          "callRecovery": "INACTIVE",
+          "defaultAuthProvider": "OKTA",
+          "defaultIncludedGroupId": "00g1ivzt6nMuDtcdN357",
+          "description": "The default policy applies in all situations if no other policy applies.",
+          "emailRecovery": "ACTIVE",
+          "id": "00p1ivzt93FKr0peL357",
+          "name": "Default Policy",
+          "passwordAutoUnlockMinutes": 30,
+          "passwordDictionaryLookup": false,
+          "passwordExcludeUsername": true,
+          "passwordExpireWarnDays": 15,
+          "passwordHistoryCount": 4,
+          "passwordLockoutNotificationChannels": [],
+          "passwordMaxAgeDays": 60,
+          "passwordMaxLockoutAttempts": 5,
+          "passwordMinAgeMinutes": 0,
+          "passwordMinLength": 8,
+          "passwordMinLowercase": 1,
+          "passwordMinNumber": 1,
+          "passwordMinSymbol": 1,
+          "passwordMinUppercase": 1,
+          "passwordShowLockoutFailures": false,
+          "priority": 1,
+          "questionMinLength": 4,
+          "questionRecovery": "ACTIVE",
+          "recoveryEmailToken": 60,
+          "skipUnlock": false,
+          "smsRecovery": "INACTIVE",
+          "status": "ACTIVE"
+        },
+        "parent": "urn:pulumi:test::index_policypassworddefaultZQel6NRqUvdz::pulumi:pulumi:Stack::index_policypassworddefaultZQel6NRqUvdz-test",
+        "provider": "urn:pulumi:test::index_policypassworddefaultZQel6NRqUvdz::pulumi:providers:okta::default::268392f0-9da7-45a5-b372-15fe4d8697ab",
+        "propertyDependencies": {
+          "passwordAutoUnlockMinutes": [],
+          "passwordExpireWarnDays": [],
+          "passwordMaxAgeDays": [],
+          "passwordMaxLockoutAttempts": [],
+          "passwordMinLength": [],
+          "passwordMinLowercase": [],
+          "passwordMinNumber": [],
+          "passwordMinSymbol": [],
+          "passwordMinUppercase": []
+        },
+        "created": "2024-04-10T10:57:55.021202Z",
+        "modified": "2024-04-10T10:57:55.021202Z"
+      }
+    ]
+  }
+}

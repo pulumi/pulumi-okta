@@ -1,0 +1,15 @@
+name: network_zoneSH4JomkfPBQU
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/766a2b69-dcc9-46a6-88fb-b7049ffb3447.zip
+resources:
+  myOktaNetworkZone:
+    properties:
+      gateways:
+        - 1.2.3.4/32
+
+      type: IP
+    type: okta:network:Zone

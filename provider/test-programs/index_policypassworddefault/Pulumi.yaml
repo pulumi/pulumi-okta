@@ -1,0 +1,22 @@
+name: index_policypassworddefaultZQel6NRqUvdz
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/ab2ddef1-ac17-4494-848e-98c2ae0097b3.zip
+outputs:
+  passwordPolicyId: ${defaultPasswordPolicy.id}
+resources:
+  defaultPasswordPolicy:
+    properties:
+      passwordAutoUnlockMinutes: 30
+      passwordExpireWarnDays: 15
+      passwordMaxAgeDays: 60
+      passwordMaxLockoutAttempts: 5
+      passwordMinLength: 8
+      passwordMinLowercase: 1
+      passwordMinNumber: 1
+      passwordMinSymbol: 1
+      passwordMinUppercase: 1
+    type: okta:PolicyPasswordDefault

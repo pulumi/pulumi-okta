@@ -1,0 +1,13 @@
+name: app_bookmarkwFX2D4yckWI6
+runtime: yaml
+description: A minimal Pulumi program to create an Okta Bookmark App
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/6ac7b54f-3bfc-46d0-80b7-59fadace32d6.zip
+resources:
+  bookmarkApp:
+    properties:
+      label: MyBookmarkApp
+      url: https://www.example.com
+    type: okta:app:Bookmark

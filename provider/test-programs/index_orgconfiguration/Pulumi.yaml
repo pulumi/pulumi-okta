@@ -1,0 +1,12 @@
+name: index_orgconfigurationPe3xSEnPcG1x
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/e196f5f3-6491-4080-9b4c-6ca3ae50812b.zip
+resources:
+  myOrgConfiguration:
+    properties:
+      companyName: Pulumi Corp
+    type: okta:OrgConfiguration

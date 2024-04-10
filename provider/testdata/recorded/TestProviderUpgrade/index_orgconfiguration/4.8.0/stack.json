@@ -1,0 +1,68 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-04-10T11:58:02.924783+01:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:o9EcZMvl6X8=:v1:mWIljf8ywiO90Q4g:XjmfHonHfttGeECxlnmYmiEcAMtOvA=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_orgconfigurationPe3xSEnPcG1x::pulumi:pulumi:Stack::index_orgconfigurationPe3xSEnPcG1x-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-04-10T10:58:00.635678Z",
+        "modified": "2024-04-10T10:58:00.635678Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_orgconfigurationPe3xSEnPcG1x::pulumi:providers:okta::default",
+        "custom": true,
+        "id": "156b2f10-eeea-4029-9711-51885ae52cbc",
+        "type": "pulumi:providers:okta",
+        "created": "2024-04-10T10:58:00.695321Z",
+        "modified": "2024-04-10T10:58:00.695321Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_orgconfigurationPe3xSEnPcG1x::okta:index/orgConfiguration:OrgConfiguration::myOrgConfiguration",
+        "custom": true,
+        "id": "00o1ivzt6bXqiXV3S357",
+        "type": "okta:index/orgConfiguration:OrgConfiguration",
+        "inputs": {
+          "__defaults": [],
+          "companyName": "Pulumi Corp"
+        },
+        "outputs": {
+          "address1": "",
+          "address2": "",
+          "billingContactUser": "00u1ivzt9oKNAMlLz357",
+          "city": "",
+          "companyName": "Pulumi Corp",
+          "country": "",
+          "endUserSupportHelpUrl": "",
+          "id": "00o1ivzt6bXqiXV3S357",
+          "optOutCommunicationEmails": false,
+          "phoneNumber": "",
+          "postalCode": "",
+          "state": "",
+          "subdomain": "pulumidev",
+          "supportPhoneNumber": "",
+          "technicalContactUser": "00u1ivzt9oKNAMlLz357",
+          "website": "https://pulumi.com"
+        },
+        "parent": "urn:pulumi:test::index_orgconfigurationPe3xSEnPcG1x::pulumi:pulumi:Stack::index_orgconfigurationPe3xSEnPcG1x-test",
+        "provider": "urn:pulumi:test::index_orgconfigurationPe3xSEnPcG1x::pulumi:providers:okta::default::156b2f10-eeea-4029-9711-51885ae52cbc",
+        "propertyDependencies": {
+          "companyName": []
+        },
+        "created": "2024-04-10T10:58:02.924467Z",
+        "modified": "2024-04-10T10:58:02.924467Z"
+      }
+    ]
+  }
+}
