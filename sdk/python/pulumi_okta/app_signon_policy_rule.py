@@ -923,6 +923,8 @@ class AppSignonPolicyRule(pulumi.CustomResource):
 
         This will create an app sign-on policy rule with the following `THEN` block:
 
+        ### Rule with Constraints
+
         ### Example 1:
 
         <!--Start PulumiCodeChooser -->
@@ -942,12 +944,6 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         <!--End PulumiCodeChooser -->
 
         This will create an app sign-on policy rule with the following `THEN` block:
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        ```
-        <!--End PulumiCodeChooser -->
 
         ### Example 2:
 
@@ -973,12 +969,6 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         <!--End PulumiCodeChooser -->
 
         This will create an app sign-on policy rule with the following `THEN` block:
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        ```
-        <!--End PulumiCodeChooser -->
 
         More examples can be
         found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
@@ -1235,6 +1225,8 @@ class AppSignonPolicyRule(pulumi.CustomResource):
 
         This will create an app sign-on policy rule with the following `THEN` block:
 
+        ### Rule with Constraints
+
         ### Example 1:
 
         <!--Start PulumiCodeChooser -->
@@ -1254,12 +1246,6 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         <!--End PulumiCodeChooser -->
 
         This will create an app sign-on policy rule with the following `THEN` block:
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        ```
-        <!--End PulumiCodeChooser -->
 
         ### Example 2:
 
@@ -1285,12 +1271,6 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         <!--End PulumiCodeChooser -->
 
         This will create an app sign-on policy rule with the following `THEN` block:
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        ```
-        <!--End PulumiCodeChooser -->
 
         More examples can be
         found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).

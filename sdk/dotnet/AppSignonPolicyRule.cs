@@ -65,6 +65,8 @@ namespace Pulumi.Okta
     /// 
     /// This will create an app sign-on policy rule with the following `THEN` block:
     /// 
+    /// ### Rule with Constraints
+    /// 
     /// ### Example 1:
     /// 
     /// &lt;!--Start PulumiCodeChooser --&gt;
@@ -100,18 +102,6 @@ namespace Pulumi.Okta
     /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// This will create an app sign-on policy rule with the following `THEN` block:
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Example 2:
     /// 
@@ -154,18 +144,6 @@ namespace Pulumi.Okta
     /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// This will create an app sign-on policy rule with the following `THEN` block:
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// More examples can be
     /// found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).

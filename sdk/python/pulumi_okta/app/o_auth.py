@@ -1805,12 +1805,6 @@ class OAuth(pulumi.CustomResource):
         `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
         key with `openssl`:
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         An OIDC Application can be imported via the Okta ID.
@@ -1976,12 +1970,6 @@ class OAuth(pulumi.CustomResource):
         operator has a PKCS#1 (unencrypted) format private key (the header starts with
         `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
         key with `openssl`:
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

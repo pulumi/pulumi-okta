@@ -9,12 +9,6 @@ import * as utilities from "./utilities";
  *
  * This resource allows you to grant or revoke API scopes for OAuth2 applications within your organization.
  *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Example Usage
  *
  * <!--Start PulumiCodeChooser -->
