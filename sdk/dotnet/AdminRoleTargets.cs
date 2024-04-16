@@ -28,13 +28,13 @@ namespace Pulumi.Okta
     /// {
     ///     var example = new Okta.AdminRoleTargets("example", new()
     ///     {
+    ///         UserId = "&lt;user_id&gt;",
+    ///         RoleType = "APP_ADMIN",
     ///         Apps = new[]
     ///         {
     ///             "oidc_client.&lt;app_id&gt;",
     ///             "facebook",
     ///         },
-    ///         RoleType = "APP_ADMIN",
-    ///         UserId = "&lt;user_id&gt;",
     ///     });
     /// 
     /// });

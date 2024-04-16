@@ -243,8 +243,8 @@ class RoleSubscription(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test = okta.RoleSubscription("test",
-            notification_type="APP_IMPORT",
             role_type="SUPER_ADMIN",
+            notification_type="APP_IMPORT",
             status="unsubscribed")
         ```
         <!--End PulumiCodeChooser -->
@@ -307,8 +307,8 @@ class RoleSubscription(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test = okta.RoleSubscription("test",
-            notification_type="APP_IMPORT",
             role_type="SUPER_ADMIN",
+            notification_type="APP_IMPORT",
             status="unsubscribed")
         ```
         <!--End PulumiCodeChooser -->

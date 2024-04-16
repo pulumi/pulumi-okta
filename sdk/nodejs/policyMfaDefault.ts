@@ -20,16 +20,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const classicExample = new okta.PolicyMfaDefault("classicExample", {
+ * const classicExample = new okta.PolicyMfaDefault("classic_example", {
  *     isOie: false,
- *     oktaOtp: {
- *         enroll: "REQUIRED",
- *     },
  *     oktaPassword: {
  *         enroll: "REQUIRED",
  *     },
+ *     oktaOtp: {
+ *         enroll: "REQUIRED",
+ *     },
  * });
- * const oieExample = new okta.PolicyMfaDefault("oieExample", {
+ * const oieExample = new okta.PolicyMfaDefault("oie_example", {
  *     isOie: true,
  *     oktaPassword: {
  *         enroll: "REQUIRED",

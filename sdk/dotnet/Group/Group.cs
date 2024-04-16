@@ -27,6 +27,7 @@ namespace Pulumi.Okta.Group
     /// {
     ///     var example = new Okta.Group.Group("example", new()
     ///     {
+    ///         Name = "Example",
     ///         Description = "My Example Group",
     ///     });
     /// 
@@ -47,6 +48,7 @@ namespace Pulumi.Okta.Group
     /// {
     ///     var example = new Okta.Group.Group("example", new()
     ///     {
+    ///         Name = "Example",
     ///         Description = "My Example Group",
     ///         CustomProfileAttributes = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {

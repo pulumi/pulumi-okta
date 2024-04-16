@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EmailSender(&#34;example&#34;, EmailSenderArgs.builder()        
- *             .fromAddress(&#34;no-reply@caladan.planet&#34;)
  *             .fromName(&#34;Paul Atreides&#34;)
+ *             .fromAddress(&#34;no-reply@caladan.planet&#34;)
  *             .subdomain(&#34;mail&#34;)
  *             .build());
  * 

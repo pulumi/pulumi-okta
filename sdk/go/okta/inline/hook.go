@@ -32,18 +32,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := inline.NewHook(ctx, "example", &inline.HookArgs{
+//				Name:    pulumi.String("example"),
+//				Version: pulumi.String("1.0.0"),
+//				Type:    pulumi.String("com.okta.oauth2.tokens.transform"),
+//				Channel: pulumi.StringMap{
+//					"version": pulumi.String("1.0.0"),
+//					"uri":     pulumi.String("https://example.com/test"),
+//					"method":  pulumi.String("POST"),
+//				},
 //				Auth: pulumi.StringMap{
 //					"key":   pulumi.String("Authorization"),
 //					"type":  pulumi.String("HEADER"),
 //					"value": pulumi.String("secret"),
 //				},
-//				Channel: pulumi.StringMap{
-//					"method":  pulumi.String("POST"),
-//					"uri":     pulumi.String("https://example.com/test"),
-//					"version": pulumi.String("1.0.0"),
-//				},
-//				Type:    pulumi.String("com.okta.oauth2.tokens.transform"),
-//				Version: pulumi.String("1.0.0"),
 //			})
 //			if err != nil {
 //				return err

@@ -19,24 +19,24 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.AppSharedCredentials("example", {
- *     accessibilityErrorRedirectUrl: "https://example.com/redirect_url_1",
- *     accessibilityLoginRedirectUrl: "https://example.com/redirect_url_2",
- *     accessibilitySelfService: true,
- *     autoSubmitToolbar: true,
- *     buttonField: "btn-login",
- *     checkbox: "checkbox_red",
- *     hideIos: true,
  *     label: "Example App",
+ *     status: "ACTIVE",
+ *     buttonField: "btn-login",
+ *     usernameField: "txtbox-username",
  *     passwordField: "txtbox-password",
+ *     url: "https://example.com/login.html",
  *     redirectUrl: "https://example.com/redirect_url",
+ *     checkbox: "checkbox_red",
+ *     userNameTemplate: "user.firstName",
+ *     userNameTemplateType: "CUSTOM",
+ *     userNameTemplateSuffix: "hello",
  *     sharedPassword: "sharedpass",
  *     sharedUsername: "sharedusername",
- *     status: "ACTIVE",
- *     url: "https://example.com/login.html",
- *     userNameTemplate: "user.firstName",
- *     userNameTemplateSuffix: "hello",
- *     userNameTemplateType: "CUSTOM",
- *     usernameField: "txtbox-username",
+ *     accessibilitySelfService: true,
+ *     accessibilityErrorRedirectUrl: "https://example.com/redirect_url_1",
+ *     accessibilityLoginRedirectUrl: "https://example.com/redirect_url_2",
+ *     autoSubmitToolbar: true,
+ *     hideIos: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

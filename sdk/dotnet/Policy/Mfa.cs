@@ -29,32 +29,31 @@ namespace Pulumi.Okta.Policy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var classicExample = new Okta.Policy.Mfa("classicExample", new()
+    ///     var classicExample = new Okta.Policy.Mfa("classic_example", new()
     ///     {
+    ///         Name = "MFA Policy Classic",
+    ///         Status = "ACTIVE",
     ///         Description = "Example MFA policy using Okta Classic engine with factors.",
-    ///         GroupsIncludeds = new[]
-    ///         {
-    ///             data.Okta_group.Everyone.Id,
-    ///         },
     ///         IsOie = false,
-    ///         OktaOtp = 
-    ///         {
-    ///             { "enroll", "REQUIRED" },
-    ///         },
     ///         OktaPassword = 
     ///         {
     ///             { "enroll", "REQUIRED" },
     ///         },
-    ///         Status = "ACTIVE",
-    ///     });
-    /// 
-    ///     var oieExample = new Okta.Policy.Mfa("oieExample", new()
-    ///     {
-    ///         Description = "Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
+    ///         OktaOtp = 
+    ///         {
+    ///             { "enroll", "REQUIRED" },
+    ///         },
     ///         GroupsIncludeds = new[]
     ///         {
-    ///             data.Okta_group.Everyone.Id,
+    ///             everyone.Id,
     ///         },
+    ///     });
+    /// 
+    ///     var oieExample = new Okta.Policy.Mfa("oie_example", new()
+    ///     {
+    ///         Name = "MFA Policy OIE",
+    ///         Status = "ACTIVE",
+    ///         Description = "Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
     ///         IsOie = true,
     ///         OktaPassword = 
     ///         {
@@ -64,7 +63,10 @@ namespace Pulumi.Okta.Policy
     ///         {
     ///             { "enroll", "REQUIRED" },
     ///         },
-    ///         Status = "ACTIVE",
+    ///         GroupsIncludeds = new[]
+    ///         {
+    ///             everyone.Id,
+    ///         },
     ///     });
     /// 
     /// });

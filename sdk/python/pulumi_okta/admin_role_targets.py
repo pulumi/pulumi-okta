@@ -193,12 +193,12 @@ class AdminRoleTargets(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.AdminRoleTargets("example",
+            user_id="<user_id>",
+            role_type="APP_ADMIN",
             apps=[
                 "oidc_client.<app_id>",
                 "facebook",
-            ],
-            role_type="APP_ADMIN",
-            user_id="<user_id>")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -237,12 +237,12 @@ class AdminRoleTargets(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.AdminRoleTargets("example",
+            user_id="<user_id>",
+            role_type="APP_ADMIN",
             apps=[
                 "oidc_client.<app_id>",
                 "facebook",
-            ],
-            role_type="APP_ADMIN",
-            user_id="<user_id>")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

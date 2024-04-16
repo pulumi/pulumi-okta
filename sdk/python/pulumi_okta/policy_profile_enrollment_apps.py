@@ -131,12 +131,12 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_policy = okta.policy.get_policy(name="My Policy",
+        example = okta.policy.get_policy(name="My Policy",
             type="PROFILE_ENROLLMENT")
         test = okta.app.get_app(label="My App")
-        example_policy_profile_enrollment_apps = okta.PolicyProfileEnrollmentApps("examplePolicyProfileEnrollmentApps",
-            policy_id=okta_policy["example"]["id"],
-            apps=[data["okta_app"]["id"]])
+        example_policy_profile_enrollment_apps = okta.PolicyProfileEnrollmentApps("example",
+            policy_id=example_okta_policy["id"],
+            apps=[id])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -176,12 +176,12 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_policy = okta.policy.get_policy(name="My Policy",
+        example = okta.policy.get_policy(name="My Policy",
             type="PROFILE_ENROLLMENT")
         test = okta.app.get_app(label="My App")
-        example_policy_profile_enrollment_apps = okta.PolicyProfileEnrollmentApps("examplePolicyProfileEnrollmentApps",
-            policy_id=okta_policy["example"]["id"],
-            apps=[data["okta_app"]["id"]])
+        example_policy_profile_enrollment_apps = okta.PolicyProfileEnrollmentApps("example",
+            policy_id=example_okta_policy["id"],
+            apps=[id])
         ```
         <!--End PulumiCodeChooser -->
 

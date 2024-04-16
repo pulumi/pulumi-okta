@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AutoLogin(&#34;example&#34;, AutoLoginArgs.builder()        
- *             .credentialsScheme(&#34;EDIT_USERNAME_AND_PASSWORD&#34;)
  *             .label(&#34;Example App&#34;)
- *             .revealPassword(true)
- *             .signOnRedirectUrl(&#34;https://example.com&#34;)
  *             .signOnUrl(&#34;https://example.com/login.html&#34;)
+ *             .signOnRedirectUrl(&#34;https://example.com&#34;)
+ *             .revealPassword(true)
+ *             .credentialsScheme(&#34;EDIT_USERNAME_AND_PASSWORD&#34;)
  *             .build());
  * 
  *     }
@@ -83,16 +83,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AutoLogin(&#34;example&#34;, AutoLoginArgs.builder()        
+ *             .label(&#34;Google Example App&#34;)
+ *             .status(&#34;ACTIVE&#34;)
+ *             .preconfiguredApp(&#34;google&#34;)
  *             .appSettingsJson(&#34;&#34;&#34;
  * {
  *     &#34;domain&#34;: &#34;okta&#34;,
  *     &#34;afwOnly&#34;: false
  * }
- * 
  *             &#34;&#34;&#34;)
- *             .label(&#34;Google Example App&#34;)
- *             .preconfiguredApp(&#34;google&#34;)
- *             .status(&#34;ACTIVE&#34;)
  *             .build());
  * 
  *     }

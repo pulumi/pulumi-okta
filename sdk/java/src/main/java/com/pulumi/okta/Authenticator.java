@@ -58,6 +58,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Authenticator(&#34;test&#34;, AuthenticatorArgs.builder()        
+ *             .name(&#34;Security Question&#34;)
  *             .key(&#34;security_question&#34;)
  *             .settings(serializeJson(
  *                 jsonObject(
@@ -94,6 +95,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Authenticator(&#34;test&#34;, AuthenticatorArgs.builder()        
+ *             .name(&#34;Custom OTP&#34;)
  *             .key(&#34;custom_otp&#34;)
  *             .status(&#34;ACTIVE&#34;)
  *             .settings(serializeJson(

@@ -77,11 +77,11 @@ class EmailSenderVerification(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_email_sender = okta.EmailSender("exampleEmailSender",
+        example = okta.EmailSender("example",
             from_name="Paul Atreides",
             from_address="no-reply@caladan.planet",
             subdomain="mail")
-        example_email_sender_verification = okta.EmailSenderVerification("exampleEmailSenderVerification", sender_id=okta_email_sender["valid"]["id"])
+        example_email_sender_verification = okta.EmailSenderVerification("example", sender_id=valid["id"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -111,11 +111,11 @@ class EmailSenderVerification(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_email_sender = okta.EmailSender("exampleEmailSender",
+        example = okta.EmailSender("example",
             from_name="Paul Atreides",
             from_address="no-reply@caladan.planet",
             subdomain="mail")
-        example_email_sender_verification = okta.EmailSenderVerification("exampleEmailSenderVerification", sender_id=okta_email_sender["valid"]["id"])
+        example_email_sender_verification = okta.EmailSenderVerification("example", sender_id=valid["id"])
         ```
         <!--End PulumiCodeChooser -->
 

@@ -44,14 +44,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleEmailSender = new EmailSender(&#34;exampleEmailSender&#34;, EmailSenderArgs.builder()        
+ *         var example = new EmailSender(&#34;example&#34;, EmailSenderArgs.builder()        
  *             .fromName(&#34;Paul Atreides&#34;)
  *             .fromAddress(&#34;no-reply@caladan.planet&#34;)
  *             .subdomain(&#34;mail&#34;)
  *             .build());
  * 
  *         var exampleEmailSenderVerification = new EmailSenderVerification(&#34;exampleEmailSenderVerification&#34;, EmailSenderVerificationArgs.builder()        
- *             .senderId(okta_email_sender.valid().id())
+ *             .senderId(valid.id())
  *             .build());
  * 
  *     }

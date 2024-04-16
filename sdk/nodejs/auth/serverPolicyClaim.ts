@@ -14,11 +14,12 @@ import * as utilities from "../utilities";
  *
  * const example = new okta.auth.ServerPolicyRule("example", {
  *     authServerId: "<auth server id>",
- *     grantTypeWhitelists: ["implicit"],
- *     groupWhitelists: ["<group ids>"],
  *     policyId: "<auth server policy id>",
- *     priority: 1,
  *     status: "ACTIVE",
+ *     name: "example",
+ *     priority: 1,
+ *     groupWhitelists: ["<group ids>"],
+ *     grantTypeWhitelists: ["implicit"],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

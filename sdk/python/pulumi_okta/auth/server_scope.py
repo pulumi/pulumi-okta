@@ -326,8 +326,9 @@ class ServerScope(pulumi.CustomResource):
 
         example = okta.auth.ServerScope("example",
             auth_server_id="<auth server id>",
-            consent="IMPLICIT",
-            metadata_publish="NO_CLIENTS")
+            metadata_publish="NO_CLIENTS",
+            name="example",
+            consent="IMPLICIT")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -370,8 +371,9 @@ class ServerScope(pulumi.CustomResource):
 
         example = okta.auth.ServerScope("example",
             auth_server_id="<auth server id>",
-            consent="IMPLICIT",
-            metadata_publish="NO_CLIENTS")
+            metadata_publish="NO_CLIENTS",
+            name="example",
+            consent="IMPLICIT")
         ```
         <!--End PulumiCodeChooser -->
 

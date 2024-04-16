@@ -33,12 +33,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewAdminRoleTargets(ctx, "example", &okta.AdminRoleTargetsArgs{
+//				UserId:   pulumi.String("<user_id>"),
+//				RoleType: pulumi.String("APP_ADMIN"),
 //				Apps: pulumi.StringArray{
 //					pulumi.String("oidc_client.<app_id>"),
 //					pulumi.String("facebook"),
 //				},
-//				RoleType: pulumi.String("APP_ADMIN"),
-//				UserId:   pulumi.String("<user_id>"),
 //			})
 //			if err != nil {
 //				return err

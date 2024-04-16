@@ -31,8 +31,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := Index.NewEmailDomain(ctx, "example", &Index.EmailDomainArgs{
 //				BrandId:     pulumi.String("abc123"),
-//				DisplayName: pulumi.String("test"),
 //				Domain:      pulumi.String("example.com"),
+//				DisplayName: pulumi.String("test"),
 //				UserName:    pulumi.String("paul_atreides"),
 //			})
 //			if err != nil {

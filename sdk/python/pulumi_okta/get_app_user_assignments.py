@@ -68,7 +68,7 @@ def get_app_user_assignments(id: Optional[str] = None,
     import pulumi
     import pulumi_okta as okta
 
-    test = okta.get_app_user_assignments(id=okta_app_oauth["test"]["id"])
+    test = okta.get_app_user_assignments(id=test_okta_app_oauth["id"])
     ```
     <!--End PulumiCodeChooser -->
 
@@ -98,7 +98,7 @@ def get_app_user_assignments_output(id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_okta as okta
 
-    test = okta.get_app_user_assignments(id=okta_app_oauth["test"]["id"])
+    test = okta.get_app_user_assignments(id=test_okta_app_oauth["id"])
     ```
     <!--End PulumiCodeChooser -->
 

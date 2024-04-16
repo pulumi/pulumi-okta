@@ -21,12 +21,13 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myAppPolicy = new Okta.AppSignonPolicy("myAppPolicy", new()
+    ///     var myAppPolicy = new Okta.AppSignonPolicy("my_app_policy", new()
     ///     {
+    ///         Name = "My App Sign-On Policy",
     ///         Description = "Authentication Policy to be used on my app.",
     ///     });
     /// 
-    ///     var myApp = new Okta.App.OAuth("myApp", new()
+    ///     var myApp = new Okta.App.OAuth("my_app", new()
     ///     {
     ///         Label = "My App",
     ///         Type = "web",
@@ -65,14 +66,16 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myAppPolicy = new Okta.AppSignonPolicy("myAppPolicy", new()
+    ///     var myAppPolicy = new Okta.AppSignonPolicy("my_app_policy", new()
     ///     {
+    ///         Name = "My App Sign-On Policy",
     ///         Description = "Authentication Policy to be used on my app.",
     ///     });
     /// 
-    ///     var someRule = new Okta.AppSignonPolicyRule("someRule", new()
+    ///     var someRule = new Okta.AppSignonPolicyRule("some_rule", new()
     ///     {
-    ///         PolicyId = resource.Okta_app_signon_policy.My_app_policy.Id,
+    ///         PolicyId = oktaAppSignonPolicy.MyAppPolicy.Id,
+    ///         Name = "Some Rule",
     ///         FactorMode = "1FA",
     ///         ReAuthenticationFrequency = "PT43800H",
     ///         Constraints = new[]

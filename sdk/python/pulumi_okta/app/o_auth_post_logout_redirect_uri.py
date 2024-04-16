@@ -111,15 +111,15 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        test_o_auth = okta.app.OAuth("testOAuth",
+        test = okta.app.OAuth("test",
             label="testAcc_replace_with_uuid",
             type="web",
             grant_types=["authorization_code"],
             response_types=["code"],
             redirect_uris=["myapp://callback"],
             post_logout_redirect_uris=["https://www.example.com"])
-        test_o_auth_post_logout_redirect_uri = okta.app.OAuthPostLogoutRedirectUri("testOAuthPostLogoutRedirectUri",
-            app_id=test_o_auth.id,
+        test_o_auth_post_logout_redirect_uri = okta.app.OAuthPostLogoutRedirectUri("test",
+            app_id=test.id,
             uri="https://www.example.com")
         ```
         <!--End PulumiCodeChooser -->
@@ -157,15 +157,15 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        test_o_auth = okta.app.OAuth("testOAuth",
+        test = okta.app.OAuth("test",
             label="testAcc_replace_with_uuid",
             type="web",
             grant_types=["authorization_code"],
             response_types=["code"],
             redirect_uris=["myapp://callback"],
             post_logout_redirect_uris=["https://www.example.com"])
-        test_o_auth_post_logout_redirect_uri = okta.app.OAuthPostLogoutRedirectUri("testOAuthPostLogoutRedirectUri",
-            app_id=test_o_auth.id,
+        test_o_auth_post_logout_redirect_uri = okta.app.OAuthPostLogoutRedirectUri("test",
+            app_id=test.id,
             uri="https://www.example.com")
         ```
         <!--End PulumiCodeChooser -->

@@ -28,7 +28,10 @@ namespace Pulumi.Okta.Index
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Okta.Domain("example");
+        ///     var example = new Okta.Domain("example", new()
+        ///     {
+        ///         Name = "www.example.com",
+        ///     });
         /// 
         ///     var by_name = Okta.Index.GetDomain.Invoke(new()
         ///     {
@@ -64,7 +67,10 @@ namespace Pulumi.Okta.Index
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Okta.Domain("example");
+        ///     var example = new Okta.Domain("example", new()
+        ///     {
+        ///         Name = "www.example.com",
+        ///     });
         /// 
         ///     var by_name = Okta.Index.GetDomain.Invoke(new()
         ///     {

@@ -32,9 +32,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewCaptcha(ctx, "example", &okta.CaptchaArgs{
-//				SecretKey: pulumi.String("some_secret_key"),
-//				SiteKey:   pulumi.String("some_key"),
+//				Name:      pulumi.String("My CAPTCHA"),
 //				Type:      pulumi.String("HCAPTCHA"),
+//				SiteKey:   pulumi.String("some_key"),
+//				SecretKey: pulumi.String("some_secret_key"),
 //			})
 //			if err != nil {
 //				return err

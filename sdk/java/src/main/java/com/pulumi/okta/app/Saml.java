@@ -56,24 +56,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Saml(&#34;example&#34;, SamlArgs.builder()        
- *             .attributeStatements(SamlAttributeStatementArgs.builder()
- *                 .filterType(&#34;REGEX&#34;)
- *                 .filterValue(&#34;.*&#34;)
- *                 .name(&#34;groups&#34;)
- *                 .type(&#34;GROUP&#34;)
- *                 .build())
- *             .audience(&#34;https://example.com/audience&#34;)
- *             .authnContextClassRef(&#34;urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport&#34;)
- *             .destination(&#34;https://example.com&#34;)
- *             .digestAlgorithm(&#34;SHA256&#34;)
- *             .honorForceAuthn(false)
  *             .label(&#34;example&#34;)
+ *             .ssoUrl(&#34;https://example.com&#34;)
  *             .recipient(&#34;https://example.com&#34;)
+ *             .destination(&#34;https://example.com&#34;)
+ *             .audience(&#34;https://example.com/audience&#34;)
+ *             .subjectNameIdTemplate(&#34;${user.userName}&#34;)
+ *             .subjectNameIdFormat(&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&#34;)
  *             .responseSigned(true)
  *             .signatureAlgorithm(&#34;RSA_SHA256&#34;)
- *             .ssoUrl(&#34;https://example.com&#34;)
- *             .subjectNameIdFormat(&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&#34;)
- *             .subjectNameIdTemplate(&#34;${user.userName}&#34;)
+ *             .digestAlgorithm(&#34;SHA256&#34;)
+ *             .honorForceAuthn(false)
+ *             .authnContextClassRef(&#34;urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport&#34;)
+ *             .attributeStatements(SamlAttributeStatementArgs.builder()
+ *                 .type(&#34;GROUP&#34;)
+ *                 .name(&#34;groups&#34;)
+ *                 .filterType(&#34;REGEX&#34;)
+ *                 .filterValue(&#34;.*&#34;)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -109,7 +109,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testHook = new Hook(&#34;testHook&#34;, HookArgs.builder()        
+ *         var test = new Hook(&#34;test&#34;, HookArgs.builder()        
+ *             .name(&#34;testAcc_replace_with_uuid&#34;)
  *             .status(&#34;ACTIVE&#34;)
  *             .type(&#34;com.okta.saml.tokens.transform&#34;)
  *             .version(&#34;1.0.2&#34;)
@@ -139,7 +140,7 @@ import javax.annotation.Nullable;
  *             .digestAlgorithm(&#34;SHA256&#34;)
  *             .honorForceAuthn(false)
  *             .authnContextClassRef(&#34;urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport&#34;)
- *             .inlineHookId(testHook.id())
+ *             .inlineHookId(test.id())
  *             .attributeStatements(SamlAttributeStatementArgs.builder()
  *                 .type(&#34;GROUP&#34;)
  *                 .name(&#34;groups&#34;)
@@ -147,7 +148,7 @@ import javax.annotation.Nullable;
  *                 .filterValue(&#34;.*&#34;)
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testHook)
+ *                 .dependsOn(test)
  *                 .build());
  * 
  *     }
@@ -185,7 +186,6 @@ import javax.annotation.Nullable;
  *     &#34;groupFilter&#34;: &#34;app1.*&#34;,
  *     &#34;siteURL&#34;: &#34;https://www.okta.com&#34;
  * }
- * 
  *             &#34;&#34;&#34;)
  *             .label(&#34;SharePoint (On-Premise)&#34;)
  *             .preconfiguredApp(&#34;sharepoint_onpremise&#34;)
@@ -225,6 +225,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var office365 = new Saml(&#34;office365&#34;, SamlArgs.builder()        
+ *             .preconfiguredApp(&#34;office365&#34;)
+ *             .label(&#34;Microsoft Office 365&#34;)
+ *             .status(&#34;ACTIVE&#34;)
+ *             .samlVersion(&#34;1.1&#34;)
+ *             .appSettingsJson(&#34;&#34;&#34;
+ *     {
+ *        &#34;wsFedConfigureType&#34;: &#34;AUTO&#34;,
+ *        &#34;windowsTransportEnabled&#34;: false,
+ *        &#34;domain&#34;: &#34;okta.com&#34;,
+ *        &#34;msftTenant&#34;: &#34;okta&#34;,
+ *        &#34;domains&#34;: [],
+ *        &#34;requireAdminConsent&#34;: false
+ *     }
+ *             &#34;&#34;&#34;)
  *             .appLinksJson(&#34;&#34;&#34;
  *   {
  *       &#34;calendar&#34;: false,
@@ -248,23 +262,7 @@ import javax.annotation.Nullable;
  *       &#34;yammer&#34;: false,
  *       &#34;login&#34;: true
  *   }
- * 
  *             &#34;&#34;&#34;)
- *             .appSettingsJson(&#34;&#34;&#34;
- *     {
- *        &#34;wsFedConfigureType&#34;: &#34;AUTO&#34;,
- *        &#34;windowsTransportEnabled&#34;: false,
- *        &#34;domain&#34;: &#34;okta.com&#34;,
- *        &#34;msftTenant&#34;: &#34;okta&#34;,
- *        &#34;domains&#34;: [],
- *        &#34;requireAdminConsent&#34;: false
- *     }
- * 
- *             &#34;&#34;&#34;)
- *             .label(&#34;Microsoft Office 365&#34;)
- *             .preconfiguredApp(&#34;office365&#34;)
- *             .samlVersion(&#34;1.1&#34;)
- *             .status(&#34;ACTIVE&#34;)
  *             .build());
  * 
  *     }

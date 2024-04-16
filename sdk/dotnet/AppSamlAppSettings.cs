@@ -25,16 +25,16 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testSaml = new Okta.App.Saml("testSaml", new()
+    ///     var test = new Okta.App.Saml("test", new()
     ///     {
     ///         PreconfiguredApp = "amazon_aws",
     ///         Label = "Amazon AWS",
     ///         Status = "ACTIVE",
     ///     });
     /// 
-    ///     var testAppSamlAppSettings = new Okta.AppSamlAppSettings("testAppSamlAppSettings", new()
+    ///     var testAppSamlAppSettings = new Okta.AppSamlAppSettings("test", new()
     ///     {
-    ///         AppId = testSaml.Id,
+    ///         AppId = test.Id,
     ///         Settings = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["appFilter"] = "okta",

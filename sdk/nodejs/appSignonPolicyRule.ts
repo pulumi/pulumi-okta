@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const testSaml = new okta.app.Saml("testSaml", {
+ * const testSaml = new okta.app.Saml("test", {
  *     label: "My App",
  *     ssoUrl: "https://google.com",
  *     recipient: "https://here.com",
@@ -40,10 +40,13 @@ import * as utilities from "./utilities";
  *     honorForceAuthn: false,
  *     authnContextClassRef: "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
  * });
- * const testAppSignonPolicy = okta.getAppSignonPolicyOutput({
+ * const test = okta.getAppSignonPolicyOutput({
  *     appId: testSaml.id,
  * });
- * const testAppSignonPolicyRule = new okta.AppSignonPolicyRule("testAppSignonPolicyRule", {policyId: testAppSignonPolicy.apply(testAppSignonPolicy => testAppSignonPolicy.id)});
+ * const testAppSignonPolicyRule = new okta.AppSignonPolicyRule("test", {
+ *     policyId: test.apply(test => test.id),
+ *     name: "testAcc_replace_with_uuid",
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *
@@ -59,7 +62,8 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const test = new okta.AppSignonPolicyRule("test", {
- *     policyId: data.okta_app_signon_policy.test.id,
+ *     policyId: testOktaAppSignonPolicy.id,
+ *     name: "testAcc_replace_with_uuid",
  *     constraints: [JSON.stringify({
  *         knowledge: {
  *             types: ["password"],
@@ -79,7 +83,8 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const test = new okta.AppSignonPolicyRule("test", {
- *     policyId: data.okta_app_signon_policy.test.id,
+ *     policyId: testOktaAppSignonPolicy.id,
+ *     name: "testAcc_replace_with_uuid",
  *     constraints: [JSON.stringify({
  *         knowledge: {
  *             reauthenticateIn: "PT2H",
@@ -106,7 +111,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const testSaml = new okta.app.Saml("testSaml", {
+ * const testSaml = new okta.app.Saml("test", {
  *     label: "testAcc_replace_with_uuid",
  *     ssoUrl: "https://google.com",
  *     recipient: "https://here.com",
@@ -155,12 +160,12 @@ import * as utilities from "./utilities";
  *         filterValue: ".*",
  *     }],
  * });
- * const testAppSignonPolicy = okta.getAppSignonPolicyOutput({
+ * const test = okta.getAppSignonPolicyOutput({
  *     appId: testSaml.id,
  * });
  * const testUser: okta.user.User[] = [];
  * for (const range = {value: 0}; range.value < 5; range.value++) {
- *     testUser.push(new okta.user.User(`testUser-${range.value}`, {
+ *     testUser.push(new okta.user.User(`test-${range.value}`, {
  *         firstName: "TestAcc",
  *         lastName: "Smith",
  *         login: `testAcc_${range.value}@example.com`,
@@ -169,13 +174,18 @@ import * as utilities from "./utilities";
  * }
  * const _this: okta.group.Group[] = [];
  * for (const range = {value: 0}; range.value < 5; range.value++) {
- *     _this.push(new okta.group.Group(`this-${range.value}`, {description: `testAcc_${range.value}`}));
+ *     _this.push(new okta.group.Group(`this-${range.value}`, {
+ *         name: `testAcc_${range.value}`,
+ *         description: `testAcc_${range.value}`,
+ *     }));
  * }
- * const testUserType = new okta.user.UserType("testUserType", {
+ * const testUserType = new okta.user.UserType("test", {
+ *     name: "testAcc_replace_with_uuid",
  *     displayName: "Terraform Acceptance Test User Type Updated",
  *     description: "Terraform Acceptance Test User Type Updated",
  * });
- * const testZone = new okta.network.Zone("testZone", {
+ * const testZone = new okta.network.Zone("test", {
+ *     name: "testAcc_replace_with_uuid",
  *     type: "IP",
  *     gateways: [
  *         "1.2.3.4/24",
@@ -189,12 +199,14 @@ import * as utilities from "./utilities";
  * const default = okta.user.getUserType({
  *     name: "user",
  * });
- * const testDeviceAssuranceAndroid = new okta.policy.DeviceAssuranceAndroid("testDeviceAssuranceAndroid", {
+ * const testDeviceAssuranceAndroid = new okta.policy.DeviceAssuranceAndroid("test", {
+ *     name: "test",
  *     osVersion: "12",
  *     jailbreak: false,
  * });
- * const testAppSignonPolicyRule = new okta.AppSignonPolicyRule("testAppSignonPolicyRule", {
- *     policyId: testAppSignonPolicy.apply(testAppSignonPolicy => testAppSignonPolicy.id),
+ * const testAppSignonPolicyRule = new okta.AppSignonPolicyRule("test", {
+ *     name: "testAcc_replace_with_uuid",
+ *     policyId: test.apply(test => test.id),
  *     access: "ALLOW",
  *     customExpression: "user.status == \"ACTIVE\"",
  *     deviceIsManaged: false,

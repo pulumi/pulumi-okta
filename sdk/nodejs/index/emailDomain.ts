@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  *
  * const example = new okta.index.EmailDomain("example", {
  *     brandId: "abc123",
- *     displayName: "test",
  *     domain: "example.com",
+ *     displayName: "test",
  *     userName: "paul_atreides",
  * });
  * ```

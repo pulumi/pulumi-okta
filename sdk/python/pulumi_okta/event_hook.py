@@ -236,20 +236,21 @@ class EventHook(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.EventHook("example",
-            auth={
-                "key": "Authorization",
-                "type": "HEADER",
-                "value": "123",
-            },
-            channel={
-                "type": "HTTP",
-                "uri": "https://example.com/test",
-                "version": "1.0.0",
-            },
+            name="example",
             events=[
                 "user.lifecycle.create",
                 "user.lifecycle.delete.initiated",
-            ])
+            ],
+            channel={
+                "type": "HTTP",
+                "version": "1.0.0",
+                "uri": "https://example.com/test",
+            },
+            auth={
+                "type": "HEADER",
+                "key": "Authorization",
+                "value": "123",
+            })
         ```
         <!--End PulumiCodeChooser -->
 
@@ -288,20 +289,21 @@ class EventHook(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.EventHook("example",
-            auth={
-                "key": "Authorization",
-                "type": "HEADER",
-                "value": "123",
-            },
-            channel={
-                "type": "HTTP",
-                "uri": "https://example.com/test",
-                "version": "1.0.0",
-            },
+            name="example",
             events=[
                 "user.lifecycle.create",
                 "user.lifecycle.delete.initiated",
-            ])
+            ],
+            channel={
+                "type": "HTTP",
+                "version": "1.0.0",
+                "uri": "https://example.com/test",
+            },
+            auth={
+                "type": "HEADER",
+                "key": "Authorization",
+                "value": "123",
+            })
         ```
         <!--End PulumiCodeChooser -->
 

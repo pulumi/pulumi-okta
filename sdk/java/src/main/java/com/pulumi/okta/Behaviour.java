@@ -43,29 +43,34 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myLocation = new Behaviour(&#34;myLocation&#34;, BehaviourArgs.builder()        
- *             .locationGranularityType(&#34;LAT_LONG&#34;)
- *             .numberOfAuthentications(50)
- *             .radiusFromLocation(20)
+ *             .name(&#34;My Location&#34;)
  *             .type(&#34;ANOMALOUS_LOCATION&#34;)
+ *             .numberOfAuthentications(50)
+ *             .locationGranularityType(&#34;LAT_LONG&#34;)
+ *             .radiusFromLocation(20)
  *             .build());
  * 
  *         var myCity = new Behaviour(&#34;myCity&#34;, BehaviourArgs.builder()        
- *             .locationGranularityType(&#34;CITY&#34;)
- *             .numberOfAuthentications(50)
+ *             .name(&#34;My City&#34;)
  *             .type(&#34;ANOMALOUS_LOCATION&#34;)
+ *             .numberOfAuthentications(50)
+ *             .locationGranularityType(&#34;CITY&#34;)
  *             .build());
  * 
  *         var myDevice = new Behaviour(&#34;myDevice&#34;, BehaviourArgs.builder()        
- *             .numberOfAuthentications(50)
+ *             .name(&#34;My Device&#34;)
  *             .type(&#34;ANOMALOUS_DEVICE&#34;)
+ *             .numberOfAuthentications(50)
  *             .build());
  * 
  *         var myIp = new Behaviour(&#34;myIp&#34;, BehaviourArgs.builder()        
- *             .numberOfAuthentications(50)
+ *             .name(&#34;My IP&#34;)
  *             .type(&#34;ANOMALOUS_IP&#34;)
+ *             .numberOfAuthentications(50)
  *             .build());
  * 
  *         var myVelocity = new Behaviour(&#34;myVelocity&#34;, BehaviourArgs.builder()        
+ *             .name(&#34;My Velocity&#34;)
  *             .type(&#34;VELOCITY&#34;)
  *             .velocity(25)
  *             .build());

@@ -32,19 +32,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewEventHook(ctx, "example", &okta.EventHookArgs{
-//				Auth: pulumi.StringMap{
-//					"key":   pulumi.String("Authorization"),
-//					"type":  pulumi.String("HEADER"),
-//					"value": pulumi.String("123"),
-//				},
-//				Channel: pulumi.StringMap{
-//					"type":    pulumi.String("HTTP"),
-//					"uri":     pulumi.String("https://example.com/test"),
-//					"version": pulumi.String("1.0.0"),
-//				},
+//				Name: pulumi.String("example"),
 //				Events: pulumi.StringArray{
 //					pulumi.String("user.lifecycle.create"),
 //					pulumi.String("user.lifecycle.delete.initiated"),
+//				},
+//				Channel: pulumi.StringMap{
+//					"type":    pulumi.String("HTTP"),
+//					"version": pulumi.String("1.0.0"),
+//					"uri":     pulumi.String("https://example.com/test"),
+//				},
+//				Auth: pulumi.StringMap{
+//					"type":  pulumi.String("HEADER"),
+//					"key":   pulumi.String("Authorization"),
+//					"value": pulumi.String("123"),
 //				},
 //			})
 //			if err != nil {

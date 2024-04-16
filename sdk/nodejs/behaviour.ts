@@ -14,26 +14,31 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const myLocation = new okta.Behaviour("myLocation", {
+ * const myLocation = new okta.Behaviour("my_location", {
+ *     name: "My Location",
+ *     type: "ANOMALOUS_LOCATION",
+ *     numberOfAuthentications: 50,
  *     locationGranularityType: "LAT_LONG",
- *     numberOfAuthentications: 50,
  *     radiusFromLocation: 20,
- *     type: "ANOMALOUS_LOCATION",
  * });
- * const myCity = new okta.Behaviour("myCity", {
+ * const myCity = new okta.Behaviour("my_city", {
+ *     name: "My City",
+ *     type: "ANOMALOUS_LOCATION",
+ *     numberOfAuthentications: 50,
  *     locationGranularityType: "CITY",
- *     numberOfAuthentications: 50,
- *     type: "ANOMALOUS_LOCATION",
  * });
- * const myDevice = new okta.Behaviour("myDevice", {
- *     numberOfAuthentications: 50,
+ * const myDevice = new okta.Behaviour("my_device", {
+ *     name: "My Device",
  *     type: "ANOMALOUS_DEVICE",
- * });
- * const myIp = new okta.Behaviour("myIp", {
  *     numberOfAuthentications: 50,
- *     type: "ANOMALOUS_IP",
  * });
- * const myVelocity = new okta.Behaviour("myVelocity", {
+ * const myIp = new okta.Behaviour("my_ip", {
+ *     name: "My IP",
+ *     type: "ANOMALOUS_IP",
+ *     numberOfAuthentications: 50,
+ * });
+ * const myVelocity = new okta.Behaviour("my_velocity", {
+ *     name: "My Velocity",
  *     type: "VELOCITY",
  *     velocity: 25,
  * });

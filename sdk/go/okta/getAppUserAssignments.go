@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.GetAppUserAssignments(ctx, &okta.GetAppUserAssignmentsArgs{
-//				Id: okta_app_oauth.Test.Id,
+//				Id: testOktaAppOauth.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

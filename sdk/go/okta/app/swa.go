@@ -34,11 +34,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := app.NewSwa(ctx, "example", &app.SwaArgs{
-//				ButtonField:   pulumi.String("btn-login"),
 //				Label:         pulumi.String("example"),
+//				ButtonField:   pulumi.String("btn-login"),
 //				PasswordField: pulumi.String("txtbox-password"),
-//				Url:           pulumi.String("https://example.com/login.html"),
 //				UsernameField: pulumi.String("txtbox-username"),
+//				Url:           pulumi.String("https://example.com/login.html"),
 //			})
 //			if err != nil {
 //				return err

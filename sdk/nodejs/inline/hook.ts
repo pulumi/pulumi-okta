@@ -19,18 +19,19 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.inline.Hook("example", {
+ *     name: "example",
+ *     version: "1.0.0",
+ *     type: "com.okta.oauth2.tokens.transform",
+ *     channel: {
+ *         version: "1.0.0",
+ *         uri: "https://example.com/test",
+ *         method: "POST",
+ *     },
  *     auth: {
  *         key: "Authorization",
  *         type: "HEADER",
  *         value: "secret",
  *     },
- *     channel: {
- *         method: "POST",
- *         uri: "https://example.com/test",
- *         version: "1.0.0",
- *     },
- *     type: "com.okta.oauth2.tokens.transform",
- *     version: "1.0.0",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

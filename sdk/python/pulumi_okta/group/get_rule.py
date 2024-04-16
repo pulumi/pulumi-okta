@@ -130,7 +130,7 @@ def get_rule(id: Optional[str] = None,
     import pulumi
     import pulumi_okta as okta
 
-    test = okta.group.get_rule(id=okta_group_rule["example"]["id"])
+    test = okta.group.get_rule(id=example["id"])
     ```
     <!--End PulumiCodeChooser -->
 
@@ -171,7 +171,7 @@ def get_rule_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_okta as okta
 
-    test = okta.group.get_rule(id=okta_group_rule["example"]["id"])
+    test = okta.group.get_rule(id=example["id"])
     ```
     <!--End PulumiCodeChooser -->
 

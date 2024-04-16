@@ -34,19 +34,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewPolicyMfaDefault(ctx, "classicExample", &okta.PolicyMfaDefaultArgs{
+//			_, err := okta.NewPolicyMfaDefault(ctx, "classic_example", &okta.PolicyMfaDefaultArgs{
 //				IsOie: pulumi.Bool(false),
-//				OktaOtp: pulumi.StringMap{
+//				OktaPassword: pulumi.StringMap{
 //					"enroll": pulumi.String("REQUIRED"),
 //				},
-//				OktaPassword: pulumi.StringMap{
+//				OktaOtp: pulumi.StringMap{
 //					"enroll": pulumi.String("REQUIRED"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.NewPolicyMfaDefault(ctx, "oieExample", &okta.PolicyMfaDefaultArgs{
+//			_, err = okta.NewPolicyMfaDefault(ctx, "oie_example", &okta.PolicyMfaDefaultArgs{
 //				IsOie: pulumi.Bool(true),
 //				OktaPassword: pulumi.StringMap{
 //					"enroll": pulumi.String("REQUIRED"),

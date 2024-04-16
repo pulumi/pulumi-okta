@@ -173,24 +173,6 @@ class LogStream(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Splunk Event Collector
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.index.LogStream("example",
-            settings=okta.index.LogStreamSettingsArgs(
-                edition="gcp",
-                host="acme.splunkcloud.com",
-                token="YOUR_HEC_TOKEN",
-            ),
-            status="ACTIVE",
-            type="splunk_cloud_logstreaming")
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         Okta Log Stream can be imported via the Okta ID.
@@ -218,24 +200,6 @@ class LogStream(pulumi.CustomResource):
         This resource allows you to create and configure an Okta Log Stream.
 
         ## Example Usage
-
-        ### Splunk Event Collector
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.index.LogStream("example",
-            settings=okta.index.LogStreamSettingsArgs(
-                edition="gcp",
-                host="acme.splunkcloud.com",
-                token="YOUR_HEC_TOKEN",
-            ),
-            status="ACTIVE",
-            type="splunk_cloud_logstreaming")
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

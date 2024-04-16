@@ -16,7 +16,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = new okta.group.Group("example", {description: "My Example Group"});
+ * const example = new okta.group.Group("example", {
+ *     name: "Example",
+ *     description: "My Example Group",
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *
@@ -27,6 +30,7 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.group.Group("example", {
+ *     name: "Example",
  *     description: "My Example Group",
  *     customProfileAttributes: JSON.stringify({
  *         example1: "testing1234",

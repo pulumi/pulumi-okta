@@ -24,62 +24,12 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     /**
      * Applications to exclude in discovery. See `app_include` for details.
      * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     @Import(name="appExcludes")
     private @Nullable Output<List<RuleIdpDiscoveryAppExcludeArgs>> appExcludes;
 
     /**
      * @return Applications to exclude in discovery. See `app_include` for details.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<List<RuleIdpDiscoveryAppExcludeArgs>>> appExcludes() {
@@ -329,31 +279,6 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param appExcludes Applications to exclude in discovery. See `app_include` for details.
          * 
-         * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
-         * &lt;!--End PulumiCodeChooser --&gt;
-         * 
          * @return builder
          * 
          */
@@ -365,31 +290,6 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param appExcludes Applications to exclude in discovery. See `app_include` for details.
          * 
-         * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
-         * &lt;!--End PulumiCodeChooser --&gt;
-         * 
          * @return builder
          * 
          */
@@ -399,31 +299,6 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param appExcludes Applications to exclude in discovery. See `app_include` for details.
-         * 
-         * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
-         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

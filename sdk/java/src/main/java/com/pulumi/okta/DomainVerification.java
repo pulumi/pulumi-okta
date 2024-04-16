@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.okta.Domain;
+ * import com.pulumi.okta.DomainArgs;
  * import com.pulumi.okta.DomainVerification;
  * import com.pulumi.okta.DomainVerificationArgs;
  * import java.util.List;
@@ -43,10 +44,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;);
+ *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .name(&#34;www.example.com&#34;)
+ *             .build());
  * 
  *         var exampleDomainVerification = new DomainVerification(&#34;exampleDomainVerification&#34;, DomainVerificationArgs.builder()        
- *             .domainId(okta_domain.test().id())
+ *             .domainId(test.id())
  *             .build());
  * 
  *     }

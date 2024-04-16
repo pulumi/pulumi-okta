@@ -124,27 +124,14 @@ def get_users(compound_search_operator: Optional[str] = None,
 
     ## Example Usage
 
-    ### Lookup Users by Search Criteria
-
-    <!--Start PulumiCodeChooser -->
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.user.get_users(searches=[okta.user.GetUsersSearchArgs(
-        expression="profile.department eq \\"Engineering\\" and (created lt \\"2014-01-01T00:00:00.000Z\\" or status eq \\"ACTIVE\\")",
-    )])
-    ```
-    <!--End PulumiCodeChooser -->
-
     ### Lookup Users by Group Membership
     <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
-    example_group = okta.group.Group("exampleGroup")
-    example_users = okta.user.get_users_output(group_id=example_group.id,
+    example_group = okta.group.Group("example", name="example-group")
+    example = okta.user.get_users_output(group_id=example_group.id,
         include_groups=True,
         include_roles=True)
     ```
@@ -192,27 +179,14 @@ def get_users_output(compound_search_operator: Optional[pulumi.Input[Optional[st
 
     ## Example Usage
 
-    ### Lookup Users by Search Criteria
-
-    <!--Start PulumiCodeChooser -->
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.user.get_users(searches=[okta.user.GetUsersSearchArgs(
-        expression="profile.department eq \\"Engineering\\" and (created lt \\"2014-01-01T00:00:00.000Z\\" or status eq \\"ACTIVE\\")",
-    )])
-    ```
-    <!--End PulumiCodeChooser -->
-
     ### Lookup Users by Group Membership
     <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
-    example_group = okta.group.Group("exampleGroup")
-    example_users = okta.user.get_users_output(group_id=example_group.id,
+    example_group = okta.group.Group("example", name="example-group")
+    example = okta.user.get_users_output(group_id=example_group.id,
         include_groups=True,
         include_roles=True)
     ```

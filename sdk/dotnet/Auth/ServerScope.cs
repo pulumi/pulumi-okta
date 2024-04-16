@@ -28,8 +28,9 @@ namespace Pulumi.Okta.Auth
     ///     var example = new Okta.Auth.ServerScope("example", new()
     ///     {
     ///         AuthServerId = "&lt;auth server id&gt;",
-    ///         Consent = "IMPLICIT",
     ///         MetadataPublish = "NO_CLIENTS",
+    ///         Name = "example",
+    ///         Consent = "IMPLICIT",
     ///     });
     /// 
     /// });

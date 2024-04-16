@@ -902,7 +902,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        test_saml = okta.app.Saml("testSaml",
+        test_saml = okta.app.Saml("test",
             label="My App",
             sso_url="https://google.com",
             recipient="https://here.com",
@@ -916,8 +916,10 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             digest_algorithm="SHA256",
             honor_force_authn=False,
             authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport")
-        test_app_signon_policy = okta.get_app_signon_policy_output(app_id=test_saml.id)
-        test_app_signon_policy_rule = okta.AppSignonPolicyRule("testAppSignonPolicyRule", policy_id=test_app_signon_policy.id)
+        test = okta.get_app_signon_policy_output(app_id=test_saml.id)
+        test_app_signon_policy_rule = okta.AppSignonPolicyRule("test",
+            policy_id=test.id,
+            name="testAcc_replace_with_uuid")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -934,7 +936,8 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test = okta.AppSignonPolicyRule("test",
-            policy_id=data["okta_app_signon_policy"]["test"]["id"],
+            policy_id=test_okta_app_signon_policy["id"],
+            name="testAcc_replace_with_uuid",
             constraints=[json.dumps({
                 "knowledge": {
                     "types": ["password"],
@@ -954,7 +957,8 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test = okta.AppSignonPolicyRule("test",
-            policy_id=data["okta_app_signon_policy"]["test"]["id"],
+            policy_id=test_okta_app_signon_policy["id"],
+            name="testAcc_replace_with_uuid",
             constraints=[json.dumps({
                 "knowledge": {
                     "reauthenticateIn": "PT2H",
@@ -981,7 +985,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         import json
         import pulumi_okta as okta
 
-        test_saml = okta.app.Saml("testSaml",
+        test_saml = okta.app.Saml("test",
             label="testAcc_replace_with_uuid",
             sso_url="https://google.com",
             recipient="https://here.com",
@@ -1029,21 +1033,25 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                 filter_type="REGEX",
                 filter_value=".*",
             )])
-        test_app_signon_policy = okta.get_app_signon_policy_output(app_id=test_saml.id)
+        test = okta.get_app_signon_policy_output(app_id=test_saml.id)
         test_user = []
         for range in [{"value": i} for i in range(0, 5)]:
-            test_user.append(okta.user.User(f"testUser-{range['value']}",
+            test_user.append(okta.user.User(f"test-{range['value']}",
                 first_name="TestAcc",
                 last_name="Smith",
                 login=f"testAcc_{range['value']}@example.com",
                 email=f"testAcc_{range['value']}@example.com"))
         this = []
         for range in [{"value": i} for i in range(0, 5)]:
-            this.append(okta.group.Group(f"this-{range['value']}", description=f"testAcc_{range['value']}"))
-        test_user_type = okta.user.UserType("testUserType",
+            this.append(okta.group.Group(f"this-{range['value']}",
+                name=f"testAcc_{range['value']}",
+                description=f"testAcc_{range['value']}"))
+        test_user_type = okta.user.UserType("test",
+            name="testAcc_replace_with_uuid",
             display_name="Terraform Acceptance Test User Type Updated",
             description="Terraform Acceptance Test User Type Updated")
-        test_zone = okta.network.Zone("testZone",
+        test_zone = okta.network.Zone("test",
+            name="testAcc_replace_with_uuid",
             type="IP",
             gateways=[
                 "1.2.3.4/24",
@@ -1054,11 +1062,13 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                 "3.3.4.5-3.3.4.15",
             ])
         default = okta.user.get_user_type(name="user")
-        test_device_assurance_android = okta.policy.DeviceAssuranceAndroid("testDeviceAssuranceAndroid",
+        test_device_assurance_android = okta.policy.DeviceAssuranceAndroid("test",
+            name="test",
             os_version="12",
             jailbreak=False)
-        test_app_signon_policy_rule = okta.AppSignonPolicyRule("testAppSignonPolicyRule",
-            policy_id=test_app_signon_policy.id,
+        test_app_signon_policy_rule = okta.AppSignonPolicyRule("test",
+            name="testAcc_replace_with_uuid",
+            policy_id=test.id,
             access="ALLOW",
             custom_expression="user.status == \\"ACTIVE\\"",
             device_is_managed=False,
@@ -1204,7 +1214,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        test_saml = okta.app.Saml("testSaml",
+        test_saml = okta.app.Saml("test",
             label="My App",
             sso_url="https://google.com",
             recipient="https://here.com",
@@ -1218,8 +1228,10 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             digest_algorithm="SHA256",
             honor_force_authn=False,
             authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport")
-        test_app_signon_policy = okta.get_app_signon_policy_output(app_id=test_saml.id)
-        test_app_signon_policy_rule = okta.AppSignonPolicyRule("testAppSignonPolicyRule", policy_id=test_app_signon_policy.id)
+        test = okta.get_app_signon_policy_output(app_id=test_saml.id)
+        test_app_signon_policy_rule = okta.AppSignonPolicyRule("test",
+            policy_id=test.id,
+            name="testAcc_replace_with_uuid")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1236,7 +1248,8 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test = okta.AppSignonPolicyRule("test",
-            policy_id=data["okta_app_signon_policy"]["test"]["id"],
+            policy_id=test_okta_app_signon_policy["id"],
+            name="testAcc_replace_with_uuid",
             constraints=[json.dumps({
                 "knowledge": {
                     "types": ["password"],
@@ -1256,7 +1269,8 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test = okta.AppSignonPolicyRule("test",
-            policy_id=data["okta_app_signon_policy"]["test"]["id"],
+            policy_id=test_okta_app_signon_policy["id"],
+            name="testAcc_replace_with_uuid",
             constraints=[json.dumps({
                 "knowledge": {
                     "reauthenticateIn": "PT2H",
@@ -1283,7 +1297,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         import json
         import pulumi_okta as okta
 
-        test_saml = okta.app.Saml("testSaml",
+        test_saml = okta.app.Saml("test",
             label="testAcc_replace_with_uuid",
             sso_url="https://google.com",
             recipient="https://here.com",
@@ -1331,21 +1345,25 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                 filter_type="REGEX",
                 filter_value=".*",
             )])
-        test_app_signon_policy = okta.get_app_signon_policy_output(app_id=test_saml.id)
+        test = okta.get_app_signon_policy_output(app_id=test_saml.id)
         test_user = []
         for range in [{"value": i} for i in range(0, 5)]:
-            test_user.append(okta.user.User(f"testUser-{range['value']}",
+            test_user.append(okta.user.User(f"test-{range['value']}",
                 first_name="TestAcc",
                 last_name="Smith",
                 login=f"testAcc_{range['value']}@example.com",
                 email=f"testAcc_{range['value']}@example.com"))
         this = []
         for range in [{"value": i} for i in range(0, 5)]:
-            this.append(okta.group.Group(f"this-{range['value']}", description=f"testAcc_{range['value']}"))
-        test_user_type = okta.user.UserType("testUserType",
+            this.append(okta.group.Group(f"this-{range['value']}",
+                name=f"testAcc_{range['value']}",
+                description=f"testAcc_{range['value']}"))
+        test_user_type = okta.user.UserType("test",
+            name="testAcc_replace_with_uuid",
             display_name="Terraform Acceptance Test User Type Updated",
             description="Terraform Acceptance Test User Type Updated")
-        test_zone = okta.network.Zone("testZone",
+        test_zone = okta.network.Zone("test",
+            name="testAcc_replace_with_uuid",
             type="IP",
             gateways=[
                 "1.2.3.4/24",
@@ -1356,11 +1374,13 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                 "3.3.4.5-3.3.4.15",
             ])
         default = okta.user.get_user_type(name="user")
-        test_device_assurance_android = okta.policy.DeviceAssuranceAndroid("testDeviceAssuranceAndroid",
+        test_device_assurance_android = okta.policy.DeviceAssuranceAndroid("test",
+            name="test",
             os_version="12",
             jailbreak=False)
-        test_app_signon_policy_rule = okta.AppSignonPolicyRule("testAppSignonPolicyRule",
-            policy_id=test_app_signon_policy.id,
+        test_app_signon_policy_rule = okta.AppSignonPolicyRule("test",
+            name="testAcc_replace_with_uuid",
+            policy_id=test.id,
             access="ALLOW",
             custom_expression="user.status == \\"ACTIVE\\"",
             device_is_managed=False,

@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  *
  * const example = new okta.AuthServerClaimDefault("example", {
  *     authServerId: "<auth server id>",
+ *     name: "sub",
  *     value: "(appuser != null) ? appuser.userName : app.clientId",
  * });
  * ```

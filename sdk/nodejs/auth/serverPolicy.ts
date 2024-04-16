@@ -18,10 +18,11 @@ import * as utilities from "../utilities";
  *
  * const example = new okta.auth.ServerPolicy("example", {
  *     authServerId: "<auth server id>",
- *     clientWhitelists: ["ALL_CLIENTS"],
+ *     status: "ACTIVE",
+ *     name: "example",
  *     description: "example",
  *     priority: 1,
- *     status: "ACTIVE",
+ *     clientWhitelists: ["ALL_CLIENTS"],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

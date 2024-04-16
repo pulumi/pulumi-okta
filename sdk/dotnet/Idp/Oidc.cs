@@ -27,21 +27,22 @@ namespace Pulumi.Okta.Idp
     /// {
     ///     var example = new Okta.Idp.Oidc("example", new()
     ///     {
-    ///         AuthorizationBinding = "HTTP-REDIRECT",
+    ///         Name = "example",
     ///         AuthorizationUrl = "https://idp.example.com/authorize",
-    ///         ClientId = "efg456",
-    ///         ClientSecret = "efg456",
-    ///         IssuerUrl = "https://id.example.com",
-    ///         JwksBinding = "HTTP-REDIRECT",
+    ///         AuthorizationBinding = "HTTP-REDIRECT",
+    ///         TokenUrl = "https://idp.example.com/token",
+    ///         TokenBinding = "HTTP-POST",
+    ///         UserInfoUrl = "https://idp.example.com/userinfo",
+    ///         UserInfoBinding = "HTTP-REDIRECT",
     ///         JwksUrl = "https://idp.example.com/keys",
+    ///         JwksBinding = "HTTP-REDIRECT",
     ///         Scopes = new[]
     ///         {
     ///             "openid",
     ///         },
-    ///         TokenBinding = "HTTP-POST",
-    ///         TokenUrl = "https://idp.example.com/token",
-    ///         UserInfoBinding = "HTTP-REDIRECT",
-    ///         UserInfoUrl = "https://idp.example.com/userinfo",
+    ///         ClientId = "efg456",
+    ///         ClientSecret = "efg456",
+    ///         IssuerUrl = "https://id.example.com",
     ///         UsernameTemplate = "idpuser.email",
     ///     });
     /// 

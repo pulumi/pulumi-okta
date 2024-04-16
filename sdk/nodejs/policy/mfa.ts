@@ -20,21 +20,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const classicExample = new okta.policy.Mfa("classicExample", {
+ * const classicExample = new okta.policy.Mfa("classic_example", {
+ *     name: "MFA Policy Classic",
+ *     status: "ACTIVE",
  *     description: "Example MFA policy using Okta Classic engine with factors.",
- *     groupsIncludeds: [data.okta_group.everyone.id],
  *     isOie: false,
- *     oktaOtp: {
- *         enroll: "REQUIRED",
- *     },
  *     oktaPassword: {
  *         enroll: "REQUIRED",
  *     },
- *     status: "ACTIVE",
+ *     oktaOtp: {
+ *         enroll: "REQUIRED",
+ *     },
+ *     groupsIncludeds: [everyone.id],
  * });
- * const oieExample = new okta.policy.Mfa("oieExample", {
+ * const oieExample = new okta.policy.Mfa("oie_example", {
+ *     name: "MFA Policy OIE",
+ *     status: "ACTIVE",
  *     description: "Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
- *     groupsIncludeds: [data.okta_group.everyone.id],
  *     isOie: true,
  *     oktaPassword: {
  *         enroll: "REQUIRED",
@@ -42,7 +44,7 @@ import * as utilities from "../utilities";
  *     oktaVerify: {
  *         enroll: "REQUIRED",
  *     },
- *     status: "ACTIVE",
+ *     groupsIncludeds: [everyone.id],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

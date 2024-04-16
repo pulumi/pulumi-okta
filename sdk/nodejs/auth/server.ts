@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * const example = new okta.auth.Server("example", {
  *     audiences: ["api://example"],
  *     description: "My Example Auth Server",
+ *     name: "example",
  *     issuerMode: "CUSTOM_URL",
  *     status: "ACTIVE",
  * });

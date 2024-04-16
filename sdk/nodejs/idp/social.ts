@@ -17,14 +17,15 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.idp.Social("example", {
- *     clientId: "abcd123",
- *     clientSecret: "abcd123",
+ *     type: "FACEBOOK",
  *     protocolType: "OAUTH2",
+ *     name: "testAcc_facebook_replace_with_uuid",
  *     scopes: [
  *         "public_profile",
  *         "email",
  *     ],
- *     type: "FACEBOOK",
+ *     clientId: "abcd123",
+ *     clientSecret: "abcd123",
  *     usernameTemplate: "idpuser.email",
  * });
  * ```

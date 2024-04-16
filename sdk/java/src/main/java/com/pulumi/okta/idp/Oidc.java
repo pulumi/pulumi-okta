@@ -47,18 +47,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Oidc(&#34;example&#34;, OidcArgs.builder()        
- *             .authorizationBinding(&#34;HTTP-REDIRECT&#34;)
+ *             .name(&#34;example&#34;)
  *             .authorizationUrl(&#34;https://idp.example.com/authorize&#34;)
+ *             .authorizationBinding(&#34;HTTP-REDIRECT&#34;)
+ *             .tokenUrl(&#34;https://idp.example.com/token&#34;)
+ *             .tokenBinding(&#34;HTTP-POST&#34;)
+ *             .userInfoUrl(&#34;https://idp.example.com/userinfo&#34;)
+ *             .userInfoBinding(&#34;HTTP-REDIRECT&#34;)
+ *             .jwksUrl(&#34;https://idp.example.com/keys&#34;)
+ *             .jwksBinding(&#34;HTTP-REDIRECT&#34;)
+ *             .scopes(&#34;openid&#34;)
  *             .clientId(&#34;efg456&#34;)
  *             .clientSecret(&#34;efg456&#34;)
  *             .issuerUrl(&#34;https://id.example.com&#34;)
- *             .jwksBinding(&#34;HTTP-REDIRECT&#34;)
- *             .jwksUrl(&#34;https://idp.example.com/keys&#34;)
- *             .scopes(&#34;openid&#34;)
- *             .tokenBinding(&#34;HTTP-POST&#34;)
- *             .tokenUrl(&#34;https://idp.example.com/token&#34;)
- *             .userInfoBinding(&#34;HTTP-REDIRECT&#34;)
- *             .userInfoUrl(&#34;https://idp.example.com/userinfo&#34;)
  *             .usernameTemplate(&#34;idpuser.email&#34;)
  *             .build());
  * 

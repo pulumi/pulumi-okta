@@ -28,12 +28,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := group.NewRule(ctx, "example", &group.RuleArgs{
-//				ExpressionType:  pulumi.String("urn:okta:expression:1.0"),
-//				ExpressionValue: pulumi.String("String.startsWith(user.firstName,\"andy\")"),
+//				Name:   pulumi.String("example"),
+//				Status: pulumi.String("ACTIVE"),
 //				GroupAssignments: pulumi.StringArray{
 //					pulumi.String("<group id>"),
 //				},
-//				Status: pulumi.String("ACTIVE"),
+//				ExpressionType:  pulumi.String("urn:okta:expression:1.0"),
+//				ExpressionValue: pulumi.String("String.startsWith(user.firstName,\"andy\")"),
 //			})
 //			if err != nil {
 //				return err

@@ -74,12 +74,13 @@ import javax.annotation.Nullable;
  *             .authnContextClassRef(&#34;urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport&#34;)
  *             .build());
  * 
- *         final var testAppSignonPolicy = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
+ *         final var test = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
  *             .appId(testSaml.id())
  *             .build());
  * 
  *         var testAppSignonPolicyRule = new AppSignonPolicyRule(&#34;testAppSignonPolicyRule&#34;, AppSignonPolicyRuleArgs.builder()        
- *             .policyId(testAppSignonPolicy.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult).applyValue(testAppSignonPolicy -&gt; testAppSignonPolicy.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult.id())))
+ *             .policyId(test.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult).applyValue(test -&gt; test.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult.id())))
+ *             .name(&#34;testAcc_replace_with_uuid&#34;)
  *             .build());
  * 
  *     }
@@ -117,7 +118,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AppSignonPolicyRule(&#34;test&#34;, AppSignonPolicyRuleArgs.builder()        
- *             .policyId(data.okta_app_signon_policy().test().id())
+ *             .policyId(testOktaAppSignonPolicy.id())
+ *             .name(&#34;testAcc_replace_with_uuid&#34;)
  *             .constraints(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;knowledge&#34;, jsonObject(
@@ -159,7 +161,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AppSignonPolicyRule(&#34;test&#34;, AppSignonPolicyRuleArgs.builder()        
- *             .policyId(data.okta_app_signon_policy().test().id())
+ *             .policyId(testOktaAppSignonPolicy.id())
+ *             .name(&#34;testAcc_replace_with_uuid&#34;)
  *             .constraints(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;knowledge&#34;, jsonObject(
@@ -278,7 +281,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var testAppSignonPolicy = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
+ *         final var test = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
  *             .appId(testSaml.id())
  *             .build());
  * 
@@ -294,17 +297,20 @@ import javax.annotation.Nullable;
  * }
  *         for (var i = 0; i &lt; 5; i++) {
  *             new Group(&#34;this-&#34; + i, GroupArgs.builder()            
+ *                 .name(String.format(&#34;testAcc_%s&#34;, range.value()))
  *                 .description(String.format(&#34;testAcc_%s&#34;, range.value()))
  *                 .build());
  * 
  *         
  * }
  *         var testUserType = new UserType(&#34;testUserType&#34;, UserTypeArgs.builder()        
+ *             .name(&#34;testAcc_replace_with_uuid&#34;)
  *             .displayName(&#34;Terraform Acceptance Test User Type Updated&#34;)
  *             .description(&#34;Terraform Acceptance Test User Type Updated&#34;)
  *             .build());
  * 
  *         var testZone = new Zone(&#34;testZone&#34;, ZoneArgs.builder()        
+ *             .name(&#34;testAcc_replace_with_uuid&#34;)
  *             .type(&#34;IP&#34;)
  *             .gateways(            
  *                 &#34;1.2.3.4/24&#34;,
@@ -319,12 +325,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testDeviceAssuranceAndroid = new DeviceAssuranceAndroid(&#34;testDeviceAssuranceAndroid&#34;, DeviceAssuranceAndroidArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .osVersion(&#34;12&#34;)
  *             .jailbreak(false)
  *             .build());
  * 
  *         var testAppSignonPolicyRule = new AppSignonPolicyRule(&#34;testAppSignonPolicyRule&#34;, AppSignonPolicyRuleArgs.builder()        
- *             .policyId(testAppSignonPolicy.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult).applyValue(testAppSignonPolicy -&gt; testAppSignonPolicy.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult.id())))
+ *             .name(&#34;testAcc_replace_with_uuid&#34;)
+ *             .policyId(test.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult).applyValue(test -&gt; test.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult.id())))
  *             .access(&#34;ALLOW&#34;)
  *             .customExpression(&#34;user.status == \&#34;ACTIVE\&#34;&#34;)
  *             .deviceIsManaged(false)

@@ -34,11 +34,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := app.NewAutoLogin(ctx, "example", &app.AutoLoginArgs{
-//				CredentialsScheme: pulumi.String("EDIT_USERNAME_AND_PASSWORD"),
 //				Label:             pulumi.String("Example App"),
-//				RevealPassword:    pulumi.Bool(true),
-//				SignOnRedirectUrl: pulumi.String("https://example.com"),
 //				SignOnUrl:         pulumi.String("https://example.com/login.html"),
+//				SignOnRedirectUrl: pulumi.String("https://example.com"),
+//				RevealPassword:    pulumi.Bool(true),
+//				CredentialsScheme: pulumi.String("EDIT_USERNAME_AND_PASSWORD"),
 //			})
 //			if err != nil {
 //				return err
@@ -65,10 +65,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := app.NewAutoLogin(ctx, "example", &app.AutoLoginArgs{
-//				AppSettingsJson:  pulumi.String("{\n    \"domain\": \"okta\",\n    \"afwOnly\": false\n}\n\n"),
 //				Label:            pulumi.String("Google Example App"),
-//				PreconfiguredApp: pulumi.String("google"),
 //				Status:           pulumi.String("ACTIVE"),
+//				PreconfiguredApp: pulumi.String("google"),
+//				AppSettingsJson:  pulumi.String("{\n    \"domain\": \"okta\",\n    \"afwOnly\": false\n}\n"),
 //			})
 //			if err != nil {
 //				return err

@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := Index.NewEmailDomain(ctx, "exampleEmailDomain", &Index.EmailDomainArgs{
+//			_, err := Index.NewEmailDomain(ctx, "example", &Index.EmailDomainArgs{
 //				BrandId:     pulumi.String("abc123"),
 //				Domain:      pulumi.String("example.com"),
 //				DisplayName: pulumi.String("test"),
@@ -38,8 +38,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = Index.NewEmailDomainVerification(ctx, "exampleEmailDomainVerification", &Index.EmailDomainVerificationArgs{
-//				EmailDomainId: pulumi.Any(okta_email_domain.Valid.Id),
+//			_, err = Index.NewEmailDomainVerification(ctx, "example", &Index.EmailDomainVerificationArgs{
+//				EmailDomainId: pulumi.Any(valid.Id),
 //			})
 //			if err != nil {
 //				return err

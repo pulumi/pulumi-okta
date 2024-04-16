@@ -29,11 +29,11 @@ namespace Pulumi.Okta.App
     /// {
     ///     var example = new Okta.App.AutoLogin("example", new()
     ///     {
-    ///         CredentialsScheme = "EDIT_USERNAME_AND_PASSWORD",
     ///         Label = "Example App",
-    ///         RevealPassword = true,
-    ///         SignOnRedirectUrl = "https://example.com",
     ///         SignOnUrl = "https://example.com/login.html",
+    ///         SignOnRedirectUrl = "https://example.com",
+    ///         RevealPassword = true,
+    ///         CredentialsScheme = "EDIT_USERNAME_AND_PASSWORD",
     ///     });
     /// 
     /// });
@@ -52,15 +52,14 @@ namespace Pulumi.Okta.App
     /// {
     ///     var example = new Okta.App.AutoLogin("example", new()
     ///     {
+    ///         Label = "Google Example App",
+    ///         Status = "ACTIVE",
+    ///         PreconfiguredApp = "google",
     ///         AppSettingsJson = @"{
     ///     ""domain"": ""okta"",
     ///     ""afwOnly"": false
     /// }
-    /// 
     /// ",
-    ///         Label = "Google Example App",
-    ///         PreconfiguredApp = "google",
-    ///         Status = "ACTIVE",
     ///     });
     /// 
     /// });

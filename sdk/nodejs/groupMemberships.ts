@@ -25,12 +25,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const testGroup = new okta.group.Group("testGroup", {description: "testing, testing"});
- * const testGroupMemberships = new okta.GroupMemberships("testGroupMemberships", {
- *     groupId: testGroup.id,
+ * const test = new okta.group.Group("test", {
+ *     name: "testAcc_replace_with_uuid",
+ *     description: "testing, testing",
+ * });
+ * const testGroupMemberships = new okta.GroupMemberships("test", {
+ *     groupId: test.id,
  *     users: [
- *         okta_user.test1.id,
- *         okta_user.test2.id,
+ *         test1.id,
+ *         test2.id,
  *     ],
  * });
  * ```

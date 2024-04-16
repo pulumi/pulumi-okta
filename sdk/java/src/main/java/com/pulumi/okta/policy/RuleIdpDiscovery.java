@@ -57,6 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // All Okta orgs contain only one IdP Discovery Policy
  *         final var idpDiscoveryPolicy = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
  *             .name(&#34;Idp Discovery Policy&#34;)
  *             .type(&#34;IDP_DISCOVERY&#34;)
@@ -64,6 +65,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new RuleIdpDiscovery(&#34;example&#34;, RuleIdpDiscoveryArgs.builder()        
  *             .policyId(idpDiscoveryPolicy.applyValue(getPolicyResult -&gt; getPolicyResult.id()))
+ *             .name(&#34;example&#34;)
  *             .idpId(&#34;&lt;idp id&gt;&#34;)
  *             .idpType(&#34;OIDC&#34;)
  *             .networkConnection(&#34;ANYWHERE&#34;)
@@ -118,62 +120,12 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
     /**
      * Applications to exclude in discovery. See `app_include` for details.
      * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     @Export(name="appExcludes", refs={List.class,RuleIdpDiscoveryAppExclude.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleIdpDiscoveryAppExclude>> appExcludes;
 
     /**
      * @return Applications to exclude in discovery. See `app_include` for details.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<Optional<List<RuleIdpDiscoveryAppExclude>>> appExcludes() {

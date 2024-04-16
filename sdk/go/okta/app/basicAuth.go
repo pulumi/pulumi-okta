@@ -34,9 +34,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := app.NewBasicAuth(ctx, "example", &app.BasicAuthArgs{
-//				AuthUrl: pulumi.String("https://example.com/auth.html"),
 //				Label:   pulumi.String("Example"),
 //				Url:     pulumi.String("https://example.com/login.html"),
+//				AuthUrl: pulumi.String("https://example.com/auth.html"),
 //			})
 //			if err != nil {
 //				return err

@@ -173,18 +173,18 @@ class UserFactorQuestion(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_user = okta.user.User("exampleUser",
+        example_user = okta.user.User("example",
             first_name="John",
             last_name="Smith",
             login="john.smith@example.com",
             email="john.smith@example.com")
-        example_user_security_questions = okta.get_user_security_questions_output(user_id=example_user.id)
-        example_factor = okta.factor.Factor("exampleFactor",
+        example = okta.get_user_security_questions_output(user_id=example_user.id)
+        example_factor = okta.factor.Factor("example",
             provider_id="okta_question",
             active=True)
-        example_user_factor_question = okta.UserFactorQuestion("exampleUserFactorQuestion",
+        example_user_factor_question = okta.UserFactorQuestion("example",
             user_id=example_user.id,
-            key=example_user_security_questions.questions[0].key,
+            key=example.questions[0].key,
             answer="meatball",
             opts=pulumi.ResourceOptions(depends_on=[example_factor]))
         ```
@@ -222,18 +222,18 @@ class UserFactorQuestion(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_user = okta.user.User("exampleUser",
+        example_user = okta.user.User("example",
             first_name="John",
             last_name="Smith",
             login="john.smith@example.com",
             email="john.smith@example.com")
-        example_user_security_questions = okta.get_user_security_questions_output(user_id=example_user.id)
-        example_factor = okta.factor.Factor("exampleFactor",
+        example = okta.get_user_security_questions_output(user_id=example_user.id)
+        example_factor = okta.factor.Factor("example",
             provider_id="okta_question",
             active=True)
-        example_user_factor_question = okta.UserFactorQuestion("exampleUserFactorQuestion",
+        example_user_factor_question = okta.UserFactorQuestion("example",
             user_id=example_user.id,
-            key=example_user_security_questions.questions[0].key,
+            key=example.questions[0].key,
             answer="meatball",
             opts=pulumi.ResourceOptions(depends_on=[example_factor]))
         ```

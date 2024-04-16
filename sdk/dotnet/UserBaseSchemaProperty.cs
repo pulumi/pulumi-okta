@@ -36,11 +36,11 @@ namespace Pulumi.Okta
     ///     var example = new Okta.UserBaseSchemaProperty("example", new()
     ///     {
     ///         Index = "firstName",
-    ///         Master = "OKTA",
-    ///         Required = true,
     ///         Title = "First name",
     ///         Type = "string",
-    ///         UserType = data.Okta_user_type.Example.Id,
+    ///         Required = true,
+    ///         Master = "OKTA",
+    ///         UserType = exampleOktaUserType.Id,
     ///     });
     /// 
     /// });

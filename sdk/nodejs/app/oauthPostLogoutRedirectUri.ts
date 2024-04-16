@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const testOAuth = new okta.app.OAuth("testOAuth", {
+ * const test = new okta.app.OAuth("test", {
  *     label: "testAcc_replace_with_uuid",
  *     type: "web",
  *     grantTypes: ["authorization_code"],
@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
  *     redirectUris: ["myapp://callback"],
  *     postLogoutRedirectUris: ["https://www.example.com"],
  * });
- * const testOAuthPostLogoutRedirectUri = new okta.app.OAuthPostLogoutRedirectUri("testOAuthPostLogoutRedirectUri", {
- *     appId: testOAuth.id,
+ * const testOAuthPostLogoutRedirectUri = new okta.app.OAuthPostLogoutRedirectUri("test", {
+ *     appId: test.id,
  *     uri: "https://www.example.com",
  * });
  * ```

@@ -29,20 +29,20 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var classicExample = new Okta.PolicyMfaDefault("classicExample", new()
+    ///     var classicExample = new Okta.PolicyMfaDefault("classic_example", new()
     ///     {
     ///         IsOie = false,
-    ///         OktaOtp = 
+    ///         OktaPassword = 
     ///         {
     ///             { "enroll", "REQUIRED" },
     ///         },
-    ///         OktaPassword = 
+    ///         OktaOtp = 
     ///         {
     ///             { "enroll", "REQUIRED" },
     ///         },
     ///     });
     /// 
-    ///     var oieExample = new Okta.PolicyMfaDefault("oieExample", new()
+    ///     var oieExample = new Okta.PolicyMfaDefault("oie_example", new()
     ///     {
     ///         IsOie = true,
     ///         OktaPassword = 

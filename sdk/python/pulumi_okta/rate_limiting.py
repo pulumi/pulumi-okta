@@ -153,9 +153,9 @@ class RateLimiting(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.RateLimiting("example",
+            login="ENFORCE",
             authorize="ENFORCE",
-            communications_enabled=True,
-            login="ENFORCE")
+            communications_enabled=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -196,9 +196,9 @@ class RateLimiting(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.RateLimiting("example",
+            login="ENFORCE",
             authorize="ENFORCE",
-            communications_enabled=True,
-            login="ENFORCE")
+            communications_enabled=True)
         ```
         <!--End PulumiCodeChooser -->
 

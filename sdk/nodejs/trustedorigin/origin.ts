@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.trustedorigin.Origin("example", {
+ *     name: "example",
  *     origin: "https://example.com",
  *     scopes: ["CORS"],
  * });

@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new AppUserSchemaProperty(&#34;example&#34;, AppUserSchemaPropertyArgs.builder()        
  *             .appId(&#34;&lt;app id&gt;&#34;)
- *             .description(&#34;My custom property name&#34;)
  *             .index(&#34;customPropertyName&#34;)
- *             .master(&#34;OKTA&#34;)
- *             .scope(&#34;SELF&#34;)
  *             .title(&#34;customPropertyName&#34;)
  *             .type(&#34;string&#34;)
+ *             .description(&#34;My custom property name&#34;)
+ *             .master(&#34;OKTA&#34;)
+ *             .scope(&#34;SELF&#34;)
  *             .build());
  * 
  *     }

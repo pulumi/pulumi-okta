@@ -184,7 +184,7 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example = okta.Domain("example")
+        example = okta.Domain("example", name="www.example.com")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -220,7 +220,7 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example = okta.Domain("example")
+        example = okta.Domain("example", name="www.example.com")
         ```
         <!--End PulumiCodeChooser -->
 

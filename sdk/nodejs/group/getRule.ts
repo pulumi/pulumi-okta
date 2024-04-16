@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const test = okta.group.getRule({
- *     id: okta_group_rule.example.id,
+ *     id: example.id,
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -93,7 +93,7 @@ export interface GetRuleResult {
  * import * as okta from "@pulumi/okta";
  *
  * const test = okta.group.getRule({
- *     id: okta_group_rule.example.id,
+ *     id: example.id,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

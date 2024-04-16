@@ -29,11 +29,12 @@ namespace Pulumi.Okta.App
     /// {
     ///     var example = new Okta.App.OAuth("example", new()
     ///     {
+    ///         Label = "example",
+    ///         Type = "web",
     ///         GrantTypes = new[]
     ///         {
     ///             "authorization_code",
     ///         },
-    ///         Label = "example",
     ///         RedirectUris = new[]
     ///         {
     ///             "https://example.com/",
@@ -42,7 +43,6 @@ namespace Pulumi.Okta.App
     ///         {
     ///             "code",
     ///         },
-    ///         Type = "web",
     ///     });
     /// 
     /// });
@@ -64,34 +64,34 @@ namespace Pulumi.Okta.App
     /// {
     ///     var example = new Okta.App.OAuth("example", new()
     ///     {
-    ///         GrantTypes = new[]
-    ///         {
-    ///             "client_credentials",
-    ///         },
-    ///         Jwks = new[]
-    ///         {
-    ///             new Okta.App.Inputs.OAuthJwkArgs
-    ///             {
-    ///                 E = "AQAB",
-    ///                 Kid = "SIGNING_KEY_RSA",
-    ///                 Kty = "RSA",
-    ///                 N = "xyz",
-    ///             },
-    ///             new Okta.App.Inputs.OAuthJwkArgs
-    ///             {
-    ///                 Kid = "SIGNING_KEY_EC",
-    ///                 Kty = "EC",
-    ///                 X = "K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I",
-    ///                 Y = "8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo",
-    ///             },
-    ///         },
     ///         Label = "example",
+    ///         Type = "service",
     ///         ResponseTypes = new[]
     ///         {
     ///             "token",
     ///         },
+    ///         GrantTypes = new[]
+    ///         {
+    ///             "client_credentials",
+    ///         },
     ///         TokenEndpointAuthMethod = "private_key_jwt",
-    ///         Type = "service",
+    ///         Jwks = new[]
+    ///         {
+    ///             new Okta.App.Inputs.OAuthJwkArgs
+    ///             {
+    ///                 Kty = "RSA",
+    ///                 Kid = "SIGNING_KEY_RSA",
+    ///                 E = "AQAB",
+    ///                 N = "xyz",
+    ///             },
+    ///             new Okta.App.Inputs.OAuthJwkArgs
+    ///             {
+    ///                 Kty = "EC",
+    ///                 Kid = "SIGNING_KEY_EC",
+    ///                 X = "K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I",
+    ///                 Y = "8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo",
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

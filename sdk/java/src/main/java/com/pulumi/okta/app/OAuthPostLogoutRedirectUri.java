@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testOAuth = new OAuth(&#34;testOAuth&#34;, OAuthArgs.builder()        
+ *         var test = new OAuth(&#34;test&#34;, OAuthArgs.builder()        
  *             .label(&#34;testAcc_replace_with_uuid&#34;)
  *             .type(&#34;web&#34;)
  *             .grantTypes(&#34;authorization_code&#34;)
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testOAuthPostLogoutRedirectUri = new OAuthPostLogoutRedirectUri(&#34;testOAuthPostLogoutRedirectUri&#34;, OAuthPostLogoutRedirectUriArgs.builder()        
- *             .appId(testOAuth.id())
+ *             .appId(test.id())
  *             .uri(&#34;https://www.example.com&#34;)
  *             .build());
  * 

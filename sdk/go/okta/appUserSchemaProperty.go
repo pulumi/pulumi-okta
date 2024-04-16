@@ -29,12 +29,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewAppUserSchemaProperty(ctx, "example", &okta.AppUserSchemaPropertyArgs{
 //				AppId:       pulumi.String("<app id>"),
-//				Description: pulumi.String("My custom property name"),
 //				Index:       pulumi.String("customPropertyName"),
-//				Master:      pulumi.String("OKTA"),
-//				Scope:       pulumi.String("SELF"),
 //				Title:       pulumi.String("customPropertyName"),
 //				Type:        pulumi.String("string"),
+//				Description: pulumi.String("My custom property name"),
+//				Master:      pulumi.String("OKTA"),
+//				Scope:       pulumi.String("SELF"),
 //			})
 //			if err != nil {
 //				return err

@@ -32,14 +32,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := idp.NewSocial(ctx, "example", &idp.SocialArgs{
-//				ClientId:     pulumi.String("abcd123"),
-//				ClientSecret: pulumi.String("abcd123"),
+//				Type:         pulumi.String("FACEBOOK"),
 //				ProtocolType: pulumi.String("OAUTH2"),
+//				Name:         pulumi.String("testAcc_facebook_replace_with_uuid"),
 //				Scopes: pulumi.StringArray{
 //					pulumi.String("public_profile"),
 //					pulumi.String("email"),
 //				},
-//				Type:             pulumi.String("FACEBOOK"),
+//				ClientId:         pulumi.String("abcd123"),
+//				ClientSecret:     pulumi.String("abcd123"),
 //				UsernameTemplate: pulumi.String("idpuser.email"),
 //			})
 //			if err != nil {

@@ -29,15 +29,16 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auth.NewServerPolicyRule(ctx, "example", &auth.ServerPolicyRuleArgs{
 //				AuthServerId: pulumi.String("<auth server id>"),
-//				GrantTypeWhitelists: pulumi.StringArray{
-//					pulumi.String("implicit"),
-//				},
+//				PolicyId:     pulumi.String("<auth server policy id>"),
+//				Status:       pulumi.String("ACTIVE"),
+//				Name:         pulumi.String("example"),
+//				Priority:     pulumi.Int(1),
 //				GroupWhitelists: pulumi.StringArray{
 //					pulumi.String("<group ids>"),
 //				},
-//				PolicyId: pulumi.String("<auth server policy id>"),
-//				Priority: pulumi.Int(1),
-//				Status:   pulumi.String("ACTIVE"),
+//				GrantTypeWhitelists: pulumi.StringArray{
+//					pulumi.String("implicit"),
+//				},
 //			})
 //			if err != nil {
 //				return err

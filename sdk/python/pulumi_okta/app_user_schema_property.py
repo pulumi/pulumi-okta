@@ -734,12 +734,12 @@ class AppUserSchemaProperty(pulumi.CustomResource):
 
         example = okta.AppUserSchemaProperty("example",
             app_id="<app id>",
-            description="My custom property name",
             index="customPropertyName",
-            master="OKTA",
-            scope="SELF",
             title="customPropertyName",
-            type="string")
+            type="string",
+            description="My custom property name",
+            master="OKTA",
+            scope="SELF")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -791,12 +791,12 @@ class AppUserSchemaProperty(pulumi.CustomResource):
 
         example = okta.AppUserSchemaProperty("example",
             app_id="<app id>",
-            description="My custom property name",
             index="customPropertyName",
-            master="OKTA",
-            scope="SELF",
             title="customPropertyName",
-            type="string")
+            type="string",
+            description="My custom property name",
+            master="OKTA",
+            scope="SELF")
         ```
         <!--End PulumiCodeChooser -->
 

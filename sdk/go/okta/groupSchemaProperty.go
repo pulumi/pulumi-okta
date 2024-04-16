@@ -28,12 +28,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewGroupSchemaProperty(ctx, "example", &okta.GroupSchemaPropertyArgs{
-//				Description: pulumi.String("My custom property name"),
 //				Index:       pulumi.String("customPropertyName"),
-//				Master:      pulumi.String("OKTA"),
-//				Scope:       pulumi.String("SELF"),
 //				Title:       pulumi.String("customPropertyName"),
 //				Type:        pulumi.String("string"),
+//				Description: pulumi.String("My custom property name"),
+//				Master:      pulumi.String("OKTA"),
+//				Scope:       pulumi.String("SELF"),
 //			})
 //			if err != nil {
 //				return err

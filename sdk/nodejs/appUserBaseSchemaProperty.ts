@@ -19,9 +19,9 @@ import * as utilities from "./utilities";
  * const example = new okta.AppUserBaseSchemaProperty("example", {
  *     appId: "<app id>",
  *     index: "customPropertyName",
- *     master: "OKTA",
  *     title: "customPropertyName",
  *     type: "string",
+ *     master: "OKTA",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

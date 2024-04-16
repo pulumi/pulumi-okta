@@ -44,9 +44,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Captcha(&#34;example&#34;, CaptchaArgs.builder()        
- *             .secretKey(&#34;some_secret_key&#34;)
- *             .siteKey(&#34;some_key&#34;)
+ *             .name(&#34;My CAPTCHA&#34;)
  *             .type(&#34;HCAPTCHA&#34;)
+ *             .siteKey(&#34;some_key&#34;)
+ *             .secretKey(&#34;some_secret_key&#34;)
  *             .build());
  * 
  *     }

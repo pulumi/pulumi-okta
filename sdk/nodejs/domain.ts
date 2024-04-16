@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = new okta.Domain("example", {});
+ * const example = new okta.Domain("example", {name: "www.example.com"});
  * ```
  * <!--End PulumiCodeChooser -->
  *

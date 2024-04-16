@@ -46,9 +46,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Signon(&#34;example&#34;, SignonArgs.builder()        
- *             .description(&#34;Example&#34;)
- *             .groupsIncludeds(data.okta_group().everyone().id())
+ *             .name(&#34;example&#34;)
  *             .status(&#34;ACTIVE&#34;)
+ *             .description(&#34;Example&#34;)
+ *             .groupsIncludeds(everyone.id())
  *             .build());
  * 
  *     }

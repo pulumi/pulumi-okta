@@ -888,12 +888,6 @@ export namespace policy {
         osExpression?: string;
         /**
          * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
-         *
-         * <!--Start PulumiCodeChooser -->
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
-         * <!--End PulumiCodeChooser -->
          */
         osType?: string;
         /**
@@ -909,12 +903,6 @@ export namespace policy {
         matchType?: string;
         /**
          * The regex or simple match string to match against.
-         *
-         * <!--Start PulumiCodeChooser -->
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
-         * <!--End PulumiCodeChooser -->
          */
         value?: string;
     }

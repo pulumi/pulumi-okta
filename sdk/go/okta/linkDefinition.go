@@ -33,12 +33,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewLinkDefinition(ctx, "example", &okta.LinkDefinitionArgs{
-//				AssociatedDescription: pulumi.String("Elite military force member"),
-//				AssociatedName:        pulumi.String("sardaukar"),
-//				AssociatedTitle:       pulumi.String("Sardaukar"),
-//				PrimaryDescription:    pulumi.String("Hereditary ruler of the Imperium and the Known Universe"),
 //				PrimaryName:           pulumi.String("emperor"),
 //				PrimaryTitle:          pulumi.String("Emperor"),
+//				PrimaryDescription:    pulumi.String("Hereditary ruler of the Imperium and the Known Universe"),
+//				AssociatedName:        pulumi.String("sardaukar"),
+//				AssociatedTitle:       pulumi.String("Sardaukar"),
+//				AssociatedDescription: pulumi.String("Elite military force member"),
 //			})
 //			if err != nil {
 //				return err

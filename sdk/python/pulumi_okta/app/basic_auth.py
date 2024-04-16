@@ -555,9 +555,9 @@ class BasicAuth(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.BasicAuth("example",
-            auth_url="https://example.com/auth.html",
             label="Example",
-            url="https://example.com/login.html")
+            url="https://example.com/login.html",
+            auth_url="https://example.com/auth.html")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -607,9 +607,9 @@ class BasicAuth(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.BasicAuth("example",
-            auth_url="https://example.com/auth.html",
             label="Example",
-            url="https://example.com/login.html")
+            url="https://example.com/login.html",
+            auth_url="https://example.com/auth.html")
         ```
         <!--End PulumiCodeChooser -->
 

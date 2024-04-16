@@ -941,14 +941,15 @@ class Social(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.idp.Social("example",
-            client_id="abcd123",
-            client_secret="abcd123",
+            type="FACEBOOK",
             protocol_type="OAUTH2",
+            name="testAcc_facebook_replace_with_uuid",
             scopes=[
                 "public_profile",
                 "email",
             ],
-            type="FACEBOOK",
+            client_id="abcd123",
+            client_secret="abcd123",
             username_template="idpuser.email")
         ```
         <!--End PulumiCodeChooser -->
@@ -1010,14 +1011,15 @@ class Social(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.idp.Social("example",
-            client_id="abcd123",
-            client_secret="abcd123",
+            type="FACEBOOK",
             protocol_type="OAUTH2",
+            name="testAcc_facebook_replace_with_uuid",
             scopes=[
                 "public_profile",
                 "email",
             ],
-            type="FACEBOOK",
+            client_id="abcd123",
+            client_secret="abcd123",
             username_template="idpuser.email")
         ```
         <!--End PulumiCodeChooser -->

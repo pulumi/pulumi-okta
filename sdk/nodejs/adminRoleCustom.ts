@@ -17,8 +17,8 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.AdminRoleCustom("example", {
- *     description: "This role allows app assignment management",
  *     label: "AppAssignmentManager",
+ *     description: "This role allows app assignment management",
  *     permissions: ["okta.apps.assignment.manage"],
  * });
  * ```

@@ -292,27 +292,27 @@ class Mapping(pulumi.CustomResource):
 
         user = okta.user.get_user_profile_mapping_source()
         example = okta.profile.Mapping("example",
+            source_id="<source id>",
+            target_id=user.id,
             delete_when_absent=True,
             mappings=[
                 okta.profile.MappingMappingArgs(
-                    expression="appuser.firstName",
                     id="firstName",
+                    expression="appuser.firstName",
                 ),
                 okta.profile.MappingMappingArgs(
-                    expression="appuser.lastName",
                     id="lastName",
+                    expression="appuser.lastName",
                 ),
                 okta.profile.MappingMappingArgs(
-                    expression="appuser.email",
                     id="email",
+                    expression="appuser.email",
                 ),
                 okta.profile.MappingMappingArgs(
-                    expression="appuser.email",
                     id="login",
+                    expression="appuser.email",
                 ),
-            ],
-            source_id="<source id>",
-            target_id=user.id)
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -352,27 +352,27 @@ class Mapping(pulumi.CustomResource):
 
         user = okta.user.get_user_profile_mapping_source()
         example = okta.profile.Mapping("example",
+            source_id="<source id>",
+            target_id=user.id,
             delete_when_absent=True,
             mappings=[
                 okta.profile.MappingMappingArgs(
-                    expression="appuser.firstName",
                     id="firstName",
+                    expression="appuser.firstName",
                 ),
                 okta.profile.MappingMappingArgs(
-                    expression="appuser.lastName",
                     id="lastName",
+                    expression="appuser.lastName",
                 ),
                 okta.profile.MappingMappingArgs(
-                    expression="appuser.email",
                     id="email",
+                    expression="appuser.email",
                 ),
                 okta.profile.MappingMappingArgs(
-                    expression="appuser.email",
                     id="login",
+                    expression="appuser.email",
                 ),
-            ],
-            source_id="<source id>",
-            target_id=user.id)
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

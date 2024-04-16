@@ -27,7 +27,7 @@ namespace Pulumi.Okta.App
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testOAuth = new Okta.App.OAuth("testOAuth", new()
+    ///     var test = new Okta.App.OAuth("test", new()
     ///     {
     ///         Label = "testAcc_replace_with_uuid",
     ///         Type = "web",
@@ -45,9 +45,9 @@ namespace Pulumi.Okta.App
     ///         },
     ///     });
     /// 
-    ///     var testOAuthRedirectUri = new Okta.App.OAuthRedirectUri("testOAuthRedirectUri", new()
+    ///     var testOAuthRedirectUri = new Okta.App.OAuthRedirectUri("test", new()
     ///     {
-    ///         AppId = testOAuth.Id,
+    ///         AppId = test.Id,
     ///         Uri = "http://google.com",
     ///     });
     /// 

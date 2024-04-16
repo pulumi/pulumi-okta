@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewEmailSender(ctx, "exampleEmailSender", &okta.EmailSenderArgs{
+//			_, err := okta.NewEmailSender(ctx, "example", &okta.EmailSenderArgs{
 //				FromName:    pulumi.String("Paul Atreides"),
 //				FromAddress: pulumi.String("no-reply@caladan.planet"),
 //				Subdomain:   pulumi.String("mail"),
@@ -39,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.NewEmailSenderVerification(ctx, "exampleEmailSenderVerification", &okta.EmailSenderVerificationArgs{
-//				SenderId: pulumi.Any(okta_email_sender.Valid.Id),
+//			_, err = okta.NewEmailSenderVerification(ctx, "example", &okta.EmailSenderVerificationArgs{
+//				SenderId: pulumi.Any(valid.Id),
 //			})
 //			if err != nil {
 //				return err

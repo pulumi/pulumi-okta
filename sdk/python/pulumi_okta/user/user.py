@@ -1496,20 +1496,20 @@ class User(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.user.User("example",
+            first_name="John",
+            last_name="Smith",
+            login="john.smith@example.com",
+            email="john.smith@example.com",
             city="New York",
             cost_center="10",
             country_code="US",
             department="IT",
             display_name="Dr. John Smith",
             division="Acquisitions",
-            email="john.smith@example.com",
             employee_number="111111",
-            first_name="John",
             honorific_prefix="Dr.",
             honorific_suffix="Jr.",
-            last_name="Smith",
             locale="en_US",
-            login="john.smith@example.com",
             manager="Jimbo",
             manager_id="222222",
             middle_name="John",
@@ -1538,10 +1538,10 @@ class User(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test2 = okta.user.User("test2",
-            email="example@example.com",
             first_name="John",
             last_name="Smith",
             login="example@example.com",
+            email="example@example.com",
             password_inline_hook="default")
         ```
         <!--End PulumiCodeChooser -->
@@ -1629,20 +1629,20 @@ class User(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.user.User("example",
+            first_name="John",
+            last_name="Smith",
+            login="john.smith@example.com",
+            email="john.smith@example.com",
             city="New York",
             cost_center="10",
             country_code="US",
             department="IT",
             display_name="Dr. John Smith",
             division="Acquisitions",
-            email="john.smith@example.com",
             employee_number="111111",
-            first_name="John",
             honorific_prefix="Dr.",
             honorific_suffix="Jr.",
-            last_name="Smith",
             locale="en_US",
-            login="john.smith@example.com",
             manager="Jimbo",
             manager_id="222222",
             middle_name="John",
@@ -1671,10 +1671,10 @@ class User(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test2 = okta.user.User("test2",
-            email="example@example.com",
             first_name="John",
             last_name="Smith",
             login="example@example.com",
+            email="example@example.com",
             password_inline_hook="default")
         ```
         <!--End PulumiCodeChooser -->

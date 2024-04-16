@@ -12,17 +12,17 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const testUser = new okta.user.User("testUser", {
+ * const test = new okta.user.User("test", {
  *     firstName: "TestAcc",
  *     lastName: "Smith",
  *     login: "testAcc-replace_with_uuid@example.com",
  *     email: "testAcc-replace_with_uuid@example.com",
  * });
- * const testUserGroupMemberships = new okta.UserGroupMemberships("testUserGroupMemberships", {
- *     userId: testUser.id,
+ * const testUserGroupMemberships = new okta.UserGroupMemberships("test", {
+ *     userId: test.id,
  *     groups: [
- *         okta_group.test_1.id,
- *         okta_group.test_2.id,
+ *         test1.id,
+ *         test2.id,
  *     ],
  * });
  * ```

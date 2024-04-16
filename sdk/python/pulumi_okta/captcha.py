@@ -175,9 +175,10 @@ class Captcha(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.Captcha("example",
-            secret_key="some_secret_key",
+            name="My CAPTCHA",
+            type="HCAPTCHA",
             site_key="some_key",
-            type="HCAPTCHA")
+            secret_key="some_secret_key")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -215,9 +216,10 @@ class Captcha(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.Captcha("example",
-            secret_key="some_secret_key",
+            name="My CAPTCHA",
+            type="HCAPTCHA",
             site_key="some_key",
-            type="HCAPTCHA")
+            secret_key="some_secret_key")
         ```
         <!--End PulumiCodeChooser -->
 

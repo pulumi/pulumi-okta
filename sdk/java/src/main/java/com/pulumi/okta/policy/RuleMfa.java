@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleDefaultPolicy = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
+ *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
  *             .type(&#34;MFA_ENROLL&#34;)
  *             .build());
  * 
@@ -64,7 +64,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .policyId(exampleDefaultPolicy.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
+ *             .policyId(example.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
+ *             .name(&#34;My Rule&#34;)
  *             .status(&#34;ACTIVE&#34;)
  *             .enroll(&#34;LOGIN&#34;)
  *             .appIncludes(            
@@ -110,12 +111,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleDefaultPolicy = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
+ *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
  *             .type(&#34;MFA_ENROLL&#34;)
  *             .build());
  * 
  *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .policyId(exampleDefaultPolicy.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
+ *             .name(&#34;Some policy rule&#34;)
+ *             .policyId(example.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
  *             .appExcludes(RuleMfaAppExcludeArgs.builder()
  *                 .name(&#34;okta&#34;)
  *                 .type(&#34;APP_TYPE&#34;)
@@ -155,12 +157,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleDefaultPolicy = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
+ *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
  *             .type(&#34;MFA_ENROLL&#34;)
  *             .build());
  * 
  *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .policyId(exampleDefaultPolicy.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
+ *             .name(&#34;Some policy rule&#34;)
+ *             .policyId(example.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
  *             .appExcludes(RuleMfaAppExcludeArgs.builder()
  *                 .name(&#34;okta&#34;)
  *                 .type(&#34;APP_TYPE&#34;)
@@ -203,12 +206,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleDefaultPolicy = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
+ *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
  *             .type(&#34;MFA_ENROLL&#34;)
  *             .build());
  * 
  *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .policyId(exampleDefaultPolicy.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
+ *             .name(&#34;Some policy rule&#34;)
+ *             .policyId(example.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
  *             .appIncludes(RuleMfaAppIncludeArgs.builder()
  *                 .name(&#34;okta&#34;)
  *                 .type(&#34;APP_TYPE&#34;)
@@ -246,12 +250,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleDefaultPolicy = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
+ *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
  *             .type(&#34;MFA_ENROLL&#34;)
  *             .build());
  * 
  *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .policyId(exampleDefaultPolicy.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
+ *             .name(&#34;Some policy rule&#34;)
+ *             .policyId(example.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
  *             .build());
  * 
  *     }
@@ -286,12 +291,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleDefaultPolicy = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
+ *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
  *             .type(&#34;MFA_ENROLL&#34;)
  *             .build());
  * 
  *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .policyId(exampleDefaultPolicy.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
+ *             .name(&#34;Some policy rule&#34;)
+ *             .policyId(example.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
  *             .appIncludes(            
  *                 RuleMfaAppIncludeArgs.builder()
  *                     .name(&#34;okta&#34;)

@@ -18,12 +18,12 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.LinkDefinition("example", {
- *     associatedDescription: "Elite military force member",
- *     associatedName: "sardaukar",
- *     associatedTitle: "Sardaukar",
- *     primaryDescription: "Hereditary ruler of the Imperium and the Known Universe",
  *     primaryName: "emperor",
  *     primaryTitle: "Emperor",
+ *     primaryDescription: "Hereditary ruler of the Imperium and the Known Universe",
+ *     associatedName: "sardaukar",
+ *     associatedTitle: "Sardaukar",
+ *     associatedDescription: "Elite military force member",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

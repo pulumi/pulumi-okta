@@ -18,15 +18,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const testOAuth = new okta.app.OAuth("testOAuth", {
+ * const test = new okta.app.OAuth("test", {
  *     label: "test",
  *     type: "service",
  *     responseTypes: ["token"],
  *     grantTypes: ["client_credentials"],
  *     jwksUri: "https://example.com",
  * });
- * const testOauthRoleAssignment = new okta.app.OauthRoleAssignment("testOauthRoleAssignment", {
- *     clientId: testOAuth.clientId,
+ * const testOauthRoleAssignment = new okta.app.OauthRoleAssignment("test", {
+ *     clientId: test.clientId,
  *     type: "HELP_DESK_ADMIN",
  * });
  * ```

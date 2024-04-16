@@ -316,11 +316,11 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
 
         example = okta.UserBaseSchemaProperty("example",
             index="firstName",
-            master="OKTA",
-            required=True,
             title="First name",
             type="string",
-            user_type=data["okta_user_type"]["example"]["id"])
+            required=True,
+            master="OKTA",
+            user_type=example_okta_user_type["id"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -377,11 +377,11 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
 
         example = okta.UserBaseSchemaProperty("example",
             index="firstName",
-            master="OKTA",
-            required=True,
             title="First name",
             type="string",
-            user_type=data["okta_user_type"]["example"]["id"])
+            required=True,
+            master="OKTA",
+            user_type=example_okta_user_type["id"])
         ```
         <!--End PulumiCodeChooser -->
 

@@ -44,7 +44,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleEventHook = new EventHook(&#34;exampleEventHook&#34;, EventHookArgs.builder()        
+ *         var example = new EventHook(&#34;example&#34;, EventHookArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .events(            
  *                 &#34;user.lifecycle.create&#34;,
  *                 &#34;user.lifecycle.delete.initiated&#34;)
@@ -61,7 +62,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEventHookVerification = new EventHookVerification(&#34;exampleEventHookVerification&#34;, EventHookVerificationArgs.builder()        
- *             .eventHookId(exampleEventHook.id())
+ *             .eventHookId(example.id())
  *             .build());
  * 
  *     }

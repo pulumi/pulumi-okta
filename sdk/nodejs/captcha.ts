@@ -17,9 +17,10 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.Captcha("example", {
- *     secretKey: "some_secret_key",
- *     siteKey: "some_key",
+ *     name: "My CAPTCHA",
  *     type: "HCAPTCHA",
+ *     siteKey: "some_key",
+ *     secretKey: "some_secret_key",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

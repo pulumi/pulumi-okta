@@ -21,8 +21,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const examplePolicyProfileEnrollment = new okta.PolicyProfileEnrollment("examplePolicyProfileEnrollment", {});
- * const exampleHook = new okta.inline.Hook("exampleHook", {
+ * const example = new okta.PolicyProfileEnrollment("example", {name: "My Enrollment Policy"});
+ * const exampleHook = new okta.inline.Hook("example", {
+ *     name: "My Inline Hook",
  *     status: "ACTIVE",
  *     type: "com.okta.user.pre-registration",
  *     version: "1.0.3",
@@ -33,9 +34,12 @@ import * as utilities from "./utilities";
  *         method: "POST",
  *     },
  * });
- * const exampleGroup = new okta.group.Group("exampleGroup", {description: "Group of some users"});
- * const examplePolicyRuleProfileEnrollment = new okta.PolicyRuleProfileEnrollment("examplePolicyRuleProfileEnrollment", {
- *     policyId: examplePolicyProfileEnrollment.id,
+ * const exampleGroup = new okta.group.Group("example", {
+ *     name: "My Group",
+ *     description: "Group of some users",
+ * });
+ * const examplePolicyRuleProfileEnrollment = new okta.PolicyRuleProfileEnrollment("example", {
+ *     policyId: example.id,
  *     inlineHookId: exampleHook.id,
  *     targetGroupId: exampleGroup.id,
  *     unknownUserAction: "REGISTER",

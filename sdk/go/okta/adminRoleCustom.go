@@ -32,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewAdminRoleCustom(ctx, "example", &okta.AdminRoleCustomArgs{
-//				Description: pulumi.String("This role allows app assignment management"),
 //				Label:       pulumi.String("AppAssignmentManager"),
+//				Description: pulumi.String("This role allows app assignment management"),
 //				Permissions: pulumi.StringArray{
 //					pulumi.String("okta.apps.assignment.manage"),
 //				},

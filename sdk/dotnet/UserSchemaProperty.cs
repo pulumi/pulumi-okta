@@ -23,13 +23,13 @@ namespace Pulumi.Okta
     /// {
     ///     var example = new Okta.UserSchemaProperty("example", new()
     ///     {
-    ///         Description = "My custom property name",
     ///         Index = "customPropertyName",
-    ///         Master = "OKTA",
-    ///         Scope = "SELF",
     ///         Title = "customPropertyName",
     ///         Type = "string",
-    ///         UserType = data.Okta_user_type.Example.Id,
+    ///         Description = "My custom property name",
+    ///         Master = "OKTA",
+    ///         Scope = "SELF",
+    ///         UserType = exampleOktaUserType.Id,
     ///     });
     /// 
     /// });

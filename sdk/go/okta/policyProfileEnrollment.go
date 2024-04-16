@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewPolicyProfileEnrollment(ctx, "example", &okta.PolicyProfileEnrollmentArgs{
+//				Name:   pulumi.String("example"),
 //				Status: pulumi.String("ACTIVE"),
 //			})
 //			if err != nil {

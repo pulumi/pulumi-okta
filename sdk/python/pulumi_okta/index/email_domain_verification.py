@@ -75,12 +75,12 @@ class EmailDomainVerification(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_email_domain = okta.index.EmailDomain("exampleEmailDomain",
+        example = okta.index.EmailDomain("example",
             brand_id="abc123",
             domain="example.com",
             display_name="test",
             user_name="paul_atreides")
-        example_email_domain_verification = okta.index.EmailDomainVerification("exampleEmailDomainVerification", email_domain_id=okta_email_domain["valid"]["id"])
+        example_email_domain_verification = okta.index.EmailDomainVerification("example", email_domain_id=valid["id"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -108,12 +108,12 @@ class EmailDomainVerification(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_email_domain = okta.index.EmailDomain("exampleEmailDomain",
+        example = okta.index.EmailDomain("example",
             brand_id="abc123",
             domain="example.com",
             display_name="test",
             user_name="paul_atreides")
-        example_email_domain_verification = okta.index.EmailDomainVerification("exampleEmailDomainVerification", email_domain_id=okta_email_domain["valid"]["id"])
+        example_email_domain_verification = okta.index.EmailDomainVerification("example", email_domain_id=valid["id"])
         ```
         <!--End PulumiCodeChooser -->
 

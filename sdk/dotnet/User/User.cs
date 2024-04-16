@@ -29,20 +29,20 @@ namespace Pulumi.Okta.User
     /// {
     ///     var example = new Okta.User.User("example", new()
     ///     {
+    ///         FirstName = "John",
+    ///         LastName = "Smith",
+    ///         Login = "john.smith@example.com",
+    ///         Email = "john.smith@example.com",
     ///         City = "New York",
     ///         CostCenter = "10",
     ///         CountryCode = "US",
     ///         Department = "IT",
     ///         DisplayName = "Dr. John Smith",
     ///         Division = "Acquisitions",
-    ///         Email = "john.smith@example.com",
     ///         EmployeeNumber = "111111",
-    ///         FirstName = "John",
     ///         HonorificPrefix = "Dr.",
     ///         HonorificSuffix = "Jr.",
-    ///         LastName = "Smith",
     ///         Locale = "en_US",
-    ///         Login = "john.smith@example.com",
     ///         Manager = "Jimbo",
     ///         ManagerId = "222222",
     ///         MiddleName = "John",
@@ -79,10 +79,10 @@ namespace Pulumi.Okta.User
     /// {
     ///     var test2 = new Okta.User.User("test2", new()
     ///     {
-    ///         Email = "example@example.com",
     ///         FirstName = "John",
     ///         LastName = "Smith",
     ///         Login = "example@example.com",
+    ///         Email = "example@example.com",
     ///         PasswordInlineHook = "default",
     ///     });
     /// 

@@ -29,24 +29,24 @@ namespace Pulumi.Okta
     /// {
     ///     var example = new Okta.AppSharedCredentials("example", new()
     ///     {
-    ///         AccessibilityErrorRedirectUrl = "https://example.com/redirect_url_1",
-    ///         AccessibilityLoginRedirectUrl = "https://example.com/redirect_url_2",
-    ///         AccessibilitySelfService = true,
-    ///         AutoSubmitToolbar = true,
-    ///         ButtonField = "btn-login",
-    ///         Checkbox = "checkbox_red",
-    ///         HideIos = true,
     ///         Label = "Example App",
+    ///         Status = "ACTIVE",
+    ///         ButtonField = "btn-login",
+    ///         UsernameField = "txtbox-username",
     ///         PasswordField = "txtbox-password",
+    ///         Url = "https://example.com/login.html",
     ///         RedirectUrl = "https://example.com/redirect_url",
+    ///         Checkbox = "checkbox_red",
+    ///         UserNameTemplate = "user.firstName",
+    ///         UserNameTemplateType = "CUSTOM",
+    ///         UserNameTemplateSuffix = "hello",
     ///         SharedPassword = "sharedpass",
     ///         SharedUsername = "sharedusername",
-    ///         Status = "ACTIVE",
-    ///         Url = "https://example.com/login.html",
-    ///         UserNameTemplate = "user.firstName",
-    ///         UserNameTemplateSuffix = "hello",
-    ///         UserNameTemplateType = "CUSTOM",
-    ///         UsernameField = "txtbox-username",
+    ///         AccessibilitySelfService = true,
+    ///         AccessibilityErrorRedirectUrl = "https://example.com/redirect_url_1",
+    ///         AccessibilityLoginRedirectUrl = "https://example.com/redirect_url_2",
+    ///         AutoSubmitToolbar = true,
+    ///         HideIos = true,
     ///     });
     /// 
     /// });

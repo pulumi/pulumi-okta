@@ -17,8 +17,8 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const test = new okta.RoleSubscription("test", {
- *     notificationType: "APP_IMPORT",
  *     roleType: "SUPER_ADMIN",
+ *     notificationType: "APP_IMPORT",
  *     status: "unsubscribed",
  * });
  * ```

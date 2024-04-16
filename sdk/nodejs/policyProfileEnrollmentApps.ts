@@ -21,16 +21,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const examplePolicy = okta.policy.getPolicy({
+ * const example = okta.policy.getPolicy({
  *     name: "My Policy",
  *     type: "PROFILE_ENROLLMENT",
  * });
  * const test = okta.app.getApp({
  *     label: "My App",
  * });
- * const examplePolicyProfileEnrollmentApps = new okta.PolicyProfileEnrollmentApps("examplePolicyProfileEnrollmentApps", {
- *     policyId: okta_policy.example.id,
- *     apps: [data.okta_app.id],
+ * const examplePolicyProfileEnrollmentApps = new okta.PolicyProfileEnrollmentApps("example", {
+ *     policyId: exampleOktaPolicy.id,
+ *     apps: [id],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

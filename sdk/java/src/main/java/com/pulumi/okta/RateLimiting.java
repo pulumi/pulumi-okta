@@ -47,9 +47,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RateLimiting(&#34;example&#34;, RateLimitingArgs.builder()        
+ *             .login(&#34;ENFORCE&#34;)
  *             .authorize(&#34;ENFORCE&#34;)
  *             .communicationsEnabled(true)
- *             .login(&#34;ENFORCE&#34;)
  *             .build());
  * 
  *     }

@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OAuth(&#34;example&#34;, OAuthArgs.builder()        
- *             .grantTypes(&#34;authorization_code&#34;)
  *             .label(&#34;example&#34;)
+ *             .type(&#34;web&#34;)
+ *             .grantTypes(&#34;authorization_code&#34;)
  *             .redirectUris(&#34;https://example.com/&#34;)
  *             .responseTypes(&#34;code&#34;)
- *             .type(&#34;web&#34;)
  *             .build());
  * 
  *     }
@@ -91,24 +91,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OAuth(&#34;example&#34;, OAuthArgs.builder()        
+ *             .label(&#34;example&#34;)
+ *             .type(&#34;service&#34;)
+ *             .responseTypes(&#34;token&#34;)
  *             .grantTypes(&#34;client_credentials&#34;)
+ *             .tokenEndpointAuthMethod(&#34;private_key_jwt&#34;)
  *             .jwks(            
  *                 OAuthJwkArgs.builder()
- *                     .e(&#34;AQAB&#34;)
- *                     .kid(&#34;SIGNING_KEY_RSA&#34;)
  *                     .kty(&#34;RSA&#34;)
+ *                     .kid(&#34;SIGNING_KEY_RSA&#34;)
+ *                     .e(&#34;AQAB&#34;)
  *                     .n(&#34;xyz&#34;)
  *                     .build(),
  *                 OAuthJwkArgs.builder()
- *                     .kid(&#34;SIGNING_KEY_EC&#34;)
  *                     .kty(&#34;EC&#34;)
+ *                     .kid(&#34;SIGNING_KEY_EC&#34;)
  *                     .x(&#34;K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I&#34;)
  *                     .y(&#34;8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo&#34;)
  *                     .build())
- *             .label(&#34;example&#34;)
- *             .responseTypes(&#34;token&#34;)
- *             .tokenEndpointAuthMethod(&#34;private_key_jwt&#34;)
- *             .type(&#34;service&#34;)
  *             .build());
  * 
  *     }

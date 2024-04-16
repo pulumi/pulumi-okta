@@ -24,9 +24,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = new okta.Domain("example", {});
+ * const example = new okta.Domain("example", {name: "www.example.com"});
  * const test = new okta.DomainCertificate("test", {
- *     domainId: okta_domain.test.id,
+ *     domainId: testOktaDomain.id,
  *     type: "PEM",
  *     certificate: `-----BEGIN CERTIFICATE-----
  * MIIFNzCCBB+gAwIBAgISBAXomJWRama3ypu8TIxdA9wzMA0GCSqGSIb3DQEBCwUA

@@ -14,7 +14,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const ipNetworkZoneExample = new okta.network.Zone("ipNetworkZoneExample", {
+ * const ipNetworkZoneExample = new okta.network.Zone("ip_network_zone_example", {
+ *     name: "example",
  *     type: "IP",
  *     gateways: [
  *         "1.2.3.4/24",

@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to retrieve a users from Okta.
- *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.user.getUser({
- *     searches: [{
- *         expression: "profile.firstName eq \"John\"",
- *     }],
- * });
- * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     args = args || {};
@@ -217,21 +202,6 @@ export interface GetUserResult {
 }
 /**
  * Use this data source to retrieve a users from Okta.
- *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.user.getUser({
- *     searches: [{
- *         expression: "profile.firstName eq \"John\"",
- *     }],
- * });
- * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserOutput(args?: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))

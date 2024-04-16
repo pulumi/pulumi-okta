@@ -32,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := trustedorigin.NewOrigin(ctx, "example", &trustedorigin.OriginArgs{
+//				Name:   pulumi.String("example"),
 //				Origin: pulumi.String("https://example.com"),
 //				Scopes: pulumi.StringArray{
 //					pulumi.String("CORS"),

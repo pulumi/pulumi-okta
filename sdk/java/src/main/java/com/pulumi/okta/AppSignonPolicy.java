@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myAppPolicy = new AppSignonPolicy(&#34;myAppPolicy&#34;, AppSignonPolicyArgs.builder()        
+ *             .name(&#34;My App Sign-On Policy&#34;)
  *             .description(&#34;Authentication Policy to be used on my app.&#34;)
  *             .build());
  * 
@@ -87,11 +88,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myAppPolicy = new AppSignonPolicy(&#34;myAppPolicy&#34;, AppSignonPolicyArgs.builder()        
+ *             .name(&#34;My App Sign-On Policy&#34;)
  *             .description(&#34;Authentication Policy to be used on my app.&#34;)
  *             .build());
  * 
  *         var someRule = new AppSignonPolicyRule(&#34;someRule&#34;, AppSignonPolicyRuleArgs.builder()        
- *             .policyId(resource.okta_app_signon_policy().my_app_policy().id())
+ *             .policyId(oktaAppSignonPolicy.myAppPolicy().id())
+ *             .name(&#34;Some Rule&#34;)
  *             .factorMode(&#34;1FA&#34;)
  *             .reAuthenticationFrequency(&#34;PT43800H&#34;)
  *             .constraints(serializeJson(

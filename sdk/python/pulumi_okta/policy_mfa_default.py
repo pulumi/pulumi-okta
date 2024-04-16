@@ -859,15 +859,15 @@ class PolicyMfaDefault(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        classic_example = okta.PolicyMfaDefault("classicExample",
+        classic_example = okta.PolicyMfaDefault("classic_example",
             is_oie=False,
-            okta_otp={
-                "enroll": "REQUIRED",
-            },
             okta_password={
                 "enroll": "REQUIRED",
+            },
+            okta_otp={
+                "enroll": "REQUIRED",
             })
-        oie_example = okta.PolicyMfaDefault("oieExample",
+        oie_example = okta.PolicyMfaDefault("oie_example",
             is_oie=True,
             okta_password={
                 "enroll": "REQUIRED",
@@ -936,15 +936,15 @@ class PolicyMfaDefault(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        classic_example = okta.PolicyMfaDefault("classicExample",
+        classic_example = okta.PolicyMfaDefault("classic_example",
             is_oie=False,
-            okta_otp={
-                "enroll": "REQUIRED",
-            },
             okta_password={
                 "enroll": "REQUIRED",
+            },
+            okta_otp={
+                "enroll": "REQUIRED",
             })
-        oie_example = okta.PolicyMfaDefault("oieExample",
+        oie_example = okta.PolicyMfaDefault("oie_example",
             is_oie=True,
             okta_password={
                 "enroll": "REQUIRED",

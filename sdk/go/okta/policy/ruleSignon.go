@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := policy.NewSignon(ctx, "test", &policy.SignonArgs{
+//				Name:        pulumi.String("Example Policy"),
 //				Status:      pulumi.String("ACTIVE"),
 //				Description: pulumi.String("Example Policy"),
 //			})
@@ -46,8 +47,9 @@ import (
 //			_, err = policy.NewRuleSignon(ctx, "example", &policy.RuleSignonArgs{
 //				Access:            pulumi.String("CHALLENGE"),
 //				Authtype:          pulumi.String("RADIUS"),
+//				Name:              pulumi.String("Example Policy Rule"),
 //				NetworkConnection: pulumi.String("ANYWHERE"),
-//				PolicyId:          pulumi.Any(okta_policy_signon.Example.Id),
+//				PolicyId:          pulumi.Any(exampleOktaPolicySignon.Id),
 //				Status:            pulumi.String("ACTIVE"),
 //				RiscLevel:         pulumi.String("HIGH"),
 //				Behaviors: pulumi.StringArray{

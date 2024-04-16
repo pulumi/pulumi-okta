@@ -27,9 +27,10 @@ namespace Pulumi.Okta
     /// {
     ///     var example = new Okta.Captcha("example", new()
     ///     {
-    ///         SecretKey = "some_secret_key",
-    ///         SiteKey = "some_key",
+    ///         Name = "My CAPTCHA",
     ///         Type = "HCAPTCHA",
+    ///         SiteKey = "some_key",
+    ///         SecretKey = "some_secret_key",
     ///     });
     /// 
     /// });

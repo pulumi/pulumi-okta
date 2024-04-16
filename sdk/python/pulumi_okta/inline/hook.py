@@ -268,18 +268,19 @@ class Hook(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.inline.Hook("example",
+            name="example",
+            version="1.0.0",
+            type="com.okta.oauth2.tokens.transform",
+            channel={
+                "version": "1.0.0",
+                "uri": "https://example.com/test",
+                "method": "POST",
+            },
             auth={
                 "key": "Authorization",
                 "type": "HEADER",
                 "value": "secret",
-            },
-            channel={
-                "method": "POST",
-                "uri": "https://example.com/test",
-                "version": "1.0.0",
-            },
-            type="com.okta.oauth2.tokens.transform",
-            version="1.0.0")
+            })
         ```
         <!--End PulumiCodeChooser -->
 
@@ -319,18 +320,19 @@ class Hook(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.inline.Hook("example",
+            name="example",
+            version="1.0.0",
+            type="com.okta.oauth2.tokens.transform",
+            channel={
+                "version": "1.0.0",
+                "uri": "https://example.com/test",
+                "method": "POST",
+            },
             auth={
                 "key": "Authorization",
                 "type": "HEADER",
                 "value": "secret",
-            },
-            channel={
-                "method": "POST",
-                "uri": "https://example.com/test",
-                "version": "1.0.0",
-            },
-            type="com.okta.oauth2.tokens.transform",
-            version="1.0.0")
+            })
         ```
         <!--End PulumiCodeChooser -->
 

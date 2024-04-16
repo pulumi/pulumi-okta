@@ -36,6 +36,7 @@ import (
 //					pulumi.String("api://example"),
 //				},
 //				Description: pulumi.String("My Example Auth Server"),
+//				Name:        pulumi.String("example"),
 //				IssuerMode:  pulumi.String("CUSTOM_URL"),
 //				Status:      pulumi.String("ACTIVE"),
 //			})

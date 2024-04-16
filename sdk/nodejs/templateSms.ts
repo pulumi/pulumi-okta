@@ -19,6 +19,7 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.TemplateSms("example", {
+ *     type: "SMS_VERIFY_CODE",
  *     template: "Your ${org.name} code is: ${code}",
  *     translations: [
  *         {
@@ -30,7 +31,6 @@ import * as utilities from "./utilities";
  *             template: "Tu código de ${org.name} es: ${code}.",
  *         },
  *     ],
- *     type: "SMS_VERIFY_CODE",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

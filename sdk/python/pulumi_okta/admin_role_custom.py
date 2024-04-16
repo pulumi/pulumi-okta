@@ -271,8 +271,8 @@ class AdminRoleCustom(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.AdminRoleCustom("example",
-            description="This role allows app assignment management",
             label="AppAssignmentManager",
+            description="This role allows app assignment management",
             permissions=["okta.apps.assignment.manage"])
         ```
         <!--End PulumiCodeChooser -->
@@ -342,8 +342,8 @@ class AdminRoleCustom(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.AdminRoleCustom("example",
-            description="This role allows app assignment management",
             label="AppAssignmentManager",
+            description="This role allows app assignment management",
             permissions=["okta.apps.assignment.manage"])
         ```
         <!--End PulumiCodeChooser -->

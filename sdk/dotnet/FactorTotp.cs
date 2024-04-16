@@ -30,11 +30,12 @@ namespace Pulumi.Okta
     /// {
     ///     var example = new Okta.FactorTotp("example", new()
     ///     {
-    ///         ClockDriftInterval = 10,
-    ///         HmacAlgorithm = "HMacSHA256",
+    ///         Name = "example",
     ///         OtpLength = 10,
-    ///         SharedSecretEncoding = "hexadecimal",
+    ///         HmacAlgorithm = "HMacSHA256",
     ///         TimeStep = 30,
+    ///         ClockDriftInterval = 10,
+    ///         SharedSecretEncoding = "hexadecimal",
     ///     });
     /// 
     /// });

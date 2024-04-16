@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AdminRoleCustom(&#34;example&#34;, AdminRoleCustomArgs.builder()        
- *             .description(&#34;This role allows app assignment management&#34;)
  *             .label(&#34;AppAssignmentManager&#34;)
+ *             .description(&#34;This role allows app assignment management&#34;)
  *             .permissions(&#34;okta.apps.assignment.manage&#34;)
  *             .build());
  * 

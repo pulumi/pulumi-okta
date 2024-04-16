@@ -47,10 +47,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ServerPolicy(&#34;example&#34;, ServerPolicyArgs.builder()        
  *             .authServerId(&#34;&lt;auth server id&gt;&#34;)
- *             .clientWhitelists(&#34;ALL_CLIENTS&#34;)
+ *             .status(&#34;ACTIVE&#34;)
+ *             .name(&#34;example&#34;)
  *             .description(&#34;example&#34;)
  *             .priority(1)
- *             .status(&#34;ACTIVE&#34;)
+ *             .clientWhitelists(&#34;ALL_CLIENTS&#34;)
  *             .build());
  * 
  *     }

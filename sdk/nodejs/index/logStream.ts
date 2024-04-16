@@ -13,25 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Splunk Event Collector
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.index.LogStream("example", {
- *     settings: {
- *         edition: "gcp",
- *         host: "acme.splunkcloud.com",
- *         token: "YOUR_HEC_TOKEN",
- *     },
- *     status: "ACTIVE",
- *     type: "splunk_cloud_logstreaming",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * Okta Log Stream can be imported via the Okta ID.

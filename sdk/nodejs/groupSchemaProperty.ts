@@ -15,12 +15,12 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.GroupSchemaProperty("example", {
- *     description: "My custom property name",
  *     index: "customPropertyName",
- *     master: "OKTA",
- *     scope: "SELF",
  *     title: "customPropertyName",
  *     type: "string",
+ *     description: "My custom property name",
+ *     master: "OKTA",
+ *     scope: "SELF",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

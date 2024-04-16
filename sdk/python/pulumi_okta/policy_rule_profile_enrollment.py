@@ -377,8 +377,9 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_policy_profile_enrollment = okta.PolicyProfileEnrollment("examplePolicyProfileEnrollment")
-        example_hook = okta.inline.Hook("exampleHook",
+        example = okta.PolicyProfileEnrollment("example", name="My Enrollment Policy")
+        example_hook = okta.inline.Hook("example",
+            name="My Inline Hook",
             status="ACTIVE",
             type="com.okta.user.pre-registration",
             version="1.0.3",
@@ -388,9 +389,11 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                 "uri": "https://example.com/test2",
                 "method": "POST",
             })
-        example_group = okta.group.Group("exampleGroup", description="Group of some users")
-        example_policy_rule_profile_enrollment = okta.PolicyRuleProfileEnrollment("examplePolicyRuleProfileEnrollment",
-            policy_id=example_policy_profile_enrollment.id,
+        example_group = okta.group.Group("example",
+            name="My Group",
+            description="Group of some users")
+        example_policy_rule_profile_enrollment = okta.PolicyRuleProfileEnrollment("example",
+            policy_id=example.id,
             inline_hook_id=example_hook.id,
             target_group_id=example_group.id,
             unknown_user_action="REGISTER",
@@ -457,8 +460,9 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_policy_profile_enrollment = okta.PolicyProfileEnrollment("examplePolicyProfileEnrollment")
-        example_hook = okta.inline.Hook("exampleHook",
+        example = okta.PolicyProfileEnrollment("example", name="My Enrollment Policy")
+        example_hook = okta.inline.Hook("example",
+            name="My Inline Hook",
             status="ACTIVE",
             type="com.okta.user.pre-registration",
             version="1.0.3",
@@ -468,9 +472,11 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                 "uri": "https://example.com/test2",
                 "method": "POST",
             })
-        example_group = okta.group.Group("exampleGroup", description="Group of some users")
-        example_policy_rule_profile_enrollment = okta.PolicyRuleProfileEnrollment("examplePolicyRuleProfileEnrollment",
-            policy_id=example_policy_profile_enrollment.id,
+        example_group = okta.group.Group("example",
+            name="My Group",
+            description="Group of some users")
+        example_policy_rule_profile_enrollment = okta.PolicyRuleProfileEnrollment("example",
+            policy_id=example.id,
             inline_hook_id=example_hook.id,
             target_group_id=example_group.id,
             unknown_user_action="REGISTER",

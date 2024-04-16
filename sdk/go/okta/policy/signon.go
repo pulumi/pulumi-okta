@@ -31,11 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := policy.NewSignon(ctx, "example", &policy.SignonArgs{
+//				Name:        pulumi.String("example"),
+//				Status:      pulumi.String("ACTIVE"),
 //				Description: pulumi.String("Example"),
 //				GroupsIncludeds: pulumi.StringArray{
-//					data.Okta_group.Everyone.Id,
+//					everyone.Id,
 //				},
-//				Status: pulumi.String("ACTIVE"),
 //			})
 //			if err != nil {
 //				return err

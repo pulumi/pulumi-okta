@@ -29,38 +29,43 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewBehaviour(ctx, "myLocation", &okta.BehaviourArgs{
+//			_, err := okta.NewBehaviour(ctx, "my_location", &okta.BehaviourArgs{
+//				Name:                    pulumi.String("My Location"),
+//				Type:                    pulumi.String("ANOMALOUS_LOCATION"),
+//				NumberOfAuthentications: pulumi.Int(50),
 //				LocationGranularityType: pulumi.String("LAT_LONG"),
-//				NumberOfAuthentications: pulumi.Int(50),
 //				RadiusFromLocation:      pulumi.Int(20),
-//				Type:                    pulumi.String("ANOMALOUS_LOCATION"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.NewBehaviour(ctx, "myCity", &okta.BehaviourArgs{
+//			_, err = okta.NewBehaviour(ctx, "my_city", &okta.BehaviourArgs{
+//				Name:                    pulumi.String("My City"),
+//				Type:                    pulumi.String("ANOMALOUS_LOCATION"),
+//				NumberOfAuthentications: pulumi.Int(50),
 //				LocationGranularityType: pulumi.String("CITY"),
-//				NumberOfAuthentications: pulumi.Int(50),
-//				Type:                    pulumi.String("ANOMALOUS_LOCATION"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.NewBehaviour(ctx, "myDevice", &okta.BehaviourArgs{
-//				NumberOfAuthentications: pulumi.Int(50),
+//			_, err = okta.NewBehaviour(ctx, "my_device", &okta.BehaviourArgs{
+//				Name:                    pulumi.String("My Device"),
 //				Type:                    pulumi.String("ANOMALOUS_DEVICE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = okta.NewBehaviour(ctx, "myIp", &okta.BehaviourArgs{
 //				NumberOfAuthentications: pulumi.Int(50),
-//				Type:                    pulumi.String("ANOMALOUS_IP"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.NewBehaviour(ctx, "myVelocity", &okta.BehaviourArgs{
+//			_, err = okta.NewBehaviour(ctx, "my_ip", &okta.BehaviourArgs{
+//				Name:                    pulumi.String("My IP"),
+//				Type:                    pulumi.String("ANOMALOUS_IP"),
+//				NumberOfAuthentications: pulumi.Int(50),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewBehaviour(ctx, "my_velocity", &okta.BehaviourArgs{
+//				Name:     pulumi.String("My Velocity"),
 //				Type:     pulumi.String("VELOCITY"),
 //				Velocity: pulumi.Int(25),
 //			})

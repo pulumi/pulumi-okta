@@ -129,7 +129,7 @@ def get_domain(domain_id_or_name: Optional[str] = None,
     import pulumi
     import pulumi_okta as okta
 
-    example = okta.Domain("example")
+    example = okta.Domain("example", name="www.example.com")
     by_name = okta.Index.get_domain(domain_id_or_name="www.example.com")
     by_id = okta.Index.get_domain_output(domain_id_or_name=example.id)
     ```
@@ -169,7 +169,7 @@ def get_domain_output(domain_id_or_name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_okta as okta
 
-    example = okta.Domain("example")
+    example = okta.Domain("example", name="www.example.com")
     by_name = okta.Index.get_domain(domain_id_or_name="www.example.com")
     by_id = okta.Index.get_domain_output(domain_id_or_name=example.id)
     ```

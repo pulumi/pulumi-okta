@@ -17,10 +17,11 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.policy.Password("example", {
- *     description: "Example",
- *     groupsIncludeds: [data.okta_group.everyone.id],
- *     passwordHistoryCount: 4,
+ *     name: "example",
  *     status: "ACTIVE",
+ *     description: "Example",
+ *     passwordHistoryCount: 4,
+ *     groupsIncludeds: [everyone.id],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

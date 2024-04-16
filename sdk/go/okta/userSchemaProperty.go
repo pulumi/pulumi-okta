@@ -28,13 +28,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewUserSchemaProperty(ctx, "example", &okta.UserSchemaPropertyArgs{
-//				Description: pulumi.String("My custom property name"),
 //				Index:       pulumi.String("customPropertyName"),
-//				Master:      pulumi.String("OKTA"),
-//				Scope:       pulumi.String("SELF"),
 //				Title:       pulumi.String("customPropertyName"),
 //				Type:        pulumi.String("string"),
-//				UserType:    pulumi.Any(data.Okta_user_type.Example.Id),
+//				Description: pulumi.String("My custom property name"),
+//				Master:      pulumi.String("OKTA"),
+//				Scope:       pulumi.String("SELF"),
+//				UserType:    pulumi.Any(exampleOktaUserType.Id),
 //			})
 //			if err != nil {
 //				return err

@@ -19,9 +19,9 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.RateLimiting("example", {
+ *     login: "ENFORCE",
  *     authorize: "ENFORCE",
  *     communicationsEnabled: true,
- *     login: "ENFORCE",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -49,20 +49,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *             .firstName(&#34;John&#34;)
+ *             .lastName(&#34;Smith&#34;)
+ *             .login(&#34;john.smith@example.com&#34;)
+ *             .email(&#34;john.smith@example.com&#34;)
  *             .city(&#34;New York&#34;)
  *             .costCenter(&#34;10&#34;)
  *             .countryCode(&#34;US&#34;)
  *             .department(&#34;IT&#34;)
  *             .displayName(&#34;Dr. John Smith&#34;)
  *             .division(&#34;Acquisitions&#34;)
- *             .email(&#34;john.smith@example.com&#34;)
  *             .employeeNumber(&#34;111111&#34;)
- *             .firstName(&#34;John&#34;)
  *             .honorificPrefix(&#34;Dr.&#34;)
  *             .honorificSuffix(&#34;Jr.&#34;)
- *             .lastName(&#34;Smith&#34;)
  *             .locale(&#34;en_US&#34;)
- *             .login(&#34;john.smith@example.com&#34;)
  *             .manager(&#34;Jimbo&#34;)
  *             .managerId(&#34;222222&#34;)
  *             .middleName(&#34;John&#34;)
@@ -112,10 +112,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test2 = new User(&#34;test2&#34;, UserArgs.builder()        
- *             .email(&#34;example@example.com&#34;)
  *             .firstName(&#34;John&#34;)
  *             .lastName(&#34;Smith&#34;)
  *             .login(&#34;example@example.com&#34;)
+ *             .email(&#34;example@example.com&#34;)
  *             .passwordInlineHook(&#34;default&#34;)
  *             .build());
  * 

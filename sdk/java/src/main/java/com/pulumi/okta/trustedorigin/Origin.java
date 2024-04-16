@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Origin(&#34;example&#34;, OriginArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .origin(&#34;https://example.com&#34;)
  *             .scopes(&#34;CORS&#34;)
  *             .build());

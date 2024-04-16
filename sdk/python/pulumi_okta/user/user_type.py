@@ -143,8 +143,9 @@ class UserType(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.user.UserType("example",
-            description="example",
-            display_name="example")
+            name="example",
+            display_name="example",
+            description="example")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -181,8 +182,9 @@ class UserType(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.user.UserType("example",
-            description="example",
-            display_name="example")
+            name="example",
+            display_name="example",
+            description="example")
         ```
         <!--End PulumiCodeChooser -->
 

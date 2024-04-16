@@ -28,6 +28,7 @@ namespace Pulumi.Okta
     ///     var example = new Okta.AuthServerClaimDefault("example", new()
     ///     {
     ///         AuthServerId = "&lt;auth server id&gt;",
+    ///         Name = "sub",
     ///         Value = "(appuser != null) ? appuser.userName : app.clientId",
     ///     });
     /// 

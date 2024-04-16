@@ -341,9 +341,10 @@ class ServerClaim(pulumi.CustomResource):
 
         example = okta.auth.ServerClaim("example",
             auth_server_id="<auth server id>",
-            claim_type="IDENTITY",
-            scopes=[okta_auth_server_scope["example"]["name"]],
-            value="String.substringAfter(user.email, \\"@\\") == \\"example.com\\"")
+            name="staff",
+            value="String.substringAfter(user.email, \\"@\\") == \\"example.com\\"",
+            scopes=[example_okta_auth_server_scope["name"]],
+            claim_type="IDENTITY")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -387,9 +388,10 @@ class ServerClaim(pulumi.CustomResource):
 
         example = okta.auth.ServerClaim("example",
             auth_server_id="<auth server id>",
-            claim_type="IDENTITY",
-            scopes=[okta_auth_server_scope["example"]["name"]],
-            value="String.substringAfter(user.email, \\"@\\") == \\"example.com\\"")
+            name="staff",
+            value="String.substringAfter(user.email, \\"@\\") == \\"example.com\\"",
+            scopes=[example_okta_auth_server_scope["name"]],
+            claim_type="IDENTITY")
         ```
         <!--End PulumiCodeChooser -->
 

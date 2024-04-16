@@ -1049,11 +1049,11 @@ class SecurePasswordStore(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.SecurePasswordStore("example",
-            credentials_scheme="ADMIN_SETS_CREDENTIALS",
             label="example",
+            username_field="user",
             password_field="pass",
             url="https://test.com",
-            username_field="user")
+            credentials_scheme="ADMIN_SETS_CREDENTIALS")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1118,11 +1118,11 @@ class SecurePasswordStore(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.SecurePasswordStore("example",
-            credentials_scheme="ADMIN_SETS_CREDENTIALS",
             label="example",
+            username_field="user",
             password_field="pass",
             url="https://test.com",
-            username_field="user")
+            credentials_scheme="ADMIN_SETS_CREDENTIALS")
         ```
         <!--End PulumiCodeChooser -->
 

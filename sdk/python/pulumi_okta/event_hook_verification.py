@@ -77,7 +77,8 @@ class EventHookVerification(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_event_hook = okta.EventHook("exampleEventHook",
+        example = okta.EventHook("example",
+            name="example",
             events=[
                 "user.lifecycle.create",
                 "user.lifecycle.delete.initiated",
@@ -92,7 +93,7 @@ class EventHookVerification(pulumi.CustomResource):
                 "key": "Authorization",
                 "value": "123",
             })
-        example_event_hook_verification = okta.EventHookVerification("exampleEventHookVerification", event_hook_id=example_event_hook.id)
+        example_event_hook_verification = okta.EventHookVerification("example", event_hook_id=example.id)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -122,7 +123,8 @@ class EventHookVerification(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_event_hook = okta.EventHook("exampleEventHook",
+        example = okta.EventHook("example",
+            name="example",
             events=[
                 "user.lifecycle.create",
                 "user.lifecycle.delete.initiated",
@@ -137,7 +139,7 @@ class EventHookVerification(pulumi.CustomResource):
                 "key": "Authorization",
                 "value": "123",
             })
-        example_event_hook_verification = okta.EventHookVerification("exampleEventHookVerification", event_hook_id=example_event_hook.id)
+        example_event_hook_verification = okta.EventHookVerification("example", event_hook_id=example.id)
         ```
         <!--End PulumiCodeChooser -->
 

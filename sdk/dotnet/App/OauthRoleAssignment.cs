@@ -27,7 +27,7 @@ namespace Pulumi.Okta.App
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testOAuth = new Okta.App.OAuth("testOAuth", new()
+    ///     var test = new Okta.App.OAuth("test", new()
     ///     {
     ///         Label = "test",
     ///         Type = "service",
@@ -42,9 +42,9 @@ namespace Pulumi.Okta.App
     ///         JwksUri = "https://example.com",
     ///     });
     /// 
-    ///     var testOauthRoleAssignment = new Okta.App.OauthRoleAssignment("testOauthRoleAssignment", new()
+    ///     var testOauthRoleAssignment = new Okta.App.OauthRoleAssignment("test", new()
     ///     {
-    ///         ClientId = testOAuth.ClientId,
+    ///         ClientId = test.ClientId,
     ///         Type = "HELP_DESK_ADMIN",
     ///     });
     /// 

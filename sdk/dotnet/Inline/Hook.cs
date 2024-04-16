@@ -27,20 +27,21 @@ namespace Pulumi.Okta.Inline
     /// {
     ///     var example = new Okta.Inline.Hook("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Version = "1.0.0",
+    ///         Type = "com.okta.oauth2.tokens.transform",
+    ///         Channel = 
+    ///         {
+    ///             { "version", "1.0.0" },
+    ///             { "uri", "https://example.com/test" },
+    ///             { "method", "POST" },
+    ///         },
     ///         Auth = 
     ///         {
     ///             { "key", "Authorization" },
     ///             { "type", "HEADER" },
     ///             { "value", "secret" },
     ///         },
-    ///         Channel = 
-    ///         {
-    ///             { "method", "POST" },
-    ///             { "uri", "https://example.com/test" },
-    ///             { "version", "1.0.0" },
-    ///         },
-    ///         Type = "com.okta.oauth2.tokens.transform",
-    ///         Version = "1.0.0",
     ///     });
     /// 
     /// });

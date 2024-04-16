@@ -31,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewCaptcha(ctx, "exampleCaptcha", &okta.CaptchaArgs{
+//			_, err := okta.NewCaptcha(ctx, "example", &okta.CaptchaArgs{
+//				Name:      pulumi.String("My CAPTCHA"),
 //				Type:      pulumi.String("HCAPTCHA"),
 //				SiteKey:   pulumi.String("some_key"),
 //				SecretKey: pulumi.String("some_secret_key"),
@@ -39,8 +40,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.NewCaptchaOrgWideSettings(ctx, "exampleCaptchaOrgWideSettings", &okta.CaptchaOrgWideSettingsArgs{
-//				CaptchaId: pulumi.Any(okta_captcha.Test.Id),
+//			_, err = okta.NewCaptchaOrgWideSettings(ctx, "example", &okta.CaptchaOrgWideSettingsArgs{
+//				CaptchaId: pulumi.Any(test.Id),
 //				EnabledFors: pulumi.StringArray{
 //					pulumi.String("SSR"),
 //				},
@@ -70,15 +71,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewCaptcha(ctx, "exampleCaptcha", &okta.CaptchaArgs{
-//				SecretKey: pulumi.String("some_secret_key"),
-//				SiteKey:   pulumi.String("some_key"),
+//			_, err := okta.NewCaptcha(ctx, "example", &okta.CaptchaArgs{
+//				Name:      pulumi.String("My CAPTCHA"),
 //				Type:      pulumi.String("HCAPTCHA"),
+//				SiteKey:   pulumi.String("some_key"),
+//				SecretKey: pulumi.String("some_secret_key"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.NewCaptchaOrgWideSettings(ctx, "exampleCaptchaOrgWideSettings", nil)
+//			_, err = okta.NewCaptchaOrgWideSettings(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}

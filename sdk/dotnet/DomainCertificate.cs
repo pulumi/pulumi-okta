@@ -33,11 +33,14 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.Domain("example");
+    ///     var example = new Okta.Domain("example", new()
+    ///     {
+    ///         Name = "www.example.com",
+    ///     });
     /// 
     ///     var test = new Okta.DomainCertificate("test", new()
     ///     {
-    ///         DomainId = okta_domain.Test.Id,
+    ///         DomainId = testOktaDomain.Id,
     ///         Type = "PEM",
     ///         Certificate = @"-----BEGIN CERTIFICATE-----
     /// MIIFNzCCBB+gAwIBAgISBAXomJWRama3ypu8TIxdA9wzMA0GCSqGSIb3DQEBCwUA

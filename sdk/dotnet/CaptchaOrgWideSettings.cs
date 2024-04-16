@@ -26,16 +26,17 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCaptcha = new Okta.Captcha("exampleCaptcha", new()
+    ///     var example = new Okta.Captcha("example", new()
     ///     {
+    ///         Name = "My CAPTCHA",
     ///         Type = "HCAPTCHA",
     ///         SiteKey = "some_key",
     ///         SecretKey = "some_secret_key",
     ///     });
     /// 
-    ///     var exampleCaptchaOrgWideSettings = new Okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings", new()
+    ///     var exampleCaptchaOrgWideSettings = new Okta.CaptchaOrgWideSettings("example", new()
     ///     {
-    ///         CaptchaId = okta_captcha.Test.Id,
+    ///         CaptchaId = test.Id,
     ///         EnabledFors = new[]
     ///         {
     ///             "SSR",
@@ -57,14 +58,15 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCaptcha = new Okta.Captcha("exampleCaptcha", new()
+    ///     var example = new Okta.Captcha("example", new()
     ///     {
-    ///         SecretKey = "some_secret_key",
-    ///         SiteKey = "some_key",
+    ///         Name = "My CAPTCHA",
     ///         Type = "HCAPTCHA",
+    ///         SiteKey = "some_key",
+    ///         SecretKey = "some_secret_key",
     ///     });
     /// 
-    ///     var exampleCaptchaOrgWideSettings = new Okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings");
+    ///     var exampleCaptchaOrgWideSettings = new Okta.CaptchaOrgWideSettings("example");
     /// 
     /// });
     /// ```

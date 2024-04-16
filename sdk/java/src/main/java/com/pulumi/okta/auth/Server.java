@@ -47,6 +47,7 @@ import javax.annotation.Nullable;
  *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
  *             .audiences(&#34;api://example&#34;)
  *             .description(&#34;My Example Auth Server&#34;)
+ *             .name(&#34;example&#34;)
  *             .issuerMode(&#34;CUSTOM_URL&#34;)
  *             .status(&#34;ACTIVE&#34;)
  *             .build());

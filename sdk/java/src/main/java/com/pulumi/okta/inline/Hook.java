@@ -47,18 +47,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Hook(&#34;example&#34;, HookArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .version(&#34;1.0.0&#34;)
+ *             .type(&#34;com.okta.oauth2.tokens.transform&#34;)
+ *             .channel(Map.ofEntries(
+ *                 Map.entry(&#34;version&#34;, &#34;1.0.0&#34;),
+ *                 Map.entry(&#34;uri&#34;, &#34;https://example.com/test&#34;),
+ *                 Map.entry(&#34;method&#34;, &#34;POST&#34;)
+ *             ))
  *             .auth(Map.ofEntries(
  *                 Map.entry(&#34;key&#34;, &#34;Authorization&#34;),
  *                 Map.entry(&#34;type&#34;, &#34;HEADER&#34;),
  *                 Map.entry(&#34;value&#34;, &#34;secret&#34;)
  *             ))
- *             .channel(Map.ofEntries(
- *                 Map.entry(&#34;method&#34;, &#34;POST&#34;),
- *                 Map.entry(&#34;uri&#34;, &#34;https://example.com/test&#34;),
- *                 Map.entry(&#34;version&#34;, &#34;1.0.0&#34;)
- *             ))
- *             .type(&#34;com.okta.oauth2.tokens.transform&#34;)
- *             .version(&#34;1.0.0&#34;)
  *             .build());
  * 
  *     }

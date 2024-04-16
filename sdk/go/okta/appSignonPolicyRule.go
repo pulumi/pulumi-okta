@@ -39,7 +39,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testSaml, err := app.NewSaml(ctx, "testSaml", &app.SamlArgs{
+//			testSaml, err := app.NewSaml(ctx, "test", &app.SamlArgs{
 //				Label:                 pulumi.String("My App"),
 //				SsoUrl:                pulumi.String("https://google.com"),
 //				Recipient:             pulumi.String("https://here.com"),
@@ -57,13 +57,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testAppSignonPolicy := okta.LookupAppSignonPolicyOutput(ctx, okta.GetAppSignonPolicyOutputArgs{
+//			test := okta.LookupAppSignonPolicyOutput(ctx, okta.GetAppSignonPolicyOutputArgs{
 //				AppId: testSaml.ID(),
 //			}, nil)
-//			_, err = okta.NewAppSignonPolicyRule(ctx, "testAppSignonPolicyRule", &okta.AppSignonPolicyRuleArgs{
-//				PolicyId: testAppSignonPolicy.ApplyT(func(testAppSignonPolicy okta.GetAppSignonPolicyResult) (*string, error) {
-//					return &testAppSignonPolicy.Id, nil
+//			_, err = okta.NewAppSignonPolicyRule(ctx, "test", &okta.AppSignonPolicyRuleArgs{
+//				PolicyId: test.ApplyT(func(test okta.GetAppSignonPolicyResult) (*string, error) {
+//					return &test.Id, nil
 //				}).(pulumi.StringPtrOutput),
+//				Name: pulumi.String("testAcc_replace_with_uuid"),
 //			})
 //			if err != nil {
 //				return err
@@ -108,7 +109,8 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = okta.NewAppSignonPolicyRule(ctx, "test", &okta.AppSignonPolicyRuleArgs{
-//				PolicyId: pulumi.Any(data.Okta_app_signon_policy.Test.Id),
+//				PolicyId: pulumi.Any(testOktaAppSignonPolicy.Id),
+//				Name:     pulumi.String("testAcc_replace_with_uuid"),
 //				Constraints: pulumi.StringArray{
 //					pulumi.String(json0),
 //				},
@@ -159,7 +161,8 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = okta.NewAppSignonPolicyRule(ctx, "test", &okta.AppSignonPolicyRuleArgs{
-//				PolicyId: pulumi.Any(data.Okta_app_signon_policy.Test.Id),
+//				PolicyId: pulumi.Any(testOktaAppSignonPolicy.Id),
+//				Name:     pulumi.String("testAcc_replace_with_uuid"),
 //				Constraints: pulumi.StringArray{
 //					pulumi.String(json0),
 //				},
@@ -202,7 +205,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testSaml, err := app.NewSaml(ctx, "testSaml", &app.SamlArgs{
+//			testSaml, err := app.NewSaml(ctx, "test", &app.SamlArgs{
 //				Label:                 pulumi.String("testAcc_replace_with_uuid"),
 //				SsoUrl:                pulumi.String("https://google.com"),
 //				Recipient:             pulumi.String("https://here.com"),
@@ -258,14 +261,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testAppSignonPolicy := okta.LookupAppSignonPolicyOutput(ctx, okta.GetAppSignonPolicyOutputArgs{
+//			test := okta.LookupAppSignonPolicyOutput(ctx, okta.GetAppSignonPolicyOutputArgs{
 //				AppId: testSaml.ID(),
 //			}, nil)
 //			var testUser []*user.User
 //			for index := 0; index < 5; index++ {
 //				key0 := index
 //				val0 := index
-//				__res, err := user.NewUser(ctx, fmt.Sprintf("testUser-%v", key0), &user.UserArgs{
+//				__res, err := user.NewUser(ctx, fmt.Sprintf("test-%v", key0), &user.UserArgs{
 //					FirstName: pulumi.String("TestAcc"),
 //					LastName:  pulumi.String("Smith"),
 //					Login:     pulumi.String(fmt.Sprintf("testAcc_%v@example.com", val0)),
@@ -281,6 +284,7 @@ import (
 //				key0 := index
 //				val0 := index
 //				__res, err := group.NewGroup(ctx, fmt.Sprintf("this-%v", key0), &group.GroupArgs{
+//					Name:        pulumi.String(fmt.Sprintf("testAcc_%v", val0)),
 //					Description: pulumi.String(fmt.Sprintf("testAcc_%v", val0)),
 //				})
 //				if err != nil {
@@ -288,14 +292,16 @@ import (
 //				}
 //				this = append(this, __res)
 //			}
-//			testUserType, err := user.NewUserType(ctx, "testUserType", &user.UserTypeArgs{
+//			testUserType, err := user.NewUserType(ctx, "test", &user.UserTypeArgs{
+//				Name:        pulumi.String("testAcc_replace_with_uuid"),
 //				DisplayName: pulumi.String("Terraform Acceptance Test User Type Updated"),
 //				Description: pulumi.String("Terraform Acceptance Test User Type Updated"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testZone, err := network.NewZone(ctx, "testZone", &network.ZoneArgs{
+//			testZone, err := network.NewZone(ctx, "test", &network.ZoneArgs{
+//				Name: pulumi.String("testAcc_replace_with_uuid"),
 //				Type: pulumi.String("IP"),
 //				Gateways: pulumi.StringArray{
 //					pulumi.String("1.2.3.4/24"),
@@ -315,7 +321,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testDeviceAssuranceAndroid, err := policy.NewDeviceAssuranceAndroid(ctx, "testDeviceAssuranceAndroid", &policy.DeviceAssuranceAndroidArgs{
+//			testDeviceAssuranceAndroid, err := policy.NewDeviceAssuranceAndroid(ctx, "test", &policy.DeviceAssuranceAndroidArgs{
+//				Name:      pulumi.String("test"),
 //				OsVersion: pulumi.String("12"),
 //				Jailbreak: pulumi.Bool(false),
 //			})
@@ -348,9 +355,10 @@ import (
 //				return err
 //			}
 //			json1 := string(tmpJSON1)
-//			_, err = okta.NewAppSignonPolicyRule(ctx, "testAppSignonPolicyRule", &okta.AppSignonPolicyRuleArgs{
-//				PolicyId: testAppSignonPolicy.ApplyT(func(testAppSignonPolicy okta.GetAppSignonPolicyResult) (*string, error) {
-//					return &testAppSignonPolicy.Id, nil
+//			_, err = okta.NewAppSignonPolicyRule(ctx, "test", &okta.AppSignonPolicyRuleArgs{
+//				Name: pulumi.String("testAcc_replace_with_uuid"),
+//				PolicyId: test.ApplyT(func(test okta.GetAppSignonPolicyResult) (*string, error) {
+//					return &test.Id, nil
 //				}).(pulumi.StringPtrOutput),
 //				Access:             pulumi.String("ALLOW"),
 //				CustomExpression:   pulumi.String("user.status == \"ACTIVE\""),

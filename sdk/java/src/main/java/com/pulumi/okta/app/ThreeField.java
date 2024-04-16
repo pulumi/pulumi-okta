@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ThreeField(&#34;example&#34;, ThreeFieldArgs.builder()        
- *             .credentialsScheme(&#34;EDIT_USERNAME_AND_PASSWORD&#34;)
  *             .label(&#34;Example App&#34;)
- *             .revealPassword(true)
- *             .signOnRedirectUrl(&#34;https://example.com&#34;)
  *             .signOnUrl(&#34;https://example.com/login.html&#34;)
+ *             .signOnRedirectUrl(&#34;https://example.com&#34;)
+ *             .revealPassword(true)
+ *             .credentialsScheme(&#34;EDIT_USERNAME_AND_PASSWORD&#34;)
  *             .build());
  * 
  *     }

@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testUser, err := user.NewUser(ctx, "testUser", &user.UserArgs{
+//			test, err := user.NewUser(ctx, "test", &user.UserArgs{
 //				FirstName: pulumi.String("TestAcc"),
 //				LastName:  pulumi.String("Smith"),
 //				Login:     pulumi.String("testAcc-replace_with_uuid@example.com"),
@@ -37,11 +37,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.NewUserGroupMemberships(ctx, "testUserGroupMemberships", &okta.UserGroupMembershipsArgs{
-//				UserId: testUser.ID(),
+//			_, err = okta.NewUserGroupMemberships(ctx, "test", &okta.UserGroupMembershipsArgs{
+//				UserId: test.ID(),
 //				Groups: pulumi.StringArray{
-//					okta_group.Test_1.Id,
-//					okta_group.Test_2.Id,
+//					test1.Id,
+//					test2.Id,
 //				},
 //			})
 //			if err != nil {

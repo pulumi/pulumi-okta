@@ -26,6 +26,7 @@ namespace Pulumi.Okta.Policy
     /// {
     ///     var test = new Okta.Policy.Signon("test", new()
     ///     {
+    ///         Name = "Example Policy",
     ///         Status = "ACTIVE",
     ///         Description = "Example Policy",
     ///     });
@@ -39,8 +40,9 @@ namespace Pulumi.Okta.Policy
     ///     {
     ///         Access = "CHALLENGE",
     ///         Authtype = "RADIUS",
+    ///         Name = "Example Policy Rule",
     ///         NetworkConnection = "ANYWHERE",
-    ///         PolicyId = okta_policy_signon.Example.Id,
+    ///         PolicyId = exampleOktaPolicySignon.Id,
     ///         Status = "ACTIVE",
     ///         RiscLevel = "HIGH",
     ///         Behaviors = new[]

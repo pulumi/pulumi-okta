@@ -28,13 +28,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myAppPolicy, err := okta.NewAppSignonPolicy(ctx, "myAppPolicy", &okta.AppSignonPolicyArgs{
+//			myAppPolicy, err := okta.NewAppSignonPolicy(ctx, "my_app_policy", &okta.AppSignonPolicyArgs{
+//				Name:        pulumi.String("My App Sign-On Policy"),
 //				Description: pulumi.String("Authentication Policy to be used on my app."),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = app.NewOAuth(ctx, "myApp", &app.OAuthArgs{
+//			_, err = app.NewOAuth(ctx, "my_app", &app.OAuthArgs{
 //				Label: pulumi.String("My App"),
 //				Type:  pulumi.String("web"),
 //				GrantTypes: pulumi.StringArray{
@@ -78,7 +79,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewAppSignonPolicy(ctx, "myAppPolicy", &okta.AppSignonPolicyArgs{
+//			_, err := okta.NewAppSignonPolicy(ctx, "my_app_policy", &okta.AppSignonPolicyArgs{
+//				Name:        pulumi.String("My App Sign-On Policy"),
 //				Description: pulumi.String("Authentication Policy to be used on my app."),
 //			})
 //			if err != nil {
@@ -95,8 +97,9 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = okta.NewAppSignonPolicyRule(ctx, "someRule", &okta.AppSignonPolicyRuleArgs{
-//				PolicyId:                  pulumi.Any(resource.Okta_app_signon_policy.My_app_policy.Id),
+//			_, err = okta.NewAppSignonPolicyRule(ctx, "some_rule", &okta.AppSignonPolicyRuleArgs{
+//				PolicyId:                  pulumi.Any(oktaAppSignonPolicy.MyAppPolicy.Id),
+//				Name:                      pulumi.String("Some Rule"),
 //				FactorMode:                pulumi.String("1FA"),
 //				ReAuthenticationFrequency: pulumi.String("PT43800H"),
 //				Constraints: pulumi.StringArray{

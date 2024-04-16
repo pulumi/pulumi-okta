@@ -30,7 +30,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ipNetworkZoneExample, err := network.NewZone(ctx, "ipNetworkZoneExample", &network.ZoneArgs{
+//			ipNetworkZoneExample, err := network.NewZone(ctx, "ip_network_zone_example", &network.ZoneArgs{
+//				Name: pulumi.String("example"),
 //				Type: pulumi.String("IP"),
 //				Gateways: pulumi.StringArray{
 //					pulumi.String("1.2.3.4/24"),

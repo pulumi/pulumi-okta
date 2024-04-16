@@ -21,20 +21,20 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.user.User("example", {
+ *     firstName: "John",
+ *     lastName: "Smith",
+ *     login: "john.smith@example.com",
+ *     email: "john.smith@example.com",
  *     city: "New York",
  *     costCenter: "10",
  *     countryCode: "US",
  *     department: "IT",
  *     displayName: "Dr. John Smith",
  *     division: "Acquisitions",
- *     email: "john.smith@example.com",
  *     employeeNumber: "111111",
- *     firstName: "John",
  *     honorificPrefix: "Dr.",
  *     honorificSuffix: "Jr.",
- *     lastName: "Smith",
  *     locale: "en_US",
- *     login: "john.smith@example.com",
  *     manager: "Jimbo",
  *     managerId: "222222",
  *     middleName: "John",
@@ -64,10 +64,10 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const test2 = new okta.user.User("test2", {
- *     email: "example@example.com",
  *     firstName: "John",
  *     lastName: "Smith",
  *     login: "example@example.com",
+ *     email: "example@example.com",
  *     passwordInlineHook: "default",
  * });
  * ```

@@ -112,12 +112,13 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_captcha = okta.Captcha("exampleCaptcha",
+        example = okta.Captcha("example",
+            name="My CAPTCHA",
             type="HCAPTCHA",
             site_key="some_key",
             secret_key="some_secret_key")
-        example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings",
-            captcha_id=okta_captcha["test"]["id"],
+        example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("example",
+            captcha_id=test["id"],
             enabled_fors=["SSR"])
         ```
         <!--End PulumiCodeChooser -->
@@ -129,11 +130,12 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_captcha = okta.Captcha("exampleCaptcha",
-            secret_key="some_secret_key",
+        example = okta.Captcha("example",
+            name="My CAPTCHA",
+            type="HCAPTCHA",
             site_key="some_key",
-            type="HCAPTCHA")
-        example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings")
+            secret_key="some_secret_key")
+        example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("example")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -169,12 +171,13 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_captcha = okta.Captcha("exampleCaptcha",
+        example = okta.Captcha("example",
+            name="My CAPTCHA",
             type="HCAPTCHA",
             site_key="some_key",
             secret_key="some_secret_key")
-        example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings",
-            captcha_id=okta_captcha["test"]["id"],
+        example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("example",
+            captcha_id=test["id"],
             enabled_fors=["SSR"])
         ```
         <!--End PulumiCodeChooser -->
@@ -186,11 +189,12 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_captcha = okta.Captcha("exampleCaptcha",
-            secret_key="some_secret_key",
+        example = okta.Captcha("example",
+            name="My CAPTCHA",
+            type="HCAPTCHA",
             site_key="some_key",
-            type="HCAPTCHA")
-        example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings")
+            secret_key="some_secret_key")
+        example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("example")
         ```
         <!--End PulumiCodeChooser -->
 

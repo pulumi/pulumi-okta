@@ -17,15 +17,16 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.idp.Saml("example", {
+ *     name: "testAcc_replace_with_uuid",
  *     acsType: "INSTANCE",
+ *     ssoUrl: "https://idp.example.com",
+ *     ssoDestination: "https://idp.example.com",
+ *     ssoBinding: "HTTP-POST",
+ *     usernameTemplate: "idpuser.email",
+ *     kid: test.id,
  *     issuer: "https://idp.example.com",
- *     kid: okta_idp_saml_key.test.id,
  *     requestSignatureScope: "REQUEST",
  *     responseSignatureScope: "ANY",
- *     ssoBinding: "HTTP-POST",
- *     ssoDestination: "https://idp.example.com",
- *     ssoUrl: "https://idp.example.com",
- *     usernameTemplate: "idpuser.email",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -33,6 +33,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewAuthServerClaimDefault(ctx, "example", &okta.AuthServerClaimDefaultArgs{
 //				AuthServerId: pulumi.String("<auth server id>"),
+//				Name:         pulumi.String("sub"),
 //				Value:        pulumi.String("(appuser != null) ? appuser.userName : app.clientId"),
 //			})
 //			if err != nil {

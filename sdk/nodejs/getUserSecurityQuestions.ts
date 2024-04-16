@@ -16,13 +16,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const exampleUser = new okta.user.User("exampleUser", {
+ * const exampleUser = new okta.user.User("example", {
  *     firstName: "John",
  *     lastName: "Smith",
  *     login: "john.smith@example.com",
  *     email: "john.smith@example.com",
  * });
- * const exampleUserSecurityQuestions = okta.getUserSecurityQuestionsOutput({
+ * const example = okta.getUserSecurityQuestionsOutput({
  *     userId: exampleUser.id,
  * });
  * ```
@@ -70,13 +70,13 @@ export interface GetUserSecurityQuestionsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const exampleUser = new okta.user.User("exampleUser", {
+ * const exampleUser = new okta.user.User("example", {
  *     firstName: "John",
  *     lastName: "Smith",
  *     login: "john.smith@example.com",
  *     email: "john.smith@example.com",
  * });
- * const exampleUserSecurityQuestions = okta.getUserSecurityQuestionsOutput({
+ * const example = okta.getUserSecurityQuestionsOutput({
  *     userId: exampleUser.id,
  * });
  * ```

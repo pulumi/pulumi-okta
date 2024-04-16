@@ -27,15 +27,16 @@ namespace Pulumi.Okta.Idp
     /// {
     ///     var example = new Okta.Idp.Social("example", new()
     ///     {
-    ///         ClientId = "abcd123",
-    ///         ClientSecret = "abcd123",
+    ///         Type = "FACEBOOK",
     ///         ProtocolType = "OAUTH2",
+    ///         Name = "testAcc_facebook_replace_with_uuid",
     ///         Scopes = new[]
     ///         {
     ///             "public_profile",
     ///             "email",
     ///         },
-    ///         Type = "FACEBOOK",
+    ///         ClientId = "abcd123",
+    ///         ClientSecret = "abcd123",
     ///         UsernameTemplate = "idpuser.email",
     ///     });
     /// 

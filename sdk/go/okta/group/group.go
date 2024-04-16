@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := group.NewGroup(ctx, "example", &group.GroupArgs{
+//				Name:        pulumi.String("Example"),
 //				Description: pulumi.String("My Example Group"),
 //			})
 //			if err != nil {
@@ -69,6 +70,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = group.NewGroup(ctx, "example", &group.GroupArgs{
+//				Name:                    pulumi.String("Example"),
 //				Description:             pulumi.String("My Example Group"),
 //				CustomProfileAttributes: pulumi.String(json0),
 //			})

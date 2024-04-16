@@ -52,6 +52,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = okta.NewAuthenticator(ctx, "test", &okta.AuthenticatorArgs{
+//				Name:     pulumi.String("Security Question"),
 //				Key:      pulumi.String("security_question"),
 //				Settings: pulumi.String(json0),
 //			})
@@ -93,6 +94,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = okta.NewAuthenticator(ctx, "test", &okta.AuthenticatorArgs{
+//				Name:     pulumi.String("Custom OTP"),
 //				Key:      pulumi.String("custom_otp"),
 //				Status:   pulumi.String("ACTIVE"),
 //				Settings: pulumi.String(json0),

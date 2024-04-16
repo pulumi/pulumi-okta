@@ -47,13 +47,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Social(&#34;example&#34;, SocialArgs.builder()        
- *             .clientId(&#34;abcd123&#34;)
- *             .clientSecret(&#34;abcd123&#34;)
+ *             .type(&#34;FACEBOOK&#34;)
  *             .protocolType(&#34;OAUTH2&#34;)
+ *             .name(&#34;testAcc_facebook_replace_with_uuid&#34;)
  *             .scopes(            
  *                 &#34;public_profile&#34;,
  *                 &#34;email&#34;)
- *             .type(&#34;FACEBOOK&#34;)
+ *             .clientId(&#34;abcd123&#34;)
+ *             .clientSecret(&#34;abcd123&#34;)
  *             .usernameTemplate(&#34;idpuser.email&#34;)
  *             .build());
  * 

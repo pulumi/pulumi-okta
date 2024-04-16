@@ -20,11 +20,12 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.FactorTotp("example", {
- *     clockDriftInterval: 10,
- *     hmacAlgorithm: "HMacSHA256",
+ *     name: "example",
  *     otpLength: 10,
- *     sharedSecretEncoding: "hexadecimal",
+ *     hmacAlgorithm: "HMacSHA256",
  *     timeStep: 30,
+ *     clockDriftInterval: 10,
+ *     sharedSecretEncoding: "hexadecimal",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

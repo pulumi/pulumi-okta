@@ -647,12 +647,6 @@ export namespace policy {
         osExpression?: pulumi.Input<string>;
         /**
          * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
-         *
-         * <!--Start PulumiCodeChooser -->
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
-         * <!--End PulumiCodeChooser -->
          */
         osType?: pulumi.Input<string>;
         /**
@@ -668,12 +662,6 @@ export namespace policy {
         matchType?: pulumi.Input<string>;
         /**
          * The regex or simple match string to match against.
-         *
-         * <!--Start PulumiCodeChooser -->
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
-         * <!--End PulumiCodeChooser -->
          */
         value?: pulumi.Input<string>;
     }

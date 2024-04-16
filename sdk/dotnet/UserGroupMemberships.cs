@@ -21,7 +21,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testUser = new Okta.User.User("testUser", new()
+    ///     var test = new Okta.User.User("test", new()
     ///     {
     ///         FirstName = "TestAcc",
     ///         LastName = "Smith",
@@ -29,13 +29,13 @@ namespace Pulumi.Okta
     ///         Email = "testAcc-replace_with_uuid@example.com",
     ///     });
     /// 
-    ///     var testUserGroupMemberships = new Okta.UserGroupMemberships("testUserGroupMemberships", new()
+    ///     var testUserGroupMemberships = new Okta.UserGroupMemberships("test", new()
     ///     {
-    ///         UserId = testUser.Id,
+    ///         UserId = test.Id,
     ///         Groups = new[]
     ///         {
-    ///             okta_group.Test_1.Id,
-    ///             okta_group.Test_2.Id,
+    ///             test1.Id,
+    ///             test2.Id,
     ///         },
     ///     });
     /// 

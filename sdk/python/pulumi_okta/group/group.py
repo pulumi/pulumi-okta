@@ -189,7 +189,9 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example = okta.group.Group("example", description="My Example Group")
+        example = okta.group.Group("example",
+            name="Example",
+            description="My Example Group")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -201,6 +203,7 @@ class Group(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.group.Group("example",
+            name="Example",
             description="My Example Group",
             custom_profile_attributes=json.dumps({
                 "example1": "testing1234",
@@ -243,7 +246,9 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example = okta.group.Group("example", description="My Example Group")
+        example = okta.group.Group("example",
+            name="Example",
+            description="My Example Group")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -255,6 +260,7 @@ class Group(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.group.Group("example",
+            name="Example",
             description="My Example Group",
             custom_profile_attributes=json.dumps({
                 "example1": "testing1234",

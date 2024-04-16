@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := group.LookupRule(ctx, &group.LookupRuleArgs{
-//				Id: pulumi.StringRef(okta_group_rule.Example.Id),
+//				Id: pulumi.StringRef(example.Id),
 //			}, nil)
 //			if err != nil {
 //				return err

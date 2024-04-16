@@ -17,6 +17,8 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.network.Zone("example", {
+ *     name: "example",
+ *     type: "IP",
  *     gateways: [
  *         "1.2.3.4/24",
  *         "2.3.4.5-2.3.4.15",
@@ -25,7 +27,6 @@ import * as utilities from "../utilities";
  *         "2.2.3.4/24",
  *         "3.3.4.5-3.3.4.15",
  *     ],
- *     type: "IP",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -38,9 +39,10 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.network.Zone("example", {
- *     dynamicProxyType: "TorAnonymizer",
+ *     name: "TOR Blocker",
  *     type: "DYNAMIC",
  *     usage: "BLOCKLIST",
+ *     dynamicProxyType: "TorAnonymizer",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

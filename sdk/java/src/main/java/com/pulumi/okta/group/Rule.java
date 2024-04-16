@@ -42,10 +42,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Rule(&#34;example&#34;, RuleArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .status(&#34;ACTIVE&#34;)
+ *             .groupAssignments(&#34;&lt;group id&gt;&#34;)
  *             .expressionType(&#34;urn:okta:expression:1.0&#34;)
  *             .expressionValue(&#34;String.startsWith(user.firstName,\&#34;andy\&#34;)&#34;)
- *             .groupAssignments(&#34;&lt;group id&gt;&#34;)
- *             .status(&#34;ACTIVE&#34;)
  *             .build());
  * 
  *     }

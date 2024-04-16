@@ -25,82 +25,12 @@ public final class UserFunctions {
     /**
      * Use this data source to retrieve a users from Okta.
      * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.user.UserFunctions;
-     * import com.pulumi.okta.user.inputs.GetUserArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUser(GetUserArgs.builder()
-     *             .searches(GetUserSearchArgs.builder()
-     *                 .expression(&#34;profile.firstName eq \&#34;John\&#34;&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     public static Output<GetUserResult> getUser() {
         return getUser(GetUserArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve a users from Okta.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.user.UserFunctions;
-     * import com.pulumi.okta.user.inputs.GetUserArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUser(GetUserArgs.builder()
-     *             .searches(GetUserSearchArgs.builder()
-     *                 .expression(&#34;profile.firstName eq \&#34;John\&#34;&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain() {
@@ -109,82 +39,12 @@ public final class UserFunctions {
     /**
      * Use this data source to retrieve a users from Okta.
      * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.user.UserFunctions;
-     * import com.pulumi.okta.user.inputs.GetUserArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUser(GetUserArgs.builder()
-     *             .searches(GetUserSearchArgs.builder()
-     *                 .expression(&#34;profile.firstName eq \&#34;John\&#34;&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args) {
         return getUser(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve a users from Okta.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.user.UserFunctions;
-     * import com.pulumi.okta.user.inputs.GetUserArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUser(GetUserArgs.builder()
-     *             .searches(GetUserSearchArgs.builder()
-     *                 .expression(&#34;profile.firstName eq \&#34;John\&#34;&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
@@ -193,82 +53,12 @@ public final class UserFunctions {
     /**
      * Use this data source to retrieve a users from Okta.
      * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.user.UserFunctions;
-     * import com.pulumi.okta.user.inputs.GetUserArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUser(GetUserArgs.builder()
-     *             .searches(GetUserSearchArgs.builder()
-     *                 .expression(&#34;profile.firstName eq \&#34;John\&#34;&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:user/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve a users from Okta.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.user.UserFunctions;
-     * import com.pulumi.okta.user.inputs.GetUserArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUser(GetUserArgs.builder()
-     *             .searches(GetUserSearchArgs.builder()
-     *                 .expression(&#34;profile.firstName eq \&#34;John\&#34;&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
@@ -673,41 +463,6 @@ public final class UserFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Lookup Users by Search Criteria
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.user.UserFunctions;
-     * import com.pulumi.okta.user.inputs.GetUsersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
-     *             .searches(GetUsersSearchArgs.builder()
-     *                 .expression(&#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      * ### Lookup Users by Group Membership
      * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
@@ -717,6 +472,7 @@ public final class UserFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.Group;
+     * import com.pulumi.okta.group.GroupArgs;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetUsersArgs;
      * import java.util.List;
@@ -732,9 +488,11 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+     *             .name(&#34;example-group&#34;)
+     *             .build());
      * 
-     *         final var exampleUsers = UserFunctions.getUsers(GetUsersArgs.builder()
+     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
      *             .groupId(exampleGroup.id())
      *             .includeGroups(true)
      *             .includeRoles(true)
@@ -754,41 +512,6 @@ public final class UserFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Lookup Users by Search Criteria
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.user.UserFunctions;
-     * import com.pulumi.okta.user.inputs.GetUsersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
-     *             .searches(GetUsersSearchArgs.builder()
-     *                 .expression(&#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      * ### Lookup Users by Group Membership
      * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
@@ -798,6 +521,7 @@ public final class UserFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.Group;
+     * import com.pulumi.okta.group.GroupArgs;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetUsersArgs;
      * import java.util.List;
@@ -813,9 +537,11 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+     *             .name(&#34;example-group&#34;)
+     *             .build());
      * 
-     *         final var exampleUsers = UserFunctions.getUsers(GetUsersArgs.builder()
+     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
      *             .groupId(exampleGroup.id())
      *             .includeGroups(true)
      *             .includeRoles(true)
@@ -835,41 +561,6 @@ public final class UserFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Lookup Users by Search Criteria
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.user.UserFunctions;
-     * import com.pulumi.okta.user.inputs.GetUsersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
-     *             .searches(GetUsersSearchArgs.builder()
-     *                 .expression(&#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      * ### Lookup Users by Group Membership
      * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
@@ -879,6 +570,7 @@ public final class UserFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.Group;
+     * import com.pulumi.okta.group.GroupArgs;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetUsersArgs;
      * import java.util.List;
@@ -894,9 +586,11 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+     *             .name(&#34;example-group&#34;)
+     *             .build());
      * 
-     *         final var exampleUsers = UserFunctions.getUsers(GetUsersArgs.builder()
+     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
      *             .groupId(exampleGroup.id())
      *             .includeGroups(true)
      *             .includeRoles(true)
@@ -916,41 +610,6 @@ public final class UserFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Lookup Users by Search Criteria
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.user.UserFunctions;
-     * import com.pulumi.okta.user.inputs.GetUsersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
-     *             .searches(GetUsersSearchArgs.builder()
-     *                 .expression(&#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      * ### Lookup Users by Group Membership
      * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
@@ -960,6 +619,7 @@ public final class UserFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.Group;
+     * import com.pulumi.okta.group.GroupArgs;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetUsersArgs;
      * import java.util.List;
@@ -975,9 +635,11 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+     *             .name(&#34;example-group&#34;)
+     *             .build());
      * 
-     *         final var exampleUsers = UserFunctions.getUsers(GetUsersArgs.builder()
+     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
      *             .groupId(exampleGroup.id())
      *             .includeGroups(true)
      *             .includeRoles(true)
@@ -997,41 +659,6 @@ public final class UserFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Lookup Users by Search Criteria
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.user.UserFunctions;
-     * import com.pulumi.okta.user.inputs.GetUsersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
-     *             .searches(GetUsersSearchArgs.builder()
-     *                 .expression(&#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      * ### Lookup Users by Group Membership
      * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
@@ -1041,6 +668,7 @@ public final class UserFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.Group;
+     * import com.pulumi.okta.group.GroupArgs;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetUsersArgs;
      * import java.util.List;
@@ -1056,9 +684,11 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+     *             .name(&#34;example-group&#34;)
+     *             .build());
      * 
-     *         final var exampleUsers = UserFunctions.getUsers(GetUsersArgs.builder()
+     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
      *             .groupId(exampleGroup.id())
      *             .includeGroups(true)
      *             .includeRoles(true)
@@ -1078,41 +708,6 @@ public final class UserFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Lookup Users by Search Criteria
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.user.UserFunctions;
-     * import com.pulumi.okta.user.inputs.GetUsersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
-     *             .searches(GetUsersSearchArgs.builder()
-     *                 .expression(&#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      * ### Lookup Users by Group Membership
      * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
@@ -1122,6 +717,7 @@ public final class UserFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.Group;
+     * import com.pulumi.okta.group.GroupArgs;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetUsersArgs;
      * import java.util.List;
@@ -1137,9 +733,11 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+     *             .name(&#34;example-group&#34;)
+     *             .build());
      * 
-     *         final var exampleUsers = UserFunctions.getUsers(GetUsersArgs.builder()
+     *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
      *             .groupId(exampleGroup.id())
      *             .includeGroups(true)
      *             .includeRoles(true)

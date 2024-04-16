@@ -19,8 +19,8 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.EmailSender("example", {
- *     fromAddress: "no-reply@caladan.planet",
  *     fromName: "Paul Atreides",
+ *     fromAddress: "no-reply@caladan.planet",
  *     subdomain: "mail",
  * });
  * ```

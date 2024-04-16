@@ -43,8 +43,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserType(&#34;example&#34;, UserTypeArgs.builder()        
- *             .description(&#34;example&#34;)
+ *             .name(&#34;example&#34;)
  *             .displayName(&#34;example&#34;)
+ *             .description(&#34;example&#34;)
  *             .build());
  * 
  *     }

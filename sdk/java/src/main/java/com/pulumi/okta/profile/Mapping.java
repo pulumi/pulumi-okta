@@ -51,26 +51,26 @@ import javax.annotation.Nullable;
  *         final var user = UserFunctions.getUserProfileMappingSource();
  * 
  *         var example = new Mapping(&#34;example&#34;, MappingArgs.builder()        
+ *             .sourceId(&#34;&lt;source id&gt;&#34;)
+ *             .targetId(user.applyValue(getUserProfileMappingSourceResult -&gt; getUserProfileMappingSourceResult.id()))
  *             .deleteWhenAbsent(true)
  *             .mappings(            
  *                 MappingMappingArgs.builder()
- *                     .expression(&#34;appuser.firstName&#34;)
  *                     .id(&#34;firstName&#34;)
+ *                     .expression(&#34;appuser.firstName&#34;)
  *                     .build(),
  *                 MappingMappingArgs.builder()
- *                     .expression(&#34;appuser.lastName&#34;)
  *                     .id(&#34;lastName&#34;)
+ *                     .expression(&#34;appuser.lastName&#34;)
  *                     .build(),
  *                 MappingMappingArgs.builder()
- *                     .expression(&#34;appuser.email&#34;)
  *                     .id(&#34;email&#34;)
+ *                     .expression(&#34;appuser.email&#34;)
  *                     .build(),
  *                 MappingMappingArgs.builder()
- *                     .expression(&#34;appuser.email&#34;)
  *                     .id(&#34;login&#34;)
+ *                     .expression(&#34;appuser.email&#34;)
  *                     .build())
- *             .sourceId(&#34;&lt;source id&gt;&#34;)
- *             .targetId(user.applyValue(getUserProfileMappingSourceResult -&gt; getUserProfileMappingSourceResult.id()))
  *             .build());
  * 
  *     }

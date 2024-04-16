@@ -27,6 +27,7 @@ namespace Pulumi.Okta
     /// {
     ///     var example = new Okta.TemplateSms("example", new()
     ///     {
+    ///         Type = "SMS_VERIFY_CODE",
     ///         Template = "Your ${org.name} code is: ${code}",
     ///         Translations = new[]
     ///         {
@@ -41,7 +42,6 @@ namespace Pulumi.Okta
     ///                 Template = "Tu código de ${org.name} es: ${code}.",
     ///             },
     ///         },
-    ///         Type = "SMS_VERIFY_CODE",
     ///     });
     /// 
     /// });

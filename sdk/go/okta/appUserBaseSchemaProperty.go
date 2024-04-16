@@ -34,9 +34,9 @@ import (
 //			_, err := okta.NewAppUserBaseSchemaProperty(ctx, "example", &okta.AppUserBaseSchemaPropertyArgs{
 //				AppId:  pulumi.String("<app id>"),
 //				Index:  pulumi.String("customPropertyName"),
-//				Master: pulumi.String("OKTA"),
 //				Title:  pulumi.String("customPropertyName"),
 //				Type:   pulumi.String("string"),
+//				Master: pulumi.String("OKTA"),
 //			})
 //			if err != nil {
 //				return err

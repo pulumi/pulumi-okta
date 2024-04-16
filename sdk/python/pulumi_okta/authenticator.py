@@ -525,6 +525,7 @@ class Authenticator(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test = okta.Authenticator("test",
+            name="Security Question",
             key="security_question",
             settings=json.dumps({
                 "allowedFor": "recovery",
@@ -539,6 +540,7 @@ class Authenticator(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test = okta.Authenticator("test",
+            name="Custom OTP",
             key="custom_otp",
             status="ACTIVE",
             settings=json.dumps({
@@ -612,6 +614,7 @@ class Authenticator(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test = okta.Authenticator("test",
+            name="Security Question",
             key="security_question",
             settings=json.dumps({
                 "allowedFor": "recovery",
@@ -626,6 +629,7 @@ class Authenticator(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test = okta.Authenticator("test",
+            name="Custom OTP",
             key="custom_otp",
             status="ACTIVE",
             settings=json.dumps({

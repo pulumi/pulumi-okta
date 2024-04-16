@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const test = okta.getAppGroupAssignments({
- *     id: okta_app_oauth.test.id,
+ *     id: testOktaAppOauth.id,
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -62,7 +62,7 @@ export interface GetAppGroupAssignmentsResult {
  * import * as okta from "@pulumi/okta";
  *
  * const test = okta.getAppGroupAssignments({
- *     id: okta_app_oauth.test.id,
+ *     id: testOktaAppOauth.id,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

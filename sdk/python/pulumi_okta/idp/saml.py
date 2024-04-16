@@ -1093,15 +1093,16 @@ class Saml(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.idp.Saml("example",
+            name="testAcc_replace_with_uuid",
             acs_type="INSTANCE",
-            issuer="https://idp.example.com",
-            kid=okta_idp_saml_key["test"]["id"],
-            request_signature_scope="REQUEST",
-            response_signature_scope="ANY",
-            sso_binding="HTTP-POST",
-            sso_destination="https://idp.example.com",
             sso_url="https://idp.example.com",
-            username_template="idpuser.email")
+            sso_destination="https://idp.example.com",
+            sso_binding="HTTP-POST",
+            username_template="idpuser.email",
+            kid=test["id"],
+            issuer="https://idp.example.com",
+            request_signature_scope="REQUEST",
+            response_signature_scope="ANY")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1165,15 +1166,16 @@ class Saml(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.idp.Saml("example",
+            name="testAcc_replace_with_uuid",
             acs_type="INSTANCE",
-            issuer="https://idp.example.com",
-            kid=okta_idp_saml_key["test"]["id"],
-            request_signature_scope="REQUEST",
-            response_signature_scope="ANY",
-            sso_binding="HTTP-POST",
-            sso_destination="https://idp.example.com",
             sso_url="https://idp.example.com",
-            username_template="idpuser.email")
+            sso_destination="https://idp.example.com",
+            sso_binding="HTTP-POST",
+            username_template="idpuser.email",
+            kid=test["id"],
+            issuer="https://idp.example.com",
+            request_signature_scope="REQUEST",
+            response_signature_scope="ANY")
         ```
         <!--End PulumiCodeChooser -->
 

@@ -109,12 +109,12 @@ class AppSamlAppSettings(pulumi.CustomResource):
         import json
         import pulumi_okta as okta
 
-        test_saml = okta.app.Saml("testSaml",
+        test = okta.app.Saml("test",
             preconfigured_app="amazon_aws",
             label="Amazon AWS",
             status="ACTIVE")
-        test_app_saml_app_settings = okta.AppSamlAppSettings("testAppSamlAppSettings",
-            app_id=test_saml.id,
+        test_app_saml_app_settings = okta.AppSamlAppSettings("test",
+            app_id=test.id,
             settings=json.dumps({
                 "appFilter": "okta",
                 "awsEnvironmentType": "aws.amazon",
@@ -159,12 +159,12 @@ class AppSamlAppSettings(pulumi.CustomResource):
         import json
         import pulumi_okta as okta
 
-        test_saml = okta.app.Saml("testSaml",
+        test = okta.app.Saml("test",
             preconfigured_app="amazon_aws",
             label="Amazon AWS",
             status="ACTIVE")
-        test_app_saml_app_settings = okta.AppSamlAppSettings("testAppSamlAppSettings",
-            app_id=test_saml.id,
+        test_app_saml_app_settings = okta.AppSamlAppSettings("test",
+            app_id=test.id,
             settings=json.dumps({
                 "appFilter": "okta",
                 "awsEnvironmentType": "aws.amazon",

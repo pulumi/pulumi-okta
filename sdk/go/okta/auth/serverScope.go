@@ -33,8 +33,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auth.NewServerScope(ctx, "example", &auth.ServerScopeArgs{
 //				AuthServerId:    pulumi.String("<auth server id>"),
-//				Consent:         pulumi.String("IMPLICIT"),
 //				MetadataPublish: pulumi.String("NO_CLIENTS"),
+//				Name:            pulumi.String("example"),
+//				Consent:         pulumi.String("IMPLICIT"),
 //			})
 //			if err != nil {
 //				return err

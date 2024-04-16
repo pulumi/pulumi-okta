@@ -41,11 +41,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewUserBaseSchemaProperty(ctx, "example", &okta.UserBaseSchemaPropertyArgs{
 //				Index:    pulumi.String("firstName"),
-//				Master:   pulumi.String("OKTA"),
-//				Required: pulumi.Bool(true),
 //				Title:    pulumi.String("First name"),
 //				Type:     pulumi.String("string"),
-//				UserType: pulumi.Any(data.Okta_user_type.Example.Id),
+//				Required: pulumi.Bool(true),
+//				Master:   pulumi.String("OKTA"),
+//				UserType: pulumi.Any(exampleOktaUserType.Id),
 //			})
 //			if err != nil {
 //				return err

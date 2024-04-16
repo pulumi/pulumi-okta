@@ -36,11 +36,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePolicyProfileEnrollment, err := okta.NewPolicyProfileEnrollment(ctx, "examplePolicyProfileEnrollment", nil)
+//			example, err := okta.NewPolicyProfileEnrollment(ctx, "example", &okta.PolicyProfileEnrollmentArgs{
+//				Name: pulumi.String("My Enrollment Policy"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleHook, err := inline.NewHook(ctx, "exampleHook", &inline.HookArgs{
+//			exampleHook, err := inline.NewHook(ctx, "example", &inline.HookArgs{
+//				Name:    pulumi.String("My Inline Hook"),
 //				Status:  pulumi.String("ACTIVE"),
 //				Type:    pulumi.String("com.okta.user.pre-registration"),
 //				Version: pulumi.String("1.0.3"),
@@ -54,14 +57,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleGroup, err := group.NewGroup(ctx, "exampleGroup", &group.GroupArgs{
+//			exampleGroup, err := group.NewGroup(ctx, "example", &group.GroupArgs{
+//				Name:        pulumi.String("My Group"),
 //				Description: pulumi.String("Group of some users"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.NewPolicyRuleProfileEnrollment(ctx, "examplePolicyRuleProfileEnrollment", &okta.PolicyRuleProfileEnrollmentArgs{
-//				PolicyId:          examplePolicyProfileEnrollment.ID(),
+//			_, err = okta.NewPolicyRuleProfileEnrollment(ctx, "example", &okta.PolicyRuleProfileEnrollmentArgs{
+//				PolicyId:          example.ID(),
 //				InlineHookId:      exampleHook.ID(),
 //				TargetGroupId:     exampleGroup.ID(),
 //				UnknownUserAction: pulumi.String("REGISTER"),

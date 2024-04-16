@@ -132,7 +132,8 @@ class ThreatInsightSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        ip_network_zone_example = okta.network.Zone("ipNetworkZoneExample",
+        ip_network_zone_example = okta.network.Zone("ip_network_zone_example",
+            name="example",
             type="IP",
             gateways=[
                 "1.2.3.4/24",
@@ -183,7 +184,8 @@ class ThreatInsightSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        ip_network_zone_example = okta.network.Zone("ipNetworkZoneExample",
+        ip_network_zone_example = okta.network.Zone("ip_network_zone_example",
+            name="example",
             type="IP",
             gateways=[
                 "1.2.3.4/24",

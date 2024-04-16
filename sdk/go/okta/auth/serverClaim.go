@@ -33,11 +33,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auth.NewServerClaim(ctx, "example", &auth.ServerClaimArgs{
 //				AuthServerId: pulumi.String("<auth server id>"),
-//				ClaimType:    pulumi.String("IDENTITY"),
+//				Name:         pulumi.String("staff"),
+//				Value:        pulumi.String("String.substringAfter(user.email, \"@\") == \"example.com\""),
 //				Scopes: pulumi.StringArray{
-//					okta_auth_server_scope.Example.Name,
+//					exampleOktaAuthServerScope.Name,
 //				},
-//				Value: pulumi.String("String.substringAfter(user.email, \"@\") == \"example.com\""),
+//				ClaimType: pulumi.String("IDENTITY"),
 //			})
 //			if err != nil {
 //				return err

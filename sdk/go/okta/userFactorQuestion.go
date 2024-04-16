@@ -33,7 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUser, err := user.NewUser(ctx, "exampleUser", &user.UserArgs{
+//			exampleUser, err := user.NewUser(ctx, "example", &user.UserArgs{
 //				FirstName: pulumi.String("John"),
 //				LastName:  pulumi.String("Smith"),
 //				Login:     pulumi.String("john.smith@example.com"),
@@ -42,20 +42,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserSecurityQuestions := okta.GetUserSecurityQuestionsOutput(ctx, okta.GetUserSecurityQuestionsOutputArgs{
+//			example := okta.GetUserSecurityQuestionsOutput(ctx, okta.GetUserSecurityQuestionsOutputArgs{
 //				UserId: exampleUser.ID(),
 //			}, nil)
-//			exampleFactor, err := factor.NewFactor(ctx, "exampleFactor", &factor.FactorArgs{
+//			exampleFactor, err := factor.NewFactor(ctx, "example", &factor.FactorArgs{
 //				ProviderId: pulumi.String("okta_question"),
 //				Active:     pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.NewUserFactorQuestion(ctx, "exampleUserFactorQuestion", &okta.UserFactorQuestionArgs{
+//			_, err = okta.NewUserFactorQuestion(ctx, "example", &okta.UserFactorQuestionArgs{
 //				UserId: exampleUser.ID(),
-//				Key: exampleUserSecurityQuestions.ApplyT(func(exampleUserSecurityQuestions okta.GetUserSecurityQuestionsResult) (*string, error) {
-//					return &exampleUserSecurityQuestions.Questions[0].Key, nil
+//				Key: example.ApplyT(func(example okta.GetUserSecurityQuestionsResult) (*string, error) {
+//					return &example.Questions[0].Key, nil
 //				}).(pulumi.StringPtrOutput),
 //				Answer: pulumi.String("meatball"),
 //			}, pulumi.DependsOn([]pulumi.Resource{

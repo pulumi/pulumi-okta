@@ -522,7 +522,7 @@ public final class GroupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
-     *             .id(okta_group_rule.example().id())
+     *             .id(example.id())
      *             .build());
      * 
      *     }
@@ -562,7 +562,7 @@ public final class GroupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
-     *             .id(okta_group_rule.example().id())
+     *             .id(example.id())
      *             .build());
      * 
      *     }
@@ -602,7 +602,7 @@ public final class GroupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
-     *             .id(okta_group_rule.example().id())
+     *             .id(example.id())
      *             .build());
      * 
      *     }
@@ -642,7 +642,7 @@ public final class GroupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
-     *             .id(okta_group_rule.example().id())
+     *             .id(example.id())
      *             .build());
      * 
      *     }
@@ -682,7 +682,7 @@ public final class GroupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
-     *             .id(okta_group_rule.example().id())
+     *             .id(example.id())
      *             .build());
      * 
      *     }
@@ -722,7 +722,7 @@ public final class GroupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
-     *             .id(okta_group_rule.example().id())
+     *             .id(example.id())
      *             .build());
      * 
      *     }

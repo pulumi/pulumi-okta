@@ -52,6 +52,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Signon(&#34;test&#34;, SignonArgs.builder()        
+ *             .name(&#34;Example Policy&#34;)
  *             .status(&#34;ACTIVE&#34;)
  *             .description(&#34;Example Policy&#34;)
  *             .build());
@@ -63,8 +64,9 @@ import javax.annotation.Nullable;
  *         var example = new RuleSignon(&#34;example&#34;, RuleSignonArgs.builder()        
  *             .access(&#34;CHALLENGE&#34;)
  *             .authtype(&#34;RADIUS&#34;)
+ *             .name(&#34;Example Policy Rule&#34;)
  *             .networkConnection(&#34;ANYWHERE&#34;)
- *             .policyId(okta_policy_signon.example().id())
+ *             .policyId(exampleOktaPolicySignon.id())
  *             .status(&#34;ACTIVE&#34;)
  *             .riscLevel(&#34;HIGH&#34;)
  *             .behaviors(newCity.applyValue(getBehaviourResult -&gt; getBehaviourResult.id()))

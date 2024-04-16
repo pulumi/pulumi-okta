@@ -18,15 +18,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const testOAuth = new okta.app.OAuth("testOAuth", {
+ * const test = new okta.app.OAuth("test", {
  *     label: "testAcc_replace_with_uuid",
  *     type: "web",
  *     grantTypes: ["authorization_code"],
  *     responseTypes: ["code"],
  *     redirectUris: ["myapp://callback"],
  * });
- * const testOAuthRedirectUri = new okta.app.OAuthRedirectUri("testOAuthRedirectUri", {
- *     appId: testOAuth.id,
+ * const testOAuthRedirectUri = new okta.app.OAuthRedirectUri("test", {
+ *     appId: test.id,
  *     uri: "http://google.com",
  * });
  * ```

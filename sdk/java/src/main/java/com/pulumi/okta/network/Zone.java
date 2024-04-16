@@ -45,13 +45,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Zone(&#34;example&#34;, ZoneArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .type(&#34;IP&#34;)
  *             .gateways(            
  *                 &#34;1.2.3.4/24&#34;,
  *                 &#34;2.3.4.5-2.3.4.15&#34;)
  *             .proxies(            
  *                 &#34;2.2.3.4/24&#34;,
  *                 &#34;3.3.4.5-3.3.4.15&#34;)
- *             .type(&#34;IP&#34;)
  *             .build());
  * 
  *     }
@@ -84,9 +85,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Zone(&#34;example&#34;, ZoneArgs.builder()        
- *             .dynamicProxyType(&#34;TorAnonymizer&#34;)
+ *             .name(&#34;TOR Blocker&#34;)
  *             .type(&#34;DYNAMIC&#34;)
  *             .usage(&#34;BLOCKLIST&#34;)
+ *             .dynamicProxyType(&#34;TorAnonymizer&#34;)
  *             .build());
  * 
  *     }

@@ -30,7 +30,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePolicy = Okta.Policy.GetPolicy.Invoke(new()
+    ///     var example = Okta.Policy.GetPolicy.Invoke(new()
     ///     {
     ///         Name = "My Policy",
     ///         Type = "PROFILE_ENROLLMENT",
@@ -41,12 +41,12 @@ namespace Pulumi.Okta
     ///         Label = "My App",
     ///     });
     /// 
-    ///     var examplePolicyProfileEnrollmentApps = new Okta.PolicyProfileEnrollmentApps("examplePolicyProfileEnrollmentApps", new()
+    ///     var examplePolicyProfileEnrollmentApps = new Okta.PolicyProfileEnrollmentApps("example", new()
     ///     {
-    ///         PolicyId = okta_policy.Example.Id,
+    ///         PolicyId = exampleOktaPolicy.Id,
     ///         Apps = new[]
     ///         {
-    ///             data.Okta_app.Id,
+    ///             id,
     ///         },
     ///     });
     /// 
