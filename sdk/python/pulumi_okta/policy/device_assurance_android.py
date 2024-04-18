@@ -312,7 +312,14 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
                  secure_hardware_present: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a DeviceAssuranceAndroid resource with the given unique name, props, and options.
+        Manages a device assurance policy for android.
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example &#60;device assurance id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be `FULL`, `USER`
@@ -329,7 +336,14 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
                  args: Optional[DeviceAssuranceAndroidArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DeviceAssuranceAndroid resource with the given unique name, props, and options.
+        Manages a device assurance policy for android.
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example &#60;device assurance id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param DeviceAssuranceAndroidArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

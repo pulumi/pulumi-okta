@@ -609,7 +609,39 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
                  tpsp_site_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a DeviceAssuranceChromeos resource with the given unique name, props, and options.
+        Manages a device assurance policy for chromeos.
+
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.policy.DeviceAssuranceChromeos("example",
+            tpsp_allow_screen_lock=True,
+            tpsp_browser_version="15393.27.0",
+            tpsp_builtin_dns_client_enabled=True,
+            tpsp_chrome_remote_desktop_app_blocked=True,
+            tpsp_device_enrollment_domain="exampleDomain",
+            tpsp_disk_encrypted=True,
+            tpsp_key_trust_level="CHROME_OS_VERIFIED_MODE",
+            tpsp_os_firewall=True,
+            tpsp_os_version="10.0.19041.1110",
+            tpsp_password_proctection_warning_trigger="PASSWORD_PROTECTION_OFF",
+            tpsp_realtime_url_check_mode=True,
+            tpsp_safe_browsing_protection_level="ENHANCED_PROTECTION",
+            tpsp_screen_lock_secured=True,
+            tpsp_site_isolation_enabled=True)
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos example &#60;device assurance id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the device assurance policy.
@@ -635,7 +667,39 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
                  args: Optional[DeviceAssuranceChromeosArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DeviceAssuranceChromeos resource with the given unique name, props, and options.
+        Manages a device assurance policy for chromeos.
+
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.policy.DeviceAssuranceChromeos("example",
+            tpsp_allow_screen_lock=True,
+            tpsp_browser_version="15393.27.0",
+            tpsp_builtin_dns_client_enabled=True,
+            tpsp_chrome_remote_desktop_app_blocked=True,
+            tpsp_device_enrollment_domain="exampleDomain",
+            tpsp_disk_encrypted=True,
+            tpsp_key_trust_level="CHROME_OS_VERIFIED_MODE",
+            tpsp_os_firewall=True,
+            tpsp_os_version="10.0.19041.1110",
+            tpsp_password_proctection_warning_trigger="PASSWORD_PROTECTION_OFF",
+            tpsp_realtime_url_check_mode=True,
+            tpsp_safe_browsing_protection_level="ENHANCED_PROTECTION",
+            tpsp_screen_lock_secured=True,
+            tpsp_site_isolation_enabled=True)
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos example &#60;device assurance id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param DeviceAssuranceChromeosArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

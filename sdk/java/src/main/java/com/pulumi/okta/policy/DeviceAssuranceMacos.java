@@ -16,6 +16,16 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a device assurance policy for macos.
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos example &amp;#60;device assurance id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos")
 public class DeviceAssuranceMacos extends com.pulumi.resources.CustomResource {
     /**

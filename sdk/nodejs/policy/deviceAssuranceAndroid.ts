@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a device assurance policy for android.
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example &#60;device assurance id&#62;
+ * ```
+ */
 export class DeviceAssuranceAndroid extends pulumi.CustomResource {
     /**
      * Get an existing DeviceAssuranceAndroid resource's state with the given name, ID, and optional extra

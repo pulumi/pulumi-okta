@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Policy
 {
+    /// <summary>
+    /// Manages a device assurance policy for macos.
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos example &amp;#60;device assurance id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos")]
     public partial class DeviceAssuranceMacos : global::Pulumi.CustomResource
     {

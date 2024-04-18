@@ -16,6 +16,16 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a device assurance policy for windows.
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows example &amp;#60;device assurance id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows")
 public class DeviceAssuranceWindows extends com.pulumi.resources.CustomResource {
     /**

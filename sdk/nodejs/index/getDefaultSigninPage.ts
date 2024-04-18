@@ -6,6 +6,9 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Retrieve the default signin page of a brand
+ */
 export function getDefaultSigninPage(args: GetDefaultSigninPageArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultSigninPageResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -20,6 +23,9 @@ export function getDefaultSigninPage(args: GetDefaultSigninPageArgs, opts?: pulu
  * A collection of arguments for invoking getDefaultSigninPage.
  */
 export interface GetDefaultSigninPageArgs {
+    /**
+     * brand id of the preview signin page
+     */
     brandId: string;
     contentSecurityPolicySetting?: inputs.Index.GetDefaultSigninPageContentSecurityPolicySetting;
     widgetCustomizations?: inputs.Index.GetDefaultSigninPageWidgetCustomizations;
@@ -29,13 +35,28 @@ export interface GetDefaultSigninPageArgs {
  * A collection of values returned by getDefaultSigninPage.
  */
 export interface GetDefaultSigninPageResult {
+    /**
+     * brand id of the preview signin page
+     */
     readonly brandId: string;
     readonly contentSecurityPolicySetting?: outputs.Index.GetDefaultSigninPageContentSecurityPolicySetting;
+    /**
+     * placeholder id
+     */
     readonly id: string;
+    /**
+     * page content of the preview signin page
+     */
     readonly pageContent: string;
     readonly widgetCustomizations?: outputs.Index.GetDefaultSigninPageWidgetCustomizations;
+    /**
+     * widget version specified as a Semver
+     */
     readonly widgetVersion: string;
 }
+/**
+ * Retrieve the default signin page of a brand
+ */
 export function getDefaultSigninPageOutput(args: GetDefaultSigninPageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultSigninPageResult> {
     return pulumi.output(args).apply((a: any) => getDefaultSigninPage(a, opts))
 }
@@ -44,6 +65,9 @@ export function getDefaultSigninPageOutput(args: GetDefaultSigninPageOutputArgs,
  * A collection of arguments for invoking getDefaultSigninPage.
  */
 export interface GetDefaultSigninPageOutputArgs {
+    /**
+     * brand id of the preview signin page
+     */
     brandId: pulumi.Input<string>;
     contentSecurityPolicySetting?: pulumi.Input<inputs.Index.GetDefaultSigninPageContentSecurityPolicySettingArgs>;
     widgetCustomizations?: pulumi.Input<inputs.Index.GetDefaultSigninPageWidgetCustomizationsArgs>;

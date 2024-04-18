@@ -16,6 +16,16 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a device assurance policy for ios.
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import okta:policy/deviceAssuranceIos:DeviceAssuranceIos example &amp;#60;device assurance id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:policy/deviceAssuranceIos:DeviceAssuranceIos")
 public class DeviceAssuranceIos extends com.pulumi.resources.CustomResource {
     /**

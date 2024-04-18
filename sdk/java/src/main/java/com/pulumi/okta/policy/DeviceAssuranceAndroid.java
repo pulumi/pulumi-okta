@@ -16,6 +16,16 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a device assurance policy for android.
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example &amp;#60;device assurance id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid")
 public class DeviceAssuranceAndroid extends com.pulumi.resources.CustomResource {
     /**

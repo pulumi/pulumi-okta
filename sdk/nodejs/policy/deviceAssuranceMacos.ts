@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a device assurance policy for macos.
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos example &#60;device assurance id&#62;
+ * ```
+ */
 export class DeviceAssuranceMacos extends pulumi.CustomResource {
     /**
      * Get an existing DeviceAssuranceMacos resource's state with the given name, ID, and optional extra

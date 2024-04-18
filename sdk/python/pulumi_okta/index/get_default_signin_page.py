@@ -46,6 +46,9 @@ class GetDefaultSigninPageResult:
     @property
     @pulumi.getter(name="brandId")
     def brand_id(self) -> str:
+        """
+        brand id of the preview signin page
+        """
         return pulumi.get(self, "brand_id")
 
     @property
@@ -56,11 +59,17 @@ class GetDefaultSigninPageResult:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        placeholder id
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="pageContent")
     def page_content(self) -> str:
+        """
+        page content of the preview signin page
+        """
         return pulumi.get(self, "page_content")
 
     @property
@@ -71,6 +80,9 @@ class GetDefaultSigninPageResult:
     @property
     @pulumi.getter(name="widgetVersion")
     def widget_version(self) -> str:
+        """
+        widget version specified as a Semver
+        """
         return pulumi.get(self, "widget_version")
 
 
@@ -93,7 +105,10 @@ def get_default_signin_page(brand_id: Optional[str] = None,
                             widget_customizations: Optional[pulumi.InputType['GetDefaultSigninPageWidgetCustomizationsArgs']] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultSigninPageResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve the default signin page of a brand
+
+
+    :param str brand_id: brand id of the preview signin page
     """
     __args__ = dict()
     __args__['brandId'] = brand_id
@@ -117,6 +132,9 @@ def get_default_signin_page_output(brand_id: Optional[pulumi.Input[str]] = None,
                                    widget_customizations: Optional[pulumi.Input[Optional[pulumi.InputType['GetDefaultSigninPageWidgetCustomizationsArgs']]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultSigninPageResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve the default signin page of a brand
+
+
+    :param str brand_id: brand id of the preview signin page
     """
     ...

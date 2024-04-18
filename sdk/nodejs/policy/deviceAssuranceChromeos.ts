@@ -4,6 +4,41 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a device assurance policy for chromeos.
+ *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.policy.DeviceAssuranceChromeos("example", {
+ *     tpspAllowScreenLock: true,
+ *     tpspBrowserVersion: "15393.27.0",
+ *     tpspBuiltinDnsClientEnabled: true,
+ *     tpspChromeRemoteDesktopAppBlocked: true,
+ *     tpspDeviceEnrollmentDomain: "exampleDomain",
+ *     tpspDiskEncrypted: true,
+ *     tpspKeyTrustLevel: "CHROME_OS_VERIFIED_MODE",
+ *     tpspOsFirewall: true,
+ *     tpspOsVersion: "10.0.19041.1110",
+ *     tpspPasswordProctectionWarningTrigger: "PASSWORD_PROTECTION_OFF",
+ *     tpspRealtimeUrlCheckMode: true,
+ *     tpspSafeBrowsingProtectionLevel: "ENHANCED_PROTECTION",
+ *     tpspScreenLockSecured: true,
+ *     tpspSiteIsolationEnabled: true,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos example &#60;device assurance id&#62;
+ * ```
+ */
 export class DeviceAssuranceChromeos extends pulumi.CustomResource {
     /**
      * Get an existing DeviceAssuranceChromeos resource's state with the given name, ID, and optional extra
