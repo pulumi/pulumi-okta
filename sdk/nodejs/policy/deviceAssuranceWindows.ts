@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a device assurance policy for windows.
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows example &#60;device assurance id&#62;
+ * ```
+ */
 export class DeviceAssuranceWindows extends pulumi.CustomResource {
     /**
      * Get an existing DeviceAssuranceWindows resource's state with the given name, ID, and optional extra

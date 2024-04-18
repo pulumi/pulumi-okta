@@ -11,6 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a device assurance policy for macos.
+//
+// ## Import
+//
+// ```sh
+// $ pulumi import okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos example &#60;device assurance id&#62;
+// ```
 type DeviceAssuranceMacos struct {
 	pulumi.CustomResourceState
 

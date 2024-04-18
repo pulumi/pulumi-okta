@@ -11,6 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieve the default signin page of a brand
 func GetDefaultSigninPage(ctx *pulumi.Context, args *GetDefaultSigninPageArgs, opts ...pulumi.InvokeOption) (*GetDefaultSigninPageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDefaultSigninPageResult
@@ -23,6 +24,7 @@ func GetDefaultSigninPage(ctx *pulumi.Context, args *GetDefaultSigninPageArgs, o
 
 // A collection of arguments for invoking getDefaultSigninPage.
 type GetDefaultSigninPageArgs struct {
+	// brand id of the preview signin page
 	BrandId                      string                                            `pulumi:"brandId"`
 	ContentSecurityPolicySetting *GetDefaultSigninPageContentSecurityPolicySetting `pulumi:"contentSecurityPolicySetting"`
 	WidgetCustomizations         *GetDefaultSigninPageWidgetCustomizations         `pulumi:"widgetCustomizations"`
@@ -30,12 +32,16 @@ type GetDefaultSigninPageArgs struct {
 
 // A collection of values returned by getDefaultSigninPage.
 type GetDefaultSigninPageResult struct {
+	// brand id of the preview signin page
 	BrandId                      string                                            `pulumi:"brandId"`
 	ContentSecurityPolicySetting *GetDefaultSigninPageContentSecurityPolicySetting `pulumi:"contentSecurityPolicySetting"`
-	Id                           string                                            `pulumi:"id"`
-	PageContent                  string                                            `pulumi:"pageContent"`
-	WidgetCustomizations         *GetDefaultSigninPageWidgetCustomizations         `pulumi:"widgetCustomizations"`
-	WidgetVersion                string                                            `pulumi:"widgetVersion"`
+	// placeholder id
+	Id string `pulumi:"id"`
+	// page content of the preview signin page
+	PageContent          string                                    `pulumi:"pageContent"`
+	WidgetCustomizations *GetDefaultSigninPageWidgetCustomizations `pulumi:"widgetCustomizations"`
+	// widget version specified as a Semver
+	WidgetVersion string `pulumi:"widgetVersion"`
 }
 
 func GetDefaultSigninPageOutput(ctx *pulumi.Context, args GetDefaultSigninPageOutputArgs, opts ...pulumi.InvokeOption) GetDefaultSigninPageResultOutput {
@@ -53,6 +59,7 @@ func GetDefaultSigninPageOutput(ctx *pulumi.Context, args GetDefaultSigninPageOu
 
 // A collection of arguments for invoking getDefaultSigninPage.
 type GetDefaultSigninPageOutputArgs struct {
+	// brand id of the preview signin page
 	BrandId                      pulumi.StringInput                                       `pulumi:"brandId"`
 	ContentSecurityPolicySetting GetDefaultSigninPageContentSecurityPolicySettingPtrInput `pulumi:"contentSecurityPolicySetting"`
 	WidgetCustomizations         GetDefaultSigninPageWidgetCustomizationsPtrInput         `pulumi:"widgetCustomizations"`
@@ -77,6 +84,7 @@ func (o GetDefaultSigninPageResultOutput) ToGetDefaultSigninPageResultOutputWith
 	return o
 }
 
+// brand id of the preview signin page
 func (o GetDefaultSigninPageResultOutput) BrandId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDefaultSigninPageResult) string { return v.BrandId }).(pulumi.StringOutput)
 }
@@ -87,10 +95,12 @@ func (o GetDefaultSigninPageResultOutput) ContentSecurityPolicySetting() GetDefa
 	}).(GetDefaultSigninPageContentSecurityPolicySettingPtrOutput)
 }
 
+// placeholder id
 func (o GetDefaultSigninPageResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDefaultSigninPageResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// page content of the preview signin page
 func (o GetDefaultSigninPageResultOutput) PageContent() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDefaultSigninPageResult) string { return v.PageContent }).(pulumi.StringOutput)
 }
@@ -101,6 +111,7 @@ func (o GetDefaultSigninPageResultOutput) WidgetCustomizations() GetDefaultSigni
 	}).(GetDefaultSigninPageWidgetCustomizationsPtrOutput)
 }
 
+// widget version specified as a Semver
 func (o GetDefaultSigninPageResultOutput) WidgetVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDefaultSigninPageResult) string { return v.WidgetVersion }).(pulumi.StringOutput)
 }

@@ -741,7 +741,14 @@ class DeviceAssuranceMacos(pulumi.CustomResource):
                  tpsp_site_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a DeviceAssuranceMacos resource with the given unique name, props, and options.
+        Manages a device assurance policy for macos.
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos example &#60;device assurance id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
@@ -771,7 +778,14 @@ class DeviceAssuranceMacos(pulumi.CustomResource):
                  args: Optional[DeviceAssuranceMacosArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DeviceAssuranceMacos resource with the given unique name, props, and options.
+        Manages a device assurance policy for macos.
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos example &#60;device assurance id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param DeviceAssuranceMacosArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

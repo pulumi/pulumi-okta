@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Policy
 {
+    /// <summary>
+    /// Manages a device assurance policy for android.
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example &amp;#60;device assurance id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid")]
     public partial class DeviceAssuranceAndroid : global::Pulumi.CustomResource
     {

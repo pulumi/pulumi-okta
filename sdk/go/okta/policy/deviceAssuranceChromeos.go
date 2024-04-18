@@ -11,6 +11,54 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a device assurance policy for chromeos.
+//
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := policy.NewDeviceAssuranceChromeos(ctx, "example", &policy.DeviceAssuranceChromeosArgs{
+//				TpspAllowScreenLock:                   pulumi.Bool(true),
+//				TpspBrowserVersion:                    pulumi.String("15393.27.0"),
+//				TpspBuiltinDnsClientEnabled:           pulumi.Bool(true),
+//				TpspChromeRemoteDesktopAppBlocked:     pulumi.Bool(true),
+//				TpspDeviceEnrollmentDomain:            pulumi.String("exampleDomain"),
+//				TpspDiskEncrypted:                     pulumi.Bool(true),
+//				TpspKeyTrustLevel:                     pulumi.String("CHROME_OS_VERIFIED_MODE"),
+//				TpspOsFirewall:                        pulumi.Bool(true),
+//				TpspOsVersion:                         pulumi.String("10.0.19041.1110"),
+//				TpspPasswordProctectionWarningTrigger: pulumi.String("PASSWORD_PROTECTION_OFF"),
+//				TpspRealtimeUrlCheckMode:              pulumi.Bool(true),
+//				TpspSafeBrowsingProtectionLevel:       pulumi.String("ENHANCED_PROTECTION"),
+//				TpspScreenLockSecured:                 pulumi.Bool(true),
+//				TpspSiteIsolationEnabled:              pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Import
+//
+// ```sh
+// $ pulumi import okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos example &#60;device assurance id&#62;
+// ```
 type DeviceAssuranceChromeos struct {
 	pulumi.CustomResourceState
 

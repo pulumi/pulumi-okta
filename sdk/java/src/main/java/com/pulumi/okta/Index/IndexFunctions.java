@@ -23,15 +23,31 @@ import com.pulumi.okta.Utilities;
 import java.util.concurrent.CompletableFuture;
 
 public final class IndexFunctions {
+    /**
+     * Retrieve the default signin page of a brand
+     * 
+     */
     public static Output<GetDefaultSigninPageResult> getDefaultSigninPage(GetDefaultSigninPageArgs args) {
         return getDefaultSigninPage(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve the default signin page of a brand
+     * 
+     */
     public static CompletableFuture<GetDefaultSigninPageResult> getDefaultSigninPagePlain(GetDefaultSigninPagePlainArgs args) {
         return getDefaultSigninPagePlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve the default signin page of a brand
+     * 
+     */
     public static Output<GetDefaultSigninPageResult> getDefaultSigninPage(GetDefaultSigninPageArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:Index/getDefaultSigninPage:getDefaultSigninPage", TypeShape.of(GetDefaultSigninPageResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieve the default signin page of a brand
+     * 
+     */
     public static CompletableFuture<GetDefaultSigninPageResult> getDefaultSigninPagePlain(GetDefaultSigninPagePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:Index/getDefaultSigninPage:getDefaultSigninPage", TypeShape.of(GetDefaultSigninPageResult.class), args, Utilities.withVersion(options));
     }

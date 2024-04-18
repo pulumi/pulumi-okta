@@ -11,6 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a device assurance policy for android.
+//
+// ## Import
+//
+// ```sh
+// $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example &#60;device assurance id&#62;
+// ```
 type DeviceAssuranceAndroid struct {
 	pulumi.CustomResourceState
 

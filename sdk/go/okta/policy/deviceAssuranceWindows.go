@@ -11,6 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a device assurance policy for windows.
+//
+// ## Import
+//
+// ```sh
+// $ pulumi import okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows example &#60;device assurance id&#62;
+// ```
 type DeviceAssuranceWindows struct {
 	pulumi.CustomResourceState
 
