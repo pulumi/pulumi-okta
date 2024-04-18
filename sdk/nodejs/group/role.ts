@@ -71,7 +71,7 @@ export class Role extends pulumi.CustomResource {
     public readonly groupId!: pulumi.Output<string>;
     /**
      * Admin role assigned to the group. It can be any one of the following values:
-     * `"API_ADMIN"`,
+     * `"API_ACCESS_MANAGEMENT_ADMIN"`,
      * `"APP_ADMIN"`,
      * `"CUSTOM"`,
      * `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -153,7 +153,7 @@ export interface RoleState {
     groupId?: pulumi.Input<string>;
     /**
      * Admin role assigned to the group. It can be any one of the following values:
-     * `"API_ADMIN"`,
+     * `"API_ACCESS_MANAGEMENT_ADMIN"`,
      * `"APP_ADMIN"`,
      * `"CUSTOM"`,
      * `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -199,7 +199,7 @@ export interface RoleArgs {
     groupId: pulumi.Input<string>;
     /**
      * Admin role assigned to the group. It can be any one of the following values:
-     * `"API_ADMIN"`,
+     * `"API_ACCESS_MANAGEMENT_ADMIN"`,
      * `"APP_ADMIN"`,
      * `"CUSTOM"`,
      * `"GROUP_MEMBERSHIP_ADMIN"`,

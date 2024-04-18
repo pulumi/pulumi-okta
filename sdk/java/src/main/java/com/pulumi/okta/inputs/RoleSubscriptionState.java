@@ -58,7 +58,7 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
 
     /**
      * Type of the role. Valid values:
-     * `&#34;API_ADMIN&#34;`,
+     * `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`,
      * `&#34;APP_ADMIN&#34;`,
      * `&#34;CUSTOM&#34;`,
      * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
@@ -77,7 +77,7 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
 
     /**
      * @return Type of the role. Valid values:
-     * `&#34;API_ADMIN&#34;`,
+     * `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`,
      * `&#34;APP_ADMIN&#34;`,
      * `&#34;CUSTOM&#34;`,
      * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
@@ -185,7 +185,7 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param roleType Type of the role. Valid values:
-         * `&#34;API_ADMIN&#34;`,
+         * `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`,
          * `&#34;APP_ADMIN&#34;`,
          * `&#34;CUSTOM&#34;`,
          * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
@@ -208,7 +208,7 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param roleType Type of the role. Valid values:
-         * `&#34;API_ADMIN&#34;`,
+         * `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`,
          * `&#34;APP_ADMIN&#34;`,
          * `&#34;CUSTOM&#34;`,
          * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,

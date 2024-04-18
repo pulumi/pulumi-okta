@@ -18,9 +18,9 @@ type DeviceAssuranceAndroid struct {
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
 	// Created date
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// List of disk encryption type, can be FULL, USER
+	// List of disk encryption type, can be `FULL`, `USER`
 	DiskEncryptionTypes pulumi.StringArrayOutput `pulumi:"diskEncryptionTypes"`
-	// The device jailbreak. Only for android and iOS platform
+	// Is the device jailbroken in the device assurance policy.
 	Jailbreak pulumi.BoolPtrOutput `pulumi:"jailbreak"`
 	// Last update
 	LastUpdate pulumi.StringOutput `pulumi:"lastUpdate"`
@@ -28,13 +28,13 @@ type DeviceAssuranceAndroid struct {
 	LastUpdatedBy pulumi.StringOutput `pulumi:"lastUpdatedBy"`
 	// Policy device assurance name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The device os minimum version
+	// Minimum os version of the device in the device assurance policy.
 	OsVersion pulumi.StringPtrOutput `pulumi:"osVersion"`
 	// Policy device assurance platform
 	Platform pulumi.StringOutput `pulumi:"platform"`
-	// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+	// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 	ScreenlockTypes pulumi.StringArrayOutput `pulumi:"screenlockTypes"`
-	// Indicates if the device constains a secure hardware functionality
+	// Indicates if the device contains a secure hardware functionality
 	SecureHardwarePresent pulumi.BoolPtrOutput `pulumi:"secureHardwarePresent"`
 }
 
@@ -72,9 +72,9 @@ type deviceAssuranceAndroidState struct {
 	CreatedBy *string `pulumi:"createdBy"`
 	// Created date
 	CreatedDate *string `pulumi:"createdDate"`
-	// List of disk encryption type, can be FULL, USER
+	// List of disk encryption type, can be `FULL`, `USER`
 	DiskEncryptionTypes []string `pulumi:"diskEncryptionTypes"`
-	// The device jailbreak. Only for android and iOS platform
+	// Is the device jailbroken in the device assurance policy.
 	Jailbreak *bool `pulumi:"jailbreak"`
 	// Last update
 	LastUpdate *string `pulumi:"lastUpdate"`
@@ -82,13 +82,13 @@ type deviceAssuranceAndroidState struct {
 	LastUpdatedBy *string `pulumi:"lastUpdatedBy"`
 	// Policy device assurance name
 	Name *string `pulumi:"name"`
-	// The device os minimum version
+	// Minimum os version of the device in the device assurance policy.
 	OsVersion *string `pulumi:"osVersion"`
 	// Policy device assurance platform
 	Platform *string `pulumi:"platform"`
-	// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+	// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 	ScreenlockTypes []string `pulumi:"screenlockTypes"`
-	// Indicates if the device constains a secure hardware functionality
+	// Indicates if the device contains a secure hardware functionality
 	SecureHardwarePresent *bool `pulumi:"secureHardwarePresent"`
 }
 
@@ -97,9 +97,9 @@ type DeviceAssuranceAndroidState struct {
 	CreatedBy pulumi.StringPtrInput
 	// Created date
 	CreatedDate pulumi.StringPtrInput
-	// List of disk encryption type, can be FULL, USER
+	// List of disk encryption type, can be `FULL`, `USER`
 	DiskEncryptionTypes pulumi.StringArrayInput
-	// The device jailbreak. Only for android and iOS platform
+	// Is the device jailbroken in the device assurance policy.
 	Jailbreak pulumi.BoolPtrInput
 	// Last update
 	LastUpdate pulumi.StringPtrInput
@@ -107,13 +107,13 @@ type DeviceAssuranceAndroidState struct {
 	LastUpdatedBy pulumi.StringPtrInput
 	// Policy device assurance name
 	Name pulumi.StringPtrInput
-	// The device os minimum version
+	// Minimum os version of the device in the device assurance policy.
 	OsVersion pulumi.StringPtrInput
 	// Policy device assurance platform
 	Platform pulumi.StringPtrInput
-	// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+	// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 	ScreenlockTypes pulumi.StringArrayInput
-	// Indicates if the device constains a secure hardware functionality
+	// Indicates if the device contains a secure hardware functionality
 	SecureHardwarePresent pulumi.BoolPtrInput
 }
 
@@ -122,33 +122,33 @@ func (DeviceAssuranceAndroidState) ElementType() reflect.Type {
 }
 
 type deviceAssuranceAndroidArgs struct {
-	// List of disk encryption type, can be FULL, USER
+	// List of disk encryption type, can be `FULL`, `USER`
 	DiskEncryptionTypes []string `pulumi:"diskEncryptionTypes"`
-	// The device jailbreak. Only for android and iOS platform
+	// Is the device jailbroken in the device assurance policy.
 	Jailbreak *bool `pulumi:"jailbreak"`
 	// Policy device assurance name
 	Name *string `pulumi:"name"`
-	// The device os minimum version
+	// Minimum os version of the device in the device assurance policy.
 	OsVersion *string `pulumi:"osVersion"`
-	// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+	// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 	ScreenlockTypes []string `pulumi:"screenlockTypes"`
-	// Indicates if the device constains a secure hardware functionality
+	// Indicates if the device contains a secure hardware functionality
 	SecureHardwarePresent *bool `pulumi:"secureHardwarePresent"`
 }
 
 // The set of arguments for constructing a DeviceAssuranceAndroid resource.
 type DeviceAssuranceAndroidArgs struct {
-	// List of disk encryption type, can be FULL, USER
+	// List of disk encryption type, can be `FULL`, `USER`
 	DiskEncryptionTypes pulumi.StringArrayInput
-	// The device jailbreak. Only for android and iOS platform
+	// Is the device jailbroken in the device assurance policy.
 	Jailbreak pulumi.BoolPtrInput
 	// Policy device assurance name
 	Name pulumi.StringPtrInput
-	// The device os minimum version
+	// Minimum os version of the device in the device assurance policy.
 	OsVersion pulumi.StringPtrInput
-	// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+	// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 	ScreenlockTypes pulumi.StringArrayInput
-	// Indicates if the device constains a secure hardware functionality
+	// Indicates if the device contains a secure hardware functionality
 	SecureHardwarePresent pulumi.BoolPtrInput
 }
 
@@ -249,12 +249,12 @@ func (o DeviceAssuranceAndroidOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceAssuranceAndroid) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// List of disk encryption type, can be FULL, USER
+// List of disk encryption type, can be `FULL`, `USER`
 func (o DeviceAssuranceAndroidOutput) DiskEncryptionTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeviceAssuranceAndroid) pulumi.StringArrayOutput { return v.DiskEncryptionTypes }).(pulumi.StringArrayOutput)
 }
 
-// The device jailbreak. Only for android and iOS platform
+// Is the device jailbroken in the device assurance policy.
 func (o DeviceAssuranceAndroidOutput) Jailbreak() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeviceAssuranceAndroid) pulumi.BoolPtrOutput { return v.Jailbreak }).(pulumi.BoolPtrOutput)
 }
@@ -274,7 +274,7 @@ func (o DeviceAssuranceAndroidOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceAssuranceAndroid) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The device os minimum version
+// Minimum os version of the device in the device assurance policy.
 func (o DeviceAssuranceAndroidOutput) OsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceAssuranceAndroid) pulumi.StringPtrOutput { return v.OsVersion }).(pulumi.StringPtrOutput)
 }
@@ -284,12 +284,12 @@ func (o DeviceAssuranceAndroidOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceAssuranceAndroid) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
-// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 func (o DeviceAssuranceAndroidOutput) ScreenlockTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeviceAssuranceAndroid) pulumi.StringArrayOutput { return v.ScreenlockTypes }).(pulumi.StringArrayOutput)
 }
 
-// Indicates if the device constains a secure hardware functionality
+// Indicates if the device contains a secure hardware functionality
 func (o DeviceAssuranceAndroidOutput) SecureHardwarePresent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeviceAssuranceAndroid) pulumi.BoolPtrOutput { return v.SecureHardwarePresent }).(pulumi.BoolPtrOutput)
 }

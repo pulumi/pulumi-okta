@@ -350,7 +350,7 @@ type Saml struct {
 	SamlVersion pulumi.StringPtrOutput `pulumi:"samlVersion"`
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
-	// Signature algorithm used ot digitally sign the assertion and response.
+	// Signature algorithm used to digitally sign the assertion and response.
 	SignatureAlgorithm pulumi.StringPtrOutput `pulumi:"signatureAlgorithm"`
 	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
 	SingleLogoutCertificate pulumi.StringPtrOutput `pulumi:"singleLogoutCertificate"`
@@ -505,7 +505,7 @@ type samlState struct {
 	SamlVersion *string `pulumi:"samlVersion"`
 	// Sign-on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
-	// Signature algorithm used ot digitally sign the assertion and response.
+	// Signature algorithm used to digitally sign the assertion and response.
 	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
 	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
 	SingleLogoutCertificate *string `pulumi:"singleLogoutCertificate"`
@@ -628,7 +628,7 @@ type SamlState struct {
 	SamlVersion pulumi.StringPtrInput
 	// Sign-on mode of application.
 	SignOnMode pulumi.StringPtrInput
-	// Signature algorithm used ot digitally sign the assertion and response.
+	// Signature algorithm used to digitally sign the assertion and response.
 	SignatureAlgorithm pulumi.StringPtrInput
 	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
 	SingleLogoutCertificate pulumi.StringPtrInput
@@ -727,7 +727,7 @@ type samlArgs struct {
 	SamlSignedRequestEnabled *bool `pulumi:"samlSignedRequestEnabled"`
 	// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
 	SamlVersion *string `pulumi:"samlVersion"`
-	// Signature algorithm used ot digitally sign the assertion and response.
+	// Signature algorithm used to digitally sign the assertion and response.
 	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
 	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
 	SingleLogoutCertificate *string `pulumi:"singleLogoutCertificate"`
@@ -823,7 +823,7 @@ type SamlArgs struct {
 	SamlSignedRequestEnabled pulumi.BoolPtrInput
 	// SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
 	SamlVersion pulumi.StringPtrInput
-	// Signature algorithm used ot digitally sign the assertion and response.
+	// Signature algorithm used to digitally sign the assertion and response.
 	SignatureAlgorithm pulumi.StringPtrInput
 	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
 	SingleLogoutCertificate pulumi.StringPtrInput
@@ -1173,7 +1173,7 @@ func (o SamlOutput) SignOnMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
 }
 
-// Signature algorithm used ot digitally sign the assertion and response.
+// Signature algorithm used to digitally sign the assertion and response.
 func (o SamlOutput) SignatureAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SignatureAlgorithm }).(pulumi.StringPtrOutput)
 }

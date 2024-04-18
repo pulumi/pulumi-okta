@@ -127,14 +127,14 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.adminNote);
     }
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
     @Export(name="appLinksJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appLinksJson;
 
     /**
-     * @return Displays specific appLinks for the app
+     * @return Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
     public Output<Optional<String>> appLinksJson() {

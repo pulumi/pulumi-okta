@@ -284,7 +284,11 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
      * Risc level: `&#34;ANY&#34;`, `&#34;LOW&#34;`, `&#34;MEDIUM&#34;` or `&#34;HIGH&#34;`. Default is `&#34;ANY&#34;`. It can be also
      * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
      * 
+     * @deprecated
+     * Attribute typo, switch to risk_level instead. Default: `ANY`
+     * 
      */
+    @Deprecated /* Attribute typo, switch to risk_level instead. Default: `ANY` */
     @Import(name="riscLevel")
     private @Nullable Output<String> riscLevel;
 
@@ -292,9 +296,28 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
      * @return Risc level: `&#34;ANY&#34;`, `&#34;LOW&#34;`, `&#34;MEDIUM&#34;` or `&#34;HIGH&#34;`. Default is `&#34;ANY&#34;`. It can be also
      * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
      * 
+     * @deprecated
+     * Attribute typo, switch to risk_level instead. Default: `ANY`
+     * 
      */
+    @Deprecated /* Attribute typo, switch to risk_level instead. Default: `ANY` */
     public Optional<Output<String>> riscLevel() {
         return Optional.ofNullable(this.riscLevel);
+    }
+
+    /**
+     * Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+     * 
+     */
+    @Import(name="riskLevel")
+    private @Nullable Output<String> riskLevel;
+
+    /**
+     * @return Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+     * 
+     */
+    public Optional<Output<String>> riskLevel() {
+        return Optional.ofNullable(this.riskLevel);
     }
 
     /**
@@ -393,6 +416,7 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         this.primaryFactor = $.primaryFactor;
         this.priority = $.priority;
         this.riscLevel = $.riscLevel;
+        this.riskLevel = $.riskLevel;
         this.sessionIdle = $.sessionIdle;
         this.sessionLifetime = $.sessionLifetime;
         this.sessionPersistent = $.sessionPersistent;
@@ -837,7 +861,11 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * Attribute typo, switch to risk_level instead. Default: `ANY`
+         * 
          */
+        @Deprecated /* Attribute typo, switch to risk_level instead. Default: `ANY` */
         public Builder riscLevel(@Nullable Output<String> riscLevel) {
             $.riscLevel = riscLevel;
             return this;
@@ -849,9 +877,34 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * Attribute typo, switch to risk_level instead. Default: `ANY`
+         * 
          */
+        @Deprecated /* Attribute typo, switch to risk_level instead. Default: `ANY` */
         public Builder riscLevel(String riscLevel) {
             return riscLevel(Output.of(riscLevel));
+        }
+
+        /**
+         * @param riskLevel Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder riskLevel(@Nullable Output<String> riskLevel) {
+            $.riskLevel = riskLevel;
+            return this;
+        }
+
+        /**
+         * @param riskLevel Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder riskLevel(String riskLevel) {
+            return riskLevel(Output.of(riskLevel));
         }
 
         /**

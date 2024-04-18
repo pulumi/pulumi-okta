@@ -99,7 +99,7 @@ public class Role extends com.pulumi.resources.CustomResource {
     }
     /**
      * Admin role assigned to the group. It can be any one of the following values:
-     * `&#34;API_ADMIN&#34;`,
+     * `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`,
      * `&#34;APP_ADMIN&#34;`,
      * `&#34;CUSTOM&#34;`,
      * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
@@ -120,7 +120,7 @@ public class Role extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Admin role assigned to the group. It can be any one of the following values:
-     * `&#34;API_ADMIN&#34;`,
+     * `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`,
      * `&#34;APP_ADMIN&#34;`,
      * `&#34;CUSTOM&#34;`,
      * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,

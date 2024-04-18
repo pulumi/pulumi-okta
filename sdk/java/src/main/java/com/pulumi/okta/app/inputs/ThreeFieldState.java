@@ -77,14 +77,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Displays specific appLinks for the app
+     * Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
     @Import(name="appLinksJson")
     private @Nullable Output<String> appLinksJson;
 
     /**
-     * @return Displays specific appLinks for the app
+     * @return Displays specific appLinks for the app. The value for each application link should be boolean.
      * 
      */
     public Optional<Output<String>> appLinksJson() {
@@ -604,7 +604,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appLinksJson Displays specific appLinks for the app
+         * @param appLinksJson Displays specific appLinks for the app. The value for each application link should be boolean.
          * 
          * @return builder
          * 
@@ -615,7 +615,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appLinksJson Displays specific appLinks for the app
+         * @param appLinksJson Displays specific appLinks for the app. The value for each application link should be boolean.
          * 
          * @return builder
          * 

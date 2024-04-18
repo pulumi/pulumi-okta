@@ -92,7 +92,8 @@ export class OrgConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly expiresAt!: pulumi.Output<string>;
     /**
-     * Local path to logo of the org.
+     * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+     * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
@@ -223,7 +224,8 @@ export interface OrgConfigurationState {
      */
     expiresAt?: pulumi.Input<string>;
     /**
-     * Local path to logo of the org.
+     * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+     * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -293,7 +295,8 @@ export interface OrgConfigurationArgs {
      */
     endUserSupportHelpUrl?: pulumi.Input<string>;
     /**
-     * Local path to logo of the org.
+     * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+     * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      */
     logo?: pulumi.Input<string>;
     /**

@@ -54,7 +54,7 @@ class ThreeFieldArgs:
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
@@ -255,7 +255,7 @@ class ThreeFieldArgs:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -483,7 +483,7 @@ class _ThreeFieldState:
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_selector: Login button field CSS selector.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
@@ -623,7 +623,7 @@ class _ThreeFieldState:
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
@@ -986,7 +986,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_selector: Login button field CSS selector.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
@@ -1177,7 +1177,7 @@ class ThreeField(pulumi.CustomResource):
         :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
         :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
         :param pulumi.Input[str] admin_note: Application notes for admins.
-        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app
+        :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
         :param pulumi.Input[str] button_selector: Login button field CSS selector.
         :param pulumi.Input[str] credentials_scheme: Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
@@ -1276,7 +1276,7 @@ class ThreeField(pulumi.CustomResource):
     @pulumi.getter(name="appLinksJson")
     def app_links_json(self) -> pulumi.Output[Optional[str]]:
         """
-        Displays specific appLinks for the app
+        Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 

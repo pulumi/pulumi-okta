@@ -48,14 +48,14 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of disk encryption type, can be FULL, USER
+     * List of disk encryption type, can be `FULL`, `USER`
      * 
      */
     @Import(name="diskEncryptionTypes")
     private @Nullable Output<List<String>> diskEncryptionTypes;
 
     /**
-     * @return List of disk encryption type, can be FULL, USER
+     * @return List of disk encryption type, can be `FULL`, `USER`
      * 
      */
     public Optional<Output<List<String>>> diskEncryptionTypes() {
@@ -63,14 +63,14 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The device jailbreak. Only for android and iOS platform
+     * Is the device jailbroken in the device assurance policy.
      * 
      */
     @Import(name="jailbreak")
     private @Nullable Output<Boolean> jailbreak;
 
     /**
-     * @return The device jailbreak. Only for android and iOS platform
+     * @return Is the device jailbroken in the device assurance policy.
      * 
      */
     public Optional<Output<Boolean>> jailbreak() {
@@ -123,14 +123,14 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The device os minimum version
+     * Minimum os version of the device in the device assurance policy.
      * 
      */
     @Import(name="osVersion")
     private @Nullable Output<String> osVersion;
 
     /**
-     * @return The device os minimum version
+     * @return Minimum os version of the device in the device assurance policy.
      * 
      */
     public Optional<Output<String>> osVersion() {
@@ -153,14 +153,14 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      * 
      */
     @Import(name="screenlockTypes")
     private @Nullable Output<List<String>> screenlockTypes;
 
     /**
-     * @return List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * @return List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      * 
      */
     public Optional<Output<List<String>>> screenlockTypes() {
@@ -168,14 +168,14 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Indicates if the device constains a secure hardware functionality
+     * Indicates if the device contains a secure hardware functionality
      * 
      */
     @Import(name="secureHardwarePresent")
     private @Nullable Output<Boolean> secureHardwarePresent;
 
     /**
-     * @return Indicates if the device constains a secure hardware functionality
+     * @return Indicates if the device contains a secure hardware functionality
      * 
      */
     public Optional<Output<Boolean>> secureHardwarePresent() {
@@ -259,7 +259,7 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param diskEncryptionTypes List of disk encryption type, can be FULL, USER
+         * @param diskEncryptionTypes List of disk encryption type, can be `FULL`, `USER`
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param diskEncryptionTypes List of disk encryption type, can be FULL, USER
+         * @param diskEncryptionTypes List of disk encryption type, can be `FULL`, `USER`
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param diskEncryptionTypes List of disk encryption type, can be FULL, USER
+         * @param diskEncryptionTypes List of disk encryption type, can be `FULL`, `USER`
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param jailbreak The device jailbreak. Only for android and iOS platform
+         * @param jailbreak Is the device jailbroken in the device assurance policy.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param jailbreak The device jailbreak. Only for android and iOS platform
+         * @param jailbreak Is the device jailbroken in the device assurance policy.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param osVersion The device os minimum version
+         * @param osVersion Minimum os version of the device in the device assurance policy.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param osVersion The device os minimum version
+         * @param osVersion Minimum os version of the device in the device assurance policy.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param screenlockTypes List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+         * @param screenlockTypes List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param screenlockTypes List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+         * @param screenlockTypes List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param screenlockTypes List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+         * @param screenlockTypes List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param secureHardwarePresent Indicates if the device constains a secure hardware functionality
+         * @param secureHardwarePresent Indicates if the device contains a secure hardware functionality
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class DeviceAssuranceAndroidState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param secureHardwarePresent Indicates if the device constains a secure hardware functionality
+         * @param secureHardwarePresent Indicates if the device contains a secure hardware functionality
          * 
          * @return builder
          * 

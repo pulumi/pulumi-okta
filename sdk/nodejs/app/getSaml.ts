@@ -199,7 +199,7 @@ export interface GetSamlResult {
      */
     readonly samlSignedRequestEnabled: boolean;
     /**
-     * Signature algorithm used ot digitally sign the assertion and response.
+     * Signature algorithm used to digitally sign the assertion and response.
      */
     readonly signatureAlgorithm: string;
     /**

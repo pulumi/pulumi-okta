@@ -337,28 +337,28 @@ public class AppUserSchemaProperty extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.union);
     }
     /**
-     * Subschema unique restriction
+     * Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
      * 
      */
     @Export(name="unique", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> unique;
 
     /**
-     * @return Subschema unique restriction
+     * @return Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
      * 
      */
     public Output<Optional<String>> unique() {
         return Codegen.optional(this.unique);
     }
     /**
-     * Custom subschema user type
+     * User type ID. By default, it is `default`
      * 
      */
     @Export(name="userType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userType;
 
     /**
-     * @return Custom subschema user type
+     * @return User type ID. By default, it is `default`
      * 
      */
     public Output<Optional<String>> userType() {

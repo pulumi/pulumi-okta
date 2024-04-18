@@ -169,7 +169,11 @@ type RuleSignon struct {
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
 	// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+	//
+	// Deprecated: Attribute typo, switch to riskLevel instead. Default: `ANY`
 	RiscLevel pulumi.StringPtrOutput `pulumi:"riscLevel"`
+	// Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+	RiskLevel pulumi.StringPtrOutput `pulumi:"riskLevel"`
 	// Max minutes a session can be idle.,
 	SessionIdle pulumi.IntPtrOutput `pulumi:"sessionIdle"`
 	// Max minutes a session is active: Disable = 0.
@@ -251,7 +255,11 @@ type ruleSignonState struct {
 	Priority *int `pulumi:"priority"`
 	// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
 	// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+	//
+	// Deprecated: Attribute typo, switch to riskLevel instead. Default: `ANY`
 	RiscLevel *string `pulumi:"riscLevel"`
+	// Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+	RiskLevel *string `pulumi:"riskLevel"`
 	// Max minutes a session can be idle.,
 	SessionIdle *int `pulumi:"sessionIdle"`
 	// Max minutes a session is active: Disable = 0.
@@ -304,7 +312,11 @@ type RuleSignonState struct {
 	Priority pulumi.IntPtrInput
 	// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
 	// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+	//
+	// Deprecated: Attribute typo, switch to riskLevel instead. Default: `ANY`
 	RiscLevel pulumi.StringPtrInput
+	// Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+	RiskLevel pulumi.StringPtrInput
 	// Max minutes a session can be idle.,
 	SessionIdle pulumi.IntPtrInput
 	// Max minutes a session is active: Disable = 0.
@@ -361,7 +373,11 @@ type ruleSignonArgs struct {
 	Priority *int `pulumi:"priority"`
 	// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
 	// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+	//
+	// Deprecated: Attribute typo, switch to riskLevel instead. Default: `ANY`
 	RiscLevel *string `pulumi:"riscLevel"`
+	// Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+	RiskLevel *string `pulumi:"riskLevel"`
 	// Max minutes a session can be idle.,
 	SessionIdle *int `pulumi:"sessionIdle"`
 	// Max minutes a session is active: Disable = 0.
@@ -415,7 +431,11 @@ type RuleSignonArgs struct {
 	Priority pulumi.IntPtrInput
 	// Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
 	// set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+	//
+	// Deprecated: Attribute typo, switch to riskLevel instead. Default: `ANY`
 	RiscLevel pulumi.StringPtrInput
+	// Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+	RiskLevel pulumi.StringPtrInput
 	// Max minutes a session can be idle.,
 	SessionIdle pulumi.IntPtrInput
 	// Max minutes a session is active: Disable = 0.
@@ -605,8 +625,15 @@ func (o RuleSignonOutput) Priority() pulumi.IntPtrOutput {
 
 // Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also
 // set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+//
+// Deprecated: Attribute typo, switch to riskLevel instead. Default: `ANY`
 func (o RuleSignonOutput) RiscLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleSignon) pulumi.StringPtrOutput { return v.RiscLevel }).(pulumi.StringPtrOutput)
+}
+
+// Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+func (o RuleSignonOutput) RiskLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringPtrOutput { return v.RiskLevel }).(pulumi.StringPtrOutput)
 }
 
 // Max minutes a session can be idle.,

@@ -35,11 +35,11 @@ class DeviceAssuranceMacosArgs:
                  tpsp_site_isolation_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a DeviceAssuranceMacos resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be ALL_INTERNAL_VOLUMES
-        :param pulumi.Input[str] name: Policy device assurance name
-        :param pulumi.Input[str] os_version: The device os minimum version
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
-        :param pulumi.Input[bool] secure_hardware_present: Indicates if the device constains a secure hardware functionality
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
+        :param pulumi.Input[str] name: Name of the device assurance policy.
+        :param pulumi.Input[str] os_version: Minimum os version of the device in the device assurance policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
+        :param pulumi.Input[bool] secure_hardware_present: Is the device secure with hardware in the device assurance policy.
         :param pulumi.Input[bool] third_party_signal_providers: Check to include third party signal provider
         :param pulumi.Input[str] tpsp_browser_version: Third party signal provider minimum browser version
         :param pulumi.Input[bool] tpsp_builtin_dns_client_enabled: Third party signal provider builtin dns client enable
@@ -98,7 +98,7 @@ class DeviceAssuranceMacosArgs:
     @pulumi.getter(name="diskEncryptionTypes")
     def disk_encryption_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+        List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
         """
         return pulumi.get(self, "disk_encryption_types")
 
@@ -110,7 +110,7 @@ class DeviceAssuranceMacosArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy device assurance name
+        Name of the device assurance policy.
         """
         return pulumi.get(self, "name")
 
@@ -122,7 +122,7 @@ class DeviceAssuranceMacosArgs:
     @pulumi.getter(name="osVersion")
     def os_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The device os minimum version
+        Minimum os version of the device in the device assurance policy.
         """
         return pulumi.get(self, "os_version")
 
@@ -134,7 +134,7 @@ class DeviceAssuranceMacosArgs:
     @pulumi.getter(name="screenlockTypes")
     def screenlock_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         """
         return pulumi.get(self, "screenlock_types")
 
@@ -146,7 +146,7 @@ class DeviceAssuranceMacosArgs:
     @pulumi.getter(name="secureHardwarePresent")
     def secure_hardware_present(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates if the device constains a secure hardware functionality
+        Is the device secure with hardware in the device assurance policy.
         """
         return pulumi.get(self, "secure_hardware_present")
 
@@ -354,14 +354,14 @@ class _DeviceAssuranceMacosState:
         Input properties used for looking up and filtering DeviceAssuranceMacos resources.
         :param pulumi.Input[str] created_by: Created by
         :param pulumi.Input[str] created_date: Created date
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
         :param pulumi.Input[str] last_update: Last update
         :param pulumi.Input[str] last_updated_by: Last updated by
-        :param pulumi.Input[str] name: Policy device assurance name
-        :param pulumi.Input[str] os_version: The device os minimum version
+        :param pulumi.Input[str] name: Name of the device assurance policy.
+        :param pulumi.Input[str] os_version: Minimum os version of the device in the device assurance policy.
         :param pulumi.Input[str] platform: Policy device assurance platform
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
-        :param pulumi.Input[bool] secure_hardware_present: Indicates if the device constains a secure hardware functionality
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
+        :param pulumi.Input[bool] secure_hardware_present: Is the device secure with hardware in the device assurance policy.
         :param pulumi.Input[bool] third_party_signal_providers: Check to include third party signal provider
         :param pulumi.Input[str] tpsp_browser_version: Third party signal provider minimum browser version
         :param pulumi.Input[bool] tpsp_builtin_dns_client_enabled: Third party signal provider builtin dns client enable
@@ -454,7 +454,7 @@ class _DeviceAssuranceMacosState:
     @pulumi.getter(name="diskEncryptionTypes")
     def disk_encryption_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+        List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
         """
         return pulumi.get(self, "disk_encryption_types")
 
@@ -490,7 +490,7 @@ class _DeviceAssuranceMacosState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy device assurance name
+        Name of the device assurance policy.
         """
         return pulumi.get(self, "name")
 
@@ -502,7 +502,7 @@ class _DeviceAssuranceMacosState:
     @pulumi.getter(name="osVersion")
     def os_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The device os minimum version
+        Minimum os version of the device in the device assurance policy.
         """
         return pulumi.get(self, "os_version")
 
@@ -526,7 +526,7 @@ class _DeviceAssuranceMacosState:
     @pulumi.getter(name="screenlockTypes")
     def screenlock_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         """
         return pulumi.get(self, "screenlock_types")
 
@@ -538,7 +538,7 @@ class _DeviceAssuranceMacosState:
     @pulumi.getter(name="secureHardwarePresent")
     def secure_hardware_present(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates if the device constains a secure hardware functionality
+        Is the device secure with hardware in the device assurance policy.
         """
         return pulumi.get(self, "secure_hardware_present")
 
@@ -744,11 +744,11 @@ class DeviceAssuranceMacos(pulumi.CustomResource):
         Create a DeviceAssuranceMacos resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be ALL_INTERNAL_VOLUMES
-        :param pulumi.Input[str] name: Policy device assurance name
-        :param pulumi.Input[str] os_version: The device os minimum version
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
-        :param pulumi.Input[bool] secure_hardware_present: Indicates if the device constains a secure hardware functionality
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
+        :param pulumi.Input[str] name: Name of the device assurance policy.
+        :param pulumi.Input[str] os_version: Minimum os version of the device in the device assurance policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
+        :param pulumi.Input[bool] secure_hardware_present: Is the device secure with hardware in the device assurance policy.
         :param pulumi.Input[bool] third_party_signal_providers: Check to include third party signal provider
         :param pulumi.Input[str] tpsp_browser_version: Third party signal provider minimum browser version
         :param pulumi.Input[bool] tpsp_builtin_dns_client_enabled: Third party signal provider builtin dns client enable
@@ -882,14 +882,14 @@ class DeviceAssuranceMacos(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_by: Created by
         :param pulumi.Input[str] created_date: Created date
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
         :param pulumi.Input[str] last_update: Last update
         :param pulumi.Input[str] last_updated_by: Last updated by
-        :param pulumi.Input[str] name: Policy device assurance name
-        :param pulumi.Input[str] os_version: The device os minimum version
+        :param pulumi.Input[str] name: Name of the device assurance policy.
+        :param pulumi.Input[str] os_version: Minimum os version of the device in the device assurance policy.
         :param pulumi.Input[str] platform: Policy device assurance platform
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
-        :param pulumi.Input[bool] secure_hardware_present: Indicates if the device constains a secure hardware functionality
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
+        :param pulumi.Input[bool] secure_hardware_present: Is the device secure with hardware in the device assurance policy.
         :param pulumi.Input[bool] third_party_signal_providers: Check to include third party signal provider
         :param pulumi.Input[str] tpsp_browser_version: Third party signal provider minimum browser version
         :param pulumi.Input[bool] tpsp_builtin_dns_client_enabled: Third party signal provider builtin dns client enable
@@ -955,7 +955,7 @@ class DeviceAssuranceMacos(pulumi.CustomResource):
     @pulumi.getter(name="diskEncryptionTypes")
     def disk_encryption_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+        List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
         """
         return pulumi.get(self, "disk_encryption_types")
 
@@ -979,7 +979,7 @@ class DeviceAssuranceMacos(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Policy device assurance name
+        Name of the device assurance policy.
         """
         return pulumi.get(self, "name")
 
@@ -987,7 +987,7 @@ class DeviceAssuranceMacos(pulumi.CustomResource):
     @pulumi.getter(name="osVersion")
     def os_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The device os minimum version
+        Minimum os version of the device in the device assurance policy.
         """
         return pulumi.get(self, "os_version")
 
@@ -1003,7 +1003,7 @@ class DeviceAssuranceMacos(pulumi.CustomResource):
     @pulumi.getter(name="screenlockTypes")
     def screenlock_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         """
         return pulumi.get(self, "screenlock_types")
 
@@ -1011,7 +1011,7 @@ class DeviceAssuranceMacos(pulumi.CustomResource):
     @pulumi.getter(name="secureHardwarePresent")
     def secure_hardware_present(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates if the device constains a secure hardware functionality
+        Is the device secure with hardware in the device assurance policy.
         """
         return pulumi.get(self, "secure_hardware_present")
 

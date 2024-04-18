@@ -49,7 +49,7 @@ export class DeviceAssuranceChromeos extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedBy!: pulumi.Output<string>;
     /**
-     * Policy device assurance name
+     * Name of the device assurance policy.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -195,7 +195,7 @@ export interface DeviceAssuranceChromeosState {
      */
     lastUpdatedBy?: pulumi.Input<string>;
     /**
-     * Policy device assurance name
+     * Name of the device assurance policy.
      */
     name?: pulumi.Input<string>;
     /**
@@ -265,7 +265,7 @@ export interface DeviceAssuranceChromeosState {
  */
 export interface DeviceAssuranceChromeosArgs {
     /**
-     * Policy device assurance name
+     * Name of the device assurance policy.
      */
     name?: pulumi.Input<string>;
     /**

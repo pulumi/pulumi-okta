@@ -274,23 +274,6 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
-     * https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
-     * 
-     */
-    @Import(name="pkceRequired")
-    private @Nullable Output<Boolean> pkceRequired;
-
-    /**
-     * @return Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
-     * https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
-     * 
-     */
-    public Optional<Output<Boolean>> pkceRequired() {
-        return Optional.ofNullable(this.pkceRequired);
-    }
-
-    /**
      * Determines if the IdP should act as a source of truth for user profile attributes.
      * 
      */
@@ -557,7 +540,6 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         this.jwksUrl = $.jwksUrl;
         this.maxClockSkew = $.maxClockSkew;
         this.name = $.name;
-        this.pkceRequired = $.pkceRequired;
         this.profileMaster = $.profileMaster;
         this.protocolType = $.protocolType;
         this.provisioningAction = $.provisioningAction;
@@ -980,29 +962,6 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
-        }
-
-        /**
-         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
-         * https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
-         * 
-         * @return builder
-         * 
-         */
-        public Builder pkceRequired(@Nullable Output<Boolean> pkceRequired) {
-            $.pkceRequired = pkceRequired;
-            return this;
-        }
-
-        /**
-         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
-         * https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
-         * 
-         * @return builder
-         * 
-         */
-        public Builder pkceRequired(Boolean pkceRequired) {
-            return pkceRequired(Output.of(pkceRequired));
         }
 
         /**

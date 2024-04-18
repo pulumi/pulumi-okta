@@ -82,6 +82,9 @@ namespace Pulumi.Okta.Inline
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Default to `ACTIVE`
+        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
@@ -185,6 +188,9 @@ namespace Pulumi.Okta.Inline
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Default to `ACTIVE`
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -250,6 +256,9 @@ namespace Pulumi.Okta.Inline
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Default to `ACTIVE`
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

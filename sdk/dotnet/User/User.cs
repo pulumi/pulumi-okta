@@ -126,7 +126,8 @@ namespace Pulumi.Okta.User
         public Output<string> CustomProfileAttributes { get; private set; } = null!;
 
         /// <summary>
-        /// List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+        /// List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
+        /// situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
         /// </summary>
         [Output("customProfileAttributesToIgnores")]
         public Output<ImmutableArray<string>> CustomProfileAttributesToIgnores { get; private set; } = null!;
@@ -448,7 +449,8 @@ namespace Pulumi.Okta.User
         private InputList<string>? _customProfileAttributesToIgnores;
 
         /// <summary>
-        /// List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+        /// List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
+        /// situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
         /// </summary>
         public InputList<string> CustomProfileAttributesToIgnores
         {
@@ -753,7 +755,8 @@ namespace Pulumi.Okta.User
         private InputList<string>? _customProfileAttributesToIgnores;
 
         /// <summary>
-        /// List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+        /// List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
+        /// situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
         /// </summary>
         public InputList<string> CustomProfileAttributesToIgnores
         {

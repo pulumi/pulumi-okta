@@ -74,14 +74,14 @@ public class DeviceAssuranceChromeos extends com.pulumi.resources.CustomResource
         return this.lastUpdatedBy;
     }
     /**
-     * Policy device assurance name
+     * Name of the device assurance policy.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Policy device assurance name
+     * @return Name of the device assurance policy.
      * 
      */
     public Output<String> name() {

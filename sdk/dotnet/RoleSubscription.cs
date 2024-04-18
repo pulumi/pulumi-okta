@@ -68,7 +68,7 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// Type of the role. Valid values:
-        /// `"API_ADMIN"`,
+        /// `"API_ACCESS_MANAGEMENT_ADMIN"`,
         /// `"APP_ADMIN"`,
         /// `"CUSTOM"`,
         /// `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -157,7 +157,7 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// Type of the role. Valid values:
-        /// `"API_ADMIN"`,
+        /// `"API_ACCESS_MANAGEMENT_ADMIN"`,
         /// `"APP_ADMIN"`,
         /// `"CUSTOM"`,
         /// `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -208,7 +208,7 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// Type of the role. Valid values:
-        /// `"API_ADMIN"`,
+        /// `"API_ACCESS_MANAGEMENT_ADMIN"`,
         /// `"APP_ADMIN"`,
         /// `"CUSTOM"`,
         /// `"GROUP_MEMBERSHIP_ADMIN"`,

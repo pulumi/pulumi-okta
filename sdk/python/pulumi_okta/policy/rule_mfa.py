@@ -29,7 +29,10 @@ class RuleMfaArgs:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RuleMfa resource.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]] app_excludes: Applications to exclude
+        :param pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]] app_excludes: Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+               - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+               is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+               of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         :param pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]] app_includes: Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
         :param pulumi.Input[str] enroll: When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
         :param pulumi.Input[str] name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
@@ -68,7 +71,10 @@ class RuleMfaArgs:
     @pulumi.getter(name="appExcludes")
     def app_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]]:
         """
-        Applications to exclude
+        Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+        - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+        is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+        of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         """
         return pulumi.get(self, "app_excludes")
 
@@ -213,7 +219,10 @@ class _RuleMfaState:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering RuleMfa resources.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]] app_excludes: Applications to exclude
+        :param pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]] app_excludes: Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+               - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+               is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+               of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         :param pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]] app_includes: Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
         :param pulumi.Input[str] enroll: When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
         :param pulumi.Input[str] name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
@@ -252,7 +261,10 @@ class _RuleMfaState:
     @pulumi.getter(name="appExcludes")
     def app_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]]:
         """
-        Applications to exclude
+        Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+        - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+        is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+        of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         """
         return pulumi.get(self, "app_excludes")
 
@@ -411,7 +423,10 @@ class RuleMfa(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppExcludeArgs']]]] app_excludes: Applications to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppExcludeArgs']]]] app_excludes: Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+               - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+               is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+               of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppIncludeArgs']]]] app_includes: Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
         :param pulumi.Input[str] enroll: When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
         :param pulumi.Input[str] name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
@@ -514,7 +529,10 @@ class RuleMfa(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppExcludeArgs']]]] app_excludes: Applications to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppExcludeArgs']]]] app_excludes: Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+               - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+               is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+               of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppIncludeArgs']]]] app_includes: Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
         :param pulumi.Input[str] enroll: When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
         :param pulumi.Input[str] name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
@@ -547,7 +565,10 @@ class RuleMfa(pulumi.CustomResource):
     @pulumi.getter(name="appExcludes")
     def app_excludes(self) -> pulumi.Output[Optional[Sequence['outputs.RuleMfaAppExclude']]]:
         """
-        Applications to exclude
+        Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+        - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+        is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+        of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         """
         return pulumi.get(self, "app_excludes")
 

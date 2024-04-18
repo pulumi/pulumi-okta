@@ -34,7 +34,7 @@ class RoleSubscriptionArgs:
                - `"RATELIMIT_NOTIFICATION"` - Rate limit warning and violation.
                - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
         :param pulumi.Input[str] role_type: Type of the role. Valid values:
-               `"API_ADMIN"`,
+               `"API_ACCESS_MANAGEMENT_ADMIN"`,
                `"APP_ADMIN"`,
                `"CUSTOM"`,
                `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -83,7 +83,7 @@ class RoleSubscriptionArgs:
     def role_type(self) -> pulumi.Input[str]:
         """
         Type of the role. Valid values:
-        `"API_ADMIN"`,
+        `"API_ACCESS_MANAGEMENT_ADMIN"`,
         `"APP_ADMIN"`,
         `"CUSTOM"`,
         `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -138,7 +138,7 @@ class _RoleSubscriptionState:
                - `"RATELIMIT_NOTIFICATION"` - Rate limit warning and violation.
                - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
         :param pulumi.Input[str] role_type: Type of the role. Valid values:
-               `"API_ADMIN"`,
+               `"API_ACCESS_MANAGEMENT_ADMIN"`,
                `"APP_ADMIN"`,
                `"CUSTOM"`,
                `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -189,7 +189,7 @@ class _RoleSubscriptionState:
     def role_type(self) -> Optional[pulumi.Input[str]]:
         """
         Type of the role. Valid values:
-        `"API_ADMIN"`,
+        `"API_ACCESS_MANAGEMENT_ADMIN"`,
         `"APP_ADMIN"`,
         `"CUSTOM"`,
         `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -274,7 +274,7 @@ class RoleSubscription(pulumi.CustomResource):
                - `"RATELIMIT_NOTIFICATION"` - Rate limit warning and violation.
                - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
         :param pulumi.Input[str] role_type: Type of the role. Valid values:
-               `"API_ADMIN"`,
+               `"API_ACCESS_MANAGEMENT_ADMIN"`,
                `"APP_ADMIN"`,
                `"CUSTOM"`,
                `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -390,7 +390,7 @@ class RoleSubscription(pulumi.CustomResource):
                - `"RATELIMIT_NOTIFICATION"` - Rate limit warning and violation.
                - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
         :param pulumi.Input[str] role_type: Type of the role. Valid values:
-               `"API_ADMIN"`,
+               `"API_ACCESS_MANAGEMENT_ADMIN"`,
                `"APP_ADMIN"`,
                `"CUSTOM"`,
                `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -439,7 +439,7 @@ class RoleSubscription(pulumi.CustomResource):
     def role_type(self) -> pulumi.Output[str]:
         """
         Type of the role. Valid values:
-        `"API_ADMIN"`,
+        `"API_ACCESS_MANAGEMENT_ADMIN"`,
         `"APP_ADMIN"`,
         `"CUSTOM"`,
         `"GROUP_MEMBERSHIP_ADMIN"`,
