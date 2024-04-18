@@ -141,9 +141,21 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.networkIncludes);
     }
 
+    /**
+     * Platform to include in discovery rule. - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39; - &#39;os_expression -
+     * (Optional) Only available when using os_type = &#39;OTHER&#39; - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;,
+     * &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
+     * 
+     */
     @Import(name="platformIncludes")
     private @Nullable Output<List<RuleIdpDiscoveryPlatformIncludeArgs>> platformIncludes;
 
+    /**
+     * @return Platform to include in discovery rule. - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39; - &#39;os_expression -
+     * (Optional) Only available when using os_type = &#39;OTHER&#39; - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;,
+     * &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
+     * 
+     */
     public Optional<Output<List<RuleIdpDiscoveryPlatformIncludeArgs>>> platformIncludes() {
         return Optional.ofNullable(this.platformIncludes);
     }
@@ -484,15 +496,39 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
             return networkIncludes(List.of(networkIncludes));
         }
 
+        /**
+         * @param platformIncludes Platform to include in discovery rule. - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39; - &#39;os_expression -
+         * (Optional) Only available when using os_type = &#39;OTHER&#39; - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;,
+         * &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
+         * 
+         * @return builder
+         * 
+         */
         public Builder platformIncludes(@Nullable Output<List<RuleIdpDiscoveryPlatformIncludeArgs>> platformIncludes) {
             $.platformIncludes = platformIncludes;
             return this;
         }
 
+        /**
+         * @param platformIncludes Platform to include in discovery rule. - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39; - &#39;os_expression -
+         * (Optional) Only available when using os_type = &#39;OTHER&#39; - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;,
+         * &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
+         * 
+         * @return builder
+         * 
+         */
         public Builder platformIncludes(List<RuleIdpDiscoveryPlatformIncludeArgs> platformIncludes) {
             return platformIncludes(Output.of(platformIncludes));
         }
 
+        /**
+         * @param platformIncludes Platform to include in discovery rule. - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39; - &#39;os_expression -
+         * (Optional) Only available when using os_type = &#39;OTHER&#39; - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;,
+         * &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
+         * 
+         * @return builder
+         * 
+         */
         public Builder platformIncludes(RuleIdpDiscoveryPlatformIncludeArgs... platformIncludes) {
             return platformIncludes(List.of(platformIncludes));
         }

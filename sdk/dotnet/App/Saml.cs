@@ -509,7 +509,7 @@ namespace Pulumi.Okta.App
         public Output<string> SignOnMode { get; private set; } = null!;
 
         /// <summary>
-        /// Signature algorithm used ot digitally sign the assertion and response.
+        /// Signature algorithm used to digitally sign the assertion and response.
         /// </summary>
         [Output("signatureAlgorithm")]
         public Output<string?> SignatureAlgorithm { get; private set; } = null!;
@@ -843,7 +843,7 @@ namespace Pulumi.Okta.App
         public Input<string>? SamlVersion { get; set; }
 
         /// <summary>
-        /// Signature algorithm used ot digitally sign the assertion and response.
+        /// Signature algorithm used to digitally sign the assertion and response.
         /// </summary>
         [Input("signatureAlgorithm")]
         public Input<string>? SignatureAlgorithm { get; set; }
@@ -1235,7 +1235,7 @@ namespace Pulumi.Okta.App
         public Input<string>? SignOnMode { get; set; }
 
         /// <summary>
-        /// Signature algorithm used ot digitally sign the assertion and response.
+        /// Signature algorithm used to digitally sign the assertion and response.
         /// </summary>
         [Input("signatureAlgorithm")]
         public Input<string>? SignatureAlgorithm { get; set; }

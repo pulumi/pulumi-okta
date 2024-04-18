@@ -204,8 +204,14 @@ export class RuleSignon extends pulumi.CustomResource {
     /**
      * Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
      * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+     *
+     * @deprecated Attribute typo, switch to riskLevel instead. Default: `ANY`
      */
     public readonly riscLevel!: pulumi.Output<string | undefined>;
+    /**
+     * Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+     */
+    public readonly riskLevel!: pulumi.Output<string | undefined>;
     /**
      * Max minutes a session can be idle.,
      */
@@ -258,6 +264,7 @@ export class RuleSignon extends pulumi.CustomResource {
             resourceInputs["primaryFactor"] = state ? state.primaryFactor : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["riscLevel"] = state ? state.riscLevel : undefined;
+            resourceInputs["riskLevel"] = state ? state.riskLevel : undefined;
             resourceInputs["sessionIdle"] = state ? state.sessionIdle : undefined;
             resourceInputs["sessionLifetime"] = state ? state.sessionLifetime : undefined;
             resourceInputs["sessionPersistent"] = state ? state.sessionPersistent : undefined;
@@ -283,6 +290,7 @@ export class RuleSignon extends pulumi.CustomResource {
             resourceInputs["primaryFactor"] = args ? args.primaryFactor : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["riscLevel"] = args ? args.riscLevel : undefined;
+            resourceInputs["riskLevel"] = args ? args.riskLevel : undefined;
             resourceInputs["sessionIdle"] = args ? args.sessionIdle : undefined;
             resourceInputs["sessionLifetime"] = args ? args.sessionLifetime : undefined;
             resourceInputs["sessionPersistent"] = args ? args.sessionPersistent : undefined;
@@ -372,8 +380,14 @@ export interface RuleSignonState {
     /**
      * Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
      * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+     *
+     * @deprecated Attribute typo, switch to riskLevel instead. Default: `ANY`
      */
     riscLevel?: pulumi.Input<string>;
+    /**
+     * Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+     */
+    riskLevel?: pulumi.Input<string>;
     /**
      * Max minutes a session can be idle.,
      */
@@ -474,8 +488,14 @@ export interface RuleSignonArgs {
     /**
      * Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
      * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+     *
+     * @deprecated Attribute typo, switch to riskLevel instead. Default: `ANY`
      */
     riscLevel?: pulumi.Input<string>;
+    /**
+     * Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+     */
+    riskLevel?: pulumi.Input<string>;
     /**
      * Max minutes a session can be idle.,
      */

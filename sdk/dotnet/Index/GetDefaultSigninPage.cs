@@ -11,9 +11,15 @@ namespace Pulumi.Okta.Index
 {
     public static class GetDefaultSigninPage
     {
+        /// <summary>
+        /// Retrieve the default signin page of a brand
+        /// </summary>
         public static Task<GetDefaultSigninPageResult> InvokeAsync(GetDefaultSigninPageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultSigninPageResult>("okta:Index/getDefaultSigninPage:getDefaultSigninPage", args ?? new GetDefaultSigninPageArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve the default signin page of a brand
+        /// </summary>
         public static Output<GetDefaultSigninPageResult> Invoke(GetDefaultSigninPageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultSigninPageResult>("okta:Index/getDefaultSigninPage:getDefaultSigninPage", args ?? new GetDefaultSigninPageInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +27,9 @@ namespace Pulumi.Okta.Index
 
     public sealed class GetDefaultSigninPageArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// brand id of the preview signin page
+        /// </summary>
         [Input("brandId", required: true)]
         public string BrandId { get; set; } = null!;
 
@@ -38,6 +47,9 @@ namespace Pulumi.Okta.Index
 
     public sealed class GetDefaultSigninPageInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// brand id of the preview signin page
+        /// </summary>
         [Input("brandId", required: true)]
         public Input<string> BrandId { get; set; } = null!;
 
@@ -57,11 +69,23 @@ namespace Pulumi.Okta.Index
     [OutputType]
     public sealed class GetDefaultSigninPageResult
     {
+        /// <summary>
+        /// brand id of the preview signin page
+        /// </summary>
         public readonly string BrandId;
         public readonly Outputs.GetDefaultSigninPageContentSecurityPolicySettingResult? ContentSecurityPolicySetting;
+        /// <summary>
+        /// placeholder id
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// page content of the preview signin page
+        /// </summary>
         public readonly string PageContent;
         public readonly Outputs.GetDefaultSigninPageWidgetCustomizationsResult? WidgetCustomizations;
+        /// <summary>
+        /// widget version specified as a Semver
+        /// </summary>
         public readonly string WidgetVersion;
 
         [OutputConstructor]

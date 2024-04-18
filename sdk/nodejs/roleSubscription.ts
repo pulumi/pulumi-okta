@@ -79,7 +79,7 @@ export class RoleSubscription extends pulumi.CustomResource {
     public readonly notificationType!: pulumi.Output<string>;
     /**
      * Type of the role. Valid values:
-     * `"API_ADMIN"`,
+     * `"API_ACCESS_MANAGEMENT_ADMIN"`,
      * `"APP_ADMIN"`,
      * `"CUSTOM"`,
      * `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -154,7 +154,7 @@ export interface RoleSubscriptionState {
     notificationType?: pulumi.Input<string>;
     /**
      * Type of the role. Valid values:
-     * `"API_ADMIN"`,
+     * `"API_ACCESS_MANAGEMENT_ADMIN"`,
      * `"APP_ADMIN"`,
      * `"CUSTOM"`,
      * `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -197,7 +197,7 @@ export interface RoleSubscriptionArgs {
     notificationType: pulumi.Input<string>;
     /**
      * Type of the role. Valid values:
-     * `"API_ADMIN"`,
+     * `"API_ACCESS_MANAGEMENT_ADMIN"`,
      * `"APP_ADMIN"`,
      * `"CUSTOM"`,
      * `"GROUP_MEMBERSHIP_ADMIN"`,

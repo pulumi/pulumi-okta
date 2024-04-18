@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a device assurance policy for android.
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example &#60;device assurance id&#62;
+ * ```
+ */
 export class DeviceAssuranceAndroid extends pulumi.CustomResource {
     /**
      * Get an existing DeviceAssuranceAndroid resource's state with the given name, ID, and optional extra
@@ -41,11 +50,11 @@ export class DeviceAssuranceAndroid extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
-     * List of disk encryption type, can be FULL, USER
+     * List of disk encryption type, can be `FULL`, `USER`
      */
     public readonly diskEncryptionTypes!: pulumi.Output<string[] | undefined>;
     /**
-     * The device jailbreak. Only for android and iOS platform
+     * Is the device jailbroken in the device assurance policy.
      */
     public readonly jailbreak!: pulumi.Output<boolean | undefined>;
     /**
@@ -61,7 +70,7 @@ export class DeviceAssuranceAndroid extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The device os minimum version
+     * Minimum os version of the device in the device assurance policy.
      */
     public readonly osVersion!: pulumi.Output<string | undefined>;
     /**
@@ -69,11 +78,11 @@ export class DeviceAssuranceAndroid extends pulumi.CustomResource {
      */
     public /*out*/ readonly platform!: pulumi.Output<string>;
     /**
-     * List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      */
     public readonly screenlockTypes!: pulumi.Output<string[] | undefined>;
     /**
-     * Indicates if the device constains a secure hardware functionality
+     * Indicates if the device contains a secure hardware functionality
      */
     public readonly secureHardwarePresent!: pulumi.Output<boolean | undefined>;
 
@@ -133,11 +142,11 @@ export interface DeviceAssuranceAndroidState {
      */
     createdDate?: pulumi.Input<string>;
     /**
-     * List of disk encryption type, can be FULL, USER
+     * List of disk encryption type, can be `FULL`, `USER`
      */
     diskEncryptionTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The device jailbreak. Only for android and iOS platform
+     * Is the device jailbroken in the device assurance policy.
      */
     jailbreak?: pulumi.Input<boolean>;
     /**
@@ -153,7 +162,7 @@ export interface DeviceAssuranceAndroidState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The device os minimum version
+     * Minimum os version of the device in the device assurance policy.
      */
     osVersion?: pulumi.Input<string>;
     /**
@@ -161,11 +170,11 @@ export interface DeviceAssuranceAndroidState {
      */
     platform?: pulumi.Input<string>;
     /**
-     * List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      */
     screenlockTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Indicates if the device constains a secure hardware functionality
+     * Indicates if the device contains a secure hardware functionality
      */
     secureHardwarePresent?: pulumi.Input<boolean>;
 }
@@ -175,11 +184,11 @@ export interface DeviceAssuranceAndroidState {
  */
 export interface DeviceAssuranceAndroidArgs {
     /**
-     * List of disk encryption type, can be FULL, USER
+     * List of disk encryption type, can be `FULL`, `USER`
      */
     diskEncryptionTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The device jailbreak. Only for android and iOS platform
+     * Is the device jailbroken in the device assurance policy.
      */
     jailbreak?: pulumi.Input<boolean>;
     /**
@@ -187,15 +196,15 @@ export interface DeviceAssuranceAndroidArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The device os minimum version
+     * Minimum os version of the device in the device assurance policy.
      */
     osVersion?: pulumi.Input<string>;
     /**
-     * List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      */
     screenlockTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Indicates if the device constains a secure hardware functionality
+     * Indicates if the device contains a secure hardware functionality
      */
     secureHardwarePresent?: pulumi.Input<boolean>;
 }

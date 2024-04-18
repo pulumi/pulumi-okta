@@ -15,6 +15,63 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a device assurance policy for chromeos.
+ * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.policy.DeviceAssuranceChromeos;
+ * import com.pulumi.okta.policy.DeviceAssuranceChromeosArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DeviceAssuranceChromeos(&#34;example&#34;, DeviceAssuranceChromeosArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .tpspAllowScreenLock(true)
+ *             .tpspBrowserVersion(&#34;15393.27.0&#34;)
+ *             .tpspBuiltinDnsClientEnabled(true)
+ *             .tpspChromeRemoteDesktopAppBlocked(true)
+ *             .tpspDeviceEnrollmentDomain(&#34;exampleDomain&#34;)
+ *             .tpspDiskEncrypted(true)
+ *             .tpspKeyTrustLevel(&#34;CHROME_OS_VERIFIED_MODE&#34;)
+ *             .tpspOsFirewall(true)
+ *             .tpspOsVersion(&#34;10.0.19041.1110&#34;)
+ *             .tpspPasswordProctectionWarningTrigger(&#34;PASSWORD_PROTECTION_OFF&#34;)
+ *             .tpspRealtimeUrlCheckMode(true)
+ *             .tpspSafeBrowsingProtectionLevel(&#34;ENHANCED_PROTECTION&#34;)
+ *             .tpspScreenLockSecured(true)
+ *             .tpspSiteIsolationEnabled(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos example &amp;#60;device assurance id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos")
 public class DeviceAssuranceChromeos extends com.pulumi.resources.CustomResource {
     /**
@@ -74,14 +131,14 @@ public class DeviceAssuranceChromeos extends com.pulumi.resources.CustomResource
         return this.lastUpdatedBy;
     }
     /**
-     * Policy device assurance name
+     * Name of the device assurance policy.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Policy device assurance name
+     * @return Name of the device assurance policy.
      * 
      */
     public Output<String> name() {

@@ -71,7 +71,8 @@ type OrgConfiguration struct {
 	EndUserSupportHelpUrl pulumi.StringPtrOutput `pulumi:"endUserSupportHelpUrl"`
 	// Expiration of org
 	ExpiresAt pulumi.StringOutput `pulumi:"expiresAt"`
-	// Local path to logo of the org.
+	// Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+	// orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
 	Logo pulumi.StringPtrOutput `pulumi:"logo"`
 	// Indicates whether the org's users receive Okta Communication emails
 	OptOutCommunicationEmails pulumi.BoolPtrOutput `pulumi:"optOutCommunicationEmails"`
@@ -140,7 +141,8 @@ type orgConfigurationState struct {
 	EndUserSupportHelpUrl *string `pulumi:"endUserSupportHelpUrl"`
 	// Expiration of org
 	ExpiresAt *string `pulumi:"expiresAt"`
-	// Local path to logo of the org.
+	// Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+	// orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
 	Logo *string `pulumi:"logo"`
 	// Indicates whether the org's users receive Okta Communication emails
 	OptOutCommunicationEmails *bool `pulumi:"optOutCommunicationEmails"`
@@ -177,7 +179,8 @@ type OrgConfigurationState struct {
 	EndUserSupportHelpUrl pulumi.StringPtrInput
 	// Expiration of org
 	ExpiresAt pulumi.StringPtrInput
-	// Local path to logo of the org.
+	// Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+	// orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
 	Logo pulumi.StringPtrInput
 	// Indicates whether the org's users receive Okta Communication emails
 	OptOutCommunicationEmails pulumi.BoolPtrInput
@@ -216,7 +219,8 @@ type orgConfigurationArgs struct {
 	Country *string `pulumi:"country"`
 	// Support link of org
 	EndUserSupportHelpUrl *string `pulumi:"endUserSupportHelpUrl"`
-	// Local path to logo of the org.
+	// Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+	// orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
 	Logo *string `pulumi:"logo"`
 	// Indicates whether the org's users receive Okta Communication emails
 	OptOutCommunicationEmails *bool `pulumi:"optOutCommunicationEmails"`
@@ -250,7 +254,8 @@ type OrgConfigurationArgs struct {
 	Country pulumi.StringPtrInput
 	// Support link of org
 	EndUserSupportHelpUrl pulumi.StringPtrInput
-	// Local path to logo of the org.
+	// Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+	// orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
 	Logo pulumi.StringPtrInput
 	// Indicates whether the org's users receive Okta Communication emails
 	OptOutCommunicationEmails pulumi.BoolPtrInput
@@ -395,7 +400,8 @@ func (o OrgConfigurationOutput) ExpiresAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringOutput { return v.ExpiresAt }).(pulumi.StringOutput)
 }
 
-// Local path to logo of the org.
+// Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+// orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
 func (o OrgConfigurationOutput) Logo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrgConfiguration) pulumi.StringPtrOutput { return v.Logo }).(pulumi.StringPtrOutput)
 }

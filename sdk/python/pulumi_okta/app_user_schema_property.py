@@ -58,8 +58,8 @@ class AppUserSchemaPropertyArgs:
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
         :param pulumi.Input[bool] union: If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
-        :param pulumi.Input[str] unique: Subschema unique restriction
-        :param pulumi.Input[str] user_type: Custom subschema user type
+        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
+        :param pulumi.Input[str] user_type: User type ID. By default, it is `default`
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "index", index)
@@ -332,7 +332,7 @@ class AppUserSchemaPropertyArgs:
     @pulumi.getter
     def unique(self) -> Optional[pulumi.Input[str]]:
         """
-        Subschema unique restriction
+        Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         """
         return pulumi.get(self, "unique")
 
@@ -344,7 +344,7 @@ class AppUserSchemaPropertyArgs:
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom subschema user type
+        User type ID. By default, it is `default`
         """
         return pulumi.get(self, "user_type")
 
@@ -398,8 +398,8 @@ class _AppUserSchemaPropertyState:
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         :param pulumi.Input[bool] union: If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
-        :param pulumi.Input[str] unique: Subschema unique restriction
-        :param pulumi.Input[str] user_type: Custom subschema user type
+        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
+        :param pulumi.Input[str] user_type: User type ID. By default, it is `default`
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -676,7 +676,7 @@ class _AppUserSchemaPropertyState:
     @pulumi.getter
     def unique(self) -> Optional[pulumi.Input[str]]:
         """
-        Subschema unique restriction
+        Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         """
         return pulumi.get(self, "unique")
 
@@ -688,7 +688,7 @@ class _AppUserSchemaPropertyState:
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom subschema user type
+        User type ID. By default, it is `default`
         """
         return pulumi.get(self, "user_type")
 
@@ -772,8 +772,8 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         :param pulumi.Input[bool] union: If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
-        :param pulumi.Input[str] unique: Subschema unique restriction
-        :param pulumi.Input[str] user_type: Custom subschema user type
+        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
+        :param pulumi.Input[str] user_type: User type ID. By default, it is `default`
         """
         ...
     @overload
@@ -939,8 +939,8 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[str] title: display name for the enum value.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         :param pulumi.Input[bool] union: If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
-        :param pulumi.Input[str] unique: Subschema unique restriction
-        :param pulumi.Input[str] user_type: Custom subschema user type
+        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
+        :param pulumi.Input[str] user_type: User type ID. By default, it is `default`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1125,7 +1125,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def unique(self) -> pulumi.Output[Optional[str]]:
         """
-        Subschema unique restriction
+        Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         """
         return pulumi.get(self, "unique")
 
@@ -1133,7 +1133,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="userType")
     def user_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Custom subschema user type
+        User type ID. By default, it is `default`
         """
         return pulumi.get(self, "user_type")
 

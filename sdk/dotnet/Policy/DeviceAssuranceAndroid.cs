@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Policy
 {
+    /// <summary>
+    /// Manages a device assurance policy for android.
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example &amp;#60;device assurance id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid")]
     public partial class DeviceAssuranceAndroid : global::Pulumi.CustomResource
     {
@@ -25,13 +34,13 @@ namespace Pulumi.Okta.Policy
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// List of disk encryption type, can be FULL, USER
+        /// List of disk encryption type, can be `FULL`, `USER`
         /// </summary>
         [Output("diskEncryptionTypes")]
         public Output<ImmutableArray<string>> DiskEncryptionTypes { get; private set; } = null!;
 
         /// <summary>
-        /// The device jailbreak. Only for android and iOS platform
+        /// Is the device jailbroken in the device assurance policy.
         /// </summary>
         [Output("jailbreak")]
         public Output<bool?> Jailbreak { get; private set; } = null!;
@@ -55,7 +64,7 @@ namespace Pulumi.Okta.Policy
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The device os minimum version
+        /// Minimum os version of the device in the device assurance policy.
         /// </summary>
         [Output("osVersion")]
         public Output<string?> OsVersion { get; private set; } = null!;
@@ -67,13 +76,13 @@ namespace Pulumi.Okta.Policy
         public Output<string> Platform { get; private set; } = null!;
 
         /// <summary>
-        /// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        /// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         /// </summary>
         [Output("screenlockTypes")]
         public Output<ImmutableArray<string>> ScreenlockTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if the device constains a secure hardware functionality
+        /// Indicates if the device contains a secure hardware functionality
         /// </summary>
         [Output("secureHardwarePresent")]
         public Output<bool?> SecureHardwarePresent { get; private set; } = null!;
@@ -128,7 +137,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _diskEncryptionTypes;
 
         /// <summary>
-        /// List of disk encryption type, can be FULL, USER
+        /// List of disk encryption type, can be `FULL`, `USER`
         /// </summary>
         public InputList<string> DiskEncryptionTypes
         {
@@ -137,7 +146,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// The device jailbreak. Only for android and iOS platform
+        /// Is the device jailbroken in the device assurance policy.
         /// </summary>
         [Input("jailbreak")]
         public Input<bool>? Jailbreak { get; set; }
@@ -149,7 +158,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The device os minimum version
+        /// Minimum os version of the device in the device assurance policy.
         /// </summary>
         [Input("osVersion")]
         public Input<string>? OsVersion { get; set; }
@@ -158,7 +167,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _screenlockTypes;
 
         /// <summary>
-        /// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        /// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         /// </summary>
         public InputList<string> ScreenlockTypes
         {
@@ -167,7 +176,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Indicates if the device constains a secure hardware functionality
+        /// Indicates if the device contains a secure hardware functionality
         /// </summary>
         [Input("secureHardwarePresent")]
         public Input<bool>? SecureHardwarePresent { get; set; }
@@ -196,7 +205,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _diskEncryptionTypes;
 
         /// <summary>
-        /// List of disk encryption type, can be FULL, USER
+        /// List of disk encryption type, can be `FULL`, `USER`
         /// </summary>
         public InputList<string> DiskEncryptionTypes
         {
@@ -205,7 +214,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// The device jailbreak. Only for android and iOS platform
+        /// Is the device jailbroken in the device assurance policy.
         /// </summary>
         [Input("jailbreak")]
         public Input<bool>? Jailbreak { get; set; }
@@ -229,7 +238,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The device os minimum version
+        /// Minimum os version of the device in the device assurance policy.
         /// </summary>
         [Input("osVersion")]
         public Input<string>? OsVersion { get; set; }
@@ -244,7 +253,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _screenlockTypes;
 
         /// <summary>
-        /// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        /// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         /// </summary>
         public InputList<string> ScreenlockTypes
         {
@@ -253,7 +262,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Indicates if the device constains a secure hardware functionality
+        /// Indicates if the device contains a secure hardware functionality
         /// </summary>
         [Input("secureHardwarePresent")]
         public Input<bool>? SecureHardwarePresent { get; set; }

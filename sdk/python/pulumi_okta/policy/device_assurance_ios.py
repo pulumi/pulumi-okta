@@ -20,10 +20,10 @@ class DeviceAssuranceIosArgs:
                  screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DeviceAssuranceIos resource.
-        :param pulumi.Input[bool] jailbreak: The device jailbreak. Only for android and iOS platform
-        :param pulumi.Input[str] name: Policy device assurance name
-        :param pulumi.Input[str] os_version: The device os minimum version
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        :param pulumi.Input[bool] jailbreak: Is the device jailbroken in the device assurance policy.
+        :param pulumi.Input[str] name: Name of the device assurance policy.
+        :param pulumi.Input[str] os_version: Minimum os version of the device in the device assurance policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         """
         if jailbreak is not None:
             pulumi.set(__self__, "jailbreak", jailbreak)
@@ -38,7 +38,7 @@ class DeviceAssuranceIosArgs:
     @pulumi.getter
     def jailbreak(self) -> Optional[pulumi.Input[bool]]:
         """
-        The device jailbreak. Only for android and iOS platform
+        Is the device jailbroken in the device assurance policy.
         """
         return pulumi.get(self, "jailbreak")
 
@@ -50,7 +50,7 @@ class DeviceAssuranceIosArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy device assurance name
+        Name of the device assurance policy.
         """
         return pulumi.get(self, "name")
 
@@ -62,7 +62,7 @@ class DeviceAssuranceIosArgs:
     @pulumi.getter(name="osVersion")
     def os_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The device os minimum version
+        Minimum os version of the device in the device assurance policy.
         """
         return pulumi.get(self, "os_version")
 
@@ -74,7 +74,7 @@ class DeviceAssuranceIosArgs:
     @pulumi.getter(name="screenlockTypes")
     def screenlock_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         """
         return pulumi.get(self, "screenlock_types")
 
@@ -97,15 +97,15 @@ class _DeviceAssuranceIosState:
                  screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering DeviceAssuranceIos resources.
-        :param pulumi.Input[str] created_by: Created by
-        :param pulumi.Input[str] created_date: Created date
-        :param pulumi.Input[bool] jailbreak: The device jailbreak. Only for android and iOS platform
-        :param pulumi.Input[str] last_update: Last update
-        :param pulumi.Input[str] last_updated_by: Last updated by
-        :param pulumi.Input[str] name: Policy device assurance name
-        :param pulumi.Input[str] os_version: The device os minimum version
+        :param pulumi.Input[str] created_by: Created by of the device assurance polic
+        :param pulumi.Input[str] created_date: Created date of the device assurance polic
+        :param pulumi.Input[bool] jailbreak: Is the device jailbroken in the device assurance policy.
+        :param pulumi.Input[str] last_update: Last update of the device assurance polic
+        :param pulumi.Input[str] last_updated_by: Last updated by of the device assurance polic
+        :param pulumi.Input[str] name: Name of the device assurance policy.
+        :param pulumi.Input[str] os_version: Minimum os version of the device in the device assurance policy.
         :param pulumi.Input[str] platform: Policy device assurance platform
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         """
         if created_by is not None:
             pulumi.set(__self__, "created_by", created_by)
@@ -130,7 +130,7 @@ class _DeviceAssuranceIosState:
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[pulumi.Input[str]]:
         """
-        Created by
+        Created by of the device assurance polic
         """
         return pulumi.get(self, "created_by")
 
@@ -142,7 +142,7 @@ class _DeviceAssuranceIosState:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[pulumi.Input[str]]:
         """
-        Created date
+        Created date of the device assurance polic
         """
         return pulumi.get(self, "created_date")
 
@@ -154,7 +154,7 @@ class _DeviceAssuranceIosState:
     @pulumi.getter
     def jailbreak(self) -> Optional[pulumi.Input[bool]]:
         """
-        The device jailbreak. Only for android and iOS platform
+        Is the device jailbroken in the device assurance policy.
         """
         return pulumi.get(self, "jailbreak")
 
@@ -166,7 +166,7 @@ class _DeviceAssuranceIosState:
     @pulumi.getter(name="lastUpdate")
     def last_update(self) -> Optional[pulumi.Input[str]]:
         """
-        Last update
+        Last update of the device assurance polic
         """
         return pulumi.get(self, "last_update")
 
@@ -178,7 +178,7 @@ class _DeviceAssuranceIosState:
     @pulumi.getter(name="lastUpdatedBy")
     def last_updated_by(self) -> Optional[pulumi.Input[str]]:
         """
-        Last updated by
+        Last updated by of the device assurance polic
         """
         return pulumi.get(self, "last_updated_by")
 
@@ -190,7 +190,7 @@ class _DeviceAssuranceIosState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy device assurance name
+        Name of the device assurance policy.
         """
         return pulumi.get(self, "name")
 
@@ -202,7 +202,7 @@ class _DeviceAssuranceIosState:
     @pulumi.getter(name="osVersion")
     def os_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The device os minimum version
+        Minimum os version of the device in the device assurance policy.
         """
         return pulumi.get(self, "os_version")
 
@@ -226,7 +226,7 @@ class _DeviceAssuranceIosState:
     @pulumi.getter(name="screenlockTypes")
     def screenlock_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         """
         return pulumi.get(self, "screenlock_types")
 
@@ -246,13 +246,20 @@ class DeviceAssuranceIos(pulumi.CustomResource):
                  screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a DeviceAssuranceIos resource with the given unique name, props, and options.
+        Manages a device assurance policy for ios.
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:policy/deviceAssuranceIos:DeviceAssuranceIos example &#60;device assurance id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] jailbreak: The device jailbreak. Only for android and iOS platform
-        :param pulumi.Input[str] name: Policy device assurance name
-        :param pulumi.Input[str] os_version: The device os minimum version
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        :param pulumi.Input[bool] jailbreak: Is the device jailbroken in the device assurance policy.
+        :param pulumi.Input[str] name: Name of the device assurance policy.
+        :param pulumi.Input[str] os_version: Minimum os version of the device in the device assurance policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         """
         ...
     @overload
@@ -261,7 +268,14 @@ class DeviceAssuranceIos(pulumi.CustomResource):
                  args: Optional[DeviceAssuranceIosArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DeviceAssuranceIos resource with the given unique name, props, and options.
+        Manages a device assurance policy for ios.
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:policy/deviceAssuranceIos:DeviceAssuranceIos example &#60;device assurance id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param DeviceAssuranceIosArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -325,15 +339,15 @@ class DeviceAssuranceIos(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] created_by: Created by
-        :param pulumi.Input[str] created_date: Created date
-        :param pulumi.Input[bool] jailbreak: The device jailbreak. Only for android and iOS platform
-        :param pulumi.Input[str] last_update: Last update
-        :param pulumi.Input[str] last_updated_by: Last updated by
-        :param pulumi.Input[str] name: Policy device assurance name
-        :param pulumi.Input[str] os_version: The device os minimum version
+        :param pulumi.Input[str] created_by: Created by of the device assurance polic
+        :param pulumi.Input[str] created_date: Created date of the device assurance polic
+        :param pulumi.Input[bool] jailbreak: Is the device jailbroken in the device assurance policy.
+        :param pulumi.Input[str] last_update: Last update of the device assurance polic
+        :param pulumi.Input[str] last_updated_by: Last updated by of the device assurance polic
+        :param pulumi.Input[str] name: Name of the device assurance policy.
+        :param pulumi.Input[str] os_version: Minimum os version of the device in the device assurance policy.
         :param pulumi.Input[str] platform: Policy device assurance platform
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -354,7 +368,7 @@ class DeviceAssuranceIos(pulumi.CustomResource):
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[str]:
         """
-        Created by
+        Created by of the device assurance polic
         """
         return pulumi.get(self, "created_by")
 
@@ -362,7 +376,7 @@ class DeviceAssuranceIos(pulumi.CustomResource):
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[str]:
         """
-        Created date
+        Created date of the device assurance polic
         """
         return pulumi.get(self, "created_date")
 
@@ -370,7 +384,7 @@ class DeviceAssuranceIos(pulumi.CustomResource):
     @pulumi.getter
     def jailbreak(self) -> pulumi.Output[Optional[bool]]:
         """
-        The device jailbreak. Only for android and iOS platform
+        Is the device jailbroken in the device assurance policy.
         """
         return pulumi.get(self, "jailbreak")
 
@@ -378,7 +392,7 @@ class DeviceAssuranceIos(pulumi.CustomResource):
     @pulumi.getter(name="lastUpdate")
     def last_update(self) -> pulumi.Output[str]:
         """
-        Last update
+        Last update of the device assurance polic
         """
         return pulumi.get(self, "last_update")
 
@@ -386,7 +400,7 @@ class DeviceAssuranceIos(pulumi.CustomResource):
     @pulumi.getter(name="lastUpdatedBy")
     def last_updated_by(self) -> pulumi.Output[str]:
         """
-        Last updated by
+        Last updated by of the device assurance polic
         """
         return pulumi.get(self, "last_updated_by")
 
@@ -394,7 +408,7 @@ class DeviceAssuranceIos(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Policy device assurance name
+        Name of the device assurance policy.
         """
         return pulumi.get(self, "name")
 
@@ -402,7 +416,7 @@ class DeviceAssuranceIos(pulumi.CustomResource):
     @pulumi.getter(name="osVersion")
     def os_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The device os minimum version
+        Minimum os version of the device in the device assurance policy.
         """
         return pulumi.get(self, "os_version")
 
@@ -418,7 +432,7 @@ class DeviceAssuranceIos(pulumi.CustomResource):
     @pulumi.getter(name="screenlockTypes")
     def screenlock_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         """
         return pulumi.get(self, "screenlock_types")
 

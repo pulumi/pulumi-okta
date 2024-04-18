@@ -307,14 +307,14 @@ public final class AppUserSchemaPropertyArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Subschema unique restriction
+     * Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
      * 
      */
     @Import(name="unique")
     private @Nullable Output<String> unique;
 
     /**
-     * @return Subschema unique restriction
+     * @return Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
      * 
      */
     public Optional<Output<String>> unique() {
@@ -322,14 +322,14 @@ public final class AppUserSchemaPropertyArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Custom subschema user type
+     * User type ID. By default, it is `default`
      * 
      */
     @Import(name="userType")
     private @Nullable Output<String> userType;
 
     /**
-     * @return Custom subschema user type
+     * @return User type ID. By default, it is `default`
      * 
      */
     public Optional<Output<String>> userType() {
@@ -820,7 +820,7 @@ public final class AppUserSchemaPropertyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param unique Subschema unique restriction
+         * @param unique Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
          * 
          * @return builder
          * 
@@ -831,7 +831,7 @@ public final class AppUserSchemaPropertyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param unique Subschema unique restriction
+         * @param unique Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
          * 
          * @return builder
          * 
@@ -841,7 +841,7 @@ public final class AppUserSchemaPropertyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param userType Custom subschema user type
+         * @param userType User type ID. By default, it is `default`
          * 
          * @return builder
          * 
@@ -852,7 +852,7 @@ public final class AppUserSchemaPropertyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param userType Custom subschema user type
+         * @param userType User type ID. By default, it is `default`
          * 
          * @return builder
          * 

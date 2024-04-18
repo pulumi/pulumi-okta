@@ -318,22 +318,6 @@ public class Oidc extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
-     * https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
-     * 
-     */
-    @Export(name="pkceRequired", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> pkceRequired;
-
-    /**
-     * @return Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
-     * https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
-     * 
-     */
-    public Output<Optional<Boolean>> pkceRequired() {
-        return Codegen.optional(this.pkceRequired);
-    }
-    /**
      * Determines if the IdP should act as a source of truth for user profile attributes.
      * 
      */

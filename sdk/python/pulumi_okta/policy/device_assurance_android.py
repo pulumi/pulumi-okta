@@ -22,12 +22,12 @@ class DeviceAssuranceAndroidArgs:
                  secure_hardware_present: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a DeviceAssuranceAndroid resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be FULL, USER
-        :param pulumi.Input[bool] jailbreak: The device jailbreak. Only for android and iOS platform
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be `FULL`, `USER`
+        :param pulumi.Input[bool] jailbreak: Is the device jailbroken in the device assurance policy.
         :param pulumi.Input[str] name: Policy device assurance name
-        :param pulumi.Input[str] os_version: The device os minimum version
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
-        :param pulumi.Input[bool] secure_hardware_present: Indicates if the device constains a secure hardware functionality
+        :param pulumi.Input[str] os_version: Minimum os version of the device in the device assurance policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
+        :param pulumi.Input[bool] secure_hardware_present: Indicates if the device contains a secure hardware functionality
         """
         if disk_encryption_types is not None:
             pulumi.set(__self__, "disk_encryption_types", disk_encryption_types)
@@ -46,7 +46,7 @@ class DeviceAssuranceAndroidArgs:
     @pulumi.getter(name="diskEncryptionTypes")
     def disk_encryption_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of disk encryption type, can be FULL, USER
+        List of disk encryption type, can be `FULL`, `USER`
         """
         return pulumi.get(self, "disk_encryption_types")
 
@@ -58,7 +58,7 @@ class DeviceAssuranceAndroidArgs:
     @pulumi.getter
     def jailbreak(self) -> Optional[pulumi.Input[bool]]:
         """
-        The device jailbreak. Only for android and iOS platform
+        Is the device jailbroken in the device assurance policy.
         """
         return pulumi.get(self, "jailbreak")
 
@@ -82,7 +82,7 @@ class DeviceAssuranceAndroidArgs:
     @pulumi.getter(name="osVersion")
     def os_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The device os minimum version
+        Minimum os version of the device in the device assurance policy.
         """
         return pulumi.get(self, "os_version")
 
@@ -94,7 +94,7 @@ class DeviceAssuranceAndroidArgs:
     @pulumi.getter(name="screenlockTypes")
     def screenlock_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         """
         return pulumi.get(self, "screenlock_types")
 
@@ -106,7 +106,7 @@ class DeviceAssuranceAndroidArgs:
     @pulumi.getter(name="secureHardwarePresent")
     def secure_hardware_present(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates if the device constains a secure hardware functionality
+        Indicates if the device contains a secure hardware functionality
         """
         return pulumi.get(self, "secure_hardware_present")
 
@@ -133,15 +133,15 @@ class _DeviceAssuranceAndroidState:
         Input properties used for looking up and filtering DeviceAssuranceAndroid resources.
         :param pulumi.Input[str] created_by: Created by
         :param pulumi.Input[str] created_date: Created date
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be FULL, USER
-        :param pulumi.Input[bool] jailbreak: The device jailbreak. Only for android and iOS platform
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be `FULL`, `USER`
+        :param pulumi.Input[bool] jailbreak: Is the device jailbroken in the device assurance policy.
         :param pulumi.Input[str] last_update: Last update
         :param pulumi.Input[str] last_updated_by: Last updated by
         :param pulumi.Input[str] name: Policy device assurance name
-        :param pulumi.Input[str] os_version: The device os minimum version
+        :param pulumi.Input[str] os_version: Minimum os version of the device in the device assurance policy.
         :param pulumi.Input[str] platform: Policy device assurance platform
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
-        :param pulumi.Input[bool] secure_hardware_present: Indicates if the device constains a secure hardware functionality
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
+        :param pulumi.Input[bool] secure_hardware_present: Indicates if the device contains a secure hardware functionality
         """
         if created_by is not None:
             pulumi.set(__self__, "created_by", created_by)
@@ -194,7 +194,7 @@ class _DeviceAssuranceAndroidState:
     @pulumi.getter(name="diskEncryptionTypes")
     def disk_encryption_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of disk encryption type, can be FULL, USER
+        List of disk encryption type, can be `FULL`, `USER`
         """
         return pulumi.get(self, "disk_encryption_types")
 
@@ -206,7 +206,7 @@ class _DeviceAssuranceAndroidState:
     @pulumi.getter
     def jailbreak(self) -> Optional[pulumi.Input[bool]]:
         """
-        The device jailbreak. Only for android and iOS platform
+        Is the device jailbroken in the device assurance policy.
         """
         return pulumi.get(self, "jailbreak")
 
@@ -254,7 +254,7 @@ class _DeviceAssuranceAndroidState:
     @pulumi.getter(name="osVersion")
     def os_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The device os minimum version
+        Minimum os version of the device in the device assurance policy.
         """
         return pulumi.get(self, "os_version")
 
@@ -278,7 +278,7 @@ class _DeviceAssuranceAndroidState:
     @pulumi.getter(name="screenlockTypes")
     def screenlock_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         """
         return pulumi.get(self, "screenlock_types")
 
@@ -290,7 +290,7 @@ class _DeviceAssuranceAndroidState:
     @pulumi.getter(name="secureHardwarePresent")
     def secure_hardware_present(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates if the device constains a secure hardware functionality
+        Indicates if the device contains a secure hardware functionality
         """
         return pulumi.get(self, "secure_hardware_present")
 
@@ -312,15 +312,22 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
                  secure_hardware_present: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a DeviceAssuranceAndroid resource with the given unique name, props, and options.
+        Manages a device assurance policy for android.
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example &#60;device assurance id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be FULL, USER
-        :param pulumi.Input[bool] jailbreak: The device jailbreak. Only for android and iOS platform
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be `FULL`, `USER`
+        :param pulumi.Input[bool] jailbreak: Is the device jailbroken in the device assurance policy.
         :param pulumi.Input[str] name: Policy device assurance name
-        :param pulumi.Input[str] os_version: The device os minimum version
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
-        :param pulumi.Input[bool] secure_hardware_present: Indicates if the device constains a secure hardware functionality
+        :param pulumi.Input[str] os_version: Minimum os version of the device in the device assurance policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
+        :param pulumi.Input[bool] secure_hardware_present: Indicates if the device contains a secure hardware functionality
         """
         ...
     @overload
@@ -329,7 +336,14 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
                  args: Optional[DeviceAssuranceAndroidArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DeviceAssuranceAndroid resource with the given unique name, props, and options.
+        Manages a device assurance policy for android.
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example &#60;device assurance id&#62;
+        ```
+
         :param str resource_name: The name of the resource.
         :param DeviceAssuranceAndroidArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -401,15 +415,15 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_by: Created by
         :param pulumi.Input[str] created_date: Created date
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be FULL, USER
-        :param pulumi.Input[bool] jailbreak: The device jailbreak. Only for android and iOS platform
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_encryption_types: List of disk encryption type, can be `FULL`, `USER`
+        :param pulumi.Input[bool] jailbreak: Is the device jailbroken in the device assurance policy.
         :param pulumi.Input[str] last_update: Last update
         :param pulumi.Input[str] last_updated_by: Last updated by
         :param pulumi.Input[str] name: Policy device assurance name
-        :param pulumi.Input[str] os_version: The device os minimum version
+        :param pulumi.Input[str] os_version: Minimum os version of the device in the device assurance policy.
         :param pulumi.Input[str] platform: Policy device assurance platform
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
-        :param pulumi.Input[bool] secure_hardware_present: Indicates if the device constains a secure hardware functionality
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] screenlock_types: List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
+        :param pulumi.Input[bool] secure_hardware_present: Indicates if the device contains a secure hardware functionality
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -448,7 +462,7 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
     @pulumi.getter(name="diskEncryptionTypes")
     def disk_encryption_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of disk encryption type, can be FULL, USER
+        List of disk encryption type, can be `FULL`, `USER`
         """
         return pulumi.get(self, "disk_encryption_types")
 
@@ -456,7 +470,7 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
     @pulumi.getter
     def jailbreak(self) -> pulumi.Output[Optional[bool]]:
         """
-        The device jailbreak. Only for android and iOS platform
+        Is the device jailbroken in the device assurance policy.
         """
         return pulumi.get(self, "jailbreak")
 
@@ -488,7 +502,7 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
     @pulumi.getter(name="osVersion")
     def os_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The device os minimum version
+        Minimum os version of the device in the device assurance policy.
         """
         return pulumi.get(self, "os_version")
 
@@ -504,7 +518,7 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
     @pulumi.getter(name="screenlockTypes")
     def screenlock_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         """
         return pulumi.get(self, "screenlock_types")
 
@@ -512,7 +526,7 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
     @pulumi.getter(name="secureHardwarePresent")
     def secure_hardware_present(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates if the device constains a secure hardware functionality
+        Indicates if the device contains a secure hardware functionality
         """
         return pulumi.get(self, "secure_hardware_present")
 

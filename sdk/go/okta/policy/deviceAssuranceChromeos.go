@@ -11,6 +11,55 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a device assurance policy for chromeos.
+//
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := policy.NewDeviceAssuranceChromeos(ctx, "example", &policy.DeviceAssuranceChromeosArgs{
+//				Name:                                  pulumi.String("example"),
+//				TpspAllowScreenLock:                   pulumi.Bool(true),
+//				TpspBrowserVersion:                    pulumi.String("15393.27.0"),
+//				TpspBuiltinDnsClientEnabled:           pulumi.Bool(true),
+//				TpspChromeRemoteDesktopAppBlocked:     pulumi.Bool(true),
+//				TpspDeviceEnrollmentDomain:            pulumi.String("exampleDomain"),
+//				TpspDiskEncrypted:                     pulumi.Bool(true),
+//				TpspKeyTrustLevel:                     pulumi.String("CHROME_OS_VERIFIED_MODE"),
+//				TpspOsFirewall:                        pulumi.Bool(true),
+//				TpspOsVersion:                         pulumi.String("10.0.19041.1110"),
+//				TpspPasswordProctectionWarningTrigger: pulumi.String("PASSWORD_PROTECTION_OFF"),
+//				TpspRealtimeUrlCheckMode:              pulumi.Bool(true),
+//				TpspSafeBrowsingProtectionLevel:       pulumi.String("ENHANCED_PROTECTION"),
+//				TpspScreenLockSecured:                 pulumi.Bool(true),
+//				TpspSiteIsolationEnabled:              pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Import
+//
+// ```sh
+// $ pulumi import okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos example &#60;device assurance id&#62;
+// ```
 type DeviceAssuranceChromeos struct {
 	pulumi.CustomResourceState
 
@@ -22,7 +71,7 @@ type DeviceAssuranceChromeos struct {
 	LastUpdate pulumi.StringOutput `pulumi:"lastUpdate"`
 	// Last updated by
 	LastUpdatedBy pulumi.StringOutput `pulumi:"lastUpdatedBy"`
-	// Policy device assurance name
+	// Name of the device assurance policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Policy device assurance platform
 	Platform pulumi.StringOutput `pulumi:"platform"`
@@ -94,7 +143,7 @@ type deviceAssuranceChromeosState struct {
 	LastUpdate *string `pulumi:"lastUpdate"`
 	// Last updated by
 	LastUpdatedBy *string `pulumi:"lastUpdatedBy"`
-	// Policy device assurance name
+	// Name of the device assurance policy.
 	Name *string `pulumi:"name"`
 	// Policy device assurance platform
 	Platform *string `pulumi:"platform"`
@@ -137,7 +186,7 @@ type DeviceAssuranceChromeosState struct {
 	LastUpdate pulumi.StringPtrInput
 	// Last updated by
 	LastUpdatedBy pulumi.StringPtrInput
-	// Policy device assurance name
+	// Name of the device assurance policy.
 	Name pulumi.StringPtrInput
 	// Policy device assurance platform
 	Platform pulumi.StringPtrInput
@@ -176,7 +225,7 @@ func (DeviceAssuranceChromeosState) ElementType() reflect.Type {
 }
 
 type deviceAssuranceChromeosArgs struct {
-	// Policy device assurance name
+	// Name of the device assurance policy.
 	Name *string `pulumi:"name"`
 	// Third party signal provider allow screen lock
 	TpspAllowScreenLock *bool `pulumi:"tpspAllowScreenLock"`
@@ -210,7 +259,7 @@ type deviceAssuranceChromeosArgs struct {
 
 // The set of arguments for constructing a DeviceAssuranceChromeos resource.
 type DeviceAssuranceChromeosArgs struct {
-	// Policy device assurance name
+	// Name of the device assurance policy.
 	Name pulumi.StringPtrInput
 	// Third party signal provider allow screen lock
 	TpspAllowScreenLock pulumi.BoolPtrInput
@@ -349,7 +398,7 @@ func (o DeviceAssuranceChromeosOutput) LastUpdatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceAssuranceChromeos) pulumi.StringOutput { return v.LastUpdatedBy }).(pulumi.StringOutput)
 }
 
-// Policy device assurance name
+// Name of the device assurance policy.
 func (o DeviceAssuranceChromeosOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceAssuranceChromeos) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

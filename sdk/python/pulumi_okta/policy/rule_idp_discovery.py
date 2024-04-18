@@ -41,6 +41,9 @@ class RuleIdpDiscoveryArgs:
         :param pulumi.Input[str] network_connection: The network selection mode. One of `"ANYWEHRE"` or `"ZONE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to include.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]] platform_includes: Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+               (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+               'ANDROID', 'OTHER', 'OSX'
         :param pulumi.Input[str] policy_id: Policy ID.
         :param pulumi.Input[int] priority: Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[str] status: Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
@@ -178,6 +181,11 @@ class RuleIdpDiscoveryArgs:
     @property
     @pulumi.getter(name="platformIncludes")
     def platform_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]]:
+        """
+        Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+        (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+        'ANDROID', 'OTHER', 'OSX'
+        """
         return pulumi.get(self, "platform_includes")
 
     @platform_includes.setter
@@ -285,6 +293,9 @@ class _RuleIdpDiscoveryState:
         :param pulumi.Input[str] network_connection: The network selection mode. One of `"ANYWEHRE"` or `"ZONE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to include.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]] platform_includes: Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+               (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+               'ANDROID', 'OTHER', 'OSX'
         :param pulumi.Input[str] policy_id: Policy ID.
         :param pulumi.Input[int] priority: Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[str] status: Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
@@ -422,6 +433,11 @@ class _RuleIdpDiscoveryState:
     @property
     @pulumi.getter(name="platformIncludes")
     def platform_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]]:
+        """
+        Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+        (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+        'ANDROID', 'OTHER', 'OSX'
+        """
         return pulumi.get(self, "platform_includes")
 
     @platform_includes.setter
@@ -598,6 +614,9 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         :param pulumi.Input[str] network_connection: The network selection mode. One of `"ANYWEHRE"` or `"ZONE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to include.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryPlatformIncludeArgs']]]] platform_includes: Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+               (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+               'ANDROID', 'OTHER', 'OSX'
         :param pulumi.Input[str] policy_id: Policy ID.
         :param pulumi.Input[int] priority: Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[str] status: Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
@@ -771,6 +790,9 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         :param pulumi.Input[str] network_connection: The network selection mode. One of `"ANYWEHRE"` or `"ZONE"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: Required if `network_connection` = `"ZONE"`. Indicates the network zones to include.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleIdpDiscoveryPlatformIncludeArgs']]]] platform_includes: Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+               (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+               'ANDROID', 'OTHER', 'OSX'
         :param pulumi.Input[str] policy_id: Policy ID.
         :param pulumi.Input[int] priority: Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[str] status: Idp rule status: `"ACTIVE"` or `"INACTIVE"`. By default, it is `"ACTIVE"`.
@@ -866,6 +888,11 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     @property
     @pulumi.getter(name="platformIncludes")
     def platform_includes(self) -> pulumi.Output[Optional[Sequence['outputs.RuleIdpDiscoveryPlatformInclude']]]:
+        """
+        Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+        (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+        'ANDROID', 'OTHER', 'OSX'
+        """
         return pulumi.get(self, "platform_includes")
 
     @property

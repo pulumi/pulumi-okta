@@ -152,6 +152,11 @@ namespace Pulumi.Okta.Policy
         [Output("networkIncludes")]
         public Output<ImmutableArray<string>> NetworkIncludes { get; private set; } = null!;
 
+        /// <summary>
+        /// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+        /// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+        /// 'ANDROID', 'OTHER', 'OSX'
+        /// </summary>
         [Output("platformIncludes")]
         public Output<ImmutableArray<Outputs.RuleIdpDiscoveryPlatformInclude>> PlatformIncludes { get; private set; } = null!;
 
@@ -311,6 +316,12 @@ namespace Pulumi.Okta.Policy
 
         [Input("platformIncludes")]
         private InputList<Inputs.RuleIdpDiscoveryPlatformIncludeArgs>? _platformIncludes;
+
+        /// <summary>
+        /// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+        /// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+        /// 'ANDROID', 'OTHER', 'OSX'
+        /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryPlatformIncludeArgs> PlatformIncludes
         {
             get => _platformIncludes ?? (_platformIncludes = new InputList<Inputs.RuleIdpDiscoveryPlatformIncludeArgs>());
@@ -441,6 +452,12 @@ namespace Pulumi.Okta.Policy
 
         [Input("platformIncludes")]
         private InputList<Inputs.RuleIdpDiscoveryPlatformIncludeGetArgs>? _platformIncludes;
+
+        /// <summary>
+        /// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+        /// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+        /// 'ANDROID', 'OTHER', 'OSX'
+        /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryPlatformIncludeGetArgs> PlatformIncludes
         {
             get => _platformIncludes ?? (_platformIncludes = new InputList<Inputs.RuleIdpDiscoveryPlatformIncludeGetArgs>());

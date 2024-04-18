@@ -167,7 +167,7 @@ public final class GetSamlResult {
      */
     private Boolean samlSignedRequestEnabled;
     /**
-     * @return Signature algorithm used ot digitally sign the assertion and response.
+     * @return Signature algorithm used to digitally sign the assertion and response.
      * 
      */
     private String signatureAlgorithm;
@@ -468,7 +468,7 @@ public final class GetSamlResult {
         return this.samlSignedRequestEnabled;
     }
     /**
-     * @return Signature algorithm used ot digitally sign the assertion and response.
+     * @return Signature algorithm used to digitally sign the assertion and response.
      * 
      */
     public String signatureAlgorithm() {

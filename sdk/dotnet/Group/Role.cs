@@ -62,7 +62,7 @@ namespace Pulumi.Okta.Group
 
         /// <summary>
         /// Admin role assigned to the group. It can be any one of the following values:
-        /// `"API_ADMIN"`,
+        /// `"API_ACCESS_MANAGEMENT_ADMIN"`,
         /// `"APP_ADMIN"`,
         /// `"CUSTOM"`,
         /// `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -158,7 +158,7 @@ namespace Pulumi.Okta.Group
 
         /// <summary>
         /// Admin role assigned to the group. It can be any one of the following values:
-        /// `"API_ADMIN"`,
+        /// `"API_ACCESS_MANAGEMENT_ADMIN"`,
         /// `"APP_ADMIN"`,
         /// `"CUSTOM"`,
         /// `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -228,7 +228,7 @@ namespace Pulumi.Okta.Group
 
         /// <summary>
         /// Admin role assigned to the group. It can be any one of the following values:
-        /// `"API_ADMIN"`,
+        /// `"API_ACCESS_MANAGEMENT_ADMIN"`,
         /// `"APP_ADMIN"`,
         /// `"CUSTOM"`,
         /// `"GROUP_MEMBERSHIP_ADMIN"`,

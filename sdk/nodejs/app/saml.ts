@@ -393,7 +393,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Signature algorithm used ot digitally sign the assertion and response.
+     * Signature algorithm used to digitally sign the assertion and response.
      */
     public readonly signatureAlgorithm!: pulumi.Output<string | undefined>;
     /**
@@ -782,7 +782,7 @@ export interface SamlState {
      */
     signOnMode?: pulumi.Input<string>;
     /**
-     * Signature algorithm used ot digitally sign the assertion and response.
+     * Signature algorithm used to digitally sign the assertion and response.
      */
     signatureAlgorithm?: pulumi.Input<string>;
     /**
@@ -972,7 +972,7 @@ export interface SamlArgs {
      */
     samlVersion?: pulumi.Input<string>;
     /**
-     * Signature algorithm used ot digitally sign the assertion and response.
+     * Signature algorithm used to digitally sign the assertion and response.
      */
     signatureAlgorithm?: pulumi.Input<string>;
     /**

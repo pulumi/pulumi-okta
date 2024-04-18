@@ -40,7 +40,7 @@
             "generateExtraInputTypes": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.8.0",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.8.1",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "dependencies": {
                 "@pulumi/pulumi": "^3.0.0"
@@ -2186,6 +2186,7 @@
     },
     "resources": {
         "okta:Index/customizedSigninPage:CustomizedSigninPage": {
+            "description": "Manage the customized signin page of a brand\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Brand;\nimport com.pulumi.okta.BrandArgs;\nimport com.pulumi.okta.Index.CustomizedSigninPage;\nimport com.pulumi.okta.Index.CustomizedSigninPageArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Brand(\"test\", BrandArgs.builder()        \n            .name(\"testBrand\")\n            .locale(\"en\")\n            .build());\n\n        var testCustomizedSigninPage = new CustomizedSigninPage(\"testCustomizedSigninPage\", CustomizedSigninPageArgs.builder()        \n            .brandId(oktaBrand.test().id())\n            .pageContent(\"\"\"\n\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\"\u003e\n\u003chtml\u003e\n\u003chead\u003e\n    \u003cmeta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /\u003e\n    \u003cmeta name=\"robots\" content=\"noindex,nofollow\" /\u003e\n    \u003c!-- Styles generated from theme --\u003e\n    \u003clink href=\"{{themedStylesUrl}}\" rel=\"stylesheet\" type=\"text/css\"\u003e\n    \u003c!-- Favicon from theme --\u003e\n    \u003clink rel=\"shortcut icon\" href=\"{{faviconUrl}}\" type=\"image/x-icon\"/\u003e\n\n    \u003ctitle\u003e{{pageTitle}}\u003c/title\u003e\n    {{{SignInWidgetResources}}}\n\n    \u003cstyle nonce=\"{{nonceValue}}\"\u003e\n        #login-bg-image-id {\n            background-image: {{bgImageUrl}}\n        }\n    \u003c/style\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n    \u003cdiv id=\"login-bg-image-id\" class=\"login-bg-image tb--background\"\u003e\u003c/div\u003e\n    \u003cdiv id=\"okta-login-container\"\u003e\u003c/div\u003e\n\n    \u003c!--\n        \"OktaUtil\" defines a global OktaUtil object\n        that contains methods used to complete the Okta login flow.\n     --\u003e\n    {{{OktaUtil}}}\n\n    \u003cscript type=\"text/javascript\" nonce=\"{{nonceValue}}\"\u003e\n        // \"config\" object contains default widget configuration\n        // with any custom overrides defined in your admin settings.\n        var config = OktaUtil.getSignInWidgetConfig();\n\n        // Render the Okta Sign-In Widget\n        var oktaSignIn = new OktaSignIn(config);\n        oktaSignIn.renderEl({ el: '#okta-login-container' },\n            OktaUtil.completeLogin,\n            function(error) {\n                // Logs errors that occur when configuring the widget.\n                // Remove or replace this with your own custom error handler.\n                console.log(error.message, error);\n            }\n        );\n    \u003c/script\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n            \"\"\")\n            .widgetVersion(\"^6\")\n            .widgetCustomizations(CustomizedSigninPageWidgetCustomizationsArgs.builder()\n                .widgetGeneration(\"G3\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: okta:Brand\n    properties:\n      name: testBrand\n      locale: en\n  testCustomizedSigninPage:\n    type: okta:Index:CustomizedSigninPage\n    name: test\n    properties:\n      brandId: ${oktaBrand.test.id}\n      pageContent: |\n        \u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\"\u003e\n        \u003chtml\u003e\n        \u003chead\u003e\n            \u003cmeta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"\u003e\n            \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /\u003e\n            \u003cmeta name=\"robots\" content=\"noindex,nofollow\" /\u003e\n            \u003c!-- Styles generated from theme --\u003e\n            \u003clink href=\"{{themedStylesUrl}}\" rel=\"stylesheet\" type=\"text/css\"\u003e\n            \u003c!-- Favicon from theme --\u003e\n            \u003clink rel=\"shortcut icon\" href=\"{{faviconUrl}}\" type=\"image/x-icon\"/\u003e\n\n            \u003ctitle\u003e{{pageTitle}}\u003c/title\u003e\n            {{{SignInWidgetResources}}}\n\n            \u003cstyle nonce=\"{{nonceValue}}\"\u003e\n                #login-bg-image-id {\n                    background-image: {{bgImageUrl}}\n                }\n            \u003c/style\u003e\n        \u003c/head\u003e\n        \u003cbody\u003e\n            \u003cdiv id=\"login-bg-image-id\" class=\"login-bg-image tb--background\"\u003e\u003c/div\u003e\n            \u003cdiv id=\"okta-login-container\"\u003e\u003c/div\u003e\n\n            \u003c!--\n                \"OktaUtil\" defines a global OktaUtil object\n                that contains methods used to complete the Okta login flow.\n             --\u003e\n            {{{OktaUtil}}}\n\n            \u003cscript type=\"text/javascript\" nonce=\"{{nonceValue}}\"\u003e\n                // \"config\" object contains default widget configuration\n                // with any custom overrides defined in your admin settings.\n                var config = OktaUtil.getSignInWidgetConfig();\n\n                // Render the Okta Sign-In Widget\n                var oktaSignIn = new OktaSignIn(config);\n                oktaSignIn.renderEl({ el: '#okta-login-container' },\n                    OktaUtil.completeLogin,\n                    function(error) {\n                        // Logs errors that occur when configuring the widget.\n                        // Remove or replace this with your own custom error handler.\n                        console.log(error.message, error);\n                    }\n                );\n            \u003c/script\u003e\n        \u003c/body\u003e\n        \u003c/html\u003e\n      widgetVersion: ^6\n      widgetCustomizations:\n        - widgetGeneration: G3\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:Index/customizedSigninPage:CustomizedSigninPage example \u0026#60;customized_signin_page_id\u0026#62;\n```\n\n",
             "properties": {
                 "brandId": {
                     "type": "string",
@@ -2203,7 +2204,7 @@
                 },
                 "widgetVersion": {
                     "type": "string",
-                    "description": "widget version specified as a Semver. The following are currently supported *, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7,\n1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16,\n2.17, 2.18, 2.19, 2.20, 2.21, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1,\n5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6,\n6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
+                    "description": "widget version specified as a Semver. The following are currently supported\n\t\t*, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4,\n\t\t2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16, 2.17, 2.18, 2.19, 2.20, 2.21,\n\t\t3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1, 5.2, 5.3,\n\t\t5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5,\n\t\t6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
                 }
             },
             "required": [
@@ -2228,7 +2229,7 @@
                 },
                 "widgetVersion": {
                     "type": "string",
-                    "description": "widget version specified as a Semver. The following are currently supported *, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7,\n1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16,\n2.17, 2.18, 2.19, 2.20, 2.21, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1,\n5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6,\n6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
+                    "description": "widget version specified as a Semver. The following are currently supported\n\t\t*, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4,\n\t\t2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16, 2.17, 2.18, 2.19, 2.20, 2.21,\n\t\t3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1, 5.2, 5.3,\n\t\t5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5,\n\t\t6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
                 }
             },
             "requiredInputs": [
@@ -2255,7 +2256,7 @@
                     },
                     "widgetVersion": {
                         "type": "string",
-                        "description": "widget version specified as a Semver. The following are currently supported *, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7,\n1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16,\n2.17, 2.18, 2.19, 2.20, 2.21, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1,\n5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6,\n6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
+                        "description": "widget version specified as a Semver. The following are currently supported\n\t\t*, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4,\n\t\t2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16, 2.17, 2.18, 2.19, 2.20, 2.21,\n\t\t3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1, 5.2, 5.3,\n\t\t5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5,\n\t\t6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
                     }
                 },
                 "type": "object"
@@ -2460,6 +2461,7 @@
             }
         },
         "okta:Index/previewSigninPage:PreviewSigninPage": {
+            "description": "Manage the preview signin page of a brand\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Brand;\nimport com.pulumi.okta.BrandArgs;\nimport com.pulumi.okta.Index.PreviewSigninPage;\nimport com.pulumi.okta.Index.PreviewSigninPageArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Brand(\"test\", BrandArgs.builder()        \n            .name(\"testBrand\")\n            .locale(\"en\")\n            .build());\n\n        var testPreviewSigninPage = new PreviewSigninPage(\"testPreviewSigninPage\", PreviewSigninPageArgs.builder()        \n            .brandId(oktaBrand.test().id())\n            .pageContent(\"\"\"\n\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\"\u003e\n\u003chtml\u003e\n\u003chead\u003e\n    \u003cmeta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /\u003e\n    \u003cmeta name=\"robots\" content=\"noindex,nofollow\" /\u003e\n    \u003c!-- Styles generated from theme --\u003e\n    \u003clink href=\"{{themedStylesUrl}}\" rel=\"stylesheet\" type=\"text/css\"\u003e\n    \u003c!-- Favicon from theme --\u003e\n    \u003clink rel=\"shortcut icon\" href=\"{{faviconUrl}}\" type=\"image/x-icon\"/\u003e\n\n    \u003ctitle\u003e{{pageTitle}}\u003c/title\u003e\n    {{{SignInWidgetResources}}}\n\n    \u003cstyle nonce=\"{{nonceValue}}\"\u003e\n        #login-bg-image-id {\n            background-image: {{bgImageUrl}}\n        }\n    \u003c/style\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n    \u003cdiv id=\"login-bg-image-id\" class=\"login-bg-image tb--background\"\u003e\u003c/div\u003e\n    \u003cdiv id=\"okta-login-container\"\u003e\u003c/div\u003e\n\n    \u003c!--\n        \"OktaUtil\" defines a global OktaUtil object\n        that contains methods used to complete the Okta login flow.\n     --\u003e\n    {{{OktaUtil}}}\n\n    \u003cscript type=\"text/javascript\" nonce=\"{{nonceValue}}\"\u003e\n        // \"config\" object contains default widget configuration\n        // with any custom overrides defined in your admin settings.\n        var config = OktaUtil.getSignInWidgetConfig();\n\n        // Render the Okta Sign-In Widget\n        var oktaSignIn = new OktaSignIn(config);\n        oktaSignIn.renderEl({ el: '#okta-login-container' },\n            OktaUtil.completeLogin,\n            function(error) {\n                // Logs errors that occur when configuring the widget.\n                // Remove or replace this with your own custom error handler.\n                console.log(error.message, error);\n            }\n        );\n    \u003c/script\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n            \"\"\")\n            .widgetVersion(\"^6\")\n            .widgetCustomizations(PreviewSigninPageWidgetCustomizationsArgs.builder()\n                .widgetGeneration(\"G3\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: okta:Brand\n    properties:\n      name: testBrand\n      locale: en\n  testPreviewSigninPage:\n    type: okta:Index:PreviewSigninPage\n    name: test\n    properties:\n      brandId: ${oktaBrand.test.id}\n      pageContent: |\n        \u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\"\u003e\n        \u003chtml\u003e\n        \u003chead\u003e\n            \u003cmeta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"\u003e\n            \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /\u003e\n            \u003cmeta name=\"robots\" content=\"noindex,nofollow\" /\u003e\n            \u003c!-- Styles generated from theme --\u003e\n            \u003clink href=\"{{themedStylesUrl}}\" rel=\"stylesheet\" type=\"text/css\"\u003e\n            \u003c!-- Favicon from theme --\u003e\n            \u003clink rel=\"shortcut icon\" href=\"{{faviconUrl}}\" type=\"image/x-icon\"/\u003e\n\n            \u003ctitle\u003e{{pageTitle}}\u003c/title\u003e\n            {{{SignInWidgetResources}}}\n\n            \u003cstyle nonce=\"{{nonceValue}}\"\u003e\n                #login-bg-image-id {\n                    background-image: {{bgImageUrl}}\n                }\n            \u003c/style\u003e\n        \u003c/head\u003e\n        \u003cbody\u003e\n            \u003cdiv id=\"login-bg-image-id\" class=\"login-bg-image tb--background\"\u003e\u003c/div\u003e\n            \u003cdiv id=\"okta-login-container\"\u003e\u003c/div\u003e\n\n            \u003c!--\n                \"OktaUtil\" defines a global OktaUtil object\n                that contains methods used to complete the Okta login flow.\n             --\u003e\n            {{{OktaUtil}}}\n\n            \u003cscript type=\"text/javascript\" nonce=\"{{nonceValue}}\"\u003e\n                // \"config\" object contains default widget configuration\n                // with any custom overrides defined in your admin settings.\n                var config = OktaUtil.getSignInWidgetConfig();\n\n                // Render the Okta Sign-In Widget\n                var oktaSignIn = new OktaSignIn(config);\n                oktaSignIn.renderEl({ el: '#okta-login-container' },\n                    OktaUtil.completeLogin,\n                    function(error) {\n                        // Logs errors that occur when configuring the widget.\n                        // Remove or replace this with your own custom error handler.\n                        console.log(error.message, error);\n                    }\n                );\n            \u003c/script\u003e\n        \u003c/body\u003e\n        \u003c/html\u003e\n      widgetVersion: ^6\n      widgetCustomizations:\n        - widgetGeneration: G3\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
                 "brandId": {
                     "type": "string",
@@ -2477,7 +2479,7 @@
                 },
                 "widgetVersion": {
                     "type": "string",
-                    "description": "widget version specified as a Semver. The following are currently supported *, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7,\n1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16,\n2.17, 2.18, 2.19, 2.20, 2.21, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1,\n5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6,\n6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
+                    "description": "widget version specified as a Semver. The following are currently supported\n\t\t*, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4,\n\t\t2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16, 2.17, 2.18, 2.19, 2.20, 2.21,\n\t\t3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1, 5.2, 5.3,\n\t\t5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5,\n\t\t6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
                 }
             },
             "required": [
@@ -2502,7 +2504,7 @@
                 },
                 "widgetVersion": {
                     "type": "string",
-                    "description": "widget version specified as a Semver. The following are currently supported *, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7,\n1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16,\n2.17, 2.18, 2.19, 2.20, 2.21, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1,\n5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6,\n6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
+                    "description": "widget version specified as a Semver. The following are currently supported\n\t\t*, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4,\n\t\t2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16, 2.17, 2.18, 2.19, 2.20, 2.21,\n\t\t3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1, 5.2, 5.3,\n\t\t5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5,\n\t\t6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
                 }
             },
             "requiredInputs": [
@@ -2529,7 +2531,7 @@
                     },
                     "widgetVersion": {
                         "type": "string",
-                        "description": "widget version specified as a Semver. The following are currently supported *, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7,\n1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16,\n2.17, 2.18, 2.19, 2.20, 2.21, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1,\n5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6,\n6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
+                        "description": "widget version specified as a Semver. The following are currently supported\n\t\t*, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4,\n\t\t2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16, 2.17, 2.18, 2.19, 2.20, 2.21,\n\t\t3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1, 5.2, 5.3,\n\t\t5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5,\n\t\t6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.\n"
                     }
                 },
                 "type": "object"
@@ -4505,7 +4507,7 @@
                 },
                 "signatureAlgorithm": {
                     "type": "string",
-                    "description": "Signature algorithm used ot digitally sign the assertion and response.\n"
+                    "description": "Signature algorithm used to digitally sign the assertion and response.\n"
                 },
                 "singleLogoutCertificate": {
                     "type": "string",
@@ -4715,7 +4717,7 @@
                 },
                 "signatureAlgorithm": {
                     "type": "string",
-                    "description": "Signature algorithm used ot digitally sign the assertion and response.\n"
+                    "description": "Signature algorithm used to digitally sign the assertion and response.\n"
                 },
                 "singleLogoutCertificate": {
                     "type": "string",
@@ -4975,7 +4977,7 @@
                     },
                     "signatureAlgorithm": {
                         "type": "string",
-                        "description": "Signature algorithm used ot digitally sign the assertion and response.\n"
+                        "description": "Signature algorithm used to digitally sign the assertion and response.\n"
                     },
                     "singleLogoutCertificate": {
                         "type": "string",
@@ -5784,7 +5786,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
@@ -5918,7 +5920,7 @@
                 },
                 "appLinksJson": {
                     "type": "string",
-                    "description": "Displays specific appLinks for the app\n"
+                    "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
@@ -6039,7 +6041,7 @@
                     },
                     "appLinksJson": {
                         "type": "string",
-                        "description": "Displays specific appLinks for the app\n"
+                        "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                     },
                     "autoSubmitToolbar": {
                         "type": "boolean",
@@ -7451,7 +7453,7 @@
                 },
                 "roleType": {
                     "type": "string",
-                    "description": "Admin role assigned to the group. It can be any one of the following values:\n`\"API_ADMIN\"`,\n`\"APP_ADMIN\"`,\n`\"CUSTOM\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`,\n`\"MOBILE_ADMIN\"`,\n`\"ORG_ADMIN\"`,\n`\"READ_ONLY_ADMIN\"`,\n`\"REPORT_ADMIN\"`,\n`\"SUPER_ADMIN\"`,\n`\"USER_ADMIN\"`\n. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).\n\n\n- `\"USER_ADMIN\"` is the Group Administrator.\n"
+                    "description": "Admin role assigned to the group. It can be any one of the following values:\n`\"API_ACCESS_MANAGEMENT_ADMIN\"`,\n`\"APP_ADMIN\"`,\n`\"CUSTOM\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`,\n`\"MOBILE_ADMIN\"`,\n`\"ORG_ADMIN\"`,\n`\"READ_ONLY_ADMIN\"`,\n`\"REPORT_ADMIN\"`,\n`\"SUPER_ADMIN\"`,\n`\"USER_ADMIN\"`\n. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).\n\n\n- `\"USER_ADMIN\"` is the Group Administrator.\n"
                 },
                 "targetAppLists": {
                     "type": "array",
@@ -7484,7 +7486,7 @@
                 },
                 "roleType": {
                     "type": "string",
-                    "description": "Admin role assigned to the group. It can be any one of the following values:\n`\"API_ADMIN\"`,\n`\"APP_ADMIN\"`,\n`\"CUSTOM\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`,\n`\"MOBILE_ADMIN\"`,\n`\"ORG_ADMIN\"`,\n`\"READ_ONLY_ADMIN\"`,\n`\"REPORT_ADMIN\"`,\n`\"SUPER_ADMIN\"`,\n`\"USER_ADMIN\"`\n. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).\n\n\n- `\"USER_ADMIN\"` is the Group Administrator.\n",
+                    "description": "Admin role assigned to the group. It can be any one of the following values:\n`\"API_ACCESS_MANAGEMENT_ADMIN\"`,\n`\"APP_ADMIN\"`,\n`\"CUSTOM\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`,\n`\"MOBILE_ADMIN\"`,\n`\"ORG_ADMIN\"`,\n`\"READ_ONLY_ADMIN\"`,\n`\"REPORT_ADMIN\"`,\n`\"SUPER_ADMIN\"`,\n`\"USER_ADMIN\"`\n. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).\n\n\n- `\"USER_ADMIN\"` is the Group Administrator.\n",
                     "willReplaceOnChanges": true
                 },
                 "targetAppLists": {
@@ -7520,7 +7522,7 @@
                     },
                     "roleType": {
                         "type": "string",
-                        "description": "Admin role assigned to the group. It can be any one of the following values:\n`\"API_ADMIN\"`,\n`\"APP_ADMIN\"`,\n`\"CUSTOM\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`,\n`\"MOBILE_ADMIN\"`,\n`\"ORG_ADMIN\"`,\n`\"READ_ONLY_ADMIN\"`,\n`\"REPORT_ADMIN\"`,\n`\"SUPER_ADMIN\"`,\n`\"USER_ADMIN\"`\n. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).\n\n\n- `\"USER_ADMIN\"` is the Group Administrator.\n",
+                        "description": "Admin role assigned to the group. It can be any one of the following values:\n`\"API_ACCESS_MANAGEMENT_ADMIN\"`,\n`\"APP_ADMIN\"`,\n`\"CUSTOM\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`,\n`\"MOBILE_ADMIN\"`,\n`\"ORG_ADMIN\"`,\n`\"READ_ONLY_ADMIN\"`,\n`\"REPORT_ADMIN\"`,\n`\"SUPER_ADMIN\"`,\n`\"USER_ADMIN\"`\n. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).\n\n\n- `\"USER_ADMIN\"` is the Group Administrator.\n",
                         "willReplaceOnChanges": true
                     },
                     "targetAppLists": {
@@ -7748,10 +7750,6 @@
                     "type": "string",
                     "description": "The Application's display name.\n"
                 },
-                "pkceRequired": {
-                    "type": "boolean",
-                    "description": "Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:\nhttps://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object\n"
-                },
                 "profileMaster": {
                     "type": "boolean",
                     "description": "Determines if the IdP should act as a source of truth for user profile attributes.\n"
@@ -7917,10 +7915,6 @@
                     "type": "string",
                     "description": "The Application's display name.\n"
                 },
-                "pkceRequired": {
-                    "type": "boolean",
-                    "description": "Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:\nhttps://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object\n"
-                },
                 "profileMaster": {
                     "type": "boolean",
                     "description": "Determines if the IdP should act as a source of truth for user profile attributes.\n"
@@ -8076,10 +8070,6 @@
                     "name": {
                         "type": "string",
                         "description": "The Application's display name.\n"
-                    },
-                    "pkceRequired": {
-                        "type": "boolean",
-                        "description": "Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:\nhttps://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object\n"
                     },
                     "profileMaster": {
                         "type": "boolean",
@@ -10577,11 +10567,11 @@
                 },
                 "unique": {
                     "type": "string",
-                    "description": "Subschema unique restriction\n"
+                    "description": "Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.\n"
                 },
                 "userType": {
                     "type": "string",
-                    "description": "Custom subschema user type\n"
+                    "description": "User type ID. By default, it is `default`\n"
                 }
             },
             "required": [
@@ -10687,12 +10677,12 @@
                 },
                 "unique": {
                     "type": "string",
-                    "description": "Subschema unique restriction\n",
+                    "description": "Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.\n",
                     "willReplaceOnChanges": true
                 },
                 "userType": {
                     "type": "string",
-                    "description": "Custom subschema user type\n"
+                    "description": "User type ID. By default, it is `default`\n"
                 }
             },
             "requiredInputs": [
@@ -10800,12 +10790,12 @@
                     },
                     "unique": {
                         "type": "string",
-                        "description": "Subschema unique restriction\n",
+                        "description": "Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.\n",
                         "willReplaceOnChanges": true
                     },
                     "userType": {
                         "type": "string",
-                        "description": "Custom subschema user type\n"
+                        "description": "User type ID. By default, it is `default`\n"
                     }
                 },
                 "type": "object"
@@ -12112,7 +12102,8 @@
                     "description": "The event hook display name.\n"
                 },
                 "status": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Default to `ACTIVE`\n"
                 }
             },
             "required": [
@@ -12154,7 +12145,8 @@
                     "description": "The event hook display name.\n"
                 },
                 "status": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Default to `ACTIVE`\n"
                 }
             },
             "requiredInputs": [
@@ -12197,7 +12189,8 @@
                         "description": "The event hook display name.\n"
                     },
                     "status": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Default to `ACTIVE`\n"
                     }
                 },
                 "type": "object"
@@ -12930,7 +12923,7 @@
                 },
                 "logo": {
                     "type": "string",
-                    "description": "Local path to logo of the org.\n"
+                    "description": "Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape\norientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.\n"
                 },
                 "optOutCommunicationEmails": {
                     "type": "boolean",
@@ -13001,7 +12994,7 @@
                 },
                 "logo": {
                     "type": "string",
-                    "description": "Local path to logo of the org.\n"
+                    "description": "Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape\norientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.\n"
                 },
                 "optOutCommunicationEmails": {
                     "type": "boolean",
@@ -13072,7 +13065,7 @@
                     },
                     "logo": {
                         "type": "string",
-                        "description": "Local path to logo of the org.\n"
+                        "description": "Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape\norientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.\n"
                     },
                     "optOutCommunicationEmails": {
                         "type": "boolean",
@@ -14429,7 +14422,7 @@
                 },
                 "roleType": {
                     "type": "string",
-                    "description": "Type of the role. Valid values:\n`\"API_ADMIN\"`,\n`\"APP_ADMIN\"`,\n`\"CUSTOM\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`,\n`\"MOBILE_ADMIN\"`,\n`\"ORG_ADMIN\"`,\n`\"READ_ONLY_ADMIN\"`,\n`\"REPORT_ADMIN\"`,\n`\"SUPER_ADMIN\"`,\n`\"USER_ADMIN\"`\n. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)\n"
+                    "description": "Type of the role. Valid values:\n`\"API_ACCESS_MANAGEMENT_ADMIN\"`,\n`\"APP_ADMIN\"`,\n`\"CUSTOM\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`,\n`\"MOBILE_ADMIN\"`,\n`\"ORG_ADMIN\"`,\n`\"READ_ONLY_ADMIN\"`,\n`\"REPORT_ADMIN\"`,\n`\"SUPER_ADMIN\"`,\n`\"USER_ADMIN\"`\n. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)\n"
                 },
                 "status": {
                     "type": "string",
@@ -14448,7 +14441,7 @@
                 },
                 "roleType": {
                     "type": "string",
-                    "description": "Type of the role. Valid values:\n`\"API_ADMIN\"`,\n`\"APP_ADMIN\"`,\n`\"CUSTOM\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`,\n`\"MOBILE_ADMIN\"`,\n`\"ORG_ADMIN\"`,\n`\"READ_ONLY_ADMIN\"`,\n`\"REPORT_ADMIN\"`,\n`\"SUPER_ADMIN\"`,\n`\"USER_ADMIN\"`\n. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)\n",
+                    "description": "Type of the role. Valid values:\n`\"API_ACCESS_MANAGEMENT_ADMIN\"`,\n`\"APP_ADMIN\"`,\n`\"CUSTOM\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`,\n`\"MOBILE_ADMIN\"`,\n`\"ORG_ADMIN\"`,\n`\"READ_ONLY_ADMIN\"`,\n`\"REPORT_ADMIN\"`,\n`\"SUPER_ADMIN\"`,\n`\"USER_ADMIN\"`\n. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)\n",
                     "willReplaceOnChanges": true
                 },
                 "status": {
@@ -14470,7 +14463,7 @@
                     },
                     "roleType": {
                         "type": "string",
-                        "description": "Type of the role. Valid values:\n`\"API_ADMIN\"`,\n`\"APP_ADMIN\"`,\n`\"CUSTOM\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`,\n`\"MOBILE_ADMIN\"`,\n`\"ORG_ADMIN\"`,\n`\"READ_ONLY_ADMIN\"`,\n`\"REPORT_ADMIN\"`,\n`\"SUPER_ADMIN\"`,\n`\"USER_ADMIN\"`\n. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)\n",
+                        "description": "Type of the role. Valid values:\n`\"API_ACCESS_MANAGEMENT_ADMIN\"`,\n`\"APP_ADMIN\"`,\n`\"CUSTOM\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`,\n`\"MOBILE_ADMIN\"`,\n`\"ORG_ADMIN\"`,\n`\"READ_ONLY_ADMIN\"`,\n`\"REPORT_ADMIN\"`,\n`\"SUPER_ADMIN\"`,\n`\"USER_ADMIN\"`\n. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types)\n",
                         "willReplaceOnChanges": true
                     },
                     "status": {
@@ -15573,7 +15566,8 @@
                     "description": "The inline hook display name.\n"
                 },
                 "status": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Default to `ACTIVE`\n"
                 },
                 "type": {
                     "type": "string",
@@ -15617,7 +15611,8 @@
                     "description": "The inline hook display name.\n"
                 },
                 "status": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Default to `ACTIVE`\n"
                 },
                 "type": {
                     "type": "string",
@@ -15663,7 +15658,8 @@
                         "description": "The inline hook display name.\n"
                     },
                     "status": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Default to `ACTIVE`\n"
                     },
                     "type": {
                         "type": "string",
@@ -15843,6 +15839,7 @@
             }
         },
         "okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid": {
+            "description": "Manages a device assurance policy for android.\n\n## Import\n\n```sh\n$ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example \u0026#60;device assurance id\u0026#62;\n```\n\n",
             "properties": {
                 "createdBy": {
                     "type": "string",
@@ -15857,11 +15854,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of disk encryption type, can be FULL, USER\n"
+                    "description": "List of disk encryption type, can be `FULL`, `USER`\n"
                 },
                 "jailbreak": {
                     "type": "boolean",
-                    "description": "The device jailbreak. Only for android and iOS platform\n"
+                    "description": "Is the device jailbroken in the device assurance policy.\n"
                 },
                 "lastUpdate": {
                     "type": "string",
@@ -15877,7 +15874,7 @@
                 },
                 "osVersion": {
                     "type": "string",
-                    "description": "The device os minimum version\n"
+                    "description": "Minimum os version of the device in the device assurance policy.\n"
                 },
                 "platform": {
                     "type": "string",
@@ -15888,11 +15885,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE\n"
+                    "description": "List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`\n"
                 },
                 "secureHardwarePresent": {
                     "type": "boolean",
-                    "description": "Indicates if the device constains a secure hardware functionality\n"
+                    "description": "Indicates if the device contains a secure hardware functionality\n"
                 }
             },
             "required": [
@@ -15909,11 +15906,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of disk encryption type, can be FULL, USER\n"
+                    "description": "List of disk encryption type, can be `FULL`, `USER`\n"
                 },
                 "jailbreak": {
                     "type": "boolean",
-                    "description": "The device jailbreak. Only for android and iOS platform\n"
+                    "description": "Is the device jailbroken in the device assurance policy.\n"
                 },
                 "name": {
                     "type": "string",
@@ -15921,18 +15918,18 @@
                 },
                 "osVersion": {
                     "type": "string",
-                    "description": "The device os minimum version\n"
+                    "description": "Minimum os version of the device in the device assurance policy.\n"
                 },
                 "screenlockTypes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE\n"
+                    "description": "List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`\n"
                 },
                 "secureHardwarePresent": {
                     "type": "boolean",
-                    "description": "Indicates if the device constains a secure hardware functionality\n"
+                    "description": "Indicates if the device contains a secure hardware functionality\n"
                 }
             },
             "stateInputs": {
@@ -15951,11 +15948,11 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of disk encryption type, can be FULL, USER\n"
+                        "description": "List of disk encryption type, can be `FULL`, `USER`\n"
                     },
                     "jailbreak": {
                         "type": "boolean",
-                        "description": "The device jailbreak. Only for android and iOS platform\n"
+                        "description": "Is the device jailbroken in the device assurance policy.\n"
                     },
                     "lastUpdate": {
                         "type": "string",
@@ -15971,7 +15968,7 @@
                     },
                     "osVersion": {
                         "type": "string",
-                        "description": "The device os minimum version\n"
+                        "description": "Minimum os version of the device in the device assurance policy.\n"
                     },
                     "platform": {
                         "type": "string",
@@ -15982,17 +15979,18 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE\n"
+                        "description": "List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`\n"
                     },
                     "secureHardwarePresent": {
                         "type": "boolean",
-                        "description": "Indicates if the device constains a secure hardware functionality\n"
+                        "description": "Indicates if the device contains a secure hardware functionality\n"
                     }
                 },
                 "type": "object"
             }
         },
         "okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos": {
+            "description": "Manages a device assurance policy for chromeos.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.policy.DeviceAssuranceChromeos(\"example\", {\n    name: \"example\",\n    tpspAllowScreenLock: true,\n    tpspBrowserVersion: \"15393.27.0\",\n    tpspBuiltinDnsClientEnabled: true,\n    tpspChromeRemoteDesktopAppBlocked: true,\n    tpspDeviceEnrollmentDomain: \"exampleDomain\",\n    tpspDiskEncrypted: true,\n    tpspKeyTrustLevel: \"CHROME_OS_VERIFIED_MODE\",\n    tpspOsFirewall: true,\n    tpspOsVersion: \"10.0.19041.1110\",\n    tpspPasswordProctectionWarningTrigger: \"PASSWORD_PROTECTION_OFF\",\n    tpspRealtimeUrlCheckMode: true,\n    tpspSafeBrowsingProtectionLevel: \"ENHANCED_PROTECTION\",\n    tpspScreenLockSecured: true,\n    tpspSiteIsolationEnabled: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.policy.DeviceAssuranceChromeos(\"example\",\n    name=\"example\",\n    tpsp_allow_screen_lock=True,\n    tpsp_browser_version=\"15393.27.0\",\n    tpsp_builtin_dns_client_enabled=True,\n    tpsp_chrome_remote_desktop_app_blocked=True,\n    tpsp_device_enrollment_domain=\"exampleDomain\",\n    tpsp_disk_encrypted=True,\n    tpsp_key_trust_level=\"CHROME_OS_VERIFIED_MODE\",\n    tpsp_os_firewall=True,\n    tpsp_os_version=\"10.0.19041.1110\",\n    tpsp_password_proctection_warning_trigger=\"PASSWORD_PROTECTION_OFF\",\n    tpsp_realtime_url_check_mode=True,\n    tpsp_safe_browsing_protection_level=\"ENHANCED_PROTECTION\",\n    tpsp_screen_lock_secured=True,\n    tpsp_site_isolation_enabled=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.Policy.DeviceAssuranceChromeos(\"example\", new()\n    {\n        Name = \"example\",\n        TpspAllowScreenLock = true,\n        TpspBrowserVersion = \"15393.27.0\",\n        TpspBuiltinDnsClientEnabled = true,\n        TpspChromeRemoteDesktopAppBlocked = true,\n        TpspDeviceEnrollmentDomain = \"exampleDomain\",\n        TpspDiskEncrypted = true,\n        TpspKeyTrustLevel = \"CHROME_OS_VERIFIED_MODE\",\n        TpspOsFirewall = true,\n        TpspOsVersion = \"10.0.19041.1110\",\n        TpspPasswordProctectionWarningTrigger = \"PASSWORD_PROTECTION_OFF\",\n        TpspRealtimeUrlCheckMode = true,\n        TpspSafeBrowsingProtectionLevel = \"ENHANCED_PROTECTION\",\n        TpspScreenLockSecured = true,\n        TpspSiteIsolationEnabled = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewDeviceAssuranceChromeos(ctx, \"example\", \u0026policy.DeviceAssuranceChromeosArgs{\n\t\t\tName:                                  pulumi.String(\"example\"),\n\t\t\tTpspAllowScreenLock:                   pulumi.Bool(true),\n\t\t\tTpspBrowserVersion:                    pulumi.String(\"15393.27.0\"),\n\t\t\tTpspBuiltinDnsClientEnabled:           pulumi.Bool(true),\n\t\t\tTpspChromeRemoteDesktopAppBlocked:     pulumi.Bool(true),\n\t\t\tTpspDeviceEnrollmentDomain:            pulumi.String(\"exampleDomain\"),\n\t\t\tTpspDiskEncrypted:                     pulumi.Bool(true),\n\t\t\tTpspKeyTrustLevel:                     pulumi.String(\"CHROME_OS_VERIFIED_MODE\"),\n\t\t\tTpspOsFirewall:                        pulumi.Bool(true),\n\t\t\tTpspOsVersion:                         pulumi.String(\"10.0.19041.1110\"),\n\t\t\tTpspPasswordProctectionWarningTrigger: pulumi.String(\"PASSWORD_PROTECTION_OFF\"),\n\t\t\tTpspRealtimeUrlCheckMode:              pulumi.Bool(true),\n\t\t\tTpspSafeBrowsingProtectionLevel:       pulumi.String(\"ENHANCED_PROTECTION\"),\n\t\t\tTpspScreenLockSecured:                 pulumi.Bool(true),\n\t\t\tTpspSiteIsolationEnabled:              pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.DeviceAssuranceChromeos;\nimport com.pulumi.okta.policy.DeviceAssuranceChromeosArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new DeviceAssuranceChromeos(\"example\", DeviceAssuranceChromeosArgs.builder()        \n            .name(\"example\")\n            .tpspAllowScreenLock(true)\n            .tpspBrowserVersion(\"15393.27.0\")\n            .tpspBuiltinDnsClientEnabled(true)\n            .tpspChromeRemoteDesktopAppBlocked(true)\n            .tpspDeviceEnrollmentDomain(\"exampleDomain\")\n            .tpspDiskEncrypted(true)\n            .tpspKeyTrustLevel(\"CHROME_OS_VERIFIED_MODE\")\n            .tpspOsFirewall(true)\n            .tpspOsVersion(\"10.0.19041.1110\")\n            .tpspPasswordProctectionWarningTrigger(\"PASSWORD_PROTECTION_OFF\")\n            .tpspRealtimeUrlCheckMode(true)\n            .tpspSafeBrowsingProtectionLevel(\"ENHANCED_PROTECTION\")\n            .tpspScreenLockSecured(true)\n            .tpspSiteIsolationEnabled(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:policy:DeviceAssuranceChromeos\n    properties:\n      name: example\n      tpspAllowScreenLock: true\n      tpspBrowserVersion: 15393.27.0\n      tpspBuiltinDnsClientEnabled: true\n      tpspChromeRemoteDesktopAppBlocked: true\n      tpspDeviceEnrollmentDomain: exampleDomain\n      tpspDiskEncrypted: true\n      tpspKeyTrustLevel: CHROME_OS_VERIFIED_MODE\n      tpspOsFirewall: true\n      tpspOsVersion: 10.0.19041.1110\n      tpspPasswordProctectionWarningTrigger: PASSWORD_PROTECTION_OFF\n      tpspRealtimeUrlCheckMode: true\n      tpspSafeBrowsingProtectionLevel: ENHANCED_PROTECTION\n      tpspScreenLockSecured: true\n      tpspSiteIsolationEnabled: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos example \u0026#60;device assurance id\u0026#62;\n```\n\n",
             "properties": {
                 "createdBy": {
                     "type": "string",
@@ -16012,7 +16010,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Policy device assurance name\n"
+                    "description": "Name of the device assurance policy.\n"
                 },
                 "platform": {
                     "type": "string",
@@ -16086,7 +16084,7 @@
             "inputProperties": {
                 "name": {
                     "type": "string",
-                    "description": "Policy device assurance name\n"
+                    "description": "Name of the device assurance policy.\n"
                 },
                 "tpspAllowScreenLock": {
                     "type": "boolean",
@@ -16166,7 +16164,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Policy device assurance name\n"
+                        "description": "Name of the device assurance policy.\n"
                     },
                     "platform": {
                         "type": "string",
@@ -16233,34 +16231,35 @@
             }
         },
         "okta:policy/deviceAssuranceIos:DeviceAssuranceIos": {
+            "description": "Manages a device assurance policy for ios.\n\n## Import\n\n```sh\n$ pulumi import okta:policy/deviceAssuranceIos:DeviceAssuranceIos example \u0026#60;device assurance id\u0026#62;\n```\n\n",
             "properties": {
                 "createdBy": {
                     "type": "string",
-                    "description": "Created by\n"
+                    "description": "Created by of the device assurance polic\n"
                 },
                 "createdDate": {
                     "type": "string",
-                    "description": "Created date\n"
+                    "description": "Created date of the device assurance polic\n"
                 },
                 "jailbreak": {
                     "type": "boolean",
-                    "description": "The device jailbreak. Only for android and iOS platform\n"
+                    "description": "Is the device jailbroken in the device assurance policy.\n"
                 },
                 "lastUpdate": {
                     "type": "string",
-                    "description": "Last update\n"
+                    "description": "Last update of the device assurance polic\n"
                 },
                 "lastUpdatedBy": {
                     "type": "string",
-                    "description": "Last updated by\n"
+                    "description": "Last updated by of the device assurance polic\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Policy device assurance name\n"
+                    "description": "Name of the device assurance policy.\n"
                 },
                 "osVersion": {
                     "type": "string",
-                    "description": "The device os minimum version\n"
+                    "description": "Minimum os version of the device in the device assurance policy.\n"
                 },
                 "platform": {
                     "type": "string",
@@ -16271,7 +16270,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE\n"
+                    "description": "List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`\n"
                 }
             },
             "required": [
@@ -16285,22 +16284,22 @@
             "inputProperties": {
                 "jailbreak": {
                     "type": "boolean",
-                    "description": "The device jailbreak. Only for android and iOS platform\n"
+                    "description": "Is the device jailbroken in the device assurance policy.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Policy device assurance name\n"
+                    "description": "Name of the device assurance policy.\n"
                 },
                 "osVersion": {
                     "type": "string",
-                    "description": "The device os minimum version\n"
+                    "description": "Minimum os version of the device in the device assurance policy.\n"
                 },
                 "screenlockTypes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE\n"
+                    "description": "List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`\n"
                 }
             },
             "stateInputs": {
@@ -16308,31 +16307,31 @@
                 "properties": {
                     "createdBy": {
                         "type": "string",
-                        "description": "Created by\n"
+                        "description": "Created by of the device assurance polic\n"
                     },
                     "createdDate": {
                         "type": "string",
-                        "description": "Created date\n"
+                        "description": "Created date of the device assurance polic\n"
                     },
                     "jailbreak": {
                         "type": "boolean",
-                        "description": "The device jailbreak. Only for android and iOS platform\n"
+                        "description": "Is the device jailbroken in the device assurance policy.\n"
                     },
                     "lastUpdate": {
                         "type": "string",
-                        "description": "Last update\n"
+                        "description": "Last update of the device assurance polic\n"
                     },
                     "lastUpdatedBy": {
                         "type": "string",
-                        "description": "Last updated by\n"
+                        "description": "Last updated by of the device assurance polic\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Policy device assurance name\n"
+                        "description": "Name of the device assurance policy.\n"
                     },
                     "osVersion": {
                         "type": "string",
-                        "description": "The device os minimum version\n"
+                        "description": "Minimum os version of the device in the device assurance policy.\n"
                     },
                     "platform": {
                         "type": "string",
@@ -16343,13 +16342,14 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE\n"
+                        "description": "List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`\n"
                     }
                 },
                 "type": "object"
             }
         },
         "okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos": {
+            "description": "Manages a device assurance policy for macos.\n\n## Import\n\n```sh\n$ pulumi import okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos example \u0026#60;device assurance id\u0026#62;\n```\n\n",
             "properties": {
                 "createdBy": {
                     "type": "string",
@@ -16364,7 +16364,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of disk encryption type, can be ALL_INTERNAL_VOLUMES\n"
+                    "description": "List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`\n"
                 },
                 "lastUpdate": {
                     "type": "string",
@@ -16376,11 +16376,11 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Policy device assurance name\n"
+                    "description": "Name of the device assurance policy.\n"
                 },
                 "osVersion": {
                     "type": "string",
-                    "description": "The device os minimum version\n"
+                    "description": "Minimum os version of the device in the device assurance policy.\n"
                 },
                 "platform": {
                     "type": "string",
@@ -16391,11 +16391,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE\n"
+                    "description": "List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`\n"
                 },
                 "secureHardwarePresent": {
                     "type": "boolean",
-                    "description": "Indicates if the device constains a secure hardware functionality\n"
+                    "description": "Is the device secure with hardware in the device assurance policy.\n"
                 },
                 "thirdPartySignalProviders": {
                     "type": "boolean",
@@ -16468,26 +16468,26 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of disk encryption type, can be ALL_INTERNAL_VOLUMES\n"
+                    "description": "List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Policy device assurance name\n"
+                    "description": "Name of the device assurance policy.\n"
                 },
                 "osVersion": {
                     "type": "string",
-                    "description": "The device os minimum version\n"
+                    "description": "Minimum os version of the device in the device assurance policy.\n"
                 },
                 "screenlockTypes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE\n"
+                    "description": "List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`\n"
                 },
                 "secureHardwarePresent": {
                     "type": "boolean",
-                    "description": "Indicates if the device constains a secure hardware functionality\n"
+                    "description": "Is the device secure with hardware in the device assurance policy.\n"
                 },
                 "thirdPartySignalProviders": {
                     "type": "boolean",
@@ -16562,7 +16562,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of disk encryption type, can be ALL_INTERNAL_VOLUMES\n"
+                        "description": "List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`\n"
                     },
                     "lastUpdate": {
                         "type": "string",
@@ -16574,11 +16574,11 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Policy device assurance name\n"
+                        "description": "Name of the device assurance policy.\n"
                     },
                     "osVersion": {
                         "type": "string",
-                        "description": "The device os minimum version\n"
+                        "description": "Minimum os version of the device in the device assurance policy.\n"
                     },
                     "platform": {
                         "type": "string",
@@ -16589,11 +16589,11 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE\n"
+                        "description": "List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`\n"
                     },
                     "secureHardwarePresent": {
                         "type": "boolean",
-                        "description": "Indicates if the device constains a secure hardware functionality\n"
+                        "description": "Is the device secure with hardware in the device assurance policy.\n"
                     },
                     "thirdPartySignalProviders": {
                         "type": "boolean",
@@ -16656,6 +16656,7 @@
             }
         },
         "okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows": {
+            "description": "Manages a device assurance policy for windows.\n\n## Import\n\n```sh\n$ pulumi import okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows example \u0026#60;device assurance id\u0026#62;\n```\n\n",
             "properties": {
                 "createdBy": {
                     "type": "string",
@@ -16670,7 +16671,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of disk encryption type, can be ALL_INTERNAL_VOLUMES\n"
+                    "description": "List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`\n"
                 },
                 "lastUpdate": {
                     "type": "string",
@@ -16682,11 +16683,11 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Policy device assurance name\n"
+                    "description": "Name of the device assurance policy.\n"
                 },
                 "osVersion": {
                     "type": "string",
-                    "description": "The device os minimum version\n"
+                    "description": "Minimum os version of the device in the device assurance policy.\n"
                 },
                 "platform": {
                     "type": "string",
@@ -16697,11 +16698,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE\n"
+                    "description": "List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`\n"
                 },
                 "secureHardwarePresent": {
                     "type": "boolean",
-                    "description": "Indicates if the device constains a secure hardware functionality\n"
+                    "description": "Is the device secure with hardware in the device assurance policy.\n"
                 },
                 "thirdPartySignalProviders": {
                     "type": "boolean",
@@ -16798,26 +16799,26 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of disk encryption type, can be ALL_INTERNAL_VOLUMES\n"
+                    "description": "List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Policy device assurance name\n"
+                    "description": "Name of the device assurance policy.\n"
                 },
                 "osVersion": {
                     "type": "string",
-                    "description": "The device os minimum version\n"
+                    "description": "Minimum os version of the device in the device assurance policy.\n"
                 },
                 "screenlockTypes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE\n"
+                    "description": "List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`\n"
                 },
                 "secureHardwarePresent": {
                     "type": "boolean",
-                    "description": "Indicates if the device constains a secure hardware functionality\n"
+                    "description": "Is the device secure with hardware in the device assurance policy.\n"
                 },
                 "thirdPartySignalProviders": {
                     "type": "boolean",
@@ -16916,7 +16917,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of disk encryption type, can be ALL_INTERNAL_VOLUMES\n"
+                        "description": "List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`\n"
                     },
                     "lastUpdate": {
                         "type": "string",
@@ -16928,11 +16929,11 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Policy device assurance name\n"
+                        "description": "Name of the device assurance policy.\n"
                     },
                     "osVersion": {
                         "type": "string",
-                        "description": "The device os minimum version\n"
+                        "description": "Minimum os version of the device in the device assurance policy.\n"
                     },
                     "platform": {
                         "type": "string",
@@ -16943,11 +16944,11 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE\n"
+                        "description": "List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`\n"
                     },
                     "secureHardwarePresent": {
                         "type": "boolean",
-                        "description": "Indicates if the device constains a secure hardware functionality\n"
+                        "description": "Is the device secure with hardware in the device assurance policy.\n"
                     },
                     "thirdPartySignalProviders": {
                         "type": "boolean",
@@ -18016,7 +18017,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/okta:policy/RuleIdpDiscoveryPlatformInclude:RuleIdpDiscoveryPlatformInclude"
-                    }
+                    },
+                    "description": "Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -\n(Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',\n'ANDROID', 'OTHER', 'OSX'\n"
                 },
                 "policyId": {
                     "type": "string",
@@ -18099,7 +18101,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/okta:policy/RuleIdpDiscoveryPlatformInclude:RuleIdpDiscoveryPlatformInclude"
-                    }
+                    },
+                    "description": "Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -\n(Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',\n'ANDROID', 'OTHER', 'OSX'\n"
                 },
                 "policyId": {
                     "type": "string",
@@ -18182,7 +18185,8 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/types/okta:policy/RuleIdpDiscoveryPlatformInclude:RuleIdpDiscoveryPlatformInclude"
-                        }
+                        },
+                        "description": "Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -\n(Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',\n'ANDROID', 'OTHER', 'OSX'\n"
                     },
                     "policyId": {
                         "type": "string",
@@ -18224,7 +18228,7 @@
                     "items": {
                         "$ref": "#/types/okta:policy/RuleMfaAppExclude:RuleMfaAppExclude"
                     },
-                    "description": "Applications to exclude\n"
+                    "description": "Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'\n- (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'\nis 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')\nof applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'\n"
                 },
                 "appIncludes": {
                     "type": "array",
@@ -18288,7 +18292,7 @@
                     "items": {
                         "$ref": "#/types/okta:policy/RuleMfaAppExclude:RuleMfaAppExclude"
                     },
-                    "description": "Applications to exclude\n"
+                    "description": "Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'\n- (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'\nis 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')\nof applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'\n"
                 },
                 "appIncludes": {
                     "type": "array",
@@ -18353,7 +18357,7 @@
                         "items": {
                             "$ref": "#/types/okta:policy/RuleMfaAppExclude:RuleMfaAppExclude"
                         },
-                        "description": "Applications to exclude\n"
+                        "description": "Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'\n- (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'\nis 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')\nof applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'\n"
                     },
                     "appIncludes": {
                         "type": "array",
@@ -18680,7 +18684,12 @@
                 },
                 "riscLevel": {
                     "type": "string",
-                    "description": "Risc level: `\"ANY\"`, `\"LOW\"`, `\"MEDIUM\"` or `\"HIGH\"`. Default is `\"ANY\"`. It can be also \nset to an empty string in case `RISC_SCORING` org feature flag is disabled.\n"
+                    "description": "Risc level: `\"ANY\"`, `\"LOW\"`, `\"MEDIUM\"` or `\"HIGH\"`. Default is `\"ANY\"`. It can be also \nset to an empty string in case `RISC_SCORING` org feature flag is disabled.\n",
+                    "deprecationMessage": "Attribute typo, switch to risk_level instead. Default: `ANY`"
+                },
+                "riskLevel": {
+                    "type": "string",
+                    "description": "Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`\n"
                 },
                 "sessionIdle": {
                     "type": "integer",
@@ -18798,7 +18807,12 @@
                 },
                 "riscLevel": {
                     "type": "string",
-                    "description": "Risc level: `\"ANY\"`, `\"LOW\"`, `\"MEDIUM\"` or `\"HIGH\"`. Default is `\"ANY\"`. It can be also \nset to an empty string in case `RISC_SCORING` org feature flag is disabled.\n"
+                    "description": "Risc level: `\"ANY\"`, `\"LOW\"`, `\"MEDIUM\"` or `\"HIGH\"`. Default is `\"ANY\"`. It can be also \nset to an empty string in case `RISC_SCORING` org feature flag is disabled.\n",
+                    "deprecationMessage": "Attribute typo, switch to risk_level instead. Default: `ANY`"
+                },
+                "riskLevel": {
+                    "type": "string",
+                    "description": "Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`\n"
                 },
                 "sessionIdle": {
                     "type": "integer",
@@ -18914,7 +18928,12 @@
                     },
                     "riscLevel": {
                         "type": "string",
-                        "description": "Risc level: `\"ANY\"`, `\"LOW\"`, `\"MEDIUM\"` or `\"HIGH\"`. Default is `\"ANY\"`. It can be also \nset to an empty string in case `RISC_SCORING` org feature flag is disabled.\n"
+                        "description": "Risc level: `\"ANY\"`, `\"LOW\"`, `\"MEDIUM\"` or `\"HIGH\"`. Default is `\"ANY\"`. It can be also \nset to an empty string in case `RISC_SCORING` org feature flag is disabled.\n",
+                        "deprecationMessage": "Attribute typo, switch to risk_level instead. Default: `ANY`"
+                    },
+                    "riskLevel": {
+                        "type": "string",
+                        "description": "Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`\n"
                     },
                     "sessionIdle": {
                         "type": "integer",
@@ -19272,7 +19291,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of custom_profile_attribute keys that should be excluded from being managed by Terraform.\n"
+                    "description": "List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in\nsituations where specific custom fields may contain sensitive information and should be managed outside of Terraform.\n"
                 },
                 "department": {
                     "type": "string",
@@ -19461,7 +19480,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of custom_profile_attribute keys that should be excluded from being managed by Terraform.\n"
+                    "description": "List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in\nsituations where specific custom fields may contain sensitive information and should be managed outside of Terraform.\n"
                 },
                 "department": {
                     "type": "string",
@@ -19646,7 +19665,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of custom_profile_attribute keys that should be excluded from being managed by Terraform.\n"
+                        "description": "List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in\nsituations where specific custom fields may contain sensitive information and should be managed outside of Terraform.\n"
                     },
                     "department": {
                         "type": "string",
@@ -19869,11 +19888,13 @@
     },
     "functions": {
         "okta:Index/getDefaultSigninPage:getDefaultSigninPage": {
+            "description": "Retrieve the default signin page of a brand\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getDefaultSigninPage.\n",
                 "properties": {
                     "brandId": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "brand id of the preview signin page\n"
                     },
                     "contentSecurityPolicySetting": {
                         "$ref": "#/types/okta:Index/getDefaultSigninPageContentSecurityPolicySetting:getDefaultSigninPageContentSecurityPolicySetting"
@@ -19891,21 +19912,25 @@
                 "description": "A collection of values returned by getDefaultSigninPage.\n",
                 "properties": {
                     "brandId": {
+                        "description": "brand id of the preview signin page\n",
                         "type": "string"
                     },
                     "contentSecurityPolicySetting": {
                         "$ref": "#/types/okta:Index/getDefaultSigninPageContentSecurityPolicySetting:getDefaultSigninPageContentSecurityPolicySetting"
                     },
                     "id": {
+                        "description": "placeholder id\n",
                         "type": "string"
                     },
                     "pageContent": {
+                        "description": "page content of the preview signin page\n",
                         "type": "string"
                     },
                     "widgetCustomizations": {
                         "$ref": "#/types/okta:Index/getDefaultSigninPageWidgetCustomizations:getDefaultSigninPageWidgetCustomizations"
                     },
                     "widgetVersion": {
+                        "description": "widget version specified as a Semver\n",
                         "type": "string"
                     }
                 },
@@ -20593,7 +20618,7 @@
                         "type": "boolean"
                     },
                     "signatureAlgorithm": {
-                        "description": "Signature algorithm used ot digitally sign the assertion and response.\n",
+                        "description": "Signature algorithm used to digitally sign the assertion and response.\n",
                         "type": "string"
                     },
                     "singleLogoutCertificate": {
@@ -22263,7 +22288,7 @@
                     },
                     "roleType": {
                         "type": "string",
-                        "description": "Type of the role. Valid values:\n`\"API_ADMIN\"`,\n`\"APP_ADMIN\"`,\n`\"CUSTOM\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`,\n`\"MOBILE_ADMIN\"`,\n`\"ORG_ADMIN\"`,\n`\"READ_ONLY_ADMIN\"`,\n`\"REPORT_ADMIN\"`,\n`\"SUPER_ADMIN\"`,\n`\"USER_ADMIN\"`\n.\n"
+                        "description": "Type of the role. Valid values:\n`\"API_ACCESS_MANAGEMENT_ADMIN\"`,\n`\"APP_ADMIN\"`,\n`\"CUSTOM\"`,\n`\"GROUP_MEMBERSHIP_ADMIN\"`,\n`\"HELP_DESK_ADMIN\"`,\n`\"MOBILE_ADMIN\"`,\n`\"ORG_ADMIN\"`,\n`\"READ_ONLY_ADMIN\"`,\n`\"REPORT_ADMIN\"`,\n`\"SUPER_ADMIN\"`,\n`\"USER_ADMIN\"`\n.\n"
                     }
                 },
                 "type": "object",

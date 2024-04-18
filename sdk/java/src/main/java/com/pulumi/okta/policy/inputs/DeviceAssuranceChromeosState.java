@@ -77,14 +77,14 @@ public final class DeviceAssuranceChromeosState extends com.pulumi.resources.Res
     }
 
     /**
-     * Policy device assurance name
+     * Name of the device assurance policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Policy device assurance name
+     * @return Name of the device assurance policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -444,7 +444,7 @@ public final class DeviceAssuranceChromeosState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Policy device assurance name
+         * @param name Name of the device assurance policy.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class DeviceAssuranceChromeosState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Policy device assurance name
+         * @param name Name of the device assurance policy.
          * 
          * @return builder
          * 

@@ -135,7 +135,7 @@ type LookupSamlResult struct {
 	ResponseSigned bool `pulumi:"responseSigned"`
 	// SAML Signed Request enabled
 	SamlSignedRequestEnabled bool `pulumi:"samlSignedRequestEnabled"`
-	// Signature algorithm used ot digitally sign the assertion and response.
+	// Signature algorithm used to digitally sign the assertion and response.
 	SignatureAlgorithm string `pulumi:"signatureAlgorithm"`
 	// x509 encoded certificate that the Service Provider uses to sign Single Logout requests.
 	SingleLogoutCertificate string `pulumi:"singleLogoutCertificate"`
@@ -377,7 +377,7 @@ func (o LookupSamlResultOutput) SamlSignedRequestEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSamlResult) bool { return v.SamlSignedRequestEnabled }).(pulumi.BoolOutput)
 }
 
-// Signature algorithm used ot digitally sign the assertion and response.
+// Signature algorithm used to digitally sign the assertion and response.
 func (o LookupSamlResultOutput) SignatureAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSamlResult) string { return v.SignatureAlgorithm }).(pulumi.StringOutput)
 }

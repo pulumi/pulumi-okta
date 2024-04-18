@@ -23,7 +23,7 @@ class RoleArgs:
         The set of arguments for constructing a Role resource.
         :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
         :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values:
-               `"API_ADMIN"`,
+               `"API_ACCESS_MANAGEMENT_ADMIN"`,
                `"APP_ADMIN"`,
                `"CUSTOM"`,
                `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -73,7 +73,7 @@ class RoleArgs:
     def role_type(self) -> pulumi.Input[str]:
         """
         Admin role assigned to the group. It can be any one of the following values:
-        `"API_ADMIN"`,
+        `"API_ACCESS_MANAGEMENT_ADMIN"`,
         `"APP_ADMIN"`,
         `"CUSTOM"`,
         `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -151,7 +151,7 @@ class _RoleState:
                administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
         :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values:
-               `"API_ADMIN"`,
+               `"API_ACCESS_MANAGEMENT_ADMIN"`,
                `"APP_ADMIN"`,
                `"CUSTOM"`,
                `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -214,7 +214,7 @@ class _RoleState:
     def role_type(self) -> Optional[pulumi.Input[str]]:
         """
         Admin role assigned to the group. It can be any one of the following values:
-        `"API_ADMIN"`,
+        `"API_ACCESS_MANAGEMENT_ADMIN"`,
         `"APP_ADMIN"`,
         `"CUSTOM"`,
         `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -309,7 +309,7 @@ class Role(pulumi.CustomResource):
                administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
         :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values:
-               `"API_ADMIN"`,
+               `"API_ACCESS_MANAGEMENT_ADMIN"`,
                `"APP_ADMIN"`,
                `"CUSTOM"`,
                `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -428,7 +428,7 @@ class Role(pulumi.CustomResource):
                administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[str] group_id: The ID of group to attach admin roles to.
         :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values:
-               `"API_ADMIN"`,
+               `"API_ACCESS_MANAGEMENT_ADMIN"`,
                `"APP_ADMIN"`,
                `"CUSTOM"`,
                `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -483,7 +483,7 @@ class Role(pulumi.CustomResource):
     def role_type(self) -> pulumi.Output[str]:
         """
         Admin role assigned to the group. It can be any one of the following values:
-        `"API_ADMIN"`,
+        `"API_ACCESS_MANAGEMENT_ADMIN"`,
         `"APP_ADMIN"`,
         `"CUSTOM"`,
         `"GROUP_MEMBERSHIP_ADMIN"`,

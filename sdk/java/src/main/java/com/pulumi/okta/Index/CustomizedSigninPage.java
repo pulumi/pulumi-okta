@@ -16,6 +16,110 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manage the customized signin page of a brand
+ * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.Brand;
+ * import com.pulumi.okta.BrandArgs;
+ * import com.pulumi.okta.Index.CustomizedSigninPage;
+ * import com.pulumi.okta.Index.CustomizedSigninPageArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Brand(&#34;test&#34;, BrandArgs.builder()        
+ *             .name(&#34;testBrand&#34;)
+ *             .locale(&#34;en&#34;)
+ *             .build());
+ * 
+ *         var testCustomizedSigninPage = new CustomizedSigninPage(&#34;testCustomizedSigninPage&#34;, CustomizedSigninPageArgs.builder()        
+ *             .brandId(oktaBrand.test().id())
+ *             .pageContent(&#34;&#34;&#34;
+ * &lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD HTML 4.01//EN&#34; &#34;http://www.w3.org/TR/html4/strict.dtd&#34;&gt;
+ * &lt;html&gt;
+ * &lt;head&gt;
+ *     &lt;meta http-equiv=&#34;Content-Type&#34; content=&#34;text/html; charset=UTF-8&#34;&gt;
+ *     &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34; /&gt;
+ *     &lt;meta name=&#34;robots&#34; content=&#34;noindex,nofollow&#34; /&gt;
+ *     &lt;!-- Styles generated from theme --&gt;
+ *     &lt;link href=&#34;{{themedStylesUrl}}&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;
+ *     &lt;!-- Favicon from theme --&gt;
+ *     &lt;link rel=&#34;shortcut icon&#34; href=&#34;{{faviconUrl}}&#34; type=&#34;image/x-icon&#34;/&gt;
+ * 
+ *     &lt;title&gt;{{pageTitle}}&lt;/title&gt;
+ *     {{{SignInWidgetResources}}}
+ * 
+ *     &lt;style nonce=&#34;{{nonceValue}}&#34;&gt;
+ *         #login-bg-image-id {
+ *             background-image: {{bgImageUrl}}
+ *         }
+ *     &lt;/style&gt;
+ * &lt;/head&gt;
+ * &lt;body&gt;
+ *     &lt;div id=&#34;login-bg-image-id&#34; class=&#34;login-bg-image tb--background&#34;&gt;&lt;/div&gt;
+ *     &lt;div id=&#34;okta-login-container&#34;&gt;&lt;/div&gt;
+ * 
+ *     &lt;!--
+ *         &#34;OktaUtil&#34; defines a global OktaUtil object
+ *         that contains methods used to complete the Okta login flow.
+ *      --&gt;
+ *     {{{OktaUtil}}}
+ * 
+ *     &lt;script type=&#34;text/javascript&#34; nonce=&#34;{{nonceValue}}&#34;&gt;
+ *         // &#34;config&#34; object contains default widget configuration
+ *         // with any custom overrides defined in your admin settings.
+ *         var config = OktaUtil.getSignInWidgetConfig();
+ * 
+ *         // Render the Okta Sign-In Widget
+ *         var oktaSignIn = new OktaSignIn(config);
+ *         oktaSignIn.renderEl({ el: &#39;#okta-login-container&#39; },
+ *             OktaUtil.completeLogin,
+ *             function(error) {
+ *                 // Logs errors that occur when configuring the widget.
+ *                 // Remove or replace this with your own custom error handler.
+ *                 console.log(error.message, error);
+ *             }
+ *         );
+ *     &lt;/script&gt;
+ * &lt;/body&gt;
+ * &lt;/html&gt;
+ *             &#34;&#34;&#34;)
+ *             .widgetVersion(&#34;^6&#34;)
+ *             .widgetCustomizations(CustomizedSigninPageWidgetCustomizationsArgs.builder()
+ *                 .widgetGeneration(&#34;G3&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import okta:Index/customizedSigninPage:CustomizedSigninPage example &amp;#60;customized_signin_page_id&amp;#62;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:Index/customizedSigninPage:CustomizedSigninPage")
 public class CustomizedSigninPage extends com.pulumi.resources.CustomResource {
     /**
@@ -59,22 +163,24 @@ public class CustomizedSigninPage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.widgetCustomizations);
     }
     /**
-     * widget version specified as a Semver. The following are currently supported *, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7,
-     * 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16,
-     * 2.17, 2.18, 2.19, 2.20, 2.21, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1,
-     * 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6,
-     * 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.
+     * widget version specified as a Semver. The following are currently supported
+     * 		*, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4,
+     * 		2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16, 2.17, 2.18, 2.19, 2.20, 2.21,
+     * 		3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1, 5.2, 5.3,
+     * 		5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5,
+     * 		6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.
      * 
      */
     @Export(name="widgetVersion", refs={String.class}, tree="[0]")
     private Output<String> widgetVersion;
 
     /**
-     * @return widget version specified as a Semver. The following are currently supported *, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7,
-     * 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16,
-     * 2.17, 2.18, 2.19, 2.20, 2.21, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1,
-     * 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6,
-     * 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.
+     * @return widget version specified as a Semver. The following are currently supported
+     * 		*, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4,
+     * 		2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16, 2.17, 2.18, 2.19, 2.20, 2.21,
+     * 		3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1, 5.2, 5.3,
+     * 		5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5,
+     * 		6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.
      * 
      */
     public Output<String> widgetVersion() {

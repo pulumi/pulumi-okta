@@ -52,7 +52,7 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Admin role assigned to the group. It can be any one of the following values:
-     * `&#34;API_ADMIN&#34;`,
+     * `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`,
      * `&#34;APP_ADMIN&#34;`,
      * `&#34;CUSTOM&#34;`,
      * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
@@ -73,7 +73,7 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Admin role assigned to the group. It can be any one of the following values:
-     * `&#34;API_ADMIN&#34;`,
+     * `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`,
      * `&#34;APP_ADMIN&#34;`,
      * `&#34;CUSTOM&#34;`,
      * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
@@ -205,7 +205,7 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param roleType Admin role assigned to the group. It can be any one of the following values:
-         * `&#34;API_ADMIN&#34;`,
+         * `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`,
          * `&#34;APP_ADMIN&#34;`,
          * `&#34;CUSTOM&#34;`,
          * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
@@ -230,7 +230,7 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param roleType Admin role assigned to the group. It can be any one of the following values:
-         * `&#34;API_ADMIN&#34;`,
+         * `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`,
          * `&#34;APP_ADMIN&#34;`,
          * `&#34;CUSTOM&#34;`,
          * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,

@@ -103,9 +103,6 @@ type Oidc struct {
 	MaxClockSkew pulumi.IntPtrOutput `pulumi:"maxClockSkew"`
 	// The Application's display name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
-	// https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
-	PkceRequired pulumi.BoolPtrOutput `pulumi:"pkceRequired"`
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster pulumi.BoolPtrOutput `pulumi:"profileMaster"`
 	// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
@@ -242,9 +239,6 @@ type oidcState struct {
 	MaxClockSkew *int `pulumi:"maxClockSkew"`
 	// The Application's display name.
 	Name *string `pulumi:"name"`
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
-	// https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
-	PkceRequired *bool `pulumi:"pkceRequired"`
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster *bool `pulumi:"profileMaster"`
 	// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
@@ -315,9 +309,6 @@ type OidcState struct {
 	MaxClockSkew pulumi.IntPtrInput
 	// The Application's display name.
 	Name pulumi.StringPtrInput
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
-	// https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
-	PkceRequired pulumi.BoolPtrInput
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster pulumi.BoolPtrInput
 	// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
@@ -392,9 +383,6 @@ type oidcArgs struct {
 	MaxClockSkew *int `pulumi:"maxClockSkew"`
 	// The Application's display name.
 	Name *string `pulumi:"name"`
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
-	// https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
-	PkceRequired *bool `pulumi:"pkceRequired"`
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster *bool `pulumi:"profileMaster"`
 	// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
@@ -462,9 +450,6 @@ type OidcArgs struct {
 	MaxClockSkew pulumi.IntPtrInput
 	// The Application's display name.
 	Name pulumi.StringPtrInput
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
-	// https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
-	PkceRequired pulumi.BoolPtrInput
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster pulumi.BoolPtrInput
 	// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
@@ -666,12 +651,6 @@ func (o OidcOutput) MaxClockSkew() pulumi.IntPtrOutput {
 // The Application's display name.
 func (o OidcOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See:
-// https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
-func (o OidcOutput) PkceRequired() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Oidc) pulumi.BoolPtrOutput { return v.PkceRequired }).(pulumi.BoolPtrOutput)
 }
 
 // Determines if the IdP should act as a source of truth for user profile attributes.

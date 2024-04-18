@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Policy
 {
+    /// <summary>
+    /// Manages a device assurance policy for windows.
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows example &amp;#60;device assurance id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows")]
     public partial class DeviceAssuranceWindows : global::Pulumi.CustomResource
     {
@@ -25,7 +34,7 @@ namespace Pulumi.Okta.Policy
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+        /// List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
         /// </summary>
         [Output("diskEncryptionTypes")]
         public Output<ImmutableArray<string>> DiskEncryptionTypes { get; private set; } = null!;
@@ -43,13 +52,13 @@ namespace Pulumi.Okta.Policy
         public Output<string> LastUpdatedBy { get; private set; } = null!;
 
         /// <summary>
-        /// Policy device assurance name
+        /// Name of the device assurance policy.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The device os minimum version
+        /// Minimum os version of the device in the device assurance policy.
         /// </summary>
         [Output("osVersion")]
         public Output<string?> OsVersion { get; private set; } = null!;
@@ -61,13 +70,13 @@ namespace Pulumi.Okta.Policy
         public Output<string> Platform { get; private set; } = null!;
 
         /// <summary>
-        /// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        /// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         /// </summary>
         [Output("screenlockTypes")]
         public Output<ImmutableArray<string>> ScreenlockTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if the device constains a secure hardware functionality
+        /// Is the device secure with hardware in the device assurance policy.
         /// </summary>
         [Output("secureHardwarePresent")]
         public Output<bool?> SecureHardwarePresent { get; private set; } = null!;
@@ -242,7 +251,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _diskEncryptionTypes;
 
         /// <summary>
-        /// List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+        /// List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
         /// </summary>
         public InputList<string> DiskEncryptionTypes
         {
@@ -251,13 +260,13 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Policy device assurance name
+        /// Name of the device assurance policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The device os minimum version
+        /// Minimum os version of the device in the device assurance policy.
         /// </summary>
         [Input("osVersion")]
         public Input<string>? OsVersion { get; set; }
@@ -266,7 +275,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _screenlockTypes;
 
         /// <summary>
-        /// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        /// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         /// </summary>
         public InputList<string> ScreenlockTypes
         {
@@ -275,7 +284,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Indicates if the device constains a secure hardware functionality
+        /// Is the device secure with hardware in the device assurance policy.
         /// </summary>
         [Input("secureHardwarePresent")]
         public Input<bool>? SecureHardwarePresent { get; set; }
@@ -424,7 +433,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _diskEncryptionTypes;
 
         /// <summary>
-        /// List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+        /// List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
         /// </summary>
         public InputList<string> DiskEncryptionTypes
         {
@@ -445,13 +454,13 @@ namespace Pulumi.Okta.Policy
         public Input<string>? LastUpdatedBy { get; set; }
 
         /// <summary>
-        /// Policy device assurance name
+        /// Name of the device assurance policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The device os minimum version
+        /// Minimum os version of the device in the device assurance policy.
         /// </summary>
         [Input("osVersion")]
         public Input<string>? OsVersion { get; set; }
@@ -466,7 +475,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _screenlockTypes;
 
         /// <summary>
-        /// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        /// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         /// </summary>
         public InputList<string> ScreenlockTypes
         {
@@ -475,7 +484,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Indicates if the device constains a secure hardware functionality
+        /// Is the device secure with hardware in the device assurance policy.
         /// </summary>
         [Input("secureHardwarePresent")]
         public Input<bool>? SecureHardwarePresent { get; set; }

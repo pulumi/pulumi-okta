@@ -62,7 +62,7 @@ type Role struct {
 	// The ID of group to attach admin roles to.
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
 	// Admin role assigned to the group. It can be any one of the following values:
-	// `"API_ADMIN"`,
+	// `"API_ACCESS_MANAGEMENT_ADMIN"`,
 	// `"APP_ADMIN"`,
 	// `"CUSTOM"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -129,7 +129,7 @@ type roleState struct {
 	// The ID of group to attach admin roles to.
 	GroupId *string `pulumi:"groupId"`
 	// Admin role assigned to the group. It can be any one of the following values:
-	// `"API_ADMIN"`,
+	// `"API_ACCESS_MANAGEMENT_ADMIN"`,
 	// `"APP_ADMIN"`,
 	// `"CUSTOM"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -161,7 +161,7 @@ type RoleState struct {
 	// The ID of group to attach admin roles to.
 	GroupId pulumi.StringPtrInput
 	// Admin role assigned to the group. It can be any one of the following values:
-	// `"API_ADMIN"`,
+	// `"API_ACCESS_MANAGEMENT_ADMIN"`,
 	// `"APP_ADMIN"`,
 	// `"CUSTOM"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -197,7 +197,7 @@ type roleArgs struct {
 	// The ID of group to attach admin roles to.
 	GroupId string `pulumi:"groupId"`
 	// Admin role assigned to the group. It can be any one of the following values:
-	// `"API_ADMIN"`,
+	// `"API_ACCESS_MANAGEMENT_ADMIN"`,
 	// `"APP_ADMIN"`,
 	// `"CUSTOM"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -230,7 +230,7 @@ type RoleArgs struct {
 	// The ID of group to attach admin roles to.
 	GroupId pulumi.StringInput
 	// Admin role assigned to the group. It can be any one of the following values:
-	// `"API_ADMIN"`,
+	// `"API_ACCESS_MANAGEMENT_ADMIN"`,
 	// `"APP_ADMIN"`,
 	// `"CUSTOM"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -354,7 +354,7 @@ func (o RoleOutput) GroupId() pulumi.StringOutput {
 }
 
 // Admin role assigned to the group. It can be any one of the following values:
-// `"API_ADMIN"`,
+// `"API_ACCESS_MANAGEMENT_ADMIN"`,
 // `"APP_ADMIN"`,
 // `"CUSTOM"`,
 // `"GROUP_MEMBERSHIP_ADMIN"`,

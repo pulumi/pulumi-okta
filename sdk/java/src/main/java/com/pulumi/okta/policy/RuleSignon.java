@@ -390,7 +390,11 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Risc level: `&#34;ANY&#34;`, `&#34;LOW&#34;`, `&#34;MEDIUM&#34;` or `&#34;HIGH&#34;`. Default is `&#34;ANY&#34;`. It can be also
      * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
      * 
+     * @deprecated
+     * Attribute typo, switch to risk_level instead. Default: `ANY`
+     * 
      */
+    @Deprecated /* Attribute typo, switch to risk_level instead. Default: `ANY` */
     @Export(name="riscLevel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> riscLevel;
 
@@ -401,6 +405,20 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> riscLevel() {
         return Codegen.optional(this.riscLevel);
+    }
+    /**
+     * Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+     * 
+     */
+    @Export(name="riskLevel", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> riskLevel;
+
+    /**
+     * @return Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+     * 
+     */
+    public Output<Optional<String>> riskLevel() {
+        return Codegen.optional(this.riskLevel);
     }
     /**
      * Max minutes a session can be idle.,

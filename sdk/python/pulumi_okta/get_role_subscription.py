@@ -97,7 +97,7 @@ def get_role_subscription(notification_type: Optional[str] = None,
            `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
            `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
     :param str role_type: Type of the role. Valid values:
-           `"API_ADMIN"`,
+           `"API_ACCESS_MANAGEMENT_ADMIN"`,
            `"APP_ADMIN"`,
            `"CUSTOM"`,
            `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -147,7 +147,7 @@ def get_role_subscription_output(notification_type: Optional[pulumi.Input[str]] 
            `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
            `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
     :param str role_type: Type of the role. Valid values:
-           `"API_ADMIN"`,
+           `"API_ACCESS_MANAGEMENT_ADMIN"`,
            `"APP_ADMIN"`,
            `"CUSTOM"`,
            `"GROUP_MEMBERSHIP_ADMIN"`,

@@ -250,6 +250,12 @@ namespace Pulumi.Okta.Policy
         public Output<string?> RiscLevel { get; private set; } = null!;
 
         /// <summary>
+        /// Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+        /// </summary>
+        [Output("riskLevel")]
+        public Output<string?> RiskLevel { get; private set; } = null!;
+
+        /// <summary>
         /// Max minutes a session can be idle.,
         /// </summary>
         [Output("sessionIdle")]
@@ -468,6 +474,12 @@ namespace Pulumi.Okta.Policy
         public Input<string>? RiscLevel { get; set; }
 
         /// <summary>
+        /// Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+        /// </summary>
+        [Input("riskLevel")]
+        public Input<string>? RiskLevel { get; set; }
+
+        /// <summary>
         /// Max minutes a session can be idle.,
         /// </summary>
         [Input("sessionIdle")]
@@ -652,6 +664,12 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Input("riscLevel")]
         public Input<string>? RiscLevel { get; set; }
+
+        /// <summary>
+        /// Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+        /// </summary>
+        [Input("riskLevel")]
+        public Input<string>? RiskLevel { get; set; }
 
         /// <summary>
         /// Max minutes a session can be idle.,

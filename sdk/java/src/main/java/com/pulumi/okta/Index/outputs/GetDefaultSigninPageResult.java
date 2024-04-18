@@ -14,29 +14,61 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDefaultSigninPageResult {
+    /**
+     * @return brand id of the preview signin page
+     * 
+     */
     private String brandId;
     private @Nullable GetDefaultSigninPageContentSecurityPolicySetting contentSecurityPolicySetting;
+    /**
+     * @return placeholder id
+     * 
+     */
     private String id;
+    /**
+     * @return page content of the preview signin page
+     * 
+     */
     private String pageContent;
     private @Nullable GetDefaultSigninPageWidgetCustomizations widgetCustomizations;
+    /**
+     * @return widget version specified as a Semver
+     * 
+     */
     private String widgetVersion;
 
     private GetDefaultSigninPageResult() {}
+    /**
+     * @return brand id of the preview signin page
+     * 
+     */
     public String brandId() {
         return this.brandId;
     }
     public Optional<GetDefaultSigninPageContentSecurityPolicySetting> contentSecurityPolicySetting() {
         return Optional.ofNullable(this.contentSecurityPolicySetting);
     }
+    /**
+     * @return placeholder id
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return page content of the preview signin page
+     * 
+     */
     public String pageContent() {
         return this.pageContent;
     }
     public Optional<GetDefaultSigninPageWidgetCustomizations> widgetCustomizations() {
         return Optional.ofNullable(this.widgetCustomizations);
     }
+    /**
+     * @return widget version specified as a Semver
+     * 
+     */
     public String widgetVersion() {
         return this.widgetVersion;
     }

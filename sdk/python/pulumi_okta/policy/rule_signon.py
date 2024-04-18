@@ -34,6 +34,7 @@ class RuleSignonArgs:
                  primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
+                 risk_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
                  session_lifetime: Optional[pulumi.Input[int]] = None,
                  session_persistent: Optional[pulumi.Input[bool]] = None,
@@ -63,6 +64,7 @@ class RuleSignonArgs:
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] risc_level: Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
                set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+        :param pulumi.Input[str] risk_level: Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         :param pulumi.Input[int] session_idle: Max minutes a session can be idle.,
         :param pulumi.Input[int] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
@@ -104,7 +106,12 @@ class RuleSignonArgs:
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if risc_level is not None:
+            warnings.warn("""Attribute typo, switch to risk_level instead. Default: `ANY`""", DeprecationWarning)
+            pulumi.log.warn("""risc_level is deprecated: Attribute typo, switch to risk_level instead. Default: `ANY`""")
+        if risc_level is not None:
             pulumi.set(__self__, "risc_level", risc_level)
+        if risk_level is not None:
+            pulumi.set(__self__, "risk_level", risk_level)
         if session_idle is not None:
             pulumi.set(__self__, "session_idle", session_idle)
         if session_lifetime is not None:
@@ -330,11 +337,26 @@ class RuleSignonArgs:
         Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
         set to an empty string in case `RISC_SCORING` org feature flag is disabled.
         """
+        warnings.warn("""Attribute typo, switch to risk_level instead. Default: `ANY`""", DeprecationWarning)
+        pulumi.log.warn("""risc_level is deprecated: Attribute typo, switch to risk_level instead. Default: `ANY`""")
+
         return pulumi.get(self, "risc_level")
 
     @risc_level.setter
     def risc_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "risc_level", value)
+
+    @property
+    @pulumi.getter(name="riskLevel")
+    def risk_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+        """
+        return pulumi.get(self, "risk_level")
+
+    @risk_level.setter
+    def risk_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "risk_level", value)
 
     @property
     @pulumi.getter(name="sessionIdle")
@@ -418,6 +440,7 @@ class _RuleSignonState:
                  primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
+                 risk_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
                  session_lifetime: Optional[pulumi.Input[int]] = None,
                  session_persistent: Optional[pulumi.Input[bool]] = None,
@@ -447,6 +470,7 @@ class _RuleSignonState:
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] risc_level: Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
                set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+        :param pulumi.Input[str] risk_level: Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         :param pulumi.Input[int] session_idle: Max minutes a session can be idle.,
         :param pulumi.Input[int] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
@@ -488,7 +512,12 @@ class _RuleSignonState:
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if risc_level is not None:
+            warnings.warn("""Attribute typo, switch to risk_level instead. Default: `ANY`""", DeprecationWarning)
+            pulumi.log.warn("""risc_level is deprecated: Attribute typo, switch to risk_level instead. Default: `ANY`""")
+        if risc_level is not None:
             pulumi.set(__self__, "risc_level", risc_level)
+        if risk_level is not None:
+            pulumi.set(__self__, "risk_level", risk_level)
         if session_idle is not None:
             pulumi.set(__self__, "session_idle", session_idle)
         if session_lifetime is not None:
@@ -714,11 +743,26 @@ class _RuleSignonState:
         Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
         set to an empty string in case `RISC_SCORING` org feature flag is disabled.
         """
+        warnings.warn("""Attribute typo, switch to risk_level instead. Default: `ANY`""", DeprecationWarning)
+        pulumi.log.warn("""risc_level is deprecated: Attribute typo, switch to risk_level instead. Default: `ANY`""")
+
         return pulumi.get(self, "risc_level")
 
     @risc_level.setter
     def risc_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "risc_level", value)
+
+    @property
+    @pulumi.getter(name="riskLevel")
+    def risk_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+        """
+        return pulumi.get(self, "risk_level")
+
+    @risk_level.setter
+    def risk_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "risk_level", value)
 
     @property
     @pulumi.getter(name="sessionIdle")
@@ -804,6 +848,7 @@ class RuleSignon(pulumi.CustomResource):
                  primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
+                 risk_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
                  session_lifetime: Optional[pulumi.Input[int]] = None,
                  session_persistent: Optional[pulumi.Input[bool]] = None,
@@ -926,6 +971,7 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] risc_level: Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
                set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+        :param pulumi.Input[str] risk_level: Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         :param pulumi.Input[int] session_idle: Max minutes a session can be idle.,
         :param pulumi.Input[int] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
@@ -1063,6 +1109,7 @@ class RuleSignon(pulumi.CustomResource):
                  primary_factor: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  risc_level: Optional[pulumi.Input[str]] = None,
+                 risk_level: Optional[pulumi.Input[str]] = None,
                  session_idle: Optional[pulumi.Input[int]] = None,
                  session_lifetime: Optional[pulumi.Input[int]] = None,
                  session_persistent: Optional[pulumi.Input[bool]] = None,
@@ -1095,6 +1142,7 @@ class RuleSignon(pulumi.CustomResource):
             __props__.__dict__["primary_factor"] = primary_factor
             __props__.__dict__["priority"] = priority
             __props__.__dict__["risc_level"] = risc_level
+            __props__.__dict__["risk_level"] = risk_level
             __props__.__dict__["session_idle"] = session_idle
             __props__.__dict__["session_lifetime"] = session_lifetime
             __props__.__dict__["session_persistent"] = session_persistent
@@ -1128,6 +1176,7 @@ class RuleSignon(pulumi.CustomResource):
             primary_factor: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             risc_level: Optional[pulumi.Input[str]] = None,
+            risk_level: Optional[pulumi.Input[str]] = None,
             session_idle: Optional[pulumi.Input[int]] = None,
             session_lifetime: Optional[pulumi.Input[int]] = None,
             session_persistent: Optional[pulumi.Input[bool]] = None,
@@ -1162,6 +1211,7 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[int] priority: Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[str] risc_level: Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
                set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+        :param pulumi.Input[str] risk_level: Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         :param pulumi.Input[int] session_idle: Max minutes a session can be idle.,
         :param pulumi.Input[int] session_lifetime: Max minutes a session is active: Disable = 0.
         :param pulumi.Input[bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
@@ -1190,6 +1240,7 @@ class RuleSignon(pulumi.CustomResource):
         __props__.__dict__["primary_factor"] = primary_factor
         __props__.__dict__["priority"] = priority
         __props__.__dict__["risc_level"] = risc_level
+        __props__.__dict__["risk_level"] = risk_level
         __props__.__dict__["session_idle"] = session_idle
         __props__.__dict__["session_lifetime"] = session_lifetime
         __props__.__dict__["session_persistent"] = session_persistent
@@ -1343,7 +1394,18 @@ class RuleSignon(pulumi.CustomResource):
         Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
         set to an empty string in case `RISC_SCORING` org feature flag is disabled.
         """
+        warnings.warn("""Attribute typo, switch to risk_level instead. Default: `ANY`""", DeprecationWarning)
+        pulumi.log.warn("""risc_level is deprecated: Attribute typo, switch to risk_level instead. Default: `ANY`""")
+
         return pulumi.get(self, "risc_level")
+
+    @property
+    @pulumi.getter(name="riskLevel")
+    def risk_level(self) -> pulumi.Output[Optional[str]]:
+        """
+        Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
+        """
+        return pulumi.get(self, "risk_level")
 
     @property
     @pulumi.getter(name="sessionIdle")

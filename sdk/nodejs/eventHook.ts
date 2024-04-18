@@ -94,6 +94,9 @@ export class EventHook extends pulumi.CustomResource {
      * The event hook display name.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Default to `ACTIVE`
+     */
     public readonly status!: pulumi.Output<string | undefined>;
 
     /**
@@ -159,6 +162,9 @@ export interface EventHookState {
      * The event hook display name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Default to `ACTIVE`
+     */
     status?: pulumi.Input<string>;
 }
 
@@ -186,5 +192,8 @@ export interface EventHookArgs {
      * The event hook display name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Default to `ACTIVE`
+     */
     status?: pulumi.Input<string>;
 }

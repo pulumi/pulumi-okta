@@ -73,7 +73,8 @@ type Hook struct {
 	// Map of headers to send along in inline hook request.
 	Headers HookHeaderArrayOutput `pulumi:"headers"`
 	// The inline hook display name.
-	Name   pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Default to `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -127,7 +128,8 @@ type hookState struct {
 	// Map of headers to send along in inline hook request.
 	Headers []HookHeader `pulumi:"headers"`
 	// The inline hook display name.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Default to `ACTIVE`
 	Status *string `pulumi:"status"`
 	// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
 	Type *string `pulumi:"type"`
@@ -143,7 +145,8 @@ type HookState struct {
 	// Map of headers to send along in inline hook request.
 	Headers HookHeaderArrayInput
 	// The inline hook display name.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Default to `ACTIVE`
 	Status pulumi.StringPtrInput
 	// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
 	Type pulumi.StringPtrInput
@@ -163,7 +166,8 @@ type hookArgs struct {
 	// Map of headers to send along in inline hook request.
 	Headers []HookHeader `pulumi:"headers"`
 	// The inline hook display name.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Default to `ACTIVE`
 	Status *string `pulumi:"status"`
 	// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
 	Type string `pulumi:"type"`
@@ -180,7 +184,8 @@ type HookArgs struct {
 	// Map of headers to send along in inline hook request.
 	Headers HookHeaderArrayInput
 	// The inline hook display name.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Default to `ACTIVE`
 	Status pulumi.StringPtrInput
 	// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
 	Type pulumi.StringInput
@@ -295,6 +300,7 @@ func (o HookOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Default to `ACTIVE`
 func (o HookOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }

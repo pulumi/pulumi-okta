@@ -24,7 +24,10 @@ namespace Pulumi.Okta.Policy
     public partial class RuleMfa : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Applications to exclude
+        /// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+        /// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+        /// is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+        /// of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         /// </summary>
         [Output("appExcludes")]
         public Output<ImmutableArray<Outputs.RuleMfaAppExclude>> AppExcludes { get; private set; } = null!;
@@ -139,7 +142,10 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleMfaAppExcludeArgs>? _appExcludes;
 
         /// <summary>
-        /// Applications to exclude
+        /// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+        /// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+        /// is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+        /// of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         /// </summary>
         public InputList<Inputs.RuleMfaAppExcludeArgs> AppExcludes
         {
@@ -243,7 +249,10 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleMfaAppExcludeGetArgs>? _appExcludes;
 
         /// <summary>
-        /// Applications to exclude
+        /// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+        /// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+        /// is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+        /// of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         /// </summary>
         public InputList<Inputs.RuleMfaAppExcludeGetArgs> AppExcludes
         {

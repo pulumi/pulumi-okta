@@ -516,14 +516,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Signature algorithm used ot digitally sign the assertion and response.
+     * Signature algorithm used to digitally sign the assertion and response.
      * 
      */
     @Import(name="signatureAlgorithm")
     private @Nullable Output<String> signatureAlgorithm;
 
     /**
-     * @return Signature algorithm used ot digitally sign the assertion and response.
+     * @return Signature algorithm used to digitally sign the assertion and response.
      * 
      */
     public Optional<Output<String>> signatureAlgorithm() {
@@ -1493,7 +1493,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signatureAlgorithm Signature algorithm used ot digitally sign the assertion and response.
+         * @param signatureAlgorithm Signature algorithm used to digitally sign the assertion and response.
          * 
          * @return builder
          * 
@@ -1504,7 +1504,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signatureAlgorithm Signature algorithm used ot digitally sign the assertion and response.
+         * @param signatureAlgorithm Signature algorithm used to digitally sign the assertion and response.
          * 
          * @return builder
          * 

@@ -18,9 +18,17 @@ public final class GetDefaultSigninPageArgs extends com.pulumi.resources.InvokeA
 
     public static final GetDefaultSigninPageArgs Empty = new GetDefaultSigninPageArgs();
 
+    /**
+     * brand id of the preview signin page
+     * 
+     */
     @Import(name="brandId", required=true)
     private Output<String> brandId;
 
+    /**
+     * @return brand id of the preview signin page
+     * 
+     */
     public Output<String> brandId() {
         return this.brandId;
     }
@@ -65,11 +73,23 @@ public final class GetDefaultSigninPageArgs extends com.pulumi.resources.InvokeA
             $ = new GetDefaultSigninPageArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param brandId brand id of the preview signin page
+         * 
+         * @return builder
+         * 
+         */
         public Builder brandId(Output<String> brandId) {
             $.brandId = brandId;
             return this;
         }
 
+        /**
+         * @param brandId brand id of the preview signin page
+         * 
+         * @return builder
+         * 
+         */
         public Builder brandId(String brandId) {
             return brandId(Output.of(brandId));
         }

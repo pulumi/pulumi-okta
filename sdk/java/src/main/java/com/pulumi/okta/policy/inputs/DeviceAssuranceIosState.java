@@ -18,14 +18,14 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
     public static final DeviceAssuranceIosState Empty = new DeviceAssuranceIosState();
 
     /**
-     * Created by
+     * Created by of the device assurance polic
      * 
      */
     @Import(name="createdBy")
     private @Nullable Output<String> createdBy;
 
     /**
-     * @return Created by
+     * @return Created by of the device assurance polic
      * 
      */
     public Optional<Output<String>> createdBy() {
@@ -33,14 +33,14 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Created date
+     * Created date of the device assurance polic
      * 
      */
     @Import(name="createdDate")
     private @Nullable Output<String> createdDate;
 
     /**
-     * @return Created date
+     * @return Created date of the device assurance polic
      * 
      */
     public Optional<Output<String>> createdDate() {
@@ -48,14 +48,14 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The device jailbreak. Only for android and iOS platform
+     * Is the device jailbroken in the device assurance policy.
      * 
      */
     @Import(name="jailbreak")
     private @Nullable Output<Boolean> jailbreak;
 
     /**
-     * @return The device jailbreak. Only for android and iOS platform
+     * @return Is the device jailbroken in the device assurance policy.
      * 
      */
     public Optional<Output<Boolean>> jailbreak() {
@@ -63,14 +63,14 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Last update
+     * Last update of the device assurance polic
      * 
      */
     @Import(name="lastUpdate")
     private @Nullable Output<String> lastUpdate;
 
     /**
-     * @return Last update
+     * @return Last update of the device assurance polic
      * 
      */
     public Optional<Output<String>> lastUpdate() {
@@ -78,14 +78,14 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Last updated by
+     * Last updated by of the device assurance polic
      * 
      */
     @Import(name="lastUpdatedBy")
     private @Nullable Output<String> lastUpdatedBy;
 
     /**
-     * @return Last updated by
+     * @return Last updated by of the device assurance polic
      * 
      */
     public Optional<Output<String>> lastUpdatedBy() {
@@ -93,14 +93,14 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Policy device assurance name
+     * Name of the device assurance policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Policy device assurance name
+     * @return Name of the device assurance policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -108,14 +108,14 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The device os minimum version
+     * Minimum os version of the device in the device assurance policy.
      * 
      */
     @Import(name="osVersion")
     private @Nullable Output<String> osVersion;
 
     /**
-     * @return The device os minimum version
+     * @return Minimum os version of the device in the device assurance policy.
      * 
      */
     public Optional<Output<String>> osVersion() {
@@ -138,14 +138,14 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      * 
      */
     @Import(name="screenlockTypes")
     private @Nullable Output<List<String>> screenlockTypes;
 
     /**
-     * @return List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * @return List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      * 
      */
     public Optional<Output<List<String>>> screenlockTypes() {
@@ -185,7 +185,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param createdBy Created by
+         * @param createdBy Created by of the device assurance polic
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param createdBy Created by
+         * @param createdBy Created by of the device assurance polic
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param createdDate Created date
+         * @param createdDate Created date of the device assurance polic
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param createdDate Created date
+         * @param createdDate Created date of the device assurance polic
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param jailbreak The device jailbreak. Only for android and iOS platform
+         * @param jailbreak Is the device jailbroken in the device assurance policy.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param jailbreak The device jailbreak. Only for android and iOS platform
+         * @param jailbreak Is the device jailbroken in the device assurance policy.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param lastUpdate Last update
+         * @param lastUpdate Last update of the device assurance polic
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param lastUpdate Last update
+         * @param lastUpdate Last update of the device assurance polic
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param lastUpdatedBy Last updated by
+         * @param lastUpdatedBy Last updated by of the device assurance polic
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param lastUpdatedBy Last updated by
+         * @param lastUpdatedBy Last updated by of the device assurance polic
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name Policy device assurance name
+         * @param name Name of the device assurance policy.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name Policy device assurance name
+         * @param name Name of the device assurance policy.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param osVersion The device os minimum version
+         * @param osVersion Minimum os version of the device in the device assurance policy.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param osVersion The device os minimum version
+         * @param osVersion Minimum os version of the device in the device assurance policy.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param screenlockTypes List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+         * @param screenlockTypes List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param screenlockTypes List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+         * @param screenlockTypes List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class DeviceAssuranceIosState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param screenlockTypes List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+         * @param screenlockTypes List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
          * 
          * @return builder
          * 

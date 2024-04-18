@@ -58,7 +58,7 @@ type LookupRoleSubscriptionArgs struct {
 	// `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
 	NotificationType string `pulumi:"notificationType"`
 	// Type of the role. Valid values:
-	// `"API_ADMIN"`,
+	// `"API_ACCESS_MANAGEMENT_ADMIN"`,
 	// `"APP_ADMIN"`,
 	// `"CUSTOM"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -103,7 +103,7 @@ type LookupRoleSubscriptionOutputArgs struct {
 	// `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
 	NotificationType pulumi.StringInput `pulumi:"notificationType"`
 	// Type of the role. Valid values:
-	// `"API_ADMIN"`,
+	// `"API_ACCESS_MANAGEMENT_ADMIN"`,
 	// `"APP_ADMIN"`,
 	// `"CUSTOM"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`,

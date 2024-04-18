@@ -414,7 +414,7 @@ class GetSamlResult:
     @pulumi.getter(name="signatureAlgorithm")
     def signature_algorithm(self) -> str:
         """
-        Signature algorithm used ot digitally sign the assertion and response.
+        Signature algorithm used to digitally sign the assertion and response.
         """
         return pulumi.get(self, "signature_algorithm")
 

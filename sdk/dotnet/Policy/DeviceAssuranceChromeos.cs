@@ -9,6 +9,49 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta.Policy
 {
+    /// <summary>
+    /// Manages a device assurance policy for chromeos.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.Policy.DeviceAssuranceChromeos("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         TpspAllowScreenLock = true,
+    ///         TpspBrowserVersion = "15393.27.0",
+    ///         TpspBuiltinDnsClientEnabled = true,
+    ///         TpspChromeRemoteDesktopAppBlocked = true,
+    ///         TpspDeviceEnrollmentDomain = "exampleDomain",
+    ///         TpspDiskEncrypted = true,
+    ///         TpspKeyTrustLevel = "CHROME_OS_VERIFIED_MODE",
+    ///         TpspOsFirewall = true,
+    ///         TpspOsVersion = "10.0.19041.1110",
+    ///         TpspPasswordProctectionWarningTrigger = "PASSWORD_PROTECTION_OFF",
+    ///         TpspRealtimeUrlCheckMode = true,
+    ///         TpspSafeBrowsingProtectionLevel = "ENHANCED_PROTECTION",
+    ///         TpspScreenLockSecured = true,
+    ///         TpspSiteIsolationEnabled = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos example &amp;#60;device assurance id&amp;#62;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos")]
     public partial class DeviceAssuranceChromeos : global::Pulumi.CustomResource
     {
@@ -37,7 +80,7 @@ namespace Pulumi.Okta.Policy
         public Output<string> LastUpdatedBy { get; private set; } = null!;
 
         /// <summary>
-        /// Policy device assurance name
+        /// Name of the device assurance policy.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -179,7 +222,7 @@ namespace Pulumi.Okta.Policy
     public sealed class DeviceAssuranceChromeosArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Policy device assurance name
+        /// Name of the device assurance policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -301,7 +344,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? LastUpdatedBy { get; set; }
 
         /// <summary>
-        /// Policy device assurance name
+        /// Name of the device assurance policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

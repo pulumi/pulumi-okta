@@ -11,26 +11,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a device assurance policy for ios.
+//
+// ## Import
+//
+// ```sh
+// $ pulumi import okta:policy/deviceAssuranceIos:DeviceAssuranceIos example &#60;device assurance id&#62;
+// ```
 type DeviceAssuranceIos struct {
 	pulumi.CustomResourceState
 
-	// Created by
+	// Created by of the device assurance polic
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// Created date
+	// Created date of the device assurance polic
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// The device jailbreak. Only for android and iOS platform
+	// Is the device jailbroken in the device assurance policy.
 	Jailbreak pulumi.BoolPtrOutput `pulumi:"jailbreak"`
-	// Last update
+	// Last update of the device assurance polic
 	LastUpdate pulumi.StringOutput `pulumi:"lastUpdate"`
-	// Last updated by
+	// Last updated by of the device assurance polic
 	LastUpdatedBy pulumi.StringOutput `pulumi:"lastUpdatedBy"`
-	// Policy device assurance name
+	// Name of the device assurance policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The device os minimum version
+	// Minimum os version of the device in the device assurance policy.
 	OsVersion pulumi.StringPtrOutput `pulumi:"osVersion"`
 	// Policy device assurance platform
 	Platform pulumi.StringOutput `pulumi:"platform"`
-	// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+	// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 	ScreenlockTypes pulumi.StringArrayOutput `pulumi:"screenlockTypes"`
 }
 
@@ -64,44 +71,44 @@ func GetDeviceAssuranceIos(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DeviceAssuranceIos resources.
 type deviceAssuranceIosState struct {
-	// Created by
+	// Created by of the device assurance polic
 	CreatedBy *string `pulumi:"createdBy"`
-	// Created date
+	// Created date of the device assurance polic
 	CreatedDate *string `pulumi:"createdDate"`
-	// The device jailbreak. Only for android and iOS platform
+	// Is the device jailbroken in the device assurance policy.
 	Jailbreak *bool `pulumi:"jailbreak"`
-	// Last update
+	// Last update of the device assurance polic
 	LastUpdate *string `pulumi:"lastUpdate"`
-	// Last updated by
+	// Last updated by of the device assurance polic
 	LastUpdatedBy *string `pulumi:"lastUpdatedBy"`
-	// Policy device assurance name
+	// Name of the device assurance policy.
 	Name *string `pulumi:"name"`
-	// The device os minimum version
+	// Minimum os version of the device in the device assurance policy.
 	OsVersion *string `pulumi:"osVersion"`
 	// Policy device assurance platform
 	Platform *string `pulumi:"platform"`
-	// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+	// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 	ScreenlockTypes []string `pulumi:"screenlockTypes"`
 }
 
 type DeviceAssuranceIosState struct {
-	// Created by
+	// Created by of the device assurance polic
 	CreatedBy pulumi.StringPtrInput
-	// Created date
+	// Created date of the device assurance polic
 	CreatedDate pulumi.StringPtrInput
-	// The device jailbreak. Only for android and iOS platform
+	// Is the device jailbroken in the device assurance policy.
 	Jailbreak pulumi.BoolPtrInput
-	// Last update
+	// Last update of the device assurance polic
 	LastUpdate pulumi.StringPtrInput
-	// Last updated by
+	// Last updated by of the device assurance polic
 	LastUpdatedBy pulumi.StringPtrInput
-	// Policy device assurance name
+	// Name of the device assurance policy.
 	Name pulumi.StringPtrInput
-	// The device os minimum version
+	// Minimum os version of the device in the device assurance policy.
 	OsVersion pulumi.StringPtrInput
 	// Policy device assurance platform
 	Platform pulumi.StringPtrInput
-	// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+	// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 	ScreenlockTypes pulumi.StringArrayInput
 }
 
@@ -110,25 +117,25 @@ func (DeviceAssuranceIosState) ElementType() reflect.Type {
 }
 
 type deviceAssuranceIosArgs struct {
-	// The device jailbreak. Only for android and iOS platform
+	// Is the device jailbroken in the device assurance policy.
 	Jailbreak *bool `pulumi:"jailbreak"`
-	// Policy device assurance name
+	// Name of the device assurance policy.
 	Name *string `pulumi:"name"`
-	// The device os minimum version
+	// Minimum os version of the device in the device assurance policy.
 	OsVersion *string `pulumi:"osVersion"`
-	// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+	// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 	ScreenlockTypes []string `pulumi:"screenlockTypes"`
 }
 
 // The set of arguments for constructing a DeviceAssuranceIos resource.
 type DeviceAssuranceIosArgs struct {
-	// The device jailbreak. Only for android and iOS platform
+	// Is the device jailbroken in the device assurance policy.
 	Jailbreak pulumi.BoolPtrInput
-	// Policy device assurance name
+	// Name of the device assurance policy.
 	Name pulumi.StringPtrInput
-	// The device os minimum version
+	// Minimum os version of the device in the device assurance policy.
 	OsVersion pulumi.StringPtrInput
-	// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+	// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 	ScreenlockTypes pulumi.StringArrayInput
 }
 
@@ -219,37 +226,37 @@ func (o DeviceAssuranceIosOutput) ToDeviceAssuranceIosOutputWithContext(ctx cont
 	return o
 }
 
-// Created by
+// Created by of the device assurance polic
 func (o DeviceAssuranceIosOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceAssuranceIos) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// Created date
+// Created date of the device assurance polic
 func (o DeviceAssuranceIosOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceAssuranceIos) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// The device jailbreak. Only for android and iOS platform
+// Is the device jailbroken in the device assurance policy.
 func (o DeviceAssuranceIosOutput) Jailbreak() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeviceAssuranceIos) pulumi.BoolPtrOutput { return v.Jailbreak }).(pulumi.BoolPtrOutput)
 }
 
-// Last update
+// Last update of the device assurance polic
 func (o DeviceAssuranceIosOutput) LastUpdate() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceAssuranceIos) pulumi.StringOutput { return v.LastUpdate }).(pulumi.StringOutput)
 }
 
-// Last updated by
+// Last updated by of the device assurance polic
 func (o DeviceAssuranceIosOutput) LastUpdatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceAssuranceIos) pulumi.StringOutput { return v.LastUpdatedBy }).(pulumi.StringOutput)
 }
 
-// Policy device assurance name
+// Name of the device assurance policy.
 func (o DeviceAssuranceIosOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceAssuranceIos) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The device os minimum version
+// Minimum os version of the device in the device assurance policy.
 func (o DeviceAssuranceIosOutput) OsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceAssuranceIos) pulumi.StringPtrOutput { return v.OsVersion }).(pulumi.StringPtrOutput)
 }
@@ -259,7 +266,7 @@ func (o DeviceAssuranceIosOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceAssuranceIos) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
-// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 func (o DeviceAssuranceIosOutput) ScreenlockTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeviceAssuranceIos) pulumi.StringArrayOutput { return v.ScreenlockTypes }).(pulumi.StringArrayOutput)
 }
