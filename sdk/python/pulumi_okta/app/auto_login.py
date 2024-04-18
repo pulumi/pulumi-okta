@@ -887,11 +887,11 @@ class AutoLogin(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.AutoLogin("example",
-            credentials_scheme="EDIT_USERNAME_AND_PASSWORD",
             label="Example App",
-            reveal_password=True,
+            sign_on_url="https://example.com/login.html",
             sign_on_redirect_url="https://example.com",
-            sign_on_url="https://example.com/login.html")
+            reveal_password=True,
+            credentials_scheme="EDIT_USERNAME_AND_PASSWORD")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -902,15 +902,14 @@ class AutoLogin(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.AutoLogin("example",
+            label="Google Example App",
+            status="ACTIVE",
+            preconfigured_app="google",
             app_settings_json=\"\"\"{
             "domain": "okta",
             "afwOnly": false
         }
-
-        \"\"\",
-            label="Google Example App",
-            preconfigured_app="google",
-            status="ACTIVE")
+        \"\"\")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -970,11 +969,11 @@ class AutoLogin(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.AutoLogin("example",
-            credentials_scheme="EDIT_USERNAME_AND_PASSWORD",
             label="Example App",
-            reveal_password=True,
+            sign_on_url="https://example.com/login.html",
             sign_on_redirect_url="https://example.com",
-            sign_on_url="https://example.com/login.html")
+            reveal_password=True,
+            credentials_scheme="EDIT_USERNAME_AND_PASSWORD")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -985,15 +984,14 @@ class AutoLogin(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.AutoLogin("example",
+            label="Google Example App",
+            status="ACTIVE",
+            preconfigured_app="google",
             app_settings_json=\"\"\"{
             "domain": "okta",
             "afwOnly": false
         }
-
-        \"\"\",
-            label="Google Example App",
-            preconfigured_app="google",
-            status="ACTIVE")
+        \"\"\")
         ```
         <!--End PulumiCodeChooser -->
 

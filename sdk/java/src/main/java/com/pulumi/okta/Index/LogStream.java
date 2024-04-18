@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.okta.Index.LogStream;
  * import com.pulumi.okta.Index.LogStreamArgs;
- * import com.pulumi.okta.Index.inputs.LogStreamSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,13 +47,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LogStream(&#34;example&#34;, LogStreamArgs.builder()        
- *             .settings(LogStreamSettingsArgs.builder()
- *                 .account_id(&#34;123456789012&#34;)
- *                 .event_source_name(&#34;okta_log_stream&#34;)
- *                 .region(&#34;us-north-1&#34;)
- *                 .build())
- *             .status(&#34;ACTIVE&#34;)
+ *             .name(&#34;EventBridge Log Stream&#34;)
  *             .type(&#34;aws_eventbridge&#34;)
+ *             .status(&#34;ACTIVE&#34;)
+ *             .settings(LogStreamSettingsArgs.builder()
+ *                 .accountId(&#34;123456789012&#34;)
+ *                 .region(&#34;us-north-1&#34;)
+ *                 .eventSourceName(&#34;okta_log_stream&#34;)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -73,7 +73,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.okta.Index.LogStream;
  * import com.pulumi.okta.Index.LogStreamArgs;
- * import com.pulumi.okta.Index.inputs.LogStreamSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -88,13 +87,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LogStream(&#34;example&#34;, LogStreamArgs.builder()        
+ *             .name(&#34;Splunk log Stream&#34;)
+ *             .type(&#34;splunk_cloud_logstreaming&#34;)
+ *             .status(&#34;ACTIVE&#34;)
  *             .settings(LogStreamSettingsArgs.builder()
- *                 .edition(&#34;gcp&#34;)
  *                 .host(&#34;acme.splunkcloud.com&#34;)
+ *                 .edition(&#34;gcp&#34;)
  *                 .token(&#34;YOUR_HEC_TOKEN&#34;)
  *                 .build())
- *             .status(&#34;ACTIVE&#34;)
- *             .type(&#34;splunk_cloud_logstreaming&#34;)
  *             .build());
  * 
  *     }

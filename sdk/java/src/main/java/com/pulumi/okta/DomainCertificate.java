@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.okta.Domain;
+ * import com.pulumi.okta.DomainArgs;
  * import com.pulumi.okta.DomainCertificate;
  * import com.pulumi.okta.DomainCertificateArgs;
  * import java.util.List;
@@ -51,10 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain(&#34;example&#34;);
+ *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .name(&#34;www.example.com&#34;)
+ *             .build());
  * 
  *         var test = new DomainCertificate(&#34;test&#34;, DomainCertificateArgs.builder()        
- *             .domainId(okta_domain.test().id())
+ *             .domainId(testOktaDomain.id())
  *             .type(&#34;PEM&#34;)
  *             .certificate(&#34;&#34;&#34;
  * -----BEGIN CERTIFICATE-----

@@ -27,6 +27,7 @@ namespace Pulumi.Okta.TrustedOrigin
     /// {
     ///     var example = new Okta.TrustedOrigin.Origin("example", new()
     ///     {
+    ///         Name = "example",
     ///         OriginName = "https://example.com",
     ///         Scopes = new[]
     ///         {

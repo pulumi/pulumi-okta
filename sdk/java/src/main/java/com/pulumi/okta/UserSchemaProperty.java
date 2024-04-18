@@ -46,13 +46,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserSchemaProperty(&#34;example&#34;, UserSchemaPropertyArgs.builder()        
- *             .description(&#34;My custom property name&#34;)
  *             .index(&#34;customPropertyName&#34;)
- *             .master(&#34;OKTA&#34;)
- *             .scope(&#34;SELF&#34;)
  *             .title(&#34;customPropertyName&#34;)
  *             .type(&#34;string&#34;)
- *             .userType(data.okta_user_type().example().id())
+ *             .description(&#34;My custom property name&#34;)
+ *             .master(&#34;OKTA&#34;)
+ *             .scope(&#34;SELF&#34;)
+ *             .userType(exampleOktaUserType.id())
  *             .build());
  * 
  *     }

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testUser = new User(&#34;testUser&#34;, UserArgs.builder()        
+ *         var test = new User(&#34;test&#34;, UserArgs.builder()        
  *             .firstName(&#34;TestAcc&#34;)
  *             .lastName(&#34;Smith&#34;)
  *             .login(&#34;testAcc-replace_with_uuid@example.com&#34;)
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testUserAdminRoles = new UserAdminRoles(&#34;testUserAdminRoles&#34;, UserAdminRolesArgs.builder()        
- *             .userId(testUser.id())
+ *             .userId(test.id())
  *             .adminRoles(&#34;APP_ADMIN&#34;)
  *             .build());
  * 

@@ -28,12 +28,13 @@ namespace Pulumi.Okta.Auth
     ///     var example = new Okta.Auth.ServerClaim("example", new()
     ///     {
     ///         AuthServerId = "&lt;auth server id&gt;",
-    ///         ClaimType = "IDENTITY",
+    ///         Name = "staff",
+    ///         Value = "String.substringAfter(user.email, \"@\") == \"example.com\"",
     ///         Scopes = new[]
     ///         {
-    ///             okta_auth_server_scope.Example.Name,
+    ///             exampleOktaAuthServerScope.Name,
     ///         },
-    ///         Value = "String.substringAfter(user.email, \"@\") == \"example.com\"",
+    ///         ClaimType = "IDENTITY",
     ///     });
     /// 
     /// });

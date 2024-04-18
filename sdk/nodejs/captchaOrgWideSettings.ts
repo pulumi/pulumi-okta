@@ -17,13 +17,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const exampleCaptcha = new okta.Captcha("exampleCaptcha", {
+ * const example = new okta.Captcha("example", {
+ *     name: "My CAPTCHA",
  *     type: "HCAPTCHA",
  *     siteKey: "some_key",
  *     secretKey: "some_secret_key",
  * });
- * const exampleCaptchaOrgWideSettings = new okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings", {
- *     captchaId: okta_captcha.test.id,
+ * const exampleCaptchaOrgWideSettings = new okta.CaptchaOrgWideSettings("example", {
+ *     captchaId: test.id,
  *     enabledFors: ["SSR"],
  * });
  * ```
@@ -36,12 +37,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const exampleCaptcha = new okta.Captcha("exampleCaptcha", {
- *     secretKey: "some_secret_key",
- *     siteKey: "some_key",
+ * const example = new okta.Captcha("example", {
+ *     name: "My CAPTCHA",
  *     type: "HCAPTCHA",
+ *     siteKey: "some_key",
+ *     secretKey: "some_secret_key",
  * });
- * const exampleCaptchaOrgWideSettings = new okta.CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings", {});
+ * const exampleCaptchaOrgWideSettings = new okta.CaptchaOrgWideSettings("example", {});
  * ```
  * <!--End PulumiCodeChooser -->
  *

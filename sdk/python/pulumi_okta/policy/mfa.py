@@ -944,20 +944,22 @@ class Mfa(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        classic_example = okta.policy.Mfa("classicExample",
+        classic_example = okta.policy.Mfa("classic_example",
+            name="MFA Policy Classic",
+            status="ACTIVE",
             description="Example MFA policy using Okta Classic engine with factors.",
-            groups_includeds=[data["okta_group"]["everyone"]["id"]],
             is_oie=False,
-            okta_otp={
-                "enroll": "REQUIRED",
-            },
             okta_password={
                 "enroll": "REQUIRED",
             },
-            status="ACTIVE")
-        oie_example = okta.policy.Mfa("oieExample",
+            okta_otp={
+                "enroll": "REQUIRED",
+            },
+            groups_includeds=[everyone["id"]])
+        oie_example = okta.policy.Mfa("oie_example",
+            name="MFA Policy OIE",
+            status="ACTIVE",
             description="Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
-            groups_includeds=[data["okta_group"]["everyone"]["id"]],
             is_oie=True,
             okta_password={
                 "enroll": "REQUIRED",
@@ -965,7 +967,7 @@ class Mfa(pulumi.CustomResource):
             okta_verify={
                 "enroll": "REQUIRED",
             },
-            status="ACTIVE")
+            groups_includeds=[everyone["id"]])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1030,20 +1032,22 @@ class Mfa(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        classic_example = okta.policy.Mfa("classicExample",
+        classic_example = okta.policy.Mfa("classic_example",
+            name="MFA Policy Classic",
+            status="ACTIVE",
             description="Example MFA policy using Okta Classic engine with factors.",
-            groups_includeds=[data["okta_group"]["everyone"]["id"]],
             is_oie=False,
-            okta_otp={
-                "enroll": "REQUIRED",
-            },
             okta_password={
                 "enroll": "REQUIRED",
             },
-            status="ACTIVE")
-        oie_example = okta.policy.Mfa("oieExample",
+            okta_otp={
+                "enroll": "REQUIRED",
+            },
+            groups_includeds=[everyone["id"]])
+        oie_example = okta.policy.Mfa("oie_example",
+            name="MFA Policy OIE",
+            status="ACTIVE",
             description="Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
-            groups_includeds=[data["okta_group"]["everyone"]["id"]],
             is_oie=True,
             okta_password={
                 "enroll": "REQUIRED",
@@ -1051,7 +1055,7 @@ class Mfa(pulumi.CustomResource):
             okta_verify={
                 "enroll": "REQUIRED",
             },
-            status="ACTIVE")
+            groups_includeds=[everyone["id"]])
         ```
         <!--End PulumiCodeChooser -->
 

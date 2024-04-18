@@ -16,22 +16,22 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const exampleUser = new okta.user.User("exampleUser", {
+ * const exampleUser = new okta.user.User("example", {
  *     firstName: "John",
  *     lastName: "Smith",
  *     login: "john.smith@example.com",
  *     email: "john.smith@example.com",
  * });
- * const exampleUserSecurityQuestions = okta.getUserSecurityQuestionsOutput({
+ * const example = okta.getUserSecurityQuestionsOutput({
  *     userId: exampleUser.id,
  * });
- * const exampleFactor = new okta.factor.Factor("exampleFactor", {
+ * const exampleFactor = new okta.factor.Factor("example", {
  *     providerId: "okta_question",
  *     active: true,
  * });
- * const exampleUserFactorQuestion = new okta.UserFactorQuestion("exampleUserFactorQuestion", {
+ * const exampleUserFactorQuestion = new okta.UserFactorQuestion("example", {
  *     userId: exampleUser.id,
- *     key: exampleUserSecurityQuestions.apply(exampleUserSecurityQuestions => exampleUserSecurityQuestions.questions?.[0]?.key),
+ *     key: example.apply(example => example.questions?.[0]?.key),
  *     answer: "meatball",
  * }, {
  *     dependsOn: [exampleFactor],

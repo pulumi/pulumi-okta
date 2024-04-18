@@ -56,15 +56,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testGroup = new Group(&#34;testGroup&#34;, GroupArgs.builder()        
+ *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
+ *             .name(&#34;testAcc_replace_with_uuid&#34;)
  *             .description(&#34;testing, testing&#34;)
  *             .build());
  * 
  *         var testGroupMemberships = new GroupMemberships(&#34;testGroupMemberships&#34;, GroupMembershipsArgs.builder()        
- *             .groupId(testGroup.id())
+ *             .groupId(test.id())
  *             .users(            
- *                 okta_user.test1().id(),
- *                 okta_user.test2().id())
+ *                 test1.id(),
+ *                 test2.id())
  *             .build());
  * 
  *     }

@@ -279,10 +279,11 @@ class Rule(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.group.Rule("example",
-            expression_type="urn:okta:expression:1.0",
-            expression_value="String.startsWith(user.firstName,\\"andy\\")",
+            name="example",
+            status="ACTIVE",
             group_assignments=["<group id>"],
-            status="ACTIVE")
+            expression_type="urn:okta:expression:1.0",
+            expression_value="String.startsWith(user.firstName,\\"andy\\")")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -321,10 +322,11 @@ class Rule(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.group.Rule("example",
-            expression_type="urn:okta:expression:1.0",
-            expression_value="String.startsWith(user.firstName,\\"andy\\")",
+            name="example",
+            status="ACTIVE",
             group_assignments=["<group id>"],
-            status="ACTIVE")
+            expression_type="urn:okta:expression:1.0",
+            expression_value="String.startsWith(user.firstName,\\"andy\\")")
         ```
         <!--End PulumiCodeChooser -->
 

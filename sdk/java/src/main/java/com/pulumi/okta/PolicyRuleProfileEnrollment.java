@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.okta.PolicyProfileEnrollment;
+ * import com.pulumi.okta.PolicyProfileEnrollmentArgs;
  * import com.pulumi.okta.inline.Hook;
  * import com.pulumi.okta.inline.HookArgs;
  * import com.pulumi.okta.group.Group;
@@ -55,9 +56,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplePolicyProfileEnrollment = new PolicyProfileEnrollment(&#34;examplePolicyProfileEnrollment&#34;);
+ *         var example = new PolicyProfileEnrollment(&#34;example&#34;, PolicyProfileEnrollmentArgs.builder()        
+ *             .name(&#34;My Enrollment Policy&#34;)
+ *             .build());
  * 
  *         var exampleHook = new Hook(&#34;exampleHook&#34;, HookArgs.builder()        
+ *             .name(&#34;My Inline Hook&#34;)
  *             .status(&#34;ACTIVE&#34;)
  *             .type(&#34;com.okta.user.pre-registration&#34;)
  *             .version(&#34;1.0.3&#34;)
@@ -70,11 +74,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+ *             .name(&#34;My Group&#34;)
  *             .description(&#34;Group of some users&#34;)
  *             .build());
  * 
  *         var examplePolicyRuleProfileEnrollment = new PolicyRuleProfileEnrollment(&#34;examplePolicyRuleProfileEnrollment&#34;, PolicyRuleProfileEnrollmentArgs.builder()        
- *             .policyId(examplePolicyProfileEnrollment.id())
+ *             .policyId(example.id())
  *             .inlineHookId(exampleHook.id())
  *             .targetGroupId(exampleGroup.id())
  *             .unknownUserAction(&#34;REGISTER&#34;)

@@ -250,6 +250,7 @@ class AuthServerClaimDefault(pulumi.CustomResource):
 
         example = okta.AuthServerClaimDefault("example",
             auth_server_id="<auth server id>",
+            name="sub",
             value="(appuser != null) ? appuser.userName : app.clientId")
         ```
         <!--End PulumiCodeChooser -->
@@ -297,6 +298,7 @@ class AuthServerClaimDefault(pulumi.CustomResource):
 
         example = okta.AuthServerClaimDefault("example",
             auth_server_id="<auth server id>",
+            name="sub",
             value="(appuser != null) ? appuser.userName : app.clientId")
         ```
         <!--End PulumiCodeChooser -->

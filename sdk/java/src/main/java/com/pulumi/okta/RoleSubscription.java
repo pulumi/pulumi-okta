@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new RoleSubscription(&#34;test&#34;, RoleSubscriptionArgs.builder()        
- *             .notificationType(&#34;APP_IMPORT&#34;)
  *             .roleType(&#34;SUPER_ADMIN&#34;)
+ *             .notificationType(&#34;APP_IMPORT&#34;)
  *             .status(&#34;unsubscribed&#34;)
  *             .build());
  * 

@@ -37,27 +37,27 @@ import (
 //				return err
 //			}
 //			_, err = profile.NewMapping(ctx, "example", &profile.MappingArgs{
+//				SourceId:         pulumi.String("<source id>"),
+//				TargetId:         pulumi.String(user.Id),
 //				DeleteWhenAbsent: pulumi.Bool(true),
 //				Mappings: profile.MappingMappingArray{
 //					&profile.MappingMappingArgs{
-//						Expression: pulumi.String("appuser.firstName"),
 //						Id:         pulumi.String("firstName"),
+//						Expression: pulumi.String("appuser.firstName"),
 //					},
 //					&profile.MappingMappingArgs{
-//						Expression: pulumi.String("appuser.lastName"),
 //						Id:         pulumi.String("lastName"),
+//						Expression: pulumi.String("appuser.lastName"),
 //					},
 //					&profile.MappingMappingArgs{
-//						Expression: pulumi.String("appuser.email"),
 //						Id:         pulumi.String("email"),
+//						Expression: pulumi.String("appuser.email"),
 //					},
 //					&profile.MappingMappingArgs{
-//						Expression: pulumi.String("appuser.email"),
 //						Id:         pulumi.String("login"),
+//						Expression: pulumi.String("appuser.email"),
 //					},
 //				},
-//				SourceId: pulumi.String("<source id>"),
-//				TargetId: pulumi.String(user.Id),
 //			})
 //			if err != nil {
 //				return err

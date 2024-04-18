@@ -23,13 +23,14 @@ namespace Pulumi.Okta.Group
     /// {
     ///     var example = new Okta.Group.Rule("example", new()
     ///     {
-    ///         ExpressionType = "urn:okta:expression:1.0",
-    ///         ExpressionValue = "String.startsWith(user.firstName,\"andy\")",
+    ///         Name = "example",
+    ///         Status = "ACTIVE",
     ///         GroupAssignments = new[]
     ///         {
     ///             "&lt;group id&gt;",
     ///         },
-    ///         Status = "ACTIVE",
+    ///         ExpressionType = "urn:okta:expression:1.0",
+    ///         ExpressionValue = "String.startsWith(user.firstName,\"andy\")",
     ///     });
     /// 
     /// });

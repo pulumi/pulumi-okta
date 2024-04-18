@@ -12,8 +12,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const myAppPolicy = new okta.AppSignonPolicy("myAppPolicy", {description: "Authentication Policy to be used on my app."});
- * const myApp = new okta.app.OAuth("myApp", {
+ * const myAppPolicy = new okta.AppSignonPolicy("my_app_policy", {
+ *     name: "My App Sign-On Policy",
+ *     description: "Authentication Policy to be used on my app.",
+ * });
+ * const myApp = new okta.app.OAuth("my_app", {
  *     label: "My App",
  *     type: "web",
  *     grantTypes: ["authorization_code"],
@@ -32,9 +35,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const myAppPolicy = new okta.AppSignonPolicy("myAppPolicy", {description: "Authentication Policy to be used on my app."});
- * const someRule = new okta.AppSignonPolicyRule("someRule", {
- *     policyId: resource.okta_app_signon_policy.my_app_policy.id,
+ * const myAppPolicy = new okta.AppSignonPolicy("my_app_policy", {
+ *     name: "My App Sign-On Policy",
+ *     description: "Authentication Policy to be used on my app.",
+ * });
+ * const someRule = new okta.AppSignonPolicyRule("some_rule", {
+ *     policyId: oktaAppSignonPolicy.myAppPolicy.id,
+ *     name: "Some Rule",
  *     factorMode: "1FA",
  *     reAuthenticationFrequency: "PT43800H",
  *     constraints: [JSON.stringify({

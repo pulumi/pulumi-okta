@@ -39,6 +39,7 @@ namespace Pulumi.Okta
     /// {
     ///     var test = new Okta.Authenticator("test", new()
     ///     {
+    ///         Name = "Security Question",
     ///         Key = "security_question",
     ///         Settings = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -62,6 +63,7 @@ namespace Pulumi.Okta
     /// {
     ///     var test = new Okta.Authenticator("test", new()
     ///     {
+    ///         Name = "Custom OTP",
     ///         Key = "custom_otp",
     ///         Status = "ACTIVE",
     ///         Settings = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

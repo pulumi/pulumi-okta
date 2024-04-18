@@ -26,11 +26,11 @@ import * as utilities from "./utilities";
  *
  * const example = new okta.UserBaseSchemaProperty("example", {
  *     index: "firstName",
- *     master: "OKTA",
- *     required: true,
  *     title: "First name",
  *     type: "string",
- *     userType: data.okta_user_type.example.id,
+ *     required: true,
+ *     master: "OKTA",
+ *     userType: exampleOktaUserType.id,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

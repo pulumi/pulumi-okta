@@ -346,6 +346,8 @@ class Zone(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.network.Zone("example",
+            name="example",
+            type="IP",
             gateways=[
                 "1.2.3.4/24",
                 "2.3.4.5-2.3.4.15",
@@ -353,8 +355,7 @@ class Zone(pulumi.CustomResource):
             proxies=[
                 "2.2.3.4/24",
                 "3.3.4.5-3.3.4.15",
-            ],
-            type="IP")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -366,9 +367,10 @@ class Zone(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.network.Zone("example",
-            dynamic_proxy_type="TorAnonymizer",
+            name="TOR Blocker",
             type="DYNAMIC",
-            usage="BLOCKLIST")
+            usage="BLOCKLIST",
+            dynamic_proxy_type="TorAnonymizer")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -412,6 +414,8 @@ class Zone(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.network.Zone("example",
+            name="example",
+            type="IP",
             gateways=[
                 "1.2.3.4/24",
                 "2.3.4.5-2.3.4.15",
@@ -419,8 +423,7 @@ class Zone(pulumi.CustomResource):
             proxies=[
                 "2.2.3.4/24",
                 "3.3.4.5-3.3.4.15",
-            ],
-            type="IP")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -432,9 +435,10 @@ class Zone(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.network.Zone("example",
-            dynamic_proxy_type="TorAnonymizer",
+            name="TOR Blocker",
             type="DYNAMIC",
-            usage="BLOCKLIST")
+            usage="BLOCKLIST",
+            dynamic_proxy_type="TorAnonymizer")
         ```
         <!--End PulumiCodeChooser -->
 

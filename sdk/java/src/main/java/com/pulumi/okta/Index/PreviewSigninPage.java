@@ -45,12 +45,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testBrand = new Brand(&#34;testBrand&#34;, BrandArgs.builder()        
+ *         var test = new Brand(&#34;test&#34;, BrandArgs.builder()        
+ *             .name(&#34;testBrand&#34;)
  *             .locale(&#34;en&#34;)
  *             .build());
  * 
  *         var testPreviewSigninPage = new PreviewSigninPage(&#34;testPreviewSigninPage&#34;, PreviewSigninPageArgs.builder()        
- *             .brandId(resource.okta_brand().test().id())
+ *             .brandId(oktaBrand.test().id())
  *             .pageContent(&#34;&#34;&#34;
  * &lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD HTML 4.01//EN&#34; &#34;http://www.w3.org/TR/html4/strict.dtd&#34;&gt;
  * &lt;html&gt;

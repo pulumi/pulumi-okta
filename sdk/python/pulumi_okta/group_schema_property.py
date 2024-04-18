@@ -668,12 +668,12 @@ class GroupSchemaProperty(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.GroupSchemaProperty("example",
-            description="My custom property name",
             index="customPropertyName",
-            master="OKTA",
-            scope="SELF",
             title="customPropertyName",
-            type="string")
+            type="string",
+            description="My custom property name",
+            master="OKTA",
+            scope="SELF")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -722,12 +722,12 @@ class GroupSchemaProperty(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.GroupSchemaProperty("example",
-            description="My custom property name",
             index="customPropertyName",
-            master="OKTA",
-            scope="SELF",
             title="customPropertyName",
-            type="string")
+            type="string",
+            description="My custom property name",
+            master="OKTA",
+            scope="SELF")
         ```
         <!--End PulumiCodeChooser -->
 

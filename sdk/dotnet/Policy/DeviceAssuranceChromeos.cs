@@ -25,6 +25,7 @@ namespace Pulumi.Okta.Policy
     /// {
     ///     var example = new Okta.Policy.DeviceAssuranceChromeos("example", new()
     ///     {
+    ///         Name = "example",
     ///         TpspAllowScreenLock = true,
     ///         TpspBrowserVersion = "15393.27.0",
     ///         TpspBuiltinDnsClientEnabled = true,

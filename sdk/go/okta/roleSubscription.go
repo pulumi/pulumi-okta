@@ -32,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewRoleSubscription(ctx, "test", &okta.RoleSubscriptionArgs{
-//				NotificationType: pulumi.String("APP_IMPORT"),
 //				RoleType:         pulumi.String("SUPER_ADMIN"),
+//				NotificationType: pulumi.String("APP_IMPORT"),
 //				Status:           pulumi.String("unsubscribed"),
 //			})
 //			if err != nil {

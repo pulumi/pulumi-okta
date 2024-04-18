@@ -239,12 +239,12 @@ class LinkDefinition(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.LinkDefinition("example",
-            associated_description="Elite military force member",
+            primary_name="emperor",
+            primary_title="Emperor",
+            primary_description="Hereditary ruler of the Imperium and the Known Universe",
             associated_name="sardaukar",
             associated_title="Sardaukar",
-            primary_description="Hereditary ruler of the Imperium and the Known Universe",
-            primary_name="emperor",
-            primary_title="Emperor")
+            associated_description="Elite military force member")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -285,12 +285,12 @@ class LinkDefinition(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.LinkDefinition("example",
-            associated_description="Elite military force member",
+            primary_name="emperor",
+            primary_title="Emperor",
+            primary_description="Hereditary ruler of the Imperium and the Known Universe",
             associated_name="sardaukar",
             associated_title="Sardaukar",
-            primary_description="Hereditary ruler of the Imperium and the Known Universe",
-            primary_name="emperor",
-            primary_title="Emperor")
+            associated_description="Elite military force member")
         ```
         <!--End PulumiCodeChooser -->
 

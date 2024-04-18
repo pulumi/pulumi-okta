@@ -536,19 +536,6 @@ def get_user(compound_search_operator: Optional[str] = None,
     """
     Use this data source to retrieve a users from Okta.
 
-    ## Example Usage
-
-    <!--Start PulumiCodeChooser -->
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.user.get_user(searches=[okta.user.GetUserSearchArgs(
-        expression="profile.firstName eq \\"John\\"",
-    )])
-    ```
-    <!--End PulumiCodeChooser -->
-
 
     :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
     :param str delay_read_seconds: Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
@@ -621,19 +608,6 @@ def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[str
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to retrieve a users from Okta.
-
-    ## Example Usage
-
-    <!--Start PulumiCodeChooser -->
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.user.get_user(searches=[okta.user.GetUserSearchArgs(
-        expression="profile.firstName eq \\"John\\"",
-    )])
-    ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.

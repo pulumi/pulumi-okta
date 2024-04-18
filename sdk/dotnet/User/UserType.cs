@@ -27,8 +27,9 @@ namespace Pulumi.Okta.User
     /// {
     ///     var example = new Okta.User.UserType("example", new()
     ///     {
-    ///         Description = "example",
+    ///         Name = "example",
     ///         DisplayName = "example",
+    ///         Description = "example",
     ///     });
     /// 
     /// });

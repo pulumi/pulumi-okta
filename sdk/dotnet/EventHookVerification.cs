@@ -25,8 +25,9 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleEventHook = new Okta.EventHook("exampleEventHook", new()
+    ///     var example = new Okta.EventHook("example", new()
     ///     {
+    ///         Name = "example",
     ///         Events = new[]
     ///         {
     ///             "user.lifecycle.create",
@@ -46,9 +47,9 @@ namespace Pulumi.Okta
     ///         },
     ///     });
     /// 
-    ///     var exampleEventHookVerification = new Okta.EventHookVerification("exampleEventHookVerification", new()
+    ///     var exampleEventHookVerification = new Okta.EventHookVerification("example", new()
     ///     {
-    ///         EventHookId = exampleEventHook.Id,
+    ///         EventHookId = example.Id,
     ///     });
     /// 
     /// });

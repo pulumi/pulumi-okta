@@ -1795,24 +1795,24 @@ class Saml(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.Saml("example",
-            attribute_statements=[okta.app.SamlAttributeStatementArgs(
-                filter_type="REGEX",
-                filter_value=".*",
-                name="groups",
-                type="GROUP",
-            )],
-            audience="https://example.com/audience",
-            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-            destination="https://example.com",
-            digest_algorithm="SHA256",
-            honor_force_authn=False,
             label="example",
+            sso_url="https://example.com",
             recipient="https://example.com",
+            destination="https://example.com",
+            audience="https://example.com/audience",
+            subject_name_id_template="${user.userName}",
+            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
             response_signed=True,
             signature_algorithm="RSA_SHA256",
-            sso_url="https://example.com",
-            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-            subject_name_id_template="${user.userName}")
+            digest_algorithm="SHA256",
+            honor_force_authn=False,
+            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+            attribute_statements=[okta.app.SamlAttributeStatementArgs(
+                type="GROUP",
+                name="groups",
+                filter_type="REGEX",
+                filter_value=".*",
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1823,7 +1823,8 @@ class Saml(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        test_hook = okta.inline.Hook("testHook",
+        test = okta.inline.Hook("test",
+            name="testAcc_replace_with_uuid",
             status="ACTIVE",
             type="com.okta.saml.tokens.transform",
             version="1.0.2",
@@ -1838,7 +1839,7 @@ class Saml(pulumi.CustomResource):
                 "type": "HEADER",
                 "value": "secret",
             })
-        test_saml = okta.app.Saml("testSaml",
+        test_saml = okta.app.Saml("test",
             label="testAcc_replace_with_uuid",
             sso_url="https://google.com",
             recipient="https://here.com",
@@ -1851,14 +1852,14 @@ class Saml(pulumi.CustomResource):
             digest_algorithm="SHA256",
             honor_force_authn=False,
             authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-            inline_hook_id=test_hook.id,
+            inline_hook_id=test.id,
             attribute_statements=[okta.app.SamlAttributeStatementArgs(
                 type="GROUP",
                 name="groups",
                 filter_type="REGEX",
                 filter_value=".*",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[test_hook]))
+            opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1874,7 +1875,6 @@ class Saml(pulumi.CustomResource):
             "groupFilter": "app1.*",
             "siteURL": "https://www.okta.com"
         }
-
         \"\"\",
             label="SharePoint (On-Premise)",
             preconfigured_app="sharepoint_onpremise",
@@ -1893,6 +1893,19 @@ class Saml(pulumi.CustomResource):
         import pulumi_okta as okta
 
         office365 = okta.app.Saml("office365",
+            preconfigured_app="office365",
+            label="Microsoft Office 365",
+            status="ACTIVE",
+            saml_version="1.1",
+            app_settings_json=\"\"\"    {
+               "wsFedConfigureType": "AUTO",
+               "windowsTransportEnabled": false,
+               "domain": "okta.com",
+               "msftTenant": "okta",
+               "domains": [],
+               "requireAdminConsent": false
+            }
+        \"\"\",
             app_links_json=\"\"\"  {
               "calendar": false,
               "crm": false,
@@ -1915,22 +1928,7 @@ class Saml(pulumi.CustomResource):
               "yammer": false,
               "login": true
           }
-
-        \"\"\",
-            app_settings_json=\"\"\"    {
-               "wsFedConfigureType": "AUTO",
-               "windowsTransportEnabled": false,
-               "domain": "okta.com",
-               "msftTenant": "okta",
-               "domains": [],
-               "requireAdminConsent": false
-            }
-
-        \"\"\",
-            label="Microsoft Office 365",
-            preconfigured_app="office365",
-            saml_version="1.1",
-            status="ACTIVE")
+        \"\"\")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -2016,24 +2014,24 @@ class Saml(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.Saml("example",
-            attribute_statements=[okta.app.SamlAttributeStatementArgs(
-                filter_type="REGEX",
-                filter_value=".*",
-                name="groups",
-                type="GROUP",
-            )],
-            audience="https://example.com/audience",
-            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-            destination="https://example.com",
-            digest_algorithm="SHA256",
-            honor_force_authn=False,
             label="example",
+            sso_url="https://example.com",
             recipient="https://example.com",
+            destination="https://example.com",
+            audience="https://example.com/audience",
+            subject_name_id_template="${user.userName}",
+            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
             response_signed=True,
             signature_algorithm="RSA_SHA256",
-            sso_url="https://example.com",
-            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-            subject_name_id_template="${user.userName}")
+            digest_algorithm="SHA256",
+            honor_force_authn=False,
+            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+            attribute_statements=[okta.app.SamlAttributeStatementArgs(
+                type="GROUP",
+                name="groups",
+                filter_type="REGEX",
+                filter_value=".*",
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -2044,7 +2042,8 @@ class Saml(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        test_hook = okta.inline.Hook("testHook",
+        test = okta.inline.Hook("test",
+            name="testAcc_replace_with_uuid",
             status="ACTIVE",
             type="com.okta.saml.tokens.transform",
             version="1.0.2",
@@ -2059,7 +2058,7 @@ class Saml(pulumi.CustomResource):
                 "type": "HEADER",
                 "value": "secret",
             })
-        test_saml = okta.app.Saml("testSaml",
+        test_saml = okta.app.Saml("test",
             label="testAcc_replace_with_uuid",
             sso_url="https://google.com",
             recipient="https://here.com",
@@ -2072,14 +2071,14 @@ class Saml(pulumi.CustomResource):
             digest_algorithm="SHA256",
             honor_force_authn=False,
             authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-            inline_hook_id=test_hook.id,
+            inline_hook_id=test.id,
             attribute_statements=[okta.app.SamlAttributeStatementArgs(
                 type="GROUP",
                 name="groups",
                 filter_type="REGEX",
                 filter_value=".*",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[test_hook]))
+            opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -2095,7 +2094,6 @@ class Saml(pulumi.CustomResource):
             "groupFilter": "app1.*",
             "siteURL": "https://www.okta.com"
         }
-
         \"\"\",
             label="SharePoint (On-Premise)",
             preconfigured_app="sharepoint_onpremise",
@@ -2114,6 +2112,19 @@ class Saml(pulumi.CustomResource):
         import pulumi_okta as okta
 
         office365 = okta.app.Saml("office365",
+            preconfigured_app="office365",
+            label="Microsoft Office 365",
+            status="ACTIVE",
+            saml_version="1.1",
+            app_settings_json=\"\"\"    {
+               "wsFedConfigureType": "AUTO",
+               "windowsTransportEnabled": false,
+               "domain": "okta.com",
+               "msftTenant": "okta",
+               "domains": [],
+               "requireAdminConsent": false
+            }
+        \"\"\",
             app_links_json=\"\"\"  {
               "calendar": false,
               "crm": false,
@@ -2136,22 +2147,7 @@ class Saml(pulumi.CustomResource):
               "yammer": false,
               "login": true
           }
-
-        \"\"\",
-            app_settings_json=\"\"\"    {
-               "wsFedConfigureType": "AUTO",
-               "windowsTransportEnabled": false,
-               "domain": "okta.com",
-               "msftTenant": "okta",
-               "domains": [],
-               "requireAdminConsent": false
-            }
-
-        \"\"\",
-            label="Microsoft Office 365",
-            preconfigured_app="office365",
-            saml_version="1.1",
-            status="ACTIVE")
+        \"\"\")
         ```
         <!--End PulumiCodeChooser -->
 

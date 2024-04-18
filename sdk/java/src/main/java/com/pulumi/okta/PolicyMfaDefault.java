@@ -52,8 +52,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var classicExample = new PolicyMfaDefault(&#34;classicExample&#34;, PolicyMfaDefaultArgs.builder()        
  *             .isOie(false)
- *             .oktaOtp(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
  *             .oktaPassword(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
+ *             .oktaOtp(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
  *             .build());
  * 
  *         var oieExample = new PolicyMfaDefault(&#34;oieExample&#34;, PolicyMfaDefaultArgs.builder()        

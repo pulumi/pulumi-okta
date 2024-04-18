@@ -48,11 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FactorTotp(&#34;example&#34;, FactorTotpArgs.builder()        
- *             .clockDriftInterval(10)
- *             .hmacAlgorithm(&#34;HMacSHA256&#34;)
+ *             .name(&#34;example&#34;)
  *             .otpLength(10)
- *             .sharedSecretEncoding(&#34;hexadecimal&#34;)
+ *             .hmacAlgorithm(&#34;HMacSHA256&#34;)
  *             .timeStep(30)
+ *             .clockDriftInterval(10)
+ *             .sharedSecretEncoding(&#34;hexadecimal&#34;)
  *             .build());
  * 
  *     }

@@ -600,11 +600,12 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
         example = okta.auth.ServerPolicyRule("example",
             auth_server_id="<auth server id>",
-            grant_type_whitelists=["implicit"],
-            group_whitelists=["<group ids>"],
             policy_id="<auth server policy id>",
+            status="ACTIVE",
+            name="example",
             priority=1,
-            status="ACTIVE")
+            group_whitelists=["<group ids>"],
+            grant_type_whitelists=["implicit"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -654,11 +655,12 @@ class ServerPolicyClaim(pulumi.CustomResource):
 
         example = okta.auth.ServerPolicyRule("example",
             auth_server_id="<auth server id>",
-            grant_type_whitelists=["implicit"],
-            group_whitelists=["<group ids>"],
             policy_id="<auth server policy id>",
+            status="ACTIVE",
+            name="example",
             priority=1,
-            status="ACTIVE")
+            group_whitelists=["<group ids>"],
+            grant_type_whitelists=["implicit"])
         ```
         <!--End PulumiCodeChooser -->
 

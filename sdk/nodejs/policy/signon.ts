@@ -17,9 +17,10 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.policy.Signon("example", {
- *     description: "Example",
- *     groupsIncludeds: [data.okta_group.everyone.id],
+ *     name: "example",
  *     status: "ACTIVE",
+ *     description: "Example",
+ *     groupsIncludeds: [everyone.id],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -15,38 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// ### Lookup Users by Search Criteria
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := user.GetUsers(ctx, &user.GetUsersArgs{
-//				Searches: []user.GetUsersSearch{
-//					{
-//						Expression: pulumi.StringRef("profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")"),
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ### Lookup Users by Group Membership
 // <!--Start PulumiCodeChooser -->
 // ```go
@@ -62,7 +30,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGroup, err := group.NewGroup(ctx, "exampleGroup", nil)
+//			exampleGroup, err := group.NewGroup(ctx, "example", &group.GroupArgs{
+//				Name: pulumi.String("example-group"),
+//			})
 //			if err != nil {
 //				return err
 //			}

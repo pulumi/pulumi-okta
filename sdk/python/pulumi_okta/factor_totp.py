@@ -259,11 +259,12 @@ class FactorTotp(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.FactorTotp("example",
-            clock_drift_interval=10,
-            hmac_algorithm="HMacSHA256",
+            name="example",
             otp_length=10,
-            shared_secret_encoding="hexadecimal",
-            time_step=30)
+            hmac_algorithm="HMacSHA256",
+            time_step=30,
+            clock_drift_interval=10,
+            shared_secret_encoding="hexadecimal")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -301,11 +302,12 @@ class FactorTotp(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.FactorTotp("example",
-            clock_drift_interval=10,
-            hmac_algorithm="HMacSHA256",
+            name="example",
             otp_length=10,
-            shared_secret_encoding="hexadecimal",
-            time_step=30)
+            hmac_algorithm="HMacSHA256",
+            time_step=30,
+            clock_drift_interval=10,
+            shared_secret_encoding="hexadecimal")
         ```
         <!--End PulumiCodeChooser -->
 

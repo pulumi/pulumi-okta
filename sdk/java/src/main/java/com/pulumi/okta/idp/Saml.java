@@ -47,15 +47,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Saml(&#34;example&#34;, SamlArgs.builder()        
+ *             .name(&#34;testAcc_replace_with_uuid&#34;)
  *             .acsType(&#34;INSTANCE&#34;)
+ *             .ssoUrl(&#34;https://idp.example.com&#34;)
+ *             .ssoDestination(&#34;https://idp.example.com&#34;)
+ *             .ssoBinding(&#34;HTTP-POST&#34;)
+ *             .usernameTemplate(&#34;idpuser.email&#34;)
+ *             .kid(test.id())
  *             .issuer(&#34;https://idp.example.com&#34;)
- *             .kid(okta_idp_saml_key.test().id())
  *             .requestSignatureScope(&#34;REQUEST&#34;)
  *             .responseSignatureScope(&#34;ANY&#34;)
- *             .ssoBinding(&#34;HTTP-POST&#34;)
- *             .ssoDestination(&#34;https://idp.example.com&#34;)
- *             .ssoUrl(&#34;https://idp.example.com&#34;)
- *             .usernameTemplate(&#34;idpuser.email&#34;)
  *             .build());
  * 
  *     }

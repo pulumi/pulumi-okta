@@ -297,22 +297,27 @@ class Behaviour(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        my_location = okta.Behaviour("myLocation",
+        my_location = okta.Behaviour("my_location",
+            name="My Location",
+            type="ANOMALOUS_LOCATION",
+            number_of_authentications=50,
             location_granularity_type="LAT_LONG",
+            radius_from_location=20)
+        my_city = okta.Behaviour("my_city",
+            name="My City",
+            type="ANOMALOUS_LOCATION",
             number_of_authentications=50,
-            radius_from_location=20,
-            type="ANOMALOUS_LOCATION")
-        my_city = okta.Behaviour("myCity",
-            location_granularity_type="CITY",
-            number_of_authentications=50,
-            type="ANOMALOUS_LOCATION")
-        my_device = okta.Behaviour("myDevice",
-            number_of_authentications=50,
-            type="ANOMALOUS_DEVICE")
-        my_ip = okta.Behaviour("myIp",
-            number_of_authentications=50,
-            type="ANOMALOUS_IP")
-        my_velocity = okta.Behaviour("myVelocity",
+            location_granularity_type="CITY")
+        my_device = okta.Behaviour("my_device",
+            name="My Device",
+            type="ANOMALOUS_DEVICE",
+            number_of_authentications=50)
+        my_ip = okta.Behaviour("my_ip",
+            name="My IP",
+            type="ANOMALOUS_IP",
+            number_of_authentications=50)
+        my_velocity = okta.Behaviour("my_velocity",
+            name="My Velocity",
             type="VELOCITY",
             velocity=25)
         ```
@@ -358,22 +363,27 @@ class Behaviour(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        my_location = okta.Behaviour("myLocation",
+        my_location = okta.Behaviour("my_location",
+            name="My Location",
+            type="ANOMALOUS_LOCATION",
+            number_of_authentications=50,
             location_granularity_type="LAT_LONG",
+            radius_from_location=20)
+        my_city = okta.Behaviour("my_city",
+            name="My City",
+            type="ANOMALOUS_LOCATION",
             number_of_authentications=50,
-            radius_from_location=20,
-            type="ANOMALOUS_LOCATION")
-        my_city = okta.Behaviour("myCity",
-            location_granularity_type="CITY",
-            number_of_authentications=50,
-            type="ANOMALOUS_LOCATION")
-        my_device = okta.Behaviour("myDevice",
-            number_of_authentications=50,
-            type="ANOMALOUS_DEVICE")
-        my_ip = okta.Behaviour("myIp",
-            number_of_authentications=50,
-            type="ANOMALOUS_IP")
-        my_velocity = okta.Behaviour("myVelocity",
+            location_granularity_type="CITY")
+        my_device = okta.Behaviour("my_device",
+            name="My Device",
+            type="ANOMALOUS_DEVICE",
+            number_of_authentications=50)
+        my_ip = okta.Behaviour("my_ip",
+            name="My IP",
+            type="ANOMALOUS_IP",
+            number_of_authentications=50)
+        my_velocity = okta.Behaviour("my_velocity",
+            name="My Velocity",
             type="VELOCITY",
             velocity=25)
         ```

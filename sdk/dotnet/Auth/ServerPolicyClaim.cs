@@ -24,17 +24,18 @@ namespace Pulumi.Okta.Auth
     ///     var example = new Okta.Auth.ServerPolicyRule("example", new()
     ///     {
     ///         AuthServerId = "&lt;auth server id&gt;",
-    ///         GrantTypeWhitelists = new[]
-    ///         {
-    ///             "implicit",
-    ///         },
+    ///         PolicyId = "&lt;auth server policy id&gt;",
+    ///         Status = "ACTIVE",
+    ///         Name = "example",
+    ///         Priority = 1,
     ///         GroupWhitelists = new[]
     ///         {
     ///             "&lt;group ids&gt;",
     ///         },
-    ///         PolicyId = "&lt;auth server policy id&gt;",
-    ///         Priority = 1,
-    ///         Status = "ACTIVE",
+    ///         GrantTypeWhitelists = new[]
+    ///         {
+    ///             "implicit",
+    ///         },
     ///     });
     /// 
     /// });

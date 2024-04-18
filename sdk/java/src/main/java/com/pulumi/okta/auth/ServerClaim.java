@@ -47,9 +47,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ServerClaim(&#34;example&#34;, ServerClaimArgs.builder()        
  *             .authServerId(&#34;&lt;auth server id&gt;&#34;)
- *             .claimType(&#34;IDENTITY&#34;)
- *             .scopes(okta_auth_server_scope.example().name())
+ *             .name(&#34;staff&#34;)
  *             .value(&#34;String.substringAfter(user.email, \&#34;@\&#34;) == \&#34;example.com\&#34;&#34;)
+ *             .scopes(exampleOktaAuthServerScope.name())
+ *             .claimType(&#34;IDENTITY&#34;)
  *             .build());
  * 
  *     }

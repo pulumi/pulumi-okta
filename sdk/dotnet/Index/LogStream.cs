@@ -16,33 +16,6 @@ namespace Pulumi.Okta.Index
     /// 
     /// ## Example Usage
     /// 
-    /// ### Splunk Event Collector
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Index.LogStream("example", new()
-    ///     {
-    ///         Settings = new Okta.Inputs.LogStreamSettingsArgs
-    ///         {
-    ///             Edition = "gcp",
-    ///             Host = "acme.splunkcloud.com",
-    ///             Token = "YOUR_HEC_TOKEN",
-    ///         },
-    ///         Status = "ACTIVE",
-    ///         Type = "splunk_cloud_logstreaming",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// Okta Log Stream can be imported via the Okta ID.

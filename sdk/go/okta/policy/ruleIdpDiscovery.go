@@ -32,6 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// All Okta orgs contain only one IdP Discovery Policy
 //			idpDiscoveryPolicy, err := policy.GetPolicy(ctx, &policy.GetPolicyArgs{
 //				Name: "Idp Discovery Policy",
 //				Type: "IDP_DISCOVERY",
@@ -41,6 +42,7 @@ import (
 //			}
 //			_, err = policy.NewRuleIdpDiscovery(ctx, "example", &policy.RuleIdpDiscoveryArgs{
 //				PolicyId:                pulumi.String(idpDiscoveryPolicy.Id),
+//				Name:                    pulumi.String("example"),
 //				IdpId:                   pulumi.String("<idp id>"),
 //				IdpType:                 pulumi.String("OIDC"),
 //				NetworkConnection:       pulumi.String("ANYWHERE"),
@@ -102,22 +104,6 @@ type RuleIdpDiscovery struct {
 	pulumi.CustomResourceState
 
 	// Applications to exclude in discovery. See `appInclude` for details.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	AppExcludes RuleIdpDiscoveryAppExcludeArrayOutput `pulumi:"appExcludes"`
 	// Applications to include in discovery rule.
 	AppIncludes RuleIdpDiscoveryAppIncludeArrayOutput `pulumi:"appIncludes"`
@@ -182,22 +168,6 @@ func GetRuleIdpDiscovery(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RuleIdpDiscovery resources.
 type ruleIdpDiscoveryState struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	AppExcludes []RuleIdpDiscoveryAppExclude `pulumi:"appExcludes"`
 	// Applications to include in discovery rule.
 	AppIncludes []RuleIdpDiscoveryAppInclude `pulumi:"appIncludes"`
@@ -233,22 +203,6 @@ type ruleIdpDiscoveryState struct {
 
 type RuleIdpDiscoveryState struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	AppExcludes RuleIdpDiscoveryAppExcludeArrayInput
 	// Applications to include in discovery rule.
 	AppIncludes RuleIdpDiscoveryAppIncludeArrayInput
@@ -288,22 +242,6 @@ func (RuleIdpDiscoveryState) ElementType() reflect.Type {
 
 type ruleIdpDiscoveryArgs struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	AppExcludes []RuleIdpDiscoveryAppExclude `pulumi:"appExcludes"`
 	// Applications to include in discovery rule.
 	AppIncludes []RuleIdpDiscoveryAppInclude `pulumi:"appIncludes"`
@@ -340,22 +278,6 @@ type ruleIdpDiscoveryArgs struct {
 // The set of arguments for constructing a RuleIdpDiscovery resource.
 type RuleIdpDiscoveryArgs struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	AppExcludes RuleIdpDiscoveryAppExcludeArrayInput
 	// Applications to include in discovery rule.
 	AppIncludes RuleIdpDiscoveryAppIncludeArrayInput
@@ -477,25 +399,6 @@ func (o RuleIdpDiscoveryOutput) ToRuleIdpDiscoveryOutputWithContext(ctx context.
 }
 
 // Applications to exclude in discovery. See `appInclude` for details.
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 func (o RuleIdpDiscoveryOutput) AppExcludes() RuleIdpDiscoveryAppExcludeArrayOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscoveryAppExcludeArrayOutput { return v.AppExcludes }).(RuleIdpDiscoveryAppExcludeArrayOutput)
 }

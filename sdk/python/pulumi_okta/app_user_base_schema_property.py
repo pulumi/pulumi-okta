@@ -341,9 +341,9 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
         example = okta.AppUserBaseSchemaProperty("example",
             app_id="<app id>",
             index="customPropertyName",
-            master="OKTA",
             title="customPropertyName",
-            type="string")
+            type="string",
+            master="OKTA")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -388,9 +388,9 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
         example = okta.AppUserBaseSchemaProperty("example",
             app_id="<app id>",
             index="customPropertyName",
-            master="OKTA",
             title="customPropertyName",
-            type="string")
+            type="string",
+            master="OKTA")
         ```
         <!--End PulumiCodeChooser -->
 

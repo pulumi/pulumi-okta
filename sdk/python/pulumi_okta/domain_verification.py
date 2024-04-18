@@ -77,8 +77,8 @@ class DomainVerification(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_domain = okta.Domain("exampleDomain")
-        example_domain_verification = okta.DomainVerification("exampleDomainVerification", domain_id=okta_domain["test"]["id"])
+        example = okta.Domain("example", name="www.example.com")
+        example_domain_verification = okta.DomainVerification("example", domain_id=test["id"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -108,8 +108,8 @@ class DomainVerification(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example_domain = okta.Domain("exampleDomain")
-        example_domain_verification = okta.DomainVerification("exampleDomainVerification", domain_id=okta_domain["test"]["id"])
+        example = okta.Domain("example", name="www.example.com")
+        example_domain_verification = okta.DomainVerification("example", domain_id=test["id"])
         ```
         <!--End PulumiCodeChooser -->
 

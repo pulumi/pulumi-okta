@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testOAuth = new OAuth(&#34;testOAuth&#34;, OAuthArgs.builder()        
+ *         var test = new OAuth(&#34;test&#34;, OAuthArgs.builder()        
  *             .label(&#34;testAcc_replace_with_uuid&#34;)
  *             .type(&#34;web&#34;)
  *             .grantTypes(&#34;authorization_code&#34;)
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testOAuthRedirectUri = new OAuthRedirectUri(&#34;testOAuthRedirectUri&#34;, OAuthRedirectUriArgs.builder()        
- *             .appId(testOAuth.id())
+ *             .appId(test.id())
  *             .uri(&#34;http://google.com&#34;)
  *             .build());
  * 

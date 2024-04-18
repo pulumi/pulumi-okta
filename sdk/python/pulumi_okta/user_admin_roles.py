@@ -146,13 +146,13 @@ class UserAdminRoles(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        test_user = okta.user.User("testUser",
+        test = okta.user.User("test",
             first_name="TestAcc",
             last_name="Smith",
             login="testAcc-replace_with_uuid@example.com",
             email="testAcc-replace_with_uuid@example.com")
-        test_user_admin_roles = okta.UserAdminRoles("testUserAdminRoles",
-            user_id=test_user.id,
+        test_user_admin_roles = okta.UserAdminRoles("test",
+            user_id=test.id,
             admin_roles=["APP_ADMIN"])
         ```
         <!--End PulumiCodeChooser -->
@@ -190,13 +190,13 @@ class UserAdminRoles(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        test_user = okta.user.User("testUser",
+        test = okta.user.User("test",
             first_name="TestAcc",
             last_name="Smith",
             login="testAcc-replace_with_uuid@example.com",
             email="testAcc-replace_with_uuid@example.com")
-        test_user_admin_roles = okta.UserAdminRoles("testUserAdminRoles",
-            user_id=test_user.id,
+        test_user_admin_roles = okta.UserAdminRoles("test",
+            user_id=test.id,
             admin_roles=["APP_ADMIN"])
         ```
         <!--End PulumiCodeChooser -->

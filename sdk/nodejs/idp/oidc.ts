@@ -17,18 +17,19 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.idp.Oidc("example", {
- *     authorizationBinding: "HTTP-REDIRECT",
+ *     name: "example",
  *     authorizationUrl: "https://idp.example.com/authorize",
+ *     authorizationBinding: "HTTP-REDIRECT",
+ *     tokenUrl: "https://idp.example.com/token",
+ *     tokenBinding: "HTTP-POST",
+ *     userInfoUrl: "https://idp.example.com/userinfo",
+ *     userInfoBinding: "HTTP-REDIRECT",
+ *     jwksUrl: "https://idp.example.com/keys",
+ *     jwksBinding: "HTTP-REDIRECT",
+ *     scopes: ["openid"],
  *     clientId: "efg456",
  *     clientSecret: "efg456",
  *     issuerUrl: "https://id.example.com",
- *     jwksBinding: "HTTP-REDIRECT",
- *     jwksUrl: "https://idp.example.com/keys",
- *     scopes: ["openid"],
- *     tokenBinding: "HTTP-POST",
- *     tokenUrl: "https://idp.example.com/token",
- *     userInfoBinding: "HTTP-REDIRECT",
- *     userInfoUrl: "https://idp.example.com/userinfo",
  *     usernameTemplate: "idpuser.email",
  * });
  * ```

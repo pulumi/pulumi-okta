@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AdminRoleTargets(&#34;example&#34;, AdminRoleTargetsArgs.builder()        
+ *             .userId(&#34;&lt;user_id&gt;&#34;)
+ *             .roleType(&#34;APP_ADMIN&#34;)
  *             .apps(            
  *                 &#34;oidc_client.&lt;app_id&gt;&#34;,
  *                 &#34;facebook&#34;)
- *             .roleType(&#34;APP_ADMIN&#34;)
- *             .userId(&#34;&lt;user_id&gt;&#34;)
  *             .build());
  * 
  *     }

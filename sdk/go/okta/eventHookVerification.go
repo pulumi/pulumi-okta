@@ -31,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEventHook, err := okta.NewEventHook(ctx, "exampleEventHook", &okta.EventHookArgs{
+//			example, err := okta.NewEventHook(ctx, "example", &okta.EventHookArgs{
+//				Name: pulumi.String("example"),
 //				Events: pulumi.StringArray{
 //					pulumi.String("user.lifecycle.create"),
 //					pulumi.String("user.lifecycle.delete.initiated"),
@@ -50,8 +51,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.NewEventHookVerification(ctx, "exampleEventHookVerification", &okta.EventHookVerificationArgs{
-//				EventHookId: exampleEventHook.ID(),
+//			_, err = okta.NewEventHookVerification(ctx, "example", &okta.EventHookVerificationArgs{
+//				EventHookId: example.ID(),
 //			})
 //			if err != nil {
 //				return err

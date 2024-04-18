@@ -20,27 +20,27 @@ import * as utilities from "../utilities";
  *
  * const user = okta.user.getUserProfileMappingSource({});
  * const example = new okta.profile.Mapping("example", {
+ *     sourceId: "<source id>",
+ *     targetId: user.then(user => user.id),
  *     deleteWhenAbsent: true,
  *     mappings: [
  *         {
- *             expression: "appuser.firstName",
  *             id: "firstName",
+ *             expression: "appuser.firstName",
  *         },
  *         {
- *             expression: "appuser.lastName",
  *             id: "lastName",
+ *             expression: "appuser.lastName",
  *         },
  *         {
- *             expression: "appuser.email",
  *             id: "email",
+ *             expression: "appuser.email",
  *         },
  *         {
- *             expression: "appuser.email",
  *             id: "login",
+ *             expression: "appuser.email",
  *         },
  *     ],
- *     sourceId: "<source id>",
- *     targetId: user.then(user => user.id),
  * });
  * ```
  * <!--End PulumiCodeChooser -->

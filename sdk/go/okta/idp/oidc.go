@@ -32,20 +32,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := idp.NewOidc(ctx, "example", &idp.OidcArgs{
-//				AuthorizationBinding: pulumi.String("HTTP-REDIRECT"),
+//				Name:                 pulumi.String("example"),
 //				AuthorizationUrl:     pulumi.String("https://idp.example.com/authorize"),
-//				ClientId:             pulumi.String("efg456"),
-//				ClientSecret:         pulumi.String("efg456"),
-//				IssuerUrl:            pulumi.String("https://id.example.com"),
-//				JwksBinding:          pulumi.String("HTTP-REDIRECT"),
+//				AuthorizationBinding: pulumi.String("HTTP-REDIRECT"),
+//				TokenUrl:             pulumi.String("https://idp.example.com/token"),
+//				TokenBinding:         pulumi.String("HTTP-POST"),
+//				UserInfoUrl:          pulumi.String("https://idp.example.com/userinfo"),
+//				UserInfoBinding:      pulumi.String("HTTP-REDIRECT"),
 //				JwksUrl:              pulumi.String("https://idp.example.com/keys"),
+//				JwksBinding:          pulumi.String("HTTP-REDIRECT"),
 //				Scopes: pulumi.StringArray{
 //					pulumi.String("openid"),
 //				},
-//				TokenBinding:     pulumi.String("HTTP-POST"),
-//				TokenUrl:         pulumi.String("https://idp.example.com/token"),
-//				UserInfoBinding:  pulumi.String("HTTP-REDIRECT"),
-//				UserInfoUrl:      pulumi.String("https://idp.example.com/userinfo"),
+//				ClientId:         pulumi.String("efg456"),
+//				ClientSecret:     pulumi.String("efg456"),
+//				IssuerUrl:        pulumi.String("https://id.example.com"),
 //				UsernameTemplate: pulumi.String("idpuser.email"),
 //			})
 //			if err != nil {

@@ -25,7 +25,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUser = new Okta.User.User("exampleUser", new()
+    ///     var exampleUser = new Okta.User.User("example", new()
     ///     {
     ///         FirstName = "John",
     ///         LastName = "Smith",
@@ -33,21 +33,21 @@ namespace Pulumi.Okta
     ///         Email = "john.smith@example.com",
     ///     });
     /// 
-    ///     var exampleUserSecurityQuestions = Okta.GetUserSecurityQuestions.Invoke(new()
+    ///     var example = Okta.GetUserSecurityQuestions.Invoke(new()
     ///     {
     ///         UserId = exampleUser.Id,
     ///     });
     /// 
-    ///     var exampleFactor = new Okta.Factor.Factor("exampleFactor", new()
+    ///     var exampleFactor = new Okta.Factor.Factor("example", new()
     ///     {
     ///         ProviderId = "okta_question",
     ///         Active = true,
     ///     });
     /// 
-    ///     var exampleUserFactorQuestion = new Okta.UserFactorQuestion("exampleUserFactorQuestion", new()
+    ///     var exampleUserFactorQuestion = new Okta.UserFactorQuestion("example", new()
     ///     {
     ///         UserId = exampleUser.Id,
-    ///         Key = exampleUserSecurityQuestions.Apply(getUserSecurityQuestionsResult =&gt; getUserSecurityQuestionsResult.Questions[0]?.Key),
+    ///         Key = example.Apply(getUserSecurityQuestionsResult =&gt; getUserSecurityQuestionsResult.Questions[0]?.Key),
     ///         Answer = "meatball",
     ///     }, new CustomResourceOptions
     ///     {

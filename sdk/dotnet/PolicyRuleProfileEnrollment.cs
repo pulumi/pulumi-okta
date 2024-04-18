@@ -28,10 +28,14 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePolicyProfileEnrollment = new Okta.PolicyProfileEnrollment("examplePolicyProfileEnrollment");
-    /// 
-    ///     var exampleHook = new Okta.Inline.Hook("exampleHook", new()
+    ///     var example = new Okta.PolicyProfileEnrollment("example", new()
     ///     {
+    ///         Name = "My Enrollment Policy",
+    ///     });
+    /// 
+    ///     var exampleHook = new Okta.Inline.Hook("example", new()
+    ///     {
+    ///         Name = "My Inline Hook",
     ///         Status = "ACTIVE",
     ///         Type = "com.okta.user.pre-registration",
     ///         Version = "1.0.3",
@@ -44,14 +48,15 @@ namespace Pulumi.Okta
     ///         },
     ///     });
     /// 
-    ///     var exampleGroup = new Okta.Group.Group("exampleGroup", new()
+    ///     var exampleGroup = new Okta.Group.Group("example", new()
     ///     {
+    ///         Name = "My Group",
     ///         Description = "Group of some users",
     ///     });
     /// 
-    ///     var examplePolicyRuleProfileEnrollment = new Okta.PolicyRuleProfileEnrollment("examplePolicyRuleProfileEnrollment", new()
+    ///     var examplePolicyRuleProfileEnrollment = new Okta.PolicyRuleProfileEnrollment("example", new()
     ///     {
-    ///         PolicyId = examplePolicyProfileEnrollment.Id,
+    ///         PolicyId = example.Id,
     ///         InlineHookId = exampleHook.Id,
     ///         TargetGroupId = exampleGroup.Id,
     ///         UnknownUserAction = "REGISTER",

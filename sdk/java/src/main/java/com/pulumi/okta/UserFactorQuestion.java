@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .email(&#34;john.smith@example.com&#34;)
  *             .build());
  * 
- *         final var exampleUserSecurityQuestions = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
+ *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
  *             .userId(exampleUser.id())
  *             .build());
  * 
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleUserFactorQuestion = new UserFactorQuestion(&#34;exampleUserFactorQuestion&#34;, UserFactorQuestionArgs.builder()        
  *             .userId(exampleUser.id())
- *             .key(exampleUserSecurityQuestions.applyValue(getUserSecurityQuestionsResult -&gt; getUserSecurityQuestionsResult).applyValue(exampleUserSecurityQuestions -&gt; exampleUserSecurityQuestions.applyValue(getUserSecurityQuestionsResult -&gt; getUserSecurityQuestionsResult.questions()[0].key())))
+ *             .key(example.applyValue(getUserSecurityQuestionsResult -&gt; getUserSecurityQuestionsResult).applyValue(example -&gt; example.applyValue(getUserSecurityQuestionsResult -&gt; getUserSecurityQuestionsResult.questions()[0].key())))
  *             .answer(&#34;meatball&#34;)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleFactor)

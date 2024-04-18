@@ -18,8 +18,9 @@ import * as utilities from "../utilities";
  *
  * const example = new okta.auth.ServerScope("example", {
  *     authServerId: "<auth server id>",
- *     consent: "IMPLICIT",
  *     metadataPublish: "NO_CLIENTS",
+ *     name: "example",
+ *     consent: "IMPLICIT",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

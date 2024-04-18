@@ -11,29 +11,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Lookup Users by Search Criteria
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.user.getUsers({
- *     searches: [{
- *         expression: "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
- *     }],
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ### Lookup Users by Group Membership
  * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const exampleGroup = new okta.group.Group("exampleGroup", {});
- * const exampleUsers = okta.user.getUsersOutput({
+ * const exampleGroup = new okta.group.Group("example", {name: "example-group"});
+ * const example = okta.user.getUsersOutput({
  *     groupId: exampleGroup.id,
  *     includeGroups: true,
  *     includeRoles: true,
@@ -109,29 +94,14 @@ export interface GetUsersResult {
  *
  * ## Example Usage
  *
- * ### Lookup Users by Search Criteria
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.user.getUsers({
- *     searches: [{
- *         expression: "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
- *     }],
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ### Lookup Users by Group Membership
  * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const exampleGroup = new okta.group.Group("exampleGroup", {});
- * const exampleUsers = okta.user.getUsersOutput({
+ * const exampleGroup = new okta.group.Group("example", {name: "example-group"});
+ * const example = okta.user.getUsersOutput({
  *     groupId: exampleGroup.id,
  *     includeGroups: true,
  *     includeRoles: true,

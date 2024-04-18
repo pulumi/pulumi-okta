@@ -16,7 +16,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = new okta.PolicyProfileEnrollment("example", {status: "ACTIVE"});
+ * const example = new okta.PolicyProfileEnrollment("example", {
+ *     name: "example",
+ *     status: "ACTIVE",
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *

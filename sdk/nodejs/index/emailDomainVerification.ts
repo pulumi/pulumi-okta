@@ -14,13 +14,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const exampleEmailDomain = new okta.index.EmailDomain("exampleEmailDomain", {
+ * const example = new okta.index.EmailDomain("example", {
  *     brandId: "abc123",
  *     domain: "example.com",
  *     displayName: "test",
  *     userName: "paul_atreides",
  * });
- * const exampleEmailDomainVerification = new okta.index.EmailDomainVerification("exampleEmailDomainVerification", {emailDomainId: okta_email_domain.valid.id});
+ * const exampleEmailDomainVerification = new okta.index.EmailDomainVerification("example", {emailDomainId: valid.id});
  * ```
  * <!--End PulumiCodeChooser -->
  *

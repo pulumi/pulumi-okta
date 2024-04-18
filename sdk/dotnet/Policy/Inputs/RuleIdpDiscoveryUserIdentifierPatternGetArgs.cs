@@ -20,18 +20,6 @@ namespace Pulumi.Okta.Policy.Inputs
 
         /// <summary>
         /// The regex or simple match string to match against.
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

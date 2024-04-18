@@ -78,12 +78,12 @@ def get_user_security_questions(user_id: Optional[str] = None,
     import pulumi
     import pulumi_okta as okta
 
-    example_user = okta.user.User("exampleUser",
+    example_user = okta.user.User("example",
         first_name="John",
         last_name="Smith",
         login="john.smith@example.com",
         email="john.smith@example.com")
-    example_user_security_questions = okta.get_user_security_questions_output(user_id=example_user.id)
+    example = okta.get_user_security_questions_output(user_id=example_user.id)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -114,12 +114,12 @@ def get_user_security_questions_output(user_id: Optional[pulumi.Input[str]] = No
     import pulumi
     import pulumi_okta as okta
 
-    example_user = okta.user.User("exampleUser",
+    example_user = okta.user.User("example",
         first_name="John",
         last_name="Smith",
         login="john.smith@example.com",
         email="john.smith@example.com")
-    example_user_security_questions = okta.get_user_security_questions_output(user_id=example_user.id)
+    example = okta.get_user_security_questions_output(user_id=example_user.id)
     ```
     <!--End PulumiCodeChooser -->
 

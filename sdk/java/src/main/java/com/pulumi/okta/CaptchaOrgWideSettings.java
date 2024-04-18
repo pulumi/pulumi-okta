@@ -47,14 +47,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCaptcha = new Captcha(&#34;exampleCaptcha&#34;, CaptchaArgs.builder()        
+ *         var example = new Captcha(&#34;example&#34;, CaptchaArgs.builder()        
+ *             .name(&#34;My CAPTCHA&#34;)
  *             .type(&#34;HCAPTCHA&#34;)
  *             .siteKey(&#34;some_key&#34;)
  *             .secretKey(&#34;some_secret_key&#34;)
  *             .build());
  * 
  *         var exampleCaptchaOrgWideSettings = new CaptchaOrgWideSettings(&#34;exampleCaptchaOrgWideSettings&#34;, CaptchaOrgWideSettingsArgs.builder()        
- *             .captchaId(okta_captcha.test().id())
+ *             .captchaId(test.id())
  *             .enabledFors(&#34;SSR&#34;)
  *             .build());
  * 
@@ -88,10 +89,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCaptcha = new Captcha(&#34;exampleCaptcha&#34;, CaptchaArgs.builder()        
- *             .secretKey(&#34;some_secret_key&#34;)
- *             .siteKey(&#34;some_key&#34;)
+ *         var example = new Captcha(&#34;example&#34;, CaptchaArgs.builder()        
+ *             .name(&#34;My CAPTCHA&#34;)
  *             .type(&#34;HCAPTCHA&#34;)
+ *             .siteKey(&#34;some_key&#34;)
+ *             .secretKey(&#34;some_secret_key&#34;)
  *             .build());
  * 
  *         var exampleCaptchaOrgWideSettings = new CaptchaOrgWideSettings(&#34;exampleCaptchaOrgWideSettings&#34;);

@@ -176,8 +176,8 @@ class EmailSender(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.EmailSender("example",
-            from_address="no-reply@caladan.planet",
             from_name="Paul Atreides",
+            from_address="no-reply@caladan.planet",
             subdomain="mail")
         ```
         <!--End PulumiCodeChooser -->
@@ -215,8 +215,8 @@ class EmailSender(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.EmailSender("example",
-            from_address="no-reply@caladan.planet",
             from_name="Paul Atreides",
+            from_address="no-reply@caladan.planet",
             subdomain="mail")
         ```
         <!--End PulumiCodeChooser -->

@@ -151,12 +151,14 @@ class GroupMemberships(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        test_group = okta.group.Group("testGroup", description="testing, testing")
-        test_group_memberships = okta.GroupMemberships("testGroupMemberships",
-            group_id=test_group.id,
+        test = okta.group.Group("test",
+            name="testAcc_replace_with_uuid",
+            description="testing, testing")
+        test_group_memberships = okta.GroupMemberships("test",
+            group_id=test.id,
             users=[
-                okta_user["test1"]["id"],
-                okta_user["test2"]["id"],
+                test1["id"],
+                test2["id"],
             ])
         ```
         <!--End PulumiCodeChooser -->
@@ -208,12 +210,14 @@ class GroupMemberships(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        test_group = okta.group.Group("testGroup", description="testing, testing")
-        test_group_memberships = okta.GroupMemberships("testGroupMemberships",
-            group_id=test_group.id,
+        test = okta.group.Group("test",
+            name="testAcc_replace_with_uuid",
+            description="testing, testing")
+        test_group_memberships = okta.GroupMemberships("test",
+            group_id=test.id,
             users=[
-                okta_user["test1"]["id"],
-                okta_user["test2"]["id"],
+                test1["id"],
+                test2["id"],
             ])
         ```
         <!--End PulumiCodeChooser -->

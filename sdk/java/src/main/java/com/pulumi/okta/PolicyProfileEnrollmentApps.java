@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var examplePolicy = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
+ *         final var example = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
  *             .name(&#34;My Policy&#34;)
  *             .type(&#34;PROFILE_ENROLLMENT&#34;)
  *             .build());
@@ -63,8 +63,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePolicyProfileEnrollmentApps = new PolicyProfileEnrollmentApps(&#34;examplePolicyProfileEnrollmentApps&#34;, PolicyProfileEnrollmentAppsArgs.builder()        
- *             .policyId(okta_policy.example().id())
- *             .apps(data.okta_app().id())
+ *             .policyId(exampleOktaPolicy.id())
+ *             .apps(id)
  *             .build());
  * 
  *     }

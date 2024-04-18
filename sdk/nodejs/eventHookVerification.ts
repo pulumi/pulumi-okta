@@ -16,7 +16,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const exampleEventHook = new okta.EventHook("exampleEventHook", {
+ * const example = new okta.EventHook("example", {
+ *     name: "example",
  *     events: [
  *         "user.lifecycle.create",
  *         "user.lifecycle.delete.initiated",
@@ -32,7 +33,7 @@ import * as utilities from "./utilities";
  *         value: "123",
  *     },
  * });
- * const exampleEventHookVerification = new okta.EventHookVerification("exampleEventHookVerification", {eventHookId: exampleEventHook.id});
+ * const exampleEventHookVerification = new okta.EventHookVerification("example", {eventHookId: example.id});
  * ```
  * <!--End PulumiCodeChooser -->
  *

@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.app.Swa("example", {
- *     buttonField: "btn-login",
  *     label: "example",
+ *     buttonField: "btn-login",
  *     passwordField: "txtbox-password",
- *     url: "https://example.com/login.html",
  *     usernameField: "txtbox-username",
+ *     url: "https://example.com/login.html",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

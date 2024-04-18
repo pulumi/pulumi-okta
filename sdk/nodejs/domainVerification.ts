@@ -16,8 +16,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const exampleDomain = new okta.Domain("exampleDomain", {});
- * const exampleDomainVerification = new okta.DomainVerification("exampleDomainVerification", {domainId: okta_domain.test.id});
+ * const example = new okta.Domain("example", {name: "www.example.com"});
+ * const exampleDomainVerification = new okta.DomainVerification("example", {domainId: test.id});
  * ```
  * <!--End PulumiCodeChooser -->
  *

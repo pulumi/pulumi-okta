@@ -213,9 +213,9 @@ class DomainCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example = okta.Domain("example")
+        example = okta.Domain("example", name="www.example.com")
         test = okta.DomainCertificate("test",
-            domain_id=okta_domain["test"]["id"],
+            domain_id=test_okta_domain["id"],
             type="PEM",
             certificate=\"\"\"-----BEGIN CERTIFICATE-----
         MIIFNzCCBB+gAwIBAgISBAXomJWRama3ypu8TIxdA9wzMA0GCSqGSIb3DQEBCwUA
@@ -291,9 +291,9 @@ class DomainCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example = okta.Domain("example")
+        example = okta.Domain("example", name="www.example.com")
         test = okta.DomainCertificate("test",
-            domain_id=okta_domain["test"]["id"],
+            domain_id=test_okta_domain["id"],
             type="PEM",
             certificate=\"\"\"-----BEGIN CERTIFICATE-----
         MIIFNzCCBB+gAwIBAgISBAXomJWRama3ypu8TIxdA9wzMA0GCSqGSIb3DQEBCwUA

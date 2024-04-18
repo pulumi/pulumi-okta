@@ -887,11 +887,11 @@ class Swa(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.Swa("example",
-            button_field="btn-login",
             label="example",
+            button_field="btn-login",
             password_field="txtbox-password",
-            url="https://example.com/login.html",
-            username_field="txtbox-username")
+            username_field="txtbox-username",
+            url="https://example.com/login.html")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -951,11 +951,11 @@ class Swa(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.Swa("example",
-            button_field="btn-login",
             label="example",
+            button_field="btn-login",
             password_field="txtbox-password",
-            url="https://example.com/login.html",
-            username_field="txtbox-username")
+            username_field="txtbox-username",
+            url="https://example.com/login.html")
         ```
         <!--End PulumiCodeChooser -->
 

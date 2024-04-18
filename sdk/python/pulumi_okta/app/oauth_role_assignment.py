@@ -209,14 +209,14 @@ class OauthRoleAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        test_o_auth = okta.app.OAuth("testOAuth",
+        test = okta.app.OAuth("test",
             label="test",
             type="service",
             response_types=["token"],
             grant_types=["client_credentials"],
             jwks_uri="https://example.com")
-        test_oauth_role_assignment = okta.app.OauthRoleAssignment("testOauthRoleAssignment",
-            client_id=test_o_auth.client_id,
+        test_oauth_role_assignment = okta.app.OauthRoleAssignment("test",
+            client_id=test.client_id,
             type="HELP_DESK_ADMIN")
         ```
         <!--End PulumiCodeChooser -->
@@ -258,14 +258,14 @@ class OauthRoleAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        test_o_auth = okta.app.OAuth("testOAuth",
+        test = okta.app.OAuth("test",
             label="test",
             type="service",
             response_types=["token"],
             grant_types=["client_credentials"],
             jwks_uri="https://example.com")
-        test_oauth_role_assignment = okta.app.OauthRoleAssignment("testOauthRoleAssignment",
-            client_id=test_o_auth.client_id,
+        test_oauth_role_assignment = okta.app.OauthRoleAssignment("test",
+            client_id=test.client_id,
             type="HELP_DESK_ADMIN")
         ```
         <!--End PulumiCodeChooser -->

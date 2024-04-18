@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleEmailDomain = new EmailDomain(&#34;exampleEmailDomain&#34;, EmailDomainArgs.builder()        
+ *         var example = new EmailDomain(&#34;example&#34;, EmailDomainArgs.builder()        
  *             .brandId(&#34;abc123&#34;)
  *             .domain(&#34;example.com&#34;)
  *             .displayName(&#34;test&#34;)
@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEmailDomainVerification = new EmailDomainVerification(&#34;exampleEmailDomainVerification&#34;, EmailDomainVerificationArgs.builder()        
- *             .emailDomainId(okta_email_domain.valid().id())
+ *             .emailDomainId(valid.id())
  *             .build());
  * 
  *     }

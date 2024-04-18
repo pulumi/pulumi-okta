@@ -32,15 +32,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := idp.NewSaml(ctx, "example", &idp.SamlArgs{
+//				Name:                   pulumi.String("testAcc_replace_with_uuid"),
 //				AcsType:                pulumi.String("INSTANCE"),
+//				SsoUrl:                 pulumi.String("https://idp.example.com"),
+//				SsoDestination:         pulumi.String("https://idp.example.com"),
+//				SsoBinding:             pulumi.String("HTTP-POST"),
+//				UsernameTemplate:       pulumi.String("idpuser.email"),
+//				Kid:                    pulumi.Any(test.Id),
 //				Issuer:                 pulumi.String("https://idp.example.com"),
-//				Kid:                    pulumi.Any(okta_idp_saml_key.Test.Id),
 //				RequestSignatureScope:  pulumi.String("REQUEST"),
 //				ResponseSignatureScope: pulumi.String("ANY"),
-//				SsoBinding:             pulumi.String("HTTP-POST"),
-//				SsoDestination:         pulumi.String("https://idp.example.com"),
-//				SsoUrl:                 pulumi.String("https://idp.example.com"),
-//				UsernameTemplate:       pulumi.String("idpuser.email"),
 //			})
 //			if err != nil {
 //				return err

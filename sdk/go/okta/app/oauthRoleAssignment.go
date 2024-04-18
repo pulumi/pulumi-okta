@@ -33,7 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testOAuth, err := app.NewOAuth(ctx, "testOAuth", &app.OAuthArgs{
+//			test, err := app.NewOAuth(ctx, "test", &app.OAuthArgs{
 //				Label: pulumi.String("test"),
 //				Type:  pulumi.String("service"),
 //				ResponseTypes: pulumi.StringArray{
@@ -47,8 +47,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = app.NewOauthRoleAssignment(ctx, "testOauthRoleAssignment", &app.OauthRoleAssignmentArgs{
-//				ClientId: testOAuth.ClientId,
+//			_, err = app.NewOauthRoleAssignment(ctx, "test", &app.OauthRoleAssignmentArgs{
+//				ClientId: test.ClientId,
 //				Type:     pulumi.String("HELP_DESK_ADMIN"),
 //			})
 //			if err != nil {

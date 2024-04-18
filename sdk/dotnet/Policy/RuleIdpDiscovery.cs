@@ -27,6 +27,7 @@ namespace Pulumi.Okta.Policy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // All Okta orgs contain only one IdP Discovery Policy
     ///     var idpDiscoveryPolicy = Okta.Policy.GetPolicy.Invoke(new()
     ///     {
     ///         Name = "Idp Discovery Policy",
@@ -36,6 +37,7 @@ namespace Pulumi.Okta.Policy
     ///     var example = new Okta.Policy.RuleIdpDiscovery("example", new()
     ///     {
     ///         PolicyId = idpDiscoveryPolicy.Apply(getPolicyResult =&gt; getPolicyResult.Id),
+    ///         Name = "example",
     ///         IdpId = "&lt;idp id&gt;",
     ///         IdpType = "OIDC",
     ///         NetworkConnection = "ANYWHERE",
@@ -104,18 +106,6 @@ namespace Pulumi.Okta.Policy
     {
         /// <summary>
         /// Applications to exclude in discovery. See `app_include` for details.
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Output("appExcludes")]
         public Output<ImmutableArray<Outputs.RuleIdpDiscoveryAppExclude>> AppExcludes { get; private set; } = null!;
@@ -257,18 +247,6 @@ namespace Pulumi.Okta.Policy
 
         /// <summary>
         /// Applications to exclude in discovery. See `app_include` for details.
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryAppExcludeArgs> AppExcludes
         {
@@ -405,18 +383,6 @@ namespace Pulumi.Okta.Policy
 
         /// <summary>
         /// Applications to exclude in discovery. See `app_include` for details.
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryAppExcludeGetArgs> AppExcludes
         {

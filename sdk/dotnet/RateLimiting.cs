@@ -29,9 +29,9 @@ namespace Pulumi.Okta
     /// {
     ///     var example = new Okta.RateLimiting("example", new()
     ///     {
+    ///         Login = "ENFORCE",
     ///         Authorize = "ENFORCE",
     ///         CommunicationsEnabled = true,
-    ///         Login = "ENFORCE",
     ///     });
     /// 
     /// });

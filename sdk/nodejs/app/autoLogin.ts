@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.app.AutoLogin("example", {
- *     credentialsScheme: "EDIT_USERNAME_AND_PASSWORD",
  *     label: "Example App",
- *     revealPassword: true,
- *     signOnRedirectUrl: "https://example.com",
  *     signOnUrl: "https://example.com/login.html",
+ *     signOnRedirectUrl: "https://example.com",
+ *     revealPassword: true,
+ *     credentialsScheme: "EDIT_USERNAME_AND_PASSWORD",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -35,15 +35,14 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.app.AutoLogin("example", {
+ *     label: "Google Example App",
+ *     status: "ACTIVE",
+ *     preconfiguredApp: "google",
  *     appSettingsJson: `{
  *     "domain": "okta",
  *     "afwOnly": false
  * }
- *
  * `,
- *     label: "Google Example App",
- *     preconfiguredApp: "google",
- *     status: "ACTIVE",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

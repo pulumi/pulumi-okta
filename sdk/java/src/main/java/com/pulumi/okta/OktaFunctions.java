@@ -101,7 +101,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppGroupAssignments(GetAppGroupAssignmentsArgs.builder()
-     *             .id(okta_app_oauth.test().id())
+     *             .id(testOktaAppOauth.id())
      *             .build());
      * 
      *     }
@@ -141,7 +141,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppGroupAssignments(GetAppGroupAssignmentsArgs.builder()
-     *             .id(okta_app_oauth.test().id())
+     *             .id(testOktaAppOauth.id())
      *             .build());
      * 
      *     }
@@ -181,7 +181,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppGroupAssignments(GetAppGroupAssignmentsArgs.builder()
-     *             .id(okta_app_oauth.test().id())
+     *             .id(testOktaAppOauth.id())
      *             .build());
      * 
      *     }
@@ -221,7 +221,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppGroupAssignments(GetAppGroupAssignmentsArgs.builder()
-     *             .id(okta_app_oauth.test().id())
+     *             .id(testOktaAppOauth.id())
      *             .build());
      * 
      *     }
@@ -445,7 +445,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppUserAssignments(GetAppUserAssignmentsArgs.builder()
-     *             .id(okta_app_oauth.test().id())
+     *             .id(testOktaAppOauth.id())
      *             .build());
      * 
      *     }
@@ -485,7 +485,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppUserAssignments(GetAppUserAssignmentsArgs.builder()
-     *             .id(okta_app_oauth.test().id())
+     *             .id(testOktaAppOauth.id())
      *             .build());
      * 
      *     }
@@ -525,7 +525,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppUserAssignments(GetAppUserAssignmentsArgs.builder()
-     *             .id(okta_app_oauth.test().id())
+     *             .id(testOktaAppOauth.id())
      *             .build());
      * 
      *     }
@@ -565,7 +565,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppUserAssignments(GetAppUserAssignmentsArgs.builder()
-     *             .id(okta_app_oauth.test().id())
+     *             .id(testOktaAppOauth.id())
      *             .build());
      * 
      *     }
@@ -3193,7 +3193,7 @@ public final class OktaFunctions {
      *             .email(&#34;john.smith@example.com&#34;)
      *             .build());
      * 
-     *         final var exampleUserSecurityQuestions = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
+     *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
      *             .userId(exampleUser.id())
      *             .build());
      * 
@@ -3242,7 +3242,7 @@ public final class OktaFunctions {
      *             .email(&#34;john.smith@example.com&#34;)
      *             .build());
      * 
-     *         final var exampleUserSecurityQuestions = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
+     *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
      *             .userId(exampleUser.id())
      *             .build());
      * 
@@ -3291,7 +3291,7 @@ public final class OktaFunctions {
      *             .email(&#34;john.smith@example.com&#34;)
      *             .build());
      * 
-     *         final var exampleUserSecurityQuestions = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
+     *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
      *             .userId(exampleUser.id())
      *             .build());
      * 
@@ -3340,7 +3340,7 @@ public final class OktaFunctions {
      *             .email(&#34;john.smith@example.com&#34;)
      *             .build());
      * 
-     *         final var exampleUserSecurityQuestions = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
+     *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
      *             .userId(exampleUser.id())
      *             .build());
      * 

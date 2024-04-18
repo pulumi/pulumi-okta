@@ -41,17 +41,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testGroup, err := group.NewGroup(ctx, "testGroup", &group.GroupArgs{
+//			test, err := group.NewGroup(ctx, "test", &group.GroupArgs{
+//				Name:        pulumi.String("testAcc_replace_with_uuid"),
 //				Description: pulumi.String("testing, testing"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.NewGroupMemberships(ctx, "testGroupMemberships", &okta.GroupMembershipsArgs{
-//				GroupId: testGroup.ID(),
+//			_, err = okta.NewGroupMemberships(ctx, "test", &okta.GroupMembershipsArgs{
+//				GroupId: test.ID(),
 //				Users: pulumi.StringArray{
-//					okta_user.Test1.Id,
-//					okta_user.Test2.Id,
+//					test1.Id,
+//					test2.Id,
 //				},
 //			})
 //			if err != nil {

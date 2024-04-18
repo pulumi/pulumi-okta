@@ -25,11 +25,14 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDomain = new Okta.Domain("exampleDomain");
-    /// 
-    ///     var exampleDomainVerification = new Okta.DomainVerification("exampleDomainVerification", new()
+    ///     var example = new Okta.Domain("example", new()
     ///     {
-    ///         DomainId = okta_domain.Test.Id,
+    ///         Name = "www.example.com",
+    ///     });
+    /// 
+    ///     var exampleDomainVerification = new Okta.DomainVerification("example", new()
+    ///     {
+    ///         DomainId = test.Id,
     ///     });
     /// 
     /// });

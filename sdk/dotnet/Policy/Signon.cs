@@ -27,12 +27,13 @@ namespace Pulumi.Okta.Policy
     /// {
     ///     var example = new Okta.Policy.Signon("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Status = "ACTIVE",
     ///         Description = "Example",
     ///         GroupsIncludeds = new[]
     ///         {
-    ///             data.Okta_group.Everyone.Id,
+    ///             everyone.Id,
     ///         },
-    ///         Status = "ACTIVE",
     ///     });
     /// 
     /// });

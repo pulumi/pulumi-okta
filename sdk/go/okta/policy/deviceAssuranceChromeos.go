@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := policy.NewDeviceAssuranceChromeos(ctx, "example", &policy.DeviceAssuranceChromeosArgs{
+//				Name:                                  pulumi.String("example"),
 //				TpspAllowScreenLock:                   pulumi.Bool(true),
 //				TpspBrowserVersion:                    pulumi.String("15393.27.0"),
 //				TpspBuiltinDnsClientEnabled:           pulumi.Bool(true),

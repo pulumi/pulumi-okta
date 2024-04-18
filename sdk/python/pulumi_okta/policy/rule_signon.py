@@ -867,14 +867,16 @@ class RuleSignon(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test = okta.policy.Signon("test",
+            name="Example Policy",
             status="ACTIVE",
             description="Example Policy")
         new_city = okta.get_behaviour(name="New City")
         example = okta.policy.RuleSignon("example",
             access="CHALLENGE",
             authtype="RADIUS",
+            name="Example Policy Rule",
             network_connection="ANYWHERE",
-            policy_id=okta_policy_signon["example"]["id"],
+            policy_id=example_okta_policy_signon["id"],
             status="ACTIVE",
             risc_level="HIGH",
             behaviors=[new_city.id],
@@ -994,14 +996,16 @@ class RuleSignon(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test = okta.policy.Signon("test",
+            name="Example Policy",
             status="ACTIVE",
             description="Example Policy")
         new_city = okta.get_behaviour(name="New City")
         example = okta.policy.RuleSignon("example",
             access="CHALLENGE",
             authtype="RADIUS",
+            name="Example Policy Rule",
             network_connection="ANYWHERE",
-            policy_id=okta_policy_signon["example"]["id"],
+            policy_id=example_okta_policy_signon["id"],
             status="ACTIVE",
             risc_level="HIGH",
             behaviors=[new_city.id],

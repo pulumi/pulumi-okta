@@ -15,13 +15,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const testSaml = new okta.app.Saml("testSaml", {
+ * const test = new okta.app.Saml("test", {
  *     preconfiguredApp: "amazon_aws",
  *     label: "Amazon AWS",
  *     status: "ACTIVE",
  * });
- * const testAppSamlAppSettings = new okta.AppSamlAppSettings("testAppSamlAppSettings", {
- *     appId: testSaml.id,
+ * const testAppSamlAppSettings = new okta.AppSamlAppSettings("test", {
+ *     appId: test.id,
  *     settings: JSON.stringify({
  *         appFilter: "okta",
  *         awsEnvironmentType: "aws.amazon",

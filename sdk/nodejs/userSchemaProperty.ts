@@ -15,13 +15,13 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.UserSchemaProperty("example", {
- *     description: "My custom property name",
  *     index: "customPropertyName",
- *     master: "OKTA",
- *     scope: "SELF",
  *     title: "customPropertyName",
  *     type: "string",
- *     userType: data.okta_user_type.example.id,
+ *     description: "My custom property name",
+ *     master: "OKTA",
+ *     scope: "SELF",
+ *     userType: exampleOktaUserType.id,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

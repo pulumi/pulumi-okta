@@ -106,8 +106,10 @@ class AppSignonPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        my_app_policy = okta.AppSignonPolicy("myAppPolicy", description="Authentication Policy to be used on my app.")
-        my_app = okta.app.OAuth("myApp",
+        my_app_policy = okta.AppSignonPolicy("my_app_policy",
+            name="My App Sign-On Policy",
+            description="Authentication Policy to be used on my app.")
+        my_app = okta.app.OAuth("my_app",
             label="My App",
             type="web",
             grant_types=["authorization_code"],
@@ -126,9 +128,12 @@ class AppSignonPolicy(pulumi.CustomResource):
         import json
         import pulumi_okta as okta
 
-        my_app_policy = okta.AppSignonPolicy("myAppPolicy", description="Authentication Policy to be used on my app.")
-        some_rule = okta.AppSignonPolicyRule("someRule",
-            policy_id=resource["okta_app_signon_policy"]["my_app_policy"]["id"],
+        my_app_policy = okta.AppSignonPolicy("my_app_policy",
+            name="My App Sign-On Policy",
+            description="Authentication Policy to be used on my app.")
+        some_rule = okta.AppSignonPolicyRule("some_rule",
+            policy_id=okta_app_signon_policy["myAppPolicy"]["id"],
+            name="Some Rule",
             factor_mode="1FA",
             re_authentication_frequency="PT43800H",
             constraints=[json.dumps({
@@ -158,8 +163,10 @@ class AppSignonPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        my_app_policy = okta.AppSignonPolicy("myAppPolicy", description="Authentication Policy to be used on my app.")
-        my_app = okta.app.OAuth("myApp",
+        my_app_policy = okta.AppSignonPolicy("my_app_policy",
+            name="My App Sign-On Policy",
+            description="Authentication Policy to be used on my app.")
+        my_app = okta.app.OAuth("my_app",
             label="My App",
             type="web",
             grant_types=["authorization_code"],
@@ -178,9 +185,12 @@ class AppSignonPolicy(pulumi.CustomResource):
         import json
         import pulumi_okta as okta
 
-        my_app_policy = okta.AppSignonPolicy("myAppPolicy", description="Authentication Policy to be used on my app.")
-        some_rule = okta.AppSignonPolicyRule("someRule",
-            policy_id=resource["okta_app_signon_policy"]["my_app_policy"]["id"],
+        my_app_policy = okta.AppSignonPolicy("my_app_policy",
+            name="My App Sign-On Policy",
+            description="Authentication Policy to be used on my app.")
+        some_rule = okta.AppSignonPolicyRule("some_rule",
+            policy_id=okta_app_signon_policy["myAppPolicy"]["id"],
+            name="Some Rule",
             factor_mode="1FA",
             re_authentication_frequency="PT43800H",
             constraints=[json.dumps({

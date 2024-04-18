@@ -29,9 +29,9 @@ namespace Pulumi.Okta.App
     /// {
     ///     var example = new Okta.App.BasicAuth("example", new()
     ///     {
-    ///         AuthUrl = "https://example.com/auth.html",
     ///         Label = "Example",
     ///         Url = "https://example.com/login.html",
+    ///         AuthUrl = "https://example.com/auth.html",
     ///     });
     /// 
     /// });

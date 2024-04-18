@@ -34,20 +34,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := user.NewUser(ctx, "example", &user.UserArgs{
+//				FirstName:         pulumi.String("John"),
+//				LastName:          pulumi.String("Smith"),
+//				Login:             pulumi.String("john.smith@example.com"),
+//				Email:             pulumi.String("john.smith@example.com"),
 //				City:              pulumi.String("New York"),
 //				CostCenter:        pulumi.String("10"),
 //				CountryCode:       pulumi.String("US"),
 //				Department:        pulumi.String("IT"),
 //				DisplayName:       pulumi.String("Dr. John Smith"),
 //				Division:          pulumi.String("Acquisitions"),
-//				Email:             pulumi.String("john.smith@example.com"),
 //				EmployeeNumber:    pulumi.String("111111"),
-//				FirstName:         pulumi.String("John"),
 //				HonorificPrefix:   pulumi.String("Dr."),
 //				HonorificSuffix:   pulumi.String("Jr."),
-//				LastName:          pulumi.String("Smith"),
 //				Locale:            pulumi.String("en_US"),
-//				Login:             pulumi.String("john.smith@example.com"),
 //				Manager:           pulumi.String("Jimbo"),
 //				ManagerId:         pulumi.String("222222"),
 //				MiddleName:        pulumi.String("John"),
@@ -92,10 +92,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := user.NewUser(ctx, "test2", &user.UserArgs{
-//				Email:              pulumi.String("example@example.com"),
 //				FirstName:          pulumi.String("John"),
 //				LastName:           pulumi.String("Smith"),
 //				Login:              pulumi.String("example@example.com"),
+//				Email:              pulumi.String("example@example.com"),
 //				PasswordInlineHook: pulumi.String("default"),
 //			})
 //			if err != nil {

@@ -29,11 +29,11 @@ namespace Pulumi.Okta.App
     /// {
     ///     var example = new Okta.App.SecurePasswordStore("example", new()
     ///     {
-    ///         CredentialsScheme = "ADMIN_SETS_CREDENTIALS",
     ///         Label = "example",
+    ///         UsernameField = "user",
     ///         PasswordField = "pass",
     ///         Url = "https://test.com",
-    ///         UsernameField = "user",
+    ///         CredentialsScheme = "ADMIN_SETS_CREDENTIALS",
     ///     });
     /// 
     /// });

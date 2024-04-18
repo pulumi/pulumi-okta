@@ -29,11 +29,11 @@ namespace Pulumi.Okta.App
     /// {
     ///     var example = new Okta.App.Swa("example", new()
     ///     {
-    ///         ButtonField = "btn-login",
     ///         Label = "example",
+    ///         ButtonField = "btn-login",
     ///         PasswordField = "txtbox-password",
-    ///         Url = "https://example.com/login.html",
     ///         UsernameField = "txtbox-username",
+    ///         Url = "https://example.com/login.html",
     ///     });
     /// 
     /// });

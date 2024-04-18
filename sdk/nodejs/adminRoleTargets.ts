@@ -18,12 +18,12 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.AdminRoleTargets("example", {
+ *     userId: "<user_id>",
+ *     roleType: "APP_ADMIN",
  *     apps: [
  *         "oidc_client.<app_id>",
  *         "facebook",
  *     ],
- *     roleType: "APP_ADMIN",
- *     userId: "<user_id>",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

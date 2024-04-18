@@ -31,12 +31,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := policy.NewPassword(ctx, "example", &policy.PasswordArgs{
-//				Description: pulumi.String("Example"),
-//				GroupsIncludeds: pulumi.StringArray{
-//					data.Okta_group.Everyone.Id,
-//				},
-//				PasswordHistoryCount: pulumi.Int(4),
+//				Name:                 pulumi.String("example"),
 //				Status:               pulumi.String("ACTIVE"),
+//				Description:          pulumi.String("Example"),
+//				PasswordHistoryCount: pulumi.Int(4),
+//				GroupsIncludeds: pulumi.StringArray{
+//					everyone.Id,
+//				},
 //			})
 //			if err != nil {
 //				return err

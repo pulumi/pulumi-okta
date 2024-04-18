@@ -33,7 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testOAuth, err := app.NewOAuth(ctx, "testOAuth", &app.OAuthArgs{
+//			test, err := app.NewOAuth(ctx, "test", &app.OAuthArgs{
 //				Label: pulumi.String("testAcc_replace_with_uuid"),
 //				Type:  pulumi.String("web"),
 //				GrantTypes: pulumi.StringArray{
@@ -49,8 +49,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = app.NewOAuthRedirectUri(ctx, "testOAuthRedirectUri", &app.OAuthRedirectUriArgs{
-//				AppId: testOAuth.ID(),
+//			_, err = app.NewOAuthRedirectUri(ctx, "test", &app.OAuthRedirectUriArgs{
+//				AppId: test.ID(),
 //				Uri:   pulumi.String("http://google.com"),
 //			})
 //			if err != nil {

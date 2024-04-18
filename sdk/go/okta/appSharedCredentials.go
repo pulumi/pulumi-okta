@@ -34,24 +34,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewAppSharedCredentials(ctx, "example", &okta.AppSharedCredentialsArgs{
-//				AccessibilityErrorRedirectUrl: pulumi.String("https://example.com/redirect_url_1"),
-//				AccessibilityLoginRedirectUrl: pulumi.String("https://example.com/redirect_url_2"),
-//				AccessibilitySelfService:      pulumi.Bool(true),
-//				AutoSubmitToolbar:             pulumi.Bool(true),
-//				ButtonField:                   pulumi.String("btn-login"),
-//				Checkbox:                      pulumi.String("checkbox_red"),
-//				HideIos:                       pulumi.Bool(true),
 //				Label:                         pulumi.String("Example App"),
+//				Status:                        pulumi.String("ACTIVE"),
+//				ButtonField:                   pulumi.String("btn-login"),
+//				UsernameField:                 pulumi.String("txtbox-username"),
 //				PasswordField:                 pulumi.String("txtbox-password"),
+//				Url:                           pulumi.String("https://example.com/login.html"),
 //				RedirectUrl:                   pulumi.String("https://example.com/redirect_url"),
+//				Checkbox:                      pulumi.String("checkbox_red"),
+//				UserNameTemplate:              pulumi.String("user.firstName"),
+//				UserNameTemplateType:          pulumi.String("CUSTOM"),
+//				UserNameTemplateSuffix:        pulumi.String("hello"),
 //				SharedPassword:                pulumi.String("sharedpass"),
 //				SharedUsername:                pulumi.String("sharedusername"),
-//				Status:                        pulumi.String("ACTIVE"),
-//				Url:                           pulumi.String("https://example.com/login.html"),
-//				UserNameTemplate:              pulumi.String("user.firstName"),
-//				UserNameTemplateSuffix:        pulumi.String("hello"),
-//				UserNameTemplateType:          pulumi.String("CUSTOM"),
-//				UsernameField:                 pulumi.String("txtbox-username"),
+//				AccessibilitySelfService:      pulumi.Bool(true),
+//				AccessibilityErrorRedirectUrl: pulumi.String("https://example.com/redirect_url_1"),
+//				AccessibilityLoginRedirectUrl: pulumi.String("https://example.com/redirect_url_2"),
+//				AutoSubmitToolbar:             pulumi.Bool(true),
+//				HideIos:                       pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

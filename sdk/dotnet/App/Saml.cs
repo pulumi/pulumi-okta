@@ -33,28 +33,28 @@ namespace Pulumi.Okta.App
     /// {
     ///     var example = new Okta.App.Saml("example", new()
     ///     {
+    ///         Label = "example",
+    ///         SsoUrl = "https://example.com",
+    ///         Recipient = "https://example.com",
+    ///         Destination = "https://example.com",
+    ///         Audience = "https://example.com/audience",
+    ///         SubjectNameIdTemplate = "${user.userName}",
+    ///         SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+    ///         ResponseSigned = true,
+    ///         SignatureAlgorithm = "RSA_SHA256",
+    ///         DigestAlgorithm = "SHA256",
+    ///         HonorForceAuthn = false,
+    ///         AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
     ///         AttributeStatements = new[]
     ///         {
     ///             new Okta.App.Inputs.SamlAttributeStatementArgs
     ///             {
+    ///                 Type = "GROUP",
+    ///                 Name = "groups",
     ///                 FilterType = "REGEX",
     ///                 FilterValue = ".*",
-    ///                 Name = "groups",
-    ///                 Type = "GROUP",
     ///             },
     ///         },
-    ///         Audience = "https://example.com/audience",
-    ///         AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-    ///         Destination = "https://example.com",
-    ///         DigestAlgorithm = "SHA256",
-    ///         HonorForceAuthn = false,
-    ///         Label = "example",
-    ///         Recipient = "https://example.com",
-    ///         ResponseSigned = true,
-    ///         SignatureAlgorithm = "RSA_SHA256",
-    ///         SsoUrl = "https://example.com",
-    ///         SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-    ///         SubjectNameIdTemplate = "${user.userName}",
     ///     });
     /// 
     /// });
@@ -72,8 +72,9 @@ namespace Pulumi.Okta.App
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testHook = new Okta.Inline.Hook("testHook", new()
+    ///     var test = new Okta.Inline.Hook("test", new()
     ///     {
+    ///         Name = "testAcc_replace_with_uuid",
     ///         Status = "ACTIVE",
     ///         Type = "com.okta.saml.tokens.transform",
     ///         Version = "1.0.2",
@@ -92,7 +93,7 @@ namespace Pulumi.Okta.App
     ///         },
     ///     });
     /// 
-    ///     var testSaml = new Okta.App.Saml("testSaml", new()
+    ///     var testSaml = new Okta.App.Saml("test", new()
     ///     {
     ///         Label = "testAcc_replace_with_uuid",
     ///         SsoUrl = "https://google.com",
@@ -106,7 +107,7 @@ namespace Pulumi.Okta.App
     ///         DigestAlgorithm = "SHA256",
     ///         HonorForceAuthn = false,
     ///         AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-    ///         InlineHookId = testHook.Id,
+    ///         InlineHookId = test.Id,
     ///         AttributeStatements = new[]
     ///         {
     ///             new Okta.App.Inputs.SamlAttributeStatementArgs
@@ -121,7 +122,7 @@ namespace Pulumi.Okta.App
     ///     {
     ///         DependsOn =
     ///         {
-    ///             testHook, 
+    ///             test, 
     ///         },
     ///     });
     /// 
@@ -146,7 +147,6 @@ namespace Pulumi.Okta.App
     ///     ""groupFilter"": ""app1.*"",
     ///     ""siteURL"": ""https://www.okta.com""
     /// }
-    /// 
     /// ",
     ///         Label = "SharePoint (On-Premise)",
     ///         PreconfiguredApp = "sharepoint_onpremise",
@@ -173,6 +173,19 @@ namespace Pulumi.Okta.App
     /// {
     ///     var office365 = new Okta.App.Saml("office365", new()
     ///     {
+    ///         PreconfiguredApp = "office365",
+    ///         Label = "Microsoft Office 365",
+    ///         Status = "ACTIVE",
+    ///         SamlVersion = "1.1",
+    ///         AppSettingsJson = @"    {
+    ///        ""wsFedConfigureType"": ""AUTO"",
+    ///        ""windowsTransportEnabled"": false,
+    ///        ""domain"": ""okta.com"",
+    ///        ""msftTenant"": ""okta"",
+    ///        ""domains"": [],
+    ///        ""requireAdminConsent"": false
+    ///     }
+    /// ",
     ///         AppLinksJson = @"  {
     ///       ""calendar"": false,
     ///       ""crm"": false,
@@ -195,22 +208,7 @@ namespace Pulumi.Okta.App
     ///       ""yammer"": false,
     ///       ""login"": true
     ///   }
-    /// 
     /// ",
-    ///         AppSettingsJson = @"    {
-    ///        ""wsFedConfigureType"": ""AUTO"",
-    ///        ""windowsTransportEnabled"": false,
-    ///        ""domain"": ""okta.com"",
-    ///        ""msftTenant"": ""okta"",
-    ///        ""domains"": [],
-    ///        ""requireAdminConsent"": false
-    ///     }
-    /// 
-    /// ",
-    ///         Label = "Microsoft Office 365",
-    ///         PreconfiguredApp = "office365",
-    ///         SamlVersion = "1.1",
-    ///         Status = "ACTIVE",
     ///     });
     /// 
     /// });

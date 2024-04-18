@@ -26,8 +26,8 @@ namespace Pulumi.Okta.Index
     ///     var example = new Okta.Index.EmailDomain("example", new()
     ///     {
     ///         BrandId = "abc123",
-    ///         DisplayName = "test",
     ///         Domain = "example.com",
+    ///         DisplayName = "test",
     ///         UserName = "paul_atreides",
     ///     });
     /// 

@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.app.BasicAuth("example", {
- *     authUrl: "https://example.com/auth.html",
  *     label: "Example",
  *     url: "https://example.com/login.html",
+ *     authUrl: "https://example.com/auth.html",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

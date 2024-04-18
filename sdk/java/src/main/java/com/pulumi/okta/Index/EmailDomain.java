@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new EmailDomain(&#34;example&#34;, EmailDomainArgs.builder()        
  *             .brandId(&#34;abc123&#34;)
- *             .displayName(&#34;test&#34;)
  *             .domain(&#34;example.com&#34;)
+ *             .displayName(&#34;test&#34;)
  *             .userName(&#34;paul_atreides&#34;)
  *             .build());
  * 

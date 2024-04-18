@@ -1746,11 +1746,11 @@ class OAuth(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.OAuth("example",
-            grant_types=["authorization_code"],
             label="example",
+            type="web",
+            grant_types=["authorization_code"],
             redirect_uris=["https://example.com/"],
-            response_types=["code"],
-            type="web")
+            response_types=["code"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1764,25 +1764,25 @@ class OAuth(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.OAuth("example",
+            label="example",
+            type="service",
+            response_types=["token"],
             grant_types=["client_credentials"],
+            token_endpoint_auth_method="private_key_jwt",
             jwks=[
                 okta.app.OAuthJwkArgs(
-                    e="AQAB",
-                    kid="SIGNING_KEY_RSA",
                     kty="RSA",
+                    kid="SIGNING_KEY_RSA",
+                    e="AQAB",
                     n="xyz",
                 ),
                 okta.app.OAuthJwkArgs(
-                    kid="SIGNING_KEY_EC",
                     kty="EC",
+                    kid="SIGNING_KEY_EC",
                     x="K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I",
                     y="8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo",
                 ),
-            ],
-            label="example",
-            response_types=["token"],
-            token_endpoint_auth_method="private_key_jwt",
-            type="service")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1912,11 +1912,11 @@ class OAuth(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.OAuth("example",
-            grant_types=["authorization_code"],
             label="example",
+            type="web",
+            grant_types=["authorization_code"],
             redirect_uris=["https://example.com/"],
-            response_types=["code"],
-            type="web")
+            response_types=["code"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1930,25 +1930,25 @@ class OAuth(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.app.OAuth("example",
+            label="example",
+            type="service",
+            response_types=["token"],
             grant_types=["client_credentials"],
+            token_endpoint_auth_method="private_key_jwt",
             jwks=[
                 okta.app.OAuthJwkArgs(
-                    e="AQAB",
-                    kid="SIGNING_KEY_RSA",
                     kty="RSA",
+                    kid="SIGNING_KEY_RSA",
+                    e="AQAB",
                     n="xyz",
                 ),
                 okta.app.OAuthJwkArgs(
-                    kid="SIGNING_KEY_EC",
                     kty="EC",
+                    kid="SIGNING_KEY_EC",
                     x="K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I",
                     y="8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo",
                 ),
-            ],
-            label="example",
-            response_types=["token"],
-            token_endpoint_auth_method="private_key_jwt",
-            type="service")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

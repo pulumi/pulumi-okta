@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.policy.DeviceAssuranceChromeos("example", {
+ *     name: "example",
  *     tpspAllowScreenLock: true,
  *     tpspBrowserVersion: "15393.27.0",
  *     tpspBuiltinDnsClientEnabled: true,

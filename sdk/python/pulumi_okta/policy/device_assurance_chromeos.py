@@ -619,6 +619,7 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.policy.DeviceAssuranceChromeos("example",
+            name="example",
             tpsp_allow_screen_lock=True,
             tpsp_browser_version="15393.27.0",
             tpsp_builtin_dns_client_enabled=True,
@@ -677,6 +678,7 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.policy.DeviceAssuranceChromeos("example",
+            name="example",
             tpsp_allow_screen_lock=True,
             tpsp_browser_version="15393.27.0",
             tpsp_builtin_dns_client_enabled=True,

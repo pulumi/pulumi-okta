@@ -27,6 +27,7 @@ namespace Pulumi.Okta
     /// {
     ///     var example = new Okta.PolicyProfileEnrollment("example", new()
     ///     {
+    ///         Name = "example",
     ///         Status = "ACTIVE",
     ///     });
     /// 

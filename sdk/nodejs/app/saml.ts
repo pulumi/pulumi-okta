@@ -25,24 +25,24 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.app.Saml("example", {
- *     attributeStatements: [{
- *         filterType: "REGEX",
- *         filterValue: ".*",
- *         name: "groups",
- *         type: "GROUP",
- *     }],
- *     audience: "https://example.com/audience",
- *     authnContextClassRef: "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
- *     destination: "https://example.com",
- *     digestAlgorithm: "SHA256",
- *     honorForceAuthn: false,
  *     label: "example",
+ *     ssoUrl: "https://example.com",
  *     recipient: "https://example.com",
+ *     destination: "https://example.com",
+ *     audience: "https://example.com/audience",
+ *     subjectNameIdTemplate: "${user.userName}",
+ *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
  *     responseSigned: true,
  *     signatureAlgorithm: "RSA_SHA256",
- *     ssoUrl: "https://example.com",
- *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
- *     subjectNameIdTemplate: "${user.userName}",
+ *     digestAlgorithm: "SHA256",
+ *     honorForceAuthn: false,
+ *     authnContextClassRef: "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+ *     attributeStatements: [{
+ *         type: "GROUP",
+ *         name: "groups",
+ *         filterType: "REGEX",
+ *         filterValue: ".*",
+ *     }],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -54,7 +54,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const testHook = new okta.inline.Hook("testHook", {
+ * const test = new okta.inline.Hook("test", {
+ *     name: "testAcc_replace_with_uuid",
  *     status: "ACTIVE",
  *     type: "com.okta.saml.tokens.transform",
  *     version: "1.0.2",
@@ -70,7 +71,7 @@ import * as utilities from "../utilities";
  *         value: "secret",
  *     },
  * });
- * const testSaml = new okta.app.Saml("testSaml", {
+ * const testSaml = new okta.app.Saml("test", {
  *     label: "testAcc_replace_with_uuid",
  *     ssoUrl: "https://google.com",
  *     recipient: "https://here.com",
@@ -83,7 +84,7 @@ import * as utilities from "../utilities";
  *     digestAlgorithm: "SHA256",
  *     honorForceAuthn: false,
  *     authnContextClassRef: "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
- *     inlineHookId: testHook.id,
+ *     inlineHookId: test.id,
  *     attributeStatements: [{
  *         type: "GROUP",
  *         name: "groups",
@@ -91,7 +92,7 @@ import * as utilities from "../utilities";
  *         filterValue: ".*",
  *     }],
  * }, {
- *     dependsOn: [testHook],
+ *     dependsOn: [test],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -108,7 +109,6 @@ import * as utilities from "../utilities";
  *     "groupFilter": "app1.*",
  *     "siteURL": "https://www.okta.com"
  * }
- *
  * `,
  *     label: "SharePoint (On-Premise)",
  *     preconfiguredApp: "sharepoint_onpremise",
@@ -128,6 +128,19 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const office365 = new okta.app.Saml("office365", {
+ *     preconfiguredApp: "office365",
+ *     label: "Microsoft Office 365",
+ *     status: "ACTIVE",
+ *     samlVersion: "1.1",
+ *     appSettingsJson: `    {
+ *        "wsFedConfigureType": "AUTO",
+ *        "windowsTransportEnabled": false,
+ *        "domain": "okta.com",
+ *        "msftTenant": "okta",
+ *        "domains": [],
+ *        "requireAdminConsent": false
+ *     }
+ * `,
  *     appLinksJson: `  {
  *       "calendar": false,
  *       "crm": false,
@@ -150,22 +163,7 @@ import * as utilities from "../utilities";
  *       "yammer": false,
  *       "login": true
  *   }
- *
  * `,
- *     appSettingsJson: `    {
- *        "wsFedConfigureType": "AUTO",
- *        "windowsTransportEnabled": false,
- *        "domain": "okta.com",
- *        "msftTenant": "okta",
- *        "domains": [],
- *        "requireAdminConsent": false
- *     }
- *
- * `,
- *     label: "Microsoft Office 365",
- *     preconfiguredApp: "office365",
- *     samlVersion: "1.1",
- *     status: "ACTIVE",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

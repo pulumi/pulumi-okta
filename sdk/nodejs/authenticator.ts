@@ -28,6 +28,7 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const test = new okta.Authenticator("test", {
+ *     name: "Security Question",
  *     key: "security_question",
  *     settings: JSON.stringify({
  *         allowedFor: "recovery",
@@ -42,6 +43,7 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const test = new okta.Authenticator("test", {
+ *     name: "Custom OTP",
  *     key: "custom_otp",
  *     status: "ACTIVE",
  *     settings: JSON.stringify({

@@ -16,12 +16,12 @@ import * as utilities from "./utilities";
  *
  * const example = new okta.AppUserSchemaProperty("example", {
  *     appId: "<app id>",
- *     description: "My custom property name",
  *     index: "customPropertyName",
- *     master: "OKTA",
- *     scope: "SELF",
  *     title: "customPropertyName",
  *     type: "string",
+ *     description: "My custom property name",
+ *     master: "OKTA",
+ *     scope: "SELF",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

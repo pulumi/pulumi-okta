@@ -16,12 +16,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const exampleEmailSender = new okta.EmailSender("exampleEmailSender", {
+ * const example = new okta.EmailSender("example", {
  *     fromName: "Paul Atreides",
  *     fromAddress: "no-reply@caladan.planet",
  *     subdomain: "mail",
  * });
- * const exampleEmailSenderVerification = new okta.EmailSenderVerification("exampleEmailSenderVerification", {senderId: okta_email_sender.valid.id});
+ * const exampleEmailSenderVerification = new okta.EmailSenderVerification("example", {senderId: valid.id});
  * ```
  * <!--End PulumiCodeChooser -->
  *

@@ -52,21 +52,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var classicExample = new Mfa(&#34;classicExample&#34;, MfaArgs.builder()        
- *             .description(&#34;Example MFA policy using Okta Classic engine with factors.&#34;)
- *             .groupsIncludeds(data.okta_group().everyone().id())
- *             .isOie(false)
- *             .oktaOtp(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
- *             .oktaPassword(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
+ *             .name(&#34;MFA Policy Classic&#34;)
  *             .status(&#34;ACTIVE&#34;)
+ *             .description(&#34;Example MFA policy using Okta Classic engine with factors.&#34;)
+ *             .isOie(false)
+ *             .oktaPassword(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
+ *             .oktaOtp(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
+ *             .groupsIncludeds(everyone.id())
  *             .build());
  * 
  *         var oieExample = new Mfa(&#34;oieExample&#34;, MfaArgs.builder()        
+ *             .name(&#34;MFA Policy OIE&#34;)
+ *             .status(&#34;ACTIVE&#34;)
  *             .description(&#34;Example MFA policy that uses Okta Identity Engine (OIE) with authenticators&#34;)
- *             .groupsIncludeds(data.okta_group().everyone().id())
  *             .isOie(true)
  *             .oktaPassword(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
  *             .oktaVerify(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
- *             .status(&#34;ACTIVE&#34;)
+ *             .groupsIncludeds(everyone.id())
  *             .build());
  * 
  *     }

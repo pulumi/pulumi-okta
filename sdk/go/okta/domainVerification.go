@@ -31,12 +31,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewDomain(ctx, "exampleDomain", nil)
+//			_, err := okta.NewDomain(ctx, "example", &okta.DomainArgs{
+//				Name: pulumi.String("www.example.com"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.NewDomainVerification(ctx, "exampleDomainVerification", &okta.DomainVerificationArgs{
-//				DomainId: pulumi.Any(okta_domain.Test.Id),
+//			_, err = okta.NewDomainVerification(ctx, "example", &okta.DomainVerificationArgs{
+//				DomainId: pulumi.Any(test.Id),
 //			})
 //			if err != nil {
 //				return err

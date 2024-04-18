@@ -111,14 +111,14 @@ class OAuthRedirectUri(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        test_o_auth = okta.app.OAuth("testOAuth",
+        test = okta.app.OAuth("test",
             label="testAcc_replace_with_uuid",
             type="web",
             grant_types=["authorization_code"],
             response_types=["code"],
             redirect_uris=["myapp://callback"])
-        test_o_auth_redirect_uri = okta.app.OAuthRedirectUri("testOAuthRedirectUri",
-            app_id=test_o_auth.id,
+        test_o_auth_redirect_uri = okta.app.OAuthRedirectUri("test",
+            app_id=test.id,
             uri="http://google.com")
         ```
         <!--End PulumiCodeChooser -->
@@ -156,14 +156,14 @@ class OAuthRedirectUri(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        test_o_auth = okta.app.OAuth("testOAuth",
+        test = okta.app.OAuth("test",
             label="testAcc_replace_with_uuid",
             type="web",
             grant_types=["authorization_code"],
             response_types=["code"],
             redirect_uris=["myapp://callback"])
-        test_o_auth_redirect_uri = okta.app.OAuthRedirectUri("testOAuthRedirectUri",
-            app_id=test_o_auth.id,
+        test_o_auth_redirect_uri = okta.app.OAuthRedirectUri("test",
+            app_id=test.id,
             uri="http://google.com")
         ```
         <!--End PulumiCodeChooser -->

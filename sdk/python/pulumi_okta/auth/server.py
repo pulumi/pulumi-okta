@@ -309,6 +309,7 @@ class Server(pulumi.CustomResource):
         example = okta.auth.Server("example",
             audiences=["api://example"],
             description="My Example Auth Server",
+            name="example",
             issuer_mode="CUSTOM_URL",
             status="ACTIVE")
         ```
@@ -352,6 +353,7 @@ class Server(pulumi.CustomResource):
         example = okta.auth.Server("example",
             audiences=["api://example"],
             description="My Example Auth Server",
+            name="example",
             issuer_mode="CUSTOM_URL",
             status="ACTIVE")
         ```

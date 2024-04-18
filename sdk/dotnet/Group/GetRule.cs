@@ -27,7 +27,7 @@ namespace Pulumi.Okta.Group
         /// {
         ///     var test = Okta.Group.GetRule.Invoke(new()
         ///     {
-        ///         Id = okta_group_rule.Example.Id,
+        ///         Id = example.Id,
         ///     });
         /// 
         /// });
@@ -53,7 +53,7 @@ namespace Pulumi.Okta.Group
         /// {
         ///     var test = Okta.Group.GetRule.Invoke(new()
         ///     {
-        ///         Id = okta_group_rule.Example.Id,
+        ///         Id = example.Id,
         ///     });
         /// 
         /// });

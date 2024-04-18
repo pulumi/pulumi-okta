@@ -241,10 +241,11 @@ class ServerPolicy(pulumi.CustomResource):
 
         example = okta.auth.ServerPolicy("example",
             auth_server_id="<auth server id>",
-            client_whitelists=["ALL_CLIENTS"],
+            status="ACTIVE",
+            name="example",
             description="example",
             priority=1,
-            status="ACTIVE")
+            client_whitelists=["ALL_CLIENTS"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -285,10 +286,11 @@ class ServerPolicy(pulumi.CustomResource):
 
         example = okta.auth.ServerPolicy("example",
             auth_server_id="<auth server id>",
-            client_whitelists=["ALL_CLIENTS"],
+            status="ACTIVE",
+            name="example",
             description="example",
             priority=1,
-            status="ACTIVE")
+            client_whitelists=["ALL_CLIENTS"])
         ```
         <!--End PulumiCodeChooser -->
 

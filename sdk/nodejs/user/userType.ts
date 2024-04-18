@@ -17,8 +17,9 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.user.UserType("example", {
- *     description: "example",
+ *     name: "example",
  *     displayName: "example",
+ *     description: "example",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

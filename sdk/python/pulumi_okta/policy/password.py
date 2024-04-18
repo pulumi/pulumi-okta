@@ -1036,10 +1036,11 @@ class Password(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.policy.Password("example",
+            name="example",
+            status="ACTIVE",
             description="Example",
-            groups_includeds=[data["okta_group"]["everyone"]["id"]],
             password_history_count=4,
-            status="ACTIVE")
+            groups_includeds=[everyone["id"]])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1103,10 +1104,11 @@ class Password(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.policy.Password("example",
+            name="example",
+            status="ACTIVE",
             description="Example",
-            groups_includeds=[data["okta_group"]["everyone"]["id"]],
             password_history_count=4,
-            status="ACTIVE")
+            groups_includeds=[everyone["id"]])
         ```
         <!--End PulumiCodeChooser -->
 

@@ -145,6 +145,7 @@ class TemplateSms(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.TemplateSms("example",
+            type="SMS_VERIFY_CODE",
             template="Your ${org.name} code is: ${code}",
             translations=[
                 okta.TemplateSmsTranslationArgs(
@@ -155,8 +156,7 @@ class TemplateSms(pulumi.CustomResource):
                     language="es",
                     template="Tu código de ${org.name} es: ${code}.",
                 ),
-            ],
-            type="SMS_VERIFY_CODE")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -193,6 +193,7 @@ class TemplateSms(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.TemplateSms("example",
+            type="SMS_VERIFY_CODE",
             template="Your ${org.name} code is: ${code}",
             translations=[
                 okta.TemplateSmsTranslationArgs(
@@ -203,8 +204,7 @@ class TemplateSms(pulumi.CustomResource):
                     language="es",
                     template="Tu código de ${org.name} es: ${code}.",
                 ),
-            ],
-            type="SMS_VERIFY_CODE")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

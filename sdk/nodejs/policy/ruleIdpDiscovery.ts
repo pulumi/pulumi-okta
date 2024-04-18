@@ -20,12 +20,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
+ * // All Okta orgs contain only one IdP Discovery Policy
  * const idpDiscoveryPolicy = okta.policy.getPolicy({
  *     name: "Idp Discovery Policy",
  *     type: "IDP_DISCOVERY",
  * });
  * const example = new okta.policy.RuleIdpDiscovery("example", {
  *     policyId: idpDiscoveryPolicy.then(idpDiscoveryPolicy => idpDiscoveryPolicy.id),
+ *     name: "example",
  *     idpId: "<idp id>",
  *     idpType: "OIDC",
  *     networkConnection: "ANYWHERE",
@@ -103,12 +105,6 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
 
     /**
      * Applications to exclude in discovery. See `appInclude` for details.
-     *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * <!--End PulumiCodeChooser -->
      */
     public readonly appExcludes!: pulumi.Output<outputs.policy.RuleIdpDiscoveryAppExclude[] | undefined>;
     /**
@@ -227,12 +223,6 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
 export interface RuleIdpDiscoveryState {
     /**
      * Applications to exclude in discovery. See `appInclude` for details.
-     *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * <!--End PulumiCodeChooser -->
      */
     appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppExclude>[]>;
     /**
@@ -301,12 +291,6 @@ export interface RuleIdpDiscoveryState {
 export interface RuleIdpDiscoveryArgs {
     /**
      * Applications to exclude in discovery. See `appInclude` for details.
-     *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * <!--End PulumiCodeChooser -->
      */
     appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppExclude>[]>;
     /**

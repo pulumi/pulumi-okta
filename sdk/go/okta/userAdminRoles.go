@@ -32,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testUser, err := user.NewUser(ctx, "testUser", &user.UserArgs{
+//			test, err := user.NewUser(ctx, "test", &user.UserArgs{
 //				FirstName: pulumi.String("TestAcc"),
 //				LastName:  pulumi.String("Smith"),
 //				Login:     pulumi.String("testAcc-replace_with_uuid@example.com"),
@@ -41,8 +41,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.NewUserAdminRoles(ctx, "testUserAdminRoles", &okta.UserAdminRolesArgs{
-//				UserId: testUser.ID(),
+//			_, err = okta.NewUserAdminRoles(ctx, "test", &okta.UserAdminRolesArgs{
+//				UserId: test.ID(),
 //				AdminRoles: pulumi.StringArray{
 //					pulumi.String("APP_ADMIN"),
 //				},

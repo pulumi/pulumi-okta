@@ -13,10 +13,11 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.group.Rule("example", {
+ *     name: "example",
+ *     status: "ACTIVE",
+ *     groupAssignments: ["<group id>"],
  *     expressionType: "urn:okta:expression:1.0",
  *     expressionValue: "String.startsWith(user.firstName,\"andy\")",
- *     groupAssignments: ["<group id>"],
- *     status: "ACTIVE",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.app.SecurePasswordStore("example", {
- *     credentialsScheme: "ADMIN_SETS_CREDENTIALS",
  *     label: "example",
+ *     usernameField: "user",
  *     passwordField: "pass",
  *     url: "https://test.com",
- *     usernameField: "user",
+ *     credentialsScheme: "ADMIN_SETS_CREDENTIALS",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

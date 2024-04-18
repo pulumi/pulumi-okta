@@ -24,12 +24,12 @@ namespace Pulumi.Okta
     ///     var example = new Okta.AppUserSchemaProperty("example", new()
     ///     {
     ///         AppId = "&lt;app id&gt;",
-    ///         Description = "My custom property name",
     ///         Index = "customPropertyName",
-    ///         Master = "OKTA",
-    ///         Scope = "SELF",
     ///         Title = "customPropertyName",
     ///         Type = "string",
+    ///         Description = "My custom property name",
+    ///         Master = "OKTA",
+    ///         Scope = "SELF",
     ///     });
     /// 
     /// });

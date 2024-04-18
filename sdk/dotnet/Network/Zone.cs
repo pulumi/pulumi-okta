@@ -27,6 +27,8 @@ namespace Pulumi.Okta.Network
     /// {
     ///     var example = new Okta.Network.Zone("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Type = "IP",
     ///         Gateways = new[]
     ///         {
     ///             "1.2.3.4/24",
@@ -37,7 +39,6 @@ namespace Pulumi.Okta.Network
     ///             "2.2.3.4/24",
     ///             "3.3.4.5-3.3.4.15",
     ///         },
-    ///         Type = "IP",
     ///     });
     /// 
     /// });
@@ -57,9 +58,10 @@ namespace Pulumi.Okta.Network
     /// {
     ///     var example = new Okta.Network.Zone("example", new()
     ///     {
-    ///         DynamicProxyType = "TorAnonymizer",
+    ///         Name = "TOR Blocker",
     ///         Type = "DYNAMIC",
     ///         Usage = "BLOCKLIST",
+    ///         DynamicProxyType = "TorAnonymizer",
     ///     });
     /// 
     /// });

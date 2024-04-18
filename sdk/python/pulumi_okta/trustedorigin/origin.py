@@ -176,6 +176,7 @@ class Origin(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.trustedorigin.Origin("example",
+            name="example",
             origin="https://example.com",
             scopes=["CORS"])
         ```
@@ -215,6 +216,7 @@ class Origin(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.trustedorigin.Origin("example",
+            name="example",
             origin="https://example.com",
             scopes=["CORS"])
         ```

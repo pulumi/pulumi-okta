@@ -1116,18 +1116,19 @@ class Oidc(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.idp.Oidc("example",
-            authorization_binding="HTTP-REDIRECT",
+            name="example",
             authorization_url="https://idp.example.com/authorize",
+            authorization_binding="HTTP-REDIRECT",
+            token_url="https://idp.example.com/token",
+            token_binding="HTTP-POST",
+            user_info_url="https://idp.example.com/userinfo",
+            user_info_binding="HTTP-REDIRECT",
+            jwks_url="https://idp.example.com/keys",
+            jwks_binding="HTTP-REDIRECT",
+            scopes=["openid"],
             client_id="efg456",
             client_secret="efg456",
             issuer_url="https://id.example.com",
-            jwks_binding="HTTP-REDIRECT",
-            jwks_url="https://idp.example.com/keys",
-            scopes=["openid"],
-            token_binding="HTTP-POST",
-            token_url="https://idp.example.com/token",
-            user_info_binding="HTTP-REDIRECT",
-            user_info_url="https://idp.example.com/userinfo",
             username_template="idpuser.email")
         ```
         <!--End PulumiCodeChooser -->
@@ -1193,18 +1194,19 @@ class Oidc(pulumi.CustomResource):
         import pulumi_okta as okta
 
         example = okta.idp.Oidc("example",
-            authorization_binding="HTTP-REDIRECT",
+            name="example",
             authorization_url="https://idp.example.com/authorize",
+            authorization_binding="HTTP-REDIRECT",
+            token_url="https://idp.example.com/token",
+            token_binding="HTTP-POST",
+            user_info_url="https://idp.example.com/userinfo",
+            user_info_binding="HTTP-REDIRECT",
+            jwks_url="https://idp.example.com/keys",
+            jwks_binding="HTTP-REDIRECT",
+            scopes=["openid"],
             client_id="efg456",
             client_secret="efg456",
             issuer_url="https://id.example.com",
-            jwks_binding="HTTP-REDIRECT",
-            jwks_url="https://idp.example.com/keys",
-            scopes=["openid"],
-            token_binding="HTTP-POST",
-            token_url="https://idp.example.com/token",
-            user_info_binding="HTTP-REDIRECT",
-            user_info_url="https://idp.example.com/userinfo",
             username_template="idpuser.email")
         ```
         <!--End PulumiCodeChooser -->

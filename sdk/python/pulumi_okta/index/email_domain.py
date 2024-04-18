@@ -207,8 +207,8 @@ class EmailDomain(pulumi.CustomResource):
 
         example = okta.index.EmailDomain("example",
             brand_id="abc123",
-            display_name="test",
             domain="example.com",
+            display_name="test",
             user_name="paul_atreides")
         ```
         <!--End PulumiCodeChooser -->
@@ -246,8 +246,8 @@ class EmailDomain(pulumi.CustomResource):
 
         example = okta.index.EmailDomain("example",
             brand_id="abc123",
-            display_name="test",
             domain="example.com",
+            display_name="test",
             user_name="paul_atreides")
         ```
         <!--End PulumiCodeChooser -->

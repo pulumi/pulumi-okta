@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testUser = new User(&#34;testUser&#34;, UserArgs.builder()        
+ *         var test = new User(&#34;test&#34;, UserArgs.builder()        
  *             .firstName(&#34;TestAcc&#34;)
  *             .lastName(&#34;Smith&#34;)
  *             .login(&#34;testAcc-replace_with_uuid@example.com&#34;)
@@ -49,10 +49,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testUserGroupMemberships = new UserGroupMemberships(&#34;testUserGroupMemberships&#34;, UserGroupMembershipsArgs.builder()        
- *             .userId(testUser.id())
+ *             .userId(test.id())
  *             .groups(            
- *                 okta_group.test_1().id(),
- *                 okta_group.test_2().id())
+ *                 test1.id(),
+ *                 test2.id())
  *             .build());
  * 
  *     }

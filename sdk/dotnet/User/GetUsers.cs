@@ -16,32 +16,6 @@ namespace Pulumi.Okta.User
         /// 
         /// ## Example Usage
         /// 
-        /// ### Lookup Users by Search Criteria
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Okta.User.GetUsers.Invoke(new()
-        ///     {
-        ///         Searches = new[]
-        ///         {
-        ///             new Okta.User.Inputs.GetUsersSearchInputArgs
-        ///             {
-        ///                 Expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// 
         /// ### Lookup Users by Group Membership
         /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
@@ -52,9 +26,12 @@ namespace Pulumi.Okta.User
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleGroup = new Okta.Group.Group("exampleGroup");
+        ///     var exampleGroup = new Okta.Group.Group("example", new()
+        ///     {
+        ///         Name = "example-group",
+        ///     });
         /// 
-        ///     var exampleUsers = Okta.User.GetUsers.Invoke(new()
+        ///     var example = Okta.User.GetUsers.Invoke(new()
         ///     {
         ///         GroupId = exampleGroup.Id,
         ///         IncludeGroups = true,
@@ -73,32 +50,6 @@ namespace Pulumi.Okta.User
         /// 
         /// ## Example Usage
         /// 
-        /// ### Lookup Users by Search Criteria
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Okta.User.GetUsers.Invoke(new()
-        ///     {
-        ///         Searches = new[]
-        ///         {
-        ///             new Okta.User.Inputs.GetUsersSearchInputArgs
-        ///             {
-        ///                 Expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// 
         /// ### Lookup Users by Group Membership
         /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
@@ -109,9 +60,12 @@ namespace Pulumi.Okta.User
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleGroup = new Okta.Group.Group("exampleGroup");
+        ///     var exampleGroup = new Okta.Group.Group("example", new()
+        ///     {
+        ///         Name = "example-group",
+        ///     });
         /// 
-        ///     var exampleUsers = Okta.User.GetUsers.Invoke(new()
+        ///     var example = Okta.User.GetUsers.Invoke(new()
         ///     {
         ///         GroupId = exampleGroup.Id,
         ///         IncludeGroups = true,

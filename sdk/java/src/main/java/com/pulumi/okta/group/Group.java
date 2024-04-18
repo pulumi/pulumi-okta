@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Group(&#34;example&#34;, GroupArgs.builder()        
+ *             .name(&#34;Example&#34;)
  *             .description(&#34;My Example Group&#34;)
  *             .build());
  * 
@@ -78,6 +79,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Group(&#34;example&#34;, GroupArgs.builder()        
+ *             .name(&#34;Example&#34;)
  *             .description(&#34;My Example Group&#34;)
  *             .customProfileAttributes(serializeJson(
  *                 jsonObject(

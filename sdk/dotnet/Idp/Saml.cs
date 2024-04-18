@@ -27,15 +27,16 @@ namespace Pulumi.Okta.Idp
     /// {
     ///     var example = new Okta.Idp.Saml("example", new()
     ///     {
+    ///         Name = "testAcc_replace_with_uuid",
     ///         AcsType = "INSTANCE",
+    ///         SsoUrl = "https://idp.example.com",
+    ///         SsoDestination = "https://idp.example.com",
+    ///         SsoBinding = "HTTP-POST",
+    ///         UsernameTemplate = "idpuser.email",
+    ///         Kid = test.Id,
     ///         Issuer = "https://idp.example.com",
-    ///         Kid = okta_idp_saml_key.Test.Id,
     ///         RequestSignatureScope = "REQUEST",
     ///         ResponseSignatureScope = "ANY",
-    ///         SsoBinding = "HTTP-POST",
-    ///         SsoDestination = "https://idp.example.com",
-    ///         SsoUrl = "https://idp.example.com",
-    ///         UsernameTemplate = "idpuser.email",
     ///     });
     /// 
     /// });

@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SecurePasswordStore(&#34;example&#34;, SecurePasswordStoreArgs.builder()        
- *             .credentialsScheme(&#34;ADMIN_SETS_CREDENTIALS&#34;)
  *             .label(&#34;example&#34;)
+ *             .usernameField(&#34;user&#34;)
  *             .passwordField(&#34;pass&#34;)
  *             .url(&#34;https://test.com&#34;)
- *             .usernameField(&#34;user&#34;)
+ *             .credentialsScheme(&#34;ADMIN_SETS_CREDENTIALS&#34;)
  *             .build());
  * 
  *     }

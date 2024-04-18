@@ -47,10 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Password(&#34;example&#34;, PasswordArgs.builder()        
- *             .description(&#34;Example&#34;)
- *             .groupsIncludeds(data.okta_group().everyone().id())
- *             .passwordHistoryCount(4)
+ *             .name(&#34;example&#34;)
  *             .status(&#34;ACTIVE&#34;)
+ *             .description(&#34;Example&#34;)
+ *             .passwordHistoryCount(4)
+ *             .groupsIncludeds(everyone.id())
  *             .build());
  * 
  *     }

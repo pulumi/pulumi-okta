@@ -28,13 +28,14 @@ namespace Pulumi.Okta.Auth
     ///     var example = new Okta.Auth.ServerPolicy("example", new()
     ///     {
     ///         AuthServerId = "&lt;auth server id&gt;",
+    ///         Status = "ACTIVE",
+    ///         Name = "example",
+    ///         Description = "example",
+    ///         Priority = 1,
     ///         ClientWhitelists = new[]
     ///         {
     ///             "ALL_CLIENTS",
     ///         },
-    ///         Description = "example",
-    ///         Priority = 1,
-    ///         Status = "ACTIVE",
     ///     });
     /// 
     /// });

@@ -34,9 +34,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewRateLimiting(ctx, "example", &okta.RateLimitingArgs{
+//				Login:                 pulumi.String("ENFORCE"),
 //				Authorize:             pulumi.String("ENFORCE"),
 //				CommunicationsEnabled: pulumi.Bool(true),
-//				Login:                 pulumi.String("ENFORCE"),
 //			})
 //			if err != nil {
 //				return err

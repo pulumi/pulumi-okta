@@ -32,7 +32,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := okta.NewDomain(ctx, "example", nil)
+//			example, err := okta.NewDomain(ctx, "example", &okta.DomainArgs{
+//				Name: pulumi.String("www.example.com"),
+//			})
 //			if err != nil {
 //				return err
 //			}

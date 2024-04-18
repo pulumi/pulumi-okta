@@ -29,32 +29,32 @@ namespace Pulumi.Okta.Profile
     /// 
     ///     var example = new Okta.Profile.Mapping("example", new()
     ///     {
+    ///         SourceId = "&lt;source id&gt;",
+    ///         TargetId = user.Apply(getUserProfileMappingSourceResult =&gt; getUserProfileMappingSourceResult.Id),
     ///         DeleteWhenAbsent = true,
     ///         Mappings = new[]
     ///         {
     ///             new Okta.Profile.Inputs.MappingMappingArgs
     ///             {
-    ///                 Expression = "appuser.firstName",
     ///                 Id = "firstName",
+    ///                 Expression = "appuser.firstName",
     ///             },
     ///             new Okta.Profile.Inputs.MappingMappingArgs
     ///             {
-    ///                 Expression = "appuser.lastName",
     ///                 Id = "lastName",
+    ///                 Expression = "appuser.lastName",
     ///             },
     ///             new Okta.Profile.Inputs.MappingMappingArgs
     ///             {
-    ///                 Expression = "appuser.email",
     ///                 Id = "email",
+    ///                 Expression = "appuser.email",
     ///             },
     ///             new Okta.Profile.Inputs.MappingMappingArgs
     ///             {
-    ///                 Expression = "appuser.email",
     ///                 Id = "login",
+    ///                 Expression = "appuser.email",
     ///             },
     ///         },
-    ///         SourceId = "&lt;source id&gt;",
-    ///         TargetId = user.Apply(getUserProfileMappingSourceResult =&gt; getUserProfileMappingSourceResult.Id),
     ///     });
     /// 
     /// });

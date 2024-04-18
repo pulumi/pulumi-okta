@@ -32,6 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := network.NewZone(ctx, "example", &network.ZoneArgs{
+//				Name: pulumi.String("example"),
+//				Type: pulumi.String("IP"),
 //				Gateways: pulumi.StringArray{
 //					pulumi.String("1.2.3.4/24"),
 //					pulumi.String("2.3.4.5-2.3.4.15"),
@@ -40,7 +42,6 @@ import (
 //					pulumi.String("2.2.3.4/24"),
 //					pulumi.String("3.3.4.5-3.3.4.15"),
 //				},
-//				Type: pulumi.String("IP"),
 //			})
 //			if err != nil {
 //				return err
@@ -68,9 +69,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := network.NewZone(ctx, "example", &network.ZoneArgs{
-//				DynamicProxyType: pulumi.String("TorAnonymizer"),
+//				Name:             pulumi.String("TOR Blocker"),
 //				Type:             pulumi.String("DYNAMIC"),
 //				Usage:            pulumi.String("BLOCKLIST"),
+//				DynamicProxyType: pulumi.String("TorAnonymizer"),
 //			})
 //			if err != nil {
 //				return err

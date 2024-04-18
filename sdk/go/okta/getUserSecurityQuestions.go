@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUser, err := user.NewUser(ctx, "exampleUser", &user.UserArgs{
+//			exampleUser, err := user.NewUser(ctx, "example", &user.UserArgs{
 //				FirstName: pulumi.String("John"),
 //				LastName:  pulumi.String("Smith"),
 //				Login:     pulumi.String("john.smith@example.com"),

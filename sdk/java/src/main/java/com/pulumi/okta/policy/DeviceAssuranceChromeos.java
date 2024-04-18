@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DeviceAssuranceChromeos(&#34;example&#34;, DeviceAssuranceChromeosArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .tpspAllowScreenLock(true)
  *             .tpspBrowserVersion(&#34;15393.27.0&#34;)
  *             .tpspBuiltinDnsClientEnabled(true)

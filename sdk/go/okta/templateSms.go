@@ -32,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewTemplateSms(ctx, "example", &okta.TemplateSmsArgs{
+//				Type:     pulumi.String("SMS_VERIFY_CODE"),
 //				Template: pulumi.String("Your ${org.name} code is: ${code}"),
 //				Translations: okta.TemplateSmsTranslationArray{
 //					&okta.TemplateSmsTranslationArgs{
@@ -43,7 +44,6 @@ import (
 //						Template: pulumi.String("Tu código de ${org.name} es: ${code}."),
 //					},
 //				},
-//				Type: pulumi.String("SMS_VERIFY_CODE"),
 //			})
 //			if err != nil {
 //				return err

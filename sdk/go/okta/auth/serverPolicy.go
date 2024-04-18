@@ -33,12 +33,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auth.NewServerPolicy(ctx, "example", &auth.ServerPolicyArgs{
 //				AuthServerId: pulumi.String("<auth server id>"),
+//				Status:       pulumi.String("ACTIVE"),
+//				Name:         pulumi.String("example"),
+//				Description:  pulumi.String("example"),
+//				Priority:     pulumi.Int(1),
 //				ClientWhitelists: pulumi.StringArray{
 //					pulumi.String("ALL_CLIENTS"),
 //				},
-//				Description: pulumi.String("example"),
-//				Priority:    pulumi.Int(1),
-//				Status:      pulumi.String("ACTIVE"),
 //			})
 //			if err != nil {
 //				return err

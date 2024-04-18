@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LinkDefinition(&#34;example&#34;, LinkDefinitionArgs.builder()        
- *             .associatedDescription(&#34;Elite military force member&#34;)
- *             .associatedName(&#34;sardaukar&#34;)
- *             .associatedTitle(&#34;Sardaukar&#34;)
- *             .primaryDescription(&#34;Hereditary ruler of the Imperium and the Known Universe&#34;)
  *             .primaryName(&#34;emperor&#34;)
  *             .primaryTitle(&#34;Emperor&#34;)
+ *             .primaryDescription(&#34;Hereditary ruler of the Imperium and the Known Universe&#34;)
+ *             .associatedName(&#34;sardaukar&#34;)
+ *             .associatedTitle(&#34;Sardaukar&#34;)
+ *             .associatedDescription(&#34;Elite military force member&#34;)
  *             .build());
  * 
  *     }

@@ -32,8 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := user.NewUserType(ctx, "example", &user.UserTypeArgs{
-//				Description: pulumi.String("example"),
+//				Name:        pulumi.String("example"),
 //				DisplayName: pulumi.String("example"),
+//				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

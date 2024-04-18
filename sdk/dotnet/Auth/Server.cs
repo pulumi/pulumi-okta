@@ -32,6 +32,7 @@ namespace Pulumi.Okta.Auth
     ///             "api://example",
     ///         },
     ///         Description = "My Example Auth Server",
+    ///         Name = "example",
     ///         IssuerMode = "CUSTOM_URL",
     ///         Status = "ACTIVE",
     ///     });

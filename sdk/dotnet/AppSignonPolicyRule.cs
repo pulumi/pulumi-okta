@@ -32,7 +32,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testSaml = new Okta.App.Saml("testSaml", new()
+    ///     var testSaml = new Okta.App.Saml("test", new()
     ///     {
     ///         Label = "My App",
     ///         SsoUrl = "https://google.com",
@@ -49,14 +49,15 @@ namespace Pulumi.Okta
     ///         AuthnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
     ///     });
     /// 
-    ///     var testAppSignonPolicy = Okta.GetAppSignonPolicy.Invoke(new()
+    ///     var test = Okta.GetAppSignonPolicy.Invoke(new()
     ///     {
     ///         AppId = testSaml.Id,
     ///     });
     /// 
-    ///     var testAppSignonPolicyRule = new Okta.AppSignonPolicyRule("testAppSignonPolicyRule", new()
+    ///     var testAppSignonPolicyRule = new Okta.AppSignonPolicyRule("test", new()
     ///     {
-    ///         PolicyId = testAppSignonPolicy.Apply(getAppSignonPolicyResult =&gt; getAppSignonPolicyResult.Id),
+    ///         PolicyId = test.Apply(getAppSignonPolicyResult =&gt; getAppSignonPolicyResult.Id),
+    ///         Name = "testAcc_replace_with_uuid",
     ///     });
     /// 
     /// });
@@ -81,7 +82,8 @@ namespace Pulumi.Okta
     /// {
     ///     var test = new Okta.AppSignonPolicyRule("test", new()
     ///     {
-    ///         PolicyId = data.Okta_app_signon_policy.Test.Id,
+    ///         PolicyId = testOktaAppSignonPolicy.Id,
+    ///         Name = "testAcc_replace_with_uuid",
     ///         Constraints = new[]
     ///         {
     ///             JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -117,7 +119,8 @@ namespace Pulumi.Okta
     /// {
     ///     var test = new Okta.AppSignonPolicyRule("test", new()
     ///     {
-    ///         PolicyId = data.Okta_app_signon_policy.Test.Id,
+    ///         PolicyId = testOktaAppSignonPolicy.Id,
+    ///         Name = "testAcc_replace_with_uuid",
     ///         Constraints = new[]
     ///         {
     ///             JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -160,7 +163,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testSaml = new Okta.App.Saml("testSaml", new()
+    ///     var testSaml = new Okta.App.Saml("test", new()
     ///     {
     ///         Label = "testAcc_replace_with_uuid",
     ///         SsoUrl = "https://google.com",
@@ -215,7 +218,7 @@ namespace Pulumi.Okta
     ///         },
     ///     });
     /// 
-    ///     var testAppSignonPolicy = Okta.GetAppSignonPolicy.Invoke(new()
+    ///     var test = Okta.GetAppSignonPolicy.Invoke(new()
     ///     {
     ///         AppId = testSaml.Id,
     ///     });
@@ -224,7 +227,7 @@ namespace Pulumi.Okta
     ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
     ///     {
     ///         var range = new { Value = rangeIndex };
-    ///         testUser.Add(new Okta.User.User($"testUser-{range.Value}", new()
+    ///         testUser.Add(new Okta.User.User($"test-{range.Value}", new()
     ///         {
     ///             FirstName = "TestAcc",
     ///             LastName = "Smith",
@@ -238,17 +241,20 @@ namespace Pulumi.Okta
     ///         var range = new { Value = rangeIndex };
     ///         @this.Add(new Okta.Group.Group($"this-{range.Value}", new()
     ///         {
+    ///             Name = $"testAcc_{range.Value}",
     ///             Description = $"testAcc_{range.Value}",
     ///         }));
     ///     }
-    ///     var testUserType = new Okta.User.UserType("testUserType", new()
+    ///     var testUserType = new Okta.User.UserType("test", new()
     ///     {
+    ///         Name = "testAcc_replace_with_uuid",
     ///         DisplayName = "Terraform Acceptance Test User Type Updated",
     ///         Description = "Terraform Acceptance Test User Type Updated",
     ///     });
     /// 
-    ///     var testZone = new Okta.Network.Zone("testZone", new()
+    ///     var testZone = new Okta.Network.Zone("test", new()
     ///     {
+    ///         Name = "testAcc_replace_with_uuid",
     ///         Type = "IP",
     ///         Gateways = new[]
     ///         {
@@ -267,15 +273,17 @@ namespace Pulumi.Okta
     ///         Name = "user",
     ///     });
     /// 
-    ///     var testDeviceAssuranceAndroid = new Okta.Policy.DeviceAssuranceAndroid("testDeviceAssuranceAndroid", new()
+    ///     var testDeviceAssuranceAndroid = new Okta.Policy.DeviceAssuranceAndroid("test", new()
     ///     {
+    ///         Name = "test",
     ///         OsVersion = "12",
     ///         Jailbreak = false,
     ///     });
     /// 
-    ///     var testAppSignonPolicyRule = new Okta.AppSignonPolicyRule("testAppSignonPolicyRule", new()
+    ///     var testAppSignonPolicyRule = new Okta.AppSignonPolicyRule("test", new()
     ///     {
-    ///         PolicyId = testAppSignonPolicy.Apply(getAppSignonPolicyResult =&gt; getAppSignonPolicyResult.Id),
+    ///         Name = "testAcc_replace_with_uuid",
+    ///         PolicyId = test.Apply(getAppSignonPolicyResult =&gt; getAppSignonPolicyResult.Id),
     ///         Access = "ALLOW",
     ///         CustomExpression = "user.status == \"ACTIVE\"",
     ///         DeviceIsManaged = false,

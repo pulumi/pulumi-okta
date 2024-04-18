@@ -34,11 +34,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewFactorTotp(ctx, "example", &okta.FactorTotpArgs{
-//				ClockDriftInterval:   pulumi.Int(10),
-//				HmacAlgorithm:        pulumi.String("HMacSHA256"),
+//				Name:                 pulumi.String("example"),
 //				OtpLength:            pulumi.Int(10),
-//				SharedSecretEncoding: pulumi.String("hexadecimal"),
+//				HmacAlgorithm:        pulumi.String("HMacSHA256"),
 //				TimeStep:             pulumi.Int(30),
+//				ClockDriftInterval:   pulumi.Int(10),
+//				SharedSecretEncoding: pulumi.String("hexadecimal"),
 //			})
 //			if err != nil {
 //				return err

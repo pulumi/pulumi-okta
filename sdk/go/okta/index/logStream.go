@@ -18,40 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// ### Splunk Event Collector
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/Index"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := Index.NewLogStream(ctx, "example", &Index.LogStreamArgs{
-//				Settings: &index.LogStreamSettingsArgs{
-//					Edition: pulumi.String("gcp"),
-//					Host:    pulumi.String("acme.splunkcloud.com"),
-//					Token:   pulumi.String("YOUR_HEC_TOKEN"),
-//				},
-//				Status: pulumi.String("ACTIVE"),
-//				Type:   pulumi.String("splunk_cloud_logstreaming"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ## Import
 //
 // Okta Log Stream can be imported via the Okta ID.

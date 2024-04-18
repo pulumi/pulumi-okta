@@ -25,7 +25,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUser = new Okta.User.User("exampleUser", new()
+        ///     var exampleUser = new Okta.User.User("example", new()
         ///     {
         ///         FirstName = "John",
         ///         LastName = "Smith",
@@ -33,7 +33,7 @@ namespace Pulumi.Okta
         ///         Email = "john.smith@example.com",
         ///     });
         /// 
-        ///     var exampleUserSecurityQuestions = Okta.GetUserSecurityQuestions.Invoke(new()
+        ///     var example = Okta.GetUserSecurityQuestions.Invoke(new()
         ///     {
         ///         UserId = exampleUser.Id,
         ///     });
@@ -59,7 +59,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUser = new Okta.User.User("exampleUser", new()
+        ///     var exampleUser = new Okta.User.User("example", new()
         ///     {
         ///         FirstName = "John",
         ///         LastName = "Smith",
@@ -67,7 +67,7 @@ namespace Pulumi.Okta
         ///         Email = "john.smith@example.com",
         ///     });
         /// 
-        ///     var exampleUserSecurityQuestions = Okta.GetUserSecurityQuestions.Invoke(new()
+        ///     var example = Okta.GetUserSecurityQuestions.Invoke(new()
         ///     {
         ///         UserId = exampleUser.Id,
         ///     });

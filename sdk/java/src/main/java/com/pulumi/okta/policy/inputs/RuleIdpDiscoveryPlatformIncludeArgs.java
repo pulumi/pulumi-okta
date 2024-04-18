@@ -33,62 +33,12 @@ public final class RuleIdpDiscoveryPlatformIncludeArgs extends com.pulumi.resour
     /**
      * One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`
      * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     @Import(name="osType")
     private @Nullable Output<String> osType;
 
     /**
      * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<String>> osType() {
@@ -160,31 +110,6 @@ public final class RuleIdpDiscoveryPlatformIncludeArgs extends com.pulumi.resour
         /**
          * @param osType One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`
          * 
-         * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
-         * &lt;!--End PulumiCodeChooser --&gt;
-         * 
          * @return builder
          * 
          */
@@ -195,31 +120,6 @@ public final class RuleIdpDiscoveryPlatformIncludeArgs extends com.pulumi.resour
 
         /**
          * @param osType One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`
-         * 
-         * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
-         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

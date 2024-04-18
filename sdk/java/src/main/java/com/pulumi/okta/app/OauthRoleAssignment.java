@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testOAuth = new OAuth(&#34;testOAuth&#34;, OAuthArgs.builder()        
+ *         var test = new OAuth(&#34;test&#34;, OAuthArgs.builder()        
  *             .label(&#34;test&#34;)
  *             .type(&#34;service&#34;)
  *             .responseTypes(&#34;token&#34;)
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testOauthRoleAssignment = new OauthRoleAssignment(&#34;testOauthRoleAssignment&#34;, OauthRoleAssignmentArgs.builder()        
- *             .clientId(testOAuth.clientId())
+ *             .clientId(test.clientId())
  *             .type(&#34;HELP_DESK_ADMIN&#34;)
  *             .build());
  * 

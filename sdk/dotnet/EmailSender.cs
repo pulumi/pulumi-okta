@@ -27,8 +27,8 @@ namespace Pulumi.Okta
     /// {
     ///     var example = new Okta.EmailSender("example", new()
     ///     {
-    ///         FromAddress = "no-reply@caladan.planet",
     ///         FromName = "Paul Atreides",
+    ///         FromAddress = "no-reply@caladan.planet",
     ///         Subdomain = "mail",
     ///     });
     /// 

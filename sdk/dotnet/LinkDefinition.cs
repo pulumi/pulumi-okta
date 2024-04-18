@@ -28,12 +28,12 @@ namespace Pulumi.Okta
     /// {
     ///     var example = new Okta.LinkDefinition("example", new()
     ///     {
-    ///         AssociatedDescription = "Elite military force member",
-    ///         AssociatedName = "sardaukar",
-    ///         AssociatedTitle = "Sardaukar",
-    ///         PrimaryDescription = "Hereditary ruler of the Imperium and the Known Universe",
     ///         PrimaryName = "emperor",
     ///         PrimaryTitle = "Emperor",
+    ///         PrimaryDescription = "Hereditary ruler of the Imperium and the Known Universe",
+    ///         AssociatedName = "sardaukar",
+    ///         AssociatedTitle = "Sardaukar",
+    ///         AssociatedDescription = "Elite military force member",
     ///     });
     /// 
     /// });

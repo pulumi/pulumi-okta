@@ -29,9 +29,9 @@ namespace Pulumi.Okta
     ///     {
     ///         AppId = "&lt;app id&gt;",
     ///         Index = "customPropertyName",
-    ///         Master = "OKTA",
     ///         Title = "customPropertyName",
     ///         Type = "string",
+    ///         Master = "OKTA",
     ///     });
     /// 
     /// });

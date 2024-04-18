@@ -34,17 +34,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := app.NewOAuth(ctx, "example", &app.OAuthArgs{
+//				Label: pulumi.String("example"),
+//				Type:  pulumi.String("web"),
 //				GrantTypes: pulumi.StringArray{
 //					pulumi.String("authorization_code"),
 //				},
-//				Label: pulumi.String("example"),
 //				RedirectUris: pulumi.StringArray{
 //					pulumi.String("https://example.com/"),
 //				},
 //				ResponseTypes: pulumi.StringArray{
 //					pulumi.String("code"),
 //				},
-//				Type: pulumi.String("web"),
 //			})
 //			if err != nil {
 //				return err
@@ -74,29 +74,29 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := app.NewOAuth(ctx, "example", &app.OAuthArgs{
+//				Label: pulumi.String("example"),
+//				Type:  pulumi.String("service"),
+//				ResponseTypes: pulumi.StringArray{
+//					pulumi.String("token"),
+//				},
 //				GrantTypes: pulumi.StringArray{
 //					pulumi.String("client_credentials"),
 //				},
+//				TokenEndpointAuthMethod: pulumi.String("private_key_jwt"),
 //				Jwks: app.OAuthJwkArray{
 //					&app.OAuthJwkArgs{
-//						E:   pulumi.String("AQAB"),
-//						Kid: pulumi.String("SIGNING_KEY_RSA"),
 //						Kty: pulumi.String("RSA"),
+//						Kid: pulumi.String("SIGNING_KEY_RSA"),
+//						E:   pulumi.String("AQAB"),
 //						N:   pulumi.String("xyz"),
 //					},
 //					&app.OAuthJwkArgs{
-//						Kid: pulumi.String("SIGNING_KEY_EC"),
 //						Kty: pulumi.String("EC"),
+//						Kid: pulumi.String("SIGNING_KEY_EC"),
 //						X:   pulumi.String("K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I"),
 //						Y:   pulumi.String("8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo"),
 //					},
 //				},
-//				Label: pulumi.String("example"),
-//				ResponseTypes: pulumi.StringArray{
-//					pulumi.String("token"),
-//				},
-//				TokenEndpointAuthMethod: pulumi.String("private_key_jwt"),
-//				Type:                    pulumi.String("service"),
 //			})
 //			if err != nil {
 //				return err

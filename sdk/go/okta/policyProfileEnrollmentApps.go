@@ -51,10 +51,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.NewPolicyProfileEnrollmentApps(ctx, "examplePolicyProfileEnrollmentApps", &okta.PolicyProfileEnrollmentAppsArgs{
-//				PolicyId: pulumi.Any(okta_policy.Example.Id),
+//			_, err = okta.NewPolicyProfileEnrollmentApps(ctx, "example", &okta.PolicyProfileEnrollmentAppsArgs{
+//				PolicyId: pulumi.Any(exampleOktaPolicy.Id),
 //				Apps: pulumi.StringArray{
-//					data.Okta_app.Id,
+//					id,
 //				},
 //			})
 //			if err != nil {

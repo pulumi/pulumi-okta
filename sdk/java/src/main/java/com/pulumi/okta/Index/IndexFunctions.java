@@ -67,6 +67,7 @@ public final class IndexFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.Domain;
+     * import com.pulumi.okta.DomainArgs;
      * import com.pulumi.okta.Index.IndexFunctions;
      * import com.pulumi.okta.Index.inputs.GetDomainArgs;
      * import java.util.List;
@@ -82,7 +83,9 @@ public final class IndexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Domain(&#34;example&#34;);
+     *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+     *             .name(&#34;www.example.com&#34;)
+     *             .build());
      * 
      *         final var by-name = IndexFunctions.getDomain(GetDomainArgs.builder()
      *             .domainIdOrName(&#34;www.example.com&#34;)
@@ -117,6 +120,7 @@ public final class IndexFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.Domain;
+     * import com.pulumi.okta.DomainArgs;
      * import com.pulumi.okta.Index.IndexFunctions;
      * import com.pulumi.okta.Index.inputs.GetDomainArgs;
      * import java.util.List;
@@ -132,7 +136,9 @@ public final class IndexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Domain(&#34;example&#34;);
+     *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+     *             .name(&#34;www.example.com&#34;)
+     *             .build());
      * 
      *         final var by-name = IndexFunctions.getDomain(GetDomainArgs.builder()
      *             .domainIdOrName(&#34;www.example.com&#34;)
@@ -167,6 +173,7 @@ public final class IndexFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.Domain;
+     * import com.pulumi.okta.DomainArgs;
      * import com.pulumi.okta.Index.IndexFunctions;
      * import com.pulumi.okta.Index.inputs.GetDomainArgs;
      * import java.util.List;
@@ -182,7 +189,9 @@ public final class IndexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Domain(&#34;example&#34;);
+     *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+     *             .name(&#34;www.example.com&#34;)
+     *             .build());
      * 
      *         final var by-name = IndexFunctions.getDomain(GetDomainArgs.builder()
      *             .domainIdOrName(&#34;www.example.com&#34;)
@@ -217,6 +226,7 @@ public final class IndexFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.Domain;
+     * import com.pulumi.okta.DomainArgs;
      * import com.pulumi.okta.Index.IndexFunctions;
      * import com.pulumi.okta.Index.inputs.GetDomainArgs;
      * import java.util.List;
@@ -232,7 +242,9 @@ public final class IndexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Domain(&#34;example&#34;);
+     *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+     *             .name(&#34;www.example.com&#34;)
+     *             .build());
      * 
      *         final var by-name = IndexFunctions.getDomain(GetDomainArgs.builder()
      *             .domainIdOrName(&#34;www.example.com&#34;)

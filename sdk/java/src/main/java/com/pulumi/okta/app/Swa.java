@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Swa(&#34;example&#34;, SwaArgs.builder()        
- *             .buttonField(&#34;btn-login&#34;)
  *             .label(&#34;example&#34;)
+ *             .buttonField(&#34;btn-login&#34;)
  *             .passwordField(&#34;txtbox-password&#34;)
- *             .url(&#34;https://example.com/login.html&#34;)
  *             .usernameField(&#34;txtbox-username&#34;)
+ *             .url(&#34;https://example.com/login.html&#34;)
  *             .build());
  * 
  *     }

@@ -34,11 +34,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := app.NewSecurePasswordStore(ctx, "example", &app.SecurePasswordStoreArgs{
-//				CredentialsScheme: pulumi.String("ADMIN_SETS_CREDENTIALS"),
 //				Label:             pulumi.String("example"),
+//				UsernameField:     pulumi.String("user"),
 //				PasswordField:     pulumi.String("pass"),
 //				Url:               pulumi.String("https://test.com"),
-//				UsernameField:     pulumi.String("user"),
+//				CredentialsScheme: pulumi.String("ADMIN_SETS_CREDENTIALS"),
 //			})
 //			if err != nil {
 //				return err

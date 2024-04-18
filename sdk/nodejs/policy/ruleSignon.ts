@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const test = new okta.policy.Signon("test", {
+ *     name: "Example Policy",
  *     status: "ACTIVE",
  *     description: "Example Policy",
  * });
@@ -27,8 +28,9 @@ import * as utilities from "../utilities";
  * const example = new okta.policy.RuleSignon("example", {
  *     access: "CHALLENGE",
  *     authtype: "RADIUS",
+ *     name: "Example Policy Rule",
  *     networkConnection: "ANYWHERE",
- *     policyId: okta_policy_signon.example.id,
+ *     policyId: exampleOktaPolicySignon.id,
  *     status: "ACTIVE",
  *     riscLevel: "HIGH",
  *     behaviors: [newCity.then(newCity => newCity.id)],

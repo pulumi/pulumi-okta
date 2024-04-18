@@ -34,18 +34,19 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testGroup = new Okta.Group.Group("testGroup", new()
+    ///     var test = new Okta.Group.Group("test", new()
     ///     {
+    ///         Name = "testAcc_replace_with_uuid",
     ///         Description = "testing, testing",
     ///     });
     /// 
-    ///     var testGroupMemberships = new Okta.GroupMemberships("testGroupMemberships", new()
+    ///     var testGroupMemberships = new Okta.GroupMemberships("test", new()
     ///     {
-    ///         GroupId = testGroup.Id,
+    ///         GroupId = test.Id,
     ///         Users = new[]
     ///         {
-    ///             okta_user.Test1.Id,
-    ///             okta_user.Test2.Id,
+    ///             test1.Id,
+    ///             test2.Id,
     ///         },
     ///     });
     /// 

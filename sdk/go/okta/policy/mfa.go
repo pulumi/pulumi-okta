@@ -34,36 +34,38 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := policy.NewMfa(ctx, "classicExample", &policy.MfaArgs{
+//			_, err := policy.NewMfa(ctx, "classic_example", &policy.MfaArgs{
+//				Name:        pulumi.String("MFA Policy Classic"),
+//				Status:      pulumi.String("ACTIVE"),
 //				Description: pulumi.String("Example MFA policy using Okta Classic engine with factors."),
-//				GroupsIncludeds: pulumi.StringArray{
-//					data.Okta_group.Everyone.Id,
-//				},
-//				IsOie: pulumi.Bool(false),
-//				OktaOtp: pulumi.StringMap{
-//					"enroll": pulumi.String("REQUIRED"),
-//				},
+//				IsOie:       pulumi.Bool(false),
 //				OktaPassword: pulumi.StringMap{
 //					"enroll": pulumi.String("REQUIRED"),
 //				},
-//				Status: pulumi.String("ACTIVE"),
+//				OktaOtp: pulumi.StringMap{
+//					"enroll": pulumi.String("REQUIRED"),
+//				},
+//				GroupsIncludeds: pulumi.StringArray{
+//					everyone.Id,
+//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = policy.NewMfa(ctx, "oieExample", &policy.MfaArgs{
+//			_, err = policy.NewMfa(ctx, "oie_example", &policy.MfaArgs{
+//				Name:        pulumi.String("MFA Policy OIE"),
+//				Status:      pulumi.String("ACTIVE"),
 //				Description: pulumi.String("Example MFA policy that uses Okta Identity Engine (OIE) with authenticators"),
-//				GroupsIncludeds: pulumi.StringArray{
-//					data.Okta_group.Everyone.Id,
-//				},
-//				IsOie: pulumi.Bool(true),
+//				IsOie:       pulumi.Bool(true),
 //				OktaPassword: pulumi.StringMap{
 //					"enroll": pulumi.String("REQUIRED"),
 //				},
 //				OktaVerify: pulumi.StringMap{
 //					"enroll": pulumi.String("REQUIRED"),
 //				},
-//				Status: pulumi.String("ACTIVE"),
+//				GroupsIncludeds: pulumi.StringArray{
+//					everyone.Id,
+//				},
 //			})
 //			if err != nil {
 //				return err

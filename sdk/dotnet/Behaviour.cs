@@ -23,35 +23,40 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myLocation = new Okta.Behaviour("myLocation", new()
+    ///     var myLocation = new Okta.Behaviour("my_location", new()
     ///     {
+    ///         Name = "My Location",
+    ///         Type = "ANOMALOUS_LOCATION",
+    ///         NumberOfAuthentications = 50,
     ///         LocationGranularityType = "LAT_LONG",
-    ///         NumberOfAuthentications = 50,
     ///         RadiusFromLocation = 20,
-    ///         Type = "ANOMALOUS_LOCATION",
     ///     });
     /// 
-    ///     var myCity = new Okta.Behaviour("myCity", new()
+    ///     var myCity = new Okta.Behaviour("my_city", new()
     ///     {
+    ///         Name = "My City",
+    ///         Type = "ANOMALOUS_LOCATION",
+    ///         NumberOfAuthentications = 50,
     ///         LocationGranularityType = "CITY",
-    ///         NumberOfAuthentications = 50,
-    ///         Type = "ANOMALOUS_LOCATION",
     ///     });
     /// 
-    ///     var myDevice = new Okta.Behaviour("myDevice", new()
+    ///     var myDevice = new Okta.Behaviour("my_device", new()
     ///     {
-    ///         NumberOfAuthentications = 50,
+    ///         Name = "My Device",
     ///         Type = "ANOMALOUS_DEVICE",
-    ///     });
-    /// 
-    ///     var myIp = new Okta.Behaviour("myIp", new()
-    ///     {
     ///         NumberOfAuthentications = 50,
-    ///         Type = "ANOMALOUS_IP",
     ///     });
     /// 
-    ///     var myVelocity = new Okta.Behaviour("myVelocity", new()
+    ///     var myIp = new Okta.Behaviour("my_ip", new()
     ///     {
+    ///         Name = "My IP",
+    ///         Type = "ANOMALOUS_IP",
+    ///         NumberOfAuthentications = 50,
+    ///     });
+    /// 
+    ///     var myVelocity = new Okta.Behaviour("my_velocity", new()
+    ///     {
+    ///         Name = "My Velocity",
     ///         Type = "VELOCITY",
     ///         Velocity = 25,
     ///     });

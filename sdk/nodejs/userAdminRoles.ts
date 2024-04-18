@@ -16,14 +16,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const testUser = new okta.user.User("testUser", {
+ * const test = new okta.user.User("test", {
  *     firstName: "TestAcc",
  *     lastName: "Smith",
  *     login: "testAcc-replace_with_uuid@example.com",
  *     email: "testAcc-replace_with_uuid@example.com",
  * });
- * const testUserAdminRoles = new okta.UserAdminRoles("testUserAdminRoles", {
- *     userId: testUser.id,
+ * const testUserAdminRoles = new okta.UserAdminRoles("test", {
+ *     userId: test.id,
  *     adminRoles: ["APP_ADMIN"],
  * });
  * ```

@@ -23,8 +23,9 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ipNetworkZoneExample = new Okta.Network.Zone("ipNetworkZoneExample", new()
+    ///     var ipNetworkZoneExample = new Okta.Network.Zone("ip_network_zone_example", new()
     ///     {
+    ///         Name = "example",
     ///         Type = "IP",
     ///         Gateways = new[]
     ///         {

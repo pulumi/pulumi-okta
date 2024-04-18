@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.app.OAuth("example", {
- *     grantTypes: ["authorization_code"],
  *     label: "example",
+ *     type: "web",
+ *     grantTypes: ["authorization_code"],
  *     redirectUris: ["https://example.com/"],
  *     responseTypes: ["code"],
- *     type: "web",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -40,25 +40,25 @@ import * as utilities from "../utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.app.OAuth("example", {
+ *     label: "example",
+ *     type: "service",
+ *     responseTypes: ["token"],
  *     grantTypes: ["client_credentials"],
+ *     tokenEndpointAuthMethod: "private_key_jwt",
  *     jwks: [
  *         {
- *             e: "AQAB",
- *             kid: "SIGNING_KEY_RSA",
  *             kty: "RSA",
+ *             kid: "SIGNING_KEY_RSA",
+ *             e: "AQAB",
  *             n: "xyz",
  *         },
  *         {
- *             kid: "SIGNING_KEY_EC",
  *             kty: "EC",
+ *             kid: "SIGNING_KEY_EC",
  *             x: "K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I",
  *             y: "8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo",
  *         },
  *     ],
- *     label: "example",
- *     responseTypes: ["token"],
- *     tokenEndpointAuthMethod: "private_key_jwt",
- *     type: "service",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

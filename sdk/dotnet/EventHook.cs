@@ -27,22 +27,23 @@ namespace Pulumi.Okta
     /// {
     ///     var example = new Okta.EventHook("example", new()
     ///     {
-    ///         Auth = 
-    ///         {
-    ///             { "key", "Authorization" },
-    ///             { "type", "HEADER" },
-    ///             { "value", "123" },
-    ///         },
-    ///         Channel = 
-    ///         {
-    ///             { "type", "HTTP" },
-    ///             { "uri", "https://example.com/test" },
-    ///             { "version", "1.0.0" },
-    ///         },
+    ///         Name = "example",
     ///         Events = new[]
     ///         {
     ///             "user.lifecycle.create",
     ///             "user.lifecycle.delete.initiated",
+    ///         },
+    ///         Channel = 
+    ///         {
+    ///             { "type", "HTTP" },
+    ///             { "version", "1.0.0" },
+    ///             { "uri", "https://example.com/test" },
+    ///         },
+    ///         Auth = 
+    ///         {
+    ///             { "type", "HEADER" },
+    ///             { "key", "Authorization" },
+    ///             { "value", "123" },
     ///         },
     ///     });
     /// 

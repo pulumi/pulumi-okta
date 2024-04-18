@@ -33,7 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testSaml, err := app.NewSaml(ctx, "testSaml", &app.SamlArgs{
+//			test, err := app.NewSaml(ctx, "test", &app.SamlArgs{
 //				PreconfiguredApp: pulumi.String("amazon_aws"),
 //				Label:            pulumi.String("Amazon AWS"),
 //				Status:           pulumi.String("ACTIVE"),
@@ -55,8 +55,8 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = okta.NewAppSamlAppSettings(ctx, "testAppSamlAppSettings", &okta.AppSamlAppSettingsArgs{
-//				AppId:    testSaml.ID(),
+//			_, err = okta.NewAppSamlAppSettings(ctx, "test", &okta.AppSamlAppSettingsArgs{
+//				AppId:    test.ID(),
 //				Settings: pulumi.String(json0),
 //			})
 //			if err != nil {

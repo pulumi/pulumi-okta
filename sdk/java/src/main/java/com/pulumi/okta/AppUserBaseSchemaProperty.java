@@ -47,9 +47,9 @@ import javax.annotation.Nullable;
  *         var example = new AppUserBaseSchemaProperty(&#34;example&#34;, AppUserBaseSchemaPropertyArgs.builder()        
  *             .appId(&#34;&lt;app id&gt;&#34;)
  *             .index(&#34;customPropertyName&#34;)
- *             .master(&#34;OKTA&#34;)
  *             .title(&#34;customPropertyName&#34;)
  *             .type(&#34;string&#34;)
+ *             .master(&#34;OKTA&#34;)
  *             .build());
  * 
  *     }

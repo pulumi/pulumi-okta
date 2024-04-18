@@ -27,13 +27,14 @@ namespace Pulumi.Okta.Policy
     /// {
     ///     var example = new Okta.Policy.Password("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Status = "ACTIVE",
     ///         Description = "Example",
+    ///         PasswordHistoryCount = 4,
     ///         GroupsIncludeds = new[]
     ///         {
-    ///             data.Okta_group.Everyone.Id,
+    ///             everyone.Id,
     ///         },
-    ///         PasswordHistoryCount = 4,
-    ///         Status = "ACTIVE",
     ///     });
     /// 
     /// });

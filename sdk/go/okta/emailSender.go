@@ -32,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewEmailSender(ctx, "example", &okta.EmailSenderArgs{
-//				FromAddress: pulumi.String("no-reply@caladan.planet"),
 //				FromName:    pulumi.String("Paul Atreides"),
+//				FromAddress: pulumi.String("no-reply@caladan.planet"),
 //				Subdomain:   pulumi.String("mail"),
 //			})
 //			if err != nil {
