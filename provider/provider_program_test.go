@@ -31,6 +31,7 @@ var programs = []string{
 	"test-programs/auth_serverscope",
 	"test-programs/index_userschemaproperty",
 	"test-programs/app_oauth",
+	"test-programs/user",
 }
 
 func TestUpgradeCoverage(t *testing.T) {
