@@ -87,6 +87,9 @@ export class Hook extends pulumi.CustomResource {
      * The inline hook display name.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Default to `ACTIVE`
+     */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
      * The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
@@ -161,6 +164,9 @@ export interface HookState {
      * The inline hook display name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Default to `ACTIVE`
+     */
     status?: pulumi.Input<string>;
     /**
      * The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
@@ -192,6 +198,9 @@ export interface HookArgs {
      * The inline hook display name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Default to `ACTIVE`
+     */
     status?: pulumi.Input<string>;
     /**
      * The type of hook to trigger. Currently, the only supported type is `"HTTP"`.

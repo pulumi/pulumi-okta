@@ -148,9 +148,17 @@ public class EventHook extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Default to `ACTIVE`
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
+    /**
+     * @return Default to `ACTIVE`
+     * 
+     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }

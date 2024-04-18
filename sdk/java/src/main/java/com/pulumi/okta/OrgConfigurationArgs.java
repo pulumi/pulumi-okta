@@ -123,14 +123,16 @@ public final class OrgConfigurationArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Local path to logo of the org.
+     * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+     * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      * 
      */
     @Import(name="logo")
     private @Nullable Output<String> logo;
 
     /**
-     * @return Local path to logo of the org.
+     * @return Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+     * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      * 
      */
     public Optional<Output<String>> logo() {
@@ -428,7 +430,8 @@ public final class OrgConfigurationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param logo Local path to logo of the org.
+         * @param logo Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+         * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
          * 
          * @return builder
          * 
@@ -439,7 +442,8 @@ public final class OrgConfigurationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param logo Local path to logo of the org.
+         * @param logo Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+         * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
          * 
          * @return builder
          * 

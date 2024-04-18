@@ -13,43 +13,43 @@ namespace Pulumi.Okta.Policy
     public partial class DeviceAssuranceIos : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Created by
+        /// Created by of the device assurance polic
         /// </summary>
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
 
         /// <summary>
-        /// Created date
+        /// Created date of the device assurance polic
         /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The device jailbreak. Only for android and iOS platform
+        /// Is the device jailbroken in the device assurance policy.
         /// </summary>
         [Output("jailbreak")]
         public Output<bool?> Jailbreak { get; private set; } = null!;
 
         /// <summary>
-        /// Last update
+        /// Last update of the device assurance polic
         /// </summary>
         [Output("lastUpdate")]
         public Output<string> LastUpdate { get; private set; } = null!;
 
         /// <summary>
-        /// Last updated by
+        /// Last updated by of the device assurance polic
         /// </summary>
         [Output("lastUpdatedBy")]
         public Output<string> LastUpdatedBy { get; private set; } = null!;
 
         /// <summary>
-        /// Policy device assurance name
+        /// Name of the device assurance policy.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The device os minimum version
+        /// Minimum os version of the device in the device assurance policy.
         /// </summary>
         [Output("osVersion")]
         public Output<string?> OsVersion { get; private set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.Okta.Policy
         public Output<string> Platform { get; private set; } = null!;
 
         /// <summary>
-        /// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        /// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         /// </summary>
         [Output("screenlockTypes")]
         public Output<ImmutableArray<string>> ScreenlockTypes { get; private set; } = null!;
@@ -113,19 +113,19 @@ namespace Pulumi.Okta.Policy
     public sealed class DeviceAssuranceIosArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The device jailbreak. Only for android and iOS platform
+        /// Is the device jailbroken in the device assurance policy.
         /// </summary>
         [Input("jailbreak")]
         public Input<bool>? Jailbreak { get; set; }
 
         /// <summary>
-        /// Policy device assurance name
+        /// Name of the device assurance policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The device os minimum version
+        /// Minimum os version of the device in the device assurance policy.
         /// </summary>
         [Input("osVersion")]
         public Input<string>? OsVersion { get; set; }
@@ -134,7 +134,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _screenlockTypes;
 
         /// <summary>
-        /// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        /// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         /// </summary>
         public InputList<string> ScreenlockTypes
         {
@@ -151,43 +151,43 @@ namespace Pulumi.Okta.Policy
     public sealed class DeviceAssuranceIosState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Created by
+        /// Created by of the device assurance polic
         /// </summary>
         [Input("createdBy")]
         public Input<string>? CreatedBy { get; set; }
 
         /// <summary>
-        /// Created date
+        /// Created date of the device assurance polic
         /// </summary>
         [Input("createdDate")]
         public Input<string>? CreatedDate { get; set; }
 
         /// <summary>
-        /// The device jailbreak. Only for android and iOS platform
+        /// Is the device jailbroken in the device assurance policy.
         /// </summary>
         [Input("jailbreak")]
         public Input<bool>? Jailbreak { get; set; }
 
         /// <summary>
-        /// Last update
+        /// Last update of the device assurance polic
         /// </summary>
         [Input("lastUpdate")]
         public Input<string>? LastUpdate { get; set; }
 
         /// <summary>
-        /// Last updated by
+        /// Last updated by of the device assurance polic
         /// </summary>
         [Input("lastUpdatedBy")]
         public Input<string>? LastUpdatedBy { get; set; }
 
         /// <summary>
-        /// Policy device assurance name
+        /// Name of the device assurance policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The device os minimum version
+        /// Minimum os version of the device in the device assurance policy.
         /// </summary>
         [Input("osVersion")]
         public Input<string>? OsVersion { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _screenlockTypes;
 
         /// <summary>
-        /// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+        /// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         /// </summary>
         public InputList<string> ScreenlockTypes
         {

@@ -29,6 +29,7 @@ class EventHookArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] auth: Authentication required for event hook request.
         :param pulumi.Input[Sequence[pulumi.Input['EventHookHeaderArgs']]] headers: Map of headers to send along in event hook request.
         :param pulumi.Input[str] name: The event hook display name.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "events", events)
@@ -104,6 +105,9 @@ class EventHookArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default to `ACTIVE`
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -127,6 +131,7 @@ class _EventHookState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
         :param pulumi.Input[Sequence[pulumi.Input['EventHookHeaderArgs']]] headers: Map of headers to send along in event hook request.
         :param pulumi.Input[str] name: The event hook display name.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         """
         if auth is not None:
             pulumi.set(__self__, "auth", auth)
@@ -204,6 +209,9 @@ class _EventHookState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default to `ACTIVE`
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -268,6 +276,7 @@ class EventHook(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]] headers: Map of headers to send along in event hook request.
         :param pulumi.Input[str] name: The event hook display name.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         """
         ...
     @overload
@@ -381,6 +390,7 @@ class EventHook(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventHookHeaderArgs']]]] headers: Map of headers to send along in event hook request.
         :param pulumi.Input[str] name: The event hook display name.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -437,5 +447,8 @@ class EventHook(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Default to `ACTIVE`
+        """
         return pulumi.get(self, "status")
 

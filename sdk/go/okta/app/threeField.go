@@ -36,7 +36,7 @@ type ThreeField struct {
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
@@ -149,7 +149,7 @@ type threeFieldState struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -212,7 +212,7 @@ type ThreeFieldState struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -279,7 +279,7 @@ type threeFieldArgs struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Display auto submit toolbar.
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -337,7 +337,7 @@ type ThreeFieldArgs struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
-	// Displays specific appLinks for the app
+	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
 	// Display auto submit toolbar.
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -492,7 +492,7 @@ func (o ThreeFieldOutput) AdminNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThreeField) pulumi.StringPtrOutput { return v.AdminNote }).(pulumi.StringPtrOutput)
 }
 
-// Displays specific appLinks for the app
+// Displays specific appLinks for the app. The value for each application link should be boolean.
 func (o ThreeFieldOutput) AppLinksJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThreeField) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
 }

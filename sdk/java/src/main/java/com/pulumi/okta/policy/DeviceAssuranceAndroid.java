@@ -47,28 +47,28 @@ public class DeviceAssuranceAndroid extends com.pulumi.resources.CustomResource 
         return this.createdDate;
     }
     /**
-     * List of disk encryption type, can be FULL, USER
+     * List of disk encryption type, can be `FULL`, `USER`
      * 
      */
     @Export(name="diskEncryptionTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> diskEncryptionTypes;
 
     /**
-     * @return List of disk encryption type, can be FULL, USER
+     * @return List of disk encryption type, can be `FULL`, `USER`
      * 
      */
     public Output<Optional<List<String>>> diskEncryptionTypes() {
         return Codegen.optional(this.diskEncryptionTypes);
     }
     /**
-     * The device jailbreak. Only for android and iOS platform
+     * Is the device jailbroken in the device assurance policy.
      * 
      */
     @Export(name="jailbreak", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> jailbreak;
 
     /**
-     * @return The device jailbreak. Only for android and iOS platform
+     * @return Is the device jailbroken in the device assurance policy.
      * 
      */
     public Output<Optional<Boolean>> jailbreak() {
@@ -117,14 +117,14 @@ public class DeviceAssuranceAndroid extends com.pulumi.resources.CustomResource 
         return this.name;
     }
     /**
-     * The device os minimum version
+     * Minimum os version of the device in the device assurance policy.
      * 
      */
     @Export(name="osVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> osVersion;
 
     /**
-     * @return The device os minimum version
+     * @return Minimum os version of the device in the device assurance policy.
      * 
      */
     public Output<Optional<String>> osVersion() {
@@ -145,28 +145,28 @@ public class DeviceAssuranceAndroid extends com.pulumi.resources.CustomResource 
         return this.platform;
     }
     /**
-     * List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      * 
      */
     @Export(name="screenlockTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> screenlockTypes;
 
     /**
-     * @return List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * @return List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      * 
      */
     public Output<Optional<List<String>>> screenlockTypes() {
         return Codegen.optional(this.screenlockTypes);
     }
     /**
-     * Indicates if the device constains a secure hardware functionality
+     * Indicates if the device contains a secure hardware functionality
      * 
      */
     @Export(name="secureHardwarePresent", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> secureHardwarePresent;
 
     /**
-     * @return Indicates if the device constains a secure hardware functionality
+     * @return Indicates if the device contains a secure hardware functionality
      * 
      */
     public Output<Optional<Boolean>> secureHardwarePresent() {

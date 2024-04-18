@@ -42,7 +42,7 @@ export interface GetRoleSubscriptionArgs {
     notificationType: string;
     /**
      * Type of the role. Valid values:
-     * `"API_ADMIN"`,
+     * `"API_ACCESS_MANAGEMENT_ADMIN"`,
      * `"APP_ADMIN"`,
      * `"CUSTOM"`,
      * `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -106,7 +106,7 @@ export interface GetRoleSubscriptionOutputArgs {
     notificationType: pulumi.Input<string>;
     /**
      * Type of the role. Valid values:
-     * `"API_ADMIN"`,
+     * `"API_ACCESS_MANAGEMENT_ADMIN"`,
      * `"APP_ADMIN"`,
      * `"CUSTOM"`,
      * `"GROUP_MEMBERSHIP_ADMIN"`,

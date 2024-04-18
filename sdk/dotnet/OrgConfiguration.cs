@@ -95,7 +95,8 @@ namespace Pulumi.Okta
         public Output<string> ExpiresAt { get; private set; } = null!;
 
         /// <summary>
-        /// Local path to logo of the org.
+        /// Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+        /// orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         /// </summary>
         [Output("logo")]
         public Output<string?> Logo { get; private set; } = null!;
@@ -237,7 +238,8 @@ namespace Pulumi.Okta
         public Input<string>? EndUserSupportHelpUrl { get; set; }
 
         /// <summary>
-        /// Local path to logo of the org.
+        /// Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+        /// orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
@@ -341,7 +343,8 @@ namespace Pulumi.Okta
         public Input<string>? ExpiresAt { get; set; }
 
         /// <summary>
-        /// Local path to logo of the org.
+        /// Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+        /// orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }

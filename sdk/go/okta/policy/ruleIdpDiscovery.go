@@ -132,7 +132,10 @@ type RuleIdpDiscovery struct {
 	// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to exclude.
 	NetworkExcludes pulumi.StringArrayOutput `pulumi:"networkExcludes"`
 	// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
-	NetworkIncludes  pulumi.StringArrayOutput                   `pulumi:"networkIncludes"`
+	NetworkIncludes pulumi.StringArrayOutput `pulumi:"networkIncludes"`
+	// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+	// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+	// 'ANDROID', 'OTHER', 'OSX'
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayOutput `pulumi:"platformIncludes"`
 	// Policy ID.
 	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
@@ -209,7 +212,10 @@ type ruleIdpDiscoveryState struct {
 	// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to exclude.
 	NetworkExcludes []string `pulumi:"networkExcludes"`
 	// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
-	NetworkIncludes  []string                          `pulumi:"networkIncludes"`
+	NetworkIncludes []string `pulumi:"networkIncludes"`
+	// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+	// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+	// 'ANDROID', 'OTHER', 'OSX'
 	PlatformIncludes []RuleIdpDiscoveryPlatformInclude `pulumi:"platformIncludes"`
 	// Policy ID.
 	PolicyId *string `pulumi:"policyId"`
@@ -257,7 +263,10 @@ type RuleIdpDiscoveryState struct {
 	// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to exclude.
 	NetworkExcludes pulumi.StringArrayInput
 	// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
-	NetworkIncludes  pulumi.StringArrayInput
+	NetworkIncludes pulumi.StringArrayInput
+	// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+	// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+	// 'ANDROID', 'OTHER', 'OSX'
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayInput
 	// Policy ID.
 	PolicyId pulumi.StringPtrInput
@@ -309,7 +318,10 @@ type ruleIdpDiscoveryArgs struct {
 	// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to exclude.
 	NetworkExcludes []string `pulumi:"networkExcludes"`
 	// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
-	NetworkIncludes  []string                          `pulumi:"networkIncludes"`
+	NetworkIncludes []string `pulumi:"networkIncludes"`
+	// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+	// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+	// 'ANDROID', 'OTHER', 'OSX'
 	PlatformIncludes []RuleIdpDiscoveryPlatformInclude `pulumi:"platformIncludes"`
 	// Policy ID.
 	PolicyId *string `pulumi:"policyId"`
@@ -358,7 +370,10 @@ type RuleIdpDiscoveryArgs struct {
 	// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to exclude.
 	NetworkExcludes pulumi.StringArrayInput
 	// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
-	NetworkIncludes  pulumi.StringArrayInput
+	NetworkIncludes pulumi.StringArrayInput
+	// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+	// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+	// 'ANDROID', 'OTHER', 'OSX'
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayInput
 	// Policy ID.
 	PolicyId pulumi.StringPtrInput
@@ -520,6 +535,9 @@ func (o RuleIdpDiscoveryOutput) NetworkIncludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringArrayOutput { return v.NetworkIncludes }).(pulumi.StringArrayOutput)
 }
 
+// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+// 'ANDROID', 'OTHER', 'OSX'
 func (o RuleIdpDiscoveryOutput) PlatformIncludes() RuleIdpDiscoveryPlatformIncludeArrayOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscoveryPlatformIncludeArrayOutput { return v.PlatformIncludes }).(RuleIdpDiscoveryPlatformIncludeArrayOutput)
 }

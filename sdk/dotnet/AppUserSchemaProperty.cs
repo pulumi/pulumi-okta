@@ -162,13 +162,13 @@ namespace Pulumi.Okta
         public Output<bool?> Union { get; private set; } = null!;
 
         /// <summary>
-        /// Subschema unique restriction
+        /// Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         /// </summary>
         [Output("unique")]
         public Output<string?> Unique { get; private set; } = null!;
 
         /// <summary>
-        /// Custom subschema user type
+        /// User type ID. By default, it is `default`
         /// </summary>
         [Output("userType")]
         public Output<string?> UserType { get; private set; } = null!;
@@ -358,13 +358,13 @@ namespace Pulumi.Okta
         public Input<bool>? Union { get; set; }
 
         /// <summary>
-        /// Subschema unique restriction
+        /// Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         /// </summary>
         [Input("unique")]
         public Input<string>? Unique { get; set; }
 
         /// <summary>
-        /// Custom subschema user type
+        /// User type ID. By default, it is `default`
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }
@@ -516,13 +516,13 @@ namespace Pulumi.Okta
         public Input<bool>? Union { get; set; }
 
         /// <summary>
-        /// Subschema unique restriction
+        /// Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         /// </summary>
         [Input("unique")]
         public Input<string>? Unique { get; set; }
 
         /// <summary>
-        /// Custom subschema user type
+        /// User type ID. By default, it is `default`
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }

@@ -76,7 +76,8 @@ type EventHook struct {
 	// Map of headers to send along in event hook request.
 	Headers EventHookHeaderArrayOutput `pulumi:"headers"`
 	// The event hook display name.
-	Name   pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Default to `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
@@ -125,7 +126,8 @@ type eventHookState struct {
 	// Map of headers to send along in event hook request.
 	Headers []EventHookHeader `pulumi:"headers"`
 	// The event hook display name.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Default to `ACTIVE`
 	Status *string `pulumi:"status"`
 }
 
@@ -139,7 +141,8 @@ type EventHookState struct {
 	// Map of headers to send along in event hook request.
 	Headers EventHookHeaderArrayInput
 	// The event hook display name.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Default to `ACTIVE`
 	Status pulumi.StringPtrInput
 }
 
@@ -157,7 +160,8 @@ type eventHookArgs struct {
 	// Map of headers to send along in event hook request.
 	Headers []EventHookHeader `pulumi:"headers"`
 	// The event hook display name.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Default to `ACTIVE`
 	Status *string `pulumi:"status"`
 }
 
@@ -172,7 +176,8 @@ type EventHookArgs struct {
 	// Map of headers to send along in event hook request.
 	Headers EventHookHeaderArrayInput
 	// The event hook display name.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Default to `ACTIVE`
 	Status pulumi.StringPtrInput
 }
 
@@ -288,6 +293,7 @@ func (o EventHookOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Default to `ACTIVE`
 func (o EventHookOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventHook) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }

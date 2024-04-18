@@ -18,14 +18,14 @@ public final class DeviceAssuranceIosArgs extends com.pulumi.resources.ResourceA
     public static final DeviceAssuranceIosArgs Empty = new DeviceAssuranceIosArgs();
 
     /**
-     * The device jailbreak. Only for android and iOS platform
+     * Is the device jailbroken in the device assurance policy.
      * 
      */
     @Import(name="jailbreak")
     private @Nullable Output<Boolean> jailbreak;
 
     /**
-     * @return The device jailbreak. Only for android and iOS platform
+     * @return Is the device jailbroken in the device assurance policy.
      * 
      */
     public Optional<Output<Boolean>> jailbreak() {
@@ -33,14 +33,14 @@ public final class DeviceAssuranceIosArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Policy device assurance name
+     * Name of the device assurance policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Policy device assurance name
+     * @return Name of the device assurance policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -48,14 +48,14 @@ public final class DeviceAssuranceIosArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The device os minimum version
+     * Minimum os version of the device in the device assurance policy.
      * 
      */
     @Import(name="osVersion")
     private @Nullable Output<String> osVersion;
 
     /**
-     * @return The device os minimum version
+     * @return Minimum os version of the device in the device assurance policy.
      * 
      */
     public Optional<Output<String>> osVersion() {
@@ -63,14 +63,14 @@ public final class DeviceAssuranceIosArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      * 
      */
     @Import(name="screenlockTypes")
     private @Nullable Output<List<String>> screenlockTypes;
 
     /**
-     * @return List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * @return List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      * 
      */
     public Optional<Output<List<String>>> screenlockTypes() {
@@ -105,7 +105,7 @@ public final class DeviceAssuranceIosArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param jailbreak The device jailbreak. Only for android and iOS platform
+         * @param jailbreak Is the device jailbroken in the device assurance policy.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class DeviceAssuranceIosArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param jailbreak The device jailbreak. Only for android and iOS platform
+         * @param jailbreak Is the device jailbroken in the device assurance policy.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class DeviceAssuranceIosArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Policy device assurance name
+         * @param name Name of the device assurance policy.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class DeviceAssuranceIosArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Policy device assurance name
+         * @param name Name of the device assurance policy.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class DeviceAssuranceIosArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param osVersion The device os minimum version
+         * @param osVersion Minimum os version of the device in the device assurance policy.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class DeviceAssuranceIosArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param osVersion The device os minimum version
+         * @param osVersion Minimum os version of the device in the device assurance policy.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class DeviceAssuranceIosArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param screenlockTypes List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+         * @param screenlockTypes List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class DeviceAssuranceIosArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param screenlockTypes List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+         * @param screenlockTypes List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class DeviceAssuranceIosArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param screenlockTypes List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+         * @param screenlockTypes List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
          * 
          * @return builder
          * 

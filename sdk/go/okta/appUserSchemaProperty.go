@@ -94,9 +94,9 @@ type AppUserSchemaProperty struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 	Union pulumi.BoolPtrOutput `pulumi:"union"`
-	// Subschema unique restriction
+	// Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
 	Unique pulumi.StringPtrOutput `pulumi:"unique"`
-	// Custom subschema user type
+	// User type ID. By default, it is `default`
 	UserType pulumi.StringPtrOutput `pulumi:"userType"`
 }
 
@@ -180,9 +180,9 @@ type appUserSchemaPropertyState struct {
 	Type *string `pulumi:"type"`
 	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 	Union *bool `pulumi:"union"`
-	// Subschema unique restriction
+	// Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
 	Unique *string `pulumi:"unique"`
-	// Custom subschema user type
+	// User type ID. By default, it is `default`
 	UserType *string `pulumi:"userType"`
 }
 
@@ -225,9 +225,9 @@ type AppUserSchemaPropertyState struct {
 	Type pulumi.StringPtrInput
 	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 	Union pulumi.BoolPtrInput
-	// Subschema unique restriction
+	// Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
 	Unique pulumi.StringPtrInput
-	// Custom subschema user type
+	// User type ID. By default, it is `default`
 	UserType pulumi.StringPtrInput
 }
 
@@ -274,9 +274,9 @@ type appUserSchemaPropertyArgs struct {
 	Type string `pulumi:"type"`
 	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 	Union *bool `pulumi:"union"`
-	// Subschema unique restriction
+	// Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
 	Unique *string `pulumi:"unique"`
-	// Custom subschema user type
+	// User type ID. By default, it is `default`
 	UserType *string `pulumi:"userType"`
 }
 
@@ -320,9 +320,9 @@ type AppUserSchemaPropertyArgs struct {
 	Type pulumi.StringInput
 	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
 	Union pulumi.BoolPtrInput
-	// Subschema unique restriction
+	// Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
 	Unique pulumi.StringPtrInput
-	// Custom subschema user type
+	// User type ID. By default, it is `default`
 	UserType pulumi.StringPtrInput
 }
 
@@ -508,12 +508,12 @@ func (o AppUserSchemaPropertyOutput) Union() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.BoolPtrOutput { return v.Union }).(pulumi.BoolPtrOutput)
 }
 
-// Subschema unique restriction
+// Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
 func (o AppUserSchemaPropertyOutput) Unique() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.Unique }).(pulumi.StringPtrOutput)
 }
 
-// Custom subschema user type
+// User type ID. By default, it is `default`
 func (o AppUserSchemaPropertyOutput) UserType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.UserType }).(pulumi.StringPtrOutput)
 }

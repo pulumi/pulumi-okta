@@ -277,9 +277,21 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> networkIncludes() {
         return Codegen.optional(this.networkIncludes);
     }
+    /**
+     * Platform to include in discovery rule. - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39; - &#39;os_expression -
+     * (Optional) Only available when using os_type = &#39;OTHER&#39; - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;,
+     * &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
+     * 
+     */
     @Export(name="platformIncludes", refs={List.class,RuleIdpDiscoveryPlatformInclude.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleIdpDiscoveryPlatformInclude>> platformIncludes;
 
+    /**
+     * @return Platform to include in discovery rule. - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39; - &#39;os_expression -
+     * (Optional) Only available when using os_type = &#39;OTHER&#39; - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;,
+     * &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
+     * 
+     */
     public Output<Optional<List<RuleIdpDiscoveryPlatformInclude>>> platformIncludes() {
         return Codegen.optional(this.platformIncludes);
     }

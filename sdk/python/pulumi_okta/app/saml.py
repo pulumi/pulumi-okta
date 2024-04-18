@@ -97,7 +97,7 @@ class SamlArgs:
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed.
         :param pulumi.Input[bool] saml_signed_request_enabled: SAML Signed Request enabled
         :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
-        :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
+        :param pulumi.Input[str] signature_algorithm: Signature algorithm used to digitally sign the assertion and response.
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
@@ -603,7 +603,7 @@ class SamlArgs:
     @pulumi.getter(name="signatureAlgorithm")
     def signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        Signature algorithm used ot digitally sign the assertion and response.
+        Signature algorithm used to digitally sign the assertion and response.
         """
         return pulumi.get(self, "signature_algorithm")
 
@@ -868,7 +868,7 @@ class _SamlState:
         :param pulumi.Input[bool] saml_signed_request_enabled: SAML Signed Request enabled
         :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
-        :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
+        :param pulumi.Input[str] signature_algorithm: Signature algorithm used to digitally sign the assertion and response.
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
@@ -1571,7 +1571,7 @@ class _SamlState:
     @pulumi.getter(name="signatureAlgorithm")
     def signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        Signature algorithm used ot digitally sign the assertion and response.
+        Signature algorithm used to digitally sign the assertion and response.
         """
         return pulumi.get(self, "signature_algorithm")
 
@@ -1977,7 +1977,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[bool] response_signed: Determines whether the SAML auth response message is digitally signed.
         :param pulumi.Input[bool] saml_signed_request_enabled: SAML Signed Request enabled
         :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
-        :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
+        :param pulumi.Input[str] signature_algorithm: Signature algorithm used to digitally sign the assertion and response.
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
@@ -2419,7 +2419,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[bool] saml_signed_request_enabled: SAML Signed Request enabled
         :param pulumi.Input[str] saml_version: SAML version for the app's sign-on mode. Valid values are: `"2.0"` or `"1.1"`. Default is `"2.0"`.
         :param pulumi.Input[str] sign_on_mode: Sign-on mode of application.
-        :param pulumi.Input[str] signature_algorithm: Signature algorithm used ot digitally sign the assertion and response.
+        :param pulumi.Input[str] signature_algorithm: Signature algorithm used to digitally sign the assertion and response.
         :param pulumi.Input[str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests.  Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request.
         :param pulumi.Input[str] single_logout_url: The location where the logout response is sent.
@@ -2879,7 +2879,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="signatureAlgorithm")
     def signature_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
-        Signature algorithm used ot digitally sign the assertion and response.
+        Signature algorithm used to digitally sign the assertion and response.
         """
         return pulumi.get(self, "signature_algorithm")
 

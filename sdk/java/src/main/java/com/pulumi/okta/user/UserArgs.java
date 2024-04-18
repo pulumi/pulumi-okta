@@ -80,14 +80,16 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+     * List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
+     * situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
      * 
      */
     @Import(name="customProfileAttributesToIgnores")
     private @Nullable Output<List<String>> customProfileAttributesToIgnores;
 
     /**
-     * @return List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+     * @return List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
+     * situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
      * 
      */
     public Optional<Output<List<String>>> customProfileAttributesToIgnores() {
@@ -825,7 +827,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customProfileAttributesToIgnores List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+         * @param customProfileAttributesToIgnores List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
+         * situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
          * 
          * @return builder
          * 
@@ -836,7 +839,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customProfileAttributesToIgnores List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+         * @param customProfileAttributesToIgnores List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
+         * situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
          * 
          * @return builder
          * 
@@ -846,7 +850,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customProfileAttributesToIgnores List of custom_profile_attribute keys that should be excluded from being managed by Terraform.
+         * @param customProfileAttributesToIgnores List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
+         * situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
          * 
          * @return builder
          * 

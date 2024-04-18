@@ -282,7 +282,7 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly bool SamlSignedRequestEnabled;
         /// <summary>
-        /// Signature algorithm used ot digitally sign the assertion and response.
+        /// Signature algorithm used to digitally sign the assertion and response.
         /// </summary>
         public readonly string SignatureAlgorithm;
         /// <summary>

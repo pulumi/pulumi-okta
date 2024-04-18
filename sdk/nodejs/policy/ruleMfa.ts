@@ -46,7 +46,10 @@ export class RuleMfa extends pulumi.CustomResource {
     }
 
     /**
-     * Applications to exclude
+     * Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+     * - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+     * is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+     * of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
     public readonly appExcludes!: pulumi.Output<outputs.policy.RuleMfaAppExclude[] | undefined>;
     /**
@@ -138,7 +141,10 @@ export class RuleMfa extends pulumi.CustomResource {
  */
 export interface RuleMfaState {
     /**
-     * Applications to exclude
+     * Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+     * - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+     * is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+     * of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
     appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppExclude>[]>;
     /**
@@ -188,7 +194,10 @@ export interface RuleMfaState {
  */
 export interface RuleMfaArgs {
     /**
-     * Applications to exclude
+     * Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+     * - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+     * is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+     * of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
     appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppExclude>[]>;
     /**

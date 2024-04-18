@@ -72,7 +72,7 @@ type RoleSubscription struct {
 	// - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
 	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
 	// Type of the role. Valid values:
-	// `"API_ADMIN"`,
+	// `"API_ACCESS_MANAGEMENT_ADMIN"`,
 	// `"APP_ADMIN"`,
 	// `"CUSTOM"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -141,7 +141,7 @@ type roleSubscriptionState struct {
 	// - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
 	NotificationType *string `pulumi:"notificationType"`
 	// Type of the role. Valid values:
-	// `"API_ADMIN"`,
+	// `"API_ACCESS_MANAGEMENT_ADMIN"`,
 	// `"APP_ADMIN"`,
 	// `"CUSTOM"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -175,7 +175,7 @@ type RoleSubscriptionState struct {
 	// - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
 	NotificationType pulumi.StringPtrInput
 	// Type of the role. Valid values:
-	// `"API_ADMIN"`,
+	// `"API_ACCESS_MANAGEMENT_ADMIN"`,
 	// `"APP_ADMIN"`,
 	// `"CUSTOM"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -213,7 +213,7 @@ type roleSubscriptionArgs struct {
 	// - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
 	NotificationType string `pulumi:"notificationType"`
 	// Type of the role. Valid values:
-	// `"API_ADMIN"`,
+	// `"API_ACCESS_MANAGEMENT_ADMIN"`,
 	// `"APP_ADMIN"`,
 	// `"CUSTOM"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -248,7 +248,7 @@ type RoleSubscriptionArgs struct {
 	// - `"AGENT_AUTO_UPDATE_NOTIFICATION"` - Agent auto-update notifications: AD Agent.
 	NotificationType pulumi.StringInput
 	// Type of the role. Valid values:
-	// `"API_ADMIN"`,
+	// `"API_ACCESS_MANAGEMENT_ADMIN"`,
 	// `"APP_ADMIN"`,
 	// `"CUSTOM"`,
 	// `"GROUP_MEMBERSHIP_ADMIN"`,
@@ -371,7 +371,7 @@ func (o RoleSubscriptionOutput) NotificationType() pulumi.StringOutput {
 }
 
 // Type of the role. Valid values:
-// `"API_ADMIN"`,
+// `"API_ACCESS_MANAGEMENT_ADMIN"`,
 // `"APP_ADMIN"`,
 // `"CUSTOM"`,
 // `"GROUP_MEMBERSHIP_ADMIN"`,

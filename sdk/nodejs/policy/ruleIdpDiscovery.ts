@@ -139,6 +139,11 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
      * Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
      */
     public readonly networkIncludes!: pulumi.Output<string[] | undefined>;
+    /**
+     * Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+     * (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+     * 'ANDROID', 'OTHER', 'OSX'
+     */
     public readonly platformIncludes!: pulumi.Output<outputs.policy.RuleIdpDiscoveryPlatformInclude[] | undefined>;
     /**
      * Policy ID.
@@ -258,6 +263,11 @@ export interface RuleIdpDiscoveryState {
      * Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+     * (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+     * 'ANDROID', 'OTHER', 'OSX'
+     */
     platformIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryPlatformInclude>[]>;
     /**
      * Policy ID.
@@ -327,6 +337,11 @@ export interface RuleIdpDiscoveryArgs {
      * Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
+     * (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+     * 'ANDROID', 'OTHER', 'OSX'
+     */
     platformIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryPlatformInclude>[]>;
     /**
      * Policy ID.

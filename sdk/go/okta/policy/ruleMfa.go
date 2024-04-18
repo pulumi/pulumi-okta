@@ -23,7 +23,10 @@ import (
 type RuleMfa struct {
 	pulumi.CustomResourceState
 
-	// Applications to exclude
+	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+	// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+	//   is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+	//   of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppExcludes RuleMfaAppExcludeArrayOutput `pulumi:"appExcludes"`
 	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
 	AppIncludes RuleMfaAppIncludeArrayOutput `pulumi:"appIncludes"`
@@ -77,7 +80,10 @@ func GetRuleMfa(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleMfa resources.
 type ruleMfaState struct {
-	// Applications to exclude
+	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+	// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+	//   is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+	//   of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppExcludes []RuleMfaAppExclude `pulumi:"appExcludes"`
 	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
 	AppIncludes []RuleMfaAppInclude `pulumi:"appIncludes"`
@@ -102,7 +108,10 @@ type ruleMfaState struct {
 }
 
 type RuleMfaState struct {
-	// Applications to exclude
+	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+	// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+	//   is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+	//   of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppExcludes RuleMfaAppExcludeArrayInput
 	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
 	AppIncludes RuleMfaAppIncludeArrayInput
@@ -131,7 +140,10 @@ func (RuleMfaState) ElementType() reflect.Type {
 }
 
 type ruleMfaArgs struct {
-	// Applications to exclude
+	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+	// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+	//   is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+	//   of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppExcludes []RuleMfaAppExclude `pulumi:"appExcludes"`
 	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
 	AppIncludes []RuleMfaAppInclude `pulumi:"appIncludes"`
@@ -157,7 +169,10 @@ type ruleMfaArgs struct {
 
 // The set of arguments for constructing a RuleMfa resource.
 type RuleMfaArgs struct {
-	// Applications to exclude
+	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+	// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+	//   is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+	//   of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppExcludes RuleMfaAppExcludeArrayInput
 	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
 	AppIncludes RuleMfaAppIncludeArrayInput
@@ -268,7 +283,10 @@ func (o RuleMfaOutput) ToRuleMfaOutputWithContext(ctx context.Context) RuleMfaOu
 	return o
 }
 
-// Applications to exclude
+// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+//   - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+//     is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+//     of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
 func (o RuleMfaOutput) AppExcludes() RuleMfaAppExcludeArrayOutput {
 	return o.ApplyT(func(v *RuleMfa) RuleMfaAppExcludeArrayOutput { return v.AppExcludes }).(RuleMfaAppExcludeArrayOutput)
 }

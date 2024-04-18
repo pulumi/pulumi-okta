@@ -942,14 +942,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return this.signOnMode;
     }
     /**
-     * Signature algorithm used ot digitally sign the assertion and response.
+     * Signature algorithm used to digitally sign the assertion and response.
      * 
      */
     @Export(name="signatureAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signatureAlgorithm;
 
     /**
-     * @return Signature algorithm used ot digitally sign the assertion and response.
+     * @return Signature algorithm used to digitally sign the assertion and response.
      * 
      */
     public Output<Optional<String>> signatureAlgorithm() {

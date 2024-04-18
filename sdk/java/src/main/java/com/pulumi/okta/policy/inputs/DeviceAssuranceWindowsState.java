@@ -48,14 +48,14 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+     * List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
      * 
      */
     @Import(name="diskEncryptionTypes")
     private @Nullable Output<List<String>> diskEncryptionTypes;
 
     /**
-     * @return List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+     * @return List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
      * 
      */
     public Optional<Output<List<String>>> diskEncryptionTypes() {
@@ -93,14 +93,14 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Policy device assurance name
+     * Name of the device assurance policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Policy device assurance name
+     * @return Name of the device assurance policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -108,14 +108,14 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The device os minimum version
+     * Minimum os version of the device in the device assurance policy.
      * 
      */
     @Import(name="osVersion")
     private @Nullable Output<String> osVersion;
 
     /**
-     * @return The device os minimum version
+     * @return Minimum os version of the device in the device assurance policy.
      * 
      */
     public Optional<Output<String>> osVersion() {
@@ -138,14 +138,14 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      * 
      */
     @Import(name="screenlockTypes")
     private @Nullable Output<List<String>> screenlockTypes;
 
     /**
-     * @return List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * @return List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      * 
      */
     public Optional<Output<List<String>>> screenlockTypes() {
@@ -153,14 +153,14 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Indicates if the device constains a secure hardware functionality
+     * Is the device secure with hardware in the device assurance policy.
      * 
      */
     @Import(name="secureHardwarePresent")
     private @Nullable Output<Boolean> secureHardwarePresent;
 
     /**
-     * @return Indicates if the device constains a secure hardware functionality
+     * @return Is the device secure with hardware in the device assurance policy.
      * 
      */
     public Optional<Output<Boolean>> secureHardwarePresent() {
@@ -563,7 +563,7 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param diskEncryptionTypes List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+         * @param diskEncryptionTypes List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
          * 
          * @return builder
          * 
@@ -574,7 +574,7 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param diskEncryptionTypes List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+         * @param diskEncryptionTypes List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
          * 
          * @return builder
          * 
@@ -584,7 +584,7 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param diskEncryptionTypes List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+         * @param diskEncryptionTypes List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Policy device assurance name
+         * @param name Name of the device assurance policy.
          * 
          * @return builder
          * 
@@ -647,7 +647,7 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Policy device assurance name
+         * @param name Name of the device assurance policy.
          * 
          * @return builder
          * 
@@ -657,7 +657,7 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param osVersion The device os minimum version
+         * @param osVersion Minimum os version of the device in the device assurance policy.
          * 
          * @return builder
          * 
@@ -668,7 +668,7 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param osVersion The device os minimum version
+         * @param osVersion Minimum os version of the device in the device assurance policy.
          * 
          * @return builder
          * 
@@ -699,7 +699,7 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param screenlockTypes List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+         * @param screenlockTypes List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
          * 
          * @return builder
          * 
@@ -710,7 +710,7 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param screenlockTypes List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+         * @param screenlockTypes List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
          * 
          * @return builder
          * 
@@ -720,7 +720,7 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param screenlockTypes List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+         * @param screenlockTypes List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
          * 
          * @return builder
          * 
@@ -730,7 +730,7 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param secureHardwarePresent Indicates if the device constains a secure hardware functionality
+         * @param secureHardwarePresent Is the device secure with hardware in the device assurance policy.
          * 
          * @return builder
          * 
@@ -741,7 +741,7 @@ public final class DeviceAssuranceWindowsState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param secureHardwarePresent Indicates if the device constains a secure hardware functionality
+         * @param secureHardwarePresent Is the device secure with hardware in the device assurance policy.
          * 
          * @return builder
          * 

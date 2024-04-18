@@ -18,21 +18,21 @@ type DeviceAssuranceMacos struct {
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
 	// Created date
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+	// List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
 	DiskEncryptionTypes pulumi.StringArrayOutput `pulumi:"diskEncryptionTypes"`
 	// Last update
 	LastUpdate pulumi.StringOutput `pulumi:"lastUpdate"`
 	// Last updated by
 	LastUpdatedBy pulumi.StringOutput `pulumi:"lastUpdatedBy"`
-	// Policy device assurance name
+	// Name of the device assurance policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The device os minimum version
+	// Minimum os version of the device in the device assurance policy.
 	OsVersion pulumi.StringPtrOutput `pulumi:"osVersion"`
 	// Policy device assurance platform
 	Platform pulumi.StringOutput `pulumi:"platform"`
-	// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+	// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 	ScreenlockTypes pulumi.StringArrayOutput `pulumi:"screenlockTypes"`
-	// Indicates if the device constains a secure hardware functionality
+	// Is the device secure with hardware in the device assurance policy.
 	SecureHardwarePresent pulumi.BoolPtrOutput `pulumi:"secureHardwarePresent"`
 	// Check to include third party signal provider
 	ThirdPartySignalProviders pulumi.BoolPtrOutput `pulumi:"thirdPartySignalProviders"`
@@ -98,21 +98,21 @@ type deviceAssuranceMacosState struct {
 	CreatedBy *string `pulumi:"createdBy"`
 	// Created date
 	CreatedDate *string `pulumi:"createdDate"`
-	// List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+	// List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
 	DiskEncryptionTypes []string `pulumi:"diskEncryptionTypes"`
 	// Last update
 	LastUpdate *string `pulumi:"lastUpdate"`
 	// Last updated by
 	LastUpdatedBy *string `pulumi:"lastUpdatedBy"`
-	// Policy device assurance name
+	// Name of the device assurance policy.
 	Name *string `pulumi:"name"`
-	// The device os minimum version
+	// Minimum os version of the device in the device assurance policy.
 	OsVersion *string `pulumi:"osVersion"`
 	// Policy device assurance platform
 	Platform *string `pulumi:"platform"`
-	// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+	// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 	ScreenlockTypes []string `pulumi:"screenlockTypes"`
-	// Indicates if the device constains a secure hardware functionality
+	// Is the device secure with hardware in the device assurance policy.
 	SecureHardwarePresent *bool `pulumi:"secureHardwarePresent"`
 	// Check to include third party signal provider
 	ThirdPartySignalProviders *bool `pulumi:"thirdPartySignalProviders"`
@@ -149,21 +149,21 @@ type DeviceAssuranceMacosState struct {
 	CreatedBy pulumi.StringPtrInput
 	// Created date
 	CreatedDate pulumi.StringPtrInput
-	// List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+	// List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
 	DiskEncryptionTypes pulumi.StringArrayInput
 	// Last update
 	LastUpdate pulumi.StringPtrInput
 	// Last updated by
 	LastUpdatedBy pulumi.StringPtrInput
-	// Policy device assurance name
+	// Name of the device assurance policy.
 	Name pulumi.StringPtrInput
-	// The device os minimum version
+	// Minimum os version of the device in the device assurance policy.
 	OsVersion pulumi.StringPtrInput
 	// Policy device assurance platform
 	Platform pulumi.StringPtrInput
-	// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+	// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 	ScreenlockTypes pulumi.StringArrayInput
-	// Indicates if the device constains a secure hardware functionality
+	// Is the device secure with hardware in the device assurance policy.
 	SecureHardwarePresent pulumi.BoolPtrInput
 	// Check to include third party signal provider
 	ThirdPartySignalProviders pulumi.BoolPtrInput
@@ -200,15 +200,15 @@ func (DeviceAssuranceMacosState) ElementType() reflect.Type {
 }
 
 type deviceAssuranceMacosArgs struct {
-	// List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+	// List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
 	DiskEncryptionTypes []string `pulumi:"diskEncryptionTypes"`
-	// Policy device assurance name
+	// Name of the device assurance policy.
 	Name *string `pulumi:"name"`
-	// The device os minimum version
+	// Minimum os version of the device in the device assurance policy.
 	OsVersion *string `pulumi:"osVersion"`
-	// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+	// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 	ScreenlockTypes []string `pulumi:"screenlockTypes"`
-	// Indicates if the device constains a secure hardware functionality
+	// Is the device secure with hardware in the device assurance policy.
 	SecureHardwarePresent *bool `pulumi:"secureHardwarePresent"`
 	// Check to include third party signal provider
 	ThirdPartySignalProviders *bool `pulumi:"thirdPartySignalProviders"`
@@ -242,15 +242,15 @@ type deviceAssuranceMacosArgs struct {
 
 // The set of arguments for constructing a DeviceAssuranceMacos resource.
 type DeviceAssuranceMacosArgs struct {
-	// List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+	// List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
 	DiskEncryptionTypes pulumi.StringArrayInput
-	// Policy device assurance name
+	// Name of the device assurance policy.
 	Name pulumi.StringPtrInput
-	// The device os minimum version
+	// Minimum os version of the device in the device assurance policy.
 	OsVersion pulumi.StringPtrInput
-	// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+	// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 	ScreenlockTypes pulumi.StringArrayInput
-	// Indicates if the device constains a secure hardware functionality
+	// Is the device secure with hardware in the device assurance policy.
 	SecureHardwarePresent pulumi.BoolPtrInput
 	// Check to include third party signal provider
 	ThirdPartySignalProviders pulumi.BoolPtrInput
@@ -379,7 +379,7 @@ func (o DeviceAssuranceMacosOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceAssuranceMacos) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+// List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
 func (o DeviceAssuranceMacosOutput) DiskEncryptionTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeviceAssuranceMacos) pulumi.StringArrayOutput { return v.DiskEncryptionTypes }).(pulumi.StringArrayOutput)
 }
@@ -394,12 +394,12 @@ func (o DeviceAssuranceMacosOutput) LastUpdatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceAssuranceMacos) pulumi.StringOutput { return v.LastUpdatedBy }).(pulumi.StringOutput)
 }
 
-// Policy device assurance name
+// Name of the device assurance policy.
 func (o DeviceAssuranceMacosOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceAssuranceMacos) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The device os minimum version
+// Minimum os version of the device in the device assurance policy.
 func (o DeviceAssuranceMacosOutput) OsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceAssuranceMacos) pulumi.StringPtrOutput { return v.OsVersion }).(pulumi.StringPtrOutput)
 }
@@ -409,12 +409,12 @@ func (o DeviceAssuranceMacosOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceAssuranceMacos) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
-// List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+// List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
 func (o DeviceAssuranceMacosOutput) ScreenlockTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeviceAssuranceMacos) pulumi.StringArrayOutput { return v.ScreenlockTypes }).(pulumi.StringArrayOutput)
 }
 
-// Indicates if the device constains a secure hardware functionality
+// Is the device secure with hardware in the device assurance policy.
 func (o DeviceAssuranceMacosOutput) SecureHardwarePresent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeviceAssuranceMacos) pulumi.BoolPtrOutput { return v.SecureHardwarePresent }).(pulumi.BoolPtrOutput)
 }

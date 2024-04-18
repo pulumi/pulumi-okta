@@ -19,98 +19,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:policy/deviceAssuranceIos:DeviceAssuranceIos")
 public class DeviceAssuranceIos extends com.pulumi.resources.CustomResource {
     /**
-     * Created by
+     * Created by of the device assurance polic
      * 
      */
     @Export(name="createdBy", refs={String.class}, tree="[0]")
     private Output<String> createdBy;
 
     /**
-     * @return Created by
+     * @return Created by of the device assurance polic
      * 
      */
     public Output<String> createdBy() {
         return this.createdBy;
     }
     /**
-     * Created date
+     * Created date of the device assurance polic
      * 
      */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
     /**
-     * @return Created date
+     * @return Created date of the device assurance polic
      * 
      */
     public Output<String> createdDate() {
         return this.createdDate;
     }
     /**
-     * The device jailbreak. Only for android and iOS platform
+     * Is the device jailbroken in the device assurance policy.
      * 
      */
     @Export(name="jailbreak", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> jailbreak;
 
     /**
-     * @return The device jailbreak. Only for android and iOS platform
+     * @return Is the device jailbroken in the device assurance policy.
      * 
      */
     public Output<Optional<Boolean>> jailbreak() {
         return Codegen.optional(this.jailbreak);
     }
     /**
-     * Last update
+     * Last update of the device assurance polic
      * 
      */
     @Export(name="lastUpdate", refs={String.class}, tree="[0]")
     private Output<String> lastUpdate;
 
     /**
-     * @return Last update
+     * @return Last update of the device assurance polic
      * 
      */
     public Output<String> lastUpdate() {
         return this.lastUpdate;
     }
     /**
-     * Last updated by
+     * Last updated by of the device assurance polic
      * 
      */
     @Export(name="lastUpdatedBy", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedBy;
 
     /**
-     * @return Last updated by
+     * @return Last updated by of the device assurance polic
      * 
      */
     public Output<String> lastUpdatedBy() {
         return this.lastUpdatedBy;
     }
     /**
-     * Policy device assurance name
+     * Name of the device assurance policy.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Policy device assurance name
+     * @return Name of the device assurance policy.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The device os minimum version
+     * Minimum os version of the device in the device assurance policy.
      * 
      */
     @Export(name="osVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> osVersion;
 
     /**
-     * @return The device os minimum version
+     * @return Minimum os version of the device in the device assurance policy.
      * 
      */
     public Output<Optional<String>> osVersion() {
@@ -131,14 +131,14 @@ public class DeviceAssuranceIos extends com.pulumi.resources.CustomResource {
         return this.platform;
     }
     /**
-     * List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      * 
      */
     @Export(name="screenlockTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> screenlockTypes;
 
     /**
-     * @return List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * @return List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      * 
      */
     public Output<Optional<List<String>>> screenlockTypes() {

@@ -139,11 +139,11 @@ export class AppUserSchemaProperty extends pulumi.CustomResource {
      */
     public readonly union!: pulumi.Output<boolean | undefined>;
     /**
-     * Subschema unique restriction
+     * Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
      */
     public readonly unique!: pulumi.Output<string | undefined>;
     /**
-     * Custom subschema user type
+     * User type ID. By default, it is `default`
      */
     public readonly userType!: pulumi.Output<string | undefined>;
 
@@ -303,11 +303,11 @@ export interface AppUserSchemaPropertyState {
      */
     union?: pulumi.Input<boolean>;
     /**
-     * Subschema unique restriction
+     * Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
      */
     unique?: pulumi.Input<string>;
     /**
-     * Custom subschema user type
+     * User type ID. By default, it is `default`
      */
     userType?: pulumi.Input<string>;
 }
@@ -393,11 +393,11 @@ export interface AppUserSchemaPropertyArgs {
      */
     union?: pulumi.Input<boolean>;
     /**
-     * Subschema unique restriction
+     * Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
      */
     unique?: pulumi.Input<string>;
     /**
-     * Custom subschema user type
+     * User type ID. By default, it is `default`
      */
     userType?: pulumi.Input<string>;
 }

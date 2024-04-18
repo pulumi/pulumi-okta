@@ -31,7 +31,7 @@ class DeviceAssuranceChromeosArgs:
                  tpsp_site_isolation_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a DeviceAssuranceChromeos resource.
-        :param pulumi.Input[str] name: Policy device assurance name
+        :param pulumi.Input[str] name: Name of the device assurance policy.
         :param pulumi.Input[bool] tpsp_allow_screen_lock: Third party signal provider allow screen lock
         :param pulumi.Input[str] tpsp_browser_version: Third party signal provider minimum browser version
         :param pulumi.Input[bool] tpsp_builtin_dns_client_enabled: Third party signal provider builtin dns client enabled
@@ -82,7 +82,7 @@ class DeviceAssuranceChromeosArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy device assurance name
+        Name of the device assurance policy.
         """
         return pulumi.get(self, "name")
 
@@ -288,7 +288,7 @@ class _DeviceAssuranceChromeosState:
         :param pulumi.Input[str] created_date: Created date
         :param pulumi.Input[str] last_update: Last update
         :param pulumi.Input[str] last_updated_by: Last updated by
-        :param pulumi.Input[str] name: Policy device assurance name
+        :param pulumi.Input[str] name: Name of the device assurance policy.
         :param pulumi.Input[str] platform: Policy device assurance platform
         :param pulumi.Input[bool] tpsp_allow_screen_lock: Third party signal provider allow screen lock
         :param pulumi.Input[str] tpsp_browser_version: Third party signal provider minimum browser version
@@ -398,7 +398,7 @@ class _DeviceAssuranceChromeosState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy device assurance name
+        Name of the device assurance policy.
         """
         return pulumi.get(self, "name")
 
@@ -612,7 +612,7 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
         Create a DeviceAssuranceChromeos resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Policy device assurance name
+        :param pulumi.Input[str] name: Name of the device assurance policy.
         :param pulumi.Input[bool] tpsp_allow_screen_lock: Third party signal provider allow screen lock
         :param pulumi.Input[str] tpsp_browser_version: Third party signal provider minimum browser version
         :param pulumi.Input[bool] tpsp_builtin_dns_client_enabled: Third party signal provider builtin dns client enabled
@@ -736,7 +736,7 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
         :param pulumi.Input[str] created_date: Created date
         :param pulumi.Input[str] last_update: Last update
         :param pulumi.Input[str] last_updated_by: Last updated by
-        :param pulumi.Input[str] name: Policy device assurance name
+        :param pulumi.Input[str] name: Name of the device assurance policy.
         :param pulumi.Input[str] platform: Policy device assurance platform
         :param pulumi.Input[bool] tpsp_allow_screen_lock: Third party signal provider allow screen lock
         :param pulumi.Input[str] tpsp_browser_version: Third party signal provider minimum browser version
@@ -815,7 +815,7 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Policy device assurance name
+        Name of the device assurance policy.
         """
         return pulumi.get(self, "name")
 

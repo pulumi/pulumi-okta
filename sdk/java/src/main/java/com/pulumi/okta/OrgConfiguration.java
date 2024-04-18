@@ -178,14 +178,16 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
         return this.expiresAt;
     }
     /**
-     * Local path to logo of the org.
+     * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+     * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      * 
      */
     @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
-     * @return Local path to logo of the org.
+     * @return Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
+     * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      * 
      */
     public Output<Optional<String>> logo() {

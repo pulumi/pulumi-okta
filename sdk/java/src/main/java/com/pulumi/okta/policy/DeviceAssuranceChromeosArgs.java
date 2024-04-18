@@ -17,14 +17,14 @@ public final class DeviceAssuranceChromeosArgs extends com.pulumi.resources.Reso
     public static final DeviceAssuranceChromeosArgs Empty = new DeviceAssuranceChromeosArgs();
 
     /**
-     * Policy device assurance name
+     * Name of the device assurance policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Policy device assurance name
+     * @return Name of the device assurance policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -280,7 +280,7 @@ public final class DeviceAssuranceChromeosArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Policy device assurance name
+         * @param name Name of the device assurance policy.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class DeviceAssuranceChromeosArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Policy device assurance name
+         * @param name Name of the device assurance policy.
          * 
          * @return builder
          * 

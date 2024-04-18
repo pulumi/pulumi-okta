@@ -52,7 +52,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AdminNote { get; private set; } = null!;
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Output("appLinksJson")]
         public Output<string?> AppLinksJson { get; private set; } = null!;
@@ -278,7 +278,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
@@ -448,7 +448,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AdminNote { get; set; }
 
         /// <summary>
-        /// Displays specific appLinks for the app
+        /// Displays specific appLinks for the app. The value for each application link should be boolean.
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }

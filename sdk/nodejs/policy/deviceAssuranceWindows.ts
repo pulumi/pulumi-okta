@@ -41,7 +41,7 @@ export class DeviceAssuranceWindows extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
-     * List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+     * List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
      */
     public readonly diskEncryptionTypes!: pulumi.Output<string[] | undefined>;
     /**
@@ -53,11 +53,11 @@ export class DeviceAssuranceWindows extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedBy!: pulumi.Output<string>;
     /**
-     * Policy device assurance name
+     * Name of the device assurance policy.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The device os minimum version
+     * Minimum os version of the device in the device assurance policy.
      */
     public readonly osVersion!: pulumi.Output<string | undefined>;
     /**
@@ -65,11 +65,11 @@ export class DeviceAssuranceWindows extends pulumi.CustomResource {
      */
     public /*out*/ readonly platform!: pulumi.Output<string>;
     /**
-     * List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      */
     public readonly screenlockTypes!: pulumi.Output<string[] | undefined>;
     /**
-     * Indicates if the device constains a secure hardware functionality
+     * Is the device secure with hardware in the device assurance policy.
      */
     public readonly secureHardwarePresent!: pulumi.Output<boolean | undefined>;
     /**
@@ -247,7 +247,7 @@ export interface DeviceAssuranceWindowsState {
      */
     createdDate?: pulumi.Input<string>;
     /**
-     * List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+     * List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
      */
     diskEncryptionTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -259,11 +259,11 @@ export interface DeviceAssuranceWindowsState {
      */
     lastUpdatedBy?: pulumi.Input<string>;
     /**
-     * Policy device assurance name
+     * Name of the device assurance policy.
      */
     name?: pulumi.Input<string>;
     /**
-     * The device os minimum version
+     * Minimum os version of the device in the device assurance policy.
      */
     osVersion?: pulumi.Input<string>;
     /**
@@ -271,11 +271,11 @@ export interface DeviceAssuranceWindowsState {
      */
     platform?: pulumi.Input<string>;
     /**
-     * List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      */
     screenlockTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Indicates if the device constains a secure hardware functionality
+     * Is the device secure with hardware in the device assurance policy.
      */
     secureHardwarePresent?: pulumi.Input<boolean>;
     /**
@@ -365,23 +365,23 @@ export interface DeviceAssuranceWindowsState {
  */
 export interface DeviceAssuranceWindowsArgs {
     /**
-     * List of disk encryption type, can be ALL_INTERNAL_VOLUMES
+     * List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
      */
     diskEncryptionTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Policy device assurance name
+     * Name of the device assurance policy.
      */
     name?: pulumi.Input<string>;
     /**
-     * The device os minimum version
+     * Minimum os version of the device in the device assurance policy.
      */
     osVersion?: pulumi.Input<string>;
     /**
-     * List of screenlock type, can be BIOMETRIC or BIOMETRIC, PASSCODE
+     * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      */
     screenlockTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Indicates if the device constains a secure hardware functionality
+     * Is the device secure with hardware in the device assurance policy.
      */
     secureHardwarePresent?: pulumi.Input<boolean>;
     /**

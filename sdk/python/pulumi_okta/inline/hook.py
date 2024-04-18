@@ -31,6 +31,7 @@ class HookArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] auth: Authentication required for inline hook request.
         :param pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "type", type)
@@ -119,6 +120,9 @@ class HookArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default to `ACTIVE`
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -142,6 +146,7 @@ class _HookState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] channel: Details of the endpoint the inline hook will hit.
         :param pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         :param pulumi.Input[str] type: The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
         :param pulumi.Input[str] version: Version of the channel. The currently-supported version is `"1.0.0"`.
         """
@@ -211,6 +216,9 @@ class _HookState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default to `ACTIVE`
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -297,6 +305,7 @@ class Hook(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] channel: Details of the endpoint the inline hook will hit.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HookHeaderArgs']]]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         :param pulumi.Input[str] type: The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
         :param pulumi.Input[str] version: Version of the channel. The currently-supported version is `"1.0.0"`.
         """
@@ -414,6 +423,7 @@ class Hook(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] channel: Details of the endpoint the inline hook will hit.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HookHeaderArgs']]]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         :param pulumi.Input[str] type: The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
         :param pulumi.Input[str] version: Version of the channel. The currently-supported version is `"1.0.0"`.
         """
@@ -465,6 +475,9 @@ class Hook(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Default to `ACTIVE`
+        """
         return pulumi.get(self, "status")
 
     @property

@@ -37,7 +37,7 @@ namespace Pulumi.Okta.Policy
         public Output<string> LastUpdatedBy { get; private set; } = null!;
 
         /// <summary>
-        /// Policy device assurance name
+        /// Name of the device assurance policy.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Okta.Policy
     public sealed class DeviceAssuranceChromeosArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Policy device assurance name
+        /// Name of the device assurance policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? LastUpdatedBy { get; set; }
 
         /// <summary>
-        /// Policy device assurance name
+        /// Name of the device assurance policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
