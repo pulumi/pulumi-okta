@@ -122,7 +122,7 @@ namespace Pulumi.Okta.App
     ///     {
     ///         DependsOn =
     ///         {
-    ///             test, 
+    ///             test,
     ///         },
     ///     });
     /// 

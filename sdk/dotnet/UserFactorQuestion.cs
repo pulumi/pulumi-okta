@@ -53,7 +53,7 @@ namespace Pulumi.Okta
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleFactor, 
+    ///             exampleFactor,
     ///         },
     ///     });
     /// 
