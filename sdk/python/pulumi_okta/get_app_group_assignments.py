@@ -63,14 +63,12 @@ def get_app_group_assignments(id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     test = okta.get_app_group_assignments(id=test_okta_app_oauth["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Okta application you want to retrieve the groups for.
@@ -93,14 +91,12 @@ def get_app_group_assignments_output(id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     test = okta.get_app_group_assignments(id=test_okta_app_oauth["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Okta application you want to retrieve the groups for.

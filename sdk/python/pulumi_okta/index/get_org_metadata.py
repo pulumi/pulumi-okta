@@ -92,14 +92,12 @@ def get_org_metadata(domains: Optional[pulumi.InputType['GetOrgMetadataDomainsAr
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     test = okta.Index.get_org_metadata()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetOrgMetadataDomainsArgs'] domains: The URIs for the org's configured domains.
@@ -129,14 +127,12 @@ def get_org_metadata_output(domains: Optional[pulumi.Input[Optional[pulumi.Input
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     test = okta.Index.get_org_metadata()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetOrgMetadataDomainsArgs'] domains: The URIs for the org's configured domains.

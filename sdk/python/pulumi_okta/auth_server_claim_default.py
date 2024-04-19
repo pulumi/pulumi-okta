@@ -243,7 +243,6 @@ class AuthServerClaimDefault(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -253,7 +252,6 @@ class AuthServerClaimDefault(pulumi.CustomResource):
             name="sub",
             value="(appuser != null) ? appuser.userName : app.clientId")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -291,7 +289,6 @@ class AuthServerClaimDefault(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -301,7 +298,6 @@ class AuthServerClaimDefault(pulumi.CustomResource):
             name="sub",
             value="(appuser != null) ? appuser.userName : app.clientId")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

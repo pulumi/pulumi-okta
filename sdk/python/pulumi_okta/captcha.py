@@ -169,7 +169,6 @@ class Captcha(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -180,7 +179,6 @@ class Captcha(pulumi.CustomResource):
             site_key="some_key",
             secret_key="some_secret_key")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -210,7 +208,6 @@ class Captcha(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -221,7 +218,6 @@ class Captcha(pulumi.CustomResource):
             site_key="some_key",
             secret_key="some_secret_key")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

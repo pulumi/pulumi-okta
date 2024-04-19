@@ -12,7 +12,6 @@ namespace Pulumi.Okta
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,11 +51,9 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// The created policy can be extended using `app_signon_policy_rules`.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -95,7 +92,6 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [OktaResourceType("okta:index/appSignonPolicy:AppSignonPolicy")]
     public partial class AppSignonPolicy : global::Pulumi.CustomResource

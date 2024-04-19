@@ -179,14 +179,12 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
 
         example = okta.Domain("example", name="www.example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -215,14 +213,12 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
 
         example = okta.Domain("example", name="www.example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -613,7 +613,6 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -635,7 +634,6 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
             tpsp_screen_lock_secured=True,
             tpsp_site_isolation_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -672,7 +670,6 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -694,7 +691,6 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
             tpsp_screen_lock_secured=True,
             tpsp_site_isolation_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

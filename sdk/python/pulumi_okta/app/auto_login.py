@@ -881,7 +881,6 @@ class AutoLogin(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -893,10 +892,8 @@ class AutoLogin(pulumi.CustomResource):
             reveal_password=True,
             credentials_scheme="EDIT_USERNAME_AND_PASSWORD")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Pre-configured application
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -911,7 +908,6 @@ class AutoLogin(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -963,7 +959,6 @@ class AutoLogin(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -975,10 +970,8 @@ class AutoLogin(pulumi.CustomResource):
             reveal_password=True,
             credentials_scheme="EDIT_USERNAME_AND_PASSWORD")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Pre-configured application
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -993,7 +986,6 @@ class AutoLogin(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

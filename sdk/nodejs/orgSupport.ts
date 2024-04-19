@@ -10,14 +10,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.OrgSupport("example", {extendBy: 1});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

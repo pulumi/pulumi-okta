@@ -372,7 +372,6 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -417,7 +416,6 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -455,7 +453,6 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -500,7 +497,6 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

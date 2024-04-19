@@ -588,7 +588,6 @@ class ServerPolicyRule(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -602,7 +601,6 @@ class ServerPolicyRule(pulumi.CustomResource):
             group_whitelists=["<group ids>"],
             grant_type_whitelists=["implicit"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -643,7 +641,6 @@ class ServerPolicyRule(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -657,7 +654,6 @@ class ServerPolicyRule(pulumi.CustomResource):
             group_whitelists=["<group ids>"],
             grant_type_whitelists=["implicit"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

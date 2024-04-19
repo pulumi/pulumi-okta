@@ -124,7 +124,6 @@ def get_domain(domain_id_or_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -133,7 +132,6 @@ def get_domain(domain_id_or_name: Optional[str] = None,
     by_name = okta.Index.get_domain(domain_id_or_name="www.example.com")
     by_id = okta.Index.get_domain_output(domain_id_or_name=example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str domain_id_or_name: The Okta ID of the domain or the domain name itself.
@@ -164,7 +162,6 @@ def get_domain_output(domain_id_or_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -173,7 +170,6 @@ def get_domain_output(domain_id_or_name: Optional[pulumi.Input[str]] = None,
     by_name = okta.Index.get_domain(domain_id_or_name="www.example.com")
     by_id = okta.Index.get_domain_output(domain_id_or_name=example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str domain_id_or_name: The Okta ID of the domain or the domain name itself.

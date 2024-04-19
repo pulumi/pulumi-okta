@@ -184,7 +184,6 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -193,10 +192,8 @@ class Group(pulumi.CustomResource):
             name="Example",
             description="My Example Group")
         ```
-        <!--End PulumiCodeChooser -->
 
         Custom profile attributes
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -211,7 +208,6 @@ class Group(pulumi.CustomResource):
                 "example3": 54321,
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -241,7 +237,6 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -250,10 +245,8 @@ class Group(pulumi.CustomResource):
             name="Example",
             description="My Example Group")
         ```
-        <!--End PulumiCodeChooser -->
 
         Custom profile attributes
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -268,7 +261,6 @@ class Group(pulumi.CustomResource):
                 "example3": 54321,
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,6 @@ namespace Pulumi.Okta.Factor
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Okta.Factor
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [OktaResourceType("okta:factor/factor:Factor")]
     public partial class Factor : global::Pulumi.CustomResource

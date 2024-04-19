@@ -270,7 +270,6 @@ class Hook(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -290,7 +289,6 @@ class Hook(pulumi.CustomResource):
                 "value": "secret",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -323,7 +321,6 @@ class Hook(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -343,7 +340,6 @@ class Hook(pulumi.CustomResource):
                 "value": "secret",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

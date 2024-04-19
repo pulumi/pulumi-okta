@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     label: "Example App",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlResult> {
     args = args || {};
@@ -268,7 +266,6 @@ export interface GetSamlResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -277,7 +274,6 @@ export interface GetSamlResult {
  *     label: "Example App",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSamlOutput(args?: GetSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamlResult> {
     return pulumi.output(args).apply((a: any) => getSaml(a, opts))

@@ -72,7 +72,6 @@ class EventHookVerification(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -95,7 +94,6 @@ class EventHookVerification(pulumi.CustomResource):
             })
         example_event_hook_verification = okta.EventHookVerification("example", event_hook_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -118,7 +116,6 @@ class EventHookVerification(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -141,7 +138,6 @@ class EventHookVerification(pulumi.CustomResource):
             })
         example_event_hook_verification = okta.EventHookVerification("example", event_hook_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

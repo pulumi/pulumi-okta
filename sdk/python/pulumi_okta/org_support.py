@@ -104,14 +104,12 @@ class OrgSupport(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
 
         example = okta.OrgSupport("example", extend_by=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -133,14 +131,12 @@ class OrgSupport(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
 
         example = okta.OrgSupport("example", extend_by=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

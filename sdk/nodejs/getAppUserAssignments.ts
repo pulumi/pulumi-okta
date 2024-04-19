@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     id: testOktaAppOauth.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAppUserAssignments(args: GetAppUserAssignmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetAppUserAssignmentsResult> {
 
@@ -56,7 +54,6 @@ export interface GetAppUserAssignmentsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -65,7 +62,6 @@ export interface GetAppUserAssignmentsResult {
  *     id: testOktaAppOauth.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAppUserAssignmentsOutput(args: GetAppUserAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppUserAssignmentsResult> {
     return pulumi.output(args).apply((a: any) => getAppUserAssignments(a, opts))

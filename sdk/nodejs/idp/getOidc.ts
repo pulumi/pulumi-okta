@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     name: "Example Provider",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOidc(args?: GetOidcArgs, opts?: pulumi.InvokeOptions): Promise<GetOidcResult> {
     args = args || {};
@@ -126,7 +124,6 @@ export interface GetOidcResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -135,7 +132,6 @@ export interface GetOidcResult {
  *     name: "Example Provider",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOidcOutput(args?: GetOidcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOidcResult> {
     return pulumi.output(args).apply((a: any) => getOidc(a, opts))

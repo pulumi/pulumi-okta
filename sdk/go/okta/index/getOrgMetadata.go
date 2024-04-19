@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetOrgMetadata(ctx *pulumi.Context, args *GetOrgMetadataArgs, opts ...pulumi.InvokeOption) (*GetOrgMetadataResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrgMetadataResult

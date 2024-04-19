@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetOauth(ctx *pulumi.Context, args *GetOauthArgs, opts ...pulumi.InvokeOption) (*GetOauthResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOauthResult

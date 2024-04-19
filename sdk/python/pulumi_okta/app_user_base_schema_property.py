@@ -333,7 +333,6 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -345,7 +344,6 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
             type="string",
             master="OKTA")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -380,7 +378,6 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -392,7 +389,6 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
             type="string",
             master="OKTA")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

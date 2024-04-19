@@ -301,7 +301,6 @@ class Server(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -313,7 +312,6 @@ class Server(pulumi.CustomResource):
             issuer_mode="CUSTOM_URL",
             status="ACTIVE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -345,7 +343,6 @@ class Server(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -357,7 +354,6 @@ class Server(pulumi.CustomResource):
             issuer_mode="CUSTOM_URL",
             status="ACTIVE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,6 @@ namespace Pulumi.Okta
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAppUserAssignmentsResult> InvokeAsync(GetAppUserAssignmentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppUserAssignmentsResult>("okta:index/getAppUserAssignments:getAppUserAssignments", args ?? new GetAppUserAssignmentsArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Okta
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAppUserAssignmentsResult> Invoke(GetAppUserAssignmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppUserAssignmentsResult>("okta:index/getAppUserAssignments:getAppUserAssignments", args ?? new GetAppUserAssignmentsInvokeArgs(), options.WithDefaults());

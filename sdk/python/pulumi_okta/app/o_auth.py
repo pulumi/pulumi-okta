@@ -1740,7 +1740,6 @@ class OAuth(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1752,13 +1751,11 @@ class OAuth(pulumi.CustomResource):
             redirect_uris=["https://example.com/"],
             response_types=["code"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With JWKS value
 
         See also Advanced PEM secrets and JWKS example.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1784,7 +1781,6 @@ class OAuth(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Etc.
 
@@ -1906,7 +1902,6 @@ class OAuth(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1918,13 +1913,11 @@ class OAuth(pulumi.CustomResource):
             redirect_uris=["https://example.com/"],
             response_types=["code"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With JWKS value
 
         See also Advanced PEM secrets and JWKS example.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1950,7 +1943,6 @@ class OAuth(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Etc.
 

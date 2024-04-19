@@ -237,7 +237,6 @@ class RoleSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -247,7 +246,6 @@ class RoleSubscription(pulumi.CustomResource):
             notification_type="APP_IMPORT",
             status="unsubscribed")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -301,7 +299,6 @@ class RoleSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -311,7 +308,6 @@ class RoleSubscription(pulumi.CustomResource):
             notification_type="APP_IMPORT",
             status="unsubscribed")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
