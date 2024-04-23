@@ -238,7 +238,6 @@ class EventHook(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -260,7 +259,6 @@ class EventHook(pulumi.CustomResource):
                 "value": "123",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -292,7 +290,6 @@ class EventHook(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -314,7 +311,6 @@ class EventHook(pulumi.CustomResource):
                 "value": "123",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

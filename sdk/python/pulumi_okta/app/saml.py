@@ -74,13 +74,13 @@ class SamlArgs:
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]] attribute_statements: List of SAML Attribute statements.
-        :param pulumi.Input[str] audience: Audience Restriction
+        :param pulumi.Input[str] audience: Audience restriction.
         :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement
+        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar. Default is: `false`
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
-        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
-        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
+        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app. Default is: `false`
         :param pulumi.Input[bool] hide_web: Do not display application icon to users. Default is: `false`
@@ -327,7 +327,7 @@ class SamlArgs:
     @pulumi.getter
     def audience(self) -> Optional[pulumi.Input[str]]:
         """
-        Audience Restriction
+        Audience restriction.
         """
         return pulumi.get(self, "audience")
 
@@ -351,7 +351,7 @@ class SamlArgs:
     @pulumi.getter(name="authnContextClassRef")
     def authn_context_class_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifies the SAML authentication context class for the assertion’s authentication statement
+        Identifies the SAML authentication context class for the assertion’s authentication statement.
         """
         return pulumi.get(self, "authn_context_class_ref")
 
@@ -387,7 +387,7 @@ class SamlArgs:
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+        Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         """
         return pulumi.get(self, "destination")
 
@@ -399,7 +399,7 @@ class SamlArgs:
     @pulumi.getter(name="digestAlgorithm")
     def digest_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines the digest algorithm used to digitally sign the SAML assertion and response
+        Determines the digest algorithm used to digitally sign the SAML assertion and response.
         """
         return pulumi.get(self, "digest_algorithm")
 
@@ -830,14 +830,14 @@ class _SamlState:
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]] attribute_statements: List of SAML Attribute statements.
-        :param pulumi.Input[str] audience: Audience Restriction
+        :param pulumi.Input[str] audience: Audience restriction.
         :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement
+        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar. Default is: `false`
         :param pulumi.Input[str] certificate: The raw signing certificate.
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
-        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
-        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
+        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
         :param pulumi.Input[str] embed_url: Url that can be used to embed this application into another portal.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the `entity_url`.
@@ -860,7 +860,7 @@ class _SamlState:
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] metadata: The raw SAML metadata in XML.
         :param pulumi.Input[str] metadata_url: SAML xml metadata URL.
-        :param pulumi.Input[str] name: The name of the attribute statement.
+        :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion.
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
@@ -1115,7 +1115,7 @@ class _SamlState:
     @pulumi.getter
     def audience(self) -> Optional[pulumi.Input[str]]:
         """
-        Audience Restriction
+        Audience restriction.
         """
         return pulumi.get(self, "audience")
 
@@ -1139,7 +1139,7 @@ class _SamlState:
     @pulumi.getter(name="authnContextClassRef")
     def authn_context_class_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifies the SAML authentication context class for the assertion’s authentication statement
+        Identifies the SAML authentication context class for the assertion’s authentication statement.
         """
         return pulumi.get(self, "authn_context_class_ref")
 
@@ -1187,7 +1187,7 @@ class _SamlState:
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+        Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         """
         return pulumi.get(self, "destination")
 
@@ -1199,7 +1199,7 @@ class _SamlState:
     @pulumi.getter(name="digestAlgorithm")
     def digest_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines the digest algorithm used to digitally sign the SAML assertion and response
+        Determines the digest algorithm used to digitally sign the SAML assertion and response.
         """
         return pulumi.get(self, "digest_algorithm")
 
@@ -1475,7 +1475,7 @@ class _SamlState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the attribute statement.
+        Name assigned to the application by Okta.
         """
         return pulumi.get(self, "name")
 
@@ -1789,7 +1789,6 @@ class Saml(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1814,11 +1813,9 @@ class Saml(pulumi.CustomResource):
                 filter_value=".*",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With inline hook
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1861,11 +1858,9 @@ class Saml(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Pre-configured app with SAML 1.1 sign-on mode
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1883,11 +1878,9 @@ class Saml(pulumi.CustomResource):
             user_name_template="${source.login}",
             user_name_template_type="BUILT_IN")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Pre-configured app with SAML 1.1 sign-on mode, `app_settings_json` and `app_links_json`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1930,7 +1923,6 @@ class Saml(pulumi.CustomResource):
           }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1951,13 +1943,13 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]] attribute_statements: List of SAML Attribute statements.
-        :param pulumi.Input[str] audience: Audience Restriction
+        :param pulumi.Input[str] audience: Audience restriction.
         :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement
+        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar. Default is: `false`
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
-        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
-        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
+        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app. Default is: `false`
         :param pulumi.Input[bool] hide_web: Do not display application icon to users. Default is: `false`
@@ -2008,7 +2000,6 @@ class Saml(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -2033,11 +2024,9 @@ class Saml(pulumi.CustomResource):
                 filter_value=".*",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With inline hook
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -2080,11 +2069,9 @@ class Saml(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Pre-configured app with SAML 1.1 sign-on mode
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -2102,11 +2089,9 @@ class Saml(pulumi.CustomResource):
             user_name_template="${source.login}",
             user_name_template_type="BUILT_IN")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Pre-configured app with SAML 1.1 sign-on mode, `app_settings_json` and `app_links_json`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -2149,7 +2134,6 @@ class Saml(pulumi.CustomResource):
           }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -2377,14 +2361,14 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format.
         :param pulumi.Input[bool] assertion_signed: Determines whether the SAML assertion is digitally signed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]] attribute_statements: List of SAML Attribute statements.
-        :param pulumi.Input[str] audience: Audience Restriction
+        :param pulumi.Input[str] audience: Audience restriction.
         :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement
+        :param pulumi.Input[str] authn_context_class_ref: Identifies the SAML authentication context class for the assertion’s authentication statement.
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar. Default is: `false`
         :param pulumi.Input[str] certificate: The raw signing certificate.
         :param pulumi.Input[str] default_relay_state: Identifies a specific application resource in an IDP initiated SSO scenario.
-        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
-        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response
+        :param pulumi.Input[str] destination: Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
+        :param pulumi.Input[str] digest_algorithm: Determines the digest algorithm used to digitally sign the SAML assertion and response.
         :param pulumi.Input[str] embed_url: Url that can be used to embed this application into another portal.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the `entity_url`.
@@ -2407,7 +2391,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] logo_url: Direct link of application logo.
         :param pulumi.Input[str] metadata: The raw SAML metadata in XML.
         :param pulumi.Input[str] metadata_url: SAML xml metadata URL.
-        :param pulumi.Input[str] name: The name of the attribute statement.
+        :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[str] preconfigured_app: name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
         :param pulumi.Input[str] recipient: The location where the app may present the SAML assertion.
         :param pulumi.Input[bool] request_compressed: Denotes whether the request is compressed or not.
@@ -2571,7 +2555,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def audience(self) -> pulumi.Output[Optional[str]]:
         """
-        Audience Restriction
+        Audience restriction.
         """
         return pulumi.get(self, "audience")
 
@@ -2587,7 +2571,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="authnContextClassRef")
     def authn_context_class_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        Identifies the SAML authentication context class for the assertion’s authentication statement
+        Identifies the SAML authentication context class for the assertion’s authentication statement.
         """
         return pulumi.get(self, "authn_context_class_ref")
 
@@ -2619,7 +2603,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def destination(self) -> pulumi.Output[Optional[str]]:
         """
-        Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+        Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         """
         return pulumi.get(self, "destination")
 
@@ -2627,7 +2611,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="digestAlgorithm")
     def digest_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
-        Determines the digest algorithm used to digitally sign the SAML assertion and response
+        Determines the digest algorithm used to digitally sign the SAML assertion and response.
         """
         return pulumi.get(self, "digest_algorithm")
 
@@ -2811,7 +2795,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the attribute statement.
+        Name assigned to the application by Okta.
         """
         return pulumi.get(self, "name")
 

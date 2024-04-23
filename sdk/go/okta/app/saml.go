@@ -24,7 +24,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,11 +66,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With inline hook
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -138,11 +135,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Pre-configured app with SAML 1.1 sign-on mode
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -172,11 +167,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Pre-configured app with SAML 1.1 sign-on mode, `appSettingsJson` and `appLinksJson`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -239,7 +232,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -269,11 +261,11 @@ type Saml struct {
 	AssertionSigned pulumi.BoolPtrOutput `pulumi:"assertionSigned"`
 	// List of SAML Attribute statements.
 	AttributeStatements SamlAttributeStatementArrayOutput `pulumi:"attributeStatements"`
-	// Audience Restriction
+	// Audience restriction.
 	Audience pulumi.StringPtrOutput `pulumi:"audience"`
 	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 	AuthenticationPolicy pulumi.StringPtrOutput `pulumi:"authenticationPolicy"`
-	// Identifies the SAML authentication context class for the assertion’s authentication statement
+	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef pulumi.StringPtrOutput `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar. Default is: `false`
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
@@ -281,9 +273,9 @@ type Saml struct {
 	Certificate pulumi.StringOutput `pulumi:"certificate"`
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState pulumi.StringPtrOutput `pulumi:"defaultRelayState"`
-	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
 	Destination pulumi.StringPtrOutput `pulumi:"destination"`
-	// Determines the digest algorithm used to digitally sign the SAML assertion and response
+	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm pulumi.StringPtrOutput `pulumi:"digestAlgorithm"`
 	// Url that can be used to embed this application into another portal.
 	EmbedUrl pulumi.StringOutput `pulumi:"embedUrl"`
@@ -329,7 +321,7 @@ type Saml struct {
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
 	// SAML xml metadata URL.
 	MetadataUrl pulumi.StringOutput `pulumi:"metadataUrl"`
-	// The name of the attribute statement.
+	// Name assigned to the application by Okta.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
 	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
@@ -424,11 +416,11 @@ type samlState struct {
 	AssertionSigned *bool `pulumi:"assertionSigned"`
 	// List of SAML Attribute statements.
 	AttributeStatements []SamlAttributeStatement `pulumi:"attributeStatements"`
-	// Audience Restriction
+	// Audience restriction.
 	Audience *string `pulumi:"audience"`
 	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
-	// Identifies the SAML authentication context class for the assertion’s authentication statement
+	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef *string `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar. Default is: `false`
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -436,9 +428,9 @@ type samlState struct {
 	Certificate *string `pulumi:"certificate"`
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState *string `pulumi:"defaultRelayState"`
-	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
 	Destination *string `pulumi:"destination"`
-	// Determines the digest algorithm used to digitally sign the SAML assertion and response
+	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
 	// Url that can be used to embed this application into another portal.
 	EmbedUrl *string `pulumi:"embedUrl"`
@@ -484,7 +476,7 @@ type samlState struct {
 	Metadata *string `pulumi:"metadata"`
 	// SAML xml metadata URL.
 	MetadataUrl *string `pulumi:"metadataUrl"`
-	// The name of the attribute statement.
+	// Name assigned to the application by Okta.
 	Name *string `pulumi:"name"`
 	// name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
 	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
@@ -547,11 +539,11 @@ type SamlState struct {
 	AssertionSigned pulumi.BoolPtrInput
 	// List of SAML Attribute statements.
 	AttributeStatements SamlAttributeStatementArrayInput
-	// Audience Restriction
+	// Audience restriction.
 	Audience pulumi.StringPtrInput
 	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 	AuthenticationPolicy pulumi.StringPtrInput
-	// Identifies the SAML authentication context class for the assertion’s authentication statement
+	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef pulumi.StringPtrInput
 	// Display auto submit toolbar. Default is: `false`
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -559,9 +551,9 @@ type SamlState struct {
 	Certificate pulumi.StringPtrInput
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState pulumi.StringPtrInput
-	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
 	Destination pulumi.StringPtrInput
-	// Determines the digest algorithm used to digitally sign the SAML assertion and response
+	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm pulumi.StringPtrInput
 	// Url that can be used to embed this application into another portal.
 	EmbedUrl pulumi.StringPtrInput
@@ -607,7 +599,7 @@ type SamlState struct {
 	Metadata pulumi.StringPtrInput
 	// SAML xml metadata URL.
 	MetadataUrl pulumi.StringPtrInput
-	// The name of the attribute statement.
+	// Name assigned to the application by Okta.
 	Name pulumi.StringPtrInput
 	// name of application from the Okta Integration Network, if not included a custom app will be created.  If not provided the following arguments are required:
 	PreconfiguredApp pulumi.StringPtrInput
@@ -674,19 +666,19 @@ type samlArgs struct {
 	AssertionSigned *bool `pulumi:"assertionSigned"`
 	// List of SAML Attribute statements.
 	AttributeStatements []SamlAttributeStatement `pulumi:"attributeStatements"`
-	// Audience Restriction
+	// Audience restriction.
 	Audience *string `pulumi:"audience"`
 	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
-	// Identifies the SAML authentication context class for the assertion’s authentication statement
+	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef *string `pulumi:"authnContextClassRef"`
 	// Display auto submit toolbar. Default is: `false`
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState *string `pulumi:"defaultRelayState"`
-	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
 	Destination *string `pulumi:"destination"`
-	// Determines the digest algorithm used to digitally sign the SAML assertion and response
+	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm *string `pulumi:"digestAlgorithm"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
@@ -770,19 +762,19 @@ type SamlArgs struct {
 	AssertionSigned pulumi.BoolPtrInput
 	// List of SAML Attribute statements.
 	AttributeStatements SamlAttributeStatementArrayInput
-	// Audience Restriction
+	// Audience restriction.
 	Audience pulumi.StringPtrInput
 	// The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
 	AuthenticationPolicy pulumi.StringPtrInput
-	// Identifies the SAML authentication context class for the assertion’s authentication statement
+	// Identifies the SAML authentication context class for the assertion’s authentication statement.
 	AuthnContextClassRef pulumi.StringPtrInput
 	// Display auto submit toolbar. Default is: `false`
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Identifies a specific application resource in an IDP initiated SSO scenario.
 	DefaultRelayState pulumi.StringPtrInput
-	// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+	// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
 	Destination pulumi.StringPtrInput
-	// Determines the digest algorithm used to digitally sign the SAML assertion and response
+	// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 	DigestAlgorithm pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
@@ -978,7 +970,7 @@ func (o SamlOutput) AttributeStatements() SamlAttributeStatementArrayOutput {
 	return o.ApplyT(func(v *Saml) SamlAttributeStatementArrayOutput { return v.AttributeStatements }).(SamlAttributeStatementArrayOutput)
 }
 
-// Audience Restriction
+// Audience restriction.
 func (o SamlOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.Audience }).(pulumi.StringPtrOutput)
 }
@@ -988,7 +980,7 @@ func (o SamlOutput) AuthenticationPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.AuthenticationPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the SAML authentication context class for the assertion’s authentication statement
+// Identifies the SAML authentication context class for the assertion’s authentication statement.
 func (o SamlOutput) AuthnContextClassRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.AuthnContextClassRef }).(pulumi.StringPtrOutput)
 }
@@ -1008,12 +1000,12 @@ func (o SamlOutput) DefaultRelayState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.DefaultRelayState }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
 func (o SamlOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
-// Determines the digest algorithm used to digitally sign the SAML assertion and response
+// Determines the digest algorithm used to digitally sign the SAML assertion and response.
 func (o SamlOutput) DigestAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.DigestAlgorithm }).(pulumi.StringPtrOutput)
 }
@@ -1128,7 +1120,7 @@ func (o SamlOutput) MetadataUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.MetadataUrl }).(pulumi.StringOutput)
 }
 
-// The name of the attribute statement.
+// Name assigned to the application by Okta.
 func (o SamlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

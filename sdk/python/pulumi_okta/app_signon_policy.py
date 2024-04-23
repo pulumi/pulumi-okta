@@ -101,7 +101,6 @@ class AppSignonPolicy(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -118,11 +117,9 @@ class AppSignonPolicy(pulumi.CustomResource):
             response_types=["code"],
             authentication_policy=my_app_policy.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         The created policy can be extended using `app_signon_policy_rules`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -142,7 +139,6 @@ class AppSignonPolicy(pulumi.CustomResource):
                 },
             })])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,7 +154,6 @@ class AppSignonPolicy(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -175,11 +170,9 @@ class AppSignonPolicy(pulumi.CustomResource):
             response_types=["code"],
             authentication_policy=my_app_policy.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         The created policy can be extended using `app_signon_policy_rules`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -199,7 +192,6 @@ class AppSignonPolicy(pulumi.CustomResource):
                 },
             })])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param AppSignonPolicyArgs args: The arguments to use to populate this resource's properties.

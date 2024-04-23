@@ -273,7 +273,6 @@ class Rule(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -285,7 +284,6 @@ class Rule(pulumi.CustomResource):
             expression_type="urn:okta:expression:1.0",
             expression_value="String.startsWith(user.firstName,\\"andy\\")")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -316,7 +314,6 @@ class Rule(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -328,7 +325,6 @@ class Rule(pulumi.CustomResource):
             expression_type="urn:okta:expression:1.0",
             expression_value="String.startsWith(user.firstName,\\"andy\\")")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

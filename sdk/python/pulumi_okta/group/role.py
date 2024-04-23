@@ -284,7 +284,6 @@ class Role(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -293,7 +292,6 @@ class Role(pulumi.CustomResource):
             group_id="<group id>",
             role_type="READ_ONLY_ADMIN")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -345,7 +343,6 @@ class Role(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -354,7 +351,6 @@ class Role(pulumi.CustomResource):
             group_id="<group id>",
             role_type="READ_ONLY_ADMIN")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,7 +53,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -76,9 +74,9 @@ type Hook struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Default to `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+	// The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Version of the channel. The currently-supported version is `"1.0.0"`.
+	// The version of the hook. The currently-supported version is `"1.0.0"`.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -131,9 +129,9 @@ type hookState struct {
 	Name *string `pulumi:"name"`
 	// Default to `ACTIVE`
 	Status *string `pulumi:"status"`
-	// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+	// The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
 	Type *string `pulumi:"type"`
-	// Version of the channel. The currently-supported version is `"1.0.0"`.
+	// The version of the hook. The currently-supported version is `"1.0.0"`.
 	Version *string `pulumi:"version"`
 }
 
@@ -148,9 +146,9 @@ type HookState struct {
 	Name pulumi.StringPtrInput
 	// Default to `ACTIVE`
 	Status pulumi.StringPtrInput
-	// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+	// The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
 	Type pulumi.StringPtrInput
-	// Version of the channel. The currently-supported version is `"1.0.0"`.
+	// The version of the hook. The currently-supported version is `"1.0.0"`.
 	Version pulumi.StringPtrInput
 }
 
@@ -169,9 +167,9 @@ type hookArgs struct {
 	Name *string `pulumi:"name"`
 	// Default to `ACTIVE`
 	Status *string `pulumi:"status"`
-	// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+	// The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
 	Type string `pulumi:"type"`
-	// Version of the channel. The currently-supported version is `"1.0.0"`.
+	// The version of the hook. The currently-supported version is `"1.0.0"`.
 	Version string `pulumi:"version"`
 }
 
@@ -187,9 +185,9 @@ type HookArgs struct {
 	Name pulumi.StringPtrInput
 	// Default to `ACTIVE`
 	Status pulumi.StringPtrInput
-	// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+	// The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
 	Type pulumi.StringInput
-	// Version of the channel. The currently-supported version is `"1.0.0"`.
+	// The version of the hook. The currently-supported version is `"1.0.0"`.
 	Version pulumi.StringInput
 }
 
@@ -305,12 +303,12 @@ func (o HookOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+// The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
 func (o HookOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Version of the channel. The currently-supported version is `"1.0.0"`.
+// The version of the hook. The currently-supported version is `"1.0.0"`.
 func (o HookOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

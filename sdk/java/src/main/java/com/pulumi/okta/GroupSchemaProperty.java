@@ -295,28 +295,28 @@ public class GroupSchemaProperty extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.scope);
     }
     /**
-     * display name for the enum value.
+     * The display name.
      * 
      */
     @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**
-     * @return display name for the enum value.
+     * @return The display name.
      * 
      */
     public Output<String> title() {
         return this.title;
     }
     /**
-     * Type of profile source.
+     * The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of profile source.
+     * @return The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
      * 
      */
     public Output<String> type() {

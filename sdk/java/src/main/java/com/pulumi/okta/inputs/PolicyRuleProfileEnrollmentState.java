@@ -64,14 +64,14 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
     }
 
     /**
-     * The name of a User Profile property
+     * Name of the Rule.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of a User Profile property
+     * @return Name of the Rule.
      * 
      */
     public Optional<Output<String>> name() {
@@ -281,7 +281,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param name The name of a User Profile property
+         * @param name Name of the Rule.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param name The name of a User Profile property
+         * @param name Name of the Rule.
          * 
          * @return builder
          * 

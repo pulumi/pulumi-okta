@@ -20,7 +20,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,13 +53,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With JWKS value
 //
 // See also Advanced PEM secrets and JWKS example.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,7 +103,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Etc.
 //
@@ -205,7 +201,7 @@ type OAuth struct {
 	LogoUri pulumi.StringPtrOutput `pulumi:"logoUri"`
 	// Direct link of application logo.
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
-	// Name of the claim that will be used in the token.
+	// Name assigned to the application by Okta.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// This tells the provider not manage the `clientSecret` value in state. When this is false (the default), it will cause the auto-generated `clientSecret` to be persisted in the `clientSecret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrOutput `pulumi:"omitSecret"`
@@ -380,7 +376,7 @@ type oauthState struct {
 	LogoUri *string `pulumi:"logoUri"`
 	// Direct link of application logo.
 	LogoUrl *string `pulumi:"logoUrl"`
-	// Name of the claim that will be used in the token.
+	// Name assigned to the application by Okta.
 	Name *string `pulumi:"name"`
 	// This tells the provider not manage the `clientSecret` value in state. When this is false (the default), it will cause the auto-generated `clientSecret` to be persisted in the `clientSecret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret *bool `pulumi:"omitSecret"`
@@ -512,7 +508,7 @@ type OAuthState struct {
 	LogoUri pulumi.StringPtrInput
 	// Direct link of application logo.
 	LogoUrl pulumi.StringPtrInput
-	// Name of the claim that will be used in the token.
+	// Name assigned to the application by Okta.
 	Name pulumi.StringPtrInput
 	// This tells the provider not manage the `clientSecret` value in state. When this is false (the default), it will cause the auto-generated `clientSecret` to be persisted in the `clientSecret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrInput
@@ -1073,7 +1069,7 @@ func (o OAuthOutput) LogoUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.LogoUrl }).(pulumi.StringOutput)
 }
 
-// Name of the claim that will be used in the token.
+// Name assigned to the application by Okta.
 func (o OAuthOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

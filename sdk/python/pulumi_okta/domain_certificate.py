@@ -208,7 +208,6 @@ class DomainCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -236,7 +235,6 @@ class DomainCertificate(pulumi.CustomResource):
         -----END PRIVATE KEY-----
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Let's Encrypt Certbot
 
@@ -286,7 +284,6 @@ class DomainCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -314,7 +311,6 @@ class DomainCertificate(pulumi.CustomResource):
         -----END PRIVATE KEY-----
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Let's Encrypt Certbot
 

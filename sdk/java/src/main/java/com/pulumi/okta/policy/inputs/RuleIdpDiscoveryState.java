@@ -82,14 +82,14 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+     * Policy rule name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+     * @return Policy rule name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -393,7 +393,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+         * @param name Policy rule name.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+         * @param name Policy rule name.
          * 
          * @return builder
          * 

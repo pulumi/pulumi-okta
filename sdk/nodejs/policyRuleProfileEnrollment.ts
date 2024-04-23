@@ -16,7 +16,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -64,7 +63,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -115,7 +113,7 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
      */
     public readonly inlineHookId!: pulumi.Output<string | undefined>;
     /**
-     * The name of a User Profile property
+     * Name of the Rule.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -213,7 +211,7 @@ export interface PolicyRuleProfileEnrollmentState {
      */
     inlineHookId?: pulumi.Input<string>;
     /**
-     * The name of a User Profile property
+     * Name of the Rule.
      */
     name?: pulumi.Input<string>;
     /**

@@ -17,14 +17,14 @@ public final class RuleIdpDiscoveryAppExcludeArgs extends com.pulumi.resources.R
     public static final RuleIdpDiscoveryAppExcludeArgs Empty = new RuleIdpDiscoveryAppExcludeArgs();
 
     /**
-     * Use if `type` is `&#34;APP&#34;` to indicate the application id to include.
+     * ID of the Rule.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return Use if `type` is `&#34;APP&#34;` to indicate the application id to include.
+     * @return ID of the Rule.
      * 
      */
     public Optional<Output<String>> id() {
@@ -32,31 +32,23 @@ public final class RuleIdpDiscoveryAppExcludeArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+     * Policy rule name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+     * @return Policy rule name.
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -88,7 +80,7 @@ public final class RuleIdpDiscoveryAppExcludeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param id Use if `type` is `&#34;APP&#34;` to indicate the application id to include.
+         * @param id ID of the Rule.
          * 
          * @return builder
          * 
@@ -99,7 +91,7 @@ public final class RuleIdpDiscoveryAppExcludeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param id Use if `type` is `&#34;APP&#34;` to indicate the application id to include.
+         * @param id ID of the Rule.
          * 
          * @return builder
          * 
@@ -109,7 +101,7 @@ public final class RuleIdpDiscoveryAppExcludeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+         * @param name Policy rule name.
          * 
          * @return builder
          * 
@@ -120,7 +112,7 @@ public final class RuleIdpDiscoveryAppExcludeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+         * @param name Policy rule name.
          * 
          * @return builder
          * 
@@ -129,23 +121,11 @@ public final class RuleIdpDiscoveryAppExcludeArgs extends com.pulumi.resources.R
             return name(Output.of(name));
         }
 
-        /**
-         * @param type One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

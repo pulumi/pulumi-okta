@@ -32,16 +32,14 @@ public final class OAuthGroupsClaimArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-     * Valid values: `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`. Default is `&#34;ORG_URL&#34;`.
+     * Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
      * 
      */
     @Import(name="issuerMode")
     private @Nullable Output<String> issuerMode;
 
     /**
-     * @return Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-     * Valid values: `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`. Default is `&#34;ORG_URL&#34;`.
+     * @return Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
      * 
      */
     public Optional<Output<String>> issuerMode() {
@@ -64,14 +62,14 @@ public final class OAuthGroupsClaimArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The type of OAuth application. Valid values: `&#34;web&#34;`, `&#34;native&#34;`, `&#34;browser&#34;`, `&#34;service&#34;`. For SPA apps use `browser`.
+     * Groups claim type. Valid values: `&#34;FILTER&#34;`, `&#34;EXPRESSION&#34;`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of OAuth application. Valid values: `&#34;web&#34;`, `&#34;native&#34;`, `&#34;browser&#34;`, `&#34;service&#34;`. For SPA apps use `browser`.
+     * @return Groups claim type. Valid values: `&#34;FILTER&#34;`, `&#34;EXPRESSION&#34;`.
      * 
      */
     public Output<String> type() {
@@ -143,8 +141,7 @@ public final class OAuthGroupsClaimArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param issuerMode Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-         * Valid values: `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`. Default is `&#34;ORG_URL&#34;`.
+         * @param issuerMode Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
          * 
          * @return builder
          * 
@@ -155,8 +152,7 @@ public final class OAuthGroupsClaimArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param issuerMode Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-         * Valid values: `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`. Default is `&#34;ORG_URL&#34;`.
+         * @param issuerMode Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
          * 
          * @return builder
          * 
@@ -187,7 +183,7 @@ public final class OAuthGroupsClaimArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type The type of OAuth application. Valid values: `&#34;web&#34;`, `&#34;native&#34;`, `&#34;browser&#34;`, `&#34;service&#34;`. For SPA apps use `browser`.
+         * @param type Groups claim type. Valid values: `&#34;FILTER&#34;`, `&#34;EXPRESSION&#34;`.
          * 
          * @return builder
          * 
@@ -198,7 +194,7 @@ public final class OAuthGroupsClaimArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type The type of OAuth application. Valid values: `&#34;web&#34;`, `&#34;native&#34;`, `&#34;browser&#34;`, `&#34;service&#34;`. For SPA apps use `browser`.
+         * @param type Groups claim type. Valid values: `&#34;FILTER&#34;`, `&#34;EXPRESSION&#34;`.
          * 
          * @return builder
          * 

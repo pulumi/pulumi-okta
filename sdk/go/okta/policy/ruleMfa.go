@@ -32,7 +32,7 @@ type RuleMfa struct {
 	AppIncludes RuleMfaAppIncludeArrayOutput `pulumi:"appIncludes"`
 	// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
 	Enroll pulumi.StringPtrOutput `pulumi:"enroll"`
-	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	// Policy Rule Name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
 	NetworkConnection pulumi.StringPtrOutput `pulumi:"networkConnection"`
@@ -89,7 +89,7 @@ type ruleMfaState struct {
 	AppIncludes []RuleMfaAppInclude `pulumi:"appIncludes"`
 	// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
 	Enroll *string `pulumi:"enroll"`
-	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	// Policy Rule Name.
 	Name *string `pulumi:"name"`
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
 	NetworkConnection *string `pulumi:"networkConnection"`
@@ -117,7 +117,7 @@ type RuleMfaState struct {
 	AppIncludes RuleMfaAppIncludeArrayInput
 	// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
 	Enroll pulumi.StringPtrInput
-	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	// Policy Rule Name.
 	Name pulumi.StringPtrInput
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
 	NetworkConnection pulumi.StringPtrInput
@@ -149,7 +149,7 @@ type ruleMfaArgs struct {
 	AppIncludes []RuleMfaAppInclude `pulumi:"appIncludes"`
 	// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
 	Enroll *string `pulumi:"enroll"`
-	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	// Policy Rule Name.
 	Name *string `pulumi:"name"`
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
 	NetworkConnection *string `pulumi:"networkConnection"`
@@ -178,7 +178,7 @@ type RuleMfaArgs struct {
 	AppIncludes RuleMfaAppIncludeArrayInput
 	// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
 	Enroll pulumi.StringPtrInput
-	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	// Policy Rule Name.
 	Name pulumi.StringPtrInput
 	// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
 	NetworkConnection pulumi.StringPtrInput
@@ -301,7 +301,7 @@ func (o RuleMfaOutput) Enroll() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleMfa) pulumi.StringPtrOutput { return v.Enroll }).(pulumi.StringPtrOutput)
 }
 
-// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+// Policy Rule Name.
 func (o RuleMfaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleMfa) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

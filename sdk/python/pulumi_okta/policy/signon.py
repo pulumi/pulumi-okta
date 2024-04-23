@@ -205,7 +205,6 @@ class Signon(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -216,7 +215,6 @@ class Signon(pulumi.CustomResource):
             description="Example",
             groups_includeds=[everyone["id"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -247,7 +245,6 @@ class Signon(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -258,7 +255,6 @@ class Signon(pulumi.CustomResource):
             description="Example",
             groups_includeds=[everyone["id"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

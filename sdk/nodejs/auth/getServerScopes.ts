@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     authServerId: "default",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServerScopes(args: GetServerScopesArgs, opts?: pulumi.InvokeOptions): Promise<GetServerScopesResult> {
 
@@ -59,7 +57,6 @@ export interface GetServerScopesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -68,7 +65,6 @@ export interface GetServerScopesResult {
  *     authServerId: "default",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServerScopesOutput(args: GetServerScopesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerScopesResult> {
     return pulumi.output(args).apply((a: any) => getServerScopes(a, opts))

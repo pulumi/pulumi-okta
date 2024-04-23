@@ -77,14 +77,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/templateSms:TemplateSms")
 public class TemplateSms extends com.pulumi.resources.CustomResource {
     /**
-     * The SMS message.
+     * Default SMS message
      * 
      */
     @Export(name="template", refs={String.class}, tree="[0]")
     private Output<String> template;
 
     /**
-     * @return The SMS message.
+     * @return Default SMS message
      * 
      */
     public Output<String> template() {

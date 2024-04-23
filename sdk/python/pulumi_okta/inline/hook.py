@@ -26,8 +26,8 @@ class HookArgs:
         """
         The set of arguments for constructing a Hook resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] channel: Details of the endpoint the inline hook will hit.
-        :param pulumi.Input[str] type: The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
-        :param pulumi.Input[str] version: Version of the channel. The currently-supported version is `"1.0.0"`.
+        :param pulumi.Input[str] type: The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
+        :param pulumi.Input[str] version: The version of the hook. The currently-supported version is `"1.0.0"`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] auth: Authentication required for inline hook request.
         :param pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
@@ -61,7 +61,7 @@ class HookArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+        The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
         """
         return pulumi.get(self, "type")
 
@@ -73,7 +73,7 @@ class HookArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        Version of the channel. The currently-supported version is `"1.0.0"`.
+        The version of the hook. The currently-supported version is `"1.0.0"`.
         """
         return pulumi.get(self, "version")
 
@@ -147,8 +147,8 @@ class _HookState:
         :param pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
         :param pulumi.Input[str] status: Default to `ACTIVE`
-        :param pulumi.Input[str] type: The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
-        :param pulumi.Input[str] version: Version of the channel. The currently-supported version is `"1.0.0"`.
+        :param pulumi.Input[str] type: The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
+        :param pulumi.Input[str] version: The version of the hook. The currently-supported version is `"1.0.0"`.
         """
         if auth is not None:
             pulumi.set(__self__, "auth", auth)
@@ -229,7 +229,7 @@ class _HookState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+        The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
         """
         return pulumi.get(self, "type")
 
@@ -241,7 +241,7 @@ class _HookState:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Version of the channel. The currently-supported version is `"1.0.0"`.
+        The version of the hook. The currently-supported version is `"1.0.0"`.
         """
         return pulumi.get(self, "version")
 
@@ -270,7 +270,6 @@ class Hook(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -290,7 +289,6 @@ class Hook(pulumi.CustomResource):
                 "value": "secret",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -307,8 +305,8 @@ class Hook(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HookHeaderArgs']]]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
         :param pulumi.Input[str] status: Default to `ACTIVE`
-        :param pulumi.Input[str] type: The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
-        :param pulumi.Input[str] version: Version of the channel. The currently-supported version is `"1.0.0"`.
+        :param pulumi.Input[str] type: The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
+        :param pulumi.Input[str] version: The version of the hook. The currently-supported version is `"1.0.0"`.
         """
         ...
     @overload
@@ -323,7 +321,6 @@ class Hook(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -343,7 +340,6 @@ class Hook(pulumi.CustomResource):
                 "value": "secret",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -426,8 +422,8 @@ class Hook(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HookHeaderArgs']]]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
         :param pulumi.Input[str] status: Default to `ACTIVE`
-        :param pulumi.Input[str] type: The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
-        :param pulumi.Input[str] version: Version of the channel. The currently-supported version is `"1.0.0"`.
+        :param pulumi.Input[str] type: The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
+        :param pulumi.Input[str] version: The version of the hook. The currently-supported version is `"1.0.0"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -486,7 +482,7 @@ class Hook(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+        The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
         """
         return pulumi.get(self, "type")
 
@@ -494,7 +490,7 @@ class Hook(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
         """
-        Version of the channel. The currently-supported version is `"1.0.0"`.
+        The version of the hook. The currently-supported version is `"1.0.0"`.
         """
         return pulumi.get(self, "version")
 

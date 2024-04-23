@@ -347,14 +347,12 @@ def get_oauth(active_only: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     test = okta.app.get_oauth(label="Example App")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
@@ -421,14 +419,12 @@ def get_oauth_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     test = okta.app.get_oauth(label="Example App")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.

@@ -16,7 +16,6 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,7 +45,6 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -60,7 +58,7 @@ namespace Pulumi.Okta
     public partial class TemplateSms : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The SMS message.
+        /// Default SMS message
         /// </summary>
         [Output("template")]
         public Output<string> Template { get; private set; } = null!;
@@ -124,7 +122,7 @@ namespace Pulumi.Okta
     public sealed class TemplateSmsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The SMS message.
+        /// Default SMS message
         /// </summary>
         [Input("template", required: true)]
         public Input<string> Template { get; set; } = null!;
@@ -156,7 +154,7 @@ namespace Pulumi.Okta
     public sealed class TemplateSmsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The SMS message.
+        /// Default SMS message
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }

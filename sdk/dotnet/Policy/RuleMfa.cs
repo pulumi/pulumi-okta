@@ -45,7 +45,7 @@ namespace Pulumi.Okta.Policy
         public Output<string?> Enroll { get; private set; } = null!;
 
         /// <summary>
-        /// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        /// Policy Rule Name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Enroll { get; set; }
 
         /// <summary>
-        /// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        /// Policy Rule Name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -279,7 +279,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Enroll { get; set; }
 
         /// <summary>
-        /// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        /// Policy Rule Name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

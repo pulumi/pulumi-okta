@@ -16,12 +16,11 @@ var _ = internal.GetEnvOrDefault
 type OAuthGroupsClaim struct {
 	// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
 	FilterType *string `pulumi:"filterType"`
-	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+	// Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
 	IssuerMode *string `pulumi:"issuerMode"`
 	// Name of the claim that will be used in the token.
 	Name string `pulumi:"name"`
-	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
+	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type string `pulumi:"type"`
 	// Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
 	Value string `pulumi:"value"`
@@ -41,12 +40,11 @@ type OAuthGroupsClaimInput interface {
 type OAuthGroupsClaimArgs struct {
 	// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
 	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
-	// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-	// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+	// Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
 	IssuerMode pulumi.StringPtrInput `pulumi:"issuerMode"`
 	// Name of the claim that will be used in the token.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
+	// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -134,8 +132,7 @@ func (o OAuthGroupsClaimOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuthGroupsClaim) *string { return v.FilterType }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+// Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
 func (o OAuthGroupsClaimOutput) IssuerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuthGroupsClaim) *string { return v.IssuerMode }).(pulumi.StringPtrOutput)
 }
@@ -145,7 +142,7 @@ func (o OAuthGroupsClaimOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OAuthGroupsClaim) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
+// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 func (o OAuthGroupsClaimOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OAuthGroupsClaim) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -189,8 +186,7 @@ func (o OAuthGroupsClaimPtrOutput) FilterType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+// Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
 func (o OAuthGroupsClaimPtrOutput) IssuerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuthGroupsClaim) *string {
 		if v == nil {
@@ -210,7 +206,7 @@ func (o OAuthGroupsClaimPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
+// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
 func (o OAuthGroupsClaimPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuthGroupsClaim) *string {
 		if v == nil {

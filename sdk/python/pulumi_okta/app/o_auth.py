@@ -906,7 +906,7 @@ class _OAuthState:
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[str] logo_url: Direct link of application logo.
-        :param pulumi.Input[str] name: Name of the claim that will be used in the token.
+        :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[bool] omit_secret: This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for
                additional verification.  If `pkce_required` isn't specified when adding a new
@@ -1421,7 +1421,7 @@ class _OAuthState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the claim that will be used in the token.
+        Name assigned to the application by Okta.
         """
         return pulumi.get(self, "name")
 
@@ -1740,7 +1740,6 @@ class OAuth(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1752,13 +1751,11 @@ class OAuth(pulumi.CustomResource):
             redirect_uris=["https://example.com/"],
             response_types=["code"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With JWKS value
 
         See also Advanced PEM secrets and JWKS example.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1784,7 +1781,6 @@ class OAuth(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Etc.
 
@@ -1906,7 +1902,6 @@ class OAuth(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1918,13 +1913,11 @@ class OAuth(pulumi.CustomResource):
             redirect_uris=["https://example.com/"],
             response_types=["code"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With JWKS value
 
         See also Advanced PEM secrets and JWKS example.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1950,7 +1943,6 @@ class OAuth(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Etc.
 
@@ -2210,7 +2202,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[str] logo_url: Direct link of application logo.
-        :param pulumi.Input[str] name: Name of the claim that will be used in the token.
+        :param pulumi.Input[str] name: Name assigned to the application by Okta.
         :param pulumi.Input[bool] omit_secret: This tells the provider not manage the `client_secret` value in state. When this is false (the default), it will cause the auto-generated `client_secret` to be persisted in the `client_secret` attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for
                additional verification.  If `pkce_required` isn't specified when adding a new
@@ -2560,7 +2552,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the claim that will be used in the token.
+        Name assigned to the application by Okta.
         """
         return pulumi.get(self, "name")
 

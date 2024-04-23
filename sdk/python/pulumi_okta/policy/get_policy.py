@@ -85,7 +85,6 @@ def get_policy(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -93,7 +92,6 @@ def get_policy(name: Optional[str] = None,
     example = okta.policy.get_policy(name="Password Policy Example",
         type="PASSWORD")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of policy to retrieve.
@@ -122,7 +120,6 @@ def get_policy_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -130,7 +127,6 @@ def get_policy_output(name: Optional[pulumi.Input[str]] = None,
     example = okta.policy.get_policy(name="Password Policy Example",
         type="PASSWORD")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of policy to retrieve.

@@ -248,7 +248,6 @@ class User(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -258,7 +257,6 @@ class User(pulumi.CustomResource):
             user_id="<user id>",
             username="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -287,7 +285,6 @@ class User(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -297,7 +294,6 @@ class User(pulumi.CustomResource):
             user_id="<user id>",
             username="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

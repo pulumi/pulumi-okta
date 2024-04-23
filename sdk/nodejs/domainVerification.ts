@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  * const example = new okta.Domain("example", {name: "www.example.com"});
  * const exampleDomainVerification = new okta.DomainVerification("example", {domainId: test.id});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

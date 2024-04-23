@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * Standard Role:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -30,7 +29,6 @@ import * as utilities from "../utilities";
  *     type: "HELP_DESK_ADMIN",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Custom Role:
  *

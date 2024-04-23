@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     label: "Example App",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOauth(args?: GetOauthArgs, opts?: pulumi.InvokeOptions): Promise<GetOauthResult> {
     args = args || {};
@@ -176,7 +174,6 @@ export interface GetOauthResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -185,7 +182,6 @@ export interface GetOauthResult {
  *     label: "Example App",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOauthOutput(args?: GetOauthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOauthResult> {
     return pulumi.output(args).apply((a: any) => getOauth(a, opts))

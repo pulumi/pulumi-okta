@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -34,7 +33,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -93,11 +91,11 @@ export class Hook extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+     * The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * Version of the channel. The currently-supported version is `"1.0.0"`.
+     * The version of the hook. The currently-supported version is `"1.0.0"`.
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -170,11 +168,11 @@ export interface HookState {
      */
     status?: pulumi.Input<string>;
     /**
-     * The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+     * The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
      */
     type?: pulumi.Input<string>;
     /**
-     * Version of the channel. The currently-supported version is `"1.0.0"`.
+     * The version of the hook. The currently-supported version is `"1.0.0"`.
      */
     version?: pulumi.Input<string>;
 }
@@ -204,11 +202,11 @@ export interface HookArgs {
      */
     status?: pulumi.Input<string>;
     /**
-     * The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+     * The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
      */
     type: pulumi.Input<string>;
     /**
-     * Version of the channel. The currently-supported version is `"1.0.0"`.
+     * The version of the hook. The currently-supported version is `"1.0.0"`.
      */
     version: pulumi.Input<string>;
 }

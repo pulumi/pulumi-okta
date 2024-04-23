@@ -265,7 +265,6 @@ class AdminRoleCustom(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -275,7 +274,6 @@ class AdminRoleCustom(pulumi.CustomResource):
             description="This role allows app assignment management",
             permissions=["okta.apps.assignment.manage"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -336,7 +334,6 @@ class AdminRoleCustom(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -346,7 +343,6 @@ class AdminRoleCustom(pulumi.CustomResource):
             description="This role allows app assignment management",
             permissions=["okta.apps.assignment.manage"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
