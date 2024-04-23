@@ -33,16 +33,14 @@ public final class UserPasswordHashArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
-     * the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+     * Only required for salted hashes
      * 
      */
     @Import(name="salt")
     private @Nullable Output<String> salt;
 
     /**
-     * @return Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
-     * the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+     * @return Only required for salted hashes
      * 
      */
     public Optional<Output<String>> salt() {
@@ -50,14 +48,14 @@ public final class UserPasswordHashArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+     * Specifies whether salt was pre- or postfixed to the password before hashing
      * 
      */
     @Import(name="saltOrder")
     private @Nullable Output<String> saltOrder;
 
     /**
-     * @return Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+     * @return Specifies whether salt was pre- or postfixed to the password before hashing
      * 
      */
     public Optional<Output<String>> saltOrder() {
@@ -65,20 +63,14 @@ public final class UserPasswordHashArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
-     * This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
-     * the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
-     * the Base64 encoded value of the password&#39;s SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+     * For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password&#39;s SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
-     * This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
-     * the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
-     * the Base64 encoded value of the password&#39;s SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+     * @return For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password&#39;s SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
      * 
      */
     public Output<String> value() {
@@ -86,14 +78,14 @@ public final class UserPasswordHashArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+     * Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
      * 
      */
     @Import(name="workFactor")
     private @Nullable Output<Integer> workFactor;
 
     /**
-     * @return Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+     * @return Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
      * 
      */
     public Optional<Output<Integer>> workFactor() {
@@ -150,8 +142,7 @@ public final class UserPasswordHashArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param salt Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
-         * the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+         * @param salt Only required for salted hashes
          * 
          * @return builder
          * 
@@ -162,8 +153,7 @@ public final class UserPasswordHashArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param salt Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
-         * the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+         * @param salt Only required for salted hashes
          * 
          * @return builder
          * 
@@ -173,7 +163,7 @@ public final class UserPasswordHashArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param saltOrder Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+         * @param saltOrder Specifies whether salt was pre- or postfixed to the password before hashing
          * 
          * @return builder
          * 
@@ -184,7 +174,7 @@ public final class UserPasswordHashArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param saltOrder Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+         * @param saltOrder Specifies whether salt was pre- or postfixed to the password before hashing
          * 
          * @return builder
          * 
@@ -194,10 +184,7 @@ public final class UserPasswordHashArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param value For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
-         * This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
-         * the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
-         * the Base64 encoded value of the password&#39;s SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+         * @param value For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password&#39;s SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
          * 
          * @return builder
          * 
@@ -208,10 +195,7 @@ public final class UserPasswordHashArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param value For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
-         * This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
-         * the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
-         * the Base64 encoded value of the password&#39;s SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+         * @param value For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password&#39;s SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
          * 
          * @return builder
          * 
@@ -221,7 +205,7 @@ public final class UserPasswordHashArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param workFactor Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+         * @param workFactor Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
          * 
          * @return builder
          * 
@@ -232,7 +216,7 @@ public final class UserPasswordHashArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param workFactor Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+         * @param workFactor Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
          * 
          * @return builder
          * 

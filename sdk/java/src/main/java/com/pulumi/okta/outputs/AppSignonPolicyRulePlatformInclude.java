@@ -22,7 +22,7 @@ public final class AppSignonPolicyRulePlatformInclude {
      */
     private @Nullable String osType;
     /**
-     * @return The Verification Method type. It can be set to `&#34;ASSURANCE&#34;`. Default is `&#34;ASSURANCE&#34;`.
+     * @return One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
      * 
      */
     private @Nullable String type;
@@ -43,7 +43,7 @@ public final class AppSignonPolicyRulePlatformInclude {
         return Optional.ofNullable(this.osType);
     }
     /**
-     * @return The Verification Method type. It can be set to `&#34;ASSURANCE&#34;`. Default is `&#34;ASSURANCE&#34;`.
+     * @return One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
      * 
      */
     public Optional<String> type() {

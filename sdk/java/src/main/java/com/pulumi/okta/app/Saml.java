@@ -408,14 +408,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.attributeStatements);
     }
     /**
-     * Audience Restriction
+     * Audience restriction.
      * 
      */
     @Export(name="audience", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> audience;
 
     /**
-     * @return Audience Restriction
+     * @return Audience restriction.
      * 
      */
     public Output<Optional<String>> audience() {
@@ -436,14 +436,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authenticationPolicy);
     }
     /**
-     * Identifies the SAML authentication context class for the assertion’s authentication statement
+     * Identifies the SAML authentication context class for the assertion’s authentication statement.
      * 
      */
     @Export(name="authnContextClassRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authnContextClassRef;
 
     /**
-     * @return Identifies the SAML authentication context class for the assertion’s authentication statement
+     * @return Identifies the SAML authentication context class for the assertion’s authentication statement.
      * 
      */
     public Output<Optional<String>> authnContextClassRef() {
@@ -492,28 +492,28 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultRelayState);
     }
     /**
-     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
      * 
      */
     @Export(name="destination", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destination;
 
     /**
-     * @return Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+     * @return Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
      * 
      */
     public Output<Optional<String>> destination() {
         return Codegen.optional(this.destination);
     }
     /**
-     * Determines the digest algorithm used to digitally sign the SAML assertion and response
+     * Determines the digest algorithm used to digitally sign the SAML assertion and response.
      * 
      */
     @Export(name="digestAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> digestAlgorithm;
 
     /**
-     * @return Determines the digest algorithm used to digitally sign the SAML assertion and response
+     * @return Determines the digest algorithm used to digitally sign the SAML assertion and response.
      * 
      */
     public Output<Optional<String>> digestAlgorithm() {
@@ -828,14 +828,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return this.metadataUrl;
     }
     /**
-     * The name of the attribute statement.
+     * Name assigned to the application by Okta.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the attribute statement.
+     * @return Name assigned to the application by Okta.
      * 
      */
     public Output<String> name() {

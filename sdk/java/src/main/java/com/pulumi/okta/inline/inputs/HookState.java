@@ -94,14 +94,14 @@ public final class HookState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of hook to trigger. Currently, the only supported type is `&#34;HTTP&#34;`.
+     * The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of hook to trigger. Currently, the only supported type is `&#34;HTTP&#34;`.
+     * @return The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
      * 
      */
     public Optional<Output<String>> type() {
@@ -109,14 +109,14 @@ public final class HookState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Version of the channel. The currently-supported version is `&#34;1.0.0&#34;`.
+     * The version of the hook. The currently-supported version is `&#34;1.0.0&#34;`.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return Version of the channel. The currently-supported version is `&#34;1.0.0&#34;`.
+     * @return The version of the hook. The currently-supported version is `&#34;1.0.0&#34;`.
      * 
      */
     public Optional<Output<String>> version() {
@@ -269,7 +269,7 @@ public final class HookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of hook to trigger. Currently, the only supported type is `&#34;HTTP&#34;`.
+         * @param type The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class HookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of hook to trigger. Currently, the only supported type is `&#34;HTTP&#34;`.
+         * @param type The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class HookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version Version of the channel. The currently-supported version is `&#34;1.0.0&#34;`.
+         * @param version The version of the hook. The currently-supported version is `&#34;1.0.0&#34;`.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class HookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version Version of the channel. The currently-supported version is `&#34;1.0.0&#34;`.
+         * @param version The version of the hook. The currently-supported version is `&#34;1.0.0&#34;`.
          * 
          * @return builder
          * 

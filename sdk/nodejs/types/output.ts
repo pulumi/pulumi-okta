@@ -30,7 +30,7 @@ export interface AppSignonPolicyRulePlatformInclude {
      */
     osType?: string;
     /**
-     * The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+     * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
      */
     type?: string;
 }
@@ -48,7 +48,7 @@ export interface AppUserSchemaPropertyArrayOneOf {
 
 export interface AppUserSchemaPropertyOneOf {
     /**
-     * value mapping to member of `arrayEnum`.
+     * value mapping to member of `enum`.
      */
     const: string;
     /**
@@ -92,13 +92,7 @@ export interface EmailSenderDnsRecord {
 }
 
 export interface EventHookHeader {
-    /**
-     * Key to use for authentication, usually the header name, for example `"Authorization"`.
-     */
     key?: string;
-    /**
-     * Authentication secret.
-     */
     value?: string;
 }
 
@@ -677,8 +671,7 @@ export namespace app {
          */
         filterType?: string;
         /**
-         * Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-         * Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+         * Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
          */
         issuerMode: string;
         /**
@@ -686,7 +679,7 @@ export namespace app {
          */
         name: string;
         /**
-         * The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
+         * Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
          */
         type: string;
         /**
@@ -838,13 +831,7 @@ export namespace auth {
 
 export namespace inline {
     export interface HookHeader {
-        /**
-         * Key to use for authentication, usually the header name, for example `"Authorization"`.
-         */
         key?: string;
-        /**
-         * Authentication secret.
-         */
         value?: string;
     }
 
@@ -853,16 +840,13 @@ export namespace inline {
 export namespace policy {
     export interface RuleIdpDiscoveryAppExclude {
         /**
-         * Use if `type` is `"APP"` to indicate the application id to include.
+         * ID of the Rule.
          */
         id?: string;
         /**
-         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+         * Policy rule name.
          */
         name?: string;
-        /**
-         * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-         */
         type: string;
     }
 
@@ -876,7 +860,7 @@ export namespace policy {
          */
         name?: string;
         /**
-         * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+         * One of: `"APP"`, `"APP_TYPE"`
          */
         type: string;
     }
@@ -909,16 +893,13 @@ export namespace policy {
 
     export interface RuleMfaAppExclude {
         /**
-         * Use if `type` is `"APP"` to indicate the application id to include.
+         * ID of the Rule.
          */
         id?: string;
         /**
-         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+         * Policy Rule Name.
          */
         name?: string;
-        /**
-         * One of: `"APP"`, `"APP_TYPE"`
-         */
         type: string;
     }
 
@@ -954,11 +935,11 @@ export namespace policy {
 
     export interface RuleSignonFactorSequenceSecondaryCriteria {
         /**
-         * Factor type of the additional authentication step.
+         * Type of a Factor
          */
         factorType: string;
         /**
-         * Provider of the additional authentication step.
+         * Factor provider
          */
         provider: string;
     }
@@ -1173,23 +1154,19 @@ export namespace user {
          */
         algorithm: string;
         /**
-         * Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
-         * the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+         * Only required for salted hashes
          */
         salt?: string;
         /**
-         * Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+         * Specifies whether salt was pre- or postfixed to the password before hashing
          */
         saltOrder?: string;
         /**
-         * For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
-         * This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
-         * the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
-         * the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+         * For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
          */
         value: string;
         /**
-         * Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+         * Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
          */
         workFactor?: number;
     }

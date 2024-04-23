@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     roleType: "SUPER_ADMIN",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRoleSubscription(args: GetRoleSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleSubscriptionResult> {
 
@@ -78,7 +76,6 @@ export interface GetRoleSubscriptionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -88,7 +85,6 @@ export interface GetRoleSubscriptionResult {
  *     roleType: "SUPER_ADMIN",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRoleSubscriptionOutput(args: GetRoleSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getRoleSubscription(a, opts))

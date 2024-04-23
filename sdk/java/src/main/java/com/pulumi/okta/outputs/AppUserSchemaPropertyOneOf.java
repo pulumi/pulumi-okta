@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class AppUserSchemaPropertyOneOf {
     /**
-     * @return value mapping to member of `array_enum`.
+     * @return value mapping to member of `enum`.
      * 
      */
     private String const_;
@@ -23,7 +23,7 @@ public final class AppUserSchemaPropertyOneOf {
 
     private AppUserSchemaPropertyOneOf() {}
     /**
-     * @return value mapping to member of `array_enum`.
+     * @return value mapping to member of `enum`.
      * 
      */
     public String const_() {

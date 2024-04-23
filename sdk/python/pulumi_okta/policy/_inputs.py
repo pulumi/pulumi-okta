@@ -27,9 +27,8 @@ class RuleIdpDiscoveryAppExcludeArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-        :param pulumi.Input[str] id: Use if `type` is `"APP"` to indicate the application id to include.
-        :param pulumi.Input[str] name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        :param pulumi.Input[str] id: ID of the Rule.
+        :param pulumi.Input[str] name: Policy rule name.
         """
         pulumi.set(__self__, "type", type)
         if id is not None:
@@ -40,9 +39,6 @@ class RuleIdpDiscoveryAppExcludeArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -53,7 +49,7 @@ class RuleIdpDiscoveryAppExcludeArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        Use if `type` is `"APP"` to indicate the application id to include.
+        ID of the Rule.
         """
         return pulumi.get(self, "id")
 
@@ -65,7 +61,7 @@ class RuleIdpDiscoveryAppExcludeArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        Policy rule name.
         """
         return pulumi.get(self, "name")
 
@@ -81,7 +77,7 @@ class RuleIdpDiscoveryAppIncludeArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        :param pulumi.Input[str] type: One of: `"APP"`, `"APP_TYPE"`
         :param pulumi.Input[str] id: Use if `type` is `"APP"` to indicate the application id to include.
         :param pulumi.Input[str] name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         """
@@ -95,7 +91,7 @@ class RuleIdpDiscoveryAppIncludeArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        One of: `"APP"`, `"APP_TYPE"`
         """
         return pulumi.get(self, "type")
 
@@ -229,9 +225,8 @@ class RuleMfaAppExcludeArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: One of: `"APP"`, `"APP_TYPE"`
-        :param pulumi.Input[str] id: Use if `type` is `"APP"` to indicate the application id to include.
-        :param pulumi.Input[str] name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        :param pulumi.Input[str] id: ID of the Rule.
+        :param pulumi.Input[str] name: Policy Rule Name.
         """
         pulumi.set(__self__, "type", type)
         if id is not None:
@@ -242,9 +237,6 @@ class RuleMfaAppExcludeArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        One of: `"APP"`, `"APP_TYPE"`
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -255,7 +247,7 @@ class RuleMfaAppExcludeArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        Use if `type` is `"APP"` to indicate the application id to include.
+        ID of the Rule.
         """
         return pulumi.get(self, "id")
 
@@ -267,7 +259,7 @@ class RuleMfaAppExcludeArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        Policy Rule Name.
         """
         return pulumi.get(self, "name")
 
@@ -389,8 +381,8 @@ class RuleSignonFactorSequenceSecondaryCriteriaArgs:
                  factor_type: pulumi.Input[str],
                  provider: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] factor_type: Factor type of the additional authentication step.
-        :param pulumi.Input[str] provider: Provider of the additional authentication step.
+        :param pulumi.Input[str] factor_type: Type of a Factor
+        :param pulumi.Input[str] provider: Factor provider
         """
         pulumi.set(__self__, "factor_type", factor_type)
         pulumi.set(__self__, "provider", provider)
@@ -399,7 +391,7 @@ class RuleSignonFactorSequenceSecondaryCriteriaArgs:
     @pulumi.getter(name="factorType")
     def factor_type(self) -> pulumi.Input[str]:
         """
-        Factor type of the additional authentication step.
+        Type of a Factor
         """
         return pulumi.get(self, "factor_type")
 
@@ -411,7 +403,7 @@ class RuleSignonFactorSequenceSecondaryCriteriaArgs:
     @pulumi.getter
     def provider(self) -> pulumi.Input[str]:
         """
-        Provider of the additional authentication step.
+        Factor provider
         """
         return pulumi.get(self, "provider")
 

@@ -61,7 +61,7 @@ export class RuleMfa extends pulumi.CustomResource {
      */
     public readonly enroll!: pulumi.Output<string | undefined>;
     /**
-     * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+     * Policy Rule Name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export interface RuleMfaState {
      */
     enroll?: pulumi.Input<string>;
     /**
-     * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+     * Policy Rule Name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -209,7 +209,7 @@ export interface RuleMfaArgs {
      */
     enroll?: pulumi.Input<string>;
     /**
-     * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+     * Policy Rule Name.
      */
     name?: pulumi.Input<string>;
     /**

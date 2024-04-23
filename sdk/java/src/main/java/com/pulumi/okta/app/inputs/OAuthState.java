@@ -487,14 +487,14 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the claim that will be used in the token.
+     * Name assigned to the application by Okta.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the claim that will be used in the token.
+     * @return Name assigned to the application by Okta.
      * 
      */
     public Optional<Output<String>> name() {
@@ -1581,7 +1581,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the claim that will be used in the token.
+         * @param name Name assigned to the application by Okta.
          * 
          * @return builder
          * 
@@ -1592,7 +1592,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the claim that will be used in the token.
+         * @param name Name assigned to the application by Okta.
          * 
          * @return builder
          * 

@@ -162,14 +162,14 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.inlineHookId);
     }
     /**
-     * The name of a User Profile property
+     * Name of the Rule.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of a User Profile property
+     * @return Name of the Rule.
      * 
      */
     public Output<String> name() {

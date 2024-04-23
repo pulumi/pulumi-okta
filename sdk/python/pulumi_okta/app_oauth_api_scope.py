@@ -136,7 +136,6 @@ class AppOauthApiScope(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -149,7 +148,6 @@ class AppOauthApiScope(pulumi.CustomResource):
                 "okta.users.manage",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -178,7 +176,6 @@ class AppOauthApiScope(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -191,7 +188,6 @@ class AppOauthApiScope(pulumi.CustomResource):
                 "okta.users.manage",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

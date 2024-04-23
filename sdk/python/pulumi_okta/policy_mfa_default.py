@@ -854,7 +854,6 @@ class PolicyMfaDefault(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -876,7 +875,6 @@ class PolicyMfaDefault(pulumi.CustomResource):
                 "enroll": "REQUIRED",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         > If the `PolicyMfaDefault` is used in conjunction with `policy.Mfa` resources, ensure to use a `depends_on` attribute for the default policy to ensure that all other policies are created/updated first such that the `priority` field can be appropriately computed on the first plan/apply.
 
@@ -931,7 +929,6 @@ class PolicyMfaDefault(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -953,7 +950,6 @@ class PolicyMfaDefault(pulumi.CustomResource):
                 "enroll": "REQUIRED",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         > If the `PolicyMfaDefault` is used in conjunction with `policy.Mfa` resources, ensure to use a `depends_on` attribute for the default policy to ensure that all other policies are created/updated first such that the `priority` field can be appropriately computed on the first plan/apply.
 

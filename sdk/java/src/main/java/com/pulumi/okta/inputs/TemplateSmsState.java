@@ -18,14 +18,14 @@ public final class TemplateSmsState extends com.pulumi.resources.ResourceArgs {
     public static final TemplateSmsState Empty = new TemplateSmsState();
 
     /**
-     * The SMS message.
+     * Default SMS message
      * 
      */
     @Import(name="template")
     private @Nullable Output<String> template;
 
     /**
-     * @return The SMS message.
+     * @return Default SMS message
      * 
      */
     public Optional<Output<String>> template() {
@@ -89,7 +89,7 @@ public final class TemplateSmsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param template The SMS message.
+         * @param template Default SMS message
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class TemplateSmsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param template The SMS message.
+         * @param template Default SMS message
          * 
          * @return builder
          * 

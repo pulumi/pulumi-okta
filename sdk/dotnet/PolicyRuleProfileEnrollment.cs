@@ -19,7 +19,6 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -87,7 +86,6 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -119,7 +117,7 @@ namespace Pulumi.Okta
         public Output<string?> InlineHookId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of a User Profile property
+        /// Name of the Rule.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -299,7 +297,7 @@ namespace Pulumi.Okta
         public Input<string>? InlineHookId { get; set; }
 
         /// <summary>
-        /// The name of a User Profile property
+        /// Name of the Rule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

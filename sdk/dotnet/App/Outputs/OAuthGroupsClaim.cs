@@ -18,8 +18,7 @@ namespace Pulumi.Okta.App.Outputs
         /// </summary>
         public readonly string? FilterType;
         /// <summary>
-        /// Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-        /// Valid values: `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`. Default is `"ORG_URL"`.
+        /// Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
         /// </summary>
         public readonly string? IssuerMode;
         /// <summary>
@@ -27,7 +26,7 @@ namespace Pulumi.Okta.App.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of OAuth application. Valid values: `"web"`, `"native"`, `"browser"`, `"service"`. For SPA apps use `browser`.
+        /// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
         /// </summary>
         public readonly string Type;
         /// <summary>

@@ -207,7 +207,6 @@ class SecurityNotificationEmails(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -219,7 +218,6 @@ class SecurityNotificationEmails(pulumi.CustomResource):
             send_email_for_new_device_enabled=True,
             send_email_for_password_changed_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -252,7 +250,6 @@ class SecurityNotificationEmails(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -264,7 +261,6 @@ class SecurityNotificationEmails(pulumi.CustomResource):
             send_email_for_new_device_enabled=True,
             send_email_for_password_changed_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

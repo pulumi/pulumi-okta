@@ -14,16 +14,13 @@ namespace Pulumi.Okta.Policy.Outputs
     public sealed class RuleMfaAppExclude
     {
         /// <summary>
-        /// Use if `type` is `"APP"` to indicate the application id to include.
+        /// ID of the Rule.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        /// Policy Rule Name.
         /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// One of: `"APP"`, `"APP_TYPE"`
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

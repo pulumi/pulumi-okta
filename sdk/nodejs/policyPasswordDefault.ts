@@ -11,14 +11,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const _default = new okta.PolicyPasswordDefault("default", {});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

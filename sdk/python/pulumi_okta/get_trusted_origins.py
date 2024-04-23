@@ -70,14 +70,12 @@ def get_trusted_origins(filter: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     all = okta.get_trusted_origins()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str filter: Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
@@ -101,14 +99,12 @@ def get_trusted_origins_output(filter: Optional[pulumi.Input[Optional[str]]] = N
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     all = okta.get_trusted_origins()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str filter: Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.

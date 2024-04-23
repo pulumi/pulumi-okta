@@ -41,7 +41,7 @@ class AppUserSchemaPropertyArgs:
         The set of arguments for constructing a AppUserSchemaProperty resource.
         :param pulumi.Input[str] app_id: The Application's ID the user custom schema property should be assigned to.
         :param pulumi.Input[str] index: The property name.
-        :param pulumi.Input[str] title: display name for the enum value.
+        :param pulumi.Input[str] title: The display name.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
         :param pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyArrayOneOfArgs']]] array_one_ofs: Display name and value an enum array can be set to.
@@ -128,7 +128,7 @@ class AppUserSchemaPropertyArgs:
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
         """
-        display name for the enum value.
+        The display name.
         """
         return pulumi.get(self, "title")
 
@@ -395,7 +395,7 @@ class _AppUserSchemaPropertyState:
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
-        :param pulumi.Input[str] title: display name for the enum value.
+        :param pulumi.Input[str] title: The display name.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         :param pulumi.Input[bool] union: If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
         :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
@@ -640,7 +640,7 @@ class _AppUserSchemaPropertyState:
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
         """
-        display name for the enum value.
+        The display name.
         """
         return pulumi.get(self, "title")
 
@@ -727,7 +727,6 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -741,7 +740,6 @@ class AppUserSchemaProperty(pulumi.CustomResource):
             master="OKTA",
             scope="SELF")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -769,7 +767,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
-        :param pulumi.Input[str] title: display name for the enum value.
+        :param pulumi.Input[str] title: The display name.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         :param pulumi.Input[bool] union: If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
         :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
@@ -784,7 +782,6 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -798,7 +795,6 @@ class AppUserSchemaProperty(pulumi.CustomResource):
             master="OKTA",
             scope="SELF")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -936,7 +932,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
         :param pulumi.Input[bool] required: Whether the property is required for this application's users.
         :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
-        :param pulumi.Input[str] title: display name for the enum value.
+        :param pulumi.Input[str] title: The display name.
         :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         :param pulumi.Input[bool] union: If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
         :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
@@ -1101,7 +1097,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def title(self) -> pulumi.Output[str]:
         """
-        display name for the enum value.
+        The display name.
         """
         return pulumi.get(self, "title")
 

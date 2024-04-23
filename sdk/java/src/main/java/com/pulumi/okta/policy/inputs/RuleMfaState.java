@@ -71,14 +71,14 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+     * Policy Rule Name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+     * @return Policy Rule Name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -317,7 +317,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+         * @param name Policy Rule Name.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+         * @param name Policy Rule Name.
          * 
          * @return builder
          * 

@@ -262,14 +262,14 @@ public final class AppUserSchemaPropertyArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * display name for the enum value.
+     * The display name.
      * 
      */
     @Import(name="title", required=true)
     private Output<String> title;
 
     /**
-     * @return display name for the enum value.
+     * @return The display name.
      * 
      */
     public Output<String> title() {
@@ -757,7 +757,7 @@ public final class AppUserSchemaPropertyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param title display name for the enum value.
+         * @param title The display name.
          * 
          * @return builder
          * 
@@ -768,7 +768,7 @@ public final class AppUserSchemaPropertyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param title display name for the enum value.
+         * @param title The display name.
          * 
          * @return builder
          * 

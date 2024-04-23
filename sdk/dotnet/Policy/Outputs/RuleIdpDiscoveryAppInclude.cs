@@ -22,7 +22,7 @@ namespace Pulumi.Okta.Policy.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        /// One of: `"APP"`, `"APP_TYPE"`
         /// </summary>
         public readonly string Type;
 

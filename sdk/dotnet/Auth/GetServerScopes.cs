@@ -16,7 +16,6 @@ namespace Pulumi.Okta.Auth
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Okta.Auth
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServerScopesResult> InvokeAsync(GetServerScopesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerScopesResult>("okta:auth/getServerScopes:getServerScopes", args ?? new GetServerScopesArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Okta.Auth
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Okta.Auth
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServerScopesResult> Invoke(GetServerScopesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerScopesResult>("okta:auth/getServerScopes:getServerScopes", args ?? new GetServerScopesInvokeArgs(), options.WithDefaults());

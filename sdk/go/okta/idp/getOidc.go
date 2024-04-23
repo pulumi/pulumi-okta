@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupOidc(ctx *pulumi.Context, args *LookupOidcArgs, opts ...pulumi.InvokeOption) (*LookupOidcResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOidcResult

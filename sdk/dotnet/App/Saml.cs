@@ -22,7 +22,6 @@ namespace Pulumi.Okta.App
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -59,11 +58,9 @@ namespace Pulumi.Okta.App
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With inline hook
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -122,17 +119,15 @@ namespace Pulumi.Okta.App
     ///     {
     ///         DependsOn =
     ///         {
-    ///             test, 
+    ///             test,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Pre-configured app with SAML 1.1 sign-on mode
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -158,11 +153,9 @@ namespace Pulumi.Okta.App
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Pre-configured app with SAML 1.1 sign-on mode, `app_settings_json` and `app_links_json`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -213,7 +206,6 @@ namespace Pulumi.Okta.App
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -281,7 +273,7 @@ namespace Pulumi.Okta.App
         public Output<ImmutableArray<Outputs.SamlAttributeStatement>> AttributeStatements { get; private set; } = null!;
 
         /// <summary>
-        /// Audience Restriction
+        /// Audience restriction.
         /// </summary>
         [Output("audience")]
         public Output<string?> Audience { get; private set; } = null!;
@@ -293,7 +285,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AuthenticationPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Identifies the SAML authentication context class for the assertion’s authentication statement
+        /// Identifies the SAML authentication context class for the assertion’s authentication statement.
         /// </summary>
         [Output("authnContextClassRef")]
         public Output<string?> AuthnContextClassRef { get; private set; } = null!;
@@ -317,13 +309,13 @@ namespace Pulumi.Okta.App
         public Output<string?> DefaultRelayState { get; private set; } = null!;
 
         /// <summary>
-        /// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+        /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         /// </summary>
         [Output("destination")]
         public Output<string?> Destination { get; private set; } = null!;
 
         /// <summary>
-        /// Determines the digest algorithm used to digitally sign the SAML assertion and response
+        /// Determines the digest algorithm used to digitally sign the SAML assertion and response.
         /// </summary>
         [Output("digestAlgorithm")]
         public Output<string?> DigestAlgorithm { get; private set; } = null!;
@@ -461,7 +453,7 @@ namespace Pulumi.Okta.App
         public Output<string> MetadataUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the attribute statement.
+        /// Name assigned to the application by Okta.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -699,7 +691,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Audience Restriction
+        /// Audience restriction.
         /// </summary>
         [Input("audience")]
         public Input<string>? Audience { get; set; }
@@ -711,7 +703,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AuthenticationPolicy { get; set; }
 
         /// <summary>
-        /// Identifies the SAML authentication context class for the assertion’s authentication statement
+        /// Identifies the SAML authentication context class for the assertion’s authentication statement.
         /// </summary>
         [Input("authnContextClassRef")]
         public Input<string>? AuthnContextClassRef { get; set; }
@@ -729,13 +721,13 @@ namespace Pulumi.Okta.App
         public Input<string>? DefaultRelayState { get; set; }
 
         /// <summary>
-        /// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+        /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
 
         /// <summary>
-        /// Determines the digest algorithm used to digitally sign the SAML assertion and response
+        /// Determines the digest algorithm used to digitally sign the SAML assertion and response.
         /// </summary>
         [Input("digestAlgorithm")]
         public Input<string>? DigestAlgorithm { get; set; }
@@ -995,7 +987,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Audience Restriction
+        /// Audience restriction.
         /// </summary>
         [Input("audience")]
         public Input<string>? Audience { get; set; }
@@ -1007,7 +999,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AuthenticationPolicy { get; set; }
 
         /// <summary>
-        /// Identifies the SAML authentication context class for the assertion’s authentication statement
+        /// Identifies the SAML authentication context class for the assertion’s authentication statement.
         /// </summary>
         [Input("authnContextClassRef")]
         public Input<string>? AuthnContextClassRef { get; set; }
@@ -1031,13 +1023,13 @@ namespace Pulumi.Okta.App
         public Input<string>? DefaultRelayState { get; set; }
 
         /// <summary>
-        /// Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+        /// Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
 
         /// <summary>
-        /// Determines the digest algorithm used to digitally sign the SAML assertion and response
+        /// Determines the digest algorithm used to digitally sign the SAML assertion and response.
         /// </summary>
         [Input("digestAlgorithm")]
         public Input<string>? DigestAlgorithm { get; set; }
@@ -1187,7 +1179,7 @@ namespace Pulumi.Okta.App
         public Input<string>? MetadataUrl { get; set; }
 
         /// <summary>
-        /// The name of the attribute statement.
+        /// Name assigned to the application by Okta.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

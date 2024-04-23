@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -65,7 +64,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -120,7 +118,7 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
      */
     public readonly idpType!: pulumi.Output<string | undefined>;
     /**
-     * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+     * Policy rule name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -238,7 +236,7 @@ export interface RuleIdpDiscoveryState {
      */
     idpType?: pulumi.Input<string>;
     /**
-     * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+     * Policy rule name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -306,7 +304,7 @@ export interface RuleIdpDiscoveryArgs {
      */
     idpType?: pulumi.Input<string>;
     /**
-     * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+     * Policy rule name.
      */
     name?: pulumi.Input<string>;
     /**

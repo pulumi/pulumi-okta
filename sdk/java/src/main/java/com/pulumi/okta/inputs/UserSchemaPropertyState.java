@@ -277,14 +277,14 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
     }
 
     /**
-     * display name for the enum value.
+     * The display name.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return display name for the enum value.
+     * @return The display name.
      * 
      */
     public Optional<Output<String>> title() {
@@ -292,14 +292,14 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Type of profile source.
+     * The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of profile source.
+     * @return The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -788,7 +788,7 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param title display name for the enum value.
+         * @param title The display name.
          * 
          * @return builder
          * 
@@ -799,7 +799,7 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param title display name for the enum value.
+         * @param title The display name.
          * 
          * @return builder
          * 
@@ -809,7 +809,7 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type Type of profile source.
+         * @param type The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
          * 
          * @return builder
          * 
@@ -820,7 +820,7 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type Type of profile source.
+         * @param type The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
          * 
          * @return builder
          * 

@@ -302,7 +302,6 @@ class AuthServerDefault(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -311,7 +310,6 @@ class AuthServerDefault(pulumi.CustomResource):
             audiences=["api://default"],
             description="Default Authorization Server for your Applications")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -343,7 +341,6 @@ class AuthServerDefault(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -352,7 +349,6 @@ class AuthServerDefault(pulumi.CustomResource):
             audiences=["api://default"],
             description="Default Authorization Server for your Applications")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

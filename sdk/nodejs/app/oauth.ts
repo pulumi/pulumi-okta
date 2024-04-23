@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -28,13 +27,11 @@ import * as utilities from "../utilities";
  *     responseTypes: ["code"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With JWKS value
  *
  * See also Advanced PEM secrets and JWKS example.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -61,7 +58,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Etc.
  *
@@ -247,7 +243,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public /*out*/ readonly logoUrl!: pulumi.Output<string>;
     /**
-     * Name of the claim that will be used in the token.
+     * Name assigned to the application by Okta.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -610,7 +606,7 @@ export interface OAuthState {
      */
     logoUrl?: pulumi.Input<string>;
     /**
-     * Name of the claim that will be used in the token.
+     * Name assigned to the application by Okta.
      */
     name?: pulumi.Input<string>;
     /**

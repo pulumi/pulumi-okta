@@ -47,14 +47,14 @@ public final class RuleIdpDiscoveryAppIncludeArgs extends com.pulumi.resources.R
     }
 
     /**
-     * One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
+     * One of: `&#34;APP&#34;`, `&#34;APP_TYPE&#34;`
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
+     * @return One of: `&#34;APP&#34;`, `&#34;APP_TYPE&#34;`
      * 
      */
     public Output<String> type() {
@@ -130,7 +130,7 @@ public final class RuleIdpDiscoveryAppIncludeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param type One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
+         * @param type One of: `&#34;APP&#34;`, `&#34;APP_TYPE&#34;`
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class RuleIdpDiscoveryAppIncludeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param type One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
+         * @param type One of: `&#34;APP&#34;`, `&#34;APP_TYPE&#34;`
          * 
          * @return builder
          * 

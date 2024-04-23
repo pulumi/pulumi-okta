@@ -107,7 +107,6 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -121,11 +120,9 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
             captcha_id=test["id"],
             enabled_fors=["SSR"])
         ```
-        <!--End PulumiCodeChooser -->
 
         The following example disables org-wide CAPTCHA.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -137,7 +134,6 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
             secret_key="some_secret_key")
         example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -166,7 +162,6 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -180,11 +175,9 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
             captcha_id=test["id"],
             enabled_fors=["SSR"])
         ```
-        <!--End PulumiCodeChooser -->
 
         The following example disables org-wide CAPTCHA.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -196,7 +189,6 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
             secret_key="some_secret_key")
         example_captcha_org_wide_settings = okta.CaptchaOrgWideSettings("example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

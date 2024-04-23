@@ -16,17 +16,13 @@ var _ = internal.GetEnvOrDefault
 type UserPasswordHash struct {
 	// The algorithm used to generate the hash using the password
 	Algorithm string `pulumi:"algorithm"`
-	// Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
-	// the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+	// Only required for salted hashes
 	Salt *string `pulumi:"salt"`
-	// Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+	// Specifies whether salt was pre- or postfixed to the password before hashing
 	SaltOrder *string `pulumi:"saltOrder"`
-	// For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
-	// This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
-	// the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
-	// the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+	// For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
 	Value string `pulumi:"value"`
-	// Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+	// Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
 	WorkFactor *int `pulumi:"workFactor"`
 }
 
@@ -44,17 +40,13 @@ type UserPasswordHashInput interface {
 type UserPasswordHashArgs struct {
 	// The algorithm used to generate the hash using the password
 	Algorithm pulumi.StringInput `pulumi:"algorithm"`
-	// Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
-	// the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+	// Only required for salted hashes
 	Salt pulumi.StringPtrInput `pulumi:"salt"`
-	// Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+	// Specifies whether salt was pre- or postfixed to the password before hashing
 	SaltOrder pulumi.StringPtrInput `pulumi:"saltOrder"`
-	// For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
-	// This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
-	// the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
-	// the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+	// For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
 	Value pulumi.StringInput `pulumi:"value"`
-	// Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+	// Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
 	WorkFactor pulumi.IntPtrInput `pulumi:"workFactor"`
 }
 
@@ -140,26 +132,22 @@ func (o UserPasswordHashOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPasswordHash) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
-// Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
-// the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+// Only required for salted hashes
 func (o UserPasswordHashOutput) Salt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPasswordHash) *string { return v.Salt }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+// Specifies whether salt was pre- or postfixed to the password before hashing
 func (o UserPasswordHashOutput) SaltOrder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPasswordHash) *string { return v.SaltOrder }).(pulumi.StringPtrOutput)
 }
 
-// For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
-// This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
-// the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
-// the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+// For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
 func (o UserPasswordHashOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPasswordHash) string { return v.Value }).(pulumi.StringOutput)
 }
 
-// Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+// Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
 func (o UserPasswordHashOutput) WorkFactor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPasswordHash) *int { return v.WorkFactor }).(pulumi.IntPtrOutput)
 }
@@ -198,8 +186,7 @@ func (o UserPasswordHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate
-// the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash.
+// Only required for salted hashes
 func (o UserPasswordHashPtrOutput) Salt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPasswordHash) *string {
 		if v == nil {
@@ -209,7 +196,7 @@ func (o UserPasswordHashPtrOutput) Salt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms.
+// Specifies whether salt was pre- or postfixed to the password before hashing
 func (o UserPasswordHashPtrOutput) SaltOrder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPasswordHash) *string {
 		if v == nil {
@@ -219,10 +206,7 @@ func (o UserPasswordHashPtrOutput) SaltOrder() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// For SHA-512, SHA-256, SHA-1, MD5, this is the actual base64-encoded hash of the password (and salt, if used).
-// This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing
-// the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be
-// the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+// For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
 func (o UserPasswordHashPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPasswordHash) *string {
 		if v == nil {
@@ -232,7 +216,7 @@ func (o UserPasswordHashPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20.
+// Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
 func (o UserPasswordHashPtrOutput) WorkFactor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPasswordHash) *int {
 		if v == nil {

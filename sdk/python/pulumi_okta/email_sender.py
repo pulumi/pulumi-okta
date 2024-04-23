@@ -170,7 +170,6 @@ class EmailSender(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -180,7 +179,6 @@ class EmailSender(pulumi.CustomResource):
             from_address="no-reply@caladan.planet",
             subdomain="mail")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -209,7 +207,6 @@ class EmailSender(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -219,7 +216,6 @@ class EmailSender(pulumi.CustomResource):
             from_address="no-reply@caladan.planet",
             subdomain="mail")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

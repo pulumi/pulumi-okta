@@ -127,7 +127,6 @@ class ThreatInsightSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -147,7 +146,6 @@ class ThreatInsightSettings(pulumi.CustomResource):
             action="block",
             network_excludes=[ip_network_zone_example.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -179,7 +177,6 @@ class ThreatInsightSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -199,7 +196,6 @@ class ThreatInsightSettings(pulumi.CustomResource):
             action="block",
             network_excludes=[ip_network_zone_example.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

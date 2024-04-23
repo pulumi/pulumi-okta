@@ -19,7 +19,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,7 +90,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -111,7 +109,7 @@ type RuleIdpDiscovery struct {
 	IdpId pulumi.StringPtrOutput `pulumi:"idpId"`
 	// Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
 	IdpType pulumi.StringPtrOutput `pulumi:"idpType"`
-	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	// Policy rule name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The network selection mode. One of `"ANYWEHRE"` or `"ZONE"`.
 	NetworkConnection pulumi.StringPtrOutput `pulumi:"networkConnection"`
@@ -175,7 +173,7 @@ type ruleIdpDiscoveryState struct {
 	IdpId *string `pulumi:"idpId"`
 	// Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
 	IdpType *string `pulumi:"idpType"`
-	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	// Policy rule name.
 	Name *string `pulumi:"name"`
 	// The network selection mode. One of `"ANYWEHRE"` or `"ZONE"`.
 	NetworkConnection *string `pulumi:"networkConnection"`
@@ -210,7 +208,7 @@ type RuleIdpDiscoveryState struct {
 	IdpId pulumi.StringPtrInput
 	// Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
 	IdpType pulumi.StringPtrInput
-	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	// Policy rule name.
 	Name pulumi.StringPtrInput
 	// The network selection mode. One of `"ANYWEHRE"` or `"ZONE"`.
 	NetworkConnection pulumi.StringPtrInput
@@ -249,7 +247,7 @@ type ruleIdpDiscoveryArgs struct {
 	IdpId *string `pulumi:"idpId"`
 	// Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
 	IdpType *string `pulumi:"idpType"`
-	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	// Policy rule name.
 	Name *string `pulumi:"name"`
 	// The network selection mode. One of `"ANYWEHRE"` or `"ZONE"`.
 	NetworkConnection *string `pulumi:"networkConnection"`
@@ -285,7 +283,7 @@ type RuleIdpDiscoveryArgs struct {
 	IdpId pulumi.StringPtrInput
 	// Type of Idp. One of: `"SAML2"`, `"IWA"`, `"AgentlessDSSO"`, `"X509"`, `"FACEBOOK"`, `"GOOGLE"`, `"LINKEDIN"`, `"MICROSOFT"`, `"OIDC"`
 	IdpType pulumi.StringPtrInput
-	// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+	// Policy rule name.
 	Name pulumi.StringPtrInput
 	// The network selection mode. One of `"ANYWEHRE"` or `"ZONE"`.
 	NetworkConnection pulumi.StringPtrInput
@@ -418,7 +416,7 @@ func (o RuleIdpDiscoveryOutput) IdpType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.IdpType }).(pulumi.StringPtrOutput)
 }
 
-// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
+// Policy rule name.
 func (o RuleIdpDiscoveryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

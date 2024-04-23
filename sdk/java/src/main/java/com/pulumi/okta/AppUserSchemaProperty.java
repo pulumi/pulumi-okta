@@ -295,14 +295,14 @@ public class AppUserSchemaProperty extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.scope);
     }
     /**
-     * display name for the enum value.
+     * The display name.
      * 
      */
     @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**
-     * @return display name for the enum value.
+     * @return The display name.
      * 
      */
     public Output<String> title() {

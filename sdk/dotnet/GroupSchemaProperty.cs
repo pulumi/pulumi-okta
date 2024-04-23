@@ -12,7 +12,6 @@ namespace Pulumi.Okta
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -143,13 +141,13 @@ namespace Pulumi.Okta
         public Output<string?> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// display name for the enum value.
+        /// The display name.
         /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
-        /// Type of profile source.
+        /// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -333,13 +331,13 @@ namespace Pulumi.Okta
         public Input<string>? Scope { get; set; }
 
         /// <summary>
-        /// display name for the enum value.
+        /// The display name.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
         /// <summary>
-        /// Type of profile source.
+        /// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -485,13 +483,13 @@ namespace Pulumi.Okta
         public Input<string>? Scope { get; set; }
 
         /// <summary>
-        /// display name for the enum value.
+        /// The display name.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// Type of profile source.
+        /// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

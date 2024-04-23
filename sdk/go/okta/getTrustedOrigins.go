@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,7 +36,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetTrustedOrigins(ctx *pulumi.Context, args *GetTrustedOriginsArgs, opts ...pulumi.InvokeOption) (*GetTrustedOriginsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTrustedOriginsResult

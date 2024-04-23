@@ -21,7 +21,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupAppSignonPolicy(ctx *pulumi.Context, args *LookupAppSignonPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAppSignonPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAppSignonPolicyResult

@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -33,7 +32,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -72,7 +70,7 @@ export class TemplateSms extends pulumi.CustomResource {
     }
 
     /**
-     * The SMS message.
+     * Default SMS message
      */
     public readonly template!: pulumi.Output<string>;
     /**
@@ -122,7 +120,7 @@ export class TemplateSms extends pulumi.CustomResource {
  */
 export interface TemplateSmsState {
     /**
-     * The SMS message.
+     * Default SMS message
      */
     template?: pulumi.Input<string>;
     /**
@@ -140,7 +138,7 @@ export interface TemplateSmsState {
  */
 export interface TemplateSmsArgs {
     /**
-     * The SMS message.
+     * Default SMS message
      */
     template: pulumi.Input<string>;
     /**
