@@ -133,7 +133,7 @@ type AppSignonPolicyRulePlatformInclude struct {
 	OsExpression *string `pulumi:"osExpression"`
 	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
 	OsType *string `pulumi:"osType"`
-	// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
 	Type *string `pulumi:"type"`
 }
 
@@ -153,7 +153,7 @@ type AppSignonPolicyRulePlatformIncludeArgs struct {
 	OsExpression pulumi.StringPtrInput `pulumi:"osExpression"`
 	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -218,7 +218,7 @@ func (o AppSignonPolicyRulePlatformIncludeOutput) OsType() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v AppSignonPolicyRulePlatformInclude) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
 func (o AppSignonPolicyRulePlatformIncludeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppSignonPolicyRulePlatformInclude) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -350,7 +350,7 @@ func (o AppUserSchemaPropertyArrayOneOfArrayOutput) Index(i pulumi.IntInput) App
 }
 
 type AppUserSchemaPropertyOneOf struct {
-	// value mapping to member of `arrayEnum`.
+	// value mapping to member of `enum`.
 	Const string `pulumi:"const"`
 	// display name for the enum value.
 	Title string `pulumi:"title"`
@@ -368,7 +368,7 @@ type AppUserSchemaPropertyOneOfInput interface {
 }
 
 type AppUserSchemaPropertyOneOfArgs struct {
-	// value mapping to member of `arrayEnum`.
+	// value mapping to member of `enum`.
 	Const pulumi.StringInput `pulumi:"const"`
 	// display name for the enum value.
 	Title pulumi.StringInput `pulumi:"title"`
@@ -425,7 +425,7 @@ func (o AppUserSchemaPropertyOneOfOutput) ToAppUserSchemaPropertyOneOfOutputWith
 	return o
 }
 
-// value mapping to member of `arrayEnum`.
+// value mapping to member of `enum`.
 func (o AppUserSchemaPropertyOneOfOutput) Const() pulumi.StringOutput {
 	return o.ApplyT(func(v AppUserSchemaPropertyOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
@@ -695,9 +695,7 @@ func (o EmailSenderDnsRecordArrayOutput) Index(i pulumi.IntInput) EmailSenderDns
 }
 
 type EventHookHeader struct {
-	// Key to use for authentication, usually the header name, for example `"Authorization"`.
-	Key *string `pulumi:"key"`
-	// Authentication secret.
+	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
@@ -713,9 +711,7 @@ type EventHookHeaderInput interface {
 }
 
 type EventHookHeaderArgs struct {
-	// Key to use for authentication, usually the header name, for example `"Authorization"`.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Authentication secret.
+	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -770,12 +766,10 @@ func (o EventHookHeaderOutput) ToEventHookHeaderOutputWithContext(ctx context.Co
 	return o
 }
 
-// Key to use for authentication, usually the header name, for example `"Authorization"`.
 func (o EventHookHeaderOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHookHeader) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Authentication secret.
 func (o EventHookHeaderOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHookHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

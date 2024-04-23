@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     name: "Example App",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGroup(args?: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     args = args || {};
@@ -94,7 +92,6 @@ export interface GetGroupResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -103,7 +100,6 @@ export interface GetGroupResult {
  *     name: "Example App",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGroupOutput(args?: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
     return pulumi.output(args).apply((a: any) => getGroup(a, opts))

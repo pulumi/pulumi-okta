@@ -25,7 +25,7 @@ namespace Pulumi.Okta.Policy.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        /// One of: `"APP"`, `"APP_TYPE"`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

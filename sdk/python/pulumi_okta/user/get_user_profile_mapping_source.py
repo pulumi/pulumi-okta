@@ -76,14 +76,12 @@ def get_user_profile_mapping_source(opts: Optional[pulumi.InvokeOptions] = None)
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.user.get_user_profile_mapping_source()
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -104,13 +102,11 @@ def get_user_profile_mapping_source_output(opts: Optional[pulumi.InvokeOptions] 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.user.get_user_profile_mapping_source()
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

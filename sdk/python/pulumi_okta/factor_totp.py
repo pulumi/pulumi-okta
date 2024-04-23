@@ -253,7 +253,6 @@ class FactorTotp(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -266,7 +265,6 @@ class FactorTotp(pulumi.CustomResource):
             clock_drift_interval=10,
             shared_secret_encoding="hexadecimal")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -296,7 +294,6 @@ class FactorTotp(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -309,7 +306,6 @@ class FactorTotp(pulumi.CustomResource):
             clock_drift_interval=10,
             shared_secret_encoding="hexadecimal")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param FactorTotpArgs args: The arguments to use to populate this resource's properties.

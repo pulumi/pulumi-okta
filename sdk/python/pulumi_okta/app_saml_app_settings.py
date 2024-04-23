@@ -103,7 +103,6 @@ class AppSamlAppSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -126,7 +125,6 @@ class AppSamlAppSettings(pulumi.CustomResource):
                 "useGroupMapping": False,
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -153,7 +151,6 @@ class AppSamlAppSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -176,7 +173,6 @@ class AppSamlAppSettings(pulumi.CustomResource):
                 "useGroupMapping": False,
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

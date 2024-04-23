@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -23,7 +22,6 @@ import * as utilities from "./utilities";
  *     scope: "SELF",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -126,11 +124,11 @@ export class GroupSchemaProperty extends pulumi.CustomResource {
      */
     public readonly scope!: pulumi.Output<string | undefined>;
     /**
-     * display name for the enum value.
+     * The display name.
      */
     public readonly title!: pulumi.Output<string>;
     /**
-     * Type of profile source.
+     * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -275,11 +273,11 @@ export interface GroupSchemaPropertyState {
      */
     scope?: pulumi.Input<string>;
     /**
-     * display name for the enum value.
+     * The display name.
      */
     title?: pulumi.Input<string>;
     /**
-     * Type of profile source.
+     * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -357,11 +355,11 @@ export interface GroupSchemaPropertyArgs {
      */
     scope?: pulumi.Input<string>;
     /**
-     * display name for the enum value.
+     * The display name.
      */
     title: pulumi.Input<string>;
     /**
-     * Type of profile source.
+     * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
      */
     type: pulumi.Input<string>;
     /**

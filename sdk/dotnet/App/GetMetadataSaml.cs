@@ -16,7 +16,6 @@ namespace Pulumi.Okta.App
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Okta.App
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetMetadataSamlResult> InvokeAsync(GetMetadataSamlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:app/getMetadataSaml:getMetadataSaml", args ?? new GetMetadataSamlArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Okta.App
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Okta.App
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetMetadataSamlResult> Invoke(GetMetadataSamlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetadataSamlResult>("okta:app/getMetadataSaml:getMetadataSaml", args ?? new GetMetadataSamlInvokeArgs(), options.WithDefaults());

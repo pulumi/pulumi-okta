@@ -233,7 +233,6 @@ class LinkDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -246,7 +245,6 @@ class LinkDefinition(pulumi.CustomResource):
             associated_title="Sardaukar",
             associated_description="Elite military force member")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -279,7 +277,6 @@ class LinkDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -292,7 +289,6 @@ class LinkDefinition(pulumi.CustomResource):
             associated_title="Sardaukar",
             associated_description="Elite military force member")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

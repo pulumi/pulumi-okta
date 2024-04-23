@@ -23,7 +23,7 @@ public final class RuleIdpDiscoveryAppInclude {
      */
     private @Nullable String name;
     /**
-     * @return One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
+     * @return One of: `&#34;APP&#34;`, `&#34;APP_TYPE&#34;`
      * 
      */
     private String type;
@@ -44,7 +44,7 @@ public final class RuleIdpDiscoveryAppInclude {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
+     * @return One of: `&#34;APP&#34;`, `&#34;APP_TYPE&#34;`
      * 
      */
     public String type() {

@@ -25,7 +25,7 @@ namespace Pulumi.Okta.Inputs
         public Input<string>? OsType { get; set; }
 
         /// <summary>
-        /// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+        /// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

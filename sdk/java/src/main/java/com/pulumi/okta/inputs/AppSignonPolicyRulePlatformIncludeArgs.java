@@ -46,14 +46,14 @@ public final class AppSignonPolicyRulePlatformIncludeArgs extends com.pulumi.res
     }
 
     /**
-     * The Verification Method type. It can be set to `&#34;ASSURANCE&#34;`. Default is `&#34;ASSURANCE&#34;`.
+     * One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The Verification Method type. It can be set to `&#34;ASSURANCE&#34;`. Default is `&#34;ASSURANCE&#34;`.
+     * @return One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
      * 
      */
     public Optional<Output<String>> type() {
@@ -129,7 +129,7 @@ public final class AppSignonPolicyRulePlatformIncludeArgs extends com.pulumi.res
         }
 
         /**
-         * @param type The Verification Method type. It can be set to `&#34;ASSURANCE&#34;`. Default is `&#34;ASSURANCE&#34;`.
+         * @param type One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class AppSignonPolicyRulePlatformIncludeArgs extends com.pulumi.res
         }
 
         /**
-         * @param type The Verification Method type. It can be set to `&#34;ASSURANCE&#34;`. Default is `&#34;ASSURANCE&#34;`.
+         * @param type One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
          * 
          * @return builder
          * 

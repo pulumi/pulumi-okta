@@ -82,7 +82,6 @@ def get_role_subscription(notification_type: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -90,7 +89,6 @@ def get_role_subscription(notification_type: Optional[str] = None,
     example = okta.get_role_subscription(notification_type="APP_IMPORT",
         role_type="SUPER_ADMIN")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str notification_type: Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`, 
@@ -132,7 +130,6 @@ def get_role_subscription_output(notification_type: Optional[pulumi.Input[str]] 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -140,7 +137,6 @@ def get_role_subscription_output(notification_type: Optional[pulumi.Input[str]] 
     example = okta.get_role_subscription(notification_type="APP_IMPORT",
         role_type="SUPER_ADMIN")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str notification_type: Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`, 

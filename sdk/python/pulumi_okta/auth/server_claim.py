@@ -334,7 +334,6 @@ class ServerClaim(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -346,7 +345,6 @@ class ServerClaim(pulumi.CustomResource):
             scopes=[example_okta_auth_server_scope["name"]],
             claim_type="IDENTITY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -381,7 +379,6 @@ class ServerClaim(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -393,7 +390,6 @@ class ServerClaim(pulumi.CustomResource):
             scopes=[example_okta_auth_server_scope["name"]],
             claim_type="IDENTITY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

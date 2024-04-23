@@ -204,7 +204,6 @@ class OauthRoleAssignment(pulumi.CustomResource):
 
         Standard Role:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -219,7 +218,6 @@ class OauthRoleAssignment(pulumi.CustomResource):
             client_id=test.client_id,
             type="HELP_DESK_ADMIN")
         ```
-        <!--End PulumiCodeChooser -->
 
         Custom Role:
 
@@ -253,7 +251,6 @@ class OauthRoleAssignment(pulumi.CustomResource):
 
         Standard Role:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -268,7 +265,6 @@ class OauthRoleAssignment(pulumi.CustomResource):
             client_id=test.client_id,
             type="HELP_DESK_ADMIN")
         ```
-        <!--End PulumiCodeChooser -->
 
         Custom Role:
 

@@ -87,14 +87,12 @@ def get_user_type(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.user.get_user_type(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: name of user type to retrieve.
@@ -119,14 +117,12 @@ def get_user_type_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.user.get_user_type(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: name of user type to retrieve.

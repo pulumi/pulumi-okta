@@ -7,7 +7,6 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -27,7 +26,6 @@ import * as utilities from "../utilities";
  * Dt+XlMTv/2qi5VPwaDtqduKkzwW9lUfn4xIMkTiVvCpe0X2HneD2Bpuao3/U8Rk0uiPfq6TooWaoW3kjsmErhEAs9bA7xuqo
  * 1KKY9CdHcFhkSsMhoeaZylZHtzbnoipUlQKSLMdJQiiYZQ0bYL83/Ta9fulr1EERICMFt3GUmtYaZZKHpWSfdJp9`]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

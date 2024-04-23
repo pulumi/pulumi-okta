@@ -149,28 +149,28 @@ public class Hook extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.status);
     }
     /**
-     * The type of hook to trigger. Currently, the only supported type is `&#34;HTTP&#34;`.
+     * The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of hook to trigger. Currently, the only supported type is `&#34;HTTP&#34;`.
+     * @return The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * Version of the channel. The currently-supported version is `&#34;1.0.0&#34;`.
+     * The version of the hook. The currently-supported version is `&#34;1.0.0&#34;`.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
-     * @return Version of the channel. The currently-supported version is `&#34;1.0.0&#34;`.
+     * @return The version of the hook. The currently-supported version is `&#34;1.0.0&#34;`.
      * 
      */
     public Output<String> version() {

@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,7 +52,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -65,7 +63,7 @@ import (
 type TemplateSms struct {
 	pulumi.CustomResourceState
 
-	// The SMS message.
+	// Default SMS message
 	Template pulumi.StringOutput `pulumi:"template"`
 	// Set of translations for a particular template.
 	Translations TemplateSmsTranslationArrayOutput `pulumi:"translations"`
@@ -109,7 +107,7 @@ func GetTemplateSms(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TemplateSms resources.
 type templateSmsState struct {
-	// The SMS message.
+	// Default SMS message
 	Template *string `pulumi:"template"`
 	// Set of translations for a particular template.
 	Translations []TemplateSmsTranslation `pulumi:"translations"`
@@ -118,7 +116,7 @@ type templateSmsState struct {
 }
 
 type TemplateSmsState struct {
-	// The SMS message.
+	// Default SMS message
 	Template pulumi.StringPtrInput
 	// Set of translations for a particular template.
 	Translations TemplateSmsTranslationArrayInput
@@ -131,7 +129,7 @@ func (TemplateSmsState) ElementType() reflect.Type {
 }
 
 type templateSmsArgs struct {
-	// The SMS message.
+	// Default SMS message
 	Template string `pulumi:"template"`
 	// Set of translations for a particular template.
 	Translations []TemplateSmsTranslation `pulumi:"translations"`
@@ -141,7 +139,7 @@ type templateSmsArgs struct {
 
 // The set of arguments for constructing a TemplateSms resource.
 type TemplateSmsArgs struct {
-	// The SMS message.
+	// Default SMS message
 	Template pulumi.StringInput
 	// Set of translations for a particular template.
 	Translations TemplateSmsTranslationArrayInput
@@ -236,7 +234,7 @@ func (o TemplateSmsOutput) ToTemplateSmsOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// The SMS message.
+// Default SMS message
 func (o TemplateSmsOutput) Template() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateSms) pulumi.StringOutput { return v.Template }).(pulumi.StringOutput)
 }

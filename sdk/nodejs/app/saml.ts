@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -45,11 +44,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With inline hook
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -95,11 +92,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [test],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Pre-configured app with SAML 1.1 sign-on mode
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -118,11 +113,9 @@ import * as utilities from "../utilities";
  *     userNameTemplateType: "BUILT_IN",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Pre-configured app with SAML 1.1 sign-on mode, `appSettingsJson` and `appLinksJson`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -166,7 +159,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -241,7 +233,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly attributeStatements!: pulumi.Output<outputs.app.SamlAttributeStatement[] | undefined>;
     /**
-     * Audience Restriction
+     * Audience restriction.
      */
     public readonly audience!: pulumi.Output<string | undefined>;
     /**
@@ -249,7 +241,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly authenticationPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Identifies the SAML authentication context class for the assertion’s authentication statement
+     * Identifies the SAML authentication context class for the assertion’s authentication statement.
      */
     public readonly authnContextClassRef!: pulumi.Output<string | undefined>;
     /**
@@ -265,11 +257,11 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly defaultRelayState!: pulumi.Output<string | undefined>;
     /**
-     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
      */
     public readonly destination!: pulumi.Output<string | undefined>;
     /**
-     * Determines the digest algorithm used to digitally sign the SAML assertion and response
+     * Determines the digest algorithm used to digitally sign the SAML assertion and response.
      */
     public readonly digestAlgorithm!: pulumi.Output<string | undefined>;
     /**
@@ -361,7 +353,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public /*out*/ readonly metadataUrl!: pulumi.Output<string>;
     /**
-     * The name of the attribute statement.
+     * Name assigned to the application by Okta.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -630,7 +622,7 @@ export interface SamlState {
      */
     attributeStatements?: pulumi.Input<pulumi.Input<inputs.app.SamlAttributeStatement>[]>;
     /**
-     * Audience Restriction
+     * Audience restriction.
      */
     audience?: pulumi.Input<string>;
     /**
@@ -638,7 +630,7 @@ export interface SamlState {
      */
     authenticationPolicy?: pulumi.Input<string>;
     /**
-     * Identifies the SAML authentication context class for the assertion’s authentication statement
+     * Identifies the SAML authentication context class for the assertion’s authentication statement.
      */
     authnContextClassRef?: pulumi.Input<string>;
     /**
@@ -654,11 +646,11 @@ export interface SamlState {
      */
     defaultRelayState?: pulumi.Input<string>;
     /**
-     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
      */
     destination?: pulumi.Input<string>;
     /**
-     * Determines the digest algorithm used to digitally sign the SAML assertion and response
+     * Determines the digest algorithm used to digitally sign the SAML assertion and response.
      */
     digestAlgorithm?: pulumi.Input<string>;
     /**
@@ -750,7 +742,7 @@ export interface SamlState {
      */
     metadataUrl?: pulumi.Input<string>;
     /**
-     * The name of the attribute statement.
+     * Name assigned to the application by Okta.
      */
     name?: pulumi.Input<string>;
     /**
@@ -876,7 +868,7 @@ export interface SamlArgs {
      */
     attributeStatements?: pulumi.Input<pulumi.Input<inputs.app.SamlAttributeStatement>[]>;
     /**
-     * Audience Restriction
+     * Audience restriction.
      */
     audience?: pulumi.Input<string>;
     /**
@@ -884,7 +876,7 @@ export interface SamlArgs {
      */
     authenticationPolicy?: pulumi.Input<string>;
     /**
-     * Identifies the SAML authentication context class for the assertion’s authentication statement
+     * Identifies the SAML authentication context class for the assertion’s authentication statement.
      */
     authnContextClassRef?: pulumi.Input<string>;
     /**
@@ -896,11 +888,11 @@ export interface SamlArgs {
      */
     defaultRelayState?: pulumi.Input<string>;
     /**
-     * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
+     * Identifies the location where the SAML response is intended to be sent inside the SAML assertion.
      */
     destination?: pulumi.Input<string>;
     /**
-     * Determines the digest algorithm used to digitally sign the SAML assertion and response
+     * Determines the digest algorithm used to digitally sign the SAML assertion and response.
      */
     digestAlgorithm?: pulumi.Input<string>;
     /**

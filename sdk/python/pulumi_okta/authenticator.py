@@ -518,7 +518,6 @@ class Authenticator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -531,9 +530,7 @@ class Authenticator(pulumi.CustomResource):
                 "allowedFor": "recovery",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -552,7 +549,6 @@ class Authenticator(pulumi.CustomResource):
                 "passCodeLength": 6,
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -607,7 +603,6 @@ class Authenticator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -620,9 +615,7 @@ class Authenticator(pulumi.CustomResource):
                 "allowedFor": "recovery",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -641,7 +634,6 @@ class Authenticator(pulumi.CustomResource):
                 "passCodeLength": 6,
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

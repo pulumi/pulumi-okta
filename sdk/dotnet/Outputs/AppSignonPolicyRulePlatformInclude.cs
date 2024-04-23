@@ -22,7 +22,7 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly string? OsType;
         /// <summary>
-        /// The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+        /// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         /// </summary>
         public readonly string? Type;
 

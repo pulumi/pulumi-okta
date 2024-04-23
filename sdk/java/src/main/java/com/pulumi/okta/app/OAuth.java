@@ -583,14 +583,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return this.logoUrl;
     }
     /**
-     * Name of the claim that will be used in the token.
+     * Name assigned to the application by Okta.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the claim that will be used in the token.
+     * @return Name assigned to the application by Okta.
      * 
      */
     public Output<String> name() {

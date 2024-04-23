@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -39,7 +38,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * > If the `okta.PolicyMfaDefault` is used in conjunction with `okta.policy.Mfa` resources, ensure to use a `dependsOn` attribute for the default policy to ensure that all other policies are created/updated first such that the `priority` field can be appropriately computed on the first plan/apply.
  *

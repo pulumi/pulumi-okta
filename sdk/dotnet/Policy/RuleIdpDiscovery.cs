@@ -18,7 +18,6 @@ namespace Pulumi.Okta.Policy
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -91,7 +90,6 @@ namespace Pulumi.Okta.Policy
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -129,7 +127,7 @@ namespace Pulumi.Okta.Policy
         public Output<string?> IdpType { get; private set; } = null!;
 
         /// <summary>
-        /// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        /// Policy rule name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -279,7 +277,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? IdpType { get; set; }
 
         /// <summary>
-        /// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        /// Policy rule name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -415,7 +413,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? IdpType { get; set; }
 
         /// <summary>
-        /// Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        /// Policy rule name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

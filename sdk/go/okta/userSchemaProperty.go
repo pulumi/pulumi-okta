@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -96,9 +94,9 @@ type UserSchemaProperty struct {
 	Required pulumi.BoolPtrOutput `pulumi:"required"`
 	// determines whether an app user attribute can be set at the Individual or Group Level.
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
-	// display name for the enum value.
+	// The display name.
 	Title pulumi.StringOutput `pulumi:"title"`
-	// Type of profile source.
+	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique pulumi.StringPtrOutput `pulumi:"unique"`
@@ -179,9 +177,9 @@ type userSchemaPropertyState struct {
 	Required *bool `pulumi:"required"`
 	// determines whether an app user attribute can be set at the Individual or Group Level.
 	Scope *string `pulumi:"scope"`
-	// display name for the enum value.
+	// The display name.
 	Title *string `pulumi:"title"`
-	// Type of profile source.
+	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type *string `pulumi:"type"`
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique *string `pulumi:"unique"`
@@ -224,9 +222,9 @@ type UserSchemaPropertyState struct {
 	Required pulumi.BoolPtrInput
 	// determines whether an app user attribute can be set at the Individual or Group Level.
 	Scope pulumi.StringPtrInput
-	// display name for the enum value.
+	// The display name.
 	Title pulumi.StringPtrInput
-	// Type of profile source.
+	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringPtrInput
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique pulumi.StringPtrInput
@@ -273,9 +271,9 @@ type userSchemaPropertyArgs struct {
 	Required *bool `pulumi:"required"`
 	// determines whether an app user attribute can be set at the Individual or Group Level.
 	Scope *string `pulumi:"scope"`
-	// display name for the enum value.
+	// The display name.
 	Title string `pulumi:"title"`
-	// Type of profile source.
+	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type string `pulumi:"type"`
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique *string `pulumi:"unique"`
@@ -319,9 +317,9 @@ type UserSchemaPropertyArgs struct {
 	Required pulumi.BoolPtrInput
 	// determines whether an app user attribute can be set at the Individual or Group Level.
 	Scope pulumi.StringPtrInput
-	// display name for the enum value.
+	// The display name.
 	Title pulumi.StringInput
-	// Type of profile source.
+	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringInput
 	// Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
 	Unique pulumi.StringPtrInput
@@ -503,12 +501,12 @@ func (o UserSchemaPropertyOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-// display name for the enum value.
+// The display name.
 func (o UserSchemaPropertyOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }
 
-// Type of profile source.
+// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 func (o UserSchemaPropertyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

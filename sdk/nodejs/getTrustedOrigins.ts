@@ -11,14 +11,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const all = okta.getTrustedOrigins({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTrustedOrigins(args?: GetTrustedOriginsArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustedOriginsResult> {
     args = args || {};
@@ -55,14 +53,12 @@ export interface GetTrustedOriginsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const all = okta.getTrustedOrigins({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTrustedOriginsOutput(args?: GetTrustedOriginsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustedOriginsResult> {
     return pulumi.output(args).apply((a: any) => getTrustedOrigins(a, opts))

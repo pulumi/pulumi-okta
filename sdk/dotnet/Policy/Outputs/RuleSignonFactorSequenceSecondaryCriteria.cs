@@ -14,11 +14,11 @@ namespace Pulumi.Okta.Policy.Outputs
     public sealed class RuleSignonFactorSequenceSecondaryCriteria
     {
         /// <summary>
-        /// Factor type of the additional authentication step.
+        /// Type of a Factor
         /// </summary>
         public readonly string FactorType;
         /// <summary>
-        /// Provider of the additional authentication step.
+        /// Factor provider
         /// </summary>
         public readonly string Provider;
 

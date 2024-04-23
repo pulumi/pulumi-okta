@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     name: "Example Stream",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogStream(args?: GetLogStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetLogStreamResult> {
     args = args || {};
@@ -81,7 +79,6 @@ export interface GetLogStreamResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -90,7 +87,6 @@ export interface GetLogStreamResult {
  *     name: "Example Stream",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogStreamOutput(args?: GetLogStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogStreamResult> {
     return pulumi.output(args).apply((a: any) => getLogStream(a, opts))

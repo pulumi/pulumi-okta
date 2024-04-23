@@ -28,9 +28,8 @@ class RuleIdpDiscoveryAppExclude(dict):
                  id: Optional[str] = None,
                  name: Optional[str] = None):
         """
-        :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-        :param str id: Use if `type` is `"APP"` to indicate the application id to include.
-        :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        :param str id: ID of the Rule.
+        :param str name: Policy rule name.
         """
         pulumi.set(__self__, "type", type)
         if id is not None:
@@ -41,16 +40,13 @@ class RuleIdpDiscoveryAppExclude(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Use if `type` is `"APP"` to indicate the application id to include.
+        ID of the Rule.
         """
         return pulumi.get(self, "id")
 
@@ -58,7 +54,7 @@ class RuleIdpDiscoveryAppExclude(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        Policy rule name.
         """
         return pulumi.get(self, "name")
 
@@ -70,7 +66,7 @@ class RuleIdpDiscoveryAppInclude(dict):
                  id: Optional[str] = None,
                  name: Optional[str] = None):
         """
-        :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        :param str type: One of: `"APP"`, `"APP_TYPE"`
         :param str id: Use if `type` is `"APP"` to indicate the application id to include.
         :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
         """
@@ -84,7 +80,7 @@ class RuleIdpDiscoveryAppInclude(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        One of: `"APP"`, `"APP_TYPE"`
         """
         return pulumi.get(self, "type")
 
@@ -222,9 +218,8 @@ class RuleMfaAppExclude(dict):
                  id: Optional[str] = None,
                  name: Optional[str] = None):
         """
-        :param str type: One of: `"APP"`, `"APP_TYPE"`
-        :param str id: Use if `type` is `"APP"` to indicate the application id to include.
-        :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        :param str id: ID of the Rule.
+        :param str name: Policy Rule Name.
         """
         pulumi.set(__self__, "type", type)
         if id is not None:
@@ -235,16 +230,13 @@ class RuleMfaAppExclude(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        One of: `"APP"`, `"APP_TYPE"`
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Use if `type` is `"APP"` to indicate the application id to include.
+        ID of the Rule.
         """
         return pulumi.get(self, "id")
 
@@ -252,7 +244,7 @@ class RuleMfaAppExclude(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
+        Policy Rule Name.
         """
         return pulumi.get(self, "name")
 
@@ -384,8 +376,8 @@ class RuleSignonFactorSequenceSecondaryCriteria(dict):
                  factor_type: str,
                  provider: str):
         """
-        :param str factor_type: Factor type of the additional authentication step.
-        :param str provider: Provider of the additional authentication step.
+        :param str factor_type: Type of a Factor
+        :param str provider: Factor provider
         """
         pulumi.set(__self__, "factor_type", factor_type)
         pulumi.set(__self__, "provider", provider)
@@ -394,7 +386,7 @@ class RuleSignonFactorSequenceSecondaryCriteria(dict):
     @pulumi.getter(name="factorType")
     def factor_type(self) -> str:
         """
-        Factor type of the additional authentication step.
+        Type of a Factor
         """
         return pulumi.get(self, "factor_type")
 
@@ -402,7 +394,7 @@ class RuleSignonFactorSequenceSecondaryCriteria(dict):
     @pulumi.getter
     def provider(self) -> str:
         """
-        Provider of the additional authentication step.
+        Factor provider
         """
         return pulumi.get(self, "provider")
 

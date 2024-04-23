@@ -16,7 +16,6 @@ namespace Pulumi.Okta.Idp
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Okta.Idp
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSamlResult> InvokeAsync(GetSamlArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? new GetSamlArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Okta.Idp
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Okta.Idp
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSamlResult> Invoke(GetSamlInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? new GetSamlInvokeArgs(), options.WithDefaults());

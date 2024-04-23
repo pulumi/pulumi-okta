@@ -16,7 +16,6 @@ namespace Pulumi.Okta
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAuthServerClaimResult> InvokeAsync(GetAuthServerClaimArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthServerClaimResult>("okta:index/getAuthServerClaim:getAuthServerClaim", args ?? new GetAuthServerClaimArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Okta
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAuthServerClaimResult> Invoke(GetAuthServerClaimInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthServerClaimResult>("okta:index/getAuthServerClaim:getAuthServerClaim", args ?? new GetAuthServerClaimInvokeArgs(), options.WithDefaults());

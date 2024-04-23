@@ -25,7 +25,6 @@ import (
 //
 // ### Simple usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,7 +73,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // This will create an app sign-on policy rule with the following `THEN` block:
 //
@@ -82,7 +80,6 @@ import (
 //
 // ### Example 1:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -123,13 +120,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // This will create an app sign-on policy rule with the following `THEN` block:
 //
 // ### Example 2:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -175,7 +170,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // This will create an app sign-on policy rule with the following `THEN` block:
 //
@@ -184,7 +178,6 @@ import (
 //
 // ### Complex example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -442,7 +435,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

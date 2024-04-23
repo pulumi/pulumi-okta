@@ -570,7 +570,6 @@ class OrgConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -579,7 +578,6 @@ class OrgConfiguration(pulumi.CustomResource):
             company_name="Umbrella Corporation",
             website="https://terraform.io")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -621,7 +619,6 @@ class OrgConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -630,7 +627,6 @@ class OrgConfiguration(pulumi.CustomResource):
             company_name="Umbrella Corporation",
             website="https://terraform.io")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

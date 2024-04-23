@@ -261,14 +261,14 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * display name for the enum value.
+     * The display name.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return display name for the enum value.
+     * @return The display name.
      * 
      */
     public Optional<Output<String>> title() {
@@ -756,7 +756,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param title display name for the enum value.
+         * @param title The display name.
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param title display name for the enum value.
+         * @param title The display name.
          * 
          * @return builder
          * 

@@ -182,7 +182,7 @@ class _PolicyRuleProfileEnrollmentState:
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
         :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted. Default is `true`.
         :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook.
-        :param pulumi.Input[str] name: The name of a User Profile property
+        :param pulumi.Input[str] name: Name of the Rule.
         :param pulumi.Input[str] policy_id: Policy ID.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         :param pulumi.Input[str] progressive_profiling_action: Enabled or disabled progressive profiling action rule conditions. Valid values are: `"ENABLED"`, `"DISABLED"`. Default is `"DISABLED"`.
@@ -254,7 +254,7 @@ class _PolicyRuleProfileEnrollmentState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of a User Profile property
+        Name of the Rule.
         """
         return pulumi.get(self, "name")
 
@@ -372,7 +372,6 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -417,7 +416,6 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -455,7 +453,6 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -500,7 +497,6 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -589,7 +585,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
         :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted. Default is `true`.
         :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook.
-        :param pulumi.Input[str] name: The name of a User Profile property
+        :param pulumi.Input[str] name: Name of the Rule.
         :param pulumi.Input[str] policy_id: Policy ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         :param pulumi.Input[str] progressive_profiling_action: Enabled or disabled progressive profiling action rule conditions. Valid values are: `"ENABLED"`, `"DISABLED"`. Default is `"DISABLED"`.
@@ -643,7 +639,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of a User Profile property
+        Name of the Rule.
         """
         return pulumi.get(self, "name")
 

@@ -16,7 +16,6 @@ namespace Pulumi.Okta.User
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Okta.User
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetUserTypeResult> InvokeAsync(GetUserTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserTypeResult>("okta:user/getUserType:getUserType", args ?? new GetUserTypeArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Okta.User
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Okta.User
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetUserTypeResult> Invoke(GetUserTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserTypeResult>("okta:user/getUserType:getUserType", args ?? new GetUserTypeInvokeArgs(), options.WithDefaults());

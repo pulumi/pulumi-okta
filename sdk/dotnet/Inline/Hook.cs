@@ -16,7 +16,6 @@ namespace Pulumi.Okta.Inline
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,7 +45,6 @@ namespace Pulumi.Okta.Inline
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -90,13 +88,13 @@ namespace Pulumi.Okta.Inline
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+        /// The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the channel. The currently-supported version is `"1.0.0"`.
+        /// The version of the hook. The currently-supported version is `"1.0.0"`.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -196,13 +194,13 @@ namespace Pulumi.Okta.Inline
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+        /// The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Version of the channel. The currently-supported version is `"1.0.0"`.
+        /// The version of the hook. The currently-supported version is `"1.0.0"`.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -264,13 +262,13 @@ namespace Pulumi.Okta.Inline
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The type of hook to trigger. Currently, the only supported type is `"HTTP"`.
+        /// The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Version of the channel. The currently-supported version is `"1.0.0"`.
+        /// The version of the hook. The currently-supported version is `"1.0.0"`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

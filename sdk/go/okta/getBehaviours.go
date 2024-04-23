@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetBehaviours(ctx *pulumi.Context, args *GetBehavioursArgs, opts ...pulumi.InvokeOption) (*GetBehavioursResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBehavioursResult

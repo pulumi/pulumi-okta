@@ -146,7 +146,6 @@ class GroupMemberships(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -161,7 +160,6 @@ class GroupMemberships(pulumi.CustomResource):
                 test2["id"],
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -205,7 +203,6 @@ class GroupMemberships(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -220,7 +217,6 @@ class GroupMemberships(pulumi.CustomResource):
                 test2["id"],
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

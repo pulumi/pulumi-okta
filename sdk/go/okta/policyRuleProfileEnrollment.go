@@ -21,7 +21,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -97,7 +96,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -115,7 +113,7 @@ type PolicyRuleProfileEnrollment struct {
 	EmailVerification pulumi.BoolPtrOutput `pulumi:"emailVerification"`
 	// ID of a Registration Inline Hook.
 	InlineHookId pulumi.StringPtrOutput `pulumi:"inlineHookId"`
-	// The name of a User Profile property
+	// Name of the Rule.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Policy ID.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
@@ -175,7 +173,7 @@ type policyRuleProfileEnrollmentState struct {
 	EmailVerification *bool `pulumi:"emailVerification"`
 	// ID of a Registration Inline Hook.
 	InlineHookId *string `pulumi:"inlineHookId"`
-	// The name of a User Profile property
+	// Name of the Rule.
 	Name *string `pulumi:"name"`
 	// Policy ID.
 	PolicyId *string `pulumi:"policyId"`
@@ -200,7 +198,7 @@ type PolicyRuleProfileEnrollmentState struct {
 	EmailVerification pulumi.BoolPtrInput
 	// ID of a Registration Inline Hook.
 	InlineHookId pulumi.StringPtrInput
-	// The name of a User Profile property
+	// Name of the Rule.
 	Name pulumi.StringPtrInput
 	// Policy ID.
 	PolicyId pulumi.StringPtrInput
@@ -367,7 +365,7 @@ func (o PolicyRuleProfileEnrollmentOutput) InlineHookId() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringPtrOutput { return v.InlineHookId }).(pulumi.StringPtrOutput)
 }
 
-// The name of a User Profile property
+// Name of the Rule.
 func (o PolicyRuleProfileEnrollmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

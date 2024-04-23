@@ -75,14 +75,12 @@ def get_app_signon_policy(app_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.get_app_signon_policy(app_id="app_id")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str app_id: The application ID.
@@ -112,14 +110,12 @@ def get_app_signon_policy_output(app_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.get_app_signon_policy(app_id="app_id")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str app_id: The application ID.

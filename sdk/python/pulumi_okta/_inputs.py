@@ -89,7 +89,7 @@ class AppSignonPolicyRulePlatformIncludeArgs:
         """
         :param pulumi.Input[str] os_expression: Only available and required when using `os_type = "OTHER"`
         :param pulumi.Input[str] os_type: One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
-        :param pulumi.Input[str] type: The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+        :param pulumi.Input[str] type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         """
         if os_expression is not None:
             pulumi.set(__self__, "os_expression", os_expression)
@@ -126,7 +126,7 @@ class AppSignonPolicyRulePlatformIncludeArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+        One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         """
         return pulumi.get(self, "type")
 
@@ -178,7 +178,7 @@ class AppUserSchemaPropertyOneOfArgs:
                  const: pulumi.Input[str],
                  title: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] const: value mapping to member of `array_enum`.
+        :param pulumi.Input[str] const: value mapping to member of `enum`.
         :param pulumi.Input[str] title: display name for the enum value.
         """
         pulumi.set(__self__, "const", const)
@@ -188,7 +188,7 @@ class AppUserSchemaPropertyOneOfArgs:
     @pulumi.getter
     def const(self) -> pulumi.Input[str]:
         """
-        value mapping to member of `array_enum`.
+        value mapping to member of `enum`.
         """
         return pulumi.get(self, "const")
 
@@ -340,10 +340,6 @@ class EventHookHeaderArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] key: Key to use for authentication, usually the header name, for example `"Authorization"`.
-        :param pulumi.Input[str] value: Authentication secret.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -352,9 +348,6 @@ class EventHookHeaderArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Key to use for authentication, usually the header name, for example `"Authorization"`.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -364,9 +357,6 @@ class EventHookHeaderArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Authentication secret.
-        """
         return pulumi.get(self, "value")
 
     @value.setter

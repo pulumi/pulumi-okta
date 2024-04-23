@@ -105,7 +105,7 @@ class AppSignonPolicyRulePlatformInclude(dict):
         """
         :param str os_expression: Only available and required when using `os_type = "OTHER"`
         :param str os_type: One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
-        :param str type: The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+        :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         """
         if os_expression is not None:
             pulumi.set(__self__, "os_expression", os_expression)
@@ -134,7 +134,7 @@ class AppSignonPolicyRulePlatformInclude(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+        One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
         """
         return pulumi.get(self, "type")
 
@@ -174,7 +174,7 @@ class AppUserSchemaPropertyOneOf(dict):
                  const: str,
                  title: str):
         """
-        :param str const: value mapping to member of `array_enum`.
+        :param str const: value mapping to member of `enum`.
         :param str title: display name for the enum value.
         """
         pulumi.set(__self__, "const", const)
@@ -184,7 +184,7 @@ class AppUserSchemaPropertyOneOf(dict):
     @pulumi.getter
     def const(self) -> str:
         """
-        value mapping to member of `array_enum`.
+        value mapping to member of `enum`.
         """
         return pulumi.get(self, "const")
 
@@ -334,10 +334,6 @@ class EventHookHeader(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        """
-        :param str key: Key to use for authentication, usually the header name, for example `"Authorization"`.
-        :param str value: Authentication secret.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -346,17 +342,11 @@ class EventHookHeader(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        Key to use for authentication, usually the header name, for example `"Authorization"`.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        Authentication secret.
-        """
         return pulumi.get(self, "value")
 
 

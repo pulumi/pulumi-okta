@@ -125,7 +125,6 @@ def get_users(compound_search_operator: Optional[str] = None,
     ## Example Usage
 
     ### Lookup Users by Group Membership
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -135,7 +134,6 @@ def get_users(compound_search_operator: Optional[str] = None,
         include_groups=True,
         include_roles=True)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.
@@ -180,7 +178,6 @@ def get_users_output(compound_search_operator: Optional[pulumi.Input[Optional[st
     ## Example Usage
 
     ### Lookup Users by Group Membership
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
@@ -190,7 +187,6 @@ def get_users_output(compound_search_operator: Optional[pulumi.Input[Optional[st
         include_groups=True,
         include_roles=True)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str compound_search_operator: Given multiple search elements they will be compounded together with the op. Default is `and`, `or` is also valid.

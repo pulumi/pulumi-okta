@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -24,7 +23,6 @@ import * as utilities from "./utilities";
  *     scope: "SELF",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -127,7 +125,7 @@ export class AppUserSchemaProperty extends pulumi.CustomResource {
      */
     public readonly scope!: pulumi.Output<string | undefined>;
     /**
-     * display name for the enum value.
+     * The display name.
      */
     public readonly title!: pulumi.Output<string>;
     /**
@@ -291,7 +289,7 @@ export interface AppUserSchemaPropertyState {
      */
     scope?: pulumi.Input<string>;
     /**
-     * display name for the enum value.
+     * The display name.
      */
     title?: pulumi.Input<string>;
     /**
@@ -381,7 +379,7 @@ export interface AppUserSchemaPropertyArgs {
      */
     scope?: pulumi.Input<string>;
     /**
-     * display name for the enum value.
+     * The display name.
      */
     title: pulumi.Input<string>;
     /**

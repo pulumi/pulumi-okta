@@ -125,14 +125,12 @@ def get_rule(id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     test = okta.group.get_rule(id=example["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the group rule to retrieve.
@@ -166,14 +164,12 @@ def get_rule_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     test = okta.group.get_rule(id=example["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the group rule to retrieve.

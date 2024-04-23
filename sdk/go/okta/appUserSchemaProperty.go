@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -88,7 +86,7 @@ type AppUserSchemaProperty struct {
 	Required pulumi.BoolPtrOutput `pulumi:"required"`
 	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
-	// display name for the enum value.
+	// The display name.
 	Title pulumi.StringOutput `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -174,7 +172,7 @@ type appUserSchemaPropertyState struct {
 	Required *bool `pulumi:"required"`
 	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 	Scope *string `pulumi:"scope"`
-	// display name for the enum value.
+	// The display name.
 	Title *string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type *string `pulumi:"type"`
@@ -219,7 +217,7 @@ type AppUserSchemaPropertyState struct {
 	Required pulumi.BoolPtrInput
 	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 	Scope pulumi.StringPtrInput
-	// display name for the enum value.
+	// The display name.
 	Title pulumi.StringPtrInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringPtrInput
@@ -268,7 +266,7 @@ type appUserSchemaPropertyArgs struct {
 	Required *bool `pulumi:"required"`
 	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 	Scope *string `pulumi:"scope"`
-	// display name for the enum value.
+	// The display name.
 	Title string `pulumi:"title"`
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type string `pulumi:"type"`
@@ -314,7 +312,7 @@ type AppUserSchemaPropertyArgs struct {
 	Required pulumi.BoolPtrInput
 	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
 	Scope pulumi.StringPtrInput
-	// display name for the enum value.
+	// The display name.
 	Title pulumi.StringInput
 	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
 	Type pulumi.StringInput
@@ -493,7 +491,7 @@ func (o AppUserSchemaPropertyOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-// display name for the enum value.
+// The display name.
 func (o AppUserSchemaPropertyOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }

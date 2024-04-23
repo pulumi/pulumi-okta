@@ -16,7 +16,6 @@ namespace Pulumi.Okta.Index
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Okta.Index
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLogStreamResult> InvokeAsync(GetLogStreamArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogStreamResult>("okta:Index/getLogStream:getLogStream", args ?? new GetLogStreamArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Okta.Index
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Okta.Index
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLogStreamResult> Invoke(GetLogStreamInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogStreamResult>("okta:Index/getLogStream:getLogStream", args ?? new GetLogStreamInvokeArgs(), options.WithDefaults());

@@ -1087,7 +1087,6 @@ class Saml(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1104,7 +1103,6 @@ class Saml(pulumi.CustomResource):
             request_signature_scope="REQUEST",
             response_signature_scope="ANY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1160,7 +1158,6 @@ class Saml(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -1177,7 +1174,6 @@ class Saml(pulumi.CustomResource):
             request_signature_scope="REQUEST",
             response_signature_scope="ANY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

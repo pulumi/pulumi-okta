@@ -16,7 +16,6 @@ namespace Pulumi.Okta.Idp
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Okta.Idp
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSocialResult> InvokeAsync(GetSocialArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSocialResult>("okta:idp/getSocial:getSocial", args ?? new GetSocialArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Okta.Idp
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Okta.Idp
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSocialResult> Invoke(GetSocialInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSocialResult>("okta:idp/getSocial:getSocial", args ?? new GetSocialInvokeArgs(), options.WithDefaults());

@@ -23,7 +23,6 @@ namespace Pulumi.Okta
     /// 
     /// ### Simple usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,7 +61,6 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// This will create an app sign-on policy rule with the following `THEN` block:
     /// 
@@ -70,7 +68,6 @@ namespace Pulumi.Okta
     /// 
     /// ### Example 1:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -101,13 +98,11 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// This will create an app sign-on policy rule with the following `THEN` block:
     /// 
     /// ### Example 2:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -144,7 +139,6 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// This will create an app sign-on policy rule with the following `THEN` block:
     /// 
@@ -153,7 +147,6 @@ namespace Pulumi.Okta
     /// 
     /// ### Complex example
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -400,7 +393,6 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

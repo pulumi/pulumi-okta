@@ -18,7 +18,6 @@ namespace Pulumi.Okta.App
     /// 
     /// Standard Role:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,7 +49,6 @@ namespace Pulumi.Okta.App
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Custom Role:
     /// 

@@ -170,14 +170,12 @@ def get_app(active_only: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.app.get_app(label="Example App")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.
@@ -227,14 +225,12 @@ def get_app_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_okta as okta
 
     example = okta.app.get_app(label="Example App")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool active_only: tells the provider to query for only `ACTIVE` applications.

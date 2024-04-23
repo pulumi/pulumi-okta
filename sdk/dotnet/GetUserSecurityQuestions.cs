@@ -16,7 +16,6 @@ namespace Pulumi.Okta
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -40,7 +39,6 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetUserSecurityQuestionsResult> InvokeAsync(GetUserSecurityQuestionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserSecurityQuestionsResult>("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", args ?? new GetUserSecurityQuestionsArgs(), options.WithDefaults());
@@ -50,7 +48,6 @@ namespace Pulumi.Okta
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -74,7 +71,6 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetUserSecurityQuestionsResult> Invoke(GetUserSecurityQuestionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserSecurityQuestionsResult>("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", args ?? new GetUserSecurityQuestionsInvokeArgs(), options.WithDefaults());
