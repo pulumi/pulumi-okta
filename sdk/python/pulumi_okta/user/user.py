@@ -68,8 +68,6 @@ class UserArgs:
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_profile_attributes_to_ignores: List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-               situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
         :param pulumi.Input[str] department: User profile property.
         :param pulumi.Input[str] display_name: User profile property.
         :param pulumi.Input[str] division: User profile property.
@@ -296,10 +294,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="customProfileAttributesToIgnores")
     def custom_profile_attributes_to_ignores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-        situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
-        """
         return pulumi.get(self, "custom_profile_attributes_to_ignores")
 
     @custom_profile_attributes_to_ignores.setter
@@ -767,8 +761,6 @@ class _UserState:
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_profile_attributes_to_ignores: List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-               situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
         :param pulumi.Input[str] department: User profile property.
         :param pulumi.Input[str] display_name: User profile property.
         :param pulumi.Input[str] division: User profile property.
@@ -958,10 +950,6 @@ class _UserState:
     @property
     @pulumi.getter(name="customProfileAttributesToIgnores")
     def custom_profile_attributes_to_ignores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-        situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
-        """
         return pulumi.get(self, "custom_profile_attributes_to_ignores")
 
     @custom_profile_attributes_to_ignores.setter
@@ -1560,8 +1548,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_profile_attributes_to_ignores: List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-               situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
         :param pulumi.Input[str] department: User profile property.
         :param pulumi.Input[str] display_name: User profile property.
         :param pulumi.Input[str] division: User profile property.
@@ -1867,8 +1853,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] cost_center: User profile property.
         :param pulumi.Input[str] country_code: User profile property.
         :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_profile_attributes_to_ignores: List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-               situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
         :param pulumi.Input[str] department: User profile property.
         :param pulumi.Input[str] display_name: User profile property.
         :param pulumi.Input[str] division: User profile property.
@@ -2001,10 +1985,6 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customProfileAttributesToIgnores")
     def custom_profile_attributes_to_ignores(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-        situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
-        """
         return pulumi.get(self, "custom_profile_attributes_to_ignores")
 
     @property
