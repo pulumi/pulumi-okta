@@ -118,7 +118,7 @@ type RuleIdpDiscovery struct {
 	// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
 	NetworkIncludes pulumi.StringArrayOutput `pulumi:"networkIncludes"`
 	// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-	// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+	// (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
 	// 'ANDROID', 'OTHER', 'OSX'
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayOutput `pulumi:"platformIncludes"`
 	// Policy ID.
@@ -182,7 +182,7 @@ type ruleIdpDiscoveryState struct {
 	// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-	// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+	// (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
 	// 'ANDROID', 'OTHER', 'OSX'
 	PlatformIncludes []RuleIdpDiscoveryPlatformInclude `pulumi:"platformIncludes"`
 	// Policy ID.
@@ -217,7 +217,7 @@ type RuleIdpDiscoveryState struct {
 	// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
 	NetworkIncludes pulumi.StringArrayInput
 	// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-	// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+	// (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
 	// 'ANDROID', 'OTHER', 'OSX'
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayInput
 	// Policy ID.
@@ -256,7 +256,7 @@ type ruleIdpDiscoveryArgs struct {
 	// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-	// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+	// (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
 	// 'ANDROID', 'OTHER', 'OSX'
 	PlatformIncludes []RuleIdpDiscoveryPlatformInclude `pulumi:"platformIncludes"`
 	// Policy ID.
@@ -292,7 +292,7 @@ type RuleIdpDiscoveryArgs struct {
 	// Required if `networkConnection` = `"ZONE"`. Indicates the network zones to include.
 	NetworkIncludes pulumi.StringArrayInput
 	// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-	// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+	// (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
 	// 'ANDROID', 'OTHER', 'OSX'
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayInput
 	// Policy ID.
@@ -437,7 +437,7 @@ func (o RuleIdpDiscoveryOutput) NetworkIncludes() pulumi.StringArrayOutput {
 }
 
 // Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+// (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
 // 'ANDROID', 'OTHER', 'OSX'
 func (o RuleIdpDiscoveryOutput) PlatformIncludes() RuleIdpDiscoveryPlatformIncludeArrayOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscoveryPlatformIncludeArrayOutput { return v.PlatformIncludes }).(RuleIdpDiscoveryPlatformIncludeArrayOutput)

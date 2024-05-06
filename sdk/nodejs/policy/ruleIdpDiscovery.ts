@@ -135,7 +135,7 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
     public readonly networkIncludes!: pulumi.Output<string[] | undefined>;
     /**
      * Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-     * (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+     * (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
      * 'ANDROID', 'OTHER', 'OSX'
      */
     public readonly platformIncludes!: pulumi.Output<outputs.policy.RuleIdpDiscoveryPlatformInclude[] | undefined>;
@@ -253,7 +253,7 @@ export interface RuleIdpDiscoveryState {
     networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-     * (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+     * (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
      * 'ANDROID', 'OTHER', 'OSX'
      */
     platformIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryPlatformInclude>[]>;
@@ -321,7 +321,7 @@ export interface RuleIdpDiscoveryArgs {
     networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-     * (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
+     * (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
      * 'ANDROID', 'OTHER', 'OSX'
      */
     platformIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryPlatformInclude>[]>;
