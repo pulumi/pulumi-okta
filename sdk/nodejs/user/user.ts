@@ -121,10 +121,6 @@ export class User extends pulumi.CustomResource {
      * raw JSON containing all custom profile attributes.
      */
     public readonly customProfileAttributes!: pulumi.Output<string>;
-    /**
-     * List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-     * situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
-     */
     public readonly customProfileAttributesToIgnores!: pulumi.Output<string[] | undefined>;
     /**
      * User profile property.
@@ -431,10 +427,6 @@ export interface UserState {
      * raw JSON containing all custom profile attributes.
      */
     customProfileAttributes?: pulumi.Input<string>;
-    /**
-     * List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-     * situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
-     */
     customProfileAttributesToIgnores?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * User profile property.
@@ -621,10 +613,6 @@ export interface UserArgs {
      * raw JSON containing all custom profile attributes.
      */
     customProfileAttributes?: pulumi.Input<string>;
-    /**
-     * List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-     * situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
-     */
     customProfileAttributesToIgnores?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * User profile property.
