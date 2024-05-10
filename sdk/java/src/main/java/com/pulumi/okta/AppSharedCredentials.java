@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,30 +47,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AppSharedCredentials(&#34;example&#34;, AppSharedCredentialsArgs.builder()        
- *             .label(&#34;Example App&#34;)
- *             .status(&#34;ACTIVE&#34;)
- *             .buttonField(&#34;btn-login&#34;)
- *             .usernameField(&#34;txtbox-username&#34;)
- *             .passwordField(&#34;txtbox-password&#34;)
- *             .url(&#34;https://example.com/login.html&#34;)
- *             .redirectUrl(&#34;https://example.com/redirect_url&#34;)
- *             .checkbox(&#34;checkbox_red&#34;)
- *             .userNameTemplate(&#34;user.firstName&#34;)
- *             .userNameTemplateType(&#34;CUSTOM&#34;)
- *             .userNameTemplateSuffix(&#34;hello&#34;)
- *             .sharedPassword(&#34;sharedpass&#34;)
- *             .sharedUsername(&#34;sharedusername&#34;)
+ *         var example = new AppSharedCredentials("example", AppSharedCredentialsArgs.builder()        
+ *             .label("Example App")
+ *             .status("ACTIVE")
+ *             .buttonField("btn-login")
+ *             .usernameField("txtbox-username")
+ *             .passwordField("txtbox-password")
+ *             .url("https://example.com/login.html")
+ *             .redirectUrl("https://example.com/redirect_url")
+ *             .checkbox("checkbox_red")
+ *             .userNameTemplate("user.firstName")
+ *             .userNameTemplateType("CUSTOM")
+ *             .userNameTemplateSuffix("hello")
+ *             .sharedPassword("sharedpass")
+ *             .sharedUsername("sharedusername")
  *             .accessibilitySelfService(true)
- *             .accessibilityErrorRedirectUrl(&#34;https://example.com/redirect_url_1&#34;)
- *             .accessibilityLoginRedirectUrl(&#34;https://example.com/redirect_url_2&#34;)
+ *             .accessibilityErrorRedirectUrl("https://example.com/redirect_url_1")
+ *             .accessibilityLoginRedirectUrl("https://example.com/redirect_url_2")
  *             .autoSubmitToolbar(true)
  *             .hideIos(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

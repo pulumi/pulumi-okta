@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,42 +43,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myLocation = new Behaviour(&#34;myLocation&#34;, BehaviourArgs.builder()        
- *             .name(&#34;My Location&#34;)
- *             .type(&#34;ANOMALOUS_LOCATION&#34;)
+ *         var myLocation = new Behaviour("myLocation", BehaviourArgs.builder()        
+ *             .name("My Location")
+ *             .type("ANOMALOUS_LOCATION")
  *             .numberOfAuthentications(50)
- *             .locationGranularityType(&#34;LAT_LONG&#34;)
+ *             .locationGranularityType("LAT_LONG")
  *             .radiusFromLocation(20)
  *             .build());
  * 
- *         var myCity = new Behaviour(&#34;myCity&#34;, BehaviourArgs.builder()        
- *             .name(&#34;My City&#34;)
- *             .type(&#34;ANOMALOUS_LOCATION&#34;)
+ *         var myCity = new Behaviour("myCity", BehaviourArgs.builder()        
+ *             .name("My City")
+ *             .type("ANOMALOUS_LOCATION")
  *             .numberOfAuthentications(50)
- *             .locationGranularityType(&#34;CITY&#34;)
+ *             .locationGranularityType("CITY")
  *             .build());
  * 
- *         var myDevice = new Behaviour(&#34;myDevice&#34;, BehaviourArgs.builder()        
- *             .name(&#34;My Device&#34;)
- *             .type(&#34;ANOMALOUS_DEVICE&#34;)
- *             .numberOfAuthentications(50)
- *             .build());
- * 
- *         var myIp = new Behaviour(&#34;myIp&#34;, BehaviourArgs.builder()        
- *             .name(&#34;My IP&#34;)
- *             .type(&#34;ANOMALOUS_IP&#34;)
+ *         var myDevice = new Behaviour("myDevice", BehaviourArgs.builder()        
+ *             .name("My Device")
+ *             .type("ANOMALOUS_DEVICE")
  *             .numberOfAuthentications(50)
  *             .build());
  * 
- *         var myVelocity = new Behaviour(&#34;myVelocity&#34;, BehaviourArgs.builder()        
- *             .name(&#34;My Velocity&#34;)
- *             .type(&#34;VELOCITY&#34;)
+ *         var myIp = new Behaviour("myIp", BehaviourArgs.builder()        
+ *             .name("My IP")
+ *             .type("ANOMALOUS_IP")
+ *             .numberOfAuthentications(50)
+ *             .build());
+ * 
+ *         var myVelocity = new Behaviour("myVelocity", BehaviourArgs.builder()        
+ *             .name("My Velocity")
+ *             .type("VELOCITY")
  *             .velocity(25)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

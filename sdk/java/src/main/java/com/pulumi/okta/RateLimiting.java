@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,15 +47,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RateLimiting(&#34;example&#34;, RateLimitingArgs.builder()        
- *             .login(&#34;ENFORCE&#34;)
- *             .authorize(&#34;ENFORCE&#34;)
+ *         var example = new RateLimiting("example", RateLimitingArgs.builder()        
+ *             .login("ENFORCE")
+ *             .authorize("ENFORCE")
  *             .communicationsEnabled(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

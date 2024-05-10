@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,14 +47,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .groupId(&#34;&lt;group id&gt;&#34;)
- *             .roleType(&#34;READ_ONLY_ADMIN&#34;)
+ *         var example = new Role("example", RoleArgs.builder()        
+ *             .groupId("<group id>")
+ *             .roleType("READ_ONLY_ADMIN")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

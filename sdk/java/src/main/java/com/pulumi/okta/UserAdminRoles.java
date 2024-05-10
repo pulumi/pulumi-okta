@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,21 +48,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User(&#34;test&#34;, UserArgs.builder()        
- *             .firstName(&#34;TestAcc&#34;)
- *             .lastName(&#34;Smith&#34;)
- *             .login(&#34;testAcc-replace_with_uuid@example.com&#34;)
- *             .email(&#34;testAcc-replace_with_uuid@example.com&#34;)
+ *         var test = new User("test", UserArgs.builder()        
+ *             .firstName("TestAcc")
+ *             .lastName("Smith")
+ *             .login("testAcc-replace_with_uuid{@literal @}example.com")
+ *             .email("testAcc-replace_with_uuid{@literal @}example.com")
  *             .build());
  * 
- *         var testUserAdminRoles = new UserAdminRoles(&#34;testUserAdminRoles&#34;, UserAdminRolesArgs.builder()        
+ *         var testUserAdminRoles = new UserAdminRoles("testUserAdminRoles", UserAdminRolesArgs.builder()        
  *             .userId(test.id())
- *             .adminRoles(&#34;APP_ADMIN&#34;)
+ *             .adminRoles("APP_ADMIN")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

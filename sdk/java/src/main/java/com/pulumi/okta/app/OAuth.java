@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,17 +51,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OAuth(&#34;example&#34;, OAuthArgs.builder()        
- *             .label(&#34;example&#34;)
- *             .type(&#34;web&#34;)
- *             .grantTypes(&#34;authorization_code&#34;)
- *             .redirectUris(&#34;https://example.com/&#34;)
- *             .responseTypes(&#34;code&#34;)
+ *         var example = new OAuth("example", OAuthArgs.builder()        
+ *             .label("example")
+ *             .type("web")
+ *             .grantTypes("authorization_code")
+ *             .redirectUris("https://example.com/")
+ *             .responseTypes("code")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With JWKS value
@@ -68,7 +70,8 @@ import javax.annotation.Nullable;
  * See also Advanced PEM secrets and JWKS example.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -90,30 +93,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OAuth(&#34;example&#34;, OAuthArgs.builder()        
- *             .label(&#34;example&#34;)
- *             .type(&#34;service&#34;)
- *             .responseTypes(&#34;token&#34;)
- *             .grantTypes(&#34;client_credentials&#34;)
- *             .tokenEndpointAuthMethod(&#34;private_key_jwt&#34;)
+ *         var example = new OAuth("example", OAuthArgs.builder()        
+ *             .label("example")
+ *             .type("service")
+ *             .responseTypes("token")
+ *             .grantTypes("client_credentials")
+ *             .tokenEndpointAuthMethod("private_key_jwt")
  *             .jwks(            
  *                 OAuthJwkArgs.builder()
- *                     .kty(&#34;RSA&#34;)
- *                     .kid(&#34;SIGNING_KEY_RSA&#34;)
- *                     .e(&#34;AQAB&#34;)
- *                     .n(&#34;xyz&#34;)
+ *                     .kty("RSA")
+ *                     .kid("SIGNING_KEY_RSA")
+ *                     .e("AQAB")
+ *                     .n("xyz")
  *                     .build(),
  *                 OAuthJwkArgs.builder()
- *                     .kty(&#34;EC&#34;)
- *                     .kid(&#34;SIGNING_KEY_EC&#34;)
- *                     .x(&#34;K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I&#34;)
- *                     .y(&#34;8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo&#34;)
+ *                     .kty("EC")
+ *                     .kid("SIGNING_KEY_EC")
+ *                     .x("K37X78mXJHHldZYMzrwipjKR-YZUS2SMye0KindHp6I")
+ *                     .y("8IfvsvXWzbFWOZoVOMwgF5p46mUj3kbOVf9Fk0vVVHo")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Etc.

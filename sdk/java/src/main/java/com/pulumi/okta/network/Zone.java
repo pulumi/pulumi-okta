@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,26 +45,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Zone(&#34;example&#34;, ZoneArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;IP&#34;)
+ *         var example = new Zone("example", ZoneArgs.builder()        
+ *             .name("example")
+ *             .type("IP")
  *             .gateways(            
- *                 &#34;1.2.3.4/24&#34;,
- *                 &#34;2.3.4.5-2.3.4.15&#34;)
+ *                 "1.2.3.4/24",
+ *                 "2.3.4.5-2.3.4.15")
  *             .proxies(            
- *                 &#34;2.2.3.4/24&#34;,
- *                 &#34;3.3.4.5-3.3.4.15&#34;)
+ *                 "2.2.3.4/24",
+ *                 "3.3.4.5-3.3.4.15")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Dynamic Tor Blocker
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -84,16 +87,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Zone(&#34;example&#34;, ZoneArgs.builder()        
- *             .name(&#34;TOR Blocker&#34;)
- *             .type(&#34;DYNAMIC&#34;)
- *             .usage(&#34;BLOCKLIST&#34;)
- *             .dynamicProxyType(&#34;TorAnonymizer&#34;)
+ *         var example = new Zone("example", ZoneArgs.builder()        
+ *             .name("TOR Blocker")
+ *             .type("DYNAMIC")
+ *             .usage("BLOCKLIST")
+ *             .dynamicProxyType("TorAnonymizer")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,33 +48,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var padishah = new LinkDefinition(&#34;padishah&#34;, LinkDefinitionArgs.builder()        
- *             .primaryName(&#34;emperor&#34;)
- *             .primaryTitle(&#34;Emperor&#34;)
- *             .primaryDescription(&#34;Hereditary ruler of the Imperium and the Known Universe&#34;)
- *             .associatedName(&#34;sardaukar&#34;)
- *             .associatedTitle(&#34;Sardaukar&#34;)
- *             .associatedDescription(&#34;Elite military force member&#34;)
+ *         var padishah = new LinkDefinition("padishah", LinkDefinitionArgs.builder()        
+ *             .primaryName("emperor")
+ *             .primaryTitle("Emperor")
+ *             .primaryDescription("Hereditary ruler of the Imperium and the Known Universe")
+ *             .associatedName("sardaukar")
+ *             .associatedTitle("Sardaukar")
+ *             .associatedDescription("Elite military force member")
  *             .build());
  * 
- *         var emperor = new User(&#34;emperor&#34;, UserArgs.builder()        
- *             .firstName(&#34;Shaddam&#34;)
- *             .lastName(&#34;Corrino IV&#34;)
- *             .login(&#34;shaddam.corrino.iv@salusa-secundus.planet&#34;)
- *             .email(&#34;shaddam.corrino.iv@salusa-secundus.planet&#34;)
+ *         var emperor = new User("emperor", UserArgs.builder()        
+ *             .firstName("Shaddam")
+ *             .lastName("Corrino IV")
+ *             .login("shaddam.corrino.iv{@literal @}salusa-secundus.planet")
+ *             .email("shaddam.corrino.iv{@literal @}salusa-secundus.planet")
  *             .build());
  * 
- *         for (var i = 0; i &lt; 5; i++) {
- *             new User(&#34;sardaukars-&#34; + i, UserArgs.builder()            
- *                 .firstName(&#34;Amrit&#34;)
- *                 .lastName(String.format(&#34;Sardaukar_%s&#34;, range.value()))
- *                 .login(String.format(&#34;amritsardaukar_%s@salusa-secundus.planet&#34;, range.value()))
- *                 .email(String.format(&#34;amritsardaukar_%s@salusa-secundus.planet&#34;, range.value()))
+ *         for (var i = 0; i < 5; i++) {
+ *             new User("sardaukars-" + i, UserArgs.builder()            
+ *                 .firstName("Amrit")
+ *                 .lastName(String.format("Sardaukar_%s", range.value()))
+ *                 .login(String.format("amritsardaukar_%s{@literal @}salusa-secundus.planet", range.value()))
+ *                 .email(String.format("amritsardaukar_%s{@literal @}salusa-secundus.planet", range.value()))
  *                 .build());
  * 
  *         
  * }
- *         var example = new LinkValue(&#34;example&#34;, LinkValueArgs.builder()        
+ *         var example = new LinkValue("example", LinkValueArgs.builder()        
  *             .primaryName(padishah.primaryName())
  *             .primaryUserId(emperor.id())
  *             .associatedUserIds(            
@@ -86,7 +87,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

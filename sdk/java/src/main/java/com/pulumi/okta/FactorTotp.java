@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,18 +48,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FactorTotp(&#34;example&#34;, FactorTotpArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new FactorTotp("example", FactorTotpArgs.builder()        
+ *             .name("example")
  *             .otpLength(10)
- *             .hmacAlgorithm(&#34;HMacSHA256&#34;)
+ *             .hmacAlgorithm("HMacSHA256")
  *             .timeStep(30)
  *             .clockDriftInterval(10)
- *             .sharedSecretEncoding(&#34;hexadecimal&#34;)
+ *             .sharedSecretEncoding("hexadecimal")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

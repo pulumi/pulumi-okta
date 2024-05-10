@@ -29,7 +29,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -51,12 +52,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getApp(GetAppArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -69,7 +71,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -91,12 +94,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getApp(GetAppArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -109,7 +113,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -131,12 +136,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getApp(GetAppArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +155,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,12 +178,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getApp(GetAppArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -189,7 +197,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -211,12 +220,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getApp(GetAppArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -229,7 +239,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -251,12 +262,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getApp(GetAppArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -269,7 +281,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -291,13 +304,14 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getMetadataSaml(GetMetadataSamlArgs.builder()
-     *             .appId(&#34;&lt;app id&gt;&#34;)
-     *             .keyId(&#34;&lt;cert key id&gt;&#34;)
+     *             .appId("<app id>")
+     *             .keyId("<cert key id>")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -310,7 +324,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -332,13 +347,14 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getMetadataSaml(GetMetadataSamlArgs.builder()
-     *             .appId(&#34;&lt;app id&gt;&#34;)
-     *             .keyId(&#34;&lt;cert key id&gt;&#34;)
+     *             .appId("<app id>")
+     *             .keyId("<cert key id>")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -351,7 +367,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -373,13 +390,14 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getMetadataSaml(GetMetadataSamlArgs.builder()
-     *             .appId(&#34;&lt;app id&gt;&#34;)
-     *             .keyId(&#34;&lt;cert key id&gt;&#34;)
+     *             .appId("<app id>")
+     *             .keyId("<cert key id>")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -392,7 +410,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -414,13 +433,14 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getMetadataSaml(GetMetadataSamlArgs.builder()
-     *             .appId(&#34;&lt;app id&gt;&#34;)
-     *             .keyId(&#34;&lt;cert key id&gt;&#34;)
+     *             .appId("<app id>")
+     *             .keyId("<cert key id>")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -433,7 +453,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -455,12 +476,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppFunctions.getOauth(GetOauthArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -473,7 +495,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -495,12 +518,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppFunctions.getOauth(GetOauthArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -513,7 +537,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -535,12 +560,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppFunctions.getOauth(GetOauthArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -553,7 +579,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -575,12 +602,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppFunctions.getOauth(GetOauthArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -593,7 +621,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -615,12 +644,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppFunctions.getOauth(GetOauthArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -633,7 +663,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -655,12 +686,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppFunctions.getOauth(GetOauthArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -673,7 +705,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -695,12 +728,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getSaml(GetSamlArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -713,7 +747,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -735,12 +770,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getSaml(GetSamlArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -753,7 +789,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -775,12 +812,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getSaml(GetSamlArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -793,7 +831,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -815,12 +854,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getSaml(GetSamlArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -833,7 +873,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -855,12 +896,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getSaml(GetSamlArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -873,7 +915,8 @@ public final class AppFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -895,12 +938,13 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppFunctions.getSaml(GetSamlArgs.builder()
-     *             .label(&#34;Example App&#34;)
+     *             .label("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,22 +47,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Saml(&#34;example&#34;, SamlArgs.builder()        
- *             .name(&#34;testAcc_replace_with_uuid&#34;)
- *             .acsType(&#34;INSTANCE&#34;)
- *             .ssoUrl(&#34;https://idp.example.com&#34;)
- *             .ssoDestination(&#34;https://idp.example.com&#34;)
- *             .ssoBinding(&#34;HTTP-POST&#34;)
- *             .usernameTemplate(&#34;idpuser.email&#34;)
+ *         var example = new Saml("example", SamlArgs.builder()        
+ *             .name("testAcc_replace_with_uuid")
+ *             .acsType("INSTANCE")
+ *             .ssoUrl("https://idp.example.com")
+ *             .ssoDestination("https://idp.example.com")
+ *             .ssoBinding("HTTP-POST")
+ *             .usernameTemplate("idpuser.email")
  *             .kid(test.id())
- *             .issuer(&#34;https://idp.example.com&#34;)
- *             .requestSignatureScope(&#34;REQUEST&#34;)
- *             .responseSignatureScope(&#34;ANY&#34;)
+ *             .issuer("https://idp.example.com")
+ *             .requestSignatureScope("REQUEST")
+ *             .responseSignatureScope("ANY")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -121,9 +121,7 @@ type User struct {
 	// User profile property.
 	CountryCode pulumi.StringPtrOutput `pulumi:"countryCode"`
 	// raw JSON containing all custom profile attributes.
-	CustomProfileAttributes pulumi.StringOutput `pulumi:"customProfileAttributes"`
-	// List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-	// situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
+	CustomProfileAttributes          pulumi.StringOutput      `pulumi:"customProfileAttributes"`
 	CustomProfileAttributesToIgnores pulumi.StringArrayOutput `pulumi:"customProfileAttributesToIgnores"`
 	// User profile property.
 	Department pulumi.StringPtrOutput `pulumi:"department"`
@@ -278,9 +276,7 @@ type userState struct {
 	// User profile property.
 	CountryCode *string `pulumi:"countryCode"`
 	// raw JSON containing all custom profile attributes.
-	CustomProfileAttributes *string `pulumi:"customProfileAttributes"`
-	// List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-	// situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
+	CustomProfileAttributes          *string  `pulumi:"customProfileAttributes"`
 	CustomProfileAttributesToIgnores []string `pulumi:"customProfileAttributesToIgnores"`
 	// User profile property.
 	Department *string `pulumi:"department"`
@@ -379,9 +375,7 @@ type UserState struct {
 	// User profile property.
 	CountryCode pulumi.StringPtrInput
 	// raw JSON containing all custom profile attributes.
-	CustomProfileAttributes pulumi.StringPtrInput
-	// List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-	// situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
+	CustomProfileAttributes          pulumi.StringPtrInput
 	CustomProfileAttributesToIgnores pulumi.StringArrayInput
 	// User profile property.
 	Department pulumi.StringPtrInput
@@ -484,9 +478,7 @@ type userArgs struct {
 	// User profile property.
 	CountryCode *string `pulumi:"countryCode"`
 	// raw JSON containing all custom profile attributes.
-	CustomProfileAttributes *string `pulumi:"customProfileAttributes"`
-	// List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-	// situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
+	CustomProfileAttributes          *string  `pulumi:"customProfileAttributes"`
 	CustomProfileAttributesToIgnores []string `pulumi:"customProfileAttributesToIgnores"`
 	// User profile property.
 	Department *string `pulumi:"department"`
@@ -584,9 +576,7 @@ type UserArgs struct {
 	// User profile property.
 	CountryCode pulumi.StringPtrInput
 	// raw JSON containing all custom profile attributes.
-	CustomProfileAttributes pulumi.StringPtrInput
-	// List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-	// situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
+	CustomProfileAttributes          pulumi.StringPtrInput
 	CustomProfileAttributesToIgnores pulumi.StringArrayInput
 	// User profile property.
 	Department pulumi.StringPtrInput
@@ -782,8 +772,6 @@ func (o UserOutput) CustomProfileAttributes() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.CustomProfileAttributes }).(pulumi.StringOutput)
 }
 
-// List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-// situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
 func (o UserOutput) CustomProfileAttributesToIgnores() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.CustomProfileAttributesToIgnores }).(pulumi.StringArrayOutput)
 }

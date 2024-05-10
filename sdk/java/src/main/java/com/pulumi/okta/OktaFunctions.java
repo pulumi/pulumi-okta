@@ -79,7 +79,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -106,7 +107,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -119,7 +121,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -146,7 +149,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -159,7 +163,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -186,7 +191,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -199,7 +205,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -226,7 +233,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -245,7 +253,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -267,12 +276,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
-     *             .appId(&#34;app_id&#34;)
+     *             .appId("app_id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -291,7 +301,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -313,12 +324,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
-     *             .appId(&#34;app_id&#34;)
+     *             .appId("app_id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -337,7 +349,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -359,12 +372,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
-     *             .appId(&#34;app_id&#34;)
+     *             .appId("app_id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -383,7 +397,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -405,12 +420,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
-     *             .appId(&#34;app_id&#34;)
+     *             .appId("app_id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -423,7 +439,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -450,7 +467,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -463,7 +481,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -490,7 +509,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -503,7 +523,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -530,7 +551,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -543,7 +565,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -570,7 +593,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -583,7 +607,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -605,13 +630,14 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthServerClaim(GetAuthServerClaimArgs.builder()
-     *             .authServerId(&#34;default&#34;)
-     *             .name(&#34;birthdate&#34;)
+     *             .authServerId("default")
+     *             .name("birthdate")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -624,7 +650,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -646,13 +673,14 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthServerClaim(GetAuthServerClaimArgs.builder()
-     *             .authServerId(&#34;default&#34;)
-     *             .name(&#34;birthdate&#34;)
+     *             .authServerId("default")
+     *             .name("birthdate")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -665,7 +693,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -687,13 +716,14 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthServerClaim(GetAuthServerClaimArgs.builder()
-     *             .authServerId(&#34;default&#34;)
-     *             .name(&#34;birthdate&#34;)
+     *             .authServerId("default")
+     *             .name("birthdate")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -706,7 +736,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -728,13 +759,14 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthServerClaim(GetAuthServerClaimArgs.builder()
-     *             .authServerId(&#34;default&#34;)
-     *             .name(&#34;birthdate&#34;)
+     *             .authServerId("default")
+     *             .name("birthdate")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -747,7 +779,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -769,12 +802,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthServerClaims(GetAuthServerClaimsArgs.builder()
-     *             .authServerId(&#34;default&#34;)
+     *             .authServerId("default")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -787,7 +821,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -809,12 +844,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthServerClaims(GetAuthServerClaimsArgs.builder()
-     *             .authServerId(&#34;default&#34;)
+     *             .authServerId("default")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -827,7 +863,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -849,12 +886,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthServerClaims(GetAuthServerClaimsArgs.builder()
-     *             .authServerId(&#34;default&#34;)
+     *             .authServerId("default")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -867,7 +905,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -889,12 +928,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthServerClaims(GetAuthServerClaimsArgs.builder()
-     *             .authServerId(&#34;default&#34;)
+     *             .authServerId("default")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -909,7 +949,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -931,16 +972,18 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .name(&#34;Security Question&#34;)
+     *             .name("Security Question")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -962,12 +1005,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .key(&#34;okta_email&#34;)
+     *             .key("okta_email")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -982,7 +1026,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1004,16 +1049,18 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .name(&#34;Security Question&#34;)
+     *             .name("Security Question")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1035,12 +1082,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .key(&#34;okta_email&#34;)
+     *             .key("okta_email")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1055,7 +1103,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1077,16 +1126,18 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .name(&#34;Security Question&#34;)
+     *             .name("Security Question")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1108,12 +1159,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .key(&#34;okta_email&#34;)
+     *             .key("okta_email")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1128,7 +1180,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1150,16 +1203,18 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .name(&#34;Security Question&#34;)
+     *             .name("Security Question")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1181,12 +1236,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .key(&#34;okta_email&#34;)
+     *             .key("okta_email")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1201,7 +1257,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1223,16 +1280,18 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .name(&#34;Security Question&#34;)
+     *             .name("Security Question")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1254,12 +1313,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .key(&#34;okta_email&#34;)
+     *             .key("okta_email")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1274,7 +1334,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1296,16 +1357,18 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .name(&#34;Security Question&#34;)
+     *             .name("Security Question")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1327,12 +1390,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
-     *             .key(&#34;okta_email&#34;)
+     *             .key("okta_email")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1345,7 +1409,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1367,12 +1432,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
-     *             .label(&#34;New City&#34;)
+     *             .label("New City")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1385,7 +1451,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1407,12 +1474,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
-     *             .label(&#34;New City&#34;)
+     *             .label("New City")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1425,7 +1493,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1447,12 +1516,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
-     *             .label(&#34;New City&#34;)
+     *             .label("New City")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1465,7 +1535,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1487,12 +1558,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
-     *             .label(&#34;New City&#34;)
+     *             .label("New City")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1505,7 +1577,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1527,12 +1600,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
-     *             .label(&#34;New City&#34;)
+     *             .label("New City")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1545,7 +1619,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1567,12 +1642,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
-     *             .label(&#34;New City&#34;)
+     *             .label("New City")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1585,7 +1661,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1607,12 +1684,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getBehaviours(GetBehavioursArgs.builder()
-     *             .q(&#34;New&#34;)
+     *             .q("New")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1625,7 +1703,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1647,12 +1726,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getBehaviours(GetBehavioursArgs.builder()
-     *             .q(&#34;New&#34;)
+     *             .q("New")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1665,7 +1745,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1687,12 +1768,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getBehaviours(GetBehavioursArgs.builder()
-     *             .q(&#34;New&#34;)
+     *             .q("New")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1705,7 +1787,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1727,12 +1810,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getBehaviours(GetBehavioursArgs.builder()
-     *             .q(&#34;New&#34;)
+     *             .q("New")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1745,7 +1829,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1767,12 +1852,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getBehaviours(GetBehavioursArgs.builder()
-     *             .q(&#34;New&#34;)
+     *             .q("New")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1785,7 +1871,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1807,12 +1894,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getBehaviours(GetBehavioursArgs.builder()
-     *             .q(&#34;New&#34;)
+     *             .q("New")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1853,7 +1941,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1877,7 +1966,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1890,7 +1980,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1914,7 +2005,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1927,7 +2019,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1951,7 +2044,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1964,7 +2058,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1988,7 +2083,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2001,7 +2097,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2025,7 +2122,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2038,7 +2136,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2062,7 +2161,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2147,7 +2247,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2169,12 +2270,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getGroups(GetGroupsArgs.builder()
-     *             .q(&#34;Engineering - &#34;)
+     *             .q("Engineering - ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2187,7 +2289,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2209,12 +2312,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getGroups(GetGroupsArgs.builder()
-     *             .q(&#34;Engineering - &#34;)
+     *             .q("Engineering - ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2227,7 +2331,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2249,12 +2354,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getGroups(GetGroupsArgs.builder()
-     *             .q(&#34;Engineering - &#34;)
+     *             .q("Engineering - ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2267,7 +2373,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2289,12 +2396,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getGroups(GetGroupsArgs.builder()
-     *             .q(&#34;Engineering - &#34;)
+     *             .q("Engineering - ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2307,7 +2415,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2329,12 +2438,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getGroups(GetGroupsArgs.builder()
-     *             .q(&#34;Engineering - &#34;)
+     *             .q("Engineering - ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2347,7 +2457,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2369,12 +2480,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getGroups(GetGroupsArgs.builder()
-     *             .q(&#34;Engineering - &#34;)
+     *             .q("Engineering - ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2387,7 +2499,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2409,12 +2522,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getNetworkZone(GetNetworkZoneArgs.builder()
-     *             .name(&#34;Block Antarctica&#34;)
+     *             .name("Block Antarctica")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2427,7 +2541,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2449,12 +2564,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getNetworkZone(GetNetworkZoneArgs.builder()
-     *             .name(&#34;Block Antarctica&#34;)
+     *             .name("Block Antarctica")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2467,7 +2583,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2489,12 +2606,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getNetworkZone(GetNetworkZoneArgs.builder()
-     *             .name(&#34;Block Antarctica&#34;)
+     *             .name("Block Antarctica")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2507,7 +2625,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2529,12 +2648,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getNetworkZone(GetNetworkZoneArgs.builder()
-     *             .name(&#34;Block Antarctica&#34;)
+     *             .name("Block Antarctica")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2547,7 +2667,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2569,12 +2690,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getNetworkZone(GetNetworkZoneArgs.builder()
-     *             .name(&#34;Block Antarctica&#34;)
+     *             .name("Block Antarctica")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2587,7 +2709,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2609,12 +2732,13 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getNetworkZone(GetNetworkZoneArgs.builder()
-     *             .name(&#34;Block Antarctica&#34;)
+     *             .name("Block Antarctica")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2627,7 +2751,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2649,13 +2774,14 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getRoleSubscription(GetRoleSubscriptionArgs.builder()
-     *             .notificationType(&#34;APP_IMPORT&#34;)
-     *             .roleType(&#34;SUPER_ADMIN&#34;)
+     *             .notificationType("APP_IMPORT")
+     *             .roleType("SUPER_ADMIN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2668,7 +2794,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2690,13 +2817,14 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getRoleSubscription(GetRoleSubscriptionArgs.builder()
-     *             .notificationType(&#34;APP_IMPORT&#34;)
-     *             .roleType(&#34;SUPER_ADMIN&#34;)
+     *             .notificationType("APP_IMPORT")
+     *             .roleType("SUPER_ADMIN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2709,7 +2837,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2731,13 +2860,14 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getRoleSubscription(GetRoleSubscriptionArgs.builder()
-     *             .notificationType(&#34;APP_IMPORT&#34;)
-     *             .roleType(&#34;SUPER_ADMIN&#34;)
+     *             .notificationType("APP_IMPORT")
+     *             .roleType("SUPER_ADMIN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2750,7 +2880,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2772,13 +2903,14 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getRoleSubscription(GetRoleSubscriptionArgs.builder()
-     *             .notificationType(&#34;APP_IMPORT&#34;)
-     *             .roleType(&#34;SUPER_ADMIN&#34;)
+     *             .notificationType("APP_IMPORT")
+     *             .roleType("SUPER_ADMIN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2935,7 +3067,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2960,7 +3093,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2973,7 +3107,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2998,7 +3133,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3011,7 +3147,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3036,7 +3173,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3049,7 +3187,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3074,7 +3213,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3087,7 +3227,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3112,7 +3253,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3125,7 +3267,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3150,7 +3293,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3163,7 +3307,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3186,11 +3331,11 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
-     *             .firstName(&#34;John&#34;)
-     *             .lastName(&#34;Smith&#34;)
-     *             .login(&#34;john.smith@example.com&#34;)
-     *             .email(&#34;john.smith@example.com&#34;)
+     *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+     *             .firstName("John")
+     *             .lastName("Smith")
+     *             .login("john.smith{@literal @}example.com")
+     *             .email("john.smith{@literal @}example.com")
      *             .build());
      * 
      *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
@@ -3199,7 +3344,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3212,7 +3358,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3235,11 +3382,11 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
-     *             .firstName(&#34;John&#34;)
-     *             .lastName(&#34;Smith&#34;)
-     *             .login(&#34;john.smith@example.com&#34;)
-     *             .email(&#34;john.smith@example.com&#34;)
+     *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+     *             .firstName("John")
+     *             .lastName("Smith")
+     *             .login("john.smith{@literal @}example.com")
+     *             .email("john.smith{@literal @}example.com")
      *             .build());
      * 
      *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
@@ -3248,7 +3395,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3261,7 +3409,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3284,11 +3433,11 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
-     *             .firstName(&#34;John&#34;)
-     *             .lastName(&#34;Smith&#34;)
-     *             .login(&#34;john.smith@example.com&#34;)
-     *             .email(&#34;john.smith@example.com&#34;)
+     *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+     *             .firstName("John")
+     *             .lastName("Smith")
+     *             .login("john.smith{@literal @}example.com")
+     *             .email("john.smith{@literal @}example.com")
      *             .build());
      * 
      *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
@@ -3297,7 +3446,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3310,7 +3460,8 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3333,11 +3484,11 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
-     *             .firstName(&#34;John&#34;)
-     *             .lastName(&#34;Smith&#34;)
-     *             .login(&#34;john.smith@example.com&#34;)
-     *             .email(&#34;john.smith@example.com&#34;)
+     *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+     *             .firstName("John")
+     *             .lastName("Smith")
+     *             .login("john.smith{@literal @}example.com")
+     *             .email("john.smith{@literal @}example.com")
      *             .build());
      * 
      *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
@@ -3346,7 +3497,8 @@ public final class OktaFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

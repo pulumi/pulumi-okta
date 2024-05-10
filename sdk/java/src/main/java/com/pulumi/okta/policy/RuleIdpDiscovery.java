@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,51 +60,52 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // All Okta orgs contain only one IdP Discovery Policy
  *         final var idpDiscoveryPolicy = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
- *             .name(&#34;Idp Discovery Policy&#34;)
- *             .type(&#34;IDP_DISCOVERY&#34;)
+ *             .name("Idp Discovery Policy")
+ *             .type("IDP_DISCOVERY")
  *             .build());
  * 
- *         var example = new RuleIdpDiscovery(&#34;example&#34;, RuleIdpDiscoveryArgs.builder()        
- *             .policyId(idpDiscoveryPolicy.applyValue(getPolicyResult -&gt; getPolicyResult.id()))
- *             .name(&#34;example&#34;)
- *             .idpId(&#34;&lt;idp id&gt;&#34;)
- *             .idpType(&#34;OIDC&#34;)
- *             .networkConnection(&#34;ANYWHERE&#34;)
+ *         var example = new RuleIdpDiscovery("example", RuleIdpDiscoveryArgs.builder()        
+ *             .policyId(idpDiscoveryPolicy.applyValue(getPolicyResult -> getPolicyResult.id()))
+ *             .name("example")
+ *             .idpId("<idp id>")
+ *             .idpType("OIDC")
+ *             .networkConnection("ANYWHERE")
  *             .priority(1)
- *             .status(&#34;ACTIVE&#34;)
- *             .userIdentifierType(&#34;ATTRIBUTE&#34;)
- *             .userIdentifierAttribute(&#34;company&#34;)
+ *             .status("ACTIVE")
+ *             .userIdentifierType("ATTRIBUTE")
+ *             .userIdentifierAttribute("company")
  *             .appExcludes(            
  *                 RuleIdpDiscoveryAppExcludeArgs.builder()
- *                     .id(&#34;&lt;app id&gt;&#34;)
- *                     .type(&#34;APP&#34;)
+ *                     .id("<app id>")
+ *                     .type("APP")
  *                     .build(),
  *                 RuleIdpDiscoveryAppExcludeArgs.builder()
- *                     .name(&#34;yahoo_mail&#34;)
- *                     .type(&#34;APP_TYPE&#34;)
+ *                     .name("yahoo_mail")
+ *                     .type("APP_TYPE")
  *                     .build())
  *             .appIncludes(            
  *                 RuleIdpDiscoveryAppIncludeArgs.builder()
- *                     .id(&#34;&lt;app id&gt;&#34;)
- *                     .type(&#34;APP&#34;)
+ *                     .id("<app id>")
+ *                     .type("APP")
  *                     .build(),
  *                 RuleIdpDiscoveryAppIncludeArgs.builder()
- *                     .name(&#34;&lt;app type name&gt;&#34;)
- *                     .type(&#34;APP_TYPE&#34;)
+ *                     .name("<app type name>")
+ *                     .type("APP_TYPE")
  *                     .build())
  *             .platformIncludes(RuleIdpDiscoveryPlatformIncludeArgs.builder()
- *                 .type(&#34;MOBILE&#34;)
- *                 .osType(&#34;OSX&#34;)
+ *                 .type("MOBILE")
+ *                 .osType("OSX")
  *                 .build())
  *             .userIdentifierPatterns(RuleIdpDiscoveryUserIdentifierPatternArgs.builder()
- *                 .matchType(&#34;EQUALS&#34;)
- *                 .value(&#34;Articulate&#34;)
+ *                 .matchType("EQUALS")
+ *                 .value("Articulate")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

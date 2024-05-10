@@ -72,7 +72,8 @@ public final class UserFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -96,7 +97,8 @@ public final class UserFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -111,7 +113,8 @@ public final class UserFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -135,7 +138,8 @@ public final class UserFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -150,7 +154,8 @@ public final class UserFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,7 +179,8 @@ public final class UserFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -189,7 +195,8 @@ public final class UserFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -213,7 +220,8 @@ public final class UserFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -228,7 +236,8 @@ public final class UserFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -252,7 +261,8 @@ public final class UserFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -267,7 +277,8 @@ public final class UserFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -291,7 +302,8 @@ public final class UserFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -304,7 +316,8 @@ public final class UserFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -326,12 +339,13 @@ public final class UserFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = UserFunctions.getUserType(GetUserTypeArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -344,7 +358,8 @@ public final class UserFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -366,12 +381,13 @@ public final class UserFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = UserFunctions.getUserType(GetUserTypeArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -384,7 +400,8 @@ public final class UserFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -406,12 +423,13 @@ public final class UserFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = UserFunctions.getUserType(GetUserTypeArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -424,7 +442,8 @@ public final class UserFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -446,12 +465,13 @@ public final class UserFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = UserFunctions.getUserType(GetUserTypeArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -465,7 +485,8 @@ public final class UserFunctions {
      * 
      * ### Lookup Users by Group Membership
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -488,8 +509,8 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .name(&#34;example-group&#34;)
+     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+     *             .name("example-group")
      *             .build());
      * 
      *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
@@ -500,7 +521,8 @@ public final class UserFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -514,7 +536,8 @@ public final class UserFunctions {
      * 
      * ### Lookup Users by Group Membership
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -537,8 +560,8 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .name(&#34;example-group&#34;)
+     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+     *             .name("example-group")
      *             .build());
      * 
      *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
@@ -549,7 +572,8 @@ public final class UserFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -563,7 +587,8 @@ public final class UserFunctions {
      * 
      * ### Lookup Users by Group Membership
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -586,8 +611,8 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .name(&#34;example-group&#34;)
+     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+     *             .name("example-group")
      *             .build());
      * 
      *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
@@ -598,7 +623,8 @@ public final class UserFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -612,7 +638,8 @@ public final class UserFunctions {
      * 
      * ### Lookup Users by Group Membership
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -635,8 +662,8 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .name(&#34;example-group&#34;)
+     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+     *             .name("example-group")
      *             .build());
      * 
      *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
@@ -647,7 +674,8 @@ public final class UserFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -661,7 +689,8 @@ public final class UserFunctions {
      * 
      * ### Lookup Users by Group Membership
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -684,8 +713,8 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .name(&#34;example-group&#34;)
+     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+     *             .name("example-group")
      *             .build());
      * 
      *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
@@ -696,7 +725,8 @@ public final class UserFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -710,7 +740,8 @@ public final class UserFunctions {
      * 
      * ### Lookup Users by Group Membership
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -733,8 +764,8 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
-     *             .name(&#34;example-group&#34;)
+     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+     *             .name("example-group")
      *             .build());
      * 
      *         final var example = UserFunctions.getUsers(GetUsersArgs.builder()
@@ -745,7 +776,8 @@ public final class UserFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

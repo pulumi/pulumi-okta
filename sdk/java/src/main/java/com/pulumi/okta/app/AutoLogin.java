@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,22 +47,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AutoLogin(&#34;example&#34;, AutoLoginArgs.builder()        
- *             .label(&#34;Example App&#34;)
- *             .signOnUrl(&#34;https://example.com/login.html&#34;)
- *             .signOnRedirectUrl(&#34;https://example.com&#34;)
+ *         var example = new AutoLogin("example", AutoLoginArgs.builder()        
+ *             .label("Example App")
+ *             .signOnUrl("https://example.com/login.html")
+ *             .signOnRedirectUrl("https://example.com")
  *             .revealPassword(true)
- *             .credentialsScheme(&#34;EDIT_USERNAME_AND_PASSWORD&#34;)
+ *             .credentialsScheme("EDIT_USERNAME_AND_PASSWORD")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Pre-configured application
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -82,21 +85,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AutoLogin(&#34;example&#34;, AutoLoginArgs.builder()        
- *             .label(&#34;Google Example App&#34;)
- *             .status(&#34;ACTIVE&#34;)
- *             .preconfiguredApp(&#34;google&#34;)
- *             .appSettingsJson(&#34;&#34;&#34;
+ *         var example = new AutoLogin("example", AutoLoginArgs.builder()        
+ *             .label("Google Example App")
+ *             .status("ACTIVE")
+ *             .preconfiguredApp("google")
+ *             .appSettingsJson("""
  * {
- *     &#34;domain&#34;: &#34;okta&#34;,
- *     &#34;afwOnly&#34;: false
+ *     "domain": "okta",
+ *     "afwOnly": false
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

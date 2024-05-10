@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,33 +51,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .firstName(&#34;John&#34;)
- *             .lastName(&#34;Smith&#34;)
- *             .login(&#34;john.smith@example.com&#34;)
- *             .email(&#34;john.smith@example.com&#34;)
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *             .firstName("John")
+ *             .lastName("Smith")
+ *             .login("john.smith{@literal @}example.com")
+ *             .email("john.smith{@literal @}example.com")
  *             .build());
  * 
  *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
  *             .userId(exampleUser.id())
  *             .build());
  * 
- *         var exampleFactor = new Factor(&#34;exampleFactor&#34;, FactorArgs.builder()        
- *             .providerId(&#34;okta_question&#34;)
+ *         var exampleFactor = new Factor("exampleFactor", FactorArgs.builder()        
+ *             .providerId("okta_question")
  *             .active(true)
  *             .build());
  * 
- *         var exampleUserFactorQuestion = new UserFactorQuestion(&#34;exampleUserFactorQuestion&#34;, UserFactorQuestionArgs.builder()        
+ *         var exampleUserFactorQuestion = new UserFactorQuestion("exampleUserFactorQuestion", UserFactorQuestionArgs.builder()        
  *             .userId(exampleUser.id())
- *             .key(example.applyValue(getUserSecurityQuestionsResult -&gt; getUserSecurityQuestionsResult).applyValue(example -&gt; example.applyValue(getUserSecurityQuestionsResult -&gt; getUserSecurityQuestionsResult.questions()[0].key())))
- *             .answer(&#34;meatball&#34;)
+ *             .key(example.applyValue(getUserSecurityQuestionsResult -> getUserSecurityQuestionsResult).applyValue(example -> example.applyValue(getUserSecurityQuestionsResult -> getUserSecurityQuestionsResult.questions()[0].key())))
+ *             .answer("meatball")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleFactor)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

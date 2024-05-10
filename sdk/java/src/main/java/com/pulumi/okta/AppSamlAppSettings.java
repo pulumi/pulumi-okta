@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,30 +45,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Saml(&#34;test&#34;, SamlArgs.builder()        
- *             .preconfiguredApp(&#34;amazon_aws&#34;)
- *             .label(&#34;Amazon AWS&#34;)
- *             .status(&#34;ACTIVE&#34;)
+ *         var test = new Saml("test", SamlArgs.builder()        
+ *             .preconfiguredApp("amazon_aws")
+ *             .label("Amazon AWS")
+ *             .status("ACTIVE")
  *             .build());
  * 
- *         var testAppSamlAppSettings = new AppSamlAppSettings(&#34;testAppSamlAppSettings&#34;, AppSamlAppSettingsArgs.builder()        
+ *         var testAppSamlAppSettings = new AppSamlAppSettings("testAppSamlAppSettings", AppSamlAppSettingsArgs.builder()        
  *             .appId(test.id())
  *             .settings(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;appFilter&#34;, &#34;okta&#34;),
- *                     jsonProperty(&#34;awsEnvironmentType&#34;, &#34;aws.amazon&#34;),
- *                     jsonProperty(&#34;groupFilter&#34;, &#34;aws_(?{{accountid}}\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.@\\\\-_]+)&#34;),
- *                     jsonProperty(&#34;joinAllRoles&#34;, false),
- *                     jsonProperty(&#34;loginURL&#34;, &#34;https://console.aws.amazon.com/ec2/home&#34;),
- *                     jsonProperty(&#34;roleValuePattern&#34;, &#34;arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}&#34;),
- *                     jsonProperty(&#34;sessionDuration&#34;, 3200),
- *                     jsonProperty(&#34;useGroupMapping&#34;, false)
+ *                     jsonProperty("appFilter", "okta"),
+ *                     jsonProperty("awsEnvironmentType", "aws.amazon"),
+ *                     jsonProperty("groupFilter", "aws_(?{{accountid}}\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.{@literal @}\\\\-_]+)"),
+ *                     jsonProperty("joinAllRoles", false),
+ *                     jsonProperty("loginURL", "https://console.aws.amazon.com/ec2/home"),
+ *                     jsonProperty("roleValuePattern", "arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}"),
+ *                     jsonProperty("sessionDuration", 3200),
+ *                     jsonProperty("useGroupMapping", false)
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * Full profile:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,49 +49,51 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User(&#34;example&#34;, UserArgs.builder()        
- *             .firstName(&#34;John&#34;)
- *             .lastName(&#34;Smith&#34;)
- *             .login(&#34;john.smith@example.com&#34;)
- *             .email(&#34;john.smith@example.com&#34;)
- *             .city(&#34;New York&#34;)
- *             .costCenter(&#34;10&#34;)
- *             .countryCode(&#34;US&#34;)
- *             .department(&#34;IT&#34;)
- *             .displayName(&#34;Dr. John Smith&#34;)
- *             .division(&#34;Acquisitions&#34;)
- *             .employeeNumber(&#34;111111&#34;)
- *             .honorificPrefix(&#34;Dr.&#34;)
- *             .honorificSuffix(&#34;Jr.&#34;)
- *             .locale(&#34;en_US&#34;)
- *             .manager(&#34;Jimbo&#34;)
- *             .managerId(&#34;222222&#34;)
- *             .middleName(&#34;John&#34;)
- *             .mobilePhone(&#34;1112223333&#34;)
- *             .nickName(&#34;Johnny&#34;)
- *             .organization(&#34;Testing Inc.&#34;)
- *             .postalAddress(&#34;1234 Testing St.&#34;)
- *             .preferredLanguage(&#34;en-us&#34;)
- *             .primaryPhone(&#34;4445556666&#34;)
- *             .profileUrl(&#34;https://www.example.com/profile&#34;)
- *             .secondEmail(&#34;john.smith.fun@example.com&#34;)
- *             .state(&#34;NY&#34;)
- *             .streetAddress(&#34;5678 Testing Ave.&#34;)
- *             .timezone(&#34;America/New_York&#34;)
- *             .title(&#34;Director&#34;)
- *             .userType(&#34;Employee&#34;)
- *             .zipCode(&#34;11111&#34;)
+ *         var example = new User("example", UserArgs.builder()        
+ *             .firstName("John")
+ *             .lastName("Smith")
+ *             .login("john.smith{@literal @}example.com")
+ *             .email("john.smith{@literal @}example.com")
+ *             .city("New York")
+ *             .costCenter("10")
+ *             .countryCode("US")
+ *             .department("IT")
+ *             .displayName("Dr. John Smith")
+ *             .division("Acquisitions")
+ *             .employeeNumber("111111")
+ *             .honorificPrefix("Dr.")
+ *             .honorificSuffix("Jr.")
+ *             .locale("en_US")
+ *             .manager("Jimbo")
+ *             .managerId("222222")
+ *             .middleName("John")
+ *             .mobilePhone("1112223333")
+ *             .nickName("Johnny")
+ *             .organization("Testing Inc.")
+ *             .postalAddress("1234 Testing St.")
+ *             .preferredLanguage("en-us")
+ *             .primaryPhone("4445556666")
+ *             .profileUrl("https://www.example.com/profile")
+ *             .secondEmail("john.smith.fun{@literal @}example.com")
+ *             .state("NY")
+ *             .streetAddress("5678 Testing Ave.")
+ *             .timezone("America/New_York")
+ *             .title("Director")
+ *             .userType("Employee")
+ *             .zipCode("11111")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * With Password Inline Hook:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -111,17 +114,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test2 = new User(&#34;test2&#34;, UserArgs.builder()        
- *             .firstName(&#34;John&#34;)
- *             .lastName(&#34;Smith&#34;)
- *             .login(&#34;example@example.com&#34;)
- *             .email(&#34;example@example.com&#34;)
- *             .passwordInlineHook(&#34;default&#34;)
+ *         var test2 = new User("test2", UserArgs.builder()        
+ *             .firstName("John")
+ *             .lastName("Smith")
+ *             .login("example{@literal @}example.com")
+ *             .email("example{@literal @}example.com")
+ *             .passwordInlineHook("default")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -191,19 +195,9 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<String> customProfileAttributes() {
         return this.customProfileAttributes;
     }
-    /**
-     * List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-     * situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
-     * 
-     */
     @Export(name="customProfileAttributesToIgnores", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> customProfileAttributesToIgnores;
 
-    /**
-     * @return List of custom_profile_attribute keys that should be excluded from being managed by Terraform. This is useful in
-     * situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
-     * 
-     */
     public Output<Optional<List<String>>> customProfileAttributesToIgnores() {
         return Codegen.optional(this.customProfileAttributesToIgnores);
     }

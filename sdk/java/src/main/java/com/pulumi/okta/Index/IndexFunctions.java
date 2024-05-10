@@ -60,7 +60,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -83,12 +84,12 @@ public final class IndexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
-     *             .name(&#34;www.example.com&#34;)
+     *         var example = new Domain("example", DomainArgs.builder()        
+     *             .name("www.example.com")
      *             .build());
      * 
      *         final var by-name = IndexFunctions.getDomain(GetDomainArgs.builder()
-     *             .domainIdOrName(&#34;www.example.com&#34;)
+     *             .domainIdOrName("www.example.com")
      *             .build());
      * 
      *         final var by-id = IndexFunctions.getDomain(GetDomainArgs.builder()
@@ -97,7 +98,8 @@ public final class IndexFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -113,7 +115,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -136,12 +139,12 @@ public final class IndexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
-     *             .name(&#34;www.example.com&#34;)
+     *         var example = new Domain("example", DomainArgs.builder()        
+     *             .name("www.example.com")
      *             .build());
      * 
      *         final var by-name = IndexFunctions.getDomain(GetDomainArgs.builder()
-     *             .domainIdOrName(&#34;www.example.com&#34;)
+     *             .domainIdOrName("www.example.com")
      *             .build());
      * 
      *         final var by-id = IndexFunctions.getDomain(GetDomainArgs.builder()
@@ -150,7 +153,8 @@ public final class IndexFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -166,7 +170,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -189,12 +194,12 @@ public final class IndexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
-     *             .name(&#34;www.example.com&#34;)
+     *         var example = new Domain("example", DomainArgs.builder()        
+     *             .name("www.example.com")
      *             .build());
      * 
      *         final var by-name = IndexFunctions.getDomain(GetDomainArgs.builder()
-     *             .domainIdOrName(&#34;www.example.com&#34;)
+     *             .domainIdOrName("www.example.com")
      *             .build());
      * 
      *         final var by-id = IndexFunctions.getDomain(GetDomainArgs.builder()
@@ -203,7 +208,8 @@ public final class IndexFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -219,7 +225,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -242,12 +249,12 @@ public final class IndexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
-     *             .name(&#34;www.example.com&#34;)
+     *         var example = new Domain("example", DomainArgs.builder()        
+     *             .name("www.example.com")
      *             .build());
      * 
      *         final var by-name = IndexFunctions.getDomain(GetDomainArgs.builder()
-     *             .domainIdOrName(&#34;www.example.com&#34;)
+     *             .domainIdOrName("www.example.com")
      *             .build());
      * 
      *         final var by-id = IndexFunctions.getDomain(GetDomainArgs.builder()
@@ -256,7 +263,8 @@ public final class IndexFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -269,7 +277,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -291,12 +300,13 @@ public final class IndexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IndexFunctions.getLogStream(GetLogStreamArgs.builder()
-     *             .name(&#34;Example Stream&#34;)
+     *             .name("Example Stream")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -309,7 +319,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -331,12 +342,13 @@ public final class IndexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IndexFunctions.getLogStream(GetLogStreamArgs.builder()
-     *             .name(&#34;Example Stream&#34;)
+     *             .name("Example Stream")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -349,7 +361,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -371,12 +384,13 @@ public final class IndexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IndexFunctions.getLogStream(GetLogStreamArgs.builder()
-     *             .name(&#34;Example Stream&#34;)
+     *             .name("Example Stream")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -389,7 +403,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -411,12 +426,13 @@ public final class IndexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IndexFunctions.getLogStream(GetLogStreamArgs.builder()
-     *             .name(&#34;Example Stream&#34;)
+     *             .name("Example Stream")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -429,7 +445,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -451,12 +468,13 @@ public final class IndexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IndexFunctions.getLogStream(GetLogStreamArgs.builder()
-     *             .name(&#34;Example Stream&#34;)
+     *             .name("Example Stream")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -469,7 +487,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -491,12 +510,13 @@ public final class IndexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IndexFunctions.getLogStream(GetLogStreamArgs.builder()
-     *             .name(&#34;Example Stream&#34;)
+     *             .name("Example Stream")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -511,7 +531,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -536,7 +557,8 @@ public final class IndexFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -551,7 +573,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -576,7 +599,8 @@ public final class IndexFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -591,7 +615,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -616,7 +641,8 @@ public final class IndexFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -631,7 +657,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -656,7 +683,8 @@ public final class IndexFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -671,7 +699,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -696,7 +725,8 @@ public final class IndexFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -711,7 +741,8 @@ public final class IndexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -736,7 +767,8 @@ public final class IndexFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

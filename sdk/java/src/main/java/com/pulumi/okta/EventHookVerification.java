@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,30 +45,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventHook(&#34;example&#34;, EventHookArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new EventHook("example", EventHookArgs.builder()        
+ *             .name("example")
  *             .events(            
- *                 &#34;user.lifecycle.create&#34;,
- *                 &#34;user.lifecycle.delete.initiated&#34;)
+ *                 "user.lifecycle.create",
+ *                 "user.lifecycle.delete.initiated")
  *             .channel(Map.ofEntries(
- *                 Map.entry(&#34;type&#34;, &#34;HTTP&#34;),
- *                 Map.entry(&#34;version&#34;, &#34;1.0.0&#34;),
- *                 Map.entry(&#34;uri&#34;, &#34;https://example.com/test&#34;)
+ *                 Map.entry("type", "HTTP"),
+ *                 Map.entry("version", "1.0.0"),
+ *                 Map.entry("uri", "https://example.com/test")
  *             ))
  *             .auth(Map.ofEntries(
- *                 Map.entry(&#34;type&#34;, &#34;HEADER&#34;),
- *                 Map.entry(&#34;key&#34;, &#34;Authorization&#34;),
- *                 Map.entry(&#34;value&#34;, &#34;123&#34;)
+ *                 Map.entry("type", "HEADER"),
+ *                 Map.entry("key", "Authorization"),
+ *                 Map.entry("value", "123")
  *             ))
  *             .build());
  * 
- *         var exampleEventHookVerification = new EventHookVerification(&#34;exampleEventHookVerification&#34;, EventHookVerificationArgs.builder()        
+ *         var exampleEventHookVerification = new EventHookVerification("exampleEventHookVerification", EventHookVerificationArgs.builder()        
  *             .eventHookId(example.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

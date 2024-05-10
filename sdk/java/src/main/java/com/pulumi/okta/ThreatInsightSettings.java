@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,25 +45,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ipNetworkZoneExample = new Zone(&#34;ipNetworkZoneExample&#34;, ZoneArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;IP&#34;)
+ *         var ipNetworkZoneExample = new Zone("ipNetworkZoneExample", ZoneArgs.builder()        
+ *             .name("example")
+ *             .type("IP")
  *             .gateways(            
- *                 &#34;1.2.3.4/24&#34;,
- *                 &#34;2.3.4.5-2.3.4.15&#34;)
+ *                 "1.2.3.4/24",
+ *                 "2.3.4.5-2.3.4.15")
  *             .proxies(            
- *                 &#34;2.2.3.4/24&#34;,
- *                 &#34;3.3.4.5-3.3.4.15&#34;)
+ *                 "2.2.3.4/24",
+ *                 "3.3.4.5-3.3.4.15")
  *             .build());
  * 
- *         var example = new ThreatInsightSettings(&#34;example&#34;, ThreatInsightSettingsArgs.builder()        
- *             .action(&#34;block&#34;)
+ *         var example = new ThreatInsightSettings("example", ThreatInsightSettingsArgs.builder()        
+ *             .action("block")
  *             .networkExcludes(ipNetworkZoneExample.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

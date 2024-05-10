@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,17 +45,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AppUserBaseSchemaProperty(&#34;example&#34;, AppUserBaseSchemaPropertyArgs.builder()        
- *             .appId(&#34;&lt;app id&gt;&#34;)
- *             .index(&#34;customPropertyName&#34;)
- *             .title(&#34;customPropertyName&#34;)
- *             .type(&#34;string&#34;)
- *             .master(&#34;OKTA&#34;)
+ *         var example = new AppUserBaseSchemaProperty("example", AppUserBaseSchemaPropertyArgs.builder()        
+ *             .appId("<app id>")
+ *             .index("customPropertyName")
+ *             .title("customPropertyName")
+ *             .type("string")
+ *             .master("OKTA")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

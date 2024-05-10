@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,17 +45,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
- *             .audiences(&#34;api://example&#34;)
- *             .description(&#34;My Example Auth Server&#34;)
- *             .name(&#34;example&#34;)
- *             .issuerMode(&#34;CUSTOM_URL&#34;)
- *             .status(&#34;ACTIVE&#34;)
+ *         var example = new Server("example", ServerArgs.builder()        
+ *             .audiences("api://example")
+ *             .description("My Example Auth Server")
+ *             .name("example")
+ *             .issuerMode("CUSTOM_URL")
+ *             .status("ACTIVE")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

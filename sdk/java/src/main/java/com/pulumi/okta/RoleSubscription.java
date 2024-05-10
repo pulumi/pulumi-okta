@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new RoleSubscription(&#34;test&#34;, RoleSubscriptionArgs.builder()        
- *             .roleType(&#34;SUPER_ADMIN&#34;)
- *             .notificationType(&#34;APP_IMPORT&#34;)
- *             .status(&#34;unsubscribed&#34;)
+ *         var test = new RoleSubscription("test", RoleSubscriptionArgs.builder()        
+ *             .roleType("SUPER_ADMIN")
+ *             .notificationType("APP_IMPORT")
+ *             .status("unsubscribed")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

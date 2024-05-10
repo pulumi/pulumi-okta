@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,21 +47,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Social(&#34;example&#34;, SocialArgs.builder()        
- *             .type(&#34;FACEBOOK&#34;)
- *             .protocolType(&#34;OAUTH2&#34;)
- *             .name(&#34;testAcc_facebook_replace_with_uuid&#34;)
+ *         var example = new Social("example", SocialArgs.builder()        
+ *             .type("FACEBOOK")
+ *             .protocolType("OAUTH2")
+ *             .name("testAcc_facebook_replace_with_uuid")
  *             .scopes(            
- *                 &#34;public_profile&#34;,
- *                 &#34;email&#34;)
- *             .clientId(&#34;abcd123&#34;)
- *             .clientSecret(&#34;abcd123&#34;)
- *             .usernameTemplate(&#34;idpuser.email&#34;)
+ *                 "public_profile",
+ *                 "email")
+ *             .clientId("abcd123")
+ *             .clientSecret("abcd123")
+ *             .usernameTemplate("idpuser.email")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

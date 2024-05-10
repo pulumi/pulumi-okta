@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,18 +46,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerPolicy(&#34;example&#34;, ServerPolicyArgs.builder()        
- *             .authServerId(&#34;&lt;auth server id&gt;&#34;)
- *             .status(&#34;ACTIVE&#34;)
- *             .name(&#34;example&#34;)
- *             .description(&#34;example&#34;)
+ *         var example = new ServerPolicy("example", ServerPolicyArgs.builder()        
+ *             .authServerId("<auth server id>")
+ *             .status("ACTIVE")
+ *             .name("example")
+ *             .description("example")
  *             .priority(1)
- *             .clientWhitelists(&#34;ALL_CLIENTS&#34;)
+ *             .clientWhitelists("ALL_CLIENTS")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

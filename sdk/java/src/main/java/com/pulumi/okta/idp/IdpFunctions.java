@@ -29,7 +29,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -51,12 +52,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getMetadataSaml(GetMetadataSamlArgs.builder()
-     *             .idpId(&#34;&lt;idp id&gt;&#34;)
+     *             .idpId("<idp id>")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -69,7 +71,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -91,12 +94,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getMetadataSaml(GetMetadataSamlArgs.builder()
-     *             .idpId(&#34;&lt;idp id&gt;&#34;)
+     *             .idpId("<idp id>")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -109,7 +113,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -131,12 +136,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getMetadataSaml(GetMetadataSamlArgs.builder()
-     *             .idpId(&#34;&lt;idp id&gt;&#34;)
+     *             .idpId("<idp id>")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +155,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,12 +178,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getMetadataSaml(GetMetadataSamlArgs.builder()
-     *             .idpId(&#34;&lt;idp id&gt;&#34;)
+     *             .idpId("<idp id>")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -189,7 +197,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -211,12 +220,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getMetadataSaml(GetMetadataSamlArgs.builder()
-     *             .idpId(&#34;&lt;idp id&gt;&#34;)
+     *             .idpId("<idp id>")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -229,7 +239,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -251,12 +262,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getMetadataSaml(GetMetadataSamlArgs.builder()
-     *             .idpId(&#34;&lt;idp id&gt;&#34;)
+     *             .idpId("<idp id>")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -269,7 +281,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -291,12 +304,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getOidc(GetOidcArgs.builder()
-     *             .name(&#34;Example Provider&#34;)
+     *             .name("Example Provider")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -309,7 +323,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -331,12 +346,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getOidc(GetOidcArgs.builder()
-     *             .name(&#34;Example Provider&#34;)
+     *             .name("Example Provider")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -349,7 +365,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -371,12 +388,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getOidc(GetOidcArgs.builder()
-     *             .name(&#34;Example Provider&#34;)
+     *             .name("Example Provider")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -389,7 +407,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -411,12 +430,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getOidc(GetOidcArgs.builder()
-     *             .name(&#34;Example Provider&#34;)
+     *             .name("Example Provider")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -429,7 +449,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -451,12 +472,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getOidc(GetOidcArgs.builder()
-     *             .name(&#34;Example Provider&#34;)
+     *             .name("Example Provider")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -469,7 +491,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -491,12 +514,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getOidc(GetOidcArgs.builder()
-     *             .name(&#34;Example Provider&#34;)
+     *             .name("Example Provider")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -509,7 +533,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -531,12 +556,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getSaml(GetSamlArgs.builder()
-     *             .name(&#34;Example App&#34;)
+     *             .name("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -549,7 +575,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -571,12 +598,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getSaml(GetSamlArgs.builder()
-     *             .name(&#34;Example App&#34;)
+     *             .name("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -589,7 +617,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -611,12 +640,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getSaml(GetSamlArgs.builder()
-     *             .name(&#34;Example App&#34;)
+     *             .name("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -629,7 +659,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -651,12 +682,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getSaml(GetSamlArgs.builder()
-     *             .name(&#34;Example App&#34;)
+     *             .name("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -669,7 +701,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -691,12 +724,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getSaml(GetSamlArgs.builder()
-     *             .name(&#34;Example App&#34;)
+     *             .name("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -709,7 +743,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -731,12 +766,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getSaml(GetSamlArgs.builder()
-     *             .name(&#34;Example App&#34;)
+     *             .name("Example App")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -749,7 +785,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -771,12 +808,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getSocial(GetSocialArgs.builder()
-     *             .name(&#34;My Facebook IdP&#34;)
+     *             .name("My Facebook IdP")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -789,7 +827,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -811,12 +850,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getSocial(GetSocialArgs.builder()
-     *             .name(&#34;My Facebook IdP&#34;)
+     *             .name("My Facebook IdP")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -829,7 +869,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -851,12 +892,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getSocial(GetSocialArgs.builder()
-     *             .name(&#34;My Facebook IdP&#34;)
+     *             .name("My Facebook IdP")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -869,7 +911,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -891,12 +934,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getSocial(GetSocialArgs.builder()
-     *             .name(&#34;My Facebook IdP&#34;)
+     *             .name("My Facebook IdP")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -909,7 +953,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -931,12 +976,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getSocial(GetSocialArgs.builder()
-     *             .name(&#34;My Facebook IdP&#34;)
+     *             .name("My Facebook IdP")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -949,7 +995,8 @@ public final class IdpFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -971,12 +1018,13 @@ public final class IdpFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = IdpFunctions.getSocial(GetSocialArgs.builder()
-     *             .name(&#34;My Facebook IdP&#34;)
+     *             .name("My Facebook IdP")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

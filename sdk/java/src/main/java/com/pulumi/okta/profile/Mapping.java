@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,32 +51,33 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var user = UserFunctions.getUserProfileMappingSource();
  * 
- *         var example = new Mapping(&#34;example&#34;, MappingArgs.builder()        
- *             .sourceId(&#34;&lt;source id&gt;&#34;)
- *             .targetId(user.applyValue(getUserProfileMappingSourceResult -&gt; getUserProfileMappingSourceResult.id()))
+ *         var example = new Mapping("example", MappingArgs.builder()        
+ *             .sourceId("<source id>")
+ *             .targetId(user.applyValue(getUserProfileMappingSourceResult -> getUserProfileMappingSourceResult.id()))
  *             .deleteWhenAbsent(true)
  *             .mappings(            
  *                 MappingMappingArgs.builder()
- *                     .id(&#34;firstName&#34;)
- *                     .expression(&#34;appuser.firstName&#34;)
+ *                     .id("firstName")
+ *                     .expression("appuser.firstName")
  *                     .build(),
  *                 MappingMappingArgs.builder()
- *                     .id(&#34;lastName&#34;)
- *                     .expression(&#34;appuser.lastName&#34;)
+ *                     .id("lastName")
+ *                     .expression("appuser.lastName")
  *                     .build(),
  *                 MappingMappingArgs.builder()
- *                     .id(&#34;email&#34;)
- *                     .expression(&#34;appuser.email&#34;)
+ *                     .id("email")
+ *                     .expression("appuser.email")
  *                     .build(),
  *                 MappingMappingArgs.builder()
- *                     .id(&#34;login&#34;)
- *                     .expression(&#34;appuser.email&#34;)
+ *                     .id("login")
+ *                     .expression("appuser.email")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

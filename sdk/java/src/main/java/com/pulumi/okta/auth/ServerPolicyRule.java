@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,19 +44,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerPolicyRule(&#34;example&#34;, ServerPolicyRuleArgs.builder()        
- *             .authServerId(&#34;&lt;auth server id&gt;&#34;)
- *             .policyId(&#34;&lt;auth server policy id&gt;&#34;)
- *             .status(&#34;ACTIVE&#34;)
- *             .name(&#34;example&#34;)
+ *         var example = new ServerPolicyRule("example", ServerPolicyRuleArgs.builder()        
+ *             .authServerId("<auth server id>")
+ *             .policyId("<auth server policy id>")
+ *             .status("ACTIVE")
+ *             .name("example")
  *             .priority(1)
- *             .groupWhitelists(&#34;&lt;group ids&gt;&#34;)
- *             .grantTypeWhitelists(&#34;implicit&#34;)
+ *             .groupWhitelists("<group ids>")
+ *             .grantTypeWhitelists("implicit")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

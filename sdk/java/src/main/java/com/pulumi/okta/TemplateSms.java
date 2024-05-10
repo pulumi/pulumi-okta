@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,23 +47,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TemplateSms(&#34;example&#34;, TemplateSmsArgs.builder()        
- *             .type(&#34;SMS_VERIFY_CODE&#34;)
- *             .template(&#34;Your ${org.name} code is: ${code}&#34;)
+ *         var example = new TemplateSms("example", TemplateSmsArgs.builder()        
+ *             .type("SMS_VERIFY_CODE")
+ *             .template("Your ${org.name} code is: ${code}")
  *             .translations(            
  *                 TemplateSmsTranslationArgs.builder()
- *                     .language(&#34;en&#34;)
- *                     .template(&#34;Your ${org.name} code is: ${code}&#34;)
+ *                     .language("en")
+ *                     .template("Your ${org.name} code is: ${code}")
  *                     .build(),
  *                 TemplateSmsTranslationArgs.builder()
- *                     .language(&#34;es&#34;)
- *                     .template(&#34;Tu código de ${org.name} es: ${code}.&#34;)
+ *                     .language("es")
+ *                     .template("Tu código de ${org.name} es: ${code}.")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

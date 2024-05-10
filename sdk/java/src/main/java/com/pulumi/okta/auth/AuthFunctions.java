@@ -26,7 +26,8 @@ public final class AuthFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,12 +49,13 @@ public final class AuthFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuthFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;Example Auth&#34;)
+     *             .name("Example Auth")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -66,7 +68,8 @@ public final class AuthFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -88,12 +91,13 @@ public final class AuthFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuthFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;Example Auth&#34;)
+     *             .name("Example Auth")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -106,7 +110,8 @@ public final class AuthFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -128,12 +133,13 @@ public final class AuthFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuthFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;Example Auth&#34;)
+     *             .name("Example Auth")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +152,8 @@ public final class AuthFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,12 +175,13 @@ public final class AuthFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuthFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;Example Auth&#34;)
+     *             .name("Example Auth")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -186,7 +194,8 @@ public final class AuthFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -208,13 +217,14 @@ public final class AuthFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuthFunctions.getServerPolicy(GetServerPolicyArgs.builder()
-     *             .authServerId(&#34;&lt;auth server id&gt;&#34;)
-     *             .name(&#34;staff&#34;)
+     *             .authServerId("<auth server id>")
+     *             .name("staff")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -227,7 +237,8 @@ public final class AuthFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -249,13 +260,14 @@ public final class AuthFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuthFunctions.getServerPolicy(GetServerPolicyArgs.builder()
-     *             .authServerId(&#34;&lt;auth server id&gt;&#34;)
-     *             .name(&#34;staff&#34;)
+     *             .authServerId("<auth server id>")
+     *             .name("staff")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -268,7 +280,8 @@ public final class AuthFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -290,13 +303,14 @@ public final class AuthFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuthFunctions.getServerPolicy(GetServerPolicyArgs.builder()
-     *             .authServerId(&#34;&lt;auth server id&gt;&#34;)
-     *             .name(&#34;staff&#34;)
+     *             .authServerId("<auth server id>")
+     *             .name("staff")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -309,7 +323,8 @@ public final class AuthFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -331,13 +346,14 @@ public final class AuthFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuthFunctions.getServerPolicy(GetServerPolicyArgs.builder()
-     *             .authServerId(&#34;&lt;auth server id&gt;&#34;)
-     *             .name(&#34;staff&#34;)
+     *             .authServerId("<auth server id>")
+     *             .name("staff")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -350,7 +366,8 @@ public final class AuthFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -372,12 +389,13 @@ public final class AuthFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AuthFunctions.getServerScopes(GetServerScopesArgs.builder()
-     *             .authServerId(&#34;default&#34;)
+     *             .authServerId("default")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -390,7 +408,8 @@ public final class AuthFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -412,12 +431,13 @@ public final class AuthFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AuthFunctions.getServerScopes(GetServerScopesArgs.builder()
-     *             .authServerId(&#34;default&#34;)
+     *             .authServerId("default")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -430,7 +450,8 @@ public final class AuthFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -452,12 +473,13 @@ public final class AuthFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AuthFunctions.getServerScopes(GetServerScopesArgs.builder()
-     *             .authServerId(&#34;default&#34;)
+     *             .authServerId("default")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -470,7 +492,8 @@ public final class AuthFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -492,12 +515,13 @@ public final class AuthFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AuthFunctions.getServerScopes(GetServerScopesArgs.builder()
-     *             .authServerId(&#34;default&#34;)
+     *             .authServerId("default")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

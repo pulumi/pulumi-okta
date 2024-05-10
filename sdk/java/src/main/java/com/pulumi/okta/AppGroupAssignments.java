@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,26 +47,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AppGroupAssignments(&#34;example&#34;, AppGroupAssignmentsArgs.builder()        
- *             .appId(&#34;&lt;app id&gt;&#34;)
+ *         var example = new AppGroupAssignments("example", AppGroupAssignmentsArgs.builder()        
+ *             .appId("<app id>")
  *             .groups(            
  *                 AppGroupAssignmentsGroupArgs.builder()
- *                     .id(&#34;&lt;group id&gt;&#34;)
+ *                     .id("<group id>")
  *                     .priority(1)
  *                     .build(),
  *                 AppGroupAssignmentsGroupArgs.builder()
- *                     .id(&#34;&lt;another group id&gt;&#34;)
+ *                     .id("<another group id>")
  *                     .priority(2)
  *                     .profile(serializeJson(
  *                         jsonObject(
- *                             jsonProperty(&#34;application profile field&#34;, &#34;application profile value&#34;)
+ *                             jsonProperty("application profile field", "application profile value")
  *                         )))
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
