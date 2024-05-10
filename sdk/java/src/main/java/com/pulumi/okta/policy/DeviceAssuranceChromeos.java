@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,27 +43,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DeviceAssuranceChromeos(&#34;example&#34;, DeviceAssuranceChromeosArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new DeviceAssuranceChromeos("example", DeviceAssuranceChromeosArgs.builder()        
+ *             .name("example")
  *             .tpspAllowScreenLock(true)
- *             .tpspBrowserVersion(&#34;15393.27.0&#34;)
+ *             .tpspBrowserVersion("15393.27.0")
  *             .tpspBuiltinDnsClientEnabled(true)
  *             .tpspChromeRemoteDesktopAppBlocked(true)
- *             .tpspDeviceEnrollmentDomain(&#34;exampleDomain&#34;)
+ *             .tpspDeviceEnrollmentDomain("exampleDomain")
  *             .tpspDiskEncrypted(true)
- *             .tpspKeyTrustLevel(&#34;CHROME_OS_VERIFIED_MODE&#34;)
+ *             .tpspKeyTrustLevel("CHROME_OS_VERIFIED_MODE")
  *             .tpspOsFirewall(true)
- *             .tpspOsVersion(&#34;10.0.19041.1110&#34;)
- *             .tpspPasswordProctectionWarningTrigger(&#34;PASSWORD_PROTECTION_OFF&#34;)
+ *             .tpspOsVersion("10.0.19041.1110")
+ *             .tpspPasswordProctectionWarningTrigger("PASSWORD_PROTECTION_OFF")
  *             .tpspRealtimeUrlCheckMode(true)
- *             .tpspSafeBrowsingProtectionLevel(&#34;ENHANCED_PROTECTION&#34;)
+ *             .tpspSafeBrowsingProtectionLevel("ENHANCED_PROTECTION")
  *             .tpspScreenLockSecured(true)
  *             .tpspSiteIsolationEnabled(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

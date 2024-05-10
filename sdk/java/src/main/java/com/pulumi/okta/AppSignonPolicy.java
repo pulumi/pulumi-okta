@@ -17,7 +17,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,30 +41,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myAppPolicy = new AppSignonPolicy(&#34;myAppPolicy&#34;, AppSignonPolicyArgs.builder()        
- *             .name(&#34;My App Sign-On Policy&#34;)
- *             .description(&#34;Authentication Policy to be used on my app.&#34;)
+ *         var myAppPolicy = new AppSignonPolicy("myAppPolicy", AppSignonPolicyArgs.builder()        
+ *             .name("My App Sign-On Policy")
+ *             .description("Authentication Policy to be used on my app.")
  *             .build());
  * 
- *         var myApp = new OAuth(&#34;myApp&#34;, OAuthArgs.builder()        
- *             .label(&#34;My App&#34;)
- *             .type(&#34;web&#34;)
- *             .grantTypes(&#34;authorization_code&#34;)
- *             .redirectUris(&#34;http://localhost:3000&#34;)
- *             .postLogoutRedirectUris(&#34;http://localhost:3000&#34;)
- *             .responseTypes(&#34;code&#34;)
+ *         var myApp = new OAuth("myApp", OAuthArgs.builder()        
+ *             .label("My App")
+ *             .type("web")
+ *             .grantTypes("authorization_code")
+ *             .redirectUris("http://localhost:3000")
+ *             .postLogoutRedirectUris("http://localhost:3000")
+ *             .responseTypes("code")
  *             .authenticationPolicy(myAppPolicy.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * The created policy can be extended using `app_signon_policy_rules`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -87,27 +90,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myAppPolicy = new AppSignonPolicy(&#34;myAppPolicy&#34;, AppSignonPolicyArgs.builder()        
- *             .name(&#34;My App Sign-On Policy&#34;)
- *             .description(&#34;Authentication Policy to be used on my app.&#34;)
+ *         var myAppPolicy = new AppSignonPolicy("myAppPolicy", AppSignonPolicyArgs.builder()        
+ *             .name("My App Sign-On Policy")
+ *             .description("Authentication Policy to be used on my app.")
  *             .build());
  * 
- *         var someRule = new AppSignonPolicyRule(&#34;someRule&#34;, AppSignonPolicyRuleArgs.builder()        
+ *         var someRule = new AppSignonPolicyRule("someRule", AppSignonPolicyRuleArgs.builder()        
  *             .policyId(oktaAppSignonPolicy.myAppPolicy().id())
- *             .name(&#34;Some Rule&#34;)
- *             .factorMode(&#34;1FA&#34;)
- *             .reAuthenticationFrequency(&#34;PT43800H&#34;)
+ *             .name("Some Rule")
+ *             .factorMode("1FA")
+ *             .reAuthenticationFrequency("PT43800H")
  *             .constraints(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;knowledge&#34;, jsonObject(
- *                         jsonProperty(&#34;types&#34;, jsonArray(&#34;password&#34;))
+ *                     jsonProperty("knowledge", jsonObject(
+ *                         jsonProperty("types", jsonArray("password"))
  *                     ))
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

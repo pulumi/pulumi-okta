@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OrgConfiguration(&#34;example&#34;, OrgConfigurationArgs.builder()        
- *             .companyName(&#34;Umbrella Corporation&#34;)
- *             .website(&#34;https://terraform.io&#34;)
+ *         var example = new OrgConfiguration("example", OrgConfigurationArgs.builder()        
+ *             .companyName("Umbrella Corporation")
+ *             .website("https://terraform.io")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

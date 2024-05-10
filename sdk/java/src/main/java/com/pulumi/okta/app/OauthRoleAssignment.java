@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * Standard Role:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,22 +48,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OAuth(&#34;test&#34;, OAuthArgs.builder()        
- *             .label(&#34;test&#34;)
- *             .type(&#34;service&#34;)
- *             .responseTypes(&#34;token&#34;)
- *             .grantTypes(&#34;client_credentials&#34;)
- *             .jwksUri(&#34;https://example.com&#34;)
+ *         var test = new OAuth("test", OAuthArgs.builder()        
+ *             .label("test")
+ *             .type("service")
+ *             .responseTypes("token")
+ *             .grantTypes("client_credentials")
+ *             .jwksUri("https://example.com")
  *             .build());
  * 
- *         var testOauthRoleAssignment = new OauthRoleAssignment(&#34;testOauthRoleAssignment&#34;, OauthRoleAssignmentArgs.builder()        
+ *         var testOauthRoleAssignment = new OauthRoleAssignment("testOauthRoleAssignment", OauthRoleAssignmentArgs.builder()        
  *             .clientId(test.clientId())
- *             .type(&#34;HELP_DESK_ADMIN&#34;)
+ *             .type("HELP_DESK_ADMIN")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Custom Role:

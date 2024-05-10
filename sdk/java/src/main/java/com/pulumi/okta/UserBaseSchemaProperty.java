@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,18 +53,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserBaseSchemaProperty(&#34;example&#34;, UserBaseSchemaPropertyArgs.builder()        
- *             .index(&#34;firstName&#34;)
- *             .title(&#34;First name&#34;)
- *             .type(&#34;string&#34;)
+ *         var example = new UserBaseSchemaProperty("example", UserBaseSchemaPropertyArgs.builder()        
+ *             .index("firstName")
+ *             .title("First name")
+ *             .type("string")
  *             .required(true)
- *             .master(&#34;OKTA&#34;)
+ *             .master("OKTA")
  *             .userType(exampleOktaUserType.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,17 +47,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ThreeField(&#34;example&#34;, ThreeFieldArgs.builder()        
- *             .label(&#34;Example App&#34;)
- *             .signOnUrl(&#34;https://example.com/login.html&#34;)
- *             .signOnRedirectUrl(&#34;https://example.com&#34;)
+ *         var example = new ThreeField("example", ThreeFieldArgs.builder()        
+ *             .label("Example App")
+ *             .signOnUrl("https://example.com/login.html")
+ *             .signOnRedirectUrl("https://example.com")
  *             .revealPassword(true)
- *             .credentialsScheme(&#34;EDIT_USERNAME_AND_PASSWORD&#34;)
+ *             .credentialsScheme("EDIT_USERNAME_AND_PASSWORD")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

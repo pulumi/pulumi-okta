@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,18 +44,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LinkDefinition(&#34;example&#34;, LinkDefinitionArgs.builder()        
- *             .primaryName(&#34;emperor&#34;)
- *             .primaryTitle(&#34;Emperor&#34;)
- *             .primaryDescription(&#34;Hereditary ruler of the Imperium and the Known Universe&#34;)
- *             .associatedName(&#34;sardaukar&#34;)
- *             .associatedTitle(&#34;Sardaukar&#34;)
- *             .associatedDescription(&#34;Elite military force member&#34;)
+ *         var example = new LinkDefinition("example", LinkDefinitionArgs.builder()        
+ *             .primaryName("emperor")
+ *             .primaryTitle("Emperor")
+ *             .primaryDescription("Hereditary ruler of the Imperium and the Known Universe")
+ *             .associatedName("sardaukar")
+ *             .associatedTitle("Sardaukar")
+ *             .associatedDescription("Elite military force member")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

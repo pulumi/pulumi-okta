@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,22 +55,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
- *             .name(&#34;My Policy&#34;)
- *             .type(&#34;PROFILE_ENROLLMENT&#34;)
+ *             .name("My Policy")
+ *             .type("PROFILE_ENROLLMENT")
  *             .build());
  * 
  *         final var test = AppFunctions.getApp(GetAppArgs.builder()
- *             .label(&#34;My App&#34;)
+ *             .label("My App")
  *             .build());
  * 
- *         var examplePolicyProfileEnrollmentApps = new PolicyProfileEnrollmentApps(&#34;examplePolicyProfileEnrollmentApps&#34;, PolicyProfileEnrollmentAppsArgs.builder()        
+ *         var examplePolicyProfileEnrollmentApps = new PolicyProfileEnrollmentApps("examplePolicyProfileEnrollmentApps", PolicyProfileEnrollmentAppsArgs.builder()        
  *             .policyId(exampleOktaPolicy.id())
  *             .apps(id)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

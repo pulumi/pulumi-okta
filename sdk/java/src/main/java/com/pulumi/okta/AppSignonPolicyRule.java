@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * ### Simple usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,34 +59,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testSaml = new Saml(&#34;testSaml&#34;, SamlArgs.builder()        
- *             .label(&#34;My App&#34;)
- *             .ssoUrl(&#34;https://google.com&#34;)
- *             .recipient(&#34;https://here.com&#34;)
- *             .destination(&#34;https://its-about-the-journey.com&#34;)
- *             .audience(&#34;https://audience.com&#34;)
- *             .status(&#34;ACTIVE&#34;)
- *             .subjectNameIdTemplate(&#34;${user.userName}&#34;)
- *             .subjectNameIdFormat(&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&#34;)
- *             .signatureAlgorithm(&#34;RSA_SHA256&#34;)
+ *         var testSaml = new Saml("testSaml", SamlArgs.builder()        
+ *             .label("My App")
+ *             .ssoUrl("https://google.com")
+ *             .recipient("https://here.com")
+ *             .destination("https://its-about-the-journey.com")
+ *             .audience("https://audience.com")
+ *             .status("ACTIVE")
+ *             .subjectNameIdTemplate("${user.userName}")
+ *             .subjectNameIdFormat("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress")
+ *             .signatureAlgorithm("RSA_SHA256")
  *             .responseSigned(true)
- *             .digestAlgorithm(&#34;SHA256&#34;)
+ *             .digestAlgorithm("SHA256")
  *             .honorForceAuthn(false)
- *             .authnContextClassRef(&#34;urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport&#34;)
+ *             .authnContextClassRef("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport")
  *             .build());
  * 
  *         final var test = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
  *             .appId(testSaml.id())
  *             .build());
  * 
- *         var testAppSignonPolicyRule = new AppSignonPolicyRule(&#34;testAppSignonPolicyRule&#34;, AppSignonPolicyRuleArgs.builder()        
- *             .policyId(test.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult).applyValue(test -&gt; test.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult.id())))
- *             .name(&#34;testAcc_replace_with_uuid&#34;)
+ *         var testAppSignonPolicyRule = new AppSignonPolicyRule("testAppSignonPolicyRule", AppSignonPolicyRuleArgs.builder()        
+ *             .policyId(test.applyValue(getAppSignonPolicyResult -> getAppSignonPolicyResult).applyValue(test -> test.applyValue(getAppSignonPolicyResult -> getAppSignonPolicyResult.id())))
+ *             .name("testAcc_replace_with_uuid")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * This will create an app sign-on policy rule with the following `THEN` block:
@@ -95,7 +97,8 @@ import javax.annotation.Nullable;
  * ### Example 1:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -117,20 +120,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AppSignonPolicyRule(&#34;test&#34;, AppSignonPolicyRuleArgs.builder()        
+ *         var test = new AppSignonPolicyRule("test", AppSignonPolicyRuleArgs.builder()        
  *             .policyId(testOktaAppSignonPolicy.id())
- *             .name(&#34;testAcc_replace_with_uuid&#34;)
+ *             .name("testAcc_replace_with_uuid")
  *             .constraints(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;knowledge&#34;, jsonObject(
- *                         jsonProperty(&#34;types&#34;, jsonArray(&#34;password&#34;))
+ *                     jsonProperty("knowledge", jsonObject(
+ *                         jsonProperty("types", jsonArray("password"))
  *                     ))
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * This will create an app sign-on policy rule with the following `THEN` block:
@@ -138,7 +142,8 @@ import javax.annotation.Nullable;
  * ### Example 2:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -160,25 +165,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AppSignonPolicyRule(&#34;test&#34;, AppSignonPolicyRuleArgs.builder()        
+ *         var test = new AppSignonPolicyRule("test", AppSignonPolicyRuleArgs.builder()        
  *             .policyId(testOktaAppSignonPolicy.id())
- *             .name(&#34;testAcc_replace_with_uuid&#34;)
+ *             .name("testAcc_replace_with_uuid")
  *             .constraints(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;knowledge&#34;, jsonObject(
- *                         jsonProperty(&#34;reauthenticateIn&#34;, &#34;PT2H&#34;),
- *                         jsonProperty(&#34;types&#34;, jsonArray(&#34;password&#34;))
+ *                     jsonProperty("knowledge", jsonObject(
+ *                         jsonProperty("reauthenticateIn", "PT2H"),
+ *                         jsonProperty("types", jsonArray("password"))
  *                     )),
- *                     jsonProperty(&#34;possession&#34;, jsonObject(
- *                         jsonProperty(&#34;deviceBound&#34;, &#34;REQUIRED&#34;),
- *                         jsonProperty(&#34;hardwareProtection&#34;, &#34;REQUIRED&#34;)
+ *                     jsonProperty("possession", jsonObject(
+ *                         jsonProperty("deviceBound", "REQUIRED"),
+ *                         jsonProperty("hardwareProtection", "REQUIRED")
  *                     ))
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * This will create an app sign-on policy rule with the following `THEN` block:
@@ -189,7 +195,8 @@ import javax.annotation.Nullable;
  * ### Complex example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -230,22 +237,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testSaml = new Saml(&#34;testSaml&#34;, SamlArgs.builder()        
- *             .label(&#34;testAcc_replace_with_uuid&#34;)
- *             .ssoUrl(&#34;https://google.com&#34;)
- *             .recipient(&#34;https://here.com&#34;)
- *             .destination(&#34;https://its-about-the-journey.com&#34;)
- *             .audience(&#34;https://audience.com&#34;)
- *             .subjectNameIdTemplate(&#34;${user.userName}&#34;)
- *             .subjectNameIdFormat(&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&#34;)
+ *         var testSaml = new Saml("testSaml", SamlArgs.builder()        
+ *             .label("testAcc_replace_with_uuid")
+ *             .ssoUrl("https://google.com")
+ *             .recipient("https://here.com")
+ *             .destination("https://its-about-the-journey.com")
+ *             .audience("https://audience.com")
+ *             .subjectNameIdTemplate("${user.userName}")
+ *             .subjectNameIdFormat("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress")
  *             .responseSigned(true)
- *             .signatureAlgorithm(&#34;RSA_SHA256&#34;)
- *             .digestAlgorithm(&#34;SHA256&#34;)
+ *             .signatureAlgorithm("RSA_SHA256")
+ *             .digestAlgorithm("SHA256")
  *             .honorForceAuthn(false)
- *             .authnContextClassRef(&#34;urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport&#34;)
- *             .singleLogoutIssuer(&#34;https://dunshire.okta.com&#34;)
- *             .singleLogoutUrl(&#34;https://dunshire.okta.com/logout&#34;)
- *             .singleLogoutCertificate(&#34;&#34;&#34;
+ *             .authnContextClassRef("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport")
+ *             .singleLogoutIssuer("https://dunshire.okta.com")
+ *             .singleLogoutUrl("https://dunshire.okta.com/logout")
+ *             .singleLogoutCertificate("""
  * MIIFnDCCA4QCCQDBSLbiON2T1zANBgkqhkiG9w0BAQsFADCBjzELMAkGA1UEBhMCVVMxDjAMBgNV
  * BAgMBU1haW5lMRAwDgYDVQQHDAdDYXJpYm91MRcwFQYDVQQKDA5Tbm93bWFrZXJzIEluYzEUMBIG
  * A1UECwwLRW5naW5lZXJpbmcxDTALBgNVBAMMBFNub3cxIDAeBgkqhkiG9w0BCQEWEWVtYWlsQGV4
@@ -272,12 +279,12 @@ import javax.annotation.Nullable;
  * DaZzyU7Gg5seKOZ20zTRaX3Ihj9Zij/ORnrARE7eM/usKMECp+7syUwAUKxDCZkGiUdskmOhhBGL
  * JtbyK3F2UvoJoLsm3pIcvMak9KwMjSTGJB47ABUP1+w+zGcNk0D5Co3IJ6QekiLfWJyQ+kKsWLKt
  * zOYQQatrnBagM7MI2/T4
- *             &#34;&#34;&#34;)
+ *             """)
  *             .attributeStatements(SamlAttributeStatementArgs.builder()
- *                 .type(&#34;GROUP&#34;)
- *                 .name(&#34;groups&#34;)
- *                 .filterType(&#34;REGEX&#34;)
- *                 .filterValue(&#34;.*&#34;)
+ *                 .type("GROUP")
+ *                 .name("groups")
+ *                 .filterType("REGEX")
+ *                 .filterValue(".*")
  *                 .build())
  *             .build());
  * 
@@ -285,59 +292,59 @@ import javax.annotation.Nullable;
  *             .appId(testSaml.id())
  *             .build());
  * 
- *         for (var i = 0; i &lt; 5; i++) {
- *             new User(&#34;testUser-&#34; + i, UserArgs.builder()            
- *                 .firstName(&#34;TestAcc&#34;)
- *                 .lastName(&#34;Smith&#34;)
- *                 .login(String.format(&#34;testAcc_%s@example.com&#34;, range.value()))
- *                 .email(String.format(&#34;testAcc_%s@example.com&#34;, range.value()))
+ *         for (var i = 0; i < 5; i++) {
+ *             new User("testUser-" + i, UserArgs.builder()            
+ *                 .firstName("TestAcc")
+ *                 .lastName("Smith")
+ *                 .login(String.format("testAcc_%s{@literal @}example.com", range.value()))
+ *                 .email(String.format("testAcc_%s{@literal @}example.com", range.value()))
  *                 .build());
  * 
  *         
  * }
- *         for (var i = 0; i &lt; 5; i++) {
- *             new Group(&#34;this-&#34; + i, GroupArgs.builder()            
- *                 .name(String.format(&#34;testAcc_%s&#34;, range.value()))
- *                 .description(String.format(&#34;testAcc_%s&#34;, range.value()))
+ *         for (var i = 0; i < 5; i++) {
+ *             new Group("this-" + i, GroupArgs.builder()            
+ *                 .name(String.format("testAcc_%s", range.value()))
+ *                 .description(String.format("testAcc_%s", range.value()))
  *                 .build());
  * 
  *         
  * }
- *         var testUserType = new UserType(&#34;testUserType&#34;, UserTypeArgs.builder()        
- *             .name(&#34;testAcc_replace_with_uuid&#34;)
- *             .displayName(&#34;Terraform Acceptance Test User Type Updated&#34;)
- *             .description(&#34;Terraform Acceptance Test User Type Updated&#34;)
+ *         var testUserType = new UserType("testUserType", UserTypeArgs.builder()        
+ *             .name("testAcc_replace_with_uuid")
+ *             .displayName("Terraform Acceptance Test User Type Updated")
+ *             .description("Terraform Acceptance Test User Type Updated")
  *             .build());
  * 
- *         var testZone = new Zone(&#34;testZone&#34;, ZoneArgs.builder()        
- *             .name(&#34;testAcc_replace_with_uuid&#34;)
- *             .type(&#34;IP&#34;)
+ *         var testZone = new Zone("testZone", ZoneArgs.builder()        
+ *             .name("testAcc_replace_with_uuid")
+ *             .type("IP")
  *             .gateways(            
- *                 &#34;1.2.3.4/24&#34;,
- *                 &#34;2.3.4.5-2.3.4.15&#34;)
+ *                 "1.2.3.4/24",
+ *                 "2.3.4.5-2.3.4.15")
  *             .proxies(            
- *                 &#34;2.2.3.4/24&#34;,
- *                 &#34;3.3.4.5-3.3.4.15&#34;)
+ *                 "2.2.3.4/24",
+ *                 "3.3.4.5-3.3.4.15")
  *             .build());
  * 
  *         final var default = UserFunctions.getUserType(GetUserTypeArgs.builder()
- *             .name(&#34;user&#34;)
+ *             .name("user")
  *             .build());
  * 
- *         var testDeviceAssuranceAndroid = new DeviceAssuranceAndroid(&#34;testDeviceAssuranceAndroid&#34;, DeviceAssuranceAndroidArgs.builder()        
- *             .name(&#34;test&#34;)
- *             .osVersion(&#34;12&#34;)
+ *         var testDeviceAssuranceAndroid = new DeviceAssuranceAndroid("testDeviceAssuranceAndroid", DeviceAssuranceAndroidArgs.builder()        
+ *             .name("test")
+ *             .osVersion("12")
  *             .jailbreak(false)
  *             .build());
  * 
- *         var testAppSignonPolicyRule = new AppSignonPolicyRule(&#34;testAppSignonPolicyRule&#34;, AppSignonPolicyRuleArgs.builder()        
- *             .name(&#34;testAcc_replace_with_uuid&#34;)
- *             .policyId(test.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult).applyValue(test -&gt; test.applyValue(getAppSignonPolicyResult -&gt; getAppSignonPolicyResult.id())))
- *             .access(&#34;ALLOW&#34;)
- *             .customExpression(&#34;user.status == \&#34;ACTIVE\&#34;&#34;)
+ *         var testAppSignonPolicyRule = new AppSignonPolicyRule("testAppSignonPolicyRule", AppSignonPolicyRuleArgs.builder()        
+ *             .name("testAcc_replace_with_uuid")
+ *             .policyId(test.applyValue(getAppSignonPolicyResult -> getAppSignonPolicyResult).applyValue(test -> test.applyValue(getAppSignonPolicyResult -> getAppSignonPolicyResult.id())))
+ *             .access("ALLOW")
+ *             .customExpression("user.status == \"ACTIVE\"")
  *             .deviceIsManaged(false)
  *             .deviceIsRegistered(true)
- *             .factorMode(&#34;2FA&#34;)
+ *             .factorMode("2FA")
  *             .groupsExcludeds(            
  *                 this_[2].id(),
  *                 this_[3].id(),
@@ -346,40 +353,40 @@ import javax.annotation.Nullable;
  *                 this_[0].id(),
  *                 this_[1].id())
  *             .deviceAssurancesIncludeds(testDeviceAssuranceAndroid.id())
- *             .networkConnection(&#34;ZONE&#34;)
+ *             .networkConnection("ZONE")
  *             .networkIncludes(testZone.id())
  *             .platformIncludes(            
  *                 AppSignonPolicyRulePlatformIncludeArgs.builder()
- *                     .osType(&#34;ANDROID&#34;)
- *                     .type(&#34;MOBILE&#34;)
+ *                     .osType("ANDROID")
+ *                     .type("MOBILE")
  *                     .build(),
  *                 AppSignonPolicyRulePlatformIncludeArgs.builder()
- *                     .osType(&#34;IOS&#34;)
- *                     .type(&#34;MOBILE&#34;)
+ *                     .osType("IOS")
+ *                     .type("MOBILE")
  *                     .build(),
  *                 AppSignonPolicyRulePlatformIncludeArgs.builder()
- *                     .osType(&#34;MACOS&#34;)
- *                     .type(&#34;DESKTOP&#34;)
+ *                     .osType("MACOS")
+ *                     .type("DESKTOP")
  *                     .build(),
  *                 AppSignonPolicyRulePlatformIncludeArgs.builder()
- *                     .osType(&#34;OTHER&#34;)
- *                     .type(&#34;DESKTOP&#34;)
+ *                     .osType("OTHER")
+ *                     .type("DESKTOP")
  *                     .build(),
  *                 AppSignonPolicyRulePlatformIncludeArgs.builder()
- *                     .osType(&#34;OTHER&#34;)
- *                     .type(&#34;MOBILE&#34;)
+ *                     .osType("OTHER")
+ *                     .type("MOBILE")
  *                     .build(),
  *                 AppSignonPolicyRulePlatformIncludeArgs.builder()
- *                     .osType(&#34;WINDOWS&#34;)
- *                     .type(&#34;DESKTOP&#34;)
+ *                     .osType("WINDOWS")
+ *                     .type("DESKTOP")
  *                     .build(),
  *                 AppSignonPolicyRulePlatformIncludeArgs.builder()
- *                     .osType(&#34;CHROMEOS&#34;)
- *                     .type(&#34;DESKTOP&#34;)
+ *                     .osType("CHROMEOS")
+ *                     .type("DESKTOP")
  *                     .build())
  *             .priority(98)
- *             .reAuthenticationFrequency(&#34;PT43800H&#34;)
- *             .type(&#34;ASSURANCE&#34;)
+ *             .reAuthenticationFrequency("PT43800H")
+ *             .type("ASSURANCE")
  *             .userTypesExcludeds(testUserType.id())
  *             .userTypesIncludeds(default_.id())
  *             .usersExcludeds(            
@@ -392,27 +399,28 @@ import javax.annotation.Nullable;
  *             .constraints(            
  *                 serializeJson(
  *                     jsonObject(
- *                         jsonProperty(&#34;knowledge&#34;, jsonObject(
- *                             jsonProperty(&#34;reauthenticateIn&#34;, &#34;PT2H&#34;),
- *                             jsonProperty(&#34;types&#34;, jsonArray(&#34;password&#34;))
+ *                         jsonProperty("knowledge", jsonObject(
+ *                             jsonProperty("reauthenticateIn", "PT2H"),
+ *                             jsonProperty("types", jsonArray("password"))
  *                         )),
- *                         jsonProperty(&#34;possession&#34;, jsonObject(
- *                             jsonProperty(&#34;deviceBound&#34;, &#34;REQUIRED&#34;)
+ *                         jsonProperty("possession", jsonObject(
+ *                             jsonProperty("deviceBound", "REQUIRED")
  *                         ))
  *                     )),
  *                 serializeJson(
  *                     jsonObject(
- *                         jsonProperty(&#34;possession&#34;, jsonObject(
- *                             jsonProperty(&#34;deviceBound&#34;, &#34;REQUIRED&#34;),
- *                             jsonProperty(&#34;hardwareProtection&#34;, &#34;REQUIRED&#34;),
- *                             jsonProperty(&#34;userPresence&#34;, &#34;OPTIONAL&#34;)
+ *                         jsonProperty("possession", jsonObject(
+ *                             jsonProperty("deviceBound", "REQUIRED"),
+ *                             jsonProperty("hardwareProtection", "REQUIRED"),
+ *                             jsonProperty("userPresence", "OPTIONAL")
  *                         ))
  *                     )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,36 +56,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Saml(&#34;example&#34;, SamlArgs.builder()        
- *             .label(&#34;example&#34;)
- *             .ssoUrl(&#34;https://example.com&#34;)
- *             .recipient(&#34;https://example.com&#34;)
- *             .destination(&#34;https://example.com&#34;)
- *             .audience(&#34;https://example.com/audience&#34;)
- *             .subjectNameIdTemplate(&#34;${user.userName}&#34;)
- *             .subjectNameIdFormat(&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&#34;)
+ *         var example = new Saml("example", SamlArgs.builder()        
+ *             .label("example")
+ *             .ssoUrl("https://example.com")
+ *             .recipient("https://example.com")
+ *             .destination("https://example.com")
+ *             .audience("https://example.com/audience")
+ *             .subjectNameIdTemplate("${user.userName}")
+ *             .subjectNameIdFormat("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress")
  *             .responseSigned(true)
- *             .signatureAlgorithm(&#34;RSA_SHA256&#34;)
- *             .digestAlgorithm(&#34;SHA256&#34;)
+ *             .signatureAlgorithm("RSA_SHA256")
+ *             .digestAlgorithm("SHA256")
  *             .honorForceAuthn(false)
- *             .authnContextClassRef(&#34;urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport&#34;)
+ *             .authnContextClassRef("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport")
  *             .attributeStatements(SamlAttributeStatementArgs.builder()
- *                 .type(&#34;GROUP&#34;)
- *                 .name(&#34;groups&#34;)
- *                 .filterType(&#34;REGEX&#34;)
- *                 .filterValue(&#34;.*&#34;)
+ *                 .type("GROUP")
+ *                 .name("groups")
+ *                 .filterType("REGEX")
+ *                 .filterValue(".*")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With inline hook
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -109,43 +112,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Hook(&#34;test&#34;, HookArgs.builder()        
- *             .name(&#34;testAcc_replace_with_uuid&#34;)
- *             .status(&#34;ACTIVE&#34;)
- *             .type(&#34;com.okta.saml.tokens.transform&#34;)
- *             .version(&#34;1.0.2&#34;)
+ *         var test = new Hook("test", HookArgs.builder()        
+ *             .name("testAcc_replace_with_uuid")
+ *             .status("ACTIVE")
+ *             .type("com.okta.saml.tokens.transform")
+ *             .version("1.0.2")
  *             .channel(Map.ofEntries(
- *                 Map.entry(&#34;type&#34;, &#34;HTTP&#34;),
- *                 Map.entry(&#34;version&#34;, &#34;1.0.0&#34;),
- *                 Map.entry(&#34;uri&#34;, &#34;https://example.com/test1&#34;),
- *                 Map.entry(&#34;method&#34;, &#34;POST&#34;)
+ *                 Map.entry("type", "HTTP"),
+ *                 Map.entry("version", "1.0.0"),
+ *                 Map.entry("uri", "https://example.com/test1"),
+ *                 Map.entry("method", "POST")
  *             ))
  *             .auth(Map.ofEntries(
- *                 Map.entry(&#34;key&#34;, &#34;Authorization&#34;),
- *                 Map.entry(&#34;type&#34;, &#34;HEADER&#34;),
- *                 Map.entry(&#34;value&#34;, &#34;secret&#34;)
+ *                 Map.entry("key", "Authorization"),
+ *                 Map.entry("type", "HEADER"),
+ *                 Map.entry("value", "secret")
  *             ))
  *             .build());
  * 
- *         var testSaml = new Saml(&#34;testSaml&#34;, SamlArgs.builder()        
- *             .label(&#34;testAcc_replace_with_uuid&#34;)
- *             .ssoUrl(&#34;https://google.com&#34;)
- *             .recipient(&#34;https://here.com&#34;)
- *             .destination(&#34;https://its-about-the-journey.com&#34;)
- *             .audience(&#34;https://audience.com&#34;)
- *             .subjectNameIdTemplate(&#34;${user.userName}&#34;)
- *             .subjectNameIdFormat(&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&#34;)
+ *         var testSaml = new Saml("testSaml", SamlArgs.builder()        
+ *             .label("testAcc_replace_with_uuid")
+ *             .ssoUrl("https://google.com")
+ *             .recipient("https://here.com")
+ *             .destination("https://its-about-the-journey.com")
+ *             .audience("https://audience.com")
+ *             .subjectNameIdTemplate("${user.userName}")
+ *             .subjectNameIdFormat("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress")
  *             .responseSigned(true)
- *             .signatureAlgorithm(&#34;RSA_SHA256&#34;)
- *             .digestAlgorithm(&#34;SHA256&#34;)
+ *             .signatureAlgorithm("RSA_SHA256")
+ *             .digestAlgorithm("SHA256")
  *             .honorForceAuthn(false)
- *             .authnContextClassRef(&#34;urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport&#34;)
+ *             .authnContextClassRef("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport")
  *             .inlineHookId(test.id())
  *             .attributeStatements(SamlAttributeStatementArgs.builder()
- *                 .type(&#34;GROUP&#34;)
- *                 .name(&#34;groups&#34;)
- *                 .filterType(&#34;REGEX&#34;)
- *                 .filterValue(&#34;.*&#34;)
+ *                 .type("GROUP")
+ *                 .name("groups")
+ *                 .filterType("REGEX")
+ *                 .filterValue(".*")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(test)
@@ -153,13 +156,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Pre-configured app with SAML 1.1 sign-on mode
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -180,30 +185,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Saml(&#34;test&#34;, SamlArgs.builder()        
- *             .appSettingsJson(&#34;&#34;&#34;
+ *         var test = new Saml("test", SamlArgs.builder()        
+ *             .appSettingsJson("""
  * {
- *     &#34;groupFilter&#34;: &#34;app1.*&#34;,
- *     &#34;siteURL&#34;: &#34;https://www.okta.com&#34;
+ *     "groupFilter": "app1.*",
+ *     "siteURL": "https://www.okta.com"
  * }
- *             &#34;&#34;&#34;)
- *             .label(&#34;SharePoint (On-Premise)&#34;)
- *             .preconfiguredApp(&#34;sharepoint_onpremise&#34;)
- *             .samlVersion(&#34;1.1&#34;)
- *             .status(&#34;ACTIVE&#34;)
- *             .userNameTemplate(&#34;${source.login}&#34;)
- *             .userNameTemplateType(&#34;BUILT_IN&#34;)
+ *             """)
+ *             .label("SharePoint (On-Premise)")
+ *             .preconfiguredApp("sharepoint_onpremise")
+ *             .samlVersion("1.1")
+ *             .status("ACTIVE")
+ *             .userNameTemplate("${source.login}")
+ *             .userNameTemplateType("BUILT_IN")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Pre-configured app with SAML 1.1 sign-on mode, `app_settings_json` and `app_links_json`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -224,50 +231,51 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var office365 = new Saml(&#34;office365&#34;, SamlArgs.builder()        
- *             .preconfiguredApp(&#34;office365&#34;)
- *             .label(&#34;Microsoft Office 365&#34;)
- *             .status(&#34;ACTIVE&#34;)
- *             .samlVersion(&#34;1.1&#34;)
- *             .appSettingsJson(&#34;&#34;&#34;
+ *         var office365 = new Saml("office365", SamlArgs.builder()        
+ *             .preconfiguredApp("office365")
+ *             .label("Microsoft Office 365")
+ *             .status("ACTIVE")
+ *             .samlVersion("1.1")
+ *             .appSettingsJson("""
  *     {
- *        &#34;wsFedConfigureType&#34;: &#34;AUTO&#34;,
- *        &#34;windowsTransportEnabled&#34;: false,
- *        &#34;domain&#34;: &#34;okta.com&#34;,
- *        &#34;msftTenant&#34;: &#34;okta&#34;,
- *        &#34;domains&#34;: [],
- *        &#34;requireAdminConsent&#34;: false
+ *        "wsFedConfigureType": "AUTO",
+ *        "windowsTransportEnabled": false,
+ *        "domain": "okta.com",
+ *        "msftTenant": "okta",
+ *        "domains": [],
+ *        "requireAdminConsent": false
  *     }
- *             &#34;&#34;&#34;)
- *             .appLinksJson(&#34;&#34;&#34;
+ *             """)
+ *             .appLinksJson("""
  *   {
- *       &#34;calendar&#34;: false,
- *       &#34;crm&#34;: false,
- *       &#34;delve&#34;: false,
- *       &#34;excel&#34;: false,
- *       &#34;forms&#34;: false,
- *       &#34;mail&#34;: false,
- *       &#34;newsfeed&#34;: false,
- *       &#34;onedrive&#34;: false,
- *       &#34;people&#34;: false,
- *       &#34;planner&#34;: false,
- *       &#34;powerbi&#34;: false,
- *       &#34;powerpoint&#34;: false,
- *       &#34;sites&#34;: false,
- *       &#34;sway&#34;: false,
- *       &#34;tasks&#34;: false,
- *       &#34;teams&#34;: false,
- *       &#34;video&#34;: false,
- *       &#34;word&#34;: false,
- *       &#34;yammer&#34;: false,
- *       &#34;login&#34;: true
+ *       "calendar": false,
+ *       "crm": false,
+ *       "delve": false,
+ *       "excel": false,
+ *       "forms": false,
+ *       "mail": false,
+ *       "newsfeed": false,
+ *       "onedrive": false,
+ *       "people": false,
+ *       "planner": false,
+ *       "powerbi": false,
+ *       "powerpoint": false,
+ *       "sites": false,
+ *       "sway": false,
+ *       "tasks": false,
+ *       "teams": false,
+ *       "video": false,
+ *       "word": false,
+ *       "yammer": false,
+ *       "login": true
  *   }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

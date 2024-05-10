@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,29 +52,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var classicExample = new Mfa(&#34;classicExample&#34;, MfaArgs.builder()        
- *             .name(&#34;MFA Policy Classic&#34;)
- *             .status(&#34;ACTIVE&#34;)
- *             .description(&#34;Example MFA policy using Okta Classic engine with factors.&#34;)
+ *         var classicExample = new Mfa("classicExample", MfaArgs.builder()        
+ *             .name("MFA Policy Classic")
+ *             .status("ACTIVE")
+ *             .description("Example MFA policy using Okta Classic engine with factors.")
  *             .isOie(false)
- *             .oktaPassword(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
- *             .oktaOtp(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
+ *             .oktaPassword(Map.of("enroll", "REQUIRED"))
+ *             .oktaOtp(Map.of("enroll", "REQUIRED"))
  *             .groupsIncludeds(everyone.id())
  *             .build());
  * 
- *         var oieExample = new Mfa(&#34;oieExample&#34;, MfaArgs.builder()        
- *             .name(&#34;MFA Policy OIE&#34;)
- *             .status(&#34;ACTIVE&#34;)
- *             .description(&#34;Example MFA policy that uses Okta Identity Engine (OIE) with authenticators&#34;)
+ *         var oieExample = new Mfa("oieExample", MfaArgs.builder()        
+ *             .name("MFA Policy OIE")
+ *             .status("ACTIVE")
+ *             .description("Example MFA policy that uses Okta Identity Engine (OIE) with authenticators")
  *             .isOie(true)
- *             .oktaPassword(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
- *             .oktaVerify(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
+ *             .oktaPassword(Map.of("enroll", "REQUIRED"))
+ *             .oktaVerify(Map.of("enroll", "REQUIRED"))
  *             .groupsIncludeds(everyone.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

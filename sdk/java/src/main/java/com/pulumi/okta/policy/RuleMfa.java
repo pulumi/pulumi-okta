@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,43 +52,45 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
- *             .type(&#34;MFA_ENROLL&#34;)
+ *             .type("MFA_ENROLL")
  *             .build());
  * 
- *         var exampleOAuth = new OAuth(&#34;exampleOAuth&#34;, OAuthArgs.builder()        
- *             .label(&#34;My App&#34;)
- *             .type(&#34;web&#34;)
- *             .grantTypes(&#34;authorization_code&#34;)
- *             .redirectUris(&#34;http://localhost:8000&#34;)
- *             .responseTypes(&#34;code&#34;)
+ *         var exampleOAuth = new OAuth("exampleOAuth", OAuthArgs.builder()        
+ *             .label("My App")
+ *             .type("web")
+ *             .grantTypes("authorization_code")
+ *             .redirectUris("http://localhost:8000")
+ *             .responseTypes("code")
  *             .skipGroups(true)
  *             .build());
  * 
- *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .policyId(example.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
- *             .name(&#34;My Rule&#34;)
- *             .status(&#34;ACTIVE&#34;)
- *             .enroll(&#34;LOGIN&#34;)
+ *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()        
+ *             .policyId(example.applyValue(getDefaultPolicyResult -> getDefaultPolicyResult.id()))
+ *             .name("My Rule")
+ *             .status("ACTIVE")
+ *             .enroll("LOGIN")
  *             .appIncludes(            
  *                 RuleMfaAppIncludeArgs.builder()
  *                     .id(exampleOAuth.id())
- *                     .type(&#34;APP&#34;)
+ *                     .type("APP")
  *                     .build(),
  *                 RuleMfaAppIncludeArgs.builder()
- *                     .type(&#34;APP_TYPE&#34;)
- *                     .name(&#34;yahoo_mail&#34;)
+ *                     .type("APP_TYPE")
+ *                     .name("yahoo_mail")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Unchecked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -112,27 +115,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
- *             .type(&#34;MFA_ENROLL&#34;)
+ *             .type("MFA_ENROLL")
  *             .build());
  * 
- *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .name(&#34;Some policy rule&#34;)
- *             .policyId(example.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
+ *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()        
+ *             .name("Some policy rule")
+ *             .policyId(example.applyValue(getDefaultPolicyResult -> getDefaultPolicyResult.id()))
  *             .appExcludes(RuleMfaAppExcludeArgs.builder()
- *                 .name(&#34;okta&#34;)
- *                 .type(&#34;APP_TYPE&#34;)
+ *                 .name("okta")
+ *                 .type("APP_TYPE")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Unchecked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -158,31 +163,33 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
- *             .type(&#34;MFA_ENROLL&#34;)
+ *             .type("MFA_ENROLL")
  *             .build());
  * 
- *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .name(&#34;Some policy rule&#34;)
- *             .policyId(example.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
+ *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()        
+ *             .name("Some policy rule")
+ *             .policyId(example.applyValue(getDefaultPolicyResult -> getDefaultPolicyResult.id()))
  *             .appExcludes(RuleMfaAppExcludeArgs.builder()
- *                 .name(&#34;okta&#34;)
- *                 .type(&#34;APP_TYPE&#34;)
+ *                 .name("okta")
+ *                 .type("APP_TYPE")
  *                 .build())
  *             .appIncludes(RuleMfaAppIncludeArgs.builder()
- *                 .id(&#34;some_app_id&#34;)
- *                 .type(&#34;APP&#34;)
+ *                 .id("some_app_id")
+ *                 .type("APP")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Checked `Okta` and unchecked `Applications` checkboxes in the `User is accessing` section corresponds to the following config:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -207,27 +214,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
- *             .type(&#34;MFA_ENROLL&#34;)
+ *             .type("MFA_ENROLL")
  *             .build());
  * 
- *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .name(&#34;Some policy rule&#34;)
- *             .policyId(example.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
+ *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()        
+ *             .name("Some policy rule")
+ *             .policyId(example.applyValue(getDefaultPolicyResult -> getDefaultPolicyResult.id()))
  *             .appIncludes(RuleMfaAppIncludeArgs.builder()
- *                 .name(&#34;okta&#34;)
- *                 .type(&#34;APP_TYPE&#34;)
+ *                 .name("okta")
+ *                 .type("APP_TYPE")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Checked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -251,23 +260,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
- *             .type(&#34;MFA_ENROLL&#34;)
+ *             .type("MFA_ENROLL")
  *             .build());
  * 
- *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .name(&#34;Some policy rule&#34;)
- *             .policyId(example.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
+ *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()        
+ *             .name("Some policy rule")
+ *             .policyId(example.applyValue(getDefaultPolicyResult -> getDefaultPolicyResult.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Checked `Okta` and checked `Applications` (with `Specific applications` option) checkboxes in the `User is accessing` section corresponds to the following config:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -292,26 +303,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
- *             .type(&#34;MFA_ENROLL&#34;)
+ *             .type("MFA_ENROLL")
  *             .build());
  * 
- *         var exampleRuleMfa = new RuleMfa(&#34;exampleRuleMfa&#34;, RuleMfaArgs.builder()        
- *             .name(&#34;Some policy rule&#34;)
- *             .policyId(example.applyValue(getDefaultPolicyResult -&gt; getDefaultPolicyResult.id()))
+ *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()        
+ *             .name("Some policy rule")
+ *             .policyId(example.applyValue(getDefaultPolicyResult -> getDefaultPolicyResult.id()))
  *             .appIncludes(            
  *                 RuleMfaAppIncludeArgs.builder()
- *                     .name(&#34;okta&#34;)
- *                     .type(&#34;APP_TYPE&#34;)
+ *                     .name("okta")
+ *                     .type("APP_TYPE")
  *                     .build(),
  *                 RuleMfaAppIncludeArgs.builder()
- *                     .id(&#34;some_app_id&#34;)
- *                     .type(&#34;APP&#34;)
+ *                     .id("some_app_id")
+ *                     .type("APP")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

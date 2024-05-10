@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,39 +53,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
- *             .name(&#34;www.example.com&#34;)
+ *         var example = new Domain("example", DomainArgs.builder()        
+ *             .name("www.example.com")
  *             .build());
  * 
- *         var test = new DomainCertificate(&#34;test&#34;, DomainCertificateArgs.builder()        
+ *         var test = new DomainCertificate("test", DomainCertificateArgs.builder()        
  *             .domainId(testOktaDomain.id())
- *             .type(&#34;PEM&#34;)
- *             .certificate(&#34;&#34;&#34;
+ *             .type("PEM")
+ *             .certificate("""
  * -----BEGIN CERTIFICATE-----
  * MIIFNzCCBB+gAwIBAgISBAXomJWRama3ypu8TIxdA9wzMA0GCSqGSIb3DQEBCwUA
  * ...
  * NSgRtSXq11j8O4JONi8EXe7cEtvzUiLR5PL3itsK2svtrZ9jIwQ95wOPaA==
  * -----END CERTIFICATE-----
- *             &#34;&#34;&#34;)
- *             .certificateChain(&#34;&#34;&#34;
+ *             """)
+ *             .certificateChain("""
  * -----BEGIN CERTIFICATE-----
  * MIIFFjCCAv6gAwIBAgIRAJErCErPDBinU/bWLiWnX1owDQYJKoZIhvcNAQELBQAw
  * ...
  * Dfvp7OOGAN6dEOM4+qR9sdjoSYKEBpsr6GtPAQw4dy753ec5
  * -----END CERTIFICATE-----
- *             &#34;&#34;&#34;)
- *             .privateKey(&#34;&#34;&#34;
+ *             """)
+ *             .privateKey("""
  * -----BEGIN PRIVATE KEY-----
  * MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC5cyk6x63iBJSW
  * ...
  * nUFLNE8pXSnsqb0eOL74f3uQ
  * -----END PRIVATE KEY-----
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Let&#39;s Encrypt Certbot

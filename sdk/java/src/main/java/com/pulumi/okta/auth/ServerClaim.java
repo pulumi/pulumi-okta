@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,17 +46,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerClaim(&#34;example&#34;, ServerClaimArgs.builder()        
- *             .authServerId(&#34;&lt;auth server id&gt;&#34;)
- *             .name(&#34;staff&#34;)
- *             .value(&#34;String.substringAfter(user.email, \&#34;@\&#34;) == \&#34;example.com\&#34;&#34;)
+ *         var example = new ServerClaim("example", ServerClaimArgs.builder()        
+ *             .authServerId("<auth server id>")
+ *             .name("staff")
+ *             .value("String.substringAfter(user.email, \"{@literal @}\") == \"example.com\"")
  *             .scopes(exampleOktaAuthServerScope.name())
- *             .claimType(&#34;IDENTITY&#34;)
+ *             .claimType("IDENTITY")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

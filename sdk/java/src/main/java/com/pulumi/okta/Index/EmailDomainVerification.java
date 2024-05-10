@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,20 +43,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EmailDomain(&#34;example&#34;, EmailDomainArgs.builder()        
- *             .brandId(&#34;abc123&#34;)
- *             .domain(&#34;example.com&#34;)
- *             .displayName(&#34;test&#34;)
- *             .userName(&#34;paul_atreides&#34;)
+ *         var example = new EmailDomain("example", EmailDomainArgs.builder()        
+ *             .brandId("abc123")
+ *             .domain("example.com")
+ *             .displayName("test")
+ *             .userName("paul_atreides")
  *             .build());
  * 
- *         var exampleEmailDomainVerification = new EmailDomainVerification(&#34;exampleEmailDomainVerification&#34;, EmailDomainVerificationArgs.builder()        
+ *         var exampleEmailDomainVerification = new EmailDomainVerification("exampleEmailDomainVerification", EmailDomainVerificationArgs.builder()        
  *             .emailDomainId(valid.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

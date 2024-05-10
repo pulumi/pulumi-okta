@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,15 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AdminRoleCustom(&#34;example&#34;, AdminRoleCustomArgs.builder()        
- *             .label(&#34;AppAssignmentManager&#34;)
- *             .description(&#34;This role allows app assignment management&#34;)
- *             .permissions(&#34;okta.apps.assignment.manage&#34;)
+ *         var example = new AdminRoleCustom("example", AdminRoleCustomArgs.builder()        
+ *             .label("AppAssignmentManager")
+ *             .description("This role allows app assignment management")
+ *             .permissions("okta.apps.assignment.manage")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

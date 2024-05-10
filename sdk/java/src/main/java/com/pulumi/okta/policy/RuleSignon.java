@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,84 +52,85 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Signon(&#34;test&#34;, SignonArgs.builder()        
- *             .name(&#34;Example Policy&#34;)
- *             .status(&#34;ACTIVE&#34;)
- *             .description(&#34;Example Policy&#34;)
+ *         var test = new Signon("test", SignonArgs.builder()        
+ *             .name("Example Policy")
+ *             .status("ACTIVE")
+ *             .description("Example Policy")
  *             .build());
  * 
  *         final var newCity = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
- *             .name(&#34;New City&#34;)
+ *             .name("New City")
  *             .build());
  * 
- *         var example = new RuleSignon(&#34;example&#34;, RuleSignonArgs.builder()        
- *             .access(&#34;CHALLENGE&#34;)
- *             .authtype(&#34;RADIUS&#34;)
- *             .name(&#34;Example Policy Rule&#34;)
- *             .networkConnection(&#34;ANYWHERE&#34;)
+ *         var example = new RuleSignon("example", RuleSignonArgs.builder()        
+ *             .access("CHALLENGE")
+ *             .authtype("RADIUS")
+ *             .name("Example Policy Rule")
+ *             .networkConnection("ANYWHERE")
  *             .policyId(exampleOktaPolicySignon.id())
- *             .status(&#34;ACTIVE&#34;)
- *             .riscLevel(&#34;HIGH&#34;)
- *             .behaviors(newCity.applyValue(getBehaviourResult -&gt; getBehaviourResult.id()))
+ *             .status("ACTIVE")
+ *             .riscLevel("HIGH")
+ *             .behaviors(newCity.applyValue(getBehaviourResult -> getBehaviourResult.id()))
  *             .factorSequences(            
  *                 RuleSignonFactorSequenceArgs.builder()
- *                     .primaryCriteriaFactorType(&#34;token:hotp&#34;)
- *                     .primaryCriteriaProvider(&#34;CUSTOM&#34;)
+ *                     .primaryCriteriaFactorType("token:hotp")
+ *                     .primaryCriteriaProvider("CUSTOM")
  *                     .secondaryCriterias(                    
  *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
- *                             .factorType(&#34;token:software:totp&#34;)
- *                             .provider(&#34;OKTA&#34;)
+ *                             .factorType("token:software:totp")
+ *                             .provider("OKTA")
  *                             .build(),
  *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
- *                             .factorType(&#34;push&#34;)
- *                             .provider(&#34;OKTA&#34;)
+ *                             .factorType("push")
+ *                             .provider("OKTA")
  *                             .build(),
  *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
- *                             .factorType(&#34;password&#34;)
- *                             .provider(&#34;OKTA&#34;)
+ *                             .factorType("password")
+ *                             .provider("OKTA")
  *                             .build(),
  *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
- *                             .factorType(&#34;question&#34;)
- *                             .provider(&#34;OKTA&#34;)
+ *                             .factorType("question")
+ *                             .provider("OKTA")
  *                             .build(),
  *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
- *                             .factorType(&#34;sms&#34;)
- *                             .provider(&#34;OKTA&#34;)
+ *                             .factorType("sms")
+ *                             .provider("OKTA")
  *                             .build(),
  *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
- *                             .factorType(&#34;token:software:totp&#34;)
- *                             .provider(&#34;GOOGLE&#34;)
+ *                             .factorType("token:software:totp")
+ *                             .provider("GOOGLE")
  *                             .build(),
  *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
- *                             .factorType(&#34;email&#34;)
- *                             .provider(&#34;OKTA&#34;)
+ *                             .factorType("email")
+ *                             .provider("OKTA")
  *                             .build(),
  *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
- *                             .factorType(&#34;call&#34;)
- *                             .provider(&#34;OKTA&#34;)
+ *                             .factorType("call")
+ *                             .provider("OKTA")
  *                             .build(),
  *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
- *                             .factorType(&#34;webauthn&#34;)
- *                             .provider(&#34;FIDO&#34;)
+ *                             .factorType("webauthn")
+ *                             .provider("FIDO")
  *                             .build(),
  *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
- *                             .factorType(&#34;token&#34;)
- *                             .provider(&#34;RSA&#34;)
+ *                             .factorType("token")
+ *                             .provider("RSA")
  *                             .build(),
  *                         RuleSignonFactorSequenceSecondaryCriteriaArgs.builder()
- *                             .factorType(&#34;token&#34;)
- *                             .provider(&#34;SYMANTEC&#34;)
+ *                             .factorType("token")
+ *                             .provider("SYMANTEC")
  *                             .build())
  *                     .build(),
  *                 RuleSignonFactorSequenceArgs.builder()
- *                     .primaryCriteriaFactorType(&#34;token:software:totp&#34;)
- *                     .primaryCriteriaProvider(&#34;OKTA&#34;)
+ *                     .primaryCriteriaFactorType("token:software:totp")
+ *                     .primaryCriteriaProvider("OKTA")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

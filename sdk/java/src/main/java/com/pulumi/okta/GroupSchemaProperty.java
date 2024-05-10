@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,18 +46,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GroupSchemaProperty(&#34;example&#34;, GroupSchemaPropertyArgs.builder()        
- *             .index(&#34;customPropertyName&#34;)
- *             .title(&#34;customPropertyName&#34;)
- *             .type(&#34;string&#34;)
- *             .description(&#34;My custom property name&#34;)
- *             .master(&#34;OKTA&#34;)
- *             .scope(&#34;SELF&#34;)
+ *         var example = new GroupSchemaProperty("example", GroupSchemaPropertyArgs.builder()        
+ *             .index("customPropertyName")
+ *             .title("customPropertyName")
+ *             .type("string")
+ *             .description("My custom property name")
+ *             .master("OKTA")
+ *             .scope("SELF")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

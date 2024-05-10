@@ -35,7 +35,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,22 +58,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Authenticator(&#34;test&#34;, AuthenticatorArgs.builder()        
- *             .name(&#34;Security Question&#34;)
- *             .key(&#34;security_question&#34;)
+ *         var test = new Authenticator("test", AuthenticatorArgs.builder()        
+ *             .name("Security Question")
+ *             .key("security_question")
  *             .settings(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;allowedFor&#34;, &#34;recovery&#34;)
+ *                     jsonProperty("allowedFor", "recovery")
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,24 +97,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Authenticator(&#34;test&#34;, AuthenticatorArgs.builder()        
- *             .name(&#34;Custom OTP&#34;)
- *             .key(&#34;custom_otp&#34;)
- *             .status(&#34;ACTIVE&#34;)
+ *         var test = new Authenticator("test", AuthenticatorArgs.builder()        
+ *             .name("Custom OTP")
+ *             .key("custom_otp")
+ *             .status("ACTIVE")
  *             .settings(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;protocol&#34;, &#34;TOTP&#34;),
- *                     jsonProperty(&#34;acceptableAdjacentIntervals&#34;, 3),
- *                     jsonProperty(&#34;timeIntervalInSeconds&#34;, 30),
- *                     jsonProperty(&#34;encoding&#34;, &#34;base32&#34;),
- *                     jsonProperty(&#34;algorithm&#34;, &#34;HMacSHA256&#34;),
- *                     jsonProperty(&#34;passCodeLength&#34;, 6)
+ *                     jsonProperty("protocol", "TOTP"),
+ *                     jsonProperty("acceptableAdjacentIntervals", 3),
+ *                     jsonProperty("timeIntervalInSeconds", 30),
+ *                     jsonProperty("encoding", "base32"),
+ *                     jsonProperty("algorithm", "HMacSHA256"),
+ *                     jsonProperty("passCodeLength", 6)
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

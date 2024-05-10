@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,52 +46,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Brand(&#34;test&#34;, BrandArgs.builder()        
- *             .name(&#34;testBrand&#34;)
- *             .locale(&#34;en&#34;)
+ *         var test = new Brand("test", BrandArgs.builder()        
+ *             .name("testBrand")
+ *             .locale("en")
  *             .build());
  * 
- *         var testCustomizedSigninPage = new CustomizedSigninPage(&#34;testCustomizedSigninPage&#34;, CustomizedSigninPageArgs.builder()        
+ *         var testCustomizedSigninPage = new CustomizedSigninPage("testCustomizedSigninPage", CustomizedSigninPageArgs.builder()        
  *             .brandId(oktaBrand.test().id())
- *             .pageContent(&#34;&#34;&#34;
- * &lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD HTML 4.01//EN&#34; &#34;http://www.w3.org/TR/html4/strict.dtd&#34;&gt;
- * &lt;html&gt;
- * &lt;head&gt;
- *     &lt;meta http-equiv=&#34;Content-Type&#34; content=&#34;text/html; charset=UTF-8&#34;&gt;
- *     &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34; /&gt;
- *     &lt;meta name=&#34;robots&#34; content=&#34;noindex,nofollow&#34; /&gt;
- *     &lt;!-- Styles generated from theme --&gt;
- *     &lt;link href=&#34;{{themedStylesUrl}}&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;
- *     &lt;!-- Favicon from theme --&gt;
- *     &lt;link rel=&#34;shortcut icon&#34; href=&#34;{{faviconUrl}}&#34; type=&#34;image/x-icon&#34;/&gt;
+ *             .pageContent("""
+ * <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+ * <html>
+ * <head>
+ *     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ *     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ *     <meta name="robots" content="noindex,nofollow" />
+ *     <!-- Styles generated from theme -->
+ *     <link href="{{themedStylesUrl}}" rel="stylesheet" type="text/css">
+ *     <!-- Favicon from theme -->
+ *     <link rel="shortcut icon" href="{{faviconUrl}}" type="image/x-icon"/>
  * 
- *     &lt;title&gt;{{pageTitle}}&lt;/title&gt;
+ *     <title>{{pageTitle}}</title>
  *     {{{SignInWidgetResources}}}
  * 
- *     &lt;style nonce=&#34;{{nonceValue}}&#34;&gt;
+ *     <style nonce="{{nonceValue}}">
  *         #login-bg-image-id {
  *             background-image: {{bgImageUrl}}
  *         }
- *     &lt;/style&gt;
- * &lt;/head&gt;
- * &lt;body&gt;
- *     &lt;div id=&#34;login-bg-image-id&#34; class=&#34;login-bg-image tb--background&#34;&gt;&lt;/div&gt;
- *     &lt;div id=&#34;okta-login-container&#34;&gt;&lt;/div&gt;
+ *     </style>
+ * </head>
+ * <body>
+ *     <div id="login-bg-image-id" class="login-bg-image tb--background"></div>
+ *     <div id="okta-login-container"></div>
  * 
- *     &lt;!--
- *         &#34;OktaUtil&#34; defines a global OktaUtil object
+ *     <!--
+ *         "OktaUtil" defines a global OktaUtil object
  *         that contains methods used to complete the Okta login flow.
- *      --&gt;
+ *      -->
  *     {{{OktaUtil}}}
  * 
- *     &lt;script type=&#34;text/javascript&#34; nonce=&#34;{{nonceValue}}&#34;&gt;
- *         // &#34;config&#34; object contains default widget configuration
+ *     <script type="text/javascript" nonce="{{nonceValue}}">
+ *         // "config" object contains default widget configuration
  *         // with any custom overrides defined in your admin settings.
  *         var config = OktaUtil.getSignInWidgetConfig();
  * 
  *         // Render the Okta Sign-In Widget
  *         var oktaSignIn = new OktaSignIn(config);
- *         oktaSignIn.renderEl({ el: &#39;#okta-login-container&#39; },
+ *         oktaSignIn.renderEl({ el: '#okta-login-container' },
  *             OktaUtil.completeLogin,
  *             function(error) {
  *                 // Logs errors that occur when configuring the widget.
@@ -98,19 +99,20 @@ import javax.annotation.Nullable;
  *                 console.log(error.message, error);
  *             }
  *         );
- *     &lt;/script&gt;
- * &lt;/body&gt;
- * &lt;/html&gt;
- *             &#34;&#34;&#34;)
- *             .widgetVersion(&#34;^6&#34;)
+ *     </script>
+ * </body>
+ * </html>
+ *             """)
+ *             .widgetVersion("^6")
  *             .widgetCustomizations(CustomizedSigninPageWidgetCustomizationsArgs.builder()
- *                 .widgetGeneration(&#34;G3&#34;)
+ *                 .widgetGeneration("G3")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

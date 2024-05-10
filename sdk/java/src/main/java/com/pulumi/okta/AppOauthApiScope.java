@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,17 +44,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AppOauthApiScope(&#34;example&#34;, AppOauthApiScopeArgs.builder()        
- *             .appId(&#34;&lt;application_id&gt;&#34;)
- *             .issuer(&#34;&lt;your org domain&gt;&#34;)
+ *         var example = new AppOauthApiScope("example", AppOauthApiScopeArgs.builder()        
+ *             .appId("<application_id>")
+ *             .issuer("<your org domain>")
  *             .scopes(            
- *                 &#34;okta.users.read&#34;,
- *                 &#34;okta.users.manage&#34;)
+ *                 "okta.users.read",
+ *                 "okta.users.manage")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

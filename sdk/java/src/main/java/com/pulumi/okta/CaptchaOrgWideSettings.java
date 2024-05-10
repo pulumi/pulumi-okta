@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,27 +48,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Captcha(&#34;example&#34;, CaptchaArgs.builder()        
- *             .name(&#34;My CAPTCHA&#34;)
- *             .type(&#34;HCAPTCHA&#34;)
- *             .siteKey(&#34;some_key&#34;)
- *             .secretKey(&#34;some_secret_key&#34;)
+ *         var example = new Captcha("example", CaptchaArgs.builder()        
+ *             .name("My CAPTCHA")
+ *             .type("HCAPTCHA")
+ *             .siteKey("some_key")
+ *             .secretKey("some_secret_key")
  *             .build());
  * 
- *         var exampleCaptchaOrgWideSettings = new CaptchaOrgWideSettings(&#34;exampleCaptchaOrgWideSettings&#34;, CaptchaOrgWideSettingsArgs.builder()        
+ *         var exampleCaptchaOrgWideSettings = new CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings", CaptchaOrgWideSettingsArgs.builder()        
  *             .captchaId(test.id())
- *             .enabledFors(&#34;SSR&#34;)
+ *             .enabledFors("SSR")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * The following example disables org-wide CAPTCHA.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,18 +92,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Captcha(&#34;example&#34;, CaptchaArgs.builder()        
- *             .name(&#34;My CAPTCHA&#34;)
- *             .type(&#34;HCAPTCHA&#34;)
- *             .siteKey(&#34;some_key&#34;)
- *             .secretKey(&#34;some_secret_key&#34;)
+ *         var example = new Captcha("example", CaptchaArgs.builder()        
+ *             .name("My CAPTCHA")
+ *             .type("HCAPTCHA")
+ *             .siteKey("some_key")
+ *             .secretKey("some_secret_key")
  *             .build());
  * 
- *         var exampleCaptchaOrgWideSettings = new CaptchaOrgWideSettings(&#34;exampleCaptchaOrgWideSettings&#34;);
+ *         var exampleCaptchaOrgWideSettings = new CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings");
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,56 +57,57 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PolicyProfileEnrollment(&#34;example&#34;, PolicyProfileEnrollmentArgs.builder()        
- *             .name(&#34;My Enrollment Policy&#34;)
+ *         var example = new PolicyProfileEnrollment("example", PolicyProfileEnrollmentArgs.builder()        
+ *             .name("My Enrollment Policy")
  *             .build());
  * 
- *         var exampleHook = new Hook(&#34;exampleHook&#34;, HookArgs.builder()        
- *             .name(&#34;My Inline Hook&#34;)
- *             .status(&#34;ACTIVE&#34;)
- *             .type(&#34;com.okta.user.pre-registration&#34;)
- *             .version(&#34;1.0.3&#34;)
+ *         var exampleHook = new Hook("exampleHook", HookArgs.builder()        
+ *             .name("My Inline Hook")
+ *             .status("ACTIVE")
+ *             .type("com.okta.user.pre-registration")
+ *             .version("1.0.3")
  *             .channel(Map.ofEntries(
- *                 Map.entry(&#34;type&#34;, &#34;HTTP&#34;),
- *                 Map.entry(&#34;version&#34;, &#34;1.0.0&#34;),
- *                 Map.entry(&#34;uri&#34;, &#34;https://example.com/test2&#34;),
- *                 Map.entry(&#34;method&#34;, &#34;POST&#34;)
+ *                 Map.entry("type", "HTTP"),
+ *                 Map.entry("version", "1.0.0"),
+ *                 Map.entry("uri", "https://example.com/test2"),
+ *                 Map.entry("method", "POST")
  *             ))
  *             .build());
  * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .name(&#34;My Group&#34;)
- *             .description(&#34;Group of some users&#34;)
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *             .name("My Group")
+ *             .description("Group of some users")
  *             .build());
  * 
- *         var examplePolicyRuleProfileEnrollment = new PolicyRuleProfileEnrollment(&#34;examplePolicyRuleProfileEnrollment&#34;, PolicyRuleProfileEnrollmentArgs.builder()        
+ *         var examplePolicyRuleProfileEnrollment = new PolicyRuleProfileEnrollment("examplePolicyRuleProfileEnrollment", PolicyRuleProfileEnrollmentArgs.builder()        
  *             .policyId(example.id())
  *             .inlineHookId(exampleHook.id())
  *             .targetGroupId(exampleGroup.id())
- *             .unknownUserAction(&#34;REGISTER&#34;)
+ *             .unknownUserAction("REGISTER")
  *             .emailVerification(true)
- *             .access(&#34;ALLOW&#34;)
+ *             .access("ALLOW")
  *             .profileAttributes(            
  *                 PolicyRuleProfileEnrollmentProfileAttributeArgs.builder()
- *                     .name(&#34;email&#34;)
- *                     .label(&#34;Email&#34;)
+ *                     .name("email")
+ *                     .label("Email")
  *                     .required(true)
  *                     .build(),
  *                 PolicyRuleProfileEnrollmentProfileAttributeArgs.builder()
- *                     .name(&#34;name&#34;)
- *                     .label(&#34;Name&#34;)
+ *                     .name("name")
+ *                     .label("Name")
  *                     .required(true)
  *                     .build(),
  *                 PolicyRuleProfileEnrollmentProfileAttributeArgs.builder()
- *                     .name(&#34;t-shirt&#34;)
- *                     .label(&#34;T-Shirt Size&#34;)
+ *                     .name("t-shirt")
+ *                     .label("T-Shirt Size")
  *                     .required(false)
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

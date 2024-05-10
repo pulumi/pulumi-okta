@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,15 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EmailSender(&#34;example&#34;, EmailSenderArgs.builder()        
- *             .fromName(&#34;Paul Atreides&#34;)
- *             .fromAddress(&#34;no-reply@caladan.planet&#34;)
- *             .subdomain(&#34;mail&#34;)
+ *         var example = new EmailSender("example", EmailSenderArgs.builder()        
+ *             .fromName("Paul Atreides")
+ *             .fromAddress("no-reply{@literal @}caladan.planet")
+ *             .subdomain("mail")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

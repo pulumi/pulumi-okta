@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,12 +57,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
- *             .name(&#34;testAcc_replace_with_uuid&#34;)
- *             .description(&#34;testing, testing&#34;)
+ *         var test = new Group("test", GroupArgs.builder()        
+ *             .name("testAcc_replace_with_uuid")
+ *             .description("testing, testing")
  *             .build());
  * 
- *         var testGroupMemberships = new GroupMemberships(&#34;testGroupMemberships&#34;, GroupMembershipsArgs.builder()        
+ *         var testGroupMemberships = new GroupMemberships("testGroupMemberships", GroupMembershipsArgs.builder()        
  *             .groupId(test.id())
  *             .users(            
  *                 test1.id(),
@@ -70,7 +71,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,15 +46,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AuthServerClaimDefault(&#34;example&#34;, AuthServerClaimDefaultArgs.builder()        
- *             .authServerId(&#34;&lt;auth server id&gt;&#34;)
- *             .name(&#34;sub&#34;)
- *             .value(&#34;(appuser != null) ? appuser.userName : app.clientId&#34;)
+ *         var example = new AuthServerClaimDefault("example", AuthServerClaimDefaultArgs.builder()        
+ *             .authServerId("<auth server id>")
+ *             .name("sub")
+ *             .value("(appuser != null) ? appuser.userName : app.clientId")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

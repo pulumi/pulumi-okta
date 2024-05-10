@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,21 +51,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var classicExample = new PolicyMfaDefault(&#34;classicExample&#34;, PolicyMfaDefaultArgs.builder()        
+ *         var classicExample = new PolicyMfaDefault("classicExample", PolicyMfaDefaultArgs.builder()        
  *             .isOie(false)
- *             .oktaPassword(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
- *             .oktaOtp(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
+ *             .oktaPassword(Map.of("enroll", "REQUIRED"))
+ *             .oktaOtp(Map.of("enroll", "REQUIRED"))
  *             .build());
  * 
- *         var oieExample = new PolicyMfaDefault(&#34;oieExample&#34;, PolicyMfaDefaultArgs.builder()        
+ *         var oieExample = new PolicyMfaDefault("oieExample", PolicyMfaDefaultArgs.builder()        
  *             .isOie(true)
- *             .oktaPassword(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
- *             .oktaVerify(Map.of(&#34;enroll&#34;, &#34;REQUIRED&#34;))
+ *             .oktaPassword(Map.of("enroll", "REQUIRED"))
+ *             .oktaVerify(Map.of("enroll", "REQUIRED"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; If the `okta.PolicyMfaDefault` is used in conjunction with `okta.policy.Mfa` resources, ensure to use a `depends_on` attribute for the default policy to ensure that all other policies are created/updated first such that the `priority` field can be appropriately computed on the first plan/apply.

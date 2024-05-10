@@ -18,7 +18,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,14 +42,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User(&#34;test&#34;, UserArgs.builder()        
- *             .firstName(&#34;TestAcc&#34;)
- *             .lastName(&#34;Smith&#34;)
- *             .login(&#34;testAcc-replace_with_uuid@example.com&#34;)
- *             .email(&#34;testAcc-replace_with_uuid@example.com&#34;)
+ *         var test = new User("test", UserArgs.builder()        
+ *             .firstName("TestAcc")
+ *             .lastName("Smith")
+ *             .login("testAcc-replace_with_uuid{@literal @}example.com")
+ *             .email("testAcc-replace_with_uuid{@literal @}example.com")
  *             .build());
  * 
- *         var testUserGroupMemberships = new UserGroupMemberships(&#34;testUserGroupMemberships&#34;, UserGroupMembershipsArgs.builder()        
+ *         var testUserGroupMemberships = new UserGroupMemberships("testUserGroupMemberships", UserGroupMembershipsArgs.builder()        
  *             .userId(test.id())
  *             .groups(            
  *                 test1.id(),
@@ -57,7 +58,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

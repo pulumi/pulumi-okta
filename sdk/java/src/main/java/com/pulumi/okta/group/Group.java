@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,19 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Group(&#34;example&#34;, GroupArgs.builder()        
- *             .name(&#34;Example&#34;)
- *             .description(&#34;My Example Group&#34;)
+ *         var example = new Group("example", GroupArgs.builder()        
+ *             .name("Example")
+ *             .description("My Example Group")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Custom profile attributes
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -78,20 +81,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Group(&#34;example&#34;, GroupArgs.builder()        
- *             .name(&#34;Example&#34;)
- *             .description(&#34;My Example Group&#34;)
+ *         var example = new Group("example", GroupArgs.builder()        
+ *             .name("Example")
+ *             .description("My Example Group")
  *             .customProfileAttributes(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;example1&#34;, &#34;testing1234&#34;),
- *                     jsonProperty(&#34;example2&#34;, true),
- *                     jsonProperty(&#34;example3&#34;, 54321)
+ *                     jsonProperty("example1", "testing1234"),
+ *                     jsonProperty("example2", true),
+ *                     jsonProperty("example3", 54321)
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,12 +46,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
-     *             .type(&#34;PASSWORD&#34;)
+     *             .type("PASSWORD")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -63,7 +65,8 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -85,12 +88,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
-     *             .type(&#34;PASSWORD&#34;)
+     *             .type("PASSWORD")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -103,7 +107,8 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -125,12 +130,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
-     *             .type(&#34;PASSWORD&#34;)
+     *             .type("PASSWORD")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -143,7 +149,8 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -165,12 +172,13 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
-     *             .type(&#34;PASSWORD&#34;)
+     *             .type("PASSWORD")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -183,7 +191,8 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -205,13 +214,14 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .name(&#34;Password Policy Example&#34;)
-     *             .type(&#34;PASSWORD&#34;)
+     *             .name("Password Policy Example")
+     *             .type("PASSWORD")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -224,7 +234,8 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -246,13 +257,14 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .name(&#34;Password Policy Example&#34;)
-     *             .type(&#34;PASSWORD&#34;)
+     *             .name("Password Policy Example")
+     *             .type("PASSWORD")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -265,7 +277,8 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -287,13 +300,14 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .name(&#34;Password Policy Example&#34;)
-     *             .type(&#34;PASSWORD&#34;)
+     *             .name("Password Policy Example")
+     *             .type("PASSWORD")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -306,7 +320,8 @@ public final class PolicyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -328,13 +343,14 @@ public final class PolicyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .name(&#34;Password Policy Example&#34;)
-     *             .type(&#34;PASSWORD&#34;)
+     *             .name("Password Policy Example")
+     *             .type("PASSWORD")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
