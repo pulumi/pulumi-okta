@@ -11358,7 +11358,7 @@
                 },
                 "brandId": {
                     "type": "string",
-                    "description": "(Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.\n",
+                    "description": "(Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.\n- `DEPRECATED`: Please stop using this field as it has become noop.\n",
                     "deprecationMessage": "Okta has fully support brand creation, this attribute is a no op and will be removed"
                 },
                 "customPrivacyPolicyUrl": {
@@ -11418,7 +11418,7 @@
                 },
                 "brandId": {
                     "type": "string",
-                    "description": "(Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.\n",
+                    "description": "(Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.\n- `DEPRECATED`: Please stop using this field as it has become noop.\n",
                     "deprecationMessage": "Okta has fully support brand creation, this attribute is a no op and will be removed"
                 },
                 "customPrivacyPolicyUrl": {
@@ -11459,7 +11459,7 @@
                     },
                     "brandId": {
                         "type": "string",
-                        "description": "(Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.\n",
+                        "description": "(Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.\n- `DEPRECATED`: Please stop using this field as it has become noop.\n",
                         "deprecationMessage": "Okta has fully support brand creation, this attribute is a no op and will be removed"
                     },
                     "customPrivacyPolicyUrl": {
@@ -20547,7 +20547,7 @@
                     },
                     "groups": {
                         "deprecationMessage": "The `groups` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.AppGroupAssignments`",
-                        "description": "List of groups IDs assigned to the application.\n",
+                        "description": "List of groups IDs assigned to the application.\n- `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.\n",
                         "items": {
                             "type": "string"
                         },
@@ -22672,7 +22672,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:\n- All:\n"
+                        "description": "Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:\n- All:\n- `OKTA_SIGN_ON`\n- `PASSWORD`\n- `MFA_ENROLL`\n- `OAUTH_AUTHORIZATION_POLICY`\n- `IDP_DISCOVERY`\n- OIE Only:\n- `ACCESS_POLICY`\n- `PROFILE_ENROLLMENT`\n"
                     }
                 },
                 "type": "object",
