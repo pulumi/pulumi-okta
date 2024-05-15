@@ -101,6 +101,7 @@ type LookupSamlResult struct {
 	// features enabled.
 	Features []string `pulumi:"features"`
 	// List of groups IDs assigned to the application.
+	// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
 	//
 	// Deprecated: The `groups` field is now deprecated for the data source `app.Saml`, please replace all uses of this with: `AppGroupAssignments`
 	Groups []string `pulumi:"groups"`
@@ -295,6 +296,7 @@ func (o LookupSamlResultOutput) Features() pulumi.StringArrayOutput {
 }
 
 // List of groups IDs assigned to the application.
+// - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
 //
 // Deprecated: The `groups` field is now deprecated for the data source `app.Saml`, please replace all uses of this with: `AppGroupAssignments`
 func (o LookupSamlResultOutput) Groups() pulumi.StringArrayOutput {

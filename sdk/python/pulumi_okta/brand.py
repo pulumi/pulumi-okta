@@ -27,6 +27,7 @@ class BrandArgs:
         The set of arguments for constructing a Brand resource.
         :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
         :param pulumi.Input[str] brand_id: (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+               - `DEPRECATED`: Please stop using this field as it has become noop.
         :param pulumi.Input[str] custom_privacy_policy_url: Custom privacy policy URL
         :param pulumi.Input[str] default_app_app_instance_id: Default app app instance id
         :param pulumi.Input[str] default_app_app_link_name: Default app app link name
@@ -74,6 +75,7 @@ class BrandArgs:
     def brand_id(self) -> Optional[pulumi.Input[str]]:
         """
         (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+        - `DEPRECATED`: Please stop using this field as it has become noop.
         """
         warnings.warn("""Okta has fully support brand creation, this attribute is a no op and will be removed""", DeprecationWarning)
         pulumi.log.warn("""brand_id is deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed""")
@@ -188,6 +190,7 @@ class _BrandState:
         Input properties used for looking up and filtering Brand resources.
         :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
         :param pulumi.Input[str] brand_id: (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+               - `DEPRECATED`: Please stop using this field as it has become noop.
         :param pulumi.Input[str] custom_privacy_policy_url: Custom privacy policy URL
         :param pulumi.Input[str] default_app_app_instance_id: Default app app instance id
         :param pulumi.Input[str] default_app_app_link_name: Default app app link name
@@ -244,6 +247,7 @@ class _BrandState:
     def brand_id(self) -> Optional[pulumi.Input[str]]:
         """
         (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+        - `DEPRECATED`: Please stop using this field as it has become noop.
         """
         warnings.warn("""Okta has fully support brand creation, this attribute is a no op and will be removed""", DeprecationWarning)
         pulumi.log.warn("""brand_id is deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed""")
@@ -406,6 +410,7 @@ class Brand(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
         :param pulumi.Input[str] brand_id: (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+               - `DEPRECATED`: Please stop using this field as it has become noop.
         :param pulumi.Input[str] custom_privacy_policy_url: Custom privacy policy URL
         :param pulumi.Input[str] default_app_app_instance_id: Default app app instance id
         :param pulumi.Input[str] default_app_app_link_name: Default app app link name
@@ -508,6 +513,7 @@ class Brand(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
         :param pulumi.Input[str] brand_id: (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+               - `DEPRECATED`: Please stop using this field as it has become noop.
         :param pulumi.Input[str] custom_privacy_policy_url: Custom privacy policy URL
         :param pulumi.Input[str] default_app_app_instance_id: Default app app instance id
         :param pulumi.Input[str] default_app_app_link_name: Default app app link name
@@ -550,6 +556,7 @@ class Brand(pulumi.CustomResource):
     def brand_id(self) -> pulumi.Output[str]:
         """
         (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+        - `DEPRECATED`: Please stop using this field as it has become noop.
         """
         warnings.warn("""Okta has fully support brand creation, this attribute is a no op and will be removed""", DeprecationWarning)
         pulumi.log.warn("""brand_id is deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed""")

@@ -287,6 +287,7 @@ class GetSamlResult:
     def groups(self) -> Sequence[str]:
         """
         List of groups IDs assigned to the application.
+        - `DEPRECATED`: Please replace all usage of this field with the data source `AppGroupAssignments`.
         """
         warnings.warn("""The `groups` field is now deprecated for the data source `app.Saml`, please replace all uses of this with: `AppGroupAssignments`""", DeprecationWarning)
         pulumi.log.warn("""groups is deprecated: The `groups` field is now deprecated for the data source `app.Saml`, please replace all uses of this with: `AppGroupAssignments`""")

@@ -218,6 +218,7 @@ namespace Pulumi.Okta.App
         public readonly ImmutableArray<string> Features;
         /// <summary>
         /// List of groups IDs assigned to the application.
+        /// - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
         /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
