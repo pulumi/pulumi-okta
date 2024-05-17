@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OAuth("test", OAuthArgs.builder()        
+ *         var test = new OAuth("test", OAuthArgs.builder()
  *             .label("test")
  *             .type("service")
  *             .responseTypes("token")
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .jwksUri("https://example.com")
  *             .build());
  * 
- *         var testOauthRoleAssignment = new OauthRoleAssignment("testOauthRoleAssignment", OauthRoleAssignmentArgs.builder()        
+ *         var testOauthRoleAssignment = new OauthRoleAssignment("testOauthRoleAssignment", OauthRoleAssignmentArgs.builder()
  *             .clientId(test.clientId())
  *             .type("HELP_DESK_ADMIN")
  *             .build());

@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Brand("test", BrandArgs.builder()        
+ *         var test = new Brand("test", BrandArgs.builder()
  *             .name("testBrand")
  *             .locale("en")
  *             .build());
  * 
- *         var testPreviewSigninPage = new PreviewSigninPage("testPreviewSigninPage", PreviewSigninPageArgs.builder()        
+ *         var testPreviewSigninPage = new PreviewSigninPage("testPreviewSigninPage", PreviewSigninPageArgs.builder()
  *             .brandId(oktaBrand.test().id())
  *             .pageContent("""
  * <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">

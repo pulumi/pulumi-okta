@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AuthServerDefault("example", AuthServerDefaultArgs.builder()        
+ *         var example = new AuthServerDefault("example", AuthServerDefaultArgs.builder()
  *             .audiences("api://default")
  *             .description("Default Authorization Server for your Applications")
  *             .build());

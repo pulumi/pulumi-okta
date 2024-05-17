@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Signon("example", SignonArgs.builder()        
+ *         var example = new Signon("example", SignonArgs.builder()
  *             .name("example")
  *             .status("ACTIVE")
  *             .description("Example")

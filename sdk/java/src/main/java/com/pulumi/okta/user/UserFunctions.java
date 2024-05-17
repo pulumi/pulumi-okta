@@ -509,7 +509,7 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
      *             .name("example-group")
      *             .build());
      * 
@@ -560,7 +560,7 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
      *             .name("example-group")
      *             .build());
      * 
@@ -611,7 +611,7 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
      *             .name("example-group")
      *             .build());
      * 
@@ -662,7 +662,7 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
      *             .name("example-group")
      *             .build());
      * 
@@ -713,7 +713,7 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
      *             .name("example-group")
      *             .build());
      * 
@@ -764,7 +764,7 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+     *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
      *             .name("example-group")
      *             .build());
      * 

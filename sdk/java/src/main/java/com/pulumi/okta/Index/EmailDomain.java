@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EmailDomain("example", EmailDomainArgs.builder()        
+ *         var example = new EmailDomain("example", EmailDomainArgs.builder()
  *             .brandId("abc123")
  *             .domain("example.com")
  *             .displayName("test")

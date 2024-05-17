@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogStream("example", LogStreamArgs.builder()        
+ *         var example = new LogStream("example", LogStreamArgs.builder()
  *             .name("EventBridge Log Stream")
  *             .type("aws_eventbridge")
  *             .status("ACTIVE")
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogStream("example", LogStreamArgs.builder()        
+ *         var example = new LogStream("example", LogStreamArgs.builder()
  *             .name("Splunk log Stream")
  *             .type("splunk_cloud_logstreaming")
  *             .status("ACTIVE")

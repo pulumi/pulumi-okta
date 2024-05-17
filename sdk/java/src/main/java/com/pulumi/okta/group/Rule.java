@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Rule("example", RuleArgs.builder()        
+ *         var example = new Rule("example", RuleArgs.builder()
  *             .name("example")
  *             .status("ACTIVE")
  *             .groupAssignments("<group id>")

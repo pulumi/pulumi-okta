@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Password("example", PasswordArgs.builder()        
+ *         var example = new Password("example", PasswordArgs.builder()
  *             .name("example")
  *             .status("ACTIVE")
  *             .description("Example")

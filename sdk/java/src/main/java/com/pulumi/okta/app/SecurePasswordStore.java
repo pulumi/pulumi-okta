@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurePasswordStore("example", SecurePasswordStoreArgs.builder()        
+ *         var example = new SecurePasswordStore("example", SecurePasswordStoreArgs.builder()
  *             .label("example")
  *             .usernameField("user")
  *             .passwordField("pass")

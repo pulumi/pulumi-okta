@@ -84,7 +84,7 @@ public final class IndexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Domain("example", DomainArgs.builder()        
+     *         var example = new Domain("example", DomainArgs.builder()
      *             .name("www.example.com")
      *             .build());
      * 
@@ -139,7 +139,7 @@ public final class IndexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Domain("example", DomainArgs.builder()        
+     *         var example = new Domain("example", DomainArgs.builder()
      *             .name("www.example.com")
      *             .build());
      * 
@@ -194,7 +194,7 @@ public final class IndexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Domain("example", DomainArgs.builder()        
+     *         var example = new Domain("example", DomainArgs.builder()
      *             .name("www.example.com")
      *             .build());
      * 
@@ -249,7 +249,7 @@ public final class IndexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Domain("example", DomainArgs.builder()        
+     *         var example = new Domain("example", DomainArgs.builder()
      *             .name("www.example.com")
      *             .build());
      * 

@@ -31,6 +31,14 @@ public final class GetPolicyPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
      * - All:
+     * - `OKTA_SIGN_ON`
+     * - `PASSWORD`
+     * - `MFA_ENROLL`
+     * - `OAUTH_AUTHORIZATION_POLICY`
+     * - `IDP_DISCOVERY`
+     * - OIE Only:
+     * - `ACCESS_POLICY`
+     * - `PROFILE_ENROLLMENT`
      * 
      */
     @Import(name="type", required=true)
@@ -39,6 +47,14 @@ public final class GetPolicyPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
      * - All:
+     * - `OKTA_SIGN_ON`
+     * - `PASSWORD`
+     * - `MFA_ENROLL`
+     * - `OAUTH_AUTHORIZATION_POLICY`
+     * - `IDP_DISCOVERY`
+     * - OIE Only:
+     * - `ACCESS_POLICY`
+     * - `PROFILE_ENROLLMENT`
      * 
      */
     public String type() {
@@ -84,6 +100,14 @@ public final class GetPolicyPlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param type Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
          * - All:
+         * - `OKTA_SIGN_ON`
+         * - `PASSWORD`
+         * - `MFA_ENROLL`
+         * - `OAUTH_AUTHORIZATION_POLICY`
+         * - `IDP_DISCOVERY`
+         * - OIE Only:
+         * - `ACCESS_POLICY`
+         * - `PROFILE_ENROLLMENT`
          * 
          * @return builder
          * 

@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AppUserSchemaProperty("example", AppUserSchemaPropertyArgs.builder()        
+ *         var example = new AppUserSchemaProperty("example", AppUserSchemaPropertyArgs.builder()
  *             .appId("<app id>")
  *             .index("customPropertyName")
  *             .title("customPropertyName")

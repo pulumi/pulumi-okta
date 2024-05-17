@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AutoLogin("example", AutoLoginArgs.builder()        
+ *         var example = new AutoLogin("example", AutoLoginArgs.builder()
  *             .label("Example App")
  *             .signOnUrl("https://example.com/login.html")
  *             .signOnRedirectUrl("https://example.com")
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AutoLogin("example", AutoLoginArgs.builder()        
+ *         var example = new AutoLogin("example", AutoLoginArgs.builder()
  *             .label("Google Example App")
  *             .status("ACTIVE")
  *             .preconfiguredApp("google")

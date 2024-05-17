@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerPolicyRule("example", ServerPolicyRuleArgs.builder()        
+ *         var example = new ServerPolicyRule("example", ServerPolicyRuleArgs.builder()
  *             .authServerId("<auth server id>")
  *             .policyId("<auth server policy id>")
  *             .status("ACTIVE")

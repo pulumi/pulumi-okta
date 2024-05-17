@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OrgConfiguration("example", OrgConfigurationArgs.builder()        
+ *         var example = new OrgConfiguration("example", OrgConfigurationArgs.builder()
  *             .companyName("Umbrella Corporation")
  *             .website("https://terraform.io")
  *             .build());

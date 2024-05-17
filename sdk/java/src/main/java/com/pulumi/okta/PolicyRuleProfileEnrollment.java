@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PolicyProfileEnrollment("example", PolicyProfileEnrollmentArgs.builder()        
+ *         var example = new PolicyProfileEnrollment("example", PolicyProfileEnrollmentArgs.builder()
  *             .name("My Enrollment Policy")
  *             .build());
  * 
- *         var exampleHook = new Hook("exampleHook", HookArgs.builder()        
+ *         var exampleHook = new Hook("exampleHook", HookArgs.builder()
  *             .name("My Inline Hook")
  *             .status("ACTIVE")
  *             .type("com.okta.user.pre-registration")
@@ -74,12 +74,12 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .name("My Group")
  *             .description("Group of some users")
  *             .build());
  * 
- *         var examplePolicyRuleProfileEnrollment = new PolicyRuleProfileEnrollment("examplePolicyRuleProfileEnrollment", PolicyRuleProfileEnrollmentArgs.builder()        
+ *         var examplePolicyRuleProfileEnrollment = new PolicyRuleProfileEnrollment("examplePolicyRuleProfileEnrollment", PolicyRuleProfileEnrollmentArgs.builder()
  *             .policyId(example.id())
  *             .inlineHookId(exampleHook.id())
  *             .targetGroupId(exampleGroup.id())

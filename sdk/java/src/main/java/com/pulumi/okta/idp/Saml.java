@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Saml("example", SamlArgs.builder()        
+ *         var example = new Saml("example", SamlArgs.builder()
  *             .name("testAcc_replace_with_uuid")
  *             .acsType("INSTANCE")
  *             .ssoUrl("https://idp.example.com")

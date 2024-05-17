@@ -3331,7 +3331,7 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+     *         var exampleUser = new User("exampleUser", UserArgs.builder()
      *             .firstName("John")
      *             .lastName("Smith")
      *             .login("john.smith{@literal @}example.com")
@@ -3382,7 +3382,7 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+     *         var exampleUser = new User("exampleUser", UserArgs.builder()
      *             .firstName("John")
      *             .lastName("Smith")
      *             .login("john.smith{@literal @}example.com")
@@ -3433,7 +3433,7 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+     *         var exampleUser = new User("exampleUser", UserArgs.builder()
      *             .firstName("John")
      *             .lastName("Smith")
      *             .login("john.smith{@literal @}example.com")
@@ -3484,7 +3484,7 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+     *         var exampleUser = new User("exampleUser", UserArgs.builder()
      *             .firstName("John")
      *             .lastName("Smith")
      *             .login("john.smith{@literal @}example.com")

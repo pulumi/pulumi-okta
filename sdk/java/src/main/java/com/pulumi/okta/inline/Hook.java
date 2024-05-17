@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Hook("example", HookArgs.builder()        
+ *         var example = new Hook("example", HookArgs.builder()
  *             .name("example")
  *             .version("1.0.0")
  *             .type("com.okta.oauth2.tokens.transform")

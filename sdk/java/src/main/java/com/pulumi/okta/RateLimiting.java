@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RateLimiting("example", RateLimitingArgs.builder()        
+ *         var example = new RateLimiting("example", RateLimitingArgs.builder()
  *             .login("ENFORCE")
  *             .authorize("ENFORCE")
  *             .communicationsEnabled(true)

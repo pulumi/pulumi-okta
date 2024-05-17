@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Signon("test", SignonArgs.builder()        
+ *         var test = new Signon("test", SignonArgs.builder()
  *             .name("Example Policy")
  *             .status("ACTIVE")
  *             .description("Example Policy")
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .name("New City")
  *             .build());
  * 
- *         var example = new RuleSignon("example", RuleSignonArgs.builder()        
+ *         var example = new RuleSignon("example", RuleSignonArgs.builder()
  *             .access("CHALLENGE")
  *             .authtype("RADIUS")
  *             .name("Example Policy Rule")

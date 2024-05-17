@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myAppPolicy = new AppSignonPolicy("myAppPolicy", AppSignonPolicyArgs.builder()        
+ *         var myAppPolicy = new AppSignonPolicy("myAppPolicy", AppSignonPolicyArgs.builder()
  *             .name("My App Sign-On Policy")
  *             .description("Authentication Policy to be used on my app.")
  *             .build());
  * 
- *         var myApp = new OAuth("myApp", OAuthArgs.builder()        
+ *         var myApp = new OAuth("myApp", OAuthArgs.builder()
  *             .label("My App")
  *             .type("web")
  *             .grantTypes("authorization_code")
@@ -90,12 +90,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myAppPolicy = new AppSignonPolicy("myAppPolicy", AppSignonPolicyArgs.builder()        
+ *         var myAppPolicy = new AppSignonPolicy("myAppPolicy", AppSignonPolicyArgs.builder()
  *             .name("My App Sign-On Policy")
  *             .description("Authentication Policy to be used on my app.")
  *             .build());
  * 
- *         var someRule = new AppSignonPolicyRule("someRule", AppSignonPolicyRuleArgs.builder()        
+ *         var someRule = new AppSignonPolicyRule("someRule", AppSignonPolicyRuleArgs.builder()
  *             .policyId(oktaAppSignonPolicy.myAppPolicy().id())
  *             .name("Some Rule")
  *             .factorMode("1FA")

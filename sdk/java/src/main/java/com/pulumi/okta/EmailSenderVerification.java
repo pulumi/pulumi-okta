@@ -45,13 +45,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EmailSender("example", EmailSenderArgs.builder()        
+ *         var example = new EmailSender("example", EmailSenderArgs.builder()
  *             .fromName("Paul Atreides")
  *             .fromAddress("no-reply{@literal @}caladan.planet")
  *             .subdomain("mail")
  *             .build());
  * 
- *         var exampleEmailSenderVerification = new EmailSenderVerification("exampleEmailSenderVerification", EmailSenderVerificationArgs.builder()        
+ *         var exampleEmailSenderVerification = new EmailSenderVerification("exampleEmailSenderVerification", EmailSenderVerificationArgs.builder()
  *             .senderId(valid.id())
  *             .build());
  * 

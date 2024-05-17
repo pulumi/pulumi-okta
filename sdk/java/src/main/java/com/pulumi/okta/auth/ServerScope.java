@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerScope("example", ServerScopeArgs.builder()        
+ *         var example = new ServerScope("example", ServerScopeArgs.builder()
  *             .authServerId("<auth server id>")
  *             .metadataPublish("NO_CLIENTS")
  *             .name("example")

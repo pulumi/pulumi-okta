@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Saml("example", SamlArgs.builder()        
+ *         var example = new Saml("example", SamlArgs.builder()
  *             .label("example")
  *             .ssoUrl("https://example.com")
  *             .recipient("https://example.com")
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Hook("test", HookArgs.builder()        
+ *         var test = new Hook("test", HookArgs.builder()
  *             .name("testAcc_replace_with_uuid")
  *             .status("ACTIVE")
  *             .type("com.okta.saml.tokens.transform")
@@ -130,7 +130,7 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var testSaml = new Saml("testSaml", SamlArgs.builder()        
+ *         var testSaml = new Saml("testSaml", SamlArgs.builder()
  *             .label("testAcc_replace_with_uuid")
  *             .ssoUrl("https://google.com")
  *             .recipient("https://here.com")
@@ -185,7 +185,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Saml("test", SamlArgs.builder()        
+ *         var test = new Saml("test", SamlArgs.builder()
  *             .appSettingsJson("""
  * {
  *     "groupFilter": "app1.*",
@@ -231,7 +231,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var office365 = new Saml("office365", SamlArgs.builder()        
+ *         var office365 = new Saml("office365", SamlArgs.builder()
  *             .preconfiguredApp("office365")
  *             .label("Microsoft Office 365")
  *             .status("ACTIVE")

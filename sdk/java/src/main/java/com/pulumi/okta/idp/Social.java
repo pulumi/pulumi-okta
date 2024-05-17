@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Social("example", SocialArgs.builder()        
+ *         var example = new Social("example", SocialArgs.builder()
  *             .type("FACEBOOK")
  *             .protocolType("OAUTH2")
  *             .name("testAcc_facebook_replace_with_uuid")

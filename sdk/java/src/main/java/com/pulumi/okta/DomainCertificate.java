@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()        
+ *         var example = new Domain("example", DomainArgs.builder()
  *             .name("www.example.com")
  *             .build());
  * 
- *         var test = new DomainCertificate("test", DomainCertificateArgs.builder()        
+ *         var test = new DomainCertificate("test", DomainCertificateArgs.builder()
  *             .domainId(testOktaDomain.id())
  *             .type("PEM")
  *             .certificate("""

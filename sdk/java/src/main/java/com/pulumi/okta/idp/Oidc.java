@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Oidc("example", OidcArgs.builder()        
+ *         var example = new Oidc("example", OidcArgs.builder()
  *             .name("example")
  *             .authorizationUrl("https://idp.example.com/authorize")
  *             .authorizationBinding("HTTP-REDIRECT")
