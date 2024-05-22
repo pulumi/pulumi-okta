@@ -310,7 +310,7 @@ func Provider() tfbridge.ProviderInfo {
 		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 	}
 
-	prov.MustComputeTokens(tks.KnownModules("okta_", mainMod, []string{
+	prov.MustComputeTokens(tks.KnownModules("okta_", "index", []string{
 		"app_",
 		"auth_",
 		"factor_",
