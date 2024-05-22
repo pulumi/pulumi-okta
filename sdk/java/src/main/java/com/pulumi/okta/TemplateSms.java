@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TemplateSms("example", TemplateSmsArgs.builder()        
+ *         var example = new TemplateSms("example", TemplateSmsArgs.builder()
  *             .type("SMS_VERIFY_CODE")
  *             .template("Your ${org.name} code is: ${code}")
  *             .translations(            

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var padishah = new LinkDefinition("padishah", LinkDefinitionArgs.builder()        
+ *         var padishah = new LinkDefinition("padishah", LinkDefinitionArgs.builder()
  *             .primaryName("emperor")
  *             .primaryTitle("Emperor")
  *             .primaryDescription("Hereditary ruler of the Imperium and the Known Universe")
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .associatedDescription("Elite military force member")
  *             .build());
  * 
- *         var emperor = new User("emperor", UserArgs.builder()        
+ *         var emperor = new User("emperor", UserArgs.builder()
  *             .firstName("Shaddam")
  *             .lastName("Corrino IV")
  *             .login("shaddam.corrino.iv{@literal @}salusa-secundus.planet")
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         for (var i = 0; i < 5; i++) {
- *             new User("sardaukars-" + i, UserArgs.builder()            
+ *             new User("sardaukars-" + i, UserArgs.builder()
  *                 .firstName("Amrit")
  *                 .lastName(String.format("Sardaukar_%s", range.value()))
  *                 .login(String.format("amritsardaukar_%s{@literal @}salusa-secundus.planet", range.value()))
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * 
  *         
  * }
- *         var example = new LinkValue("example", LinkValueArgs.builder()        
+ *         var example = new LinkValue("example", LinkValueArgs.builder()
  *             .primaryName(padishah.primaryName())
  *             .primaryUserId(emperor.id())
  *             .associatedUserIds(            

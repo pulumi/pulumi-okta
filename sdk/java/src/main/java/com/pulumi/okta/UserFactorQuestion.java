@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .firstName("John")
  *             .lastName("Smith")
  *             .login("john.smith{@literal @}example.com")
@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *             .userId(exampleUser.id())
  *             .build());
  * 
- *         var exampleFactor = new Factor("exampleFactor", FactorArgs.builder()        
+ *         var exampleFactor = new Factor("exampleFactor", FactorArgs.builder()
  *             .providerId("okta_question")
  *             .active(true)
  *             .build());
  * 
- *         var exampleUserFactorQuestion = new UserFactorQuestion("exampleUserFactorQuestion", UserFactorQuestionArgs.builder()        
+ *         var exampleUserFactorQuestion = new UserFactorQuestion("exampleUserFactorQuestion", UserFactorQuestionArgs.builder()
  *             .userId(exampleUser.id())
  *             .key(example.applyValue(getUserSecurityQuestionsResult -> getUserSecurityQuestionsResult).applyValue(example -> example.applyValue(getUserSecurityQuestionsResult -> getUserSecurityQuestionsResult.questions()[0].key())))
  *             .answer("meatball")

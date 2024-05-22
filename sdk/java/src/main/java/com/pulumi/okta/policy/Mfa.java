@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var classicExample = new Mfa("classicExample", MfaArgs.builder()        
+ *         var classicExample = new Mfa("classicExample", MfaArgs.builder()
  *             .name("MFA Policy Classic")
  *             .status("ACTIVE")
  *             .description("Example MFA policy using Okta Classic engine with factors.")
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .groupsIncludeds(everyone.id())
  *             .build());
  * 
- *         var oieExample = new Mfa("oieExample", MfaArgs.builder()        
+ *         var oieExample = new Mfa("oieExample", MfaArgs.builder()
  *             .name("MFA Policy OIE")
  *             .status("ACTIVE")
  *             .description("Example MFA policy that uses Okta Identity Engine (OIE) with authenticators")

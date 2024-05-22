@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AppOauthApiScope("example", AppOauthApiScopeArgs.builder()        
+ *         var example = new AppOauthApiScope("example", AppOauthApiScopeArgs.builder()
  *             .appId("<application_id>")
  *             .issuer("<your org domain>")
  *             .scopes(            

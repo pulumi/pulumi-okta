@@ -455,6 +455,608 @@ func (o AppUserSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) AppUserS
 	}).(AppUserSchemaPropertyOneOfOutput)
 }
 
+type CustomizedSigninPageContentSecurityPolicySetting struct {
+	// enforced or report_only
+	Mode      *string  `pulumi:"mode"`
+	ReportUri *string  `pulumi:"reportUri"`
+	SrcLists  []string `pulumi:"srcLists"`
+}
+
+// CustomizedSigninPageContentSecurityPolicySettingInput is an input type that accepts CustomizedSigninPageContentSecurityPolicySettingArgs and CustomizedSigninPageContentSecurityPolicySettingOutput values.
+// You can construct a concrete instance of `CustomizedSigninPageContentSecurityPolicySettingInput` via:
+//
+//	CustomizedSigninPageContentSecurityPolicySettingArgs{...}
+type CustomizedSigninPageContentSecurityPolicySettingInput interface {
+	pulumi.Input
+
+	ToCustomizedSigninPageContentSecurityPolicySettingOutput() CustomizedSigninPageContentSecurityPolicySettingOutput
+	ToCustomizedSigninPageContentSecurityPolicySettingOutputWithContext(context.Context) CustomizedSigninPageContentSecurityPolicySettingOutput
+}
+
+type CustomizedSigninPageContentSecurityPolicySettingArgs struct {
+	// enforced or report_only
+	Mode      pulumi.StringPtrInput   `pulumi:"mode"`
+	ReportUri pulumi.StringPtrInput   `pulumi:"reportUri"`
+	SrcLists  pulumi.StringArrayInput `pulumi:"srcLists"`
+}
+
+func (CustomizedSigninPageContentSecurityPolicySettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomizedSigninPageContentSecurityPolicySetting)(nil)).Elem()
+}
+
+func (i CustomizedSigninPageContentSecurityPolicySettingArgs) ToCustomizedSigninPageContentSecurityPolicySettingOutput() CustomizedSigninPageContentSecurityPolicySettingOutput {
+	return i.ToCustomizedSigninPageContentSecurityPolicySettingOutputWithContext(context.Background())
+}
+
+func (i CustomizedSigninPageContentSecurityPolicySettingArgs) ToCustomizedSigninPageContentSecurityPolicySettingOutputWithContext(ctx context.Context) CustomizedSigninPageContentSecurityPolicySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomizedSigninPageContentSecurityPolicySettingOutput)
+}
+
+func (i CustomizedSigninPageContentSecurityPolicySettingArgs) ToCustomizedSigninPageContentSecurityPolicySettingPtrOutput() CustomizedSigninPageContentSecurityPolicySettingPtrOutput {
+	return i.ToCustomizedSigninPageContentSecurityPolicySettingPtrOutputWithContext(context.Background())
+}
+
+func (i CustomizedSigninPageContentSecurityPolicySettingArgs) ToCustomizedSigninPageContentSecurityPolicySettingPtrOutputWithContext(ctx context.Context) CustomizedSigninPageContentSecurityPolicySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomizedSigninPageContentSecurityPolicySettingOutput).ToCustomizedSigninPageContentSecurityPolicySettingPtrOutputWithContext(ctx)
+}
+
+// CustomizedSigninPageContentSecurityPolicySettingPtrInput is an input type that accepts CustomizedSigninPageContentSecurityPolicySettingArgs, CustomizedSigninPageContentSecurityPolicySettingPtr and CustomizedSigninPageContentSecurityPolicySettingPtrOutput values.
+// You can construct a concrete instance of `CustomizedSigninPageContentSecurityPolicySettingPtrInput` via:
+//
+//	        CustomizedSigninPageContentSecurityPolicySettingArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomizedSigninPageContentSecurityPolicySettingPtrInput interface {
+	pulumi.Input
+
+	ToCustomizedSigninPageContentSecurityPolicySettingPtrOutput() CustomizedSigninPageContentSecurityPolicySettingPtrOutput
+	ToCustomizedSigninPageContentSecurityPolicySettingPtrOutputWithContext(context.Context) CustomizedSigninPageContentSecurityPolicySettingPtrOutput
+}
+
+type customizedSigninPageContentSecurityPolicySettingPtrType CustomizedSigninPageContentSecurityPolicySettingArgs
+
+func CustomizedSigninPageContentSecurityPolicySettingPtr(v *CustomizedSigninPageContentSecurityPolicySettingArgs) CustomizedSigninPageContentSecurityPolicySettingPtrInput {
+	return (*customizedSigninPageContentSecurityPolicySettingPtrType)(v)
+}
+
+func (*customizedSigninPageContentSecurityPolicySettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomizedSigninPageContentSecurityPolicySetting)(nil)).Elem()
+}
+
+func (i *customizedSigninPageContentSecurityPolicySettingPtrType) ToCustomizedSigninPageContentSecurityPolicySettingPtrOutput() CustomizedSigninPageContentSecurityPolicySettingPtrOutput {
+	return i.ToCustomizedSigninPageContentSecurityPolicySettingPtrOutputWithContext(context.Background())
+}
+
+func (i *customizedSigninPageContentSecurityPolicySettingPtrType) ToCustomizedSigninPageContentSecurityPolicySettingPtrOutputWithContext(ctx context.Context) CustomizedSigninPageContentSecurityPolicySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomizedSigninPageContentSecurityPolicySettingPtrOutput)
+}
+
+type CustomizedSigninPageContentSecurityPolicySettingOutput struct{ *pulumi.OutputState }
+
+func (CustomizedSigninPageContentSecurityPolicySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomizedSigninPageContentSecurityPolicySetting)(nil)).Elem()
+}
+
+func (o CustomizedSigninPageContentSecurityPolicySettingOutput) ToCustomizedSigninPageContentSecurityPolicySettingOutput() CustomizedSigninPageContentSecurityPolicySettingOutput {
+	return o
+}
+
+func (o CustomizedSigninPageContentSecurityPolicySettingOutput) ToCustomizedSigninPageContentSecurityPolicySettingOutputWithContext(ctx context.Context) CustomizedSigninPageContentSecurityPolicySettingOutput {
+	return o
+}
+
+func (o CustomizedSigninPageContentSecurityPolicySettingOutput) ToCustomizedSigninPageContentSecurityPolicySettingPtrOutput() CustomizedSigninPageContentSecurityPolicySettingPtrOutput {
+	return o.ToCustomizedSigninPageContentSecurityPolicySettingPtrOutputWithContext(context.Background())
+}
+
+func (o CustomizedSigninPageContentSecurityPolicySettingOutput) ToCustomizedSigninPageContentSecurityPolicySettingPtrOutputWithContext(ctx context.Context) CustomizedSigninPageContentSecurityPolicySettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomizedSigninPageContentSecurityPolicySetting) *CustomizedSigninPageContentSecurityPolicySetting {
+		return &v
+	}).(CustomizedSigninPageContentSecurityPolicySettingPtrOutput)
+}
+
+// enforced or report_only
+func (o CustomizedSigninPageContentSecurityPolicySettingOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageContentSecurityPolicySetting) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageContentSecurityPolicySettingOutput) ReportUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageContentSecurityPolicySetting) *string { return v.ReportUri }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageContentSecurityPolicySettingOutput) SrcLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CustomizedSigninPageContentSecurityPolicySetting) []string { return v.SrcLists }).(pulumi.StringArrayOutput)
+}
+
+type CustomizedSigninPageContentSecurityPolicySettingPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomizedSigninPageContentSecurityPolicySettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomizedSigninPageContentSecurityPolicySetting)(nil)).Elem()
+}
+
+func (o CustomizedSigninPageContentSecurityPolicySettingPtrOutput) ToCustomizedSigninPageContentSecurityPolicySettingPtrOutput() CustomizedSigninPageContentSecurityPolicySettingPtrOutput {
+	return o
+}
+
+func (o CustomizedSigninPageContentSecurityPolicySettingPtrOutput) ToCustomizedSigninPageContentSecurityPolicySettingPtrOutputWithContext(ctx context.Context) CustomizedSigninPageContentSecurityPolicySettingPtrOutput {
+	return o
+}
+
+func (o CustomizedSigninPageContentSecurityPolicySettingPtrOutput) Elem() CustomizedSigninPageContentSecurityPolicySettingOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageContentSecurityPolicySetting) CustomizedSigninPageContentSecurityPolicySetting {
+		if v != nil {
+			return *v
+		}
+		var ret CustomizedSigninPageContentSecurityPolicySetting
+		return ret
+	}).(CustomizedSigninPageContentSecurityPolicySettingOutput)
+}
+
+// enforced or report_only
+func (o CustomizedSigninPageContentSecurityPolicySettingPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageContentSecurityPolicySetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageContentSecurityPolicySettingPtrOutput) ReportUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageContentSecurityPolicySetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReportUri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageContentSecurityPolicySettingPtrOutput) SrcLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageContentSecurityPolicySetting) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SrcLists
+	}).(pulumi.StringArrayOutput)
+}
+
+type CustomizedSigninPageWidgetCustomizations struct {
+	AuthenticatorPageCustomLinkLabel        *string `pulumi:"authenticatorPageCustomLinkLabel"`
+	AuthenticatorPageCustomLinkUrl          *string `pulumi:"authenticatorPageCustomLinkUrl"`
+	ClassicRecoveryFlowEmailOrUsernameLabel *string `pulumi:"classicRecoveryFlowEmailOrUsernameLabel"`
+	CustomLink1Label                        *string `pulumi:"customLink1Label"`
+	CustomLink1Url                          *string `pulumi:"customLink1Url"`
+	CustomLink2Label                        *string `pulumi:"customLink2Label"`
+	CustomLink2Url                          *string `pulumi:"customLink2Url"`
+	ForgotPasswordLabel                     *string `pulumi:"forgotPasswordLabel"`
+	ForgotPasswordUrl                       *string `pulumi:"forgotPasswordUrl"`
+	HelpLabel                               *string `pulumi:"helpLabel"`
+	HelpUrl                                 *string `pulumi:"helpUrl"`
+	PasswordInfoTip                         *string `pulumi:"passwordInfoTip"`
+	PasswordLabel                           *string `pulumi:"passwordLabel"`
+	ShowPasswordVisibilityToggle            *bool   `pulumi:"showPasswordVisibilityToggle"`
+	ShowUserIdentifier                      *bool   `pulumi:"showUserIdentifier"`
+	SignInLabel                             *string `pulumi:"signInLabel"`
+	UnlockAccountLabel                      *string `pulumi:"unlockAccountLabel"`
+	UnlockAccountUrl                        *string `pulumi:"unlockAccountUrl"`
+	UsernameInfoTip                         *string `pulumi:"usernameInfoTip"`
+	UsernameLabel                           *string `pulumi:"usernameLabel"`
+	WidgetGeneration                        string  `pulumi:"widgetGeneration"`
+}
+
+// CustomizedSigninPageWidgetCustomizationsInput is an input type that accepts CustomizedSigninPageWidgetCustomizationsArgs and CustomizedSigninPageWidgetCustomizationsOutput values.
+// You can construct a concrete instance of `CustomizedSigninPageWidgetCustomizationsInput` via:
+//
+//	CustomizedSigninPageWidgetCustomizationsArgs{...}
+type CustomizedSigninPageWidgetCustomizationsInput interface {
+	pulumi.Input
+
+	ToCustomizedSigninPageWidgetCustomizationsOutput() CustomizedSigninPageWidgetCustomizationsOutput
+	ToCustomizedSigninPageWidgetCustomizationsOutputWithContext(context.Context) CustomizedSigninPageWidgetCustomizationsOutput
+}
+
+type CustomizedSigninPageWidgetCustomizationsArgs struct {
+	AuthenticatorPageCustomLinkLabel        pulumi.StringPtrInput `pulumi:"authenticatorPageCustomLinkLabel"`
+	AuthenticatorPageCustomLinkUrl          pulumi.StringPtrInput `pulumi:"authenticatorPageCustomLinkUrl"`
+	ClassicRecoveryFlowEmailOrUsernameLabel pulumi.StringPtrInput `pulumi:"classicRecoveryFlowEmailOrUsernameLabel"`
+	CustomLink1Label                        pulumi.StringPtrInput `pulumi:"customLink1Label"`
+	CustomLink1Url                          pulumi.StringPtrInput `pulumi:"customLink1Url"`
+	CustomLink2Label                        pulumi.StringPtrInput `pulumi:"customLink2Label"`
+	CustomLink2Url                          pulumi.StringPtrInput `pulumi:"customLink2Url"`
+	ForgotPasswordLabel                     pulumi.StringPtrInput `pulumi:"forgotPasswordLabel"`
+	ForgotPasswordUrl                       pulumi.StringPtrInput `pulumi:"forgotPasswordUrl"`
+	HelpLabel                               pulumi.StringPtrInput `pulumi:"helpLabel"`
+	HelpUrl                                 pulumi.StringPtrInput `pulumi:"helpUrl"`
+	PasswordInfoTip                         pulumi.StringPtrInput `pulumi:"passwordInfoTip"`
+	PasswordLabel                           pulumi.StringPtrInput `pulumi:"passwordLabel"`
+	ShowPasswordVisibilityToggle            pulumi.BoolPtrInput   `pulumi:"showPasswordVisibilityToggle"`
+	ShowUserIdentifier                      pulumi.BoolPtrInput   `pulumi:"showUserIdentifier"`
+	SignInLabel                             pulumi.StringPtrInput `pulumi:"signInLabel"`
+	UnlockAccountLabel                      pulumi.StringPtrInput `pulumi:"unlockAccountLabel"`
+	UnlockAccountUrl                        pulumi.StringPtrInput `pulumi:"unlockAccountUrl"`
+	UsernameInfoTip                         pulumi.StringPtrInput `pulumi:"usernameInfoTip"`
+	UsernameLabel                           pulumi.StringPtrInput `pulumi:"usernameLabel"`
+	WidgetGeneration                        pulumi.StringInput    `pulumi:"widgetGeneration"`
+}
+
+func (CustomizedSigninPageWidgetCustomizationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomizedSigninPageWidgetCustomizations)(nil)).Elem()
+}
+
+func (i CustomizedSigninPageWidgetCustomizationsArgs) ToCustomizedSigninPageWidgetCustomizationsOutput() CustomizedSigninPageWidgetCustomizationsOutput {
+	return i.ToCustomizedSigninPageWidgetCustomizationsOutputWithContext(context.Background())
+}
+
+func (i CustomizedSigninPageWidgetCustomizationsArgs) ToCustomizedSigninPageWidgetCustomizationsOutputWithContext(ctx context.Context) CustomizedSigninPageWidgetCustomizationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomizedSigninPageWidgetCustomizationsOutput)
+}
+
+func (i CustomizedSigninPageWidgetCustomizationsArgs) ToCustomizedSigninPageWidgetCustomizationsPtrOutput() CustomizedSigninPageWidgetCustomizationsPtrOutput {
+	return i.ToCustomizedSigninPageWidgetCustomizationsPtrOutputWithContext(context.Background())
+}
+
+func (i CustomizedSigninPageWidgetCustomizationsArgs) ToCustomizedSigninPageWidgetCustomizationsPtrOutputWithContext(ctx context.Context) CustomizedSigninPageWidgetCustomizationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomizedSigninPageWidgetCustomizationsOutput).ToCustomizedSigninPageWidgetCustomizationsPtrOutputWithContext(ctx)
+}
+
+// CustomizedSigninPageWidgetCustomizationsPtrInput is an input type that accepts CustomizedSigninPageWidgetCustomizationsArgs, CustomizedSigninPageWidgetCustomizationsPtr and CustomizedSigninPageWidgetCustomizationsPtrOutput values.
+// You can construct a concrete instance of `CustomizedSigninPageWidgetCustomizationsPtrInput` via:
+//
+//	        CustomizedSigninPageWidgetCustomizationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomizedSigninPageWidgetCustomizationsPtrInput interface {
+	pulumi.Input
+
+	ToCustomizedSigninPageWidgetCustomizationsPtrOutput() CustomizedSigninPageWidgetCustomizationsPtrOutput
+	ToCustomizedSigninPageWidgetCustomizationsPtrOutputWithContext(context.Context) CustomizedSigninPageWidgetCustomizationsPtrOutput
+}
+
+type customizedSigninPageWidgetCustomizationsPtrType CustomizedSigninPageWidgetCustomizationsArgs
+
+func CustomizedSigninPageWidgetCustomizationsPtr(v *CustomizedSigninPageWidgetCustomizationsArgs) CustomizedSigninPageWidgetCustomizationsPtrInput {
+	return (*customizedSigninPageWidgetCustomizationsPtrType)(v)
+}
+
+func (*customizedSigninPageWidgetCustomizationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomizedSigninPageWidgetCustomizations)(nil)).Elem()
+}
+
+func (i *customizedSigninPageWidgetCustomizationsPtrType) ToCustomizedSigninPageWidgetCustomizationsPtrOutput() CustomizedSigninPageWidgetCustomizationsPtrOutput {
+	return i.ToCustomizedSigninPageWidgetCustomizationsPtrOutputWithContext(context.Background())
+}
+
+func (i *customizedSigninPageWidgetCustomizationsPtrType) ToCustomizedSigninPageWidgetCustomizationsPtrOutputWithContext(ctx context.Context) CustomizedSigninPageWidgetCustomizationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomizedSigninPageWidgetCustomizationsPtrOutput)
+}
+
+type CustomizedSigninPageWidgetCustomizationsOutput struct{ *pulumi.OutputState }
+
+func (CustomizedSigninPageWidgetCustomizationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomizedSigninPageWidgetCustomizations)(nil)).Elem()
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) ToCustomizedSigninPageWidgetCustomizationsOutput() CustomizedSigninPageWidgetCustomizationsOutput {
+	return o
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) ToCustomizedSigninPageWidgetCustomizationsOutputWithContext(ctx context.Context) CustomizedSigninPageWidgetCustomizationsOutput {
+	return o
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) ToCustomizedSigninPageWidgetCustomizationsPtrOutput() CustomizedSigninPageWidgetCustomizationsPtrOutput {
+	return o.ToCustomizedSigninPageWidgetCustomizationsPtrOutputWithContext(context.Background())
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) ToCustomizedSigninPageWidgetCustomizationsPtrOutputWithContext(ctx context.Context) CustomizedSigninPageWidgetCustomizationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomizedSigninPageWidgetCustomizations) *CustomizedSigninPageWidgetCustomizations {
+		return &v
+	}).(CustomizedSigninPageWidgetCustomizationsPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) AuthenticatorPageCustomLinkLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.AuthenticatorPageCustomLinkLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) AuthenticatorPageCustomLinkUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.AuthenticatorPageCustomLinkUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) ClassicRecoveryFlowEmailOrUsernameLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string {
+		return v.ClassicRecoveryFlowEmailOrUsernameLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) CustomLink1Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.CustomLink1Label }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) CustomLink1Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.CustomLink1Url }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) CustomLink2Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.CustomLink2Label }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) CustomLink2Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.CustomLink2Url }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) ForgotPasswordLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.ForgotPasswordLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) ForgotPasswordUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.ForgotPasswordUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) HelpLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.HelpLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) HelpUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.HelpUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) PasswordInfoTip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.PasswordInfoTip }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) PasswordLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.PasswordLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) ShowPasswordVisibilityToggle() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *bool { return v.ShowPasswordVisibilityToggle }).(pulumi.BoolPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) ShowUserIdentifier() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *bool { return v.ShowUserIdentifier }).(pulumi.BoolPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) SignInLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.SignInLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) UnlockAccountLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.UnlockAccountLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) UnlockAccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.UnlockAccountUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) UsernameInfoTip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.UsernameInfoTip }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) UsernameLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) *string { return v.UsernameLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsOutput) WidgetGeneration() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomizedSigninPageWidgetCustomizations) string { return v.WidgetGeneration }).(pulumi.StringOutput)
+}
+
+type CustomizedSigninPageWidgetCustomizationsPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomizedSigninPageWidgetCustomizationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomizedSigninPageWidgetCustomizations)(nil)).Elem()
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) ToCustomizedSigninPageWidgetCustomizationsPtrOutput() CustomizedSigninPageWidgetCustomizationsPtrOutput {
+	return o
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) ToCustomizedSigninPageWidgetCustomizationsPtrOutputWithContext(ctx context.Context) CustomizedSigninPageWidgetCustomizationsPtrOutput {
+	return o
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) Elem() CustomizedSigninPageWidgetCustomizationsOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) CustomizedSigninPageWidgetCustomizations {
+		if v != nil {
+			return *v
+		}
+		var ret CustomizedSigninPageWidgetCustomizations
+		return ret
+	}).(CustomizedSigninPageWidgetCustomizationsOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) AuthenticatorPageCustomLinkLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticatorPageCustomLinkLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) AuthenticatorPageCustomLinkUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticatorPageCustomLinkUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) ClassicRecoveryFlowEmailOrUsernameLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClassicRecoveryFlowEmailOrUsernameLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) CustomLink1Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLink1Label
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) CustomLink1Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLink1Url
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) CustomLink2Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLink2Label
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) CustomLink2Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLink2Url
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) ForgotPasswordLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ForgotPasswordLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) ForgotPasswordUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ForgotPasswordUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) HelpLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HelpLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) HelpUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HelpUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) PasswordInfoTip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordInfoTip
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) PasswordLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) ShowPasswordVisibilityToggle() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShowPasswordVisibilityToggle
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) ShowUserIdentifier() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShowUserIdentifier
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) SignInLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SignInLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) UnlockAccountLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UnlockAccountLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) UnlockAccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UnlockAccountUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) UsernameInfoTip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameInfoTip
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) UsernameLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) WidgetGeneration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomizedSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WidgetGeneration
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainDnsRecord struct {
 	// TXT record expiration.
 	Expiration *string `pulumi:"expiration"`
@@ -577,6 +1179,139 @@ func (o DomainDnsRecordArrayOutput) Index(i pulumi.IntInput) DomainDnsRecordOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainDnsRecord {
 		return vs[0].([]DomainDnsRecord)[vs[1].(int)]
 	}).(DomainDnsRecordOutput)
+}
+
+type EmailDomainDnsValidationRecord struct {
+	// DNS TXT record expiration
+	//
+	// Deprecated: This field has been removed in the newest go sdk version and has become noop
+	Expiration *string `pulumi:"expiration"`
+	// DNS record name.
+	Fqdn *string `pulumi:"fqdn"`
+	// Record type can be TXT or cname.
+	RecordType *string `pulumi:"recordType"`
+	// DNS record value
+	// - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
+	Value *string `pulumi:"value"`
+}
+
+// EmailDomainDnsValidationRecordInput is an input type that accepts EmailDomainDnsValidationRecordArgs and EmailDomainDnsValidationRecordOutput values.
+// You can construct a concrete instance of `EmailDomainDnsValidationRecordInput` via:
+//
+//	EmailDomainDnsValidationRecordArgs{...}
+type EmailDomainDnsValidationRecordInput interface {
+	pulumi.Input
+
+	ToEmailDomainDnsValidationRecordOutput() EmailDomainDnsValidationRecordOutput
+	ToEmailDomainDnsValidationRecordOutputWithContext(context.Context) EmailDomainDnsValidationRecordOutput
+}
+
+type EmailDomainDnsValidationRecordArgs struct {
+	// DNS TXT record expiration
+	//
+	// Deprecated: This field has been removed in the newest go sdk version and has become noop
+	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
+	// DNS record name.
+	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
+	// Record type can be TXT or cname.
+	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
+	// DNS record value
+	// - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EmailDomainDnsValidationRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailDomainDnsValidationRecord)(nil)).Elem()
+}
+
+func (i EmailDomainDnsValidationRecordArgs) ToEmailDomainDnsValidationRecordOutput() EmailDomainDnsValidationRecordOutput {
+	return i.ToEmailDomainDnsValidationRecordOutputWithContext(context.Background())
+}
+
+func (i EmailDomainDnsValidationRecordArgs) ToEmailDomainDnsValidationRecordOutputWithContext(ctx context.Context) EmailDomainDnsValidationRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailDomainDnsValidationRecordOutput)
+}
+
+// EmailDomainDnsValidationRecordArrayInput is an input type that accepts EmailDomainDnsValidationRecordArray and EmailDomainDnsValidationRecordArrayOutput values.
+// You can construct a concrete instance of `EmailDomainDnsValidationRecordArrayInput` via:
+//
+//	EmailDomainDnsValidationRecordArray{ EmailDomainDnsValidationRecordArgs{...} }
+type EmailDomainDnsValidationRecordArrayInput interface {
+	pulumi.Input
+
+	ToEmailDomainDnsValidationRecordArrayOutput() EmailDomainDnsValidationRecordArrayOutput
+	ToEmailDomainDnsValidationRecordArrayOutputWithContext(context.Context) EmailDomainDnsValidationRecordArrayOutput
+}
+
+type EmailDomainDnsValidationRecordArray []EmailDomainDnsValidationRecordInput
+
+func (EmailDomainDnsValidationRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EmailDomainDnsValidationRecord)(nil)).Elem()
+}
+
+func (i EmailDomainDnsValidationRecordArray) ToEmailDomainDnsValidationRecordArrayOutput() EmailDomainDnsValidationRecordArrayOutput {
+	return i.ToEmailDomainDnsValidationRecordArrayOutputWithContext(context.Background())
+}
+
+func (i EmailDomainDnsValidationRecordArray) ToEmailDomainDnsValidationRecordArrayOutputWithContext(ctx context.Context) EmailDomainDnsValidationRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailDomainDnsValidationRecordArrayOutput)
+}
+
+type EmailDomainDnsValidationRecordOutput struct{ *pulumi.OutputState }
+
+func (EmailDomainDnsValidationRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailDomainDnsValidationRecord)(nil)).Elem()
+}
+
+func (o EmailDomainDnsValidationRecordOutput) ToEmailDomainDnsValidationRecordOutput() EmailDomainDnsValidationRecordOutput {
+	return o
+}
+
+func (o EmailDomainDnsValidationRecordOutput) ToEmailDomainDnsValidationRecordOutputWithContext(ctx context.Context) EmailDomainDnsValidationRecordOutput {
+	return o
+}
+
+// DNS TXT record expiration
+//
+// Deprecated: This field has been removed in the newest go sdk version and has become noop
+func (o EmailDomainDnsValidationRecordOutput) Expiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.Expiration }).(pulumi.StringPtrOutput)
+}
+
+// DNS record name.
+func (o EmailDomainDnsValidationRecordOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+// Record type can be TXT or cname.
+func (o EmailDomainDnsValidationRecordOutput) RecordType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.RecordType }).(pulumi.StringPtrOutput)
+}
+
+// DNS record value
+// - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
+func (o EmailDomainDnsValidationRecordOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EmailDomainDnsValidationRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (EmailDomainDnsValidationRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EmailDomainDnsValidationRecord)(nil)).Elem()
+}
+
+func (o EmailDomainDnsValidationRecordArrayOutput) ToEmailDomainDnsValidationRecordArrayOutput() EmailDomainDnsValidationRecordArrayOutput {
+	return o
+}
+
+func (o EmailDomainDnsValidationRecordArrayOutput) ToEmailDomainDnsValidationRecordArrayOutputWithContext(ctx context.Context) EmailDomainDnsValidationRecordArrayOutput {
+	return o
+}
+
+func (o EmailDomainDnsValidationRecordArrayOutput) Index(i pulumi.IntInput) EmailDomainDnsValidationRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EmailDomainDnsValidationRecord {
+		return vs[0].([]EmailDomainDnsValidationRecord)[vs[1].(int)]
+	}).(EmailDomainDnsValidationRecordOutput)
 }
 
 type EmailSenderDnsRecord struct {
@@ -1112,6 +1847,238 @@ func (o GroupSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) GroupSchem
 	}).(GroupSchemaPropertyOneOfOutput)
 }
 
+type LogStreamSettings struct {
+	// AWS account ID.
+	AccountId *string `pulumi:"accountId"`
+	// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
+	Edition *string `pulumi:"edition"`
+	// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+	EventSourceName *string `pulumi:"eventSourceName"`
+	// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
+	Host *string `pulumi:"host"`
+	// The destination AWS region where event source is located.
+	Region *string `pulumi:"region"`
+	// The HEC token for your Splunk Cloud HTTP Event Collector.
+	Token *string `pulumi:"token"`
+}
+
+// LogStreamSettingsInput is an input type that accepts LogStreamSettingsArgs and LogStreamSettingsOutput values.
+// You can construct a concrete instance of `LogStreamSettingsInput` via:
+//
+//	LogStreamSettingsArgs{...}
+type LogStreamSettingsInput interface {
+	pulumi.Input
+
+	ToLogStreamSettingsOutput() LogStreamSettingsOutput
+	ToLogStreamSettingsOutputWithContext(context.Context) LogStreamSettingsOutput
+}
+
+type LogStreamSettingsArgs struct {
+	// AWS account ID.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
+	Edition pulumi.StringPtrInput `pulumi:"edition"`
+	// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+	EventSourceName pulumi.StringPtrInput `pulumi:"eventSourceName"`
+	// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	// The destination AWS region where event source is located.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// The HEC token for your Splunk Cloud HTTP Event Collector.
+	Token pulumi.StringPtrInput `pulumi:"token"`
+}
+
+func (LogStreamSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogStreamSettings)(nil)).Elem()
+}
+
+func (i LogStreamSettingsArgs) ToLogStreamSettingsOutput() LogStreamSettingsOutput {
+	return i.ToLogStreamSettingsOutputWithContext(context.Background())
+}
+
+func (i LogStreamSettingsArgs) ToLogStreamSettingsOutputWithContext(ctx context.Context) LogStreamSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogStreamSettingsOutput)
+}
+
+func (i LogStreamSettingsArgs) ToLogStreamSettingsPtrOutput() LogStreamSettingsPtrOutput {
+	return i.ToLogStreamSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i LogStreamSettingsArgs) ToLogStreamSettingsPtrOutputWithContext(ctx context.Context) LogStreamSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogStreamSettingsOutput).ToLogStreamSettingsPtrOutputWithContext(ctx)
+}
+
+// LogStreamSettingsPtrInput is an input type that accepts LogStreamSettingsArgs, LogStreamSettingsPtr and LogStreamSettingsPtrOutput values.
+// You can construct a concrete instance of `LogStreamSettingsPtrInput` via:
+//
+//	        LogStreamSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogStreamSettingsPtrInput interface {
+	pulumi.Input
+
+	ToLogStreamSettingsPtrOutput() LogStreamSettingsPtrOutput
+	ToLogStreamSettingsPtrOutputWithContext(context.Context) LogStreamSettingsPtrOutput
+}
+
+type logStreamSettingsPtrType LogStreamSettingsArgs
+
+func LogStreamSettingsPtr(v *LogStreamSettingsArgs) LogStreamSettingsPtrInput {
+	return (*logStreamSettingsPtrType)(v)
+}
+
+func (*logStreamSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogStreamSettings)(nil)).Elem()
+}
+
+func (i *logStreamSettingsPtrType) ToLogStreamSettingsPtrOutput() LogStreamSettingsPtrOutput {
+	return i.ToLogStreamSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *logStreamSettingsPtrType) ToLogStreamSettingsPtrOutputWithContext(ctx context.Context) LogStreamSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogStreamSettingsPtrOutput)
+}
+
+type LogStreamSettingsOutput struct{ *pulumi.OutputState }
+
+func (LogStreamSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogStreamSettings)(nil)).Elem()
+}
+
+func (o LogStreamSettingsOutput) ToLogStreamSettingsOutput() LogStreamSettingsOutput {
+	return o
+}
+
+func (o LogStreamSettingsOutput) ToLogStreamSettingsOutputWithContext(ctx context.Context) LogStreamSettingsOutput {
+	return o
+}
+
+func (o LogStreamSettingsOutput) ToLogStreamSettingsPtrOutput() LogStreamSettingsPtrOutput {
+	return o.ToLogStreamSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o LogStreamSettingsOutput) ToLogStreamSettingsPtrOutputWithContext(ctx context.Context) LogStreamSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogStreamSettings) *LogStreamSettings {
+		return &v
+	}).(LogStreamSettingsPtrOutput)
+}
+
+// AWS account ID.
+func (o LogStreamSettingsOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogStreamSettings) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
+func (o LogStreamSettingsOutput) Edition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogStreamSettings) *string { return v.Edition }).(pulumi.StringPtrOutput)
+}
+
+// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+func (o LogStreamSettingsOutput) EventSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogStreamSettings) *string { return v.EventSourceName }).(pulumi.StringPtrOutput)
+}
+
+// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
+func (o LogStreamSettingsOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogStreamSettings) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// The destination AWS region where event source is located.
+func (o LogStreamSettingsOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogStreamSettings) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The HEC token for your Splunk Cloud HTTP Event Collector.
+func (o LogStreamSettingsOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogStreamSettings) *string { return v.Token }).(pulumi.StringPtrOutput)
+}
+
+type LogStreamSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (LogStreamSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogStreamSettings)(nil)).Elem()
+}
+
+func (o LogStreamSettingsPtrOutput) ToLogStreamSettingsPtrOutput() LogStreamSettingsPtrOutput {
+	return o
+}
+
+func (o LogStreamSettingsPtrOutput) ToLogStreamSettingsPtrOutputWithContext(ctx context.Context) LogStreamSettingsPtrOutput {
+	return o
+}
+
+func (o LogStreamSettingsPtrOutput) Elem() LogStreamSettingsOutput {
+	return o.ApplyT(func(v *LogStreamSettings) LogStreamSettings {
+		if v != nil {
+			return *v
+		}
+		var ret LogStreamSettings
+		return ret
+	}).(LogStreamSettingsOutput)
+}
+
+// AWS account ID.
+func (o LogStreamSettingsPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogStreamSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
+func (o LogStreamSettingsPtrOutput) Edition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogStreamSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Edition
+	}).(pulumi.StringPtrOutput)
+}
+
+// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+func (o LogStreamSettingsPtrOutput) EventSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogStreamSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventSourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
+func (o LogStreamSettingsPtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogStreamSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Host
+	}).(pulumi.StringPtrOutput)
+}
+
+// The destination AWS region where event source is located.
+func (o LogStreamSettingsPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogStreamSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HEC token for your Splunk Cloud HTTP Event Collector.
+func (o LogStreamSettingsPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogStreamSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
 type PolicyRuleProfileEnrollmentProfileAttribute struct {
 	// A display-friendly label for this property
 	Label string `pulumi:"label"`
@@ -1225,6 +2192,608 @@ func (o PolicyRuleProfileEnrollmentProfileAttributeArrayOutput) Index(i pulumi.I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyRuleProfileEnrollmentProfileAttribute {
 		return vs[0].([]PolicyRuleProfileEnrollmentProfileAttribute)[vs[1].(int)]
 	}).(PolicyRuleProfileEnrollmentProfileAttributeOutput)
+}
+
+type PreviewSigninPageContentSecurityPolicySetting struct {
+	// enforced or report_only
+	Mode      *string  `pulumi:"mode"`
+	ReportUri *string  `pulumi:"reportUri"`
+	SrcLists  []string `pulumi:"srcLists"`
+}
+
+// PreviewSigninPageContentSecurityPolicySettingInput is an input type that accepts PreviewSigninPageContentSecurityPolicySettingArgs and PreviewSigninPageContentSecurityPolicySettingOutput values.
+// You can construct a concrete instance of `PreviewSigninPageContentSecurityPolicySettingInput` via:
+//
+//	PreviewSigninPageContentSecurityPolicySettingArgs{...}
+type PreviewSigninPageContentSecurityPolicySettingInput interface {
+	pulumi.Input
+
+	ToPreviewSigninPageContentSecurityPolicySettingOutput() PreviewSigninPageContentSecurityPolicySettingOutput
+	ToPreviewSigninPageContentSecurityPolicySettingOutputWithContext(context.Context) PreviewSigninPageContentSecurityPolicySettingOutput
+}
+
+type PreviewSigninPageContentSecurityPolicySettingArgs struct {
+	// enforced or report_only
+	Mode      pulumi.StringPtrInput   `pulumi:"mode"`
+	ReportUri pulumi.StringPtrInput   `pulumi:"reportUri"`
+	SrcLists  pulumi.StringArrayInput `pulumi:"srcLists"`
+}
+
+func (PreviewSigninPageContentSecurityPolicySettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PreviewSigninPageContentSecurityPolicySetting)(nil)).Elem()
+}
+
+func (i PreviewSigninPageContentSecurityPolicySettingArgs) ToPreviewSigninPageContentSecurityPolicySettingOutput() PreviewSigninPageContentSecurityPolicySettingOutput {
+	return i.ToPreviewSigninPageContentSecurityPolicySettingOutputWithContext(context.Background())
+}
+
+func (i PreviewSigninPageContentSecurityPolicySettingArgs) ToPreviewSigninPageContentSecurityPolicySettingOutputWithContext(ctx context.Context) PreviewSigninPageContentSecurityPolicySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PreviewSigninPageContentSecurityPolicySettingOutput)
+}
+
+func (i PreviewSigninPageContentSecurityPolicySettingArgs) ToPreviewSigninPageContentSecurityPolicySettingPtrOutput() PreviewSigninPageContentSecurityPolicySettingPtrOutput {
+	return i.ToPreviewSigninPageContentSecurityPolicySettingPtrOutputWithContext(context.Background())
+}
+
+func (i PreviewSigninPageContentSecurityPolicySettingArgs) ToPreviewSigninPageContentSecurityPolicySettingPtrOutputWithContext(ctx context.Context) PreviewSigninPageContentSecurityPolicySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PreviewSigninPageContentSecurityPolicySettingOutput).ToPreviewSigninPageContentSecurityPolicySettingPtrOutputWithContext(ctx)
+}
+
+// PreviewSigninPageContentSecurityPolicySettingPtrInput is an input type that accepts PreviewSigninPageContentSecurityPolicySettingArgs, PreviewSigninPageContentSecurityPolicySettingPtr and PreviewSigninPageContentSecurityPolicySettingPtrOutput values.
+// You can construct a concrete instance of `PreviewSigninPageContentSecurityPolicySettingPtrInput` via:
+//
+//	        PreviewSigninPageContentSecurityPolicySettingArgs{...}
+//
+//	or:
+//
+//	        nil
+type PreviewSigninPageContentSecurityPolicySettingPtrInput interface {
+	pulumi.Input
+
+	ToPreviewSigninPageContentSecurityPolicySettingPtrOutput() PreviewSigninPageContentSecurityPolicySettingPtrOutput
+	ToPreviewSigninPageContentSecurityPolicySettingPtrOutputWithContext(context.Context) PreviewSigninPageContentSecurityPolicySettingPtrOutput
+}
+
+type previewSigninPageContentSecurityPolicySettingPtrType PreviewSigninPageContentSecurityPolicySettingArgs
+
+func PreviewSigninPageContentSecurityPolicySettingPtr(v *PreviewSigninPageContentSecurityPolicySettingArgs) PreviewSigninPageContentSecurityPolicySettingPtrInput {
+	return (*previewSigninPageContentSecurityPolicySettingPtrType)(v)
+}
+
+func (*previewSigninPageContentSecurityPolicySettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PreviewSigninPageContentSecurityPolicySetting)(nil)).Elem()
+}
+
+func (i *previewSigninPageContentSecurityPolicySettingPtrType) ToPreviewSigninPageContentSecurityPolicySettingPtrOutput() PreviewSigninPageContentSecurityPolicySettingPtrOutput {
+	return i.ToPreviewSigninPageContentSecurityPolicySettingPtrOutputWithContext(context.Background())
+}
+
+func (i *previewSigninPageContentSecurityPolicySettingPtrType) ToPreviewSigninPageContentSecurityPolicySettingPtrOutputWithContext(ctx context.Context) PreviewSigninPageContentSecurityPolicySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PreviewSigninPageContentSecurityPolicySettingPtrOutput)
+}
+
+type PreviewSigninPageContentSecurityPolicySettingOutput struct{ *pulumi.OutputState }
+
+func (PreviewSigninPageContentSecurityPolicySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PreviewSigninPageContentSecurityPolicySetting)(nil)).Elem()
+}
+
+func (o PreviewSigninPageContentSecurityPolicySettingOutput) ToPreviewSigninPageContentSecurityPolicySettingOutput() PreviewSigninPageContentSecurityPolicySettingOutput {
+	return o
+}
+
+func (o PreviewSigninPageContentSecurityPolicySettingOutput) ToPreviewSigninPageContentSecurityPolicySettingOutputWithContext(ctx context.Context) PreviewSigninPageContentSecurityPolicySettingOutput {
+	return o
+}
+
+func (o PreviewSigninPageContentSecurityPolicySettingOutput) ToPreviewSigninPageContentSecurityPolicySettingPtrOutput() PreviewSigninPageContentSecurityPolicySettingPtrOutput {
+	return o.ToPreviewSigninPageContentSecurityPolicySettingPtrOutputWithContext(context.Background())
+}
+
+func (o PreviewSigninPageContentSecurityPolicySettingOutput) ToPreviewSigninPageContentSecurityPolicySettingPtrOutputWithContext(ctx context.Context) PreviewSigninPageContentSecurityPolicySettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PreviewSigninPageContentSecurityPolicySetting) *PreviewSigninPageContentSecurityPolicySetting {
+		return &v
+	}).(PreviewSigninPageContentSecurityPolicySettingPtrOutput)
+}
+
+// enforced or report_only
+func (o PreviewSigninPageContentSecurityPolicySettingOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageContentSecurityPolicySetting) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageContentSecurityPolicySettingOutput) ReportUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageContentSecurityPolicySetting) *string { return v.ReportUri }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageContentSecurityPolicySettingOutput) SrcLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PreviewSigninPageContentSecurityPolicySetting) []string { return v.SrcLists }).(pulumi.StringArrayOutput)
+}
+
+type PreviewSigninPageContentSecurityPolicySettingPtrOutput struct{ *pulumi.OutputState }
+
+func (PreviewSigninPageContentSecurityPolicySettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PreviewSigninPageContentSecurityPolicySetting)(nil)).Elem()
+}
+
+func (o PreviewSigninPageContentSecurityPolicySettingPtrOutput) ToPreviewSigninPageContentSecurityPolicySettingPtrOutput() PreviewSigninPageContentSecurityPolicySettingPtrOutput {
+	return o
+}
+
+func (o PreviewSigninPageContentSecurityPolicySettingPtrOutput) ToPreviewSigninPageContentSecurityPolicySettingPtrOutputWithContext(ctx context.Context) PreviewSigninPageContentSecurityPolicySettingPtrOutput {
+	return o
+}
+
+func (o PreviewSigninPageContentSecurityPolicySettingPtrOutput) Elem() PreviewSigninPageContentSecurityPolicySettingOutput {
+	return o.ApplyT(func(v *PreviewSigninPageContentSecurityPolicySetting) PreviewSigninPageContentSecurityPolicySetting {
+		if v != nil {
+			return *v
+		}
+		var ret PreviewSigninPageContentSecurityPolicySetting
+		return ret
+	}).(PreviewSigninPageContentSecurityPolicySettingOutput)
+}
+
+// enforced or report_only
+func (o PreviewSigninPageContentSecurityPolicySettingPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageContentSecurityPolicySetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageContentSecurityPolicySettingPtrOutput) ReportUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageContentSecurityPolicySetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReportUri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageContentSecurityPolicySettingPtrOutput) SrcLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PreviewSigninPageContentSecurityPolicySetting) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SrcLists
+	}).(pulumi.StringArrayOutput)
+}
+
+type PreviewSigninPageWidgetCustomizations struct {
+	AuthenticatorPageCustomLinkLabel        *string `pulumi:"authenticatorPageCustomLinkLabel"`
+	AuthenticatorPageCustomLinkUrl          *string `pulumi:"authenticatorPageCustomLinkUrl"`
+	ClassicRecoveryFlowEmailOrUsernameLabel *string `pulumi:"classicRecoveryFlowEmailOrUsernameLabel"`
+	CustomLink1Label                        *string `pulumi:"customLink1Label"`
+	CustomLink1Url                          *string `pulumi:"customLink1Url"`
+	CustomLink2Label                        *string `pulumi:"customLink2Label"`
+	CustomLink2Url                          *string `pulumi:"customLink2Url"`
+	ForgotPasswordLabel                     *string `pulumi:"forgotPasswordLabel"`
+	ForgotPasswordUrl                       *string `pulumi:"forgotPasswordUrl"`
+	HelpLabel                               *string `pulumi:"helpLabel"`
+	HelpUrl                                 *string `pulumi:"helpUrl"`
+	PasswordInfoTip                         *string `pulumi:"passwordInfoTip"`
+	PasswordLabel                           *string `pulumi:"passwordLabel"`
+	ShowPasswordVisibilityToggle            *bool   `pulumi:"showPasswordVisibilityToggle"`
+	ShowUserIdentifier                      *bool   `pulumi:"showUserIdentifier"`
+	SignInLabel                             *string `pulumi:"signInLabel"`
+	UnlockAccountLabel                      *string `pulumi:"unlockAccountLabel"`
+	UnlockAccountUrl                        *string `pulumi:"unlockAccountUrl"`
+	UsernameInfoTip                         *string `pulumi:"usernameInfoTip"`
+	UsernameLabel                           *string `pulumi:"usernameLabel"`
+	WidgetGeneration                        string  `pulumi:"widgetGeneration"`
+}
+
+// PreviewSigninPageWidgetCustomizationsInput is an input type that accepts PreviewSigninPageWidgetCustomizationsArgs and PreviewSigninPageWidgetCustomizationsOutput values.
+// You can construct a concrete instance of `PreviewSigninPageWidgetCustomizationsInput` via:
+//
+//	PreviewSigninPageWidgetCustomizationsArgs{...}
+type PreviewSigninPageWidgetCustomizationsInput interface {
+	pulumi.Input
+
+	ToPreviewSigninPageWidgetCustomizationsOutput() PreviewSigninPageWidgetCustomizationsOutput
+	ToPreviewSigninPageWidgetCustomizationsOutputWithContext(context.Context) PreviewSigninPageWidgetCustomizationsOutput
+}
+
+type PreviewSigninPageWidgetCustomizationsArgs struct {
+	AuthenticatorPageCustomLinkLabel        pulumi.StringPtrInput `pulumi:"authenticatorPageCustomLinkLabel"`
+	AuthenticatorPageCustomLinkUrl          pulumi.StringPtrInput `pulumi:"authenticatorPageCustomLinkUrl"`
+	ClassicRecoveryFlowEmailOrUsernameLabel pulumi.StringPtrInput `pulumi:"classicRecoveryFlowEmailOrUsernameLabel"`
+	CustomLink1Label                        pulumi.StringPtrInput `pulumi:"customLink1Label"`
+	CustomLink1Url                          pulumi.StringPtrInput `pulumi:"customLink1Url"`
+	CustomLink2Label                        pulumi.StringPtrInput `pulumi:"customLink2Label"`
+	CustomLink2Url                          pulumi.StringPtrInput `pulumi:"customLink2Url"`
+	ForgotPasswordLabel                     pulumi.StringPtrInput `pulumi:"forgotPasswordLabel"`
+	ForgotPasswordUrl                       pulumi.StringPtrInput `pulumi:"forgotPasswordUrl"`
+	HelpLabel                               pulumi.StringPtrInput `pulumi:"helpLabel"`
+	HelpUrl                                 pulumi.StringPtrInput `pulumi:"helpUrl"`
+	PasswordInfoTip                         pulumi.StringPtrInput `pulumi:"passwordInfoTip"`
+	PasswordLabel                           pulumi.StringPtrInput `pulumi:"passwordLabel"`
+	ShowPasswordVisibilityToggle            pulumi.BoolPtrInput   `pulumi:"showPasswordVisibilityToggle"`
+	ShowUserIdentifier                      pulumi.BoolPtrInput   `pulumi:"showUserIdentifier"`
+	SignInLabel                             pulumi.StringPtrInput `pulumi:"signInLabel"`
+	UnlockAccountLabel                      pulumi.StringPtrInput `pulumi:"unlockAccountLabel"`
+	UnlockAccountUrl                        pulumi.StringPtrInput `pulumi:"unlockAccountUrl"`
+	UsernameInfoTip                         pulumi.StringPtrInput `pulumi:"usernameInfoTip"`
+	UsernameLabel                           pulumi.StringPtrInput `pulumi:"usernameLabel"`
+	WidgetGeneration                        pulumi.StringInput    `pulumi:"widgetGeneration"`
+}
+
+func (PreviewSigninPageWidgetCustomizationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PreviewSigninPageWidgetCustomizations)(nil)).Elem()
+}
+
+func (i PreviewSigninPageWidgetCustomizationsArgs) ToPreviewSigninPageWidgetCustomizationsOutput() PreviewSigninPageWidgetCustomizationsOutput {
+	return i.ToPreviewSigninPageWidgetCustomizationsOutputWithContext(context.Background())
+}
+
+func (i PreviewSigninPageWidgetCustomizationsArgs) ToPreviewSigninPageWidgetCustomizationsOutputWithContext(ctx context.Context) PreviewSigninPageWidgetCustomizationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PreviewSigninPageWidgetCustomizationsOutput)
+}
+
+func (i PreviewSigninPageWidgetCustomizationsArgs) ToPreviewSigninPageWidgetCustomizationsPtrOutput() PreviewSigninPageWidgetCustomizationsPtrOutput {
+	return i.ToPreviewSigninPageWidgetCustomizationsPtrOutputWithContext(context.Background())
+}
+
+func (i PreviewSigninPageWidgetCustomizationsArgs) ToPreviewSigninPageWidgetCustomizationsPtrOutputWithContext(ctx context.Context) PreviewSigninPageWidgetCustomizationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PreviewSigninPageWidgetCustomizationsOutput).ToPreviewSigninPageWidgetCustomizationsPtrOutputWithContext(ctx)
+}
+
+// PreviewSigninPageWidgetCustomizationsPtrInput is an input type that accepts PreviewSigninPageWidgetCustomizationsArgs, PreviewSigninPageWidgetCustomizationsPtr and PreviewSigninPageWidgetCustomizationsPtrOutput values.
+// You can construct a concrete instance of `PreviewSigninPageWidgetCustomizationsPtrInput` via:
+//
+//	        PreviewSigninPageWidgetCustomizationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PreviewSigninPageWidgetCustomizationsPtrInput interface {
+	pulumi.Input
+
+	ToPreviewSigninPageWidgetCustomizationsPtrOutput() PreviewSigninPageWidgetCustomizationsPtrOutput
+	ToPreviewSigninPageWidgetCustomizationsPtrOutputWithContext(context.Context) PreviewSigninPageWidgetCustomizationsPtrOutput
+}
+
+type previewSigninPageWidgetCustomizationsPtrType PreviewSigninPageWidgetCustomizationsArgs
+
+func PreviewSigninPageWidgetCustomizationsPtr(v *PreviewSigninPageWidgetCustomizationsArgs) PreviewSigninPageWidgetCustomizationsPtrInput {
+	return (*previewSigninPageWidgetCustomizationsPtrType)(v)
+}
+
+func (*previewSigninPageWidgetCustomizationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PreviewSigninPageWidgetCustomizations)(nil)).Elem()
+}
+
+func (i *previewSigninPageWidgetCustomizationsPtrType) ToPreviewSigninPageWidgetCustomizationsPtrOutput() PreviewSigninPageWidgetCustomizationsPtrOutput {
+	return i.ToPreviewSigninPageWidgetCustomizationsPtrOutputWithContext(context.Background())
+}
+
+func (i *previewSigninPageWidgetCustomizationsPtrType) ToPreviewSigninPageWidgetCustomizationsPtrOutputWithContext(ctx context.Context) PreviewSigninPageWidgetCustomizationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PreviewSigninPageWidgetCustomizationsPtrOutput)
+}
+
+type PreviewSigninPageWidgetCustomizationsOutput struct{ *pulumi.OutputState }
+
+func (PreviewSigninPageWidgetCustomizationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PreviewSigninPageWidgetCustomizations)(nil)).Elem()
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) ToPreviewSigninPageWidgetCustomizationsOutput() PreviewSigninPageWidgetCustomizationsOutput {
+	return o
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) ToPreviewSigninPageWidgetCustomizationsOutputWithContext(ctx context.Context) PreviewSigninPageWidgetCustomizationsOutput {
+	return o
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) ToPreviewSigninPageWidgetCustomizationsPtrOutput() PreviewSigninPageWidgetCustomizationsPtrOutput {
+	return o.ToPreviewSigninPageWidgetCustomizationsPtrOutputWithContext(context.Background())
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) ToPreviewSigninPageWidgetCustomizationsPtrOutputWithContext(ctx context.Context) PreviewSigninPageWidgetCustomizationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PreviewSigninPageWidgetCustomizations) *PreviewSigninPageWidgetCustomizations {
+		return &v
+	}).(PreviewSigninPageWidgetCustomizationsPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) AuthenticatorPageCustomLinkLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.AuthenticatorPageCustomLinkLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) AuthenticatorPageCustomLinkUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.AuthenticatorPageCustomLinkUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) ClassicRecoveryFlowEmailOrUsernameLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string {
+		return v.ClassicRecoveryFlowEmailOrUsernameLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) CustomLink1Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.CustomLink1Label }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) CustomLink1Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.CustomLink1Url }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) CustomLink2Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.CustomLink2Label }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) CustomLink2Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.CustomLink2Url }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) ForgotPasswordLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.ForgotPasswordLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) ForgotPasswordUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.ForgotPasswordUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) HelpLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.HelpLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) HelpUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.HelpUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) PasswordInfoTip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.PasswordInfoTip }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) PasswordLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.PasswordLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) ShowPasswordVisibilityToggle() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *bool { return v.ShowPasswordVisibilityToggle }).(pulumi.BoolPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) ShowUserIdentifier() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *bool { return v.ShowUserIdentifier }).(pulumi.BoolPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) SignInLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.SignInLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) UnlockAccountLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.UnlockAccountLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) UnlockAccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.UnlockAccountUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) UsernameInfoTip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.UsernameInfoTip }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) UsernameLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) *string { return v.UsernameLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsOutput) WidgetGeneration() pulumi.StringOutput {
+	return o.ApplyT(func(v PreviewSigninPageWidgetCustomizations) string { return v.WidgetGeneration }).(pulumi.StringOutput)
+}
+
+type PreviewSigninPageWidgetCustomizationsPtrOutput struct{ *pulumi.OutputState }
+
+func (PreviewSigninPageWidgetCustomizationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PreviewSigninPageWidgetCustomizations)(nil)).Elem()
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) ToPreviewSigninPageWidgetCustomizationsPtrOutput() PreviewSigninPageWidgetCustomizationsPtrOutput {
+	return o
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) ToPreviewSigninPageWidgetCustomizationsPtrOutputWithContext(ctx context.Context) PreviewSigninPageWidgetCustomizationsPtrOutput {
+	return o
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) Elem() PreviewSigninPageWidgetCustomizationsOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) PreviewSigninPageWidgetCustomizations {
+		if v != nil {
+			return *v
+		}
+		var ret PreviewSigninPageWidgetCustomizations
+		return ret
+	}).(PreviewSigninPageWidgetCustomizationsOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) AuthenticatorPageCustomLinkLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticatorPageCustomLinkLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) AuthenticatorPageCustomLinkUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticatorPageCustomLinkUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) ClassicRecoveryFlowEmailOrUsernameLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClassicRecoveryFlowEmailOrUsernameLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) CustomLink1Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLink1Label
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) CustomLink1Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLink1Url
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) CustomLink2Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLink2Label
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) CustomLink2Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLink2Url
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) ForgotPasswordLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ForgotPasswordLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) ForgotPasswordUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ForgotPasswordUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) HelpLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HelpLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) HelpUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HelpUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) PasswordInfoTip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordInfoTip
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) PasswordLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) ShowPasswordVisibilityToggle() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShowPasswordVisibilityToggle
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) ShowUserIdentifier() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShowUserIdentifier
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) SignInLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SignInLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) UnlockAccountLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UnlockAccountLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) UnlockAccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UnlockAccountUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) UsernameInfoTip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameInfoTip
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) UsernameLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PreviewSigninPageWidgetCustomizationsPtrOutput) WidgetGeneration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WidgetGeneration
+	}).(pulumi.StringPtrOutput)
 }
 
 type TemplateSmsTranslation struct {
@@ -2077,6 +3646,732 @@ func (o GetBrandsBrandArrayOutput) Index(i pulumi.IntInput) GetBrandsBrandOutput
 	}).(GetBrandsBrandOutput)
 }
 
+type GetDefaultSigninPageContentSecurityPolicySetting struct {
+	// enforced or report_only
+	Mode      string   `pulumi:"mode"`
+	ReportUri string   `pulumi:"reportUri"`
+	SrcLists  []string `pulumi:"srcLists"`
+}
+
+// GetDefaultSigninPageContentSecurityPolicySettingInput is an input type that accepts GetDefaultSigninPageContentSecurityPolicySettingArgs and GetDefaultSigninPageContentSecurityPolicySettingOutput values.
+// You can construct a concrete instance of `GetDefaultSigninPageContentSecurityPolicySettingInput` via:
+//
+//	GetDefaultSigninPageContentSecurityPolicySettingArgs{...}
+type GetDefaultSigninPageContentSecurityPolicySettingInput interface {
+	pulumi.Input
+
+	ToGetDefaultSigninPageContentSecurityPolicySettingOutput() GetDefaultSigninPageContentSecurityPolicySettingOutput
+	ToGetDefaultSigninPageContentSecurityPolicySettingOutputWithContext(context.Context) GetDefaultSigninPageContentSecurityPolicySettingOutput
+}
+
+type GetDefaultSigninPageContentSecurityPolicySettingArgs struct {
+	// enforced or report_only
+	Mode      pulumi.StringInput      `pulumi:"mode"`
+	ReportUri pulumi.StringInput      `pulumi:"reportUri"`
+	SrcLists  pulumi.StringArrayInput `pulumi:"srcLists"`
+}
+
+func (GetDefaultSigninPageContentSecurityPolicySettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDefaultSigninPageContentSecurityPolicySetting)(nil)).Elem()
+}
+
+func (i GetDefaultSigninPageContentSecurityPolicySettingArgs) ToGetDefaultSigninPageContentSecurityPolicySettingOutput() GetDefaultSigninPageContentSecurityPolicySettingOutput {
+	return i.ToGetDefaultSigninPageContentSecurityPolicySettingOutputWithContext(context.Background())
+}
+
+func (i GetDefaultSigninPageContentSecurityPolicySettingArgs) ToGetDefaultSigninPageContentSecurityPolicySettingOutputWithContext(ctx context.Context) GetDefaultSigninPageContentSecurityPolicySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDefaultSigninPageContentSecurityPolicySettingOutput)
+}
+
+func (i GetDefaultSigninPageContentSecurityPolicySettingArgs) ToGetDefaultSigninPageContentSecurityPolicySettingPtrOutput() GetDefaultSigninPageContentSecurityPolicySettingPtrOutput {
+	return i.ToGetDefaultSigninPageContentSecurityPolicySettingPtrOutputWithContext(context.Background())
+}
+
+func (i GetDefaultSigninPageContentSecurityPolicySettingArgs) ToGetDefaultSigninPageContentSecurityPolicySettingPtrOutputWithContext(ctx context.Context) GetDefaultSigninPageContentSecurityPolicySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDefaultSigninPageContentSecurityPolicySettingOutput).ToGetDefaultSigninPageContentSecurityPolicySettingPtrOutputWithContext(ctx)
+}
+
+// GetDefaultSigninPageContentSecurityPolicySettingPtrInput is an input type that accepts GetDefaultSigninPageContentSecurityPolicySettingArgs, GetDefaultSigninPageContentSecurityPolicySettingPtr and GetDefaultSigninPageContentSecurityPolicySettingPtrOutput values.
+// You can construct a concrete instance of `GetDefaultSigninPageContentSecurityPolicySettingPtrInput` via:
+//
+//	        GetDefaultSigninPageContentSecurityPolicySettingArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDefaultSigninPageContentSecurityPolicySettingPtrInput interface {
+	pulumi.Input
+
+	ToGetDefaultSigninPageContentSecurityPolicySettingPtrOutput() GetDefaultSigninPageContentSecurityPolicySettingPtrOutput
+	ToGetDefaultSigninPageContentSecurityPolicySettingPtrOutputWithContext(context.Context) GetDefaultSigninPageContentSecurityPolicySettingPtrOutput
+}
+
+type getDefaultSigninPageContentSecurityPolicySettingPtrType GetDefaultSigninPageContentSecurityPolicySettingArgs
+
+func GetDefaultSigninPageContentSecurityPolicySettingPtr(v *GetDefaultSigninPageContentSecurityPolicySettingArgs) GetDefaultSigninPageContentSecurityPolicySettingPtrInput {
+	return (*getDefaultSigninPageContentSecurityPolicySettingPtrType)(v)
+}
+
+func (*getDefaultSigninPageContentSecurityPolicySettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDefaultSigninPageContentSecurityPolicySetting)(nil)).Elem()
+}
+
+func (i *getDefaultSigninPageContentSecurityPolicySettingPtrType) ToGetDefaultSigninPageContentSecurityPolicySettingPtrOutput() GetDefaultSigninPageContentSecurityPolicySettingPtrOutput {
+	return i.ToGetDefaultSigninPageContentSecurityPolicySettingPtrOutputWithContext(context.Background())
+}
+
+func (i *getDefaultSigninPageContentSecurityPolicySettingPtrType) ToGetDefaultSigninPageContentSecurityPolicySettingPtrOutputWithContext(ctx context.Context) GetDefaultSigninPageContentSecurityPolicySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDefaultSigninPageContentSecurityPolicySettingPtrOutput)
+}
+
+type GetDefaultSigninPageContentSecurityPolicySettingOutput struct{ *pulumi.OutputState }
+
+func (GetDefaultSigninPageContentSecurityPolicySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDefaultSigninPageContentSecurityPolicySetting)(nil)).Elem()
+}
+
+func (o GetDefaultSigninPageContentSecurityPolicySettingOutput) ToGetDefaultSigninPageContentSecurityPolicySettingOutput() GetDefaultSigninPageContentSecurityPolicySettingOutput {
+	return o
+}
+
+func (o GetDefaultSigninPageContentSecurityPolicySettingOutput) ToGetDefaultSigninPageContentSecurityPolicySettingOutputWithContext(ctx context.Context) GetDefaultSigninPageContentSecurityPolicySettingOutput {
+	return o
+}
+
+func (o GetDefaultSigninPageContentSecurityPolicySettingOutput) ToGetDefaultSigninPageContentSecurityPolicySettingPtrOutput() GetDefaultSigninPageContentSecurityPolicySettingPtrOutput {
+	return o.ToGetDefaultSigninPageContentSecurityPolicySettingPtrOutputWithContext(context.Background())
+}
+
+func (o GetDefaultSigninPageContentSecurityPolicySettingOutput) ToGetDefaultSigninPageContentSecurityPolicySettingPtrOutputWithContext(ctx context.Context) GetDefaultSigninPageContentSecurityPolicySettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDefaultSigninPageContentSecurityPolicySetting) *GetDefaultSigninPageContentSecurityPolicySetting {
+		return &v
+	}).(GetDefaultSigninPageContentSecurityPolicySettingPtrOutput)
+}
+
+// enforced or report_only
+func (o GetDefaultSigninPageContentSecurityPolicySettingOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageContentSecurityPolicySetting) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageContentSecurityPolicySettingOutput) ReportUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageContentSecurityPolicySetting) string { return v.ReportUri }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageContentSecurityPolicySettingOutput) SrcLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageContentSecurityPolicySetting) []string { return v.SrcLists }).(pulumi.StringArrayOutput)
+}
+
+type GetDefaultSigninPageContentSecurityPolicySettingPtrOutput struct{ *pulumi.OutputState }
+
+func (GetDefaultSigninPageContentSecurityPolicySettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDefaultSigninPageContentSecurityPolicySetting)(nil)).Elem()
+}
+
+func (o GetDefaultSigninPageContentSecurityPolicySettingPtrOutput) ToGetDefaultSigninPageContentSecurityPolicySettingPtrOutput() GetDefaultSigninPageContentSecurityPolicySettingPtrOutput {
+	return o
+}
+
+func (o GetDefaultSigninPageContentSecurityPolicySettingPtrOutput) ToGetDefaultSigninPageContentSecurityPolicySettingPtrOutputWithContext(ctx context.Context) GetDefaultSigninPageContentSecurityPolicySettingPtrOutput {
+	return o
+}
+
+func (o GetDefaultSigninPageContentSecurityPolicySettingPtrOutput) Elem() GetDefaultSigninPageContentSecurityPolicySettingOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageContentSecurityPolicySetting) GetDefaultSigninPageContentSecurityPolicySetting {
+		if v != nil {
+			return *v
+		}
+		var ret GetDefaultSigninPageContentSecurityPolicySetting
+		return ret
+	}).(GetDefaultSigninPageContentSecurityPolicySettingOutput)
+}
+
+// enforced or report_only
+func (o GetDefaultSigninPageContentSecurityPolicySettingPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageContentSecurityPolicySetting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageContentSecurityPolicySettingPtrOutput) ReportUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageContentSecurityPolicySetting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReportUri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageContentSecurityPolicySettingPtrOutput) SrcLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageContentSecurityPolicySetting) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SrcLists
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetDefaultSigninPageWidgetCustomizations struct {
+	AuthenticatorPageCustomLinkLabel        string `pulumi:"authenticatorPageCustomLinkLabel"`
+	AuthenticatorPageCustomLinkUrl          string `pulumi:"authenticatorPageCustomLinkUrl"`
+	ClassicRecoveryFlowEmailOrUsernameLabel string `pulumi:"classicRecoveryFlowEmailOrUsernameLabel"`
+	CustomLink1Label                        string `pulumi:"customLink1Label"`
+	CustomLink1Url                          string `pulumi:"customLink1Url"`
+	CustomLink2Label                        string `pulumi:"customLink2Label"`
+	CustomLink2Url                          string `pulumi:"customLink2Url"`
+	ForgotPasswordLabel                     string `pulumi:"forgotPasswordLabel"`
+	ForgotPasswordUrl                       string `pulumi:"forgotPasswordUrl"`
+	HelpLabel                               string `pulumi:"helpLabel"`
+	HelpUrl                                 string `pulumi:"helpUrl"`
+	PasswordInfoTip                         string `pulumi:"passwordInfoTip"`
+	PasswordLabel                           string `pulumi:"passwordLabel"`
+	ShowPasswordVisibilityToggle            bool   `pulumi:"showPasswordVisibilityToggle"`
+	ShowUserIdentifier                      bool   `pulumi:"showUserIdentifier"`
+	SignInLabel                             string `pulumi:"signInLabel"`
+	UnlockAccountLabel                      string `pulumi:"unlockAccountLabel"`
+	UnlockAccountUrl                        string `pulumi:"unlockAccountUrl"`
+	UsernameInfoTip                         string `pulumi:"usernameInfoTip"`
+	UsernameLabel                           string `pulumi:"usernameLabel"`
+	WidgetGeneration                        string `pulumi:"widgetGeneration"`
+}
+
+// GetDefaultSigninPageWidgetCustomizationsInput is an input type that accepts GetDefaultSigninPageWidgetCustomizationsArgs and GetDefaultSigninPageWidgetCustomizationsOutput values.
+// You can construct a concrete instance of `GetDefaultSigninPageWidgetCustomizationsInput` via:
+//
+//	GetDefaultSigninPageWidgetCustomizationsArgs{...}
+type GetDefaultSigninPageWidgetCustomizationsInput interface {
+	pulumi.Input
+
+	ToGetDefaultSigninPageWidgetCustomizationsOutput() GetDefaultSigninPageWidgetCustomizationsOutput
+	ToGetDefaultSigninPageWidgetCustomizationsOutputWithContext(context.Context) GetDefaultSigninPageWidgetCustomizationsOutput
+}
+
+type GetDefaultSigninPageWidgetCustomizationsArgs struct {
+	AuthenticatorPageCustomLinkLabel        pulumi.StringInput `pulumi:"authenticatorPageCustomLinkLabel"`
+	AuthenticatorPageCustomLinkUrl          pulumi.StringInput `pulumi:"authenticatorPageCustomLinkUrl"`
+	ClassicRecoveryFlowEmailOrUsernameLabel pulumi.StringInput `pulumi:"classicRecoveryFlowEmailOrUsernameLabel"`
+	CustomLink1Label                        pulumi.StringInput `pulumi:"customLink1Label"`
+	CustomLink1Url                          pulumi.StringInput `pulumi:"customLink1Url"`
+	CustomLink2Label                        pulumi.StringInput `pulumi:"customLink2Label"`
+	CustomLink2Url                          pulumi.StringInput `pulumi:"customLink2Url"`
+	ForgotPasswordLabel                     pulumi.StringInput `pulumi:"forgotPasswordLabel"`
+	ForgotPasswordUrl                       pulumi.StringInput `pulumi:"forgotPasswordUrl"`
+	HelpLabel                               pulumi.StringInput `pulumi:"helpLabel"`
+	HelpUrl                                 pulumi.StringInput `pulumi:"helpUrl"`
+	PasswordInfoTip                         pulumi.StringInput `pulumi:"passwordInfoTip"`
+	PasswordLabel                           pulumi.StringInput `pulumi:"passwordLabel"`
+	ShowPasswordVisibilityToggle            pulumi.BoolInput   `pulumi:"showPasswordVisibilityToggle"`
+	ShowUserIdentifier                      pulumi.BoolInput   `pulumi:"showUserIdentifier"`
+	SignInLabel                             pulumi.StringInput `pulumi:"signInLabel"`
+	UnlockAccountLabel                      pulumi.StringInput `pulumi:"unlockAccountLabel"`
+	UnlockAccountUrl                        pulumi.StringInput `pulumi:"unlockAccountUrl"`
+	UsernameInfoTip                         pulumi.StringInput `pulumi:"usernameInfoTip"`
+	UsernameLabel                           pulumi.StringInput `pulumi:"usernameLabel"`
+	WidgetGeneration                        pulumi.StringInput `pulumi:"widgetGeneration"`
+}
+
+func (GetDefaultSigninPageWidgetCustomizationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDefaultSigninPageWidgetCustomizations)(nil)).Elem()
+}
+
+func (i GetDefaultSigninPageWidgetCustomizationsArgs) ToGetDefaultSigninPageWidgetCustomizationsOutput() GetDefaultSigninPageWidgetCustomizationsOutput {
+	return i.ToGetDefaultSigninPageWidgetCustomizationsOutputWithContext(context.Background())
+}
+
+func (i GetDefaultSigninPageWidgetCustomizationsArgs) ToGetDefaultSigninPageWidgetCustomizationsOutputWithContext(ctx context.Context) GetDefaultSigninPageWidgetCustomizationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDefaultSigninPageWidgetCustomizationsOutput)
+}
+
+func (i GetDefaultSigninPageWidgetCustomizationsArgs) ToGetDefaultSigninPageWidgetCustomizationsPtrOutput() GetDefaultSigninPageWidgetCustomizationsPtrOutput {
+	return i.ToGetDefaultSigninPageWidgetCustomizationsPtrOutputWithContext(context.Background())
+}
+
+func (i GetDefaultSigninPageWidgetCustomizationsArgs) ToGetDefaultSigninPageWidgetCustomizationsPtrOutputWithContext(ctx context.Context) GetDefaultSigninPageWidgetCustomizationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDefaultSigninPageWidgetCustomizationsOutput).ToGetDefaultSigninPageWidgetCustomizationsPtrOutputWithContext(ctx)
+}
+
+// GetDefaultSigninPageWidgetCustomizationsPtrInput is an input type that accepts GetDefaultSigninPageWidgetCustomizationsArgs, GetDefaultSigninPageWidgetCustomizationsPtr and GetDefaultSigninPageWidgetCustomizationsPtrOutput values.
+// You can construct a concrete instance of `GetDefaultSigninPageWidgetCustomizationsPtrInput` via:
+//
+//	        GetDefaultSigninPageWidgetCustomizationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDefaultSigninPageWidgetCustomizationsPtrInput interface {
+	pulumi.Input
+
+	ToGetDefaultSigninPageWidgetCustomizationsPtrOutput() GetDefaultSigninPageWidgetCustomizationsPtrOutput
+	ToGetDefaultSigninPageWidgetCustomizationsPtrOutputWithContext(context.Context) GetDefaultSigninPageWidgetCustomizationsPtrOutput
+}
+
+type getDefaultSigninPageWidgetCustomizationsPtrType GetDefaultSigninPageWidgetCustomizationsArgs
+
+func GetDefaultSigninPageWidgetCustomizationsPtr(v *GetDefaultSigninPageWidgetCustomizationsArgs) GetDefaultSigninPageWidgetCustomizationsPtrInput {
+	return (*getDefaultSigninPageWidgetCustomizationsPtrType)(v)
+}
+
+func (*getDefaultSigninPageWidgetCustomizationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDefaultSigninPageWidgetCustomizations)(nil)).Elem()
+}
+
+func (i *getDefaultSigninPageWidgetCustomizationsPtrType) ToGetDefaultSigninPageWidgetCustomizationsPtrOutput() GetDefaultSigninPageWidgetCustomizationsPtrOutput {
+	return i.ToGetDefaultSigninPageWidgetCustomizationsPtrOutputWithContext(context.Background())
+}
+
+func (i *getDefaultSigninPageWidgetCustomizationsPtrType) ToGetDefaultSigninPageWidgetCustomizationsPtrOutputWithContext(ctx context.Context) GetDefaultSigninPageWidgetCustomizationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDefaultSigninPageWidgetCustomizationsPtrOutput)
+}
+
+type GetDefaultSigninPageWidgetCustomizationsOutput struct{ *pulumi.OutputState }
+
+func (GetDefaultSigninPageWidgetCustomizationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDefaultSigninPageWidgetCustomizations)(nil)).Elem()
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) ToGetDefaultSigninPageWidgetCustomizationsOutput() GetDefaultSigninPageWidgetCustomizationsOutput {
+	return o
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) ToGetDefaultSigninPageWidgetCustomizationsOutputWithContext(ctx context.Context) GetDefaultSigninPageWidgetCustomizationsOutput {
+	return o
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) ToGetDefaultSigninPageWidgetCustomizationsPtrOutput() GetDefaultSigninPageWidgetCustomizationsPtrOutput {
+	return o.ToGetDefaultSigninPageWidgetCustomizationsPtrOutputWithContext(context.Background())
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) ToGetDefaultSigninPageWidgetCustomizationsPtrOutputWithContext(ctx context.Context) GetDefaultSigninPageWidgetCustomizationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDefaultSigninPageWidgetCustomizations) *GetDefaultSigninPageWidgetCustomizations {
+		return &v
+	}).(GetDefaultSigninPageWidgetCustomizationsPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) AuthenticatorPageCustomLinkLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.AuthenticatorPageCustomLinkLabel }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) AuthenticatorPageCustomLinkUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.AuthenticatorPageCustomLinkUrl }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) ClassicRecoveryFlowEmailOrUsernameLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string {
+		return v.ClassicRecoveryFlowEmailOrUsernameLabel
+	}).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) CustomLink1Label() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.CustomLink1Label }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) CustomLink1Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.CustomLink1Url }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) CustomLink2Label() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.CustomLink2Label }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) CustomLink2Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.CustomLink2Url }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) ForgotPasswordLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.ForgotPasswordLabel }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) ForgotPasswordUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.ForgotPasswordUrl }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) HelpLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.HelpLabel }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) HelpUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.HelpUrl }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) PasswordInfoTip() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.PasswordInfoTip }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) PasswordLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.PasswordLabel }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) ShowPasswordVisibilityToggle() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) bool { return v.ShowPasswordVisibilityToggle }).(pulumi.BoolOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) ShowUserIdentifier() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) bool { return v.ShowUserIdentifier }).(pulumi.BoolOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) SignInLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.SignInLabel }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) UnlockAccountLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.UnlockAccountLabel }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) UnlockAccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.UnlockAccountUrl }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) UsernameInfoTip() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.UsernameInfoTip }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) UsernameLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.UsernameLabel }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsOutput) WidgetGeneration() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultSigninPageWidgetCustomizations) string { return v.WidgetGeneration }).(pulumi.StringOutput)
+}
+
+type GetDefaultSigninPageWidgetCustomizationsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetDefaultSigninPageWidgetCustomizationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDefaultSigninPageWidgetCustomizations)(nil)).Elem()
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) ToGetDefaultSigninPageWidgetCustomizationsPtrOutput() GetDefaultSigninPageWidgetCustomizationsPtrOutput {
+	return o
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) ToGetDefaultSigninPageWidgetCustomizationsPtrOutputWithContext(ctx context.Context) GetDefaultSigninPageWidgetCustomizationsPtrOutput {
+	return o
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) Elem() GetDefaultSigninPageWidgetCustomizationsOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) GetDefaultSigninPageWidgetCustomizations {
+		if v != nil {
+			return *v
+		}
+		var ret GetDefaultSigninPageWidgetCustomizations
+		return ret
+	}).(GetDefaultSigninPageWidgetCustomizationsOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) AuthenticatorPageCustomLinkLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthenticatorPageCustomLinkLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) AuthenticatorPageCustomLinkUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthenticatorPageCustomLinkUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) ClassicRecoveryFlowEmailOrUsernameLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClassicRecoveryFlowEmailOrUsernameLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) CustomLink1Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CustomLink1Label
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) CustomLink1Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CustomLink1Url
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) CustomLink2Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CustomLink2Label
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) CustomLink2Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CustomLink2Url
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) ForgotPasswordLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ForgotPasswordLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) ForgotPasswordUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ForgotPasswordUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) HelpLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HelpLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) HelpUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HelpUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) PasswordInfoTip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PasswordInfoTip
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) PasswordLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PasswordLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) ShowPasswordVisibilityToggle() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ShowPasswordVisibilityToggle
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) ShowUserIdentifier() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ShowUserIdentifier
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) SignInLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SignInLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) UnlockAccountLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UnlockAccountLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) UnlockAccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UnlockAccountUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) UsernameInfoTip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UsernameInfoTip
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) UsernameLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UsernameLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) WidgetGeneration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDefaultSigninPageWidgetCustomizations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WidgetGeneration
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetDomainDnsRecord struct {
+	// TXT record expiration.
+	Expiration string `pulumi:"expiration"`
+	// DNS record name.
+	Fqdn string `pulumi:"fqdn"`
+	// Record type can be TXT or CNAME.
+	RecordType string `pulumi:"recordType"`
+	// DNS verification value
+	Values []string `pulumi:"values"`
+}
+
+// GetDomainDnsRecordInput is an input type that accepts GetDomainDnsRecordArgs and GetDomainDnsRecordOutput values.
+// You can construct a concrete instance of `GetDomainDnsRecordInput` via:
+//
+//	GetDomainDnsRecordArgs{...}
+type GetDomainDnsRecordInput interface {
+	pulumi.Input
+
+	ToGetDomainDnsRecordOutput() GetDomainDnsRecordOutput
+	ToGetDomainDnsRecordOutputWithContext(context.Context) GetDomainDnsRecordOutput
+}
+
+type GetDomainDnsRecordArgs struct {
+	// TXT record expiration.
+	Expiration pulumi.StringInput `pulumi:"expiration"`
+	// DNS record name.
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
+	// Record type can be TXT or CNAME.
+	RecordType pulumi.StringInput `pulumi:"recordType"`
+	// DNS verification value
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetDomainDnsRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainDnsRecord)(nil)).Elem()
+}
+
+func (i GetDomainDnsRecordArgs) ToGetDomainDnsRecordOutput() GetDomainDnsRecordOutput {
+	return i.ToGetDomainDnsRecordOutputWithContext(context.Background())
+}
+
+func (i GetDomainDnsRecordArgs) ToGetDomainDnsRecordOutputWithContext(ctx context.Context) GetDomainDnsRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainDnsRecordOutput)
+}
+
+// GetDomainDnsRecordArrayInput is an input type that accepts GetDomainDnsRecordArray and GetDomainDnsRecordArrayOutput values.
+// You can construct a concrete instance of `GetDomainDnsRecordArrayInput` via:
+//
+//	GetDomainDnsRecordArray{ GetDomainDnsRecordArgs{...} }
+type GetDomainDnsRecordArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainDnsRecordArrayOutput() GetDomainDnsRecordArrayOutput
+	ToGetDomainDnsRecordArrayOutputWithContext(context.Context) GetDomainDnsRecordArrayOutput
+}
+
+type GetDomainDnsRecordArray []GetDomainDnsRecordInput
+
+func (GetDomainDnsRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainDnsRecord)(nil)).Elem()
+}
+
+func (i GetDomainDnsRecordArray) ToGetDomainDnsRecordArrayOutput() GetDomainDnsRecordArrayOutput {
+	return i.ToGetDomainDnsRecordArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainDnsRecordArray) ToGetDomainDnsRecordArrayOutputWithContext(ctx context.Context) GetDomainDnsRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainDnsRecordArrayOutput)
+}
+
+type GetDomainDnsRecordOutput struct{ *pulumi.OutputState }
+
+func (GetDomainDnsRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainDnsRecord)(nil)).Elem()
+}
+
+func (o GetDomainDnsRecordOutput) ToGetDomainDnsRecordOutput() GetDomainDnsRecordOutput {
+	return o
+}
+
+func (o GetDomainDnsRecordOutput) ToGetDomainDnsRecordOutputWithContext(ctx context.Context) GetDomainDnsRecordOutput {
+	return o
+}
+
+// TXT record expiration.
+func (o GetDomainDnsRecordOutput) Expiration() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainDnsRecord) string { return v.Expiration }).(pulumi.StringOutput)
+}
+
+// DNS record name.
+func (o GetDomainDnsRecordOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainDnsRecord) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// Record type can be TXT or CNAME.
+func (o GetDomainDnsRecordOutput) RecordType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainDnsRecord) string { return v.RecordType }).(pulumi.StringOutput)
+}
+
+// DNS verification value
+func (o GetDomainDnsRecordOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDomainDnsRecord) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetDomainDnsRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainDnsRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainDnsRecord)(nil)).Elem()
+}
+
+func (o GetDomainDnsRecordArrayOutput) ToGetDomainDnsRecordArrayOutput() GetDomainDnsRecordArrayOutput {
+	return o
+}
+
+func (o GetDomainDnsRecordArrayOutput) ToGetDomainDnsRecordArrayOutputWithContext(ctx context.Context) GetDomainDnsRecordArrayOutput {
+	return o
+}
+
+func (o GetDomainDnsRecordArrayOutput) Index(i pulumi.IntInput) GetDomainDnsRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainDnsRecord {
+		return vs[0].([]GetDomainDnsRecord)[vs[1].(int)]
+	}).(GetDomainDnsRecordOutput)
+}
+
 type GetEmailCustomizationsEmailCustomization struct {
 	// The body of the customization
 	Body string `pulumi:"body"`
@@ -2353,6 +4648,561 @@ func (o GetGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetGroupsGroupOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupsGroup {
 		return vs[0].([]GetGroupsGroup)[vs[1].(int)]
 	}).(GetGroupsGroupOutput)
+}
+
+type GetLogStreamSettings struct {
+	// AWS account ID. Required only for 'aws_eventbridge' type
+	AccountId string `pulumi:"accountId"`
+	// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+	Edition string `pulumi:"edition"`
+	// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
+	EventSourceName string `pulumi:"eventSourceName"`
+	// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+	Host string `pulumi:"host"`
+	// The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
+	Region string `pulumi:"region"`
+	// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+	Token string `pulumi:"token"`
+}
+
+// GetLogStreamSettingsInput is an input type that accepts GetLogStreamSettingsArgs and GetLogStreamSettingsOutput values.
+// You can construct a concrete instance of `GetLogStreamSettingsInput` via:
+//
+//	GetLogStreamSettingsArgs{...}
+type GetLogStreamSettingsInput interface {
+	pulumi.Input
+
+	ToGetLogStreamSettingsOutput() GetLogStreamSettingsOutput
+	ToGetLogStreamSettingsOutputWithContext(context.Context) GetLogStreamSettingsOutput
+}
+
+type GetLogStreamSettingsArgs struct {
+	// AWS account ID. Required only for 'aws_eventbridge' type
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+	Edition pulumi.StringInput `pulumi:"edition"`
+	// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
+	EventSourceName pulumi.StringInput `pulumi:"eventSourceName"`
+	// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+	Host pulumi.StringInput `pulumi:"host"`
+	// The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
+	Region pulumi.StringInput `pulumi:"region"`
+	// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+	Token pulumi.StringInput `pulumi:"token"`
+}
+
+func (GetLogStreamSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogStreamSettings)(nil)).Elem()
+}
+
+func (i GetLogStreamSettingsArgs) ToGetLogStreamSettingsOutput() GetLogStreamSettingsOutput {
+	return i.ToGetLogStreamSettingsOutputWithContext(context.Background())
+}
+
+func (i GetLogStreamSettingsArgs) ToGetLogStreamSettingsOutputWithContext(ctx context.Context) GetLogStreamSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogStreamSettingsOutput)
+}
+
+func (i GetLogStreamSettingsArgs) ToGetLogStreamSettingsPtrOutput() GetLogStreamSettingsPtrOutput {
+	return i.ToGetLogStreamSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetLogStreamSettingsArgs) ToGetLogStreamSettingsPtrOutputWithContext(ctx context.Context) GetLogStreamSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogStreamSettingsOutput).ToGetLogStreamSettingsPtrOutputWithContext(ctx)
+}
+
+// GetLogStreamSettingsPtrInput is an input type that accepts GetLogStreamSettingsArgs, GetLogStreamSettingsPtr and GetLogStreamSettingsPtrOutput values.
+// You can construct a concrete instance of `GetLogStreamSettingsPtrInput` via:
+//
+//	        GetLogStreamSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetLogStreamSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetLogStreamSettingsPtrOutput() GetLogStreamSettingsPtrOutput
+	ToGetLogStreamSettingsPtrOutputWithContext(context.Context) GetLogStreamSettingsPtrOutput
+}
+
+type getLogStreamSettingsPtrType GetLogStreamSettingsArgs
+
+func GetLogStreamSettingsPtr(v *GetLogStreamSettingsArgs) GetLogStreamSettingsPtrInput {
+	return (*getLogStreamSettingsPtrType)(v)
+}
+
+func (*getLogStreamSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogStreamSettings)(nil)).Elem()
+}
+
+func (i *getLogStreamSettingsPtrType) ToGetLogStreamSettingsPtrOutput() GetLogStreamSettingsPtrOutput {
+	return i.ToGetLogStreamSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getLogStreamSettingsPtrType) ToGetLogStreamSettingsPtrOutputWithContext(ctx context.Context) GetLogStreamSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogStreamSettingsPtrOutput)
+}
+
+type GetLogStreamSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetLogStreamSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogStreamSettings)(nil)).Elem()
+}
+
+func (o GetLogStreamSettingsOutput) ToGetLogStreamSettingsOutput() GetLogStreamSettingsOutput {
+	return o
+}
+
+func (o GetLogStreamSettingsOutput) ToGetLogStreamSettingsOutputWithContext(ctx context.Context) GetLogStreamSettingsOutput {
+	return o
+}
+
+func (o GetLogStreamSettingsOutput) ToGetLogStreamSettingsPtrOutput() GetLogStreamSettingsPtrOutput {
+	return o.ToGetLogStreamSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetLogStreamSettingsOutput) ToGetLogStreamSettingsPtrOutputWithContext(ctx context.Context) GetLogStreamSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetLogStreamSettings) *GetLogStreamSettings {
+		return &v
+	}).(GetLogStreamSettingsPtrOutput)
+}
+
+// AWS account ID. Required only for 'aws_eventbridge' type
+func (o GetLogStreamSettingsOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogStreamSettings) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+func (o GetLogStreamSettingsOutput) Edition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogStreamSettings) string { return v.Edition }).(pulumi.StringOutput)
+}
+
+// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
+func (o GetLogStreamSettingsOutput) EventSourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogStreamSettings) string { return v.EventSourceName }).(pulumi.StringOutput)
+}
+
+// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+func (o GetLogStreamSettingsOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogStreamSettings) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
+func (o GetLogStreamSettingsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogStreamSettings) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+func (o GetLogStreamSettingsOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogStreamSettings) string { return v.Token }).(pulumi.StringOutput)
+}
+
+type GetLogStreamSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetLogStreamSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogStreamSettings)(nil)).Elem()
+}
+
+func (o GetLogStreamSettingsPtrOutput) ToGetLogStreamSettingsPtrOutput() GetLogStreamSettingsPtrOutput {
+	return o
+}
+
+func (o GetLogStreamSettingsPtrOutput) ToGetLogStreamSettingsPtrOutputWithContext(ctx context.Context) GetLogStreamSettingsPtrOutput {
+	return o
+}
+
+func (o GetLogStreamSettingsPtrOutput) Elem() GetLogStreamSettingsOutput {
+	return o.ApplyT(func(v *GetLogStreamSettings) GetLogStreamSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetLogStreamSettings
+		return ret
+	}).(GetLogStreamSettingsOutput)
+}
+
+// AWS account ID. Required only for 'aws_eventbridge' type
+func (o GetLogStreamSettingsPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetLogStreamSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+func (o GetLogStreamSettingsPtrOutput) Edition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetLogStreamSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Edition
+	}).(pulumi.StringPtrOutput)
+}
+
+// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
+func (o GetLogStreamSettingsPtrOutput) EventSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetLogStreamSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventSourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+func (o GetLogStreamSettingsPtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetLogStreamSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Host
+	}).(pulumi.StringPtrOutput)
+}
+
+// The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
+func (o GetLogStreamSettingsPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetLogStreamSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+func (o GetLogStreamSettingsPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetLogStreamSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetOrgMetadataDomains struct {
+	// Custom Domain Org URI
+	Alternate string `pulumi:"alternate"`
+	// Standard Org URI
+	Organization string `pulumi:"organization"`
+}
+
+// GetOrgMetadataDomainsInput is an input type that accepts GetOrgMetadataDomainsArgs and GetOrgMetadataDomainsOutput values.
+// You can construct a concrete instance of `GetOrgMetadataDomainsInput` via:
+//
+//	GetOrgMetadataDomainsArgs{...}
+type GetOrgMetadataDomainsInput interface {
+	pulumi.Input
+
+	ToGetOrgMetadataDomainsOutput() GetOrgMetadataDomainsOutput
+	ToGetOrgMetadataDomainsOutputWithContext(context.Context) GetOrgMetadataDomainsOutput
+}
+
+type GetOrgMetadataDomainsArgs struct {
+	// Custom Domain Org URI
+	Alternate pulumi.StringInput `pulumi:"alternate"`
+	// Standard Org URI
+	Organization pulumi.StringInput `pulumi:"organization"`
+}
+
+func (GetOrgMetadataDomainsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrgMetadataDomains)(nil)).Elem()
+}
+
+func (i GetOrgMetadataDomainsArgs) ToGetOrgMetadataDomainsOutput() GetOrgMetadataDomainsOutput {
+	return i.ToGetOrgMetadataDomainsOutputWithContext(context.Background())
+}
+
+func (i GetOrgMetadataDomainsArgs) ToGetOrgMetadataDomainsOutputWithContext(ctx context.Context) GetOrgMetadataDomainsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataDomainsOutput)
+}
+
+func (i GetOrgMetadataDomainsArgs) ToGetOrgMetadataDomainsPtrOutput() GetOrgMetadataDomainsPtrOutput {
+	return i.ToGetOrgMetadataDomainsPtrOutputWithContext(context.Background())
+}
+
+func (i GetOrgMetadataDomainsArgs) ToGetOrgMetadataDomainsPtrOutputWithContext(ctx context.Context) GetOrgMetadataDomainsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataDomainsOutput).ToGetOrgMetadataDomainsPtrOutputWithContext(ctx)
+}
+
+// GetOrgMetadataDomainsPtrInput is an input type that accepts GetOrgMetadataDomainsArgs, GetOrgMetadataDomainsPtr and GetOrgMetadataDomainsPtrOutput values.
+// You can construct a concrete instance of `GetOrgMetadataDomainsPtrInput` via:
+//
+//	        GetOrgMetadataDomainsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetOrgMetadataDomainsPtrInput interface {
+	pulumi.Input
+
+	ToGetOrgMetadataDomainsPtrOutput() GetOrgMetadataDomainsPtrOutput
+	ToGetOrgMetadataDomainsPtrOutputWithContext(context.Context) GetOrgMetadataDomainsPtrOutput
+}
+
+type getOrgMetadataDomainsPtrType GetOrgMetadataDomainsArgs
+
+func GetOrgMetadataDomainsPtr(v *GetOrgMetadataDomainsArgs) GetOrgMetadataDomainsPtrInput {
+	return (*getOrgMetadataDomainsPtrType)(v)
+}
+
+func (*getOrgMetadataDomainsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOrgMetadataDomains)(nil)).Elem()
+}
+
+func (i *getOrgMetadataDomainsPtrType) ToGetOrgMetadataDomainsPtrOutput() GetOrgMetadataDomainsPtrOutput {
+	return i.ToGetOrgMetadataDomainsPtrOutputWithContext(context.Background())
+}
+
+func (i *getOrgMetadataDomainsPtrType) ToGetOrgMetadataDomainsPtrOutputWithContext(ctx context.Context) GetOrgMetadataDomainsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataDomainsPtrOutput)
+}
+
+type GetOrgMetadataDomainsOutput struct{ *pulumi.OutputState }
+
+func (GetOrgMetadataDomainsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrgMetadataDomains)(nil)).Elem()
+}
+
+func (o GetOrgMetadataDomainsOutput) ToGetOrgMetadataDomainsOutput() GetOrgMetadataDomainsOutput {
+	return o
+}
+
+func (o GetOrgMetadataDomainsOutput) ToGetOrgMetadataDomainsOutputWithContext(ctx context.Context) GetOrgMetadataDomainsOutput {
+	return o
+}
+
+func (o GetOrgMetadataDomainsOutput) ToGetOrgMetadataDomainsPtrOutput() GetOrgMetadataDomainsPtrOutput {
+	return o.ToGetOrgMetadataDomainsPtrOutputWithContext(context.Background())
+}
+
+func (o GetOrgMetadataDomainsOutput) ToGetOrgMetadataDomainsPtrOutputWithContext(ctx context.Context) GetOrgMetadataDomainsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetOrgMetadataDomains) *GetOrgMetadataDomains {
+		return &v
+	}).(GetOrgMetadataDomainsPtrOutput)
+}
+
+// Custom Domain Org URI
+func (o GetOrgMetadataDomainsOutput) Alternate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrgMetadataDomains) string { return v.Alternate }).(pulumi.StringOutput)
+}
+
+// Standard Org URI
+func (o GetOrgMetadataDomainsOutput) Organization() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrgMetadataDomains) string { return v.Organization }).(pulumi.StringOutput)
+}
+
+type GetOrgMetadataDomainsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetOrgMetadataDomainsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOrgMetadataDomains)(nil)).Elem()
+}
+
+func (o GetOrgMetadataDomainsPtrOutput) ToGetOrgMetadataDomainsPtrOutput() GetOrgMetadataDomainsPtrOutput {
+	return o
+}
+
+func (o GetOrgMetadataDomainsPtrOutput) ToGetOrgMetadataDomainsPtrOutputWithContext(ctx context.Context) GetOrgMetadataDomainsPtrOutput {
+	return o
+}
+
+func (o GetOrgMetadataDomainsPtrOutput) Elem() GetOrgMetadataDomainsOutput {
+	return o.ApplyT(func(v *GetOrgMetadataDomains) GetOrgMetadataDomains {
+		if v != nil {
+			return *v
+		}
+		var ret GetOrgMetadataDomains
+		return ret
+	}).(GetOrgMetadataDomainsOutput)
+}
+
+// Custom Domain Org URI
+func (o GetOrgMetadataDomainsPtrOutput) Alternate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetOrgMetadataDomains) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Alternate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Standard Org URI
+func (o GetOrgMetadataDomainsPtrOutput) Organization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetOrgMetadataDomains) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Organization
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetOrgMetadataSettings struct {
+	AnalyticsCollectionEnabled bool `pulumi:"analyticsCollectionEnabled"`
+	BugReportingEnabled        bool `pulumi:"bugReportingEnabled"`
+	// Whether the legacy Okta Mobile application is enabled for the org
+	OmEnabled bool `pulumi:"omEnabled"`
+}
+
+// GetOrgMetadataSettingsInput is an input type that accepts GetOrgMetadataSettingsArgs and GetOrgMetadataSettingsOutput values.
+// You can construct a concrete instance of `GetOrgMetadataSettingsInput` via:
+//
+//	GetOrgMetadataSettingsArgs{...}
+type GetOrgMetadataSettingsInput interface {
+	pulumi.Input
+
+	ToGetOrgMetadataSettingsOutput() GetOrgMetadataSettingsOutput
+	ToGetOrgMetadataSettingsOutputWithContext(context.Context) GetOrgMetadataSettingsOutput
+}
+
+type GetOrgMetadataSettingsArgs struct {
+	AnalyticsCollectionEnabled pulumi.BoolInput `pulumi:"analyticsCollectionEnabled"`
+	BugReportingEnabled        pulumi.BoolInput `pulumi:"bugReportingEnabled"`
+	// Whether the legacy Okta Mobile application is enabled for the org
+	OmEnabled pulumi.BoolInput `pulumi:"omEnabled"`
+}
+
+func (GetOrgMetadataSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrgMetadataSettings)(nil)).Elem()
+}
+
+func (i GetOrgMetadataSettingsArgs) ToGetOrgMetadataSettingsOutput() GetOrgMetadataSettingsOutput {
+	return i.ToGetOrgMetadataSettingsOutputWithContext(context.Background())
+}
+
+func (i GetOrgMetadataSettingsArgs) ToGetOrgMetadataSettingsOutputWithContext(ctx context.Context) GetOrgMetadataSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataSettingsOutput)
+}
+
+func (i GetOrgMetadataSettingsArgs) ToGetOrgMetadataSettingsPtrOutput() GetOrgMetadataSettingsPtrOutput {
+	return i.ToGetOrgMetadataSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetOrgMetadataSettingsArgs) ToGetOrgMetadataSettingsPtrOutputWithContext(ctx context.Context) GetOrgMetadataSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataSettingsOutput).ToGetOrgMetadataSettingsPtrOutputWithContext(ctx)
+}
+
+// GetOrgMetadataSettingsPtrInput is an input type that accepts GetOrgMetadataSettingsArgs, GetOrgMetadataSettingsPtr and GetOrgMetadataSettingsPtrOutput values.
+// You can construct a concrete instance of `GetOrgMetadataSettingsPtrInput` via:
+//
+//	        GetOrgMetadataSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetOrgMetadataSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetOrgMetadataSettingsPtrOutput() GetOrgMetadataSettingsPtrOutput
+	ToGetOrgMetadataSettingsPtrOutputWithContext(context.Context) GetOrgMetadataSettingsPtrOutput
+}
+
+type getOrgMetadataSettingsPtrType GetOrgMetadataSettingsArgs
+
+func GetOrgMetadataSettingsPtr(v *GetOrgMetadataSettingsArgs) GetOrgMetadataSettingsPtrInput {
+	return (*getOrgMetadataSettingsPtrType)(v)
+}
+
+func (*getOrgMetadataSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOrgMetadataSettings)(nil)).Elem()
+}
+
+func (i *getOrgMetadataSettingsPtrType) ToGetOrgMetadataSettingsPtrOutput() GetOrgMetadataSettingsPtrOutput {
+	return i.ToGetOrgMetadataSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getOrgMetadataSettingsPtrType) ToGetOrgMetadataSettingsPtrOutputWithContext(ctx context.Context) GetOrgMetadataSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrgMetadataSettingsPtrOutput)
+}
+
+type GetOrgMetadataSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetOrgMetadataSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrgMetadataSettings)(nil)).Elem()
+}
+
+func (o GetOrgMetadataSettingsOutput) ToGetOrgMetadataSettingsOutput() GetOrgMetadataSettingsOutput {
+	return o
+}
+
+func (o GetOrgMetadataSettingsOutput) ToGetOrgMetadataSettingsOutputWithContext(ctx context.Context) GetOrgMetadataSettingsOutput {
+	return o
+}
+
+func (o GetOrgMetadataSettingsOutput) ToGetOrgMetadataSettingsPtrOutput() GetOrgMetadataSettingsPtrOutput {
+	return o.ToGetOrgMetadataSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetOrgMetadataSettingsOutput) ToGetOrgMetadataSettingsPtrOutputWithContext(ctx context.Context) GetOrgMetadataSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetOrgMetadataSettings) *GetOrgMetadataSettings {
+		return &v
+	}).(GetOrgMetadataSettingsPtrOutput)
+}
+
+func (o GetOrgMetadataSettingsOutput) AnalyticsCollectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrgMetadataSettings) bool { return v.AnalyticsCollectionEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetOrgMetadataSettingsOutput) BugReportingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrgMetadataSettings) bool { return v.BugReportingEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether the legacy Okta Mobile application is enabled for the org
+func (o GetOrgMetadataSettingsOutput) OmEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrgMetadataSettings) bool { return v.OmEnabled }).(pulumi.BoolOutput)
+}
+
+type GetOrgMetadataSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetOrgMetadataSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOrgMetadataSettings)(nil)).Elem()
+}
+
+func (o GetOrgMetadataSettingsPtrOutput) ToGetOrgMetadataSettingsPtrOutput() GetOrgMetadataSettingsPtrOutput {
+	return o
+}
+
+func (o GetOrgMetadataSettingsPtrOutput) ToGetOrgMetadataSettingsPtrOutputWithContext(ctx context.Context) GetOrgMetadataSettingsPtrOutput {
+	return o
+}
+
+func (o GetOrgMetadataSettingsPtrOutput) Elem() GetOrgMetadataSettingsOutput {
+	return o.ApplyT(func(v *GetOrgMetadataSettings) GetOrgMetadataSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetOrgMetadataSettings
+		return ret
+	}).(GetOrgMetadataSettingsOutput)
+}
+
+func (o GetOrgMetadataSettingsPtrOutput) AnalyticsCollectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetOrgMetadataSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnalyticsCollectionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetOrgMetadataSettingsPtrOutput) BugReportingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetOrgMetadataSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.BugReportingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the legacy Okta Mobile application is enabled for the org
+func (o GetOrgMetadataSettingsPtrOutput) OmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetOrgMetadataSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.OmEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type GetTemplatesEmailTemplate struct {
@@ -2914,8 +5764,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyArrayOneOfArrayInput)(nil)).Elem(), AppUserSchemaPropertyArrayOneOfArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyOneOfInput)(nil)).Elem(), AppUserSchemaPropertyOneOfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyOneOfArrayInput)(nil)).Elem(), AppUserSchemaPropertyOneOfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomizedSigninPageContentSecurityPolicySettingInput)(nil)).Elem(), CustomizedSigninPageContentSecurityPolicySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomizedSigninPageContentSecurityPolicySettingPtrInput)(nil)).Elem(), CustomizedSigninPageContentSecurityPolicySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomizedSigninPageWidgetCustomizationsInput)(nil)).Elem(), CustomizedSigninPageWidgetCustomizationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomizedSigninPageWidgetCustomizationsPtrInput)(nil)).Elem(), CustomizedSigninPageWidgetCustomizationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDnsRecordInput)(nil)).Elem(), DomainDnsRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDnsRecordArrayInput)(nil)).Elem(), DomainDnsRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailDomainDnsValidationRecordInput)(nil)).Elem(), EmailDomainDnsValidationRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailDomainDnsValidationRecordArrayInput)(nil)).Elem(), EmailDomainDnsValidationRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailSenderDnsRecordInput)(nil)).Elem(), EmailSenderDnsRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailSenderDnsRecordArrayInput)(nil)).Elem(), EmailSenderDnsRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventHookHeaderInput)(nil)).Elem(), EventHookHeaderArgs{})
@@ -2926,8 +5782,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyMasterOverridePriorityArrayInput)(nil)).Elem(), GroupSchemaPropertyMasterOverridePriorityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyOneOfInput)(nil)).Elem(), GroupSchemaPropertyOneOfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyOneOfArrayInput)(nil)).Elem(), GroupSchemaPropertyOneOfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogStreamSettingsInput)(nil)).Elem(), LogStreamSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogStreamSettingsPtrInput)(nil)).Elem(), LogStreamSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleProfileEnrollmentProfileAttributeInput)(nil)).Elem(), PolicyRuleProfileEnrollmentProfileAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleProfileEnrollmentProfileAttributeArrayInput)(nil)).Elem(), PolicyRuleProfileEnrollmentProfileAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PreviewSigninPageContentSecurityPolicySettingInput)(nil)).Elem(), PreviewSigninPageContentSecurityPolicySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PreviewSigninPageContentSecurityPolicySettingPtrInput)(nil)).Elem(), PreviewSigninPageContentSecurityPolicySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PreviewSigninPageWidgetCustomizationsInput)(nil)).Elem(), PreviewSigninPageWidgetCustomizationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PreviewSigninPageWidgetCustomizationsPtrInput)(nil)).Elem(), PreviewSigninPageWidgetCustomizationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsTranslationInput)(nil)).Elem(), TemplateSmsTranslationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsTranslationArrayInput)(nil)).Elem(), TemplateSmsTranslationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyArrayOneOfInput)(nil)).Elem(), UserSchemaPropertyArrayOneOfArgs{})
@@ -2942,10 +5804,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBehavioursBehaviorArrayInput)(nil)).Elem(), GetBehavioursBehaviorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrandsBrandInput)(nil)).Elem(), GetBrandsBrandArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrandsBrandArrayInput)(nil)).Elem(), GetBrandsBrandArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDefaultSigninPageContentSecurityPolicySettingInput)(nil)).Elem(), GetDefaultSigninPageContentSecurityPolicySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDefaultSigninPageContentSecurityPolicySettingPtrInput)(nil)).Elem(), GetDefaultSigninPageContentSecurityPolicySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDefaultSigninPageWidgetCustomizationsInput)(nil)).Elem(), GetDefaultSigninPageWidgetCustomizationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDefaultSigninPageWidgetCustomizationsPtrInput)(nil)).Elem(), GetDefaultSigninPageWidgetCustomizationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainDnsRecordInput)(nil)).Elem(), GetDomainDnsRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainDnsRecordArrayInput)(nil)).Elem(), GetDomainDnsRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEmailCustomizationsEmailCustomizationInput)(nil)).Elem(), GetEmailCustomizationsEmailCustomizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEmailCustomizationsEmailCustomizationArrayInput)(nil)).Elem(), GetEmailCustomizationsEmailCustomizationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupInput)(nil)).Elem(), GetGroupsGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupArrayInput)(nil)).Elem(), GetGroupsGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogStreamSettingsInput)(nil)).Elem(), GetLogStreamSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogStreamSettingsPtrInput)(nil)).Elem(), GetLogStreamSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrgMetadataDomainsInput)(nil)).Elem(), GetOrgMetadataDomainsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrgMetadataDomainsPtrInput)(nil)).Elem(), GetOrgMetadataDomainsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrgMetadataSettingsInput)(nil)).Elem(), GetOrgMetadataSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrgMetadataSettingsPtrInput)(nil)).Elem(), GetOrgMetadataSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTemplatesEmailTemplateInput)(nil)).Elem(), GetTemplatesEmailTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTemplatesEmailTemplateArrayInput)(nil)).Elem(), GetTemplatesEmailTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThemesThemeInput)(nil)).Elem(), GetThemesThemeArgs{})
@@ -2962,8 +5836,14 @@ func init() {
 	pulumi.RegisterOutputType(AppUserSchemaPropertyArrayOneOfArrayOutput{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyOneOfOutput{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyOneOfArrayOutput{})
+	pulumi.RegisterOutputType(CustomizedSigninPageContentSecurityPolicySettingOutput{})
+	pulumi.RegisterOutputType(CustomizedSigninPageContentSecurityPolicySettingPtrOutput{})
+	pulumi.RegisterOutputType(CustomizedSigninPageWidgetCustomizationsOutput{})
+	pulumi.RegisterOutputType(CustomizedSigninPageWidgetCustomizationsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDnsRecordOutput{})
 	pulumi.RegisterOutputType(DomainDnsRecordArrayOutput{})
+	pulumi.RegisterOutputType(EmailDomainDnsValidationRecordOutput{})
+	pulumi.RegisterOutputType(EmailDomainDnsValidationRecordArrayOutput{})
 	pulumi.RegisterOutputType(EmailSenderDnsRecordOutput{})
 	pulumi.RegisterOutputType(EmailSenderDnsRecordArrayOutput{})
 	pulumi.RegisterOutputType(EventHookHeaderOutput{})
@@ -2974,8 +5854,14 @@ func init() {
 	pulumi.RegisterOutputType(GroupSchemaPropertyMasterOverridePriorityArrayOutput{})
 	pulumi.RegisterOutputType(GroupSchemaPropertyOneOfOutput{})
 	pulumi.RegisterOutputType(GroupSchemaPropertyOneOfArrayOutput{})
+	pulumi.RegisterOutputType(LogStreamSettingsOutput{})
+	pulumi.RegisterOutputType(LogStreamSettingsPtrOutput{})
 	pulumi.RegisterOutputType(PolicyRuleProfileEnrollmentProfileAttributeOutput{})
 	pulumi.RegisterOutputType(PolicyRuleProfileEnrollmentProfileAttributeArrayOutput{})
+	pulumi.RegisterOutputType(PreviewSigninPageContentSecurityPolicySettingOutput{})
+	pulumi.RegisterOutputType(PreviewSigninPageContentSecurityPolicySettingPtrOutput{})
+	pulumi.RegisterOutputType(PreviewSigninPageWidgetCustomizationsOutput{})
+	pulumi.RegisterOutputType(PreviewSigninPageWidgetCustomizationsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateSmsTranslationOutput{})
 	pulumi.RegisterOutputType(TemplateSmsTranslationArrayOutput{})
 	pulumi.RegisterOutputType(UserSchemaPropertyArrayOneOfOutput{})
@@ -2990,10 +5876,22 @@ func init() {
 	pulumi.RegisterOutputType(GetBehavioursBehaviorArrayOutput{})
 	pulumi.RegisterOutputType(GetBrandsBrandOutput{})
 	pulumi.RegisterOutputType(GetBrandsBrandArrayOutput{})
+	pulumi.RegisterOutputType(GetDefaultSigninPageContentSecurityPolicySettingOutput{})
+	pulumi.RegisterOutputType(GetDefaultSigninPageContentSecurityPolicySettingPtrOutput{})
+	pulumi.RegisterOutputType(GetDefaultSigninPageWidgetCustomizationsOutput{})
+	pulumi.RegisterOutputType(GetDefaultSigninPageWidgetCustomizationsPtrOutput{})
+	pulumi.RegisterOutputType(GetDomainDnsRecordOutput{})
+	pulumi.RegisterOutputType(GetDomainDnsRecordArrayOutput{})
 	pulumi.RegisterOutputType(GetEmailCustomizationsEmailCustomizationOutput{})
 	pulumi.RegisterOutputType(GetEmailCustomizationsEmailCustomizationArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetLogStreamSettingsOutput{})
+	pulumi.RegisterOutputType(GetLogStreamSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetOrgMetadataDomainsOutput{})
+	pulumi.RegisterOutputType(GetOrgMetadataDomainsPtrOutput{})
+	pulumi.RegisterOutputType(GetOrgMetadataSettingsOutput{})
+	pulumi.RegisterOutputType(GetOrgMetadataSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GetTemplatesEmailTemplateOutput{})
 	pulumi.RegisterOutputType(GetTemplatesEmailTemplateArrayOutput{})
 	pulumi.RegisterOutputType(GetThemesThemeOutput{})

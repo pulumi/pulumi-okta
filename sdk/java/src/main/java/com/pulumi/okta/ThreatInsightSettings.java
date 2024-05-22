@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ipNetworkZoneExample = new Zone("ipNetworkZoneExample", ZoneArgs.builder()        
+ *         var ipNetworkZoneExample = new Zone("ipNetworkZoneExample", ZoneArgs.builder()
  *             .name("example")
  *             .type("IP")
  *             .gateways(            
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *                 "3.3.4.5-3.3.4.15")
  *             .build());
  * 
- *         var example = new ThreatInsightSettings("example", ThreatInsightSettingsArgs.builder()        
+ *         var example = new ThreatInsightSettings("example", ThreatInsightSettingsArgs.builder()
  *             .action("block")
  *             .networkExcludes(ipNetworkZoneExample.id())
  *             .build());

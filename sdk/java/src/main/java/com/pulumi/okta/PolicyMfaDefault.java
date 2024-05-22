@@ -51,13 +51,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var classicExample = new PolicyMfaDefault("classicExample", PolicyMfaDefaultArgs.builder()        
+ *         var classicExample = new PolicyMfaDefault("classicExample", PolicyMfaDefaultArgs.builder()
  *             .isOie(false)
  *             .oktaPassword(Map.of("enroll", "REQUIRED"))
  *             .oktaOtp(Map.of("enroll", "REQUIRED"))
  *             .build());
  * 
- *         var oieExample = new PolicyMfaDefault("oieExample", PolicyMfaDefaultArgs.builder()        
+ *         var oieExample = new PolicyMfaDefault("oieExample", PolicyMfaDefaultArgs.builder()
  *             .isOie(true)
  *             .oktaPassword(Map.of("enroll", "REQUIRED"))
  *             .oktaVerify(Map.of("enroll", "REQUIRED"))

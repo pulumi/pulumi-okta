@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PolicyProfileEnrollment("example", PolicyProfileEnrollmentArgs.builder()        
+ *         var example = new PolicyProfileEnrollment("example", PolicyProfileEnrollmentArgs.builder()
  *             .name("example")
  *             .status("ACTIVE")
  *             .build());

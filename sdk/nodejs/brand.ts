@@ -50,6 +50,7 @@ export class Brand extends pulumi.CustomResource {
     public readonly agreeToCustomPrivacyPolicy!: pulumi.Output<boolean>;
     /**
      * (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
+     * - `DEPRECATED`: Please stop using this field as it has become noop.
      *
      * @deprecated Okta has fully support brand creation, this attribute is a no op and will be removed
      */
@@ -150,6 +151,7 @@ export interface BrandState {
     agreeToCustomPrivacyPolicy?: pulumi.Input<boolean>;
     /**
      * (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
+     * - `DEPRECATED`: Please stop using this field as it has become noop.
      *
      * @deprecated Okta has fully support brand creation, this attribute is a no op and will be removed
      */
@@ -206,6 +208,7 @@ export interface BrandArgs {
     agreeToCustomPrivacyPolicy?: pulumi.Input<boolean>;
     /**
      * (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
+     * - `DEPRECATED`: Please stop using this field as it has become noop.
      *
      * @deprecated Okta has fully support brand creation, this attribute is a no op and will be removed
      */

@@ -46,6 +46,7 @@ public class Brand extends com.pulumi.resources.CustomResource {
     }
     /**
      * (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+     * - `DEPRECATED`: Please stop using this field as it has become noop.
      * 
      * @deprecated
      * Okta has fully support brand creation, this attribute is a no op and will be removed
@@ -57,6 +58,7 @@ public class Brand extends com.pulumi.resources.CustomResource {
 
     /**
      * @return (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+     * - `DEPRECATED`: Please stop using this field as it has become noop.
      * 
      */
     public Output<String> brandId() {

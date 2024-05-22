@@ -55,6 +55,14 @@ type GetPolicyArgs struct {
 	Name string `pulumi:"name"`
 	// Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
 	// - All:
+	// - `OKTA_SIGN_ON`
+	// - `PASSWORD`
+	// - `MFA_ENROLL`
+	// - `OAUTH_AUTHORIZATION_POLICY`
+	// - `IDP_DISCOVERY`
+	// - OIE Only:
+	// - `ACCESS_POLICY`
+	// - `PROFILE_ENROLLMENT`
 	Type string `pulumi:"type"`
 }
 
@@ -88,6 +96,14 @@ type GetPolicyOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
 	// - All:
+	// - `OKTA_SIGN_ON`
+	// - `PASSWORD`
+	// - `MFA_ENROLL`
+	// - `OAUTH_AUTHORIZATION_POLICY`
+	// - `IDP_DISCOVERY`
+	// - OIE Only:
+	// - `ACCESS_POLICY`
+	// - `PROFILE_ENROLLMENT`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 

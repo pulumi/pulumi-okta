@@ -57,6 +57,39 @@ export interface AppUserSchemaPropertyOneOf {
     title: pulumi.Input<string>;
 }
 
+export interface CustomizedSigninPageContentSecurityPolicySetting {
+    /**
+     * enforced or report_only
+     */
+    mode?: pulumi.Input<string>;
+    reportUri?: pulumi.Input<string>;
+    srcLists?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface CustomizedSigninPageWidgetCustomizations {
+    authenticatorPageCustomLinkLabel?: pulumi.Input<string>;
+    authenticatorPageCustomLinkUrl?: pulumi.Input<string>;
+    classicRecoveryFlowEmailOrUsernameLabel?: pulumi.Input<string>;
+    customLink1Label?: pulumi.Input<string>;
+    customLink1Url?: pulumi.Input<string>;
+    customLink2Label?: pulumi.Input<string>;
+    customLink2Url?: pulumi.Input<string>;
+    forgotPasswordLabel?: pulumi.Input<string>;
+    forgotPasswordUrl?: pulumi.Input<string>;
+    helpLabel?: pulumi.Input<string>;
+    helpUrl?: pulumi.Input<string>;
+    passwordInfoTip?: pulumi.Input<string>;
+    passwordLabel?: pulumi.Input<string>;
+    showPasswordVisibilityToggle?: pulumi.Input<boolean>;
+    showUserIdentifier?: pulumi.Input<boolean>;
+    signInLabel?: pulumi.Input<string>;
+    unlockAccountLabel?: pulumi.Input<string>;
+    unlockAccountUrl?: pulumi.Input<string>;
+    usernameInfoTip?: pulumi.Input<string>;
+    usernameLabel?: pulumi.Input<string>;
+    widgetGeneration: pulumi.Input<string>;
+}
+
 export interface DomainDnsRecord {
     /**
      * TXT record expiration.
@@ -74,6 +107,28 @@ export interface DomainDnsRecord {
      * DNS verification value
      */
     values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface EmailDomainDnsValidationRecord {
+    /**
+     * DNS TXT record expiration
+     *
+     * @deprecated This field has been removed in the newest go sdk version and has become noop
+     */
+    expiration?: pulumi.Input<string>;
+    /**
+     * DNS record name.
+     */
+    fqdn?: pulumi.Input<string>;
+    /**
+     * Record type can be TXT or cname.
+     */
+    recordType?: pulumi.Input<string>;
+    /**
+     * DNS record value
+     * - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
+     */
+    value?: pulumi.Input<string>;
 }
 
 export interface EmailSenderDnsRecord {
@@ -94,6 +149,166 @@ export interface EmailSenderDnsRecord {
 export interface EventHookHeader {
     key?: pulumi.Input<string>;
     value?: pulumi.Input<string>;
+}
+
+export interface GetDefaultSigninPageContentSecurityPolicySetting {
+    /**
+     * enforced or report_only
+     */
+    mode?: string;
+    reportUri?: string;
+    srcLists?: string[];
+}
+
+export interface GetDefaultSigninPageContentSecurityPolicySettingArgs {
+    /**
+     * enforced or report_only
+     */
+    mode?: pulumi.Input<string>;
+    reportUri?: pulumi.Input<string>;
+    srcLists?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetDefaultSigninPageWidgetCustomizations {
+    authenticatorPageCustomLinkLabel?: string;
+    authenticatorPageCustomLinkUrl?: string;
+    classicRecoveryFlowEmailOrUsernameLabel?: string;
+    customLink1Label?: string;
+    customLink1Url?: string;
+    customLink2Label?: string;
+    customLink2Url?: string;
+    forgotPasswordLabel?: string;
+    forgotPasswordUrl?: string;
+    helpLabel?: string;
+    helpUrl?: string;
+    passwordInfoTip?: string;
+    passwordLabel?: string;
+    showPasswordVisibilityToggle?: boolean;
+    showUserIdentifier?: boolean;
+    signInLabel?: string;
+    unlockAccountLabel?: string;
+    unlockAccountUrl?: string;
+    usernameInfoTip?: string;
+    usernameLabel?: string;
+    widgetGeneration?: string;
+}
+
+export interface GetDefaultSigninPageWidgetCustomizationsArgs {
+    authenticatorPageCustomLinkLabel?: pulumi.Input<string>;
+    authenticatorPageCustomLinkUrl?: pulumi.Input<string>;
+    classicRecoveryFlowEmailOrUsernameLabel?: pulumi.Input<string>;
+    customLink1Label?: pulumi.Input<string>;
+    customLink1Url?: pulumi.Input<string>;
+    customLink2Label?: pulumi.Input<string>;
+    customLink2Url?: pulumi.Input<string>;
+    forgotPasswordLabel?: pulumi.Input<string>;
+    forgotPasswordUrl?: pulumi.Input<string>;
+    helpLabel?: pulumi.Input<string>;
+    helpUrl?: pulumi.Input<string>;
+    passwordInfoTip?: pulumi.Input<string>;
+    passwordLabel?: pulumi.Input<string>;
+    showPasswordVisibilityToggle?: pulumi.Input<boolean>;
+    showUserIdentifier?: pulumi.Input<boolean>;
+    signInLabel?: pulumi.Input<string>;
+    unlockAccountLabel?: pulumi.Input<string>;
+    unlockAccountUrl?: pulumi.Input<string>;
+    usernameInfoTip?: pulumi.Input<string>;
+    usernameLabel?: pulumi.Input<string>;
+    widgetGeneration?: pulumi.Input<string>;
+}
+
+export interface GetLogStreamSettings {
+    /**
+     * AWS account ID. Required only for 'aws_eventbridge' type
+     */
+    accountId?: string;
+    /**
+     * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+     */
+    edition?: string;
+    /**
+     * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
+     */
+    eventSourceName?: string;
+    /**
+     * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+     */
+    host?: string;
+    /**
+     * The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
+     */
+    region?: string;
+    /**
+     * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+     */
+    token?: string;
+}
+
+export interface GetLogStreamSettingsArgs {
+    /**
+     * AWS account ID. Required only for 'aws_eventbridge' type
+     */
+    accountId?: pulumi.Input<string>;
+    /**
+     * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+     */
+    edition?: pulumi.Input<string>;
+    /**
+     * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
+     */
+    eventSourceName?: pulumi.Input<string>;
+    /**
+     * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+     */
+    host?: pulumi.Input<string>;
+    /**
+     * The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
+     */
+    region?: pulumi.Input<string>;
+    /**
+     * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+     */
+    token?: pulumi.Input<string>;
+}
+
+export interface GetOrgMetadataDomains {
+    /**
+     * Custom Domain Org URI
+     */
+    alternate?: string;
+    /**
+     * Standard Org URI
+     */
+    organization?: string;
+}
+
+export interface GetOrgMetadataDomainsArgs {
+    /**
+     * Custom Domain Org URI
+     */
+    alternate?: pulumi.Input<string>;
+    /**
+     * Standard Org URI
+     */
+    organization?: pulumi.Input<string>;
+}
+
+export interface GetOrgMetadataSettings {
+    analyticsCollectionEnabled?: boolean;
+    bugReportingEnabled?: boolean;
+    /**
+     * Whether the legacy Okta Mobile application is enabled for the org
+     */
+    omEnabled?: boolean;
+}
+
+export interface GetOrgMetadataSettingsArgs {
+    analyticsCollectionEnabled?: pulumi.Input<boolean>;
+    bugReportingEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether the legacy Okta Mobile application is enabled for the org
+     */
+    omEnabled?: pulumi.Input<boolean>;
 }
 
 export interface GroupSchemaPropertyArrayOneOf {
@@ -129,6 +344,33 @@ export interface GroupSchemaPropertyOneOf {
     title: pulumi.Input<string>;
 }
 
+export interface LogStreamSettings {
+    /**
+     * AWS account ID.
+     */
+    accountId?: pulumi.Input<string>;
+    /**
+     * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
+     */
+    edition?: pulumi.Input<string>;
+    /**
+     * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+     */
+    eventSourceName?: pulumi.Input<string>;
+    /**
+     * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
+     */
+    host?: pulumi.Input<string>;
+    /**
+     * The destination AWS region where event source is located.
+     */
+    region?: pulumi.Input<string>;
+    /**
+     * The HEC token for your Splunk Cloud HTTP Event Collector.
+     */
+    token?: pulumi.Input<string>;
+}
+
 export interface PolicyRuleProfileEnrollmentProfileAttribute {
     /**
      * A display-friendly label for this property
@@ -142,6 +384,39 @@ export interface PolicyRuleProfileEnrollmentProfileAttribute {
      * Indicates if this property is required for enrollment. Default is `false`.
      */
     required?: pulumi.Input<boolean>;
+}
+
+export interface PreviewSigninPageContentSecurityPolicySetting {
+    /**
+     * enforced or report_only
+     */
+    mode?: pulumi.Input<string>;
+    reportUri?: pulumi.Input<string>;
+    srcLists?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface PreviewSigninPageWidgetCustomizations {
+    authenticatorPageCustomLinkLabel?: pulumi.Input<string>;
+    authenticatorPageCustomLinkUrl?: pulumi.Input<string>;
+    classicRecoveryFlowEmailOrUsernameLabel?: pulumi.Input<string>;
+    customLink1Label?: pulumi.Input<string>;
+    customLink1Url?: pulumi.Input<string>;
+    customLink2Label?: pulumi.Input<string>;
+    customLink2Url?: pulumi.Input<string>;
+    forgotPasswordLabel?: pulumi.Input<string>;
+    forgotPasswordUrl?: pulumi.Input<string>;
+    helpLabel?: pulumi.Input<string>;
+    helpUrl?: pulumi.Input<string>;
+    passwordInfoTip?: pulumi.Input<string>;
+    passwordLabel?: pulumi.Input<string>;
+    showPasswordVisibilityToggle?: pulumi.Input<boolean>;
+    showUserIdentifier?: pulumi.Input<boolean>;
+    signInLabel?: pulumi.Input<string>;
+    unlockAccountLabel?: pulumi.Input<string>;
+    unlockAccountUrl?: pulumi.Input<string>;
+    usernameInfoTip?: pulumi.Input<string>;
+    usernameLabel?: pulumi.Input<string>;
+    widgetGeneration: pulumi.Input<string>;
 }
 
 export interface TemplateSmsTranslation {
@@ -187,283 +462,6 @@ export interface UserSchemaPropertyOneOf {
      */
     title: pulumi.Input<string>;
 }
-export namespace Index {
-    export interface CustomizedSigninPageContentSecurityPolicySetting {
-        /**
-         * enforced or report_only
-         */
-        mode?: pulumi.Input<string>;
-        reportUri?: pulumi.Input<string>;
-        srcLists?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    export interface CustomizedSigninPageWidgetCustomizations {
-        authenticatorPageCustomLinkLabel?: pulumi.Input<string>;
-        authenticatorPageCustomLinkUrl?: pulumi.Input<string>;
-        classicRecoveryFlowEmailOrUsernameLabel?: pulumi.Input<string>;
-        customLink1Label?: pulumi.Input<string>;
-        customLink1Url?: pulumi.Input<string>;
-        customLink2Label?: pulumi.Input<string>;
-        customLink2Url?: pulumi.Input<string>;
-        forgotPasswordLabel?: pulumi.Input<string>;
-        forgotPasswordUrl?: pulumi.Input<string>;
-        helpLabel?: pulumi.Input<string>;
-        helpUrl?: pulumi.Input<string>;
-        passwordInfoTip?: pulumi.Input<string>;
-        passwordLabel?: pulumi.Input<string>;
-        showPasswordVisibilityToggle?: pulumi.Input<boolean>;
-        showUserIdentifier?: pulumi.Input<boolean>;
-        signInLabel?: pulumi.Input<string>;
-        unlockAccountLabel?: pulumi.Input<string>;
-        unlockAccountUrl?: pulumi.Input<string>;
-        usernameInfoTip?: pulumi.Input<string>;
-        usernameLabel?: pulumi.Input<string>;
-        widgetGeneration: pulumi.Input<string>;
-    }
-
-    export interface EmailDomainDnsValidationRecord {
-        /**
-         * DNS TXT record expiration
-         *
-         * @deprecated This field has been removed in the newest go sdk version and has become noop
-         */
-        expiration?: pulumi.Input<string>;
-        /**
-         * DNS record name.
-         */
-        fqdn?: pulumi.Input<string>;
-        /**
-         * Record type can be TXT or cname.
-         */
-        recordType?: pulumi.Input<string>;
-        /**
-         * DNS record value
-         * - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    export interface GetDefaultSigninPageContentSecurityPolicySetting {
-        /**
-         * enforced or report_only
-         */
-        mode?: string;
-        reportUri?: string;
-        srcLists?: string[];
-    }
-
-    export interface GetDefaultSigninPageContentSecurityPolicySettingArgs {
-        /**
-         * enforced or report_only
-         */
-        mode?: pulumi.Input<string>;
-        reportUri?: pulumi.Input<string>;
-        srcLists?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    export interface GetDefaultSigninPageWidgetCustomizations {
-        authenticatorPageCustomLinkLabel?: string;
-        authenticatorPageCustomLinkUrl?: string;
-        classicRecoveryFlowEmailOrUsernameLabel?: string;
-        customLink1Label?: string;
-        customLink1Url?: string;
-        customLink2Label?: string;
-        customLink2Url?: string;
-        forgotPasswordLabel?: string;
-        forgotPasswordUrl?: string;
-        helpLabel?: string;
-        helpUrl?: string;
-        passwordInfoTip?: string;
-        passwordLabel?: string;
-        showPasswordVisibilityToggle?: boolean;
-        showUserIdentifier?: boolean;
-        signInLabel?: string;
-        unlockAccountLabel?: string;
-        unlockAccountUrl?: string;
-        usernameInfoTip?: string;
-        usernameLabel?: string;
-        widgetGeneration?: string;
-    }
-
-    export interface GetDefaultSigninPageWidgetCustomizationsArgs {
-        authenticatorPageCustomLinkLabel?: pulumi.Input<string>;
-        authenticatorPageCustomLinkUrl?: pulumi.Input<string>;
-        classicRecoveryFlowEmailOrUsernameLabel?: pulumi.Input<string>;
-        customLink1Label?: pulumi.Input<string>;
-        customLink1Url?: pulumi.Input<string>;
-        customLink2Label?: pulumi.Input<string>;
-        customLink2Url?: pulumi.Input<string>;
-        forgotPasswordLabel?: pulumi.Input<string>;
-        forgotPasswordUrl?: pulumi.Input<string>;
-        helpLabel?: pulumi.Input<string>;
-        helpUrl?: pulumi.Input<string>;
-        passwordInfoTip?: pulumi.Input<string>;
-        passwordLabel?: pulumi.Input<string>;
-        showPasswordVisibilityToggle?: pulumi.Input<boolean>;
-        showUserIdentifier?: pulumi.Input<boolean>;
-        signInLabel?: pulumi.Input<string>;
-        unlockAccountLabel?: pulumi.Input<string>;
-        unlockAccountUrl?: pulumi.Input<string>;
-        usernameInfoTip?: pulumi.Input<string>;
-        usernameLabel?: pulumi.Input<string>;
-        widgetGeneration?: pulumi.Input<string>;
-    }
-
-    export interface GetLogStreamSettings {
-        /**
-         * AWS account ID. Required only for 'aws_eventbridge' type
-         */
-        accountId?: string;
-        /**
-         * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
-         */
-        edition?: string;
-        /**
-         * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
-         */
-        eventSourceName?: string;
-        /**
-         * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
-         */
-        host?: string;
-        /**
-         * The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
-         */
-        region?: string;
-        /**
-         * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
-         */
-        token?: string;
-    }
-
-    export interface GetLogStreamSettingsArgs {
-        /**
-         * AWS account ID. Required only for 'aws_eventbridge' type
-         */
-        accountId?: pulumi.Input<string>;
-        /**
-         * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
-         */
-        edition?: pulumi.Input<string>;
-        /**
-         * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
-         */
-        eventSourceName?: pulumi.Input<string>;
-        /**
-         * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
-         */
-        host?: pulumi.Input<string>;
-        /**
-         * The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
-         */
-        region?: pulumi.Input<string>;
-        /**
-         * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
-         */
-        token?: pulumi.Input<string>;
-    }
-
-    export interface GetOrgMetadataDomains {
-        /**
-         * Custom Domain Org URI
-         */
-        alternate?: string;
-        /**
-         * Standard Org URI
-         */
-        organization?: string;
-    }
-
-    export interface GetOrgMetadataDomainsArgs {
-        /**
-         * Custom Domain Org URI
-         */
-        alternate?: pulumi.Input<string>;
-        /**
-         * Standard Org URI
-         */
-        organization?: pulumi.Input<string>;
-    }
-
-    export interface GetOrgMetadataSettings {
-        analyticsCollectionEnabled?: boolean;
-        bugReportingEnabled?: boolean;
-        /**
-         * Whether the legacy Okta Mobile application is enabled for the org
-         */
-        omEnabled?: boolean;
-    }
-
-    export interface GetOrgMetadataSettingsArgs {
-        analyticsCollectionEnabled?: pulumi.Input<boolean>;
-        bugReportingEnabled?: pulumi.Input<boolean>;
-        /**
-         * Whether the legacy Okta Mobile application is enabled for the org
-         */
-        omEnabled?: pulumi.Input<boolean>;
-    }
-
-    export interface LogStreamSettings {
-        /**
-         * AWS account ID.
-         */
-        accountId?: pulumi.Input<string>;
-        /**
-         * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
-         */
-        edition?: pulumi.Input<string>;
-        /**
-         * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
-         */
-        eventSourceName?: pulumi.Input<string>;
-        /**
-         * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
-         */
-        host?: pulumi.Input<string>;
-        /**
-         * The destination AWS region where event source is located.
-         */
-        region?: pulumi.Input<string>;
-        /**
-         * The HEC token for your Splunk Cloud HTTP Event Collector.
-         */
-        token?: pulumi.Input<string>;
-    }
-
-    export interface PreviewSigninPageContentSecurityPolicySetting {
-        /**
-         * enforced or report_only
-         */
-        mode?: pulumi.Input<string>;
-        reportUri?: pulumi.Input<string>;
-        srcLists?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    export interface PreviewSigninPageWidgetCustomizations {
-        authenticatorPageCustomLinkLabel?: pulumi.Input<string>;
-        authenticatorPageCustomLinkUrl?: pulumi.Input<string>;
-        classicRecoveryFlowEmailOrUsernameLabel?: pulumi.Input<string>;
-        customLink1Label?: pulumi.Input<string>;
-        customLink1Url?: pulumi.Input<string>;
-        customLink2Label?: pulumi.Input<string>;
-        customLink2Url?: pulumi.Input<string>;
-        forgotPasswordLabel?: pulumi.Input<string>;
-        forgotPasswordUrl?: pulumi.Input<string>;
-        helpLabel?: pulumi.Input<string>;
-        helpUrl?: pulumi.Input<string>;
-        passwordInfoTip?: pulumi.Input<string>;
-        passwordLabel?: pulumi.Input<string>;
-        showPasswordVisibilityToggle?: pulumi.Input<boolean>;
-        showUserIdentifier?: pulumi.Input<boolean>;
-        signInLabel?: pulumi.Input<string>;
-        unlockAccountLabel?: pulumi.Input<string>;
-        unlockAccountUrl?: pulumi.Input<string>;
-        usernameInfoTip?: pulumi.Input<string>;
-        usernameLabel?: pulumi.Input<string>;
-        widgetGeneration: pulumi.Input<string>;
-    }
-}
-
 export namespace app {
     export interface OAuthGroupsClaim {
         /**

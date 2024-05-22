@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()        
+ *         var example = new Domain("example", DomainArgs.builder()
  *             .name("www.example.com")
  *             .build());
  * 
- *         var exampleDomainVerification = new DomainVerification("exampleDomainVerification", DomainVerificationArgs.builder()        
+ *         var exampleDomainVerification = new DomainVerification("exampleDomainVerification", DomainVerificationArgs.builder()
  *             .domainId(test.id())
  *             .build());
  * 

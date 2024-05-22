@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Swa("example", SwaArgs.builder()        
+ *         var example = new Swa("example", SwaArgs.builder()
  *             .label("example")
  *             .buttonField("btn-login")
  *             .passwordField("txtbox-password")

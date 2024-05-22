@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DeviceAssuranceChromeos("example", DeviceAssuranceChromeosArgs.builder()        
+ *         var example = new DeviceAssuranceChromeos("example", DeviceAssuranceChromeosArgs.builder()
  *             .name("example")
  *             .tpspAllowScreenLock(true)
  *             .tpspBrowserVersion("15393.27.0")

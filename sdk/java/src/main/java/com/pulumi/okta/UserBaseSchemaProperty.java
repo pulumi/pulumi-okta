@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserBaseSchemaProperty("example", UserBaseSchemaPropertyArgs.builder()        
+ *         var example = new UserBaseSchemaProperty("example", UserBaseSchemaPropertyArgs.builder()
  *             .index("firstName")
  *             .title("First name")
  *             .type("string")

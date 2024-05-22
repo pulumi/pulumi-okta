@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OAuth("test", OAuthArgs.builder()        
+ *         var test = new OAuth("test", OAuthArgs.builder()
  *             .label("testAcc_replace_with_uuid")
  *             .type("web")
  *             .grantTypes("authorization_code")
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .redirectUris("myapp://callback")
  *             .build());
  * 
- *         var testOAuthRedirectUri = new OAuthRedirectUri("testOAuthRedirectUri", OAuthRedirectUriArgs.builder()        
+ *         var testOAuthRedirectUri = new OAuthRedirectUri("testOAuthRedirectUri", OAuthRedirectUriArgs.builder()
  *             .appId(test.id())
  *             .uri("http://google.com")
  *             .build());

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AppGroupAssignments("example", AppGroupAssignmentsArgs.builder()        
+ *         var example = new AppGroupAssignments("example", AppGroupAssignmentsArgs.builder()
  *             .appId("<app id>")
  *             .groups(            
  *                 AppGroupAssignmentsGroupArgs.builder()

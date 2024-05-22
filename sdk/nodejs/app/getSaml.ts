@@ -135,6 +135,7 @@ export interface GetSamlResult {
     readonly features: string[];
     /**
      * List of groups IDs assigned to the application.
+     * - `DEPRECATED`: Please replace all usage of this field with the data source `okta.AppGroupAssignments`.
      *
      * @deprecated The `groups` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.AppGroupAssignments`
      */

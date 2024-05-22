@@ -48,14 +48,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Captcha("example", CaptchaArgs.builder()        
+ *         var example = new Captcha("example", CaptchaArgs.builder()
  *             .name("My CAPTCHA")
  *             .type("HCAPTCHA")
  *             .siteKey("some_key")
  *             .secretKey("some_secret_key")
  *             .build());
  * 
- *         var exampleCaptchaOrgWideSettings = new CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings", CaptchaOrgWideSettingsArgs.builder()        
+ *         var exampleCaptchaOrgWideSettings = new CaptchaOrgWideSettings("exampleCaptchaOrgWideSettings", CaptchaOrgWideSettingsArgs.builder()
  *             .captchaId(test.id())
  *             .enabledFors("SSR")
  *             .build());
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Captcha("example", CaptchaArgs.builder()        
+ *         var example = new Captcha("example", CaptchaArgs.builder()
  *             .name("My CAPTCHA")
  *             .type("HCAPTCHA")
  *             .siteKey("some_key")

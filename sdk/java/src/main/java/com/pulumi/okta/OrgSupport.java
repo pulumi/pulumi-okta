@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OrgSupport("example", OrgSupportArgs.builder()        
+ *         var example = new OrgSupport("example", OrgSupportArgs.builder()
  *             .extendBy(1)
  *             .build());
  * 

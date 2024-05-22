@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AuthServerClaimDefault("example", AuthServerClaimDefaultArgs.builder()        
+ *         var example = new AuthServerClaimDefault("example", AuthServerClaimDefaultArgs.builder()
  *             .authServerId("<auth server id>")
  *             .name("sub")
  *             .value("(appuser != null) ? appuser.userName : app.clientId")

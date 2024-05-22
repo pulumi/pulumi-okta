@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FactorTotp("example", FactorTotpArgs.builder()        
+ *         var example = new FactorTotp("example", FactorTotpArgs.builder()
  *             .name("example")
  *             .otpLength(10)
  *             .hmacAlgorithm("HMacSHA256")

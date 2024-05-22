@@ -164,7 +164,7 @@ class EmailSender(pulumi.CustomResource):
                  subdomain: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        > **DEPRECATED** use `Index.EmailDomain` instead.
+        > **DEPRECATED** use `EmailDomain` instead.
 
         This resource allows you to create and configure a custom email sender.
 
@@ -201,7 +201,7 @@ class EmailSender(pulumi.CustomResource):
                  args: EmailSenderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **DEPRECATED** use `Index.EmailDomain` instead.
+        > **DEPRECATED** use `EmailDomain` instead.
 
         This resource allows you to create and configure a custom email sender.
 

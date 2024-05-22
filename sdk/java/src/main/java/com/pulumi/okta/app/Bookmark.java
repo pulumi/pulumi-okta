@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Bookmark("example", BookmarkArgs.builder()        
+ *         var example = new Bookmark("example", BookmarkArgs.builder()
  *             .label("Example")
  *             .url("https://example.com")
  *             .build());

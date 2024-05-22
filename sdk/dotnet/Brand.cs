@@ -32,6 +32,7 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+        /// - `DEPRECATED`: Please stop using this field as it has become noop.
         /// </summary>
         [Output("brandId")]
         public Output<string> BrandId { get; private set; } = null!;
@@ -150,6 +151,7 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+        /// - `DEPRECATED`: Please stop using this field as it has become noop.
         /// </summary>
         [Input("brandId")]
         public Input<string>? BrandId { get; set; }
@@ -212,6 +214,7 @@ namespace Pulumi.Okta
 
         /// <summary>
         /// (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
+        /// - `DEPRECATED`: Please stop using this field as it has become noop.
         /// </summary>
         [Input("brandId")]
         public Input<string>? BrandId { get; set; }

@@ -26,14 +26,22 @@ import com.pulumi.okta.inputs.GetBehavioursArgs;
 import com.pulumi.okta.inputs.GetBehavioursPlainArgs;
 import com.pulumi.okta.inputs.GetBrandArgs;
 import com.pulumi.okta.inputs.GetBrandPlainArgs;
+import com.pulumi.okta.inputs.GetDefaultSigninPageArgs;
+import com.pulumi.okta.inputs.GetDefaultSigninPagePlainArgs;
+import com.pulumi.okta.inputs.GetDomainArgs;
+import com.pulumi.okta.inputs.GetDomainPlainArgs;
 import com.pulumi.okta.inputs.GetEmailCustomizationArgs;
 import com.pulumi.okta.inputs.GetEmailCustomizationPlainArgs;
 import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
 import com.pulumi.okta.inputs.GetEmailCustomizationsPlainArgs;
 import com.pulumi.okta.inputs.GetGroupsArgs;
 import com.pulumi.okta.inputs.GetGroupsPlainArgs;
+import com.pulumi.okta.inputs.GetLogStreamArgs;
+import com.pulumi.okta.inputs.GetLogStreamPlainArgs;
 import com.pulumi.okta.inputs.GetNetworkZoneArgs;
 import com.pulumi.okta.inputs.GetNetworkZonePlainArgs;
+import com.pulumi.okta.inputs.GetOrgMetadataArgs;
+import com.pulumi.okta.inputs.GetOrgMetadataPlainArgs;
 import com.pulumi.okta.inputs.GetRoleSubscriptionArgs;
 import com.pulumi.okta.inputs.GetRoleSubscriptionPlainArgs;
 import com.pulumi.okta.inputs.GetTemplateArgs;
@@ -58,10 +66,14 @@ import com.pulumi.okta.outputs.GetBehaviourResult;
 import com.pulumi.okta.outputs.GetBehavioursResult;
 import com.pulumi.okta.outputs.GetBrandResult;
 import com.pulumi.okta.outputs.GetBrandsResult;
+import com.pulumi.okta.outputs.GetDefaultSigninPageResult;
+import com.pulumi.okta.outputs.GetDomainResult;
 import com.pulumi.okta.outputs.GetEmailCustomizationResult;
 import com.pulumi.okta.outputs.GetEmailCustomizationsResult;
 import com.pulumi.okta.outputs.GetGroupsResult;
+import com.pulumi.okta.outputs.GetLogStreamResult;
 import com.pulumi.okta.outputs.GetNetworkZoneResult;
+import com.pulumi.okta.outputs.GetOrgMetadataResult;
 import com.pulumi.okta.outputs.GetRoleSubscriptionResult;
 import com.pulumi.okta.outputs.GetTemplateResult;
 import com.pulumi.okta.outputs.GetTemplatesResult;
@@ -2170,6 +2182,254 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getBrands:getBrands", TypeShape.of(GetBrandsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieve the default signin page of a brand
+     * 
+     */
+    public static Output<GetDefaultSigninPageResult> getDefaultSigninPage(GetDefaultSigninPageArgs args) {
+        return getDefaultSigninPage(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve the default signin page of a brand
+     * 
+     */
+    public static CompletableFuture<GetDefaultSigninPageResult> getDefaultSigninPagePlain(GetDefaultSigninPagePlainArgs args) {
+        return getDefaultSigninPagePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve the default signin page of a brand
+     * 
+     */
+    public static Output<GetDefaultSigninPageResult> getDefaultSigninPage(GetDefaultSigninPageArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getDefaultSigninPage:getDefaultSigninPage", TypeShape.of(GetDefaultSigninPageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve the default signin page of a brand
+     * 
+     */
+    public static CompletableFuture<GetDefaultSigninPageResult> getDefaultSigninPagePlain(GetDefaultSigninPagePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getDefaultSigninPage:getDefaultSigninPage", TypeShape.of(GetDefaultSigninPageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a domain from Okta.
+     * 
+     * - https://developer.okta.com/docs/reference/api/domains/#get-domain
+     * - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Domain;
+     * import com.pulumi.okta.DomainArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Domain("example", DomainArgs.builder()
+     *             .name("www.example.com")
+     *             .build());
+     * 
+     *         final var by-name = OktaFunctions.getDomain(GetDomainArgs.builder()
+     *             .domainIdOrName("www.example.com")
+     *             .build());
+     * 
+     *         final var by-id = OktaFunctions.getDomain(GetDomainArgs.builder()
+     *             .domainIdOrName(example.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDomainResult> getDomain(GetDomainArgs args) {
+        return getDomain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a domain from Okta.
+     * 
+     * - https://developer.okta.com/docs/reference/api/domains/#get-domain
+     * - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Domain;
+     * import com.pulumi.okta.DomainArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Domain("example", DomainArgs.builder()
+     *             .name("www.example.com")
+     *             .build());
+     * 
+     *         final var by-name = OktaFunctions.getDomain(GetDomainArgs.builder()
+     *             .domainIdOrName("www.example.com")
+     *             .build());
+     * 
+     *         final var by-id = OktaFunctions.getDomain(GetDomainArgs.builder()
+     *             .domainIdOrName(example.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args) {
+        return getDomainPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a domain from Okta.
+     * 
+     * - https://developer.okta.com/docs/reference/api/domains/#get-domain
+     * - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Domain;
+     * import com.pulumi.okta.DomainArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Domain("example", DomainArgs.builder()
+     *             .name("www.example.com")
+     *             .build());
+     * 
+     *         final var by-name = OktaFunctions.getDomain(GetDomainArgs.builder()
+     *             .domainIdOrName("www.example.com")
+     *             .build());
+     * 
+     *         final var by-id = OktaFunctions.getDomain(GetDomainArgs.builder()
+     *             .domainIdOrName(example.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDomainResult> getDomain(GetDomainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getDomain:getDomain", TypeShape.of(GetDomainResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a domain from Okta.
+     * 
+     * - https://developer.okta.com/docs/reference/api/domains/#get-domain
+     * - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Domain;
+     * import com.pulumi.okta.DomainArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Domain("example", DomainArgs.builder()
+     *             .name("www.example.com")
+     *             .build());
+     * 
+     *         final var by-name = OktaFunctions.getDomain(GetDomainArgs.builder()
+     *             .domainIdOrName("www.example.com")
+     *             .build());
+     * 
+     *         final var by-id = OktaFunctions.getDomain(GetDomainArgs.builder()
+     *             .domainIdOrName(example.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getDomain:getDomain", TypeShape.of(GetDomainResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve the [email
      * customization](https://developer.okta.com/docs/reference/api/brands/#get-email-customization)
      * of an email template belonging to a brand in an Okta organization.
@@ -2494,6 +2754,258 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve a log stream from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetLogStreamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getLogStream(GetLogStreamArgs.builder()
+     *             .name("Example Stream")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLogStreamResult> getLogStream() {
+        return getLogStream(GetLogStreamArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a log stream from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetLogStreamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getLogStream(GetLogStreamArgs.builder()
+     *             .name("Example Stream")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetLogStreamResult> getLogStreamPlain() {
+        return getLogStreamPlain(GetLogStreamPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a log stream from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetLogStreamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getLogStream(GetLogStreamArgs.builder()
+     *             .name("Example Stream")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLogStreamResult> getLogStream(GetLogStreamArgs args) {
+        return getLogStream(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a log stream from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetLogStreamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getLogStream(GetLogStreamArgs.builder()
+     *             .name("Example Stream")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetLogStreamResult> getLogStreamPlain(GetLogStreamPlainArgs args) {
+        return getLogStreamPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a log stream from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetLogStreamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getLogStream(GetLogStreamArgs.builder()
+     *             .name("Example Stream")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLogStreamResult> getLogStream(GetLogStreamArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getLogStream:getLogStream", TypeShape.of(GetLogStreamResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a log stream from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetLogStreamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getLogStream(GetLogStreamArgs.builder()
+     *             .name("Example Stream")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetLogStreamResult> getLogStreamPlain(GetLogStreamPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getLogStream:getLogStream", TypeShape.of(GetLogStreamResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve a network zone from Okta.
      * 
      * ## Example Usage
@@ -2744,6 +3256,258 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetNetworkZoneResult> getNetworkZonePlain(GetNetworkZonePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getNetworkZone:getNetworkZone", TypeShape.of(GetNetworkZoneResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+     * 
+     * - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetOrgMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getOrgMetadata();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetOrgMetadataResult> getOrgMetadata() {
+        return getOrgMetadata(GetOrgMetadataArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+     * 
+     * - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetOrgMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getOrgMetadata();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetOrgMetadataResult> getOrgMetadataPlain() {
+        return getOrgMetadataPlain(GetOrgMetadataPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+     * 
+     * - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetOrgMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getOrgMetadata();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetOrgMetadataResult> getOrgMetadata(GetOrgMetadataArgs args) {
+        return getOrgMetadata(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+     * 
+     * - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetOrgMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getOrgMetadata();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetOrgMetadataResult> getOrgMetadataPlain(GetOrgMetadataPlainArgs args) {
+        return getOrgMetadataPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+     * 
+     * - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetOrgMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getOrgMetadata();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetOrgMetadataResult> getOrgMetadata(GetOrgMetadataArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getOrgMetadata:getOrgMetadata", TypeShape.of(GetOrgMetadataResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+     * 
+     * - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetOrgMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getOrgMetadata();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetOrgMetadataResult> getOrgMetadataPlain(GetOrgMetadataPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getOrgMetadata:getOrgMetadata", TypeShape.of(GetOrgMetadataResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve role subscription with a specific type.
@@ -3331,7 +4095,7 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+     *         var exampleUser = new User("exampleUser", UserArgs.builder()
      *             .firstName("John")
      *             .lastName("Smith")
      *             .login("john.smith{@literal @}example.com")
@@ -3382,7 +4146,7 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+     *         var exampleUser = new User("exampleUser", UserArgs.builder()
      *             .firstName("John")
      *             .lastName("Smith")
      *             .login("john.smith{@literal @}example.com")
@@ -3433,7 +4197,7 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+     *         var exampleUser = new User("exampleUser", UserArgs.builder()
      *             .firstName("John")
      *             .lastName("Smith")
      *             .login("john.smith{@literal @}example.com")
@@ -3484,7 +4248,7 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+     *         var exampleUser = new User("exampleUser", UserArgs.builder()
      *             .firstName("John")
      *             .lastName("Smith")
      *             .login("john.smith{@literal @}example.com")

@@ -45,13 +45,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Saml("test", SamlArgs.builder()        
+ *         var test = new Saml("test", SamlArgs.builder()
  *             .preconfiguredApp("amazon_aws")
  *             .label("Amazon AWS")
  *             .status("ACTIVE")
  *             .build());
  * 
- *         var testAppSamlAppSettings = new AppSamlAppSettings("testAppSamlAppSettings", AppSamlAppSettingsArgs.builder()        
+ *         var testAppSamlAppSettings = new AppSamlAppSettings("testAppSamlAppSettings", AppSamlAppSettingsArgs.builder()
  *             .appId(test.id())
  *             .settings(serializeJson(
  *                 jsonObject(
