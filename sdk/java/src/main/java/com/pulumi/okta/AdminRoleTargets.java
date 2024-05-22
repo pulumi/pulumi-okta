@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AdminRoleTargets("example", AdminRoleTargetsArgs.builder()        
+ *         var example = new AdminRoleTargets("example", AdminRoleTargetsArgs.builder()
  *             .userId("<user_id>")
  *             .roleType("APP_ADMIN")
  *             .apps(            

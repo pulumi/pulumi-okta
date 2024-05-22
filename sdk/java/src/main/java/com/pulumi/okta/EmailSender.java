@@ -16,7 +16,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **DEPRECATED** use `okta.Index.EmailDomain` instead.
+ * &gt; **DEPRECATED** use `okta.EmailDomain` instead.
  * 
  * This resource allows you to create and configure a custom email sender.
  * 
@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EmailSender("example", EmailSenderArgs.builder()        
+ *         var example = new EmailSender("example", EmailSenderArgs.builder()
  *             .fromName("Paul Atreides")
  *             .fromAddress("no-reply{@literal @}caladan.planet")
  *             .subdomain("mail")

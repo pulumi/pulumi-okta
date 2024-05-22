@@ -40,11 +40,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example1 = new SamlKey("example1", SamlKeyArgs.builder()        
+ *         var example1 = new SamlKey("example1", SamlKeyArgs.builder()
  *             .x5cs(example.certificate())
  *             .build());
  * 
- *         var example2 = new SamlKey("example2", SamlKeyArgs.builder()        
+ *         var example2 = new SamlKey("example2", SamlKeyArgs.builder()
  *             .x5cs("""
  * MIIDnjCCAoagAwIBAgIGAVG3MN+PMA0GCSqGSIb3DQEBBQUAMIGPMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5p
  * YTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEDAOBgNVBAMM

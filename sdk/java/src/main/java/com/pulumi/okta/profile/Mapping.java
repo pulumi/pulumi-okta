@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var user = UserFunctions.getUserProfileMappingSource();
  * 
- *         var example = new Mapping("example", MappingArgs.builder()        
+ *         var example = new Mapping("example", MappingArgs.builder()
  *             .sourceId("<source id>")
  *             .targetId(user.applyValue(getUserProfileMappingSourceResult -> getUserProfileMappingSourceResult.id()))
  *             .deleteWhenAbsent(true)

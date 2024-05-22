@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OAuth("example", OAuthArgs.builder()        
+ *         var example = new OAuth("example", OAuthArgs.builder()
  *             .label("example")
  *             .type("web")
  *             .grantTypes("authorization_code")
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OAuth("example", OAuthArgs.builder()        
+ *         var example = new OAuth("example", OAuthArgs.builder()
  *             .label("example")
  *             .type("service")
  *             .responseTypes("token")

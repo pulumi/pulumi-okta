@@ -27,6 +27,7 @@ type Brand struct {
 	// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
 	AgreeToCustomPrivacyPolicy pulumi.BoolOutput `pulumi:"agreeToCustomPrivacyPolicy"`
 	// (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
+	// - `DEPRECATED`: Please stop using this field as it has become noop.
 	//
 	// Deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed
 	BrandId pulumi.StringOutput `pulumi:"brandId"`
@@ -85,6 +86,7 @@ type brandState struct {
 	// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
 	AgreeToCustomPrivacyPolicy *bool `pulumi:"agreeToCustomPrivacyPolicy"`
 	// (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
+	// - `DEPRECATED`: Please stop using this field as it has become noop.
 	//
 	// Deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed
 	BrandId *string `pulumi:"brandId"`
@@ -114,6 +116,7 @@ type BrandState struct {
 	// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
 	AgreeToCustomPrivacyPolicy pulumi.BoolPtrInput
 	// (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
+	// - `DEPRECATED`: Please stop using this field as it has become noop.
 	//
 	// Deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed
 	BrandId pulumi.StringPtrInput
@@ -147,6 +150,7 @@ type brandArgs struct {
 	// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
 	AgreeToCustomPrivacyPolicy *bool `pulumi:"agreeToCustomPrivacyPolicy"`
 	// (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
+	// - `DEPRECATED`: Please stop using this field as it has become noop.
 	//
 	// Deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed
 	BrandId *string `pulumi:"brandId"`
@@ -171,6 +175,7 @@ type BrandArgs struct {
 	// Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
 	AgreeToCustomPrivacyPolicy pulumi.BoolPtrInput
 	// (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
+	// - `DEPRECATED`: Please stop using this field as it has become noop.
 	//
 	// Deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed
 	BrandId pulumi.StringPtrInput
@@ -283,6 +288,7 @@ func (o BrandOutput) AgreeToCustomPrivacyPolicy() pulumi.BoolOutput {
 }
 
 // (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
+// - `DEPRECATED`: Please stop using this field as it has become noop.
 //
 // Deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed
 func (o BrandOutput) BrandId() pulumi.StringOutput {

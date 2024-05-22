@@ -42,14 +42,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User("test", UserArgs.builder()        
+ *         var test = new User("test", UserArgs.builder()
  *             .firstName("TestAcc")
  *             .lastName("Smith")
  *             .login("testAcc-replace_with_uuid{@literal @}example.com")
  *             .email("testAcc-replace_with_uuid{@literal @}example.com")
  *             .build());
  * 
- *         var testUserGroupMemberships = new UserGroupMemberships("testUserGroupMemberships", UserGroupMembershipsArgs.builder()        
+ *         var testUserGroupMemberships = new UserGroupMemberships("testUserGroupMemberships", UserGroupMembershipsArgs.builder()
  *             .userId(test.id())
  *             .groups(            
  *                 test1.id(),

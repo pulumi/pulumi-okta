@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventHook("example", EventHookArgs.builder()        
+ *         var example = new EventHook("example", EventHookArgs.builder()
  *             .name("example")
  *             .events(            
  *                 "user.lifecycle.create",

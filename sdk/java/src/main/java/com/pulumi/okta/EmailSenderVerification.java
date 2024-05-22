@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **DEPRECATED** use `okta.Index.EmailDomainVerification` instead.
+ * &gt; **DEPRECATED** use `okta.EmailDomainVerification` instead.
  * 
  * Verifies the email sender. The resource won&#39;t be created if the email sender could not be verified.
  * 
@@ -45,13 +45,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EmailSender("example", EmailSenderArgs.builder()        
+ *         var example = new EmailSender("example", EmailSenderArgs.builder()
  *             .fromName("Paul Atreides")
  *             .fromAddress("no-reply{@literal @}caladan.planet")
  *             .subdomain("mail")
  *             .build());
  * 
- *         var exampleEmailSenderVerification = new EmailSenderVerification("exampleEmailSenderVerification", EmailSenderVerificationArgs.builder()        
+ *         var exampleEmailSenderVerification = new EmailSenderVerification("exampleEmailSenderVerification", EmailSenderVerificationArgs.builder()
  *             .senderId(valid.id())
  *             .build());
  * 

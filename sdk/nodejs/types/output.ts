@@ -57,6 +57,39 @@ export interface AppUserSchemaPropertyOneOf {
     title: string;
 }
 
+export interface CustomizedSigninPageContentSecurityPolicySetting {
+    /**
+     * enforced or report_only
+     */
+    mode?: string;
+    reportUri?: string;
+    srcLists?: string[];
+}
+
+export interface CustomizedSigninPageWidgetCustomizations {
+    authenticatorPageCustomLinkLabel?: string;
+    authenticatorPageCustomLinkUrl?: string;
+    classicRecoveryFlowEmailOrUsernameLabel?: string;
+    customLink1Label?: string;
+    customLink1Url?: string;
+    customLink2Label?: string;
+    customLink2Url?: string;
+    forgotPasswordLabel?: string;
+    forgotPasswordUrl?: string;
+    helpLabel?: string;
+    helpUrl?: string;
+    passwordInfoTip?: string;
+    passwordLabel?: string;
+    showPasswordVisibilityToggle: boolean;
+    showUserIdentifier: boolean;
+    signInLabel?: string;
+    unlockAccountLabel?: string;
+    unlockAccountUrl?: string;
+    usernameInfoTip?: string;
+    usernameLabel?: string;
+    widgetGeneration: string;
+}
+
 export interface DomainDnsRecord {
     /**
      * TXT record expiration.
@@ -74,6 +107,28 @@ export interface DomainDnsRecord {
      * DNS verification value
      */
     values: string[];
+}
+
+export interface EmailDomainDnsValidationRecord {
+    /**
+     * DNS TXT record expiration
+     *
+     * @deprecated This field has been removed in the newest go sdk version and has become noop
+     */
+    expiration: string;
+    /**
+     * DNS record name.
+     */
+    fqdn: string;
+    /**
+     * Record type can be TXT or cname.
+     */
+    recordType: string;
+    /**
+     * DNS record value
+     * - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
+     */
+    value: string;
 }
 
 export interface EmailSenderDnsRecord {
@@ -177,6 +232,58 @@ export interface GetBrandsBrand {
     removePoweredByOkta: boolean;
 }
 
+export interface GetDefaultSigninPageContentSecurityPolicySetting {
+    /**
+     * enforced or report_only
+     */
+    mode: string;
+    reportUri: string;
+    srcLists: string[];
+}
+
+export interface GetDefaultSigninPageWidgetCustomizations {
+    authenticatorPageCustomLinkLabel: string;
+    authenticatorPageCustomLinkUrl: string;
+    classicRecoveryFlowEmailOrUsernameLabel: string;
+    customLink1Label: string;
+    customLink1Url: string;
+    customLink2Label: string;
+    customLink2Url: string;
+    forgotPasswordLabel: string;
+    forgotPasswordUrl: string;
+    helpLabel: string;
+    helpUrl: string;
+    passwordInfoTip: string;
+    passwordLabel: string;
+    showPasswordVisibilityToggle: boolean;
+    showUserIdentifier: boolean;
+    signInLabel: string;
+    unlockAccountLabel: string;
+    unlockAccountUrl: string;
+    usernameInfoTip: string;
+    usernameLabel: string;
+    widgetGeneration: string;
+}
+
+export interface GetDomainDnsRecord {
+    /**
+     * TXT record expiration.
+     */
+    expiration: string;
+    /**
+     * DNS record name.
+     */
+    fqdn: string;
+    /**
+     * Record type can be TXT or CNAME.
+     */
+    recordType: string;
+    /**
+     * DNS verification value
+     */
+    values: string[];
+}
+
 export interface GetEmailCustomizationsEmailCustomization {
     /**
      * The body of the customization
@@ -226,6 +333,53 @@ export interface GetGroupsGroup {
      * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
      */
     type: string;
+}
+
+export interface GetLogStreamSettings {
+    /**
+     * AWS account ID. Required only for 'aws_eventbridge' type
+     */
+    accountId: string;
+    /**
+     * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+     */
+    edition: string;
+    /**
+     * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
+     */
+    eventSourceName: string;
+    /**
+     * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+     */
+    host: string;
+    /**
+     * The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
+     */
+    region: string;
+    /**
+     * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+     */
+    token: string;
+}
+
+export interface GetOrgMetadataDomains {
+    /**
+     * Custom Domain Org URI
+     */
+    alternate: string;
+    /**
+     * Standard Org URI
+     */
+    organization: string;
+}
+
+export interface GetOrgMetadataSettings {
+    analyticsCollectionEnabled: boolean;
+    bugReportingEnabled: boolean;
+    /**
+     * Whether the legacy Okta Mobile application is enabled for the org
+     */
+    omEnabled: boolean;
 }
 
 export interface GetTemplatesEmailTemplate {
@@ -361,6 +515,33 @@ export interface GroupSchemaPropertyOneOf {
     title: string;
 }
 
+export interface LogStreamSettings {
+    /**
+     * AWS account ID.
+     */
+    accountId?: string;
+    /**
+     * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
+     */
+    edition?: string;
+    /**
+     * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+     */
+    eventSourceName?: string;
+    /**
+     * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
+     */
+    host?: string;
+    /**
+     * The destination AWS region where event source is located.
+     */
+    region?: string;
+    /**
+     * The HEC token for your Splunk Cloud HTTP Event Collector.
+     */
+    token?: string;
+}
+
 export interface PolicyRuleProfileEnrollmentProfileAttribute {
     /**
      * A display-friendly label for this property
@@ -374,6 +555,39 @@ export interface PolicyRuleProfileEnrollmentProfileAttribute {
      * Indicates if this property is required for enrollment. Default is `false`.
      */
     required?: boolean;
+}
+
+export interface PreviewSigninPageContentSecurityPolicySetting {
+    /**
+     * enforced or report_only
+     */
+    mode?: string;
+    reportUri?: string;
+    srcLists?: string[];
+}
+
+export interface PreviewSigninPageWidgetCustomizations {
+    authenticatorPageCustomLinkLabel?: string;
+    authenticatorPageCustomLinkUrl?: string;
+    classicRecoveryFlowEmailOrUsernameLabel?: string;
+    customLink1Label?: string;
+    customLink1Url?: string;
+    customLink2Label?: string;
+    customLink2Url?: string;
+    forgotPasswordLabel?: string;
+    forgotPasswordUrl?: string;
+    helpLabel?: string;
+    helpUrl?: string;
+    passwordInfoTip?: string;
+    passwordLabel?: string;
+    showPasswordVisibilityToggle: boolean;
+    showUserIdentifier: boolean;
+    signInLabel?: string;
+    unlockAccountLabel?: string;
+    unlockAccountUrl?: string;
+    usernameInfoTip?: string;
+    usernameLabel?: string;
+    widgetGeneration: string;
 }
 
 export interface TemplateSmsTranslation {
@@ -418,223 +632,6 @@ export interface UserSchemaPropertyOneOf {
      * display name for the enum value.
      */
     title: string;
-}
-
-export namespace Index {
-    export interface CustomizedSigninPageContentSecurityPolicySetting {
-        /**
-         * enforced or report_only
-         */
-        mode?: string;
-        reportUri?: string;
-        srcLists?: string[];
-    }
-
-    export interface CustomizedSigninPageWidgetCustomizations {
-        authenticatorPageCustomLinkLabel?: string;
-        authenticatorPageCustomLinkUrl?: string;
-        classicRecoveryFlowEmailOrUsernameLabel?: string;
-        customLink1Label?: string;
-        customLink1Url?: string;
-        customLink2Label?: string;
-        customLink2Url?: string;
-        forgotPasswordLabel?: string;
-        forgotPasswordUrl?: string;
-        helpLabel?: string;
-        helpUrl?: string;
-        passwordInfoTip?: string;
-        passwordLabel?: string;
-        showPasswordVisibilityToggle: boolean;
-        showUserIdentifier: boolean;
-        signInLabel?: string;
-        unlockAccountLabel?: string;
-        unlockAccountUrl?: string;
-        usernameInfoTip?: string;
-        usernameLabel?: string;
-        widgetGeneration: string;
-    }
-
-    export interface EmailDomainDnsValidationRecord {
-        /**
-         * DNS TXT record expiration
-         *
-         * @deprecated This field has been removed in the newest go sdk version and has become noop
-         */
-        expiration: string;
-        /**
-         * DNS record name.
-         */
-        fqdn: string;
-        /**
-         * Record type can be TXT or cname.
-         */
-        recordType: string;
-        /**
-         * DNS record value
-         * - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
-         */
-        value: string;
-    }
-
-    export interface GetDefaultSigninPageContentSecurityPolicySetting {
-        /**
-         * enforced or report_only
-         */
-        mode: string;
-        reportUri: string;
-        srcLists: string[];
-    }
-
-    export interface GetDefaultSigninPageWidgetCustomizations {
-        authenticatorPageCustomLinkLabel: string;
-        authenticatorPageCustomLinkUrl: string;
-        classicRecoveryFlowEmailOrUsernameLabel: string;
-        customLink1Label: string;
-        customLink1Url: string;
-        customLink2Label: string;
-        customLink2Url: string;
-        forgotPasswordLabel: string;
-        forgotPasswordUrl: string;
-        helpLabel: string;
-        helpUrl: string;
-        passwordInfoTip: string;
-        passwordLabel: string;
-        showPasswordVisibilityToggle: boolean;
-        showUserIdentifier: boolean;
-        signInLabel: string;
-        unlockAccountLabel: string;
-        unlockAccountUrl: string;
-        usernameInfoTip: string;
-        usernameLabel: string;
-        widgetGeneration: string;
-    }
-
-    export interface GetDomainDnsRecord {
-        /**
-         * TXT record expiration.
-         */
-        expiration: string;
-        /**
-         * DNS record name.
-         */
-        fqdn: string;
-        /**
-         * Record type can be TXT or CNAME.
-         */
-        recordType: string;
-        /**
-         * DNS verification value
-         */
-        values: string[];
-    }
-
-    export interface GetLogStreamSettings {
-        /**
-         * AWS account ID. Required only for 'aws_eventbridge' type
-         */
-        accountId: string;
-        /**
-         * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
-         */
-        edition: string;
-        /**
-         * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
-         */
-        eventSourceName: string;
-        /**
-         * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
-         */
-        host: string;
-        /**
-         * The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
-         */
-        region: string;
-        /**
-         * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
-         */
-        token: string;
-    }
-
-    export interface GetOrgMetadataDomains {
-        /**
-         * Custom Domain Org URI
-         */
-        alternate: string;
-        /**
-         * Standard Org URI
-         */
-        organization: string;
-    }
-
-    export interface GetOrgMetadataSettings {
-        analyticsCollectionEnabled: boolean;
-        bugReportingEnabled: boolean;
-        /**
-         * Whether the legacy Okta Mobile application is enabled for the org
-         */
-        omEnabled: boolean;
-    }
-
-    export interface LogStreamSettings {
-        /**
-         * AWS account ID.
-         */
-        accountId?: string;
-        /**
-         * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
-         */
-        edition?: string;
-        /**
-         * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
-         */
-        eventSourceName?: string;
-        /**
-         * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
-         */
-        host?: string;
-        /**
-         * The destination AWS region where event source is located.
-         */
-        region?: string;
-        /**
-         * The HEC token for your Splunk Cloud HTTP Event Collector.
-         */
-        token?: string;
-    }
-
-    export interface PreviewSigninPageContentSecurityPolicySetting {
-        /**
-         * enforced or report_only
-         */
-        mode?: string;
-        reportUri?: string;
-        srcLists?: string[];
-    }
-
-    export interface PreviewSigninPageWidgetCustomizations {
-        authenticatorPageCustomLinkLabel?: string;
-        authenticatorPageCustomLinkUrl?: string;
-        classicRecoveryFlowEmailOrUsernameLabel?: string;
-        customLink1Label?: string;
-        customLink1Url?: string;
-        customLink2Label?: string;
-        customLink2Url?: string;
-        forgotPasswordLabel?: string;
-        forgotPasswordUrl?: string;
-        helpLabel?: string;
-        helpUrl?: string;
-        passwordInfoTip?: string;
-        passwordLabel?: string;
-        showPasswordVisibilityToggle: boolean;
-        showUserIdentifier: boolean;
-        signInLabel?: string;
-        unlockAccountLabel?: string;
-        unlockAccountUrl?: string;
-        usernameInfoTip?: string;
-        usernameLabel?: string;
-        widgetGeneration: string;
-    }
-
 }
 
 export namespace app {

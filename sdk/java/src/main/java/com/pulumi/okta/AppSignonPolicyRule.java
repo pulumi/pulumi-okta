@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testSaml = new Saml("testSaml", SamlArgs.builder()        
+ *         var testSaml = new Saml("testSaml", SamlArgs.builder()
  *             .label("My App")
  *             .ssoUrl("https://google.com")
  *             .recipient("https://here.com")
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *             .appId(testSaml.id())
  *             .build());
  * 
- *         var testAppSignonPolicyRule = new AppSignonPolicyRule("testAppSignonPolicyRule", AppSignonPolicyRuleArgs.builder()        
+ *         var testAppSignonPolicyRule = new AppSignonPolicyRule("testAppSignonPolicyRule", AppSignonPolicyRuleArgs.builder()
  *             .policyId(test.applyValue(getAppSignonPolicyResult -> getAppSignonPolicyResult).applyValue(test -> test.applyValue(getAppSignonPolicyResult -> getAppSignonPolicyResult.id())))
  *             .name("testAcc_replace_with_uuid")
  *             .build());
@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AppSignonPolicyRule("test", AppSignonPolicyRuleArgs.builder()        
+ *         var test = new AppSignonPolicyRule("test", AppSignonPolicyRuleArgs.builder()
  *             .policyId(testOktaAppSignonPolicy.id())
  *             .name("testAcc_replace_with_uuid")
  *             .constraints(serializeJson(
@@ -165,7 +165,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AppSignonPolicyRule("test", AppSignonPolicyRuleArgs.builder()        
+ *         var test = new AppSignonPolicyRule("test", AppSignonPolicyRuleArgs.builder()
  *             .policyId(testOktaAppSignonPolicy.id())
  *             .name("testAcc_replace_with_uuid")
  *             .constraints(serializeJson(
@@ -237,7 +237,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testSaml = new Saml("testSaml", SamlArgs.builder()        
+ *         var testSaml = new Saml("testSaml", SamlArgs.builder()
  *             .label("testAcc_replace_with_uuid")
  *             .ssoUrl("https://google.com")
  *             .recipient("https://here.com")
@@ -293,7 +293,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         for (var i = 0; i < 5; i++) {
- *             new User("testUser-" + i, UserArgs.builder()            
+ *             new User("testUser-" + i, UserArgs.builder()
  *                 .firstName("TestAcc")
  *                 .lastName("Smith")
  *                 .login(String.format("testAcc_%s{@literal @}example.com", range.value()))
@@ -303,20 +303,20 @@ import javax.annotation.Nullable;
  *         
  * }
  *         for (var i = 0; i < 5; i++) {
- *             new Group("this-" + i, GroupArgs.builder()            
+ *             new Group("this-" + i, GroupArgs.builder()
  *                 .name(String.format("testAcc_%s", range.value()))
  *                 .description(String.format("testAcc_%s", range.value()))
  *                 .build());
  * 
  *         
  * }
- *         var testUserType = new UserType("testUserType", UserTypeArgs.builder()        
+ *         var testUserType = new UserType("testUserType", UserTypeArgs.builder()
  *             .name("testAcc_replace_with_uuid")
  *             .displayName("Terraform Acceptance Test User Type Updated")
  *             .description("Terraform Acceptance Test User Type Updated")
  *             .build());
  * 
- *         var testZone = new Zone("testZone", ZoneArgs.builder()        
+ *         var testZone = new Zone("testZone", ZoneArgs.builder()
  *             .name("testAcc_replace_with_uuid")
  *             .type("IP")
  *             .gateways(            
@@ -331,13 +331,13 @@ import javax.annotation.Nullable;
  *             .name("user")
  *             .build());
  * 
- *         var testDeviceAssuranceAndroid = new DeviceAssuranceAndroid("testDeviceAssuranceAndroid", DeviceAssuranceAndroidArgs.builder()        
+ *         var testDeviceAssuranceAndroid = new DeviceAssuranceAndroid("testDeviceAssuranceAndroid", DeviceAssuranceAndroidArgs.builder()
  *             .name("test")
  *             .osVersion("12")
  *             .jailbreak(false)
  *             .build());
  * 
- *         var testAppSignonPolicyRule = new AppSignonPolicyRule("testAppSignonPolicyRule", AppSignonPolicyRuleArgs.builder()        
+ *         var testAppSignonPolicyRule = new AppSignonPolicyRule("testAppSignonPolicyRule", AppSignonPolicyRuleArgs.builder()
  *             .name("testAcc_replace_with_uuid")
  *             .policyId(test.applyValue(getAppSignonPolicyResult -> getAppSignonPolicyResult).applyValue(test -> test.applyValue(getAppSignonPolicyResult -> getAppSignonPolicyResult.id())))
  *             .access("ALLOW")

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User("example", UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()
  *             .firstName("John")
  *             .lastName("Smith")
  *             .login("john.smith{@literal @}example.com")
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test2 = new User("test2", UserArgs.builder()        
+ *         var test2 = new User("test2", UserArgs.builder()
  *             .firstName("John")
  *             .lastName("Smith")
  *             .login("example{@literal @}example.com")

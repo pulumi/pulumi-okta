@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server("example", ServerArgs.builder()        
+ *         var example = new Server("example", ServerArgs.builder()
  *             .audiences("api://example")
  *             .description("My Example Auth Server")
  *             .name("example")

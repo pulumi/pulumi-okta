@@ -24,66 +24,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.policy.PolicyFunctions;
- * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
- * import com.pulumi.okta.app.OAuth;
- * import com.pulumi.okta.app.OAuthArgs;
- * import com.pulumi.okta.policy.RuleMfa;
- * import com.pulumi.okta.policy.RuleMfaArgs;
- * import com.pulumi.okta.policy.inputs.RuleMfaAppIncludeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
- *             .type("MFA_ENROLL")
- *             .build());
- * 
- *         var exampleOAuth = new OAuth("exampleOAuth", OAuthArgs.builder()        
- *             .label("My App")
- *             .type("web")
- *             .grantTypes("authorization_code")
- *             .redirectUris("http://localhost:8000")
- *             .responseTypes("code")
- *             .skipGroups(true)
- *             .build());
- * 
- *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()        
- *             .policyId(example.applyValue(getDefaultPolicyResult -> getDefaultPolicyResult.id()))
- *             .name("My Rule")
- *             .status("ACTIVE")
- *             .enroll("LOGIN")
- *             .appIncludes(            
- *                 RuleMfaAppIncludeArgs.builder()
- *                     .id(exampleOAuth.id())
- *                     .type("APP")
- *                     .build(),
- *                 RuleMfaAppIncludeArgs.builder()
- *                     .type("APP_TYPE")
- *                     .name("yahoo_mail")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Unchecked `Okta` and checked `Applications` (with `Any application that supports MFA enrollment` option) checkboxes in the `User is accessing` section corresponds to the following config:
@@ -118,7 +58,7 @@ import javax.annotation.Nullable;
  *             .type("MFA_ENROLL")
  *             .build());
  * 
- *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()        
+ *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()
  *             .name("Some policy rule")
  *             .policyId(example.applyValue(getDefaultPolicyResult -> getDefaultPolicyResult.id()))
  *             .appExcludes(RuleMfaAppExcludeArgs.builder()
@@ -166,7 +106,7 @@ import javax.annotation.Nullable;
  *             .type("MFA_ENROLL")
  *             .build());
  * 
- *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()        
+ *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()
  *             .name("Some policy rule")
  *             .policyId(example.applyValue(getDefaultPolicyResult -> getDefaultPolicyResult.id()))
  *             .appExcludes(RuleMfaAppExcludeArgs.builder()
@@ -217,7 +157,7 @@ import javax.annotation.Nullable;
  *             .type("MFA_ENROLL")
  *             .build());
  * 
- *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()        
+ *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()
  *             .name("Some policy rule")
  *             .policyId(example.applyValue(getDefaultPolicyResult -> getDefaultPolicyResult.id()))
  *             .appIncludes(RuleMfaAppIncludeArgs.builder()
@@ -263,7 +203,7 @@ import javax.annotation.Nullable;
  *             .type("MFA_ENROLL")
  *             .build());
  * 
- *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()        
+ *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()
  *             .name("Some policy rule")
  *             .policyId(example.applyValue(getDefaultPolicyResult -> getDefaultPolicyResult.id()))
  *             .build());
@@ -306,7 +246,7 @@ import javax.annotation.Nullable;
  *             .type("MFA_ENROLL")
  *             .build());
  * 
- *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()        
+ *         var exampleRuleMfa = new RuleMfa("exampleRuleMfa", RuleMfaArgs.builder()
  *             .name("Some policy rule")
  *             .policyId(example.applyValue(getDefaultPolicyResult -> getDefaultPolicyResult.id()))
  *             .appIncludes(            

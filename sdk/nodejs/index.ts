@@ -95,6 +95,11 @@ export type CaptchaOrgWideSettings = import("./captchaOrgWideSettings").CaptchaO
 export const CaptchaOrgWideSettings: typeof import("./captchaOrgWideSettings").CaptchaOrgWideSettings = null as any;
 utilities.lazyLoad(exports, ["CaptchaOrgWideSettings"], () => require("./captchaOrgWideSettings"));
 
+export { CustomizedSigninPageArgs, CustomizedSigninPageState } from "./customizedSigninPage";
+export type CustomizedSigninPage = import("./customizedSigninPage").CustomizedSigninPage;
+export const CustomizedSigninPage: typeof import("./customizedSigninPage").CustomizedSigninPage = null as any;
+utilities.lazyLoad(exports, ["CustomizedSigninPage"], () => require("./customizedSigninPage"));
+
 export { DomainArgs, DomainState } from "./domain";
 export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
@@ -114,6 +119,16 @@ export { EmailCustomizationArgs, EmailCustomizationState } from "./emailCustomiz
 export type EmailCustomization = import("./emailCustomization").EmailCustomization;
 export const EmailCustomization: typeof import("./emailCustomization").EmailCustomization = null as any;
 utilities.lazyLoad(exports, ["EmailCustomization"], () => require("./emailCustomization"));
+
+export { EmailDomainArgs, EmailDomainState } from "./emailDomain";
+export type EmailDomain = import("./emailDomain").EmailDomain;
+export const EmailDomain: typeof import("./emailDomain").EmailDomain = null as any;
+utilities.lazyLoad(exports, ["EmailDomain"], () => require("./emailDomain"));
+
+export { EmailDomainVerificationArgs, EmailDomainVerificationState } from "./emailDomainVerification";
+export type EmailDomainVerification = import("./emailDomainVerification").EmailDomainVerification;
+export const EmailDomainVerification: typeof import("./emailDomainVerification").EmailDomainVerification = null as any;
+utilities.lazyLoad(exports, ["EmailDomainVerification"], () => require("./emailDomainVerification"));
 
 export { EmailSenderArgs, EmailSenderState } from "./emailSender";
 export type EmailSender = import("./emailSender").EmailSender;
@@ -190,6 +205,16 @@ export const getBrands: typeof import("./getBrands").getBrands = null as any;
 export const getBrandsOutput: typeof import("./getBrands").getBrandsOutput = null as any;
 utilities.lazyLoad(exports, ["getBrands","getBrandsOutput"], () => require("./getBrands"));
 
+export { GetDefaultSigninPageArgs, GetDefaultSigninPageResult, GetDefaultSigninPageOutputArgs } from "./getDefaultSigninPage";
+export const getDefaultSigninPage: typeof import("./getDefaultSigninPage").getDefaultSigninPage = null as any;
+export const getDefaultSigninPageOutput: typeof import("./getDefaultSigninPage").getDefaultSigninPageOutput = null as any;
+utilities.lazyLoad(exports, ["getDefaultSigninPage","getDefaultSigninPageOutput"], () => require("./getDefaultSigninPage"));
+
+export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
+export const getDomain: typeof import("./getDomain").getDomain = null as any;
+export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
+
 export { GetEmailCustomizationArgs, GetEmailCustomizationResult, GetEmailCustomizationOutputArgs } from "./getEmailCustomization";
 export const getEmailCustomization: typeof import("./getEmailCustomization").getEmailCustomization = null as any;
 export const getEmailCustomizationOutput: typeof import("./getEmailCustomization").getEmailCustomizationOutput = null as any;
@@ -205,10 +230,20 @@ export const getGroups: typeof import("./getGroups").getGroups = null as any;
 export const getGroupsOutput: typeof import("./getGroups").getGroupsOutput = null as any;
 utilities.lazyLoad(exports, ["getGroups","getGroupsOutput"], () => require("./getGroups"));
 
+export { GetLogStreamArgs, GetLogStreamResult, GetLogStreamOutputArgs } from "./getLogStream";
+export const getLogStream: typeof import("./getLogStream").getLogStream = null as any;
+export const getLogStreamOutput: typeof import("./getLogStream").getLogStreamOutput = null as any;
+utilities.lazyLoad(exports, ["getLogStream","getLogStreamOutput"], () => require("./getLogStream"));
+
 export { GetNetworkZoneArgs, GetNetworkZoneResult, GetNetworkZoneOutputArgs } from "./getNetworkZone";
 export const getNetworkZone: typeof import("./getNetworkZone").getNetworkZone = null as any;
 export const getNetworkZoneOutput: typeof import("./getNetworkZone").getNetworkZoneOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkZone","getNetworkZoneOutput"], () => require("./getNetworkZone"));
+
+export { GetOrgMetadataArgs, GetOrgMetadataResult, GetOrgMetadataOutputArgs } from "./getOrgMetadata";
+export const getOrgMetadata: typeof import("./getOrgMetadata").getOrgMetadata = null as any;
+export const getOrgMetadataOutput: typeof import("./getOrgMetadata").getOrgMetadataOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgMetadata","getOrgMetadataOutput"], () => require("./getOrgMetadata"));
 
 export { GetRoleSubscriptionArgs, GetRoleSubscriptionResult, GetRoleSubscriptionOutputArgs } from "./getRoleSubscription";
 export const getRoleSubscription: typeof import("./getRoleSubscription").getRoleSubscription = null as any;
@@ -265,6 +300,11 @@ export type LinkValue = import("./linkValue").LinkValue;
 export const LinkValue: typeof import("./linkValue").LinkValue = null as any;
 utilities.lazyLoad(exports, ["LinkValue"], () => require("./linkValue"));
 
+export { LogStreamArgs, LogStreamState } from "./logStream";
+export type LogStream = import("./logStream").LogStream;
+export const LogStream: typeof import("./logStream").LogStream = null as any;
+utilities.lazyLoad(exports, ["LogStream"], () => require("./logStream"));
+
 export { OrgConfigurationArgs, OrgConfigurationState } from "./orgConfiguration";
 export type OrgConfiguration = import("./orgConfiguration").OrgConfiguration;
 export const OrgConfiguration: typeof import("./orgConfiguration").OrgConfiguration = null as any;
@@ -299,6 +339,11 @@ export { PolicyRuleProfileEnrollmentArgs, PolicyRuleProfileEnrollmentState } fro
 export type PolicyRuleProfileEnrollment = import("./policyRuleProfileEnrollment").PolicyRuleProfileEnrollment;
 export const PolicyRuleProfileEnrollment: typeof import("./policyRuleProfileEnrollment").PolicyRuleProfileEnrollment = null as any;
 utilities.lazyLoad(exports, ["PolicyRuleProfileEnrollment"], () => require("./policyRuleProfileEnrollment"));
+
+export { PreviewSigninPageArgs, PreviewSigninPageState } from "./previewSigninPage";
+export type PreviewSigninPage = import("./previewSigninPage").PreviewSigninPage;
+export const PreviewSigninPage: typeof import("./previewSigninPage").PreviewSigninPage = null as any;
+utilities.lazyLoad(exports, ["PreviewSigninPage"], () => require("./previewSigninPage"));
 
 export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
@@ -373,7 +418,6 @@ import * as config from "./config";
 import * as factor from "./factor";
 import * as group from "./group";
 import * as idp from "./idp";
-import * as index from "./index";
 import * as inline from "./inline";
 import * as network from "./network";
 import * as policy from "./policy";
@@ -389,7 +433,6 @@ export {
     factor,
     group,
     idp,
-    index,
     inline,
     network,
     policy,
@@ -439,6 +482,8 @@ const _module = {
                 return new Captcha(name, <any>undefined, { urn })
             case "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings":
                 return new CaptchaOrgWideSettings(name, <any>undefined, { urn })
+            case "okta:index/customizedSigninPage:CustomizedSigninPage":
+                return new CustomizedSigninPage(name, <any>undefined, { urn })
             case "okta:index/domain:Domain":
                 return new Domain(name, <any>undefined, { urn })
             case "okta:index/domainCertificate:DomainCertificate":
@@ -447,6 +492,10 @@ const _module = {
                 return new DomainVerification(name, <any>undefined, { urn })
             case "okta:index/emailCustomization:EmailCustomization":
                 return new EmailCustomization(name, <any>undefined, { urn })
+            case "okta:index/emailDomain:EmailDomain":
+                return new EmailDomain(name, <any>undefined, { urn })
+            case "okta:index/emailDomainVerification:EmailDomainVerification":
+                return new EmailDomainVerification(name, <any>undefined, { urn })
             case "okta:index/emailSender:EmailSender":
                 return new EmailSender(name, <any>undefined, { urn })
             case "okta:index/emailSenderVerification:EmailSenderVerification":
@@ -465,6 +514,8 @@ const _module = {
                 return new LinkDefinition(name, <any>undefined, { urn })
             case "okta:index/linkValue:LinkValue":
                 return new LinkValue(name, <any>undefined, { urn })
+            case "okta:index/logStream:LogStream":
+                return new LogStream(name, <any>undefined, { urn })
             case "okta:index/orgConfiguration:OrgConfiguration":
                 return new OrgConfiguration(name, <any>undefined, { urn })
             case "okta:index/orgSupport:OrgSupport":
@@ -479,6 +530,8 @@ const _module = {
                 return new PolicyProfileEnrollmentApps(name, <any>undefined, { urn })
             case "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment":
                 return new PolicyRuleProfileEnrollment(name, <any>undefined, { urn })
+            case "okta:index/previewSigninPage:PreviewSigninPage":
+                return new PreviewSigninPage(name, <any>undefined, { urn })
             case "okta:index/rateLimiting:RateLimiting":
                 return new RateLimiting(name, <any>undefined, { urn })
             case "okta:index/resourceSet:ResourceSet":
@@ -526,10 +579,13 @@ pulumi.runtime.registerResourceModule("okta", "index/behaviour", _module)
 pulumi.runtime.registerResourceModule("okta", "index/brand", _module)
 pulumi.runtime.registerResourceModule("okta", "index/captcha", _module)
 pulumi.runtime.registerResourceModule("okta", "index/captchaOrgWideSettings", _module)
+pulumi.runtime.registerResourceModule("okta", "index/customizedSigninPage", _module)
 pulumi.runtime.registerResourceModule("okta", "index/domain", _module)
 pulumi.runtime.registerResourceModule("okta", "index/domainCertificate", _module)
 pulumi.runtime.registerResourceModule("okta", "index/domainVerification", _module)
 pulumi.runtime.registerResourceModule("okta", "index/emailCustomization", _module)
+pulumi.runtime.registerResourceModule("okta", "index/emailDomain", _module)
+pulumi.runtime.registerResourceModule("okta", "index/emailDomainVerification", _module)
 pulumi.runtime.registerResourceModule("okta", "index/emailSender", _module)
 pulumi.runtime.registerResourceModule("okta", "index/emailSenderVerification", _module)
 pulumi.runtime.registerResourceModule("okta", "index/eventHook", _module)
@@ -539,6 +595,7 @@ pulumi.runtime.registerResourceModule("okta", "index/groupMemberships", _module)
 pulumi.runtime.registerResourceModule("okta", "index/groupSchemaProperty", _module)
 pulumi.runtime.registerResourceModule("okta", "index/linkDefinition", _module)
 pulumi.runtime.registerResourceModule("okta", "index/linkValue", _module)
+pulumi.runtime.registerResourceModule("okta", "index/logStream", _module)
 pulumi.runtime.registerResourceModule("okta", "index/orgConfiguration", _module)
 pulumi.runtime.registerResourceModule("okta", "index/orgSupport", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyMfaDefault", _module)
@@ -546,6 +603,7 @@ pulumi.runtime.registerResourceModule("okta", "index/policyPasswordDefault", _mo
 pulumi.runtime.registerResourceModule("okta", "index/policyProfileEnrollment", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyProfileEnrollmentApps", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyRuleProfileEnrollment", _module)
+pulumi.runtime.registerResourceModule("okta", "index/previewSigninPage", _module)
 pulumi.runtime.registerResourceModule("okta", "index/rateLimiting", _module)
 pulumi.runtime.registerResourceModule("okta", "index/resourceSet", _module)
 pulumi.runtime.registerResourceModule("okta", "index/roleSubscription", _module)

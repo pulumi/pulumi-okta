@@ -23,10 +23,13 @@ from .behaviour import *
 from .brand import *
 from .captcha import *
 from .captcha_org_wide_settings import *
+from .customized_signin_page import *
 from .domain import *
 from .domain_certificate import *
 from .domain_verification import *
 from .email_customization import *
+from .email_domain import *
+from .email_domain_verification import *
 from .email_sender import *
 from .email_sender_verification import *
 from .event_hook import *
@@ -42,10 +45,14 @@ from .get_behaviour import *
 from .get_behaviours import *
 from .get_brand import *
 from .get_brands import *
+from .get_default_signin_page import *
+from .get_domain import *
 from .get_email_customization import *
 from .get_email_customizations import *
 from .get_groups import *
+from .get_log_stream import *
 from .get_network_zone import *
+from .get_org_metadata import *
 from .get_role_subscription import *
 from .get_template import *
 from .get_templates import *
@@ -57,6 +64,7 @@ from .group_memberships import *
 from .group_schema_property import *
 from .link_definition import *
 from .link_value import *
+from .log_stream import *
 from .org_configuration import *
 from .org_support import *
 from .policy_mfa_default import *
@@ -64,6 +72,7 @@ from .policy_password_default import *
 from .policy_profile_enrollment import *
 from .policy_profile_enrollment_apps import *
 from .policy_rule_profile_enrollment import *
+from .preview_signin_page import *
 from .provider import *
 from .rate_limiting import *
 from .resource_set import *
@@ -94,8 +103,6 @@ if typing.TYPE_CHECKING:
     group = __group
     import pulumi_okta.idp as __idp
     idp = __idp
-    import pulumi_okta.index as __index
-    index = __index
     import pulumi_okta.inline as __inline
     inline = __inline
     import pulumi_okta.network as __network
@@ -115,7 +122,6 @@ else:
     factor = _utilities.lazy_import('pulumi_okta.factor')
     group = _utilities.lazy_import('pulumi_okta.group')
     idp = _utilities.lazy_import('pulumi_okta.idp')
-    index = _utilities.lazy_import('pulumi_okta.index')
     inline = _utilities.lazy_import('pulumi_okta.inline')
     network = _utilities.lazy_import('pulumi_okta.network')
     policy = _utilities.lazy_import('pulumi_okta.policy')
@@ -126,46 +132,6 @@ else:
 _utilities.register(
     resource_modules="""
 [
- {
-  "pkg": "okta",
-  "mod": "Index/customizedSigninPage",
-  "fqn": "pulumi_okta.index",
-  "classes": {
-   "okta:Index/customizedSigninPage:CustomizedSigninPage": "CustomizedSigninPage"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "Index/emailDomain",
-  "fqn": "pulumi_okta.index",
-  "classes": {
-   "okta:Index/emailDomain:EmailDomain": "EmailDomain"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "Index/emailDomainVerification",
-  "fqn": "pulumi_okta.index",
-  "classes": {
-   "okta:Index/emailDomainVerification:EmailDomainVerification": "EmailDomainVerification"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "Index/logStream",
-  "fqn": "pulumi_okta.index",
-  "classes": {
-   "okta:Index/logStream:LogStream": "LogStream"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "Index/previewSigninPage",
-  "fqn": "pulumi_okta.index",
-  "classes": {
-   "okta:Index/previewSigninPage:PreviewSigninPage": "PreviewSigninPage"
-  }
- },
  {
   "pkg": "okta",
   "mod": "app/accessPolicyAssignment",
@@ -536,6 +502,14 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/customizedSigninPage",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/customizedSigninPage:CustomizedSigninPage": "CustomizedSigninPage"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/domain",
   "fqn": "pulumi_okta",
   "classes": {
@@ -564,6 +538,22 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/emailCustomization:EmailCustomization": "EmailCustomization"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/emailDomain",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/emailDomain:EmailDomain": "EmailDomain"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/emailDomainVerification",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/emailDomainVerification:EmailDomainVerification": "EmailDomainVerification"
   }
  },
  {
@@ -640,6 +630,14 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/logStream",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/logStream:LogStream": "LogStream"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/orgConfiguration",
   "fqn": "pulumi_okta",
   "classes": {
@@ -692,6 +690,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment": "PolicyRuleProfileEnrollment"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/previewSigninPage",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/previewSigninPage:PreviewSigninPage": "PreviewSigninPage"
   }
  },
  {

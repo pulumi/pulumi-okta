@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **DEPRECATED** use `Index.EmailDomain` instead.
+// > **DEPRECATED** use `EmailDomain` instead.
 //
 // This resource allows you to create and configure a custom email sender.
 //

@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Group("test", GroupArgs.builder()        
+ *         var test = new Group("test", GroupArgs.builder()
  *             .name("testAcc_replace_with_uuid")
  *             .description("testing, testing")
  *             .build());
  * 
- *         var testGroupMemberships = new GroupMemberships("testGroupMemberships", GroupMembershipsArgs.builder()        
+ *         var testGroupMemberships = new GroupMemberships("testGroupMemberships", GroupMembershipsArgs.builder()
  *             .groupId(test.id())
  *             .users(            
  *                 test1.id(),

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// &gt; **DEPRECATED** use `okta.Index.EmailDomain` instead.
+    /// &gt; **DEPRECATED** use `okta.EmailDomain` instead.
     /// 
     /// This resource allows you to create and configure a custom email sender.
     /// 

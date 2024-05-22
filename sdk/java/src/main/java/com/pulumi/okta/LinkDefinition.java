@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LinkDefinition("example", LinkDefinitionArgs.builder()        
+ *         var example = new LinkDefinition("example", LinkDefinitionArgs.builder()
  *             .primaryName("emperor")
  *             .primaryTitle("Emperor")
  *             .primaryDescription("Hereditary ruler of the Imperium and the Known Universe")

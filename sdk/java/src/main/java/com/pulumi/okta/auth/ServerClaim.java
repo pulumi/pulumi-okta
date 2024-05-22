@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerClaim("example", ServerClaimArgs.builder()        
+ *         var example = new ServerClaim("example", ServerClaimArgs.builder()
  *             .authServerId("<auth server id>")
  *             .name("staff")
  *             .value("String.substringAfter(user.email, \"{@literal @}\") == \"example.com\"")

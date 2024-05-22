@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserType("example", UserTypeArgs.builder()        
+ *         var example = new UserType("example", UserTypeArgs.builder()
  *             .name("example")
  *             .displayName("example")
  *             .description("example")

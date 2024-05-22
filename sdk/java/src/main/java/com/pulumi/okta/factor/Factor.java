@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Factor("example", FactorArgs.builder()        
+ *         var example = new Factor("example", FactorArgs.builder()
  *             .providerId("google_otp")
  *             .build());
  * 

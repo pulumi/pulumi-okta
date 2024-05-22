@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BasicAuth("example", BasicAuthArgs.builder()        
+ *         var example = new BasicAuth("example", BasicAuthArgs.builder()
  *             .label("Example")
  *             .url("https://example.com/login.html")
  *             .authUrl("https://example.com/auth.html")

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * > **DEPRECATED** use `okta.Index.EmailDomainVerification` instead.
+ * > **DEPRECATED** use `okta.EmailDomainVerification` instead.
  *
  * Verifies the email sender. The resource won't be created if the email sender could not be verified.
  *

@@ -39,6 +39,14 @@ export interface GetPolicyArgs {
     /**
      * Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
      * - All:
+     * - `OKTA_SIGN_ON`
+     * - `PASSWORD`
+     * - `MFA_ENROLL`
+     * - `OAUTH_AUTHORIZATION_POLICY`
+     * - `IDP_DISCOVERY`
+     * - OIE Only:
+     * - `ACCESS_POLICY`
+     * - `PROFILE_ENROLLMENT`
      */
     type: string;
 }
@@ -91,6 +99,14 @@ export interface GetPolicyOutputArgs {
     /**
      * Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
      * - All:
+     * - `OKTA_SIGN_ON`
+     * - `PASSWORD`
+     * - `MFA_ENROLL`
+     * - `OAUTH_AUTHORIZATION_POLICY`
+     * - `IDP_DISCOVERY`
+     * - OIE Only:
+     * - `ACCESS_POLICY`
+     * - `PROFILE_ENROLLMENT`
      */
     type: pulumi.Input<string>;
 }

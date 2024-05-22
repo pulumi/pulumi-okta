@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Role("example", RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()
  *             .groupId("<group id>")
  *             .roleType("READ_ONLY_ADMIN")
  *             .build());

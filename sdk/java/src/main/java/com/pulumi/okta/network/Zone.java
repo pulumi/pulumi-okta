@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Zone("example", ZoneArgs.builder()        
+ *         var example = new Zone("example", ZoneArgs.builder()
  *             .name("example")
  *             .type("IP")
  *             .gateways(            
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Zone("example", ZoneArgs.builder()        
+ *         var example = new Zone("example", ZoneArgs.builder()
  *             .name("TOR Blocker")
  *             .type("DYNAMIC")
  *             .usage("BLOCKLIST")

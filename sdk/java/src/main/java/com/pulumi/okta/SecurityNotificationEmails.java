@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityNotificationEmails("example", SecurityNotificationEmailsArgs.builder()        
+ *         var example = new SecurityNotificationEmails("example", SecurityNotificationEmailsArgs.builder()
  *             .reportSuspiciousActivityEnabled(true)
  *             .sendEmailForFactorEnrollmentEnabled(true)
  *             .sendEmailForFactorResetEnabled(true)

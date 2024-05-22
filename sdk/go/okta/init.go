@@ -57,6 +57,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Captcha{}
 	case "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings":
 		r = &CaptchaOrgWideSettings{}
+	case "okta:index/customizedSigninPage:CustomizedSigninPage":
+		r = &CustomizedSigninPage{}
 	case "okta:index/domain:Domain":
 		r = &Domain{}
 	case "okta:index/domainCertificate:DomainCertificate":
@@ -65,6 +67,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DomainVerification{}
 	case "okta:index/emailCustomization:EmailCustomization":
 		r = &EmailCustomization{}
+	case "okta:index/emailDomain:EmailDomain":
+		r = &EmailDomain{}
+	case "okta:index/emailDomainVerification:EmailDomainVerification":
+		r = &EmailDomainVerification{}
 	case "okta:index/emailSender:EmailSender":
 		r = &EmailSender{}
 	case "okta:index/emailSenderVerification:EmailSenderVerification":
@@ -83,6 +89,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LinkDefinition{}
 	case "okta:index/linkValue:LinkValue":
 		r = &LinkValue{}
+	case "okta:index/logStream:LogStream":
+		r = &LogStream{}
 	case "okta:index/orgConfiguration:OrgConfiguration":
 		r = &OrgConfiguration{}
 	case "okta:index/orgSupport:OrgSupport":
@@ -97,6 +105,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PolicyProfileEnrollmentApps{}
 	case "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment":
 		r = &PolicyRuleProfileEnrollment{}
+	case "okta:index/previewSigninPage:PreviewSigninPage":
+		r = &PreviewSigninPage{}
 	case "okta:index/rateLimiting:RateLimiting":
 		r = &RateLimiting{}
 	case "okta:index/resourceSet:ResourceSet":
@@ -244,6 +254,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/customizedSigninPage",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/domain",
 		&module{version},
 	)
@@ -260,6 +275,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/emailCustomization",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/emailDomain",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/emailDomainVerification",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -309,6 +334,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/logStream",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/orgConfiguration",
 		&module{version},
 	)
@@ -340,6 +370,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/policyRuleProfileEnrollment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/previewSigninPage",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
