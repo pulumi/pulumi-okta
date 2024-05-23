@@ -2846,10 +2846,10 @@ github.com/pulumi/providertest v0.0.11 h1:mg8MQ7Cq7+9XlHIkBD+aCqQO4mwAJEISngZgVd
 github.com/pulumi/providertest v0.0.11/go.mod h1:HsxjVsytcMIuNj19w1lT2W0QXY0oReXl1+h6eD2JXP8=
 github.com/pulumi/pulumi-java/pkg v0.11.0 h1:Jw9gBvyfmfOMq/EkYDm9+zGPxsDAA8jfeMpHmtZ+1oA=
 github.com/pulumi/pulumi-java/pkg v0.11.0/go.mod h1:sXAk25P47AQVQL6ilAbFmRNgZykC7og/+87ihnqzFTc=
-github.com/pulumi/pulumi-terraform-bridge/pf v0.35.1-0.20240521215029-81c1dfbd579a h1:XUrTx3NGGEY8wupQ1jF8Xt3NFGVr6EUrjQsbxkBq4cs=
-github.com/pulumi/pulumi-terraform-bridge/pf v0.35.1-0.20240521215029-81c1dfbd579a/go.mod h1:fDa9xI8NObEf5pWge4W2sy8ACDm/RIuWRDgCAcDBPZk=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.82.1-0.20240521215029-81c1dfbd579a h1:R7krRMPC+v+Ui+CwNJtQ8weI/iSluUjYrHCH3Cdj7zM=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.82.1-0.20240521215029-81c1dfbd579a/go.mod h1:WJ24ugly49Q/69napI8RGAqjrDvohpoIS2/kAzW675M=
+github.com/pulumi/pulumi-terraform-bridge/pf v0.35.1-0.20240523214329-7a5e480f2241 h1:s+Adyb3JA0wE9lRhRkWtzgklW+zrtS5nnqgMQRTXRi8=
+github.com/pulumi/pulumi-terraform-bridge/pf v0.35.1-0.20240523214329-7a5e480f2241/go.mod h1:fDa9xI8NObEf5pWge4W2sy8ACDm/RIuWRDgCAcDBPZk=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.83.1-0.20240523214329-7a5e480f2241 h1:EBHM8NXu9RM+yywtOle1Er25QgCGww4iqnqIy4oJ1AM=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.83.1-0.20240523214329-7a5e480f2241/go.mod h1:WJ24ugly49Q/69napI8RGAqjrDvohpoIS2/kAzW675M=
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 h1:mav2tSitA9BPJPLLahKgepHyYsMzwaTm4cvp0dcTMYw=
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8/go.mod h1:qUYk2c9i/yqMGNj9/bQyXpS39BxNDSXYjVN1njnq0zY=
 github.com/pulumi/pulumi-yaml v1.7.0 h1:SbFSaqkH8UiMEy0ZSH9sHLQlmV8so0iCLfvLbPtVP7s=
@@ -2862,8 +2862,8 @@ github.com/pulumi/schema-tools v0.1.2 h1:Fd9xvUjgck4NA+7/jSk7InqCUT4Kj940+EcnbQK
 github.com/pulumi/schema-tools v0.1.2/go.mod h1:62lgj52Tzq11eqWTIaKd+EVyYAu5dEcDJxMhTjvMO/k=
 github.com/pulumi/terraform-diff-reader v0.0.2 h1:kTE4nEXU3/SYXESvAIem+wyHMI3abqkI3OhJ0G04LLI=
 github.com/pulumi/terraform-diff-reader v0.0.2/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
-github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240229143312-4f60ee4e2975 h1:1WBy43K/lHEdS5Hliwf3ylVSfAu5s0KhhEs6wNeP11Y=
-github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240229143312-4f60ee4e2975/go.mod h1:H+8tjs9TjV2w57QFVSMBQacf8k/E1XwLXGCARgViC6A=
+github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240520223432-0c0bf0d65f10 h1:M6Ceq1o6gGeEKxTZgJ2CKLye3p67ZZjnsAwxr5VC32A=
+github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240520223432-0c0bf0d65f10/go.mod h1:H+8tjs9TjV2w57QFVSMBQacf8k/E1XwLXGCARgViC6A=
 github.com/rakyll/embedmd v0.0.0-20171029212350-c8060a0752a2/go.mod h1:7jOTMgqac46PZcF54q6l2hkLEG8op93fZu61KmxWDV4=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/remyoudompheng/bigfft v0.0.0-20200410134404-eec4a21b6bb0/go.mod h1:qqbHyh8v60DhA7CoWK5oRCqLrMHRGoxYCSS9EjAz6Eo=

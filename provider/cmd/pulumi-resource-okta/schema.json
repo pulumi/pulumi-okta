@@ -1723,11 +1723,11 @@
             "properties": {
                 "factorType": {
                     "type": "string",
-                    "description": "Type of a Factor\n"
+                    "description": "Factor type of the additional authentication step.\n"
                 },
                 "provider": {
                     "type": "string",
-                    "description": "Factor provider\n"
+                    "description": "Provider of the additional authentication step.\n"
                 }
             },
             "type": "object",
