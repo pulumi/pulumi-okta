@@ -932,11 +932,11 @@ export namespace policy {
 
     export interface RuleSignonFactorSequenceSecondaryCriteria {
         /**
-         * Type of a Factor
+         * Factor type of the additional authentication step.
          */
         factorType: string;
         /**
-         * Factor provider
+         * Provider of the additional authentication step.
          */
         provider: string;
     }
