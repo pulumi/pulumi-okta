@@ -5,14 +5,14 @@ go 1.21
 require (
 	github.com/okta/terraform-provider-okta v0.0.0
 	github.com/pulumi/providertest v0.0.11
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.35.1-0.20240521215029-81c1dfbd579a
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.82.1-0.20240521215029-81c1dfbd579a
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.35.1-0.20240523132403-341014ae6076
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.82.1-0.20240523132403-341014ae6076
 	github.com/pulumi/pulumi/sdk/v3 v3.116.1
 	github.com/stretchr/testify v1.9.0
 )
 
 replace (
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240229143312-4f60ee4e2975
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240520223432-0c0bf0d65f10
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 	github.com/okta/terraform-provider-okta => ../upstream
 )
