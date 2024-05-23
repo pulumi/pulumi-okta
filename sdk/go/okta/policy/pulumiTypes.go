@@ -806,9 +806,9 @@ func (o RuleSignonFactorSequenceArrayOutput) Index(i pulumi.IntInput) RuleSignon
 }
 
 type RuleSignonFactorSequenceSecondaryCriteria struct {
-	// Type of a Factor
+	// Factor type of the additional authentication step.
 	FactorType string `pulumi:"factorType"`
-	// Factor provider
+	// Provider of the additional authentication step.
 	Provider string `pulumi:"provider"`
 }
 
@@ -824,9 +824,9 @@ type RuleSignonFactorSequenceSecondaryCriteriaInput interface {
 }
 
 type RuleSignonFactorSequenceSecondaryCriteriaArgs struct {
-	// Type of a Factor
+	// Factor type of the additional authentication step.
 	FactorType pulumi.StringInput `pulumi:"factorType"`
-	// Factor provider
+	// Provider of the additional authentication step.
 	Provider pulumi.StringInput `pulumi:"provider"`
 }
 
@@ -881,12 +881,12 @@ func (o RuleSignonFactorSequenceSecondaryCriteriaOutput) ToRuleSignonFactorSeque
 	return o
 }
 
-// Type of a Factor
+// Factor type of the additional authentication step.
 func (o RuleSignonFactorSequenceSecondaryCriteriaOutput) FactorType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSignonFactorSequenceSecondaryCriteria) string { return v.FactorType }).(pulumi.StringOutput)
 }
 
-// Factor provider
+// Provider of the additional authentication step.
 func (o RuleSignonFactorSequenceSecondaryCriteriaOutput) Provider() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSignonFactorSequenceSecondaryCriteria) string { return v.Provider }).(pulumi.StringOutput)
 }

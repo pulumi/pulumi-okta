@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class RuleSignonFactorSequenceSecondaryCriteria {
     /**
-     * @return Type of a Factor
+     * @return Factor type of the additional authentication step.
      * 
      */
     private String factorType;
     /**
-     * @return Factor provider
+     * @return Provider of the additional authentication step.
      * 
      */
     private String provider;
 
     private RuleSignonFactorSequenceSecondaryCriteria() {}
     /**
-     * @return Type of a Factor
+     * @return Factor type of the additional authentication step.
      * 
      */
     public String factorType() {
         return this.factorType;
     }
     /**
-     * @return Factor provider
+     * @return Provider of the additional authentication step.
      * 
      */
     public String provider() {
