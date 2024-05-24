@@ -381,8 +381,8 @@ class RuleSignonFactorSequenceSecondaryCriteriaArgs:
                  factor_type: pulumi.Input[str],
                  provider: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] factor_type: Type of a Factor
-        :param pulumi.Input[str] provider: Factor provider
+        :param pulumi.Input[str] factor_type: Factor type of the additional authentication step.
+        :param pulumi.Input[str] provider: Provider of the additional authentication step.
         """
         pulumi.set(__self__, "factor_type", factor_type)
         pulumi.set(__self__, "provider", provider)
@@ -391,7 +391,7 @@ class RuleSignonFactorSequenceSecondaryCriteriaArgs:
     @pulumi.getter(name="factorType")
     def factor_type(self) -> pulumi.Input[str]:
         """
-        Type of a Factor
+        Factor type of the additional authentication step.
         """
         return pulumi.get(self, "factor_type")
 
@@ -403,7 +403,7 @@ class RuleSignonFactorSequenceSecondaryCriteriaArgs:
     @pulumi.getter
     def provider(self) -> pulumi.Input[str]:
         """
-        Factor provider
+        Provider of the additional authentication step.
         """
         return pulumi.get(self, "provider")
 
