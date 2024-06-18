@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * This resource allows you to create and configure a SWA Application.
+ * Creates a SWA Application.
  *
- * > During an apply if there is change in `status` the app will first be
- * activated or deactivated in accordance with the `status` change. Then, all
+ * This resource allows you to create and configure a SWA Application.
+ * > During an apply if there is change in 'status' the app will first be
+ * activated or deactivated in accordance with the 'status' change. Then, all
  * other arguments that changed will be applied.
  *
  * ## Example Usage
@@ -27,8 +28,6 @@ import * as utilities from "../utilities";
  * ```
  *
  * ## Import
- *
- * Okta SWA App can be imported via the Okta ID.
  *
  * ```sh
  * $ pulumi import okta:app/swa:Swa example &#60;app id&#62;
@@ -63,15 +62,15 @@ export class Swa extends pulumi.CustomResource {
     }
 
     /**
-     * Custom error page URL.
+     * Custom error page URL
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      */
     public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service. Default is `false`
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
@@ -83,15 +82,15 @@ export class Swa extends pulumi.CustomResource {
      */
     public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
     /**
-     * Login button field.
+     * Login button field
      */
     public readonly buttonField!: pulumi.Output<string | undefined>;
     /**
-     * CSS selector for the checkbox.
+     * CSS selector for the checkbox
      */
     public readonly checkbox!: pulumi.Output<string | undefined>;
     /**
@@ -99,15 +98,15 @@ export class Swa extends pulumi.CustomResource {
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     public readonly hideIos!: pulumi.Output<boolean | undefined>;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     public readonly hideWeb!: pulumi.Output<boolean | undefined>;
     /**
-     * The display name of the Application.
+     * The Application's display name.
      */
     public readonly label!: pulumi.Output<string>;
     /**
@@ -115,59 +114,59 @@ export class Swa extends pulumi.CustomResource {
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
-     * Direct link of application logo.
+     * URL of the application's logo
      */
     public /*out*/ readonly logoUrl!: pulumi.Output<string>;
     /**
-     * Name assigned to the application by Okta.
+     * Name of the app.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Login password field.
+     * Login password field
      */
     public readonly passwordField!: pulumi.Output<string | undefined>;
     /**
-     * name of application from the Okta Integration Network, if not included a custom app will be created.
+     * Preconfigured app name
      */
     public readonly preconfiguredApp!: pulumi.Output<string | undefined>;
     /**
-     * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+     * If going to the login page URL redirects to another page, then enter that URL here
      */
     public readonly redirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Sign-on mode of application.
+     * Sign on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Status of application. By default, it is `"ACTIVE"`.
+     * Status of application. By default, it is `ACTIVE`
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * The URL of the sign-in page for this app.
+     * Login URL
      */
     public readonly url!: pulumi.Output<string | undefined>;
     /**
-     * A regular expression that further restricts url to the specified regular expression.
+     * A regex that further restricts URL to the specified regex
      */
     public readonly urlRegex!: pulumi.Output<string | undefined>;
     /**
-     * Username template. Default: `"${source.login}"`
+     * Username template. Default: `${source.login}`
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
     /**
-     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
     public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
     /**
-     * Username template suffix.
+     * Username template suffix
      */
     public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
     /**
-     * Username template type. Default: `"BUILT_IN"`.
+     * Username template type. Default: `BUILT_IN`
      */
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
-     * Login username field.
+     * Login username field
      */
     public readonly usernameField!: pulumi.Output<string | undefined>;
 
@@ -254,15 +253,15 @@ export class Swa extends pulumi.CustomResource {
  */
 export interface SwaState {
     /**
-     * Custom error page URL.
+     * Custom error page URL
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service. Default is `false`
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -274,15 +273,15 @@ export interface SwaState {
      */
     appLinksJson?: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * Login button field.
+     * Login button field
      */
     buttonField?: pulumi.Input<string>;
     /**
-     * CSS selector for the checkbox.
+     * CSS selector for the checkbox
      */
     checkbox?: pulumi.Input<string>;
     /**
@@ -290,15 +289,15 @@ export interface SwaState {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
-     * The display name of the Application.
+     * The Application's display name.
      */
     label?: pulumi.Input<string>;
     /**
@@ -306,59 +305,59 @@ export interface SwaState {
      */
     logo?: pulumi.Input<string>;
     /**
-     * Direct link of application logo.
+     * URL of the application's logo
      */
     logoUrl?: pulumi.Input<string>;
     /**
-     * Name assigned to the application by Okta.
+     * Name of the app.
      */
     name?: pulumi.Input<string>;
     /**
-     * Login password field.
+     * Login password field
      */
     passwordField?: pulumi.Input<string>;
     /**
-     * name of application from the Okta Integration Network, if not included a custom app will be created.
+     * Preconfigured app name
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
-     * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+     * If going to the login page URL redirects to another page, then enter that URL here
      */
     redirectUrl?: pulumi.Input<string>;
     /**
-     * Sign-on mode of application.
+     * Sign on mode of application.
      */
     signOnMode?: pulumi.Input<string>;
     /**
-     * Status of application. By default, it is `"ACTIVE"`.
+     * Status of application. By default, it is `ACTIVE`
      */
     status?: pulumi.Input<string>;
     /**
-     * The URL of the sign-in page for this app.
+     * Login URL
      */
     url?: pulumi.Input<string>;
     /**
-     * A regular expression that further restricts url to the specified regular expression.
+     * A regex that further restricts URL to the specified regex
      */
     urlRegex?: pulumi.Input<string>;
     /**
-     * Username template. Default: `"${source.login}"`
+     * Username template. Default: `${source.login}`
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
-     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
     userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
-     * Username template suffix.
+     * Username template suffix
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type. Default: `"BUILT_IN"`.
+     * Username template type. Default: `BUILT_IN`
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
-     * Login username field.
+     * Login username field
      */
     usernameField?: pulumi.Input<string>;
 }
@@ -368,15 +367,15 @@ export interface SwaState {
  */
 export interface SwaArgs {
     /**
-     * Custom error page URL.
+     * Custom error page URL
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service. Default is `false`
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -388,15 +387,15 @@ export interface SwaArgs {
      */
     appLinksJson?: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * Login button field.
+     * Login button field
      */
     buttonField?: pulumi.Input<string>;
     /**
-     * CSS selector for the checkbox.
+     * CSS selector for the checkbox
      */
     checkbox?: pulumi.Input<string>;
     /**
@@ -404,15 +403,15 @@ export interface SwaArgs {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
-     * The display name of the Application.
+     * The Application's display name.
      */
     label: pulumi.Input<string>;
     /**
@@ -420,47 +419,47 @@ export interface SwaArgs {
      */
     logo?: pulumi.Input<string>;
     /**
-     * Login password field.
+     * Login password field
      */
     passwordField?: pulumi.Input<string>;
     /**
-     * name of application from the Okta Integration Network, if not included a custom app will be created.
+     * Preconfigured app name
      */
     preconfiguredApp?: pulumi.Input<string>;
     /**
-     * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+     * If going to the login page URL redirects to another page, then enter that URL here
      */
     redirectUrl?: pulumi.Input<string>;
     /**
-     * Status of application. By default, it is `"ACTIVE"`.
+     * Status of application. By default, it is `ACTIVE`
      */
     status?: pulumi.Input<string>;
     /**
-     * The URL of the sign-in page for this app.
+     * Login URL
      */
     url?: pulumi.Input<string>;
     /**
-     * A regular expression that further restricts url to the specified regular expression.
+     * A regex that further restricts URL to the specified regex
      */
     urlRegex?: pulumi.Input<string>;
     /**
-     * Username template. Default: `"${source.login}"`
+     * Username template. Default: `${source.login}`
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
-     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
     userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
-     * Username template suffix.
+     * Username template suffix
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type. Default: `"BUILT_IN"`.
+     * Username template type. Default: `BUILT_IN`
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
-     * Login username field.
+     * Login username field
      */
     usernameField?: pulumi.Input<string>;
 }

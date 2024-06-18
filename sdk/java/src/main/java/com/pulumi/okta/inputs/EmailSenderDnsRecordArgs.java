@@ -16,14 +16,14 @@ public final class EmailSenderDnsRecordArgs extends com.pulumi.resources.Resourc
     public static final EmailSenderDnsRecordArgs Empty = new EmailSenderDnsRecordArgs();
 
     /**
-     * DNS record name.
+     * DNS record name
      * 
      */
     @Import(name="fqdn")
     private @Nullable Output<String> fqdn;
 
     /**
-     * @return DNS record name.
+     * @return DNS record name
      * 
      */
     public Optional<Output<String>> fqdn() {
@@ -31,14 +31,14 @@ public final class EmailSenderDnsRecordArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Record type can be TXT or CNAME.
+     * Record type can be TXT or CNAME
      * 
      */
     @Import(name="recordType")
     private @Nullable Output<String> recordType;
 
     /**
-     * @return Record type can be TXT or CNAME.
+     * @return Record type can be TXT or CNAME
      * 
      */
     public Optional<Output<String>> recordType() {
@@ -87,7 +87,7 @@ public final class EmailSenderDnsRecordArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fqdn DNS record name.
+         * @param fqdn DNS record name
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class EmailSenderDnsRecordArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fqdn DNS record name.
+         * @param fqdn DNS record name
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class EmailSenderDnsRecordArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param recordType Record type can be TXT or CNAME.
+         * @param recordType Record type can be TXT or CNAME
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class EmailSenderDnsRecordArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param recordType Record type can be TXT or CNAME.
+         * @param recordType Record type can be TXT or CNAME
          * 
          * @return builder
          * 

@@ -64,14 +64,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * User schema property of default user type can be imported via the property variableName.
- * 
- * ```sh
- * $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &amp;#60;variableName&amp;#62;
- * ```
- * 
- * User schema property of custom user type can be imported via user type id and property index
- * 
  * ```sh
  * $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &amp;#60;user type id&amp;#62;.&amp;#60;index&amp;#62;
  * ```
@@ -94,28 +86,30 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.arrayEnums);
     }
     /**
-     * Display name and value an enum array can be set to.
+     * Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
+     * - (Required) display name for the enum value.
      * 
      */
     @Export(name="arrayOneOfs", refs={List.class,UserSchemaPropertyArrayOneOf.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserSchemaPropertyArrayOneOf>> arrayOneOfs;
 
     /**
-     * @return Display name and value an enum array can be set to.
+     * @return Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
+     * - (Required) display name for the enum value.
      * 
      */
     public Output<Optional<List<UserSchemaPropertyArrayOneOf>>> arrayOneOfs() {
         return Codegen.optional(this.arrayOneOfs);
     }
     /**
-     * The type of the array elements if `type` is set to `&#34;array&#34;`.
+     * The type of the array elements if `type` is set to `array`
      * 
      */
     @Export(name="arrayType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> arrayType;
 
     /**
-     * @return The type of the array elements if `type` is set to `&#34;array&#34;`.
+     * @return The type of the array elements if `type` is set to `array`
      * 
      */
     public Output<Optional<String>> arrayType() {
@@ -164,98 +158,102 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.externalName);
     }
     /**
-     * External name of the user schema property.
+     * External namespace of the user schema property.
      * 
      */
     @Export(name="externalNamespace", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> externalNamespace;
 
     /**
-     * @return External name of the user schema property.
+     * @return External namespace of the user schema property.
      * 
      */
     public Output<Optional<String>> externalNamespace() {
         return Codegen.optional(this.externalNamespace);
     }
     /**
-     * The property name.
+     * Subschema unique string identifier
      * 
      */
     @Export(name="index", refs={String.class}, tree="[0]")
     private Output<String> index;
 
     /**
-     * @return The property name.
+     * @return Subschema unique string identifier
      * 
      */
     public Output<String> index() {
         return this.index;
     }
     /**
-     * Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;`, `&#34;OVERRIDE&#34;` or `&#34;OKTA&#34;`.
+     * Master priority for the user schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`.
      * 
      */
     @Export(name="master", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> master;
 
     /**
-     * @return Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;`, `&#34;OVERRIDE&#34;` or `&#34;OKTA&#34;`.
+     * @return Master priority for the user schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`.
      * 
      */
     public Output<Optional<String>> master() {
         return Codegen.optional(this.master);
     }
     /**
-     * Prioritized list of profile sources (required when `master` is `&#34;OVERRIDE&#34;`).
+     * Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;). - &#39;type&#39; - (Optional) - Type of profile
+     * source. - &#39;value&#39; - (Required) - ID of profile source.
      * 
      */
     @Export(name="masterOverridePriorities", refs={List.class,UserSchemaPropertyMasterOverridePriority.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserSchemaPropertyMasterOverridePriority>> masterOverridePriorities;
 
     /**
-     * @return Prioritized list of profile sources (required when `master` is `&#34;OVERRIDE&#34;`).
+     * @return Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;). - &#39;type&#39; - (Optional) - Type of profile
+     * source. - &#39;value&#39; - (Required) - ID of profile source.
      * 
      */
     public Output<Optional<List<UserSchemaPropertyMasterOverridePriority>>> masterOverridePriorities() {
         return Codegen.optional(this.masterOverridePriorities);
     }
     /**
-     * The maximum length of the user property value. Only applies to type `&#34;string&#34;`.
+     * The maximum length of the user property value. Only applies to type `string`
      * 
      */
     @Export(name="maxLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxLength;
 
     /**
-     * @return The maximum length of the user property value. Only applies to type `&#34;string&#34;`.
+     * @return The maximum length of the user property value. Only applies to type `string`
      * 
      */
     public Output<Optional<Integer>> maxLength() {
         return Codegen.optional(this.maxLength);
     }
     /**
-     * The minimum length of the user property value. Only applies to type `&#34;string&#34;`.
+     * The minimum length of the user property value. Only applies to type `string`
      * 
      */
     @Export(name="minLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minLength;
 
     /**
-     * @return The minimum length of the user property value. Only applies to type `&#34;string&#34;`.
+     * @return The minimum length of the user property value. Only applies to type `string`
      * 
      */
     public Output<Optional<Integer>> minLength() {
         return Codegen.optional(this.minLength);
     }
     /**
-     * Array of maps containing a mapping for display name to enum value.
+     * Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
+     * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     @Export(name="oneOfs", refs={List.class,UserSchemaPropertyOneOf.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserSchemaPropertyOneOf>> oneOfs;
 
     /**
-     * @return Array of maps containing a mapping for display name to enum value.
+     * @return Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
+     * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     public Output<Optional<List<UserSchemaPropertyOneOf>>> oneOfs() {
@@ -276,98 +274,98 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.pattern);
     }
     /**
-     * Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+     * Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
      * 
      */
     @Export(name="permissions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> permissions;
 
     /**
-     * @return Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+     * @return Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
      * 
      */
     public Output<Optional<String>> permissions() {
         return Codegen.optional(this.permissions);
     }
     /**
-     * Whether the property is required for these users.
+     * Whether the subschema is required
      * 
      */
     @Export(name="required", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> required;
 
     /**
-     * @return Whether the property is required for these users.
+     * @return Whether the subschema is required
      * 
      */
     public Output<Optional<Boolean>> required() {
         return Codegen.optional(this.required);
     }
     /**
-     * determines whether an app user attribute can be set at the Individual or Group Level.
+     * determines whether an app user attribute can be set at the Individual or Group Level. Default: `NONE`
      * 
      */
     @Export(name="scope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scope;
 
     /**
-     * @return determines whether an app user attribute can be set at the Individual or Group Level.
+     * @return determines whether an app user attribute can be set at the Individual or Group Level. Default: `NONE`
      * 
      */
     public Output<Optional<String>> scope() {
         return Codegen.optional(this.scope);
     }
     /**
-     * The display name.
+     * Subschema title (display name)
      * 
      */
     @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**
-     * @return The display name.
+     * @return Subschema title (display name)
      * 
      */
     public Output<String> title() {
         return this.title;
     }
     /**
-     * The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
+     * The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
+     * @return The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * Whether the property should be unique. It can be set to `&#34;UNIQUE_VALIDATED&#34;` or `&#34;NOT_UNIQUE&#34;`.
+     * Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
      * 
      */
     @Export(name="unique", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> unique;
 
     /**
-     * @return Whether the property should be unique. It can be set to `&#34;UNIQUE_VALIDATED&#34;` or `&#34;NOT_UNIQUE&#34;`.
+     * @return Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
      * 
      */
     public Output<Optional<String>> unique() {
         return Codegen.optional(this.unique);
     }
     /**
-     * User type ID
+     * User type ID. By default, it is `default`
      * 
      */
     @Export(name="userType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userType;
 
     /**
-     * @return User type ID
+     * @return User type ID. By default, it is `default`
      * 
      */
     public Output<Optional<String>> userType() {

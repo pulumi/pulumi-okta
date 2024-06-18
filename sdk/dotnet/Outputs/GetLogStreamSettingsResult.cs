@@ -18,7 +18,7 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly string AccountId;
         /// <summary>
-        /// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+        /// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
         /// </summary>
         public readonly string Edition;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly string EventSourceName;
         /// <summary>
-        /// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+        /// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
         /// </summary>
         public readonly string Host;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+        /// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
         /// </summary>
         public readonly string Token;
 

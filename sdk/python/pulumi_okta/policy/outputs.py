@@ -27,10 +27,6 @@ class RuleIdpDiscoveryAppExclude(dict):
                  type: str,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
-        """
-        :param str id: ID of the Rule.
-        :param str name: Policy rule name.
-        """
         pulumi.set(__self__, "type", type)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -45,17 +41,11 @@ class RuleIdpDiscoveryAppExclude(dict):
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        ID of the Rule.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        Policy rule name.
-        """
         return pulumi.get(self, "name")
 
 
@@ -65,11 +55,6 @@ class RuleIdpDiscoveryAppInclude(dict):
                  type: str,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
-        """
-        :param str type: One of: `"APP"`, `"APP_TYPE"`
-        :param str id: Use if `type` is `"APP"` to indicate the application id to include.
-        :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
-        """
         pulumi.set(__self__, "type", type)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -79,25 +64,16 @@ class RuleIdpDiscoveryAppInclude(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        One of: `"APP"`, `"APP_TYPE"`
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        Use if `type` is `"APP"` to indicate the application id to include.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
-        """
         return pulumi.get(self, "name")
 
 
@@ -127,9 +103,7 @@ class RuleIdpDiscoveryPlatformInclude(dict):
                  os_type: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param str os_expression: Only available when using `os_type = "OTHER"`
-        :param str os_type: One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
-        :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        :param str os_expression: Only available with OTHER OS type
         """
         if os_expression is not None:
             pulumi.set(__self__, "os_expression", os_expression)
@@ -142,24 +116,18 @@ class RuleIdpDiscoveryPlatformInclude(dict):
     @pulumi.getter(name="osExpression")
     def os_expression(self) -> Optional[str]:
         """
-        Only available when using `os_type = "OTHER"`
+        Only available with OTHER OS type
         """
         return pulumi.get(self, "os_expression")
 
     @property
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[str]:
-        """
-        One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
-        """
         return pulumi.get(self, "os_type")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
-        """
-        One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-        """
         return pulumi.get(self, "type")
 
 
@@ -185,10 +153,6 @@ class RuleIdpDiscoveryUserIdentifierPattern(dict):
     def __init__(__self__, *,
                  match_type: Optional[str] = None,
                  value: Optional[str] = None):
-        """
-        :param str match_type: The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
-        :param str value: The regex or simple match string to match against.
-        """
         if match_type is not None:
             pulumi.set(__self__, "match_type", match_type)
         if value is not None:
@@ -197,17 +161,11 @@ class RuleIdpDiscoveryUserIdentifierPattern(dict):
     @property
     @pulumi.getter(name="matchType")
     def match_type(self) -> Optional[str]:
-        """
-        The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
-        """
         return pulumi.get(self, "match_type")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        The regex or simple match string to match against.
-        """
         return pulumi.get(self, "value")
 
 
@@ -217,10 +175,6 @@ class RuleMfaAppExclude(dict):
                  type: str,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
-        """
-        :param str id: ID of the Rule.
-        :param str name: Policy Rule Name.
-        """
         pulumi.set(__self__, "type", type)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -235,17 +189,11 @@ class RuleMfaAppExclude(dict):
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        ID of the Rule.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        Policy Rule Name.
-        """
         return pulumi.get(self, "name")
 
 
@@ -255,11 +203,6 @@ class RuleMfaAppInclude(dict):
                  type: str,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
-        """
-        :param str type: One of: `"APP"`, `"APP_TYPE"`
-        :param str id: Use if `type` is `"APP"` to indicate the application id to include.
-        :param str name: Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
-        """
         pulumi.set(__self__, "type", type)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -269,25 +212,16 @@ class RuleMfaAppInclude(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        One of: `"APP"`, `"APP_TYPE"`
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        Use if `type` is `"APP"` to indicate the application id to include.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
-        """
         return pulumi.get(self, "name")
 
 
@@ -319,9 +253,8 @@ class RuleSignonFactorSequence(dict):
                  primary_criteria_provider: str,
                  secondary_criterias: Optional[Sequence['outputs.RuleSignonFactorSequenceSecondaryCriteria']] = None):
         """
-        :param str primary_criteria_factor_type: Primary factor type of the auth section.
-        :param str primary_criteria_provider: Primary provider of the auth section.
-        :param Sequence['RuleSignonFactorSequenceSecondaryCriteriaArgs'] secondary_criterias: Additional authentication steps.
+        :param str primary_criteria_factor_type: Type of a Factor
+        :param str primary_criteria_provider: Factor provider
         """
         pulumi.set(__self__, "primary_criteria_factor_type", primary_criteria_factor_type)
         pulumi.set(__self__, "primary_criteria_provider", primary_criteria_provider)
@@ -332,7 +265,7 @@ class RuleSignonFactorSequence(dict):
     @pulumi.getter(name="primaryCriteriaFactorType")
     def primary_criteria_factor_type(self) -> str:
         """
-        Primary factor type of the auth section.
+        Type of a Factor
         """
         return pulumi.get(self, "primary_criteria_factor_type")
 
@@ -340,16 +273,13 @@ class RuleSignonFactorSequence(dict):
     @pulumi.getter(name="primaryCriteriaProvider")
     def primary_criteria_provider(self) -> str:
         """
-        Primary provider of the auth section.
+        Factor provider
         """
         return pulumi.get(self, "primary_criteria_provider")
 
     @property
     @pulumi.getter(name="secondaryCriterias")
     def secondary_criterias(self) -> Optional[Sequence['outputs.RuleSignonFactorSequenceSecondaryCriteria']]:
-        """
-        Additional authentication steps.
-        """
         return pulumi.get(self, "secondary_criterias")
 
 
@@ -376,8 +306,8 @@ class RuleSignonFactorSequenceSecondaryCriteria(dict):
                  factor_type: str,
                  provider: str):
         """
-        :param str factor_type: Factor type of the additional authentication step.
-        :param str provider: Provider of the additional authentication step.
+        :param str factor_type: Type of a Factor
+        :param str provider: Factor provider
         """
         pulumi.set(__self__, "factor_type", factor_type)
         pulumi.set(__self__, "provider", provider)
@@ -386,7 +316,7 @@ class RuleSignonFactorSequenceSecondaryCriteria(dict):
     @pulumi.getter(name="factorType")
     def factor_type(self) -> str:
         """
-        Factor type of the additional authentication step.
+        Type of a Factor
         """
         return pulumi.get(self, "factor_type")
 
@@ -394,7 +324,7 @@ class RuleSignonFactorSequenceSecondaryCriteria(dict):
     @pulumi.getter
     def provider(self) -> str:
         """
-        Provider of the additional authentication step.
+        Factor provider
         """
         return pulumi.get(self, "provider")
 

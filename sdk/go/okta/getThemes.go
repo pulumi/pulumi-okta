@@ -11,9 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve
-// [Themes](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
-// of a brand for an Okta orgnanization.
+// Get Themes of a Brand of an Okta Organization.
 func GetThemes(ctx *pulumi.Context, args *GetThemesArgs, opts ...pulumi.InvokeOption) (*GetThemesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetThemesResult
@@ -32,10 +30,11 @@ type GetThemesArgs struct {
 
 // A collection of values returned by getThemes.
 type GetThemesResult struct {
+	// Brand ID
 	BrandId string `pulumi:"brandId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// List of `Theme` belonging to the brand.
+	// List of `oktaThem` belonging to the brand in the organization
 	Themes []GetThemesTheme `pulumi:"themes"`
 }
 
@@ -77,6 +76,7 @@ func (o GetThemesResultOutput) ToGetThemesResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// Brand ID
 func (o GetThemesResultOutput) BrandId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemesResult) string { return v.BrandId }).(pulumi.StringOutput)
 }
@@ -86,7 +86,7 @@ func (o GetThemesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of `Theme` belonging to the brand.
+// List of `oktaThem` belonging to the brand in the organization
 func (o GetThemesResultOutput) Themes() GetThemesThemeArrayOutput {
 	return o.ApplyT(func(v GetThemesResult) []GetThemesTheme { return v.Themes }).(GetThemesThemeArrayOutput)
 }

@@ -35,7 +35,7 @@ public final class GetOidcResult {
      */
     private String clientSecret;
     /**
-     * @return id of idp.
+     * @return Id of idp.
      * 
      */
     private @Nullable String id;
@@ -65,7 +65,7 @@ public final class GetOidcResult {
      */
     private Integer maxClockSkew;
     /**
-     * @return name of the idp.
+     * @return Name of the idp.
      * 
      */
     private @Nullable String name;
@@ -90,7 +90,7 @@ public final class GetOidcResult {
      */
     private String tokenUrl;
     /**
-     * @return type of idp.
+     * @return Type of idp.
      * 
      */
     private String type;
@@ -135,7 +135,7 @@ public final class GetOidcResult {
         return this.clientSecret;
     }
     /**
-     * @return id of idp.
+     * @return Id of idp.
      * 
      */
     public Optional<String> id() {
@@ -177,7 +177,7 @@ public final class GetOidcResult {
         return this.maxClockSkew;
     }
     /**
-     * @return name of the idp.
+     * @return Name of the idp.
      * 
      */
     public Optional<String> name() {
@@ -212,7 +212,7 @@ public final class GetOidcResult {
         return this.tokenUrl;
     }
     /**
-     * @return type of idp.
+     * @return Type of idp.
      * 
      */
     public String type() {

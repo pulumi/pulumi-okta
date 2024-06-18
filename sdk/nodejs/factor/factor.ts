@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Allows you to manage the activation of Okta MFA methods.
- *
- * This resource allows you to manage Okta MFA methods.
+ * Allows you to manage the activation of Okta MFA methods. This resource allows you to manage Okta MFA methods.
  *
  * ## Example Usage
  *
@@ -51,8 +49,7 @@ export class Factor extends pulumi.CustomResource {
      */
     public readonly active!: pulumi.Output<boolean | undefined>;
     /**
-     * The MFA provider name.
-     * Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+     * The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
      */
     public readonly providerId!: pulumi.Output<string>;
 
@@ -93,8 +90,7 @@ export interface FactorState {
      */
     active?: pulumi.Input<boolean>;
     /**
-     * The MFA provider name.
-     * Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+     * The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
      */
     providerId?: pulumi.Input<string>;
 }
@@ -108,8 +104,7 @@ export interface FactorArgs {
      */
     active?: pulumi.Input<boolean>;
     /**
-     * The MFA provider name.
-     * Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+     * The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
      */
     providerId: pulumi.Input<string>;
 }

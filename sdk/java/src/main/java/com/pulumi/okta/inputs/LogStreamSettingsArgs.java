@@ -16,14 +16,14 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
     public static final LogStreamSettingsArgs Empty = new LogStreamSettingsArgs();
 
     /**
-     * AWS account ID.
+     * AWS account ID. Required only for &#39;aws_eventbridge&#39; type
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return AWS account ID.
+     * @return AWS account ID. Required only for &#39;aws_eventbridge&#39; type
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -31,14 +31,14 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws_govcloud&#39;, &#39;gcp&#39;.
+     * Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws*govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk*cloud_logstreaming&#39; type
      * 
      */
     @Import(name="edition")
     private @Nullable Output<String> edition;
 
     /**
-     * @return Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws_govcloud&#39;, &#39;gcp&#39;.
+     * @return Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws*govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk*cloud_logstreaming&#39; type
      * 
      */
     public Optional<Output<String>> edition() {
@@ -46,14 +46,14 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+     * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for &#39;aws_eventbridge&#39; type
      * 
      */
     @Import(name="eventSourceName")
     private @Nullable Output<String> eventSourceName;
 
     /**
-     * @return An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+     * @return An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for &#39;aws_eventbridge&#39; type
      * 
      */
     public Optional<Output<String>> eventSourceName() {
@@ -61,14 +61,14 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;.
+     * The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     @Import(name="host")
     private @Nullable Output<String> host;
 
     /**
-     * @return The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;.
+     * @return The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     public Optional<Output<String>> host() {
@@ -76,14 +76,14 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The destination AWS region where event source is located.
+     * The destination AWS region where event source is located. Required only for &#39;aws_eventbridge&#39; type
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The destination AWS region where event source is located.
+     * @return The destination AWS region where event source is located. Required only for &#39;aws_eventbridge&#39; type
      * 
      */
     public Optional<Output<String>> region() {
@@ -91,14 +91,14 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The HEC token for your Splunk Cloud HTTP Event Collector.
+     * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     @Import(name="token")
     private @Nullable Output<String> token;
 
     /**
-     * @return The HEC token for your Splunk Cloud HTTP Event Collector.
+     * @return The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     public Optional<Output<String>> token() {
@@ -135,7 +135,7 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param accountId AWS account ID.
+         * @param accountId AWS account ID. Required only for &#39;aws_eventbridge&#39; type
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param accountId AWS account ID.
+         * @param accountId AWS account ID. Required only for &#39;aws_eventbridge&#39; type
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param edition Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws_govcloud&#39;, &#39;gcp&#39;.
+         * @param edition Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws*govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk*cloud_logstreaming&#39; type
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param edition Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws_govcloud&#39;, &#39;gcp&#39;.
+         * @param edition Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws*govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk*cloud_logstreaming&#39; type
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param eventSourceName An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+         * @param eventSourceName An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for &#39;aws_eventbridge&#39; type
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param eventSourceName An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+         * @param eventSourceName An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for &#39;aws_eventbridge&#39; type
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param host The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;.
+         * @param host The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk*cloud*logstreaming&#39; type
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param host The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;.
+         * @param host The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk*cloud*logstreaming&#39; type
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param region The destination AWS region where event source is located.
+         * @param region The destination AWS region where event source is located. Required only for &#39;aws_eventbridge&#39; type
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param region The destination AWS region where event source is located.
+         * @param region The destination AWS region where event source is located. Required only for &#39;aws_eventbridge&#39; type
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param token The HEC token for your Splunk Cloud HTTP Event Collector.
+         * @param token The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk*cloud*logstreaming&#39; type
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class LogStreamSettingsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param token The HEC token for your Splunk Cloud HTTP Event Collector.
+         * @param token The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk*cloud*logstreaming&#39; type
          * 
          * @return builder
          * 

@@ -10,15 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// This resource allows the assignment and unassignment of Custom Roles. The `members` field supports these type of resources:
-    ///  - Groups
-    ///  - Users
+    /// Resource to manage the assignment and unassignment of Custom Roles
+    /// These operations allow the creation and manipulation of custom roles as custom collections of permissions.
     /// 
-    /// &gt; **NOTE:** This an `Early Access` feature.
+    /// &gt; **NOTE:** This an Early Access feature.
     /// 
     /// ## Import
-    /// 
-    /// Okta Custom Admin Role Assignments can be imported via the Okta ID.
     /// 
     /// ```sh
     /// $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example &amp;#60;resource_set_id&amp;#62;/&amp;#60;custom_role_id&amp;#62;
@@ -28,20 +25,19 @@ namespace Pulumi.Okta
     public partial class AdminRoleCustomAssignments : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ID of the Custom Role.
+        /// ID of the Custom Role
         /// </summary>
         [Output("customRoleId")]
         public Output<string> CustomRoleId { get; private set; } = null!;
 
         /// <summary>
-        /// The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
-        /// permission must be specified when creating custom role.
+        /// The hrefs that point to User(s) and/or Group(s) that receive the Role
         /// </summary>
         [Output("members")]
         public Output<ImmutableArray<string>> Members { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the target Resource Set.
+        /// ID of the target Resource Set
         /// </summary>
         [Output("resourceSetId")]
         public Output<string> ResourceSetId { get; private set; } = null!;
@@ -93,7 +89,7 @@ namespace Pulumi.Okta
     public sealed class AdminRoleCustomAssignmentsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the Custom Role.
+        /// ID of the Custom Role
         /// </summary>
         [Input("customRoleId", required: true)]
         public Input<string> CustomRoleId { get; set; } = null!;
@@ -102,8 +98,7 @@ namespace Pulumi.Okta
         private InputList<string>? _members;
 
         /// <summary>
-        /// The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
-        /// permission must be specified when creating custom role.
+        /// The hrefs that point to User(s) and/or Group(s) that receive the Role
         /// </summary>
         public InputList<string> Members
         {
@@ -112,7 +107,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// ID of the target Resource Set.
+        /// ID of the target Resource Set
         /// </summary>
         [Input("resourceSetId", required: true)]
         public Input<string> ResourceSetId { get; set; } = null!;
@@ -126,7 +121,7 @@ namespace Pulumi.Okta
     public sealed class AdminRoleCustomAssignmentsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the Custom Role.
+        /// ID of the Custom Role
         /// </summary>
         [Input("customRoleId")]
         public Input<string>? CustomRoleId { get; set; }
@@ -135,8 +130,7 @@ namespace Pulumi.Okta
         private InputList<string>? _members;
 
         /// <summary>
-        /// The hrefs that point to User(s) and/or Group(s) that receive the Role. At least one
-        /// permission must be specified when creating custom role.
+        /// The hrefs that point to User(s) and/or Group(s) that receive the Role
         /// </summary>
         public InputList<string> Members
         {
@@ -145,7 +139,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// ID of the target Resource Set.
+        /// ID of the target Resource Set
         /// </summary>
         [Input("resourceSetId")]
         public Input<string>? ResourceSetId { get; set; }

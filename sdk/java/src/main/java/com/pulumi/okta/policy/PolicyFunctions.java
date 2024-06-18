@@ -18,7 +18,9 @@ import java.util.concurrent.CompletableFuture;
 
 public final class PolicyFunctions {
     /**
-     * Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `okta.policy.getPolicy` with default names, this is simply a shortcut.
+     * Use this data source to retrieve a default policy from Okta. This
+     * same thing can be achieved using the `okta.policy.getPolicy` with default
+     * names, this is simply a shortcut.
      * 
      * ## Example Usage
      * 
@@ -60,7 +62,9 @@ public final class PolicyFunctions {
         return getDefaultPolicy(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `okta.policy.getPolicy` with default names, this is simply a shortcut.
+     * Use this data source to retrieve a default policy from Okta. This
+     * same thing can be achieved using the `okta.policy.getPolicy` with default
+     * names, this is simply a shortcut.
      * 
      * ## Example Usage
      * 
@@ -102,7 +106,9 @@ public final class PolicyFunctions {
         return getDefaultPolicyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `okta.policy.getPolicy` with default names, this is simply a shortcut.
+     * Use this data source to retrieve a default policy from Okta. This
+     * same thing can be achieved using the `okta.policy.getPolicy` with default
+     * names, this is simply a shortcut.
      * 
      * ## Example Usage
      * 
@@ -144,7 +150,9 @@ public final class PolicyFunctions {
         return Deployment.getInstance().invoke("okta:policy/getDefaultPolicy:getDefaultPolicy", TypeShape.of(GetDefaultPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve a default policy from Okta. This same thing can be achieved using the `okta.policy.getPolicy` with default names, this is simply a shortcut.
+     * Use this data source to retrieve a default policy from Okta. This
+     * same thing can be achieved using the `okta.policy.getPolicy` with default
+     * names, this is simply a shortcut.
      * 
      * ## Example Usage
      * 
@@ -186,7 +194,7 @@ public final class PolicyFunctions {
         return Deployment.getInstance().invokeAsync("okta:policy/getDefaultPolicy:getDefaultPolicy", TypeShape.of(GetDefaultPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve a policy from Okta.
+     * Get a policy from Okta.
      * 
      * ## Example Usage
      * 
@@ -229,7 +237,7 @@ public final class PolicyFunctions {
         return getPolicy(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve a policy from Okta.
+     * Get a policy from Okta.
      * 
      * ## Example Usage
      * 
@@ -272,7 +280,7 @@ public final class PolicyFunctions {
         return getPolicyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve a policy from Okta.
+     * Get a policy from Okta.
      * 
      * ## Example Usage
      * 
@@ -315,7 +323,7 @@ public final class PolicyFunctions {
         return Deployment.getInstance().invoke("okta:policy/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve a policy from Okta.
+     * Get a policy from Okta.
      * 
      * ## Example Usage
      * 

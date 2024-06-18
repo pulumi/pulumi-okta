@@ -17,9 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates an Authorization Server Policy.
- * 
- * This resource allows you to create and configure an Authorization Server Policy.
+ * Creates an Authorization Server Policy. This resource allows you to create and configure an Authorization Server Policy.
  * 
  * ## Example Usage
  * 
@@ -63,8 +61,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Authorization Server Policy can be imported via the Auth Server ID and Policy ID.
- * 
  * ```sh
  * $ pulumi import okta:auth/serverPolicy:ServerPolicy example &amp;#60;auth server id&amp;#62;/&amp;#60;policy id&amp;#62;
  * ```
@@ -87,14 +83,14 @@ public class ServerPolicy extends com.pulumi.resources.CustomResource {
         return this.authServerId;
     }
     /**
-     * The clients to whitelist the policy for. `[&#34;ALL_CLIENTS&#34;]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+     * The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
      * 
      */
     @Export(name="clientWhitelists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> clientWhitelists;
 
     /**
-     * @return The clients to whitelist the policy for. `[&#34;ALL_CLIENTS&#34;]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+     * @return The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
      * 
      */
     public Output<List<String>> clientWhitelists() {
@@ -129,28 +125,28 @@ public class ServerPolicy extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The priority of the Auth Server Policy.
+     * Priority of the auth server policy
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
-     * @return The priority of the Auth Server Policy.
+     * @return Priority of the auth server policy
      * 
      */
     public Output<Integer> priority() {
         return this.priority;
     }
     /**
-     * The status of the Auth Server Policy.
+     * Default to `ACTIVE`
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return The status of the Auth Server Policy.
+     * @return Default to `ACTIVE`
      * 
      */
     public Output<Optional<String>> status() {

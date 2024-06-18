@@ -15,14 +15,14 @@ public final class UserSchemaPropertyArrayOneOfArgs extends com.pulumi.resources
     public static final UserSchemaPropertyArrayOneOfArgs Empty = new UserSchemaPropertyArrayOneOfArgs();
 
     /**
-     * value mapping to member of `enum`.
+     * Value mapping to member of `array_enum`
      * 
      */
     @Import(name="const", required=true)
     private Output<String> const_;
 
     /**
-     * @return value mapping to member of `enum`.
+     * @return Value mapping to member of `array_enum`
      * 
      */
     public Output<String> const_() {
@@ -30,14 +30,14 @@ public final class UserSchemaPropertyArrayOneOfArgs extends com.pulumi.resources
     }
 
     /**
-     * display name for the enum value.
+     * Display name for the enum value.
      * 
      */
     @Import(name="title", required=true)
     private Output<String> title;
 
     /**
-     * @return display name for the enum value.
+     * @return Display name for the enum value.
      * 
      */
     public Output<String> title() {
@@ -70,7 +70,7 @@ public final class UserSchemaPropertyArrayOneOfArgs extends com.pulumi.resources
         }
 
         /**
-         * @param const_ value mapping to member of `enum`.
+         * @param const_ Value mapping to member of `array_enum`
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class UserSchemaPropertyArrayOneOfArgs extends com.pulumi.resources
         }
 
         /**
-         * @param const_ value mapping to member of `enum`.
+         * @param const_ Value mapping to member of `array_enum`
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class UserSchemaPropertyArrayOneOfArgs extends com.pulumi.resources
         }
 
         /**
-         * @param title display name for the enum value.
+         * @param title Display name for the enum value.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class UserSchemaPropertyArrayOneOfArgs extends com.pulumi.resources
         }
 
         /**
-         * @param title display name for the enum value.
+         * @param title Display name for the enum value.
          * 
          * @return builder
          * 

@@ -7,18 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to retrieve a log stream from Okta.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.getLogStream({
- *     name: "Example Stream",
- * });
- * ```
+ * Log Streams
  */
 export function getLogStream(args?: GetLogStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetLogStreamResult> {
     args = args || {};
@@ -40,12 +29,9 @@ export interface GetLogStreamArgs {
      */
     id?: string;
     /**
-     * Name of the log stream to retrieve, conflicts with `id`.
+     * Unique name for the Log Stream object, conflicts with `id`.
      */
     name?: string;
-    /**
-     * Provider specific configuration.
-     */
     settings?: inputs.GetLogStreamSettings;
 }
 
@@ -54,39 +40,25 @@ export interface GetLogStreamArgs {
  */
 export interface GetLogStreamResult {
     /**
-     * ID of the log stream.
+     * ID of the log stream to retrieve, conflicts with `name`.
      */
     readonly id?: string;
     /**
-     * Name of the log stream.
+     * Unique name for the Log Stream object, conflicts with `id`.
      */
     readonly name?: string;
-    /**
-     * Provider specific configuration.
-     */
     readonly settings?: outputs.GetLogStreamSettings;
     /**
-     * Log Stream Status - can either be ACTIVE or INACTIVE only.
+     * Log Stream Status - can either be ACTIVE or INACTIVE only
      */
     readonly status: string;
     /**
-     * Type of the Log Stream.
+     * Streaming provider used - aws*eventbridge or splunk*cloud_logstreaming
      */
     readonly type: string;
 }
 /**
- * Use this data source to retrieve a log stream from Okta.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = okta.getLogStream({
- *     name: "Example Stream",
- * });
- * ```
+ * Log Streams
  */
 export function getLogStreamOutput(args?: GetLogStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogStreamResult> {
     return pulumi.output(args).apply((a: any) => getLogStream(a, opts))
@@ -101,11 +73,8 @@ export interface GetLogStreamOutputArgs {
      */
     id?: pulumi.Input<string>;
     /**
-     * Name of the log stream to retrieve, conflicts with `id`.
+     * Unique name for the Log Stream object, conflicts with `id`.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Provider specific configuration.
-     */
     settings?: pulumi.Input<inputs.GetLogStreamSettingsArgs>;
 }

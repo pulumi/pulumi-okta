@@ -15,14 +15,14 @@ public final class GroupSchemaPropertyOneOfArgs extends com.pulumi.resources.Res
     public static final GroupSchemaPropertyOneOfArgs Empty = new GroupSchemaPropertyOneOfArgs();
 
     /**
-     * value mapping to member of `enum`.
+     * Enum value
      * 
      */
     @Import(name="const", required=true)
     private Output<String> const_;
 
     /**
-     * @return value mapping to member of `enum`.
+     * @return Enum value
      * 
      */
     public Output<String> const_() {
@@ -30,14 +30,14 @@ public final class GroupSchemaPropertyOneOfArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * display name for the enum value.
+     * Enum title
      * 
      */
     @Import(name="title", required=true)
     private Output<String> title;
 
     /**
-     * @return display name for the enum value.
+     * @return Enum title
      * 
      */
     public Output<String> title() {
@@ -70,7 +70,7 @@ public final class GroupSchemaPropertyOneOfArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param const_ value mapping to member of `enum`.
+         * @param const_ Enum value
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GroupSchemaPropertyOneOfArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param const_ value mapping to member of `enum`.
+         * @param const_ Enum value
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GroupSchemaPropertyOneOfArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param title display name for the enum value.
+         * @param title Enum title
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GroupSchemaPropertyOneOfArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param title display name for the enum value.
+         * @param title Enum title
          * 
          * @return builder
          * 

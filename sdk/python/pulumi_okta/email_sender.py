@@ -21,9 +21,9 @@ class EmailSenderArgs:
                  subdomain: pulumi.Input[str]):
         """
         The set of arguments for constructing a EmailSender resource.
-        :param pulumi.Input[str] from_address: Email address to send from.
-        :param pulumi.Input[str] from_name: Name of sender.
-        :param pulumi.Input[str] subdomain: Mail domain to send from.
+        :param pulumi.Input[str] from_address: Email address to send from
+        :param pulumi.Input[str] from_name: Name of sender
+        :param pulumi.Input[str] subdomain: Mail domain to send from
         """
         pulumi.set(__self__, "from_address", from_address)
         pulumi.set(__self__, "from_name", from_name)
@@ -33,7 +33,7 @@ class EmailSenderArgs:
     @pulumi.getter(name="fromAddress")
     def from_address(self) -> pulumi.Input[str]:
         """
-        Email address to send from.
+        Email address to send from
         """
         return pulumi.get(self, "from_address")
 
@@ -45,7 +45,7 @@ class EmailSenderArgs:
     @pulumi.getter(name="fromName")
     def from_name(self) -> pulumi.Input[str]:
         """
-        Name of sender.
+        Name of sender
         """
         return pulumi.get(self, "from_name")
 
@@ -57,7 +57,7 @@ class EmailSenderArgs:
     @pulumi.getter
     def subdomain(self) -> pulumi.Input[str]:
         """
-        Mail domain to send from.
+        Mail domain to send from
         """
         return pulumi.get(self, "subdomain")
 
@@ -76,11 +76,11 @@ class _EmailSenderState:
                  subdomain: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EmailSender resources.
-        :param pulumi.Input[Sequence[pulumi.Input['EmailSenderDnsRecordArgs']]] dns_records: TXT and CNAME records to be registered for the domain.
-        :param pulumi.Input[str] from_address: Email address to send from.
-        :param pulumi.Input[str] from_name: Name of sender.
-        :param pulumi.Input[str] status: Status of the sender (shows whether the sender is verified).
-        :param pulumi.Input[str] subdomain: Mail domain to send from.
+        :param pulumi.Input[Sequence[pulumi.Input['EmailSenderDnsRecordArgs']]] dns_records: TXT and CNAME records to be registered for the Domain
+        :param pulumi.Input[str] from_address: Email address to send from
+        :param pulumi.Input[str] from_name: Name of sender
+        :param pulumi.Input[str] status: Verification status
+        :param pulumi.Input[str] subdomain: Mail domain to send from
         """
         if dns_records is not None:
             pulumi.set(__self__, "dns_records", dns_records)
@@ -97,7 +97,7 @@ class _EmailSenderState:
     @pulumi.getter(name="dnsRecords")
     def dns_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailSenderDnsRecordArgs']]]]:
         """
-        TXT and CNAME records to be registered for the domain.
+        TXT and CNAME records to be registered for the Domain
         """
         return pulumi.get(self, "dns_records")
 
@@ -109,7 +109,7 @@ class _EmailSenderState:
     @pulumi.getter(name="fromAddress")
     def from_address(self) -> Optional[pulumi.Input[str]]:
         """
-        Email address to send from.
+        Email address to send from
         """
         return pulumi.get(self, "from_address")
 
@@ -121,7 +121,7 @@ class _EmailSenderState:
     @pulumi.getter(name="fromName")
     def from_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of sender.
+        Name of sender
         """
         return pulumi.get(self, "from_name")
 
@@ -133,7 +133,7 @@ class _EmailSenderState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of the sender (shows whether the sender is verified).
+        Verification status
         """
         return pulumi.get(self, "status")
 
@@ -145,7 +145,7 @@ class _EmailSenderState:
     @pulumi.getter
     def subdomain(self) -> Optional[pulumi.Input[str]]:
         """
-        Mail domain to send from.
+        Mail domain to send from
         """
         return pulumi.get(self, "subdomain")
 
@@ -164,9 +164,9 @@ class EmailSender(pulumi.CustomResource):
                  subdomain: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        > **DEPRECATED** use `EmailDomain` instead.
+        Creates custom email sender. This resource allows you to create and configure a custom email sender.
 
-        This resource allows you to create and configure a custom email sender.
+        > **DEPRECATED** The api for this resource has been deprecated. Please use `EmailDomain` instead.
 
         ## Example Usage
 
@@ -182,17 +182,15 @@ class EmailSender(pulumi.CustomResource):
 
         ## Import
 
-        Custom email sender can be imported via the Okta ID.
-
         ```sh
         $ pulumi import okta:index/emailSender:EmailSender example &#60;sender id&#62;
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] from_address: Email address to send from.
-        :param pulumi.Input[str] from_name: Name of sender.
-        :param pulumi.Input[str] subdomain: Mail domain to send from.
+        :param pulumi.Input[str] from_address: Email address to send from
+        :param pulumi.Input[str] from_name: Name of sender
+        :param pulumi.Input[str] subdomain: Mail domain to send from
         """
         ...
     @overload
@@ -201,9 +199,9 @@ class EmailSender(pulumi.CustomResource):
                  args: EmailSenderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **DEPRECATED** use `EmailDomain` instead.
+        Creates custom email sender. This resource allows you to create and configure a custom email sender.
 
-        This resource allows you to create and configure a custom email sender.
+        > **DEPRECATED** The api for this resource has been deprecated. Please use `EmailDomain` instead.
 
         ## Example Usage
 
@@ -218,8 +216,6 @@ class EmailSender(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Custom email sender can be imported via the Okta ID.
 
         ```sh
         $ pulumi import okta:index/emailSender:EmailSender example &#60;sender id&#62;
@@ -285,11 +281,11 @@ class EmailSender(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailSenderDnsRecordArgs']]]] dns_records: TXT and CNAME records to be registered for the domain.
-        :param pulumi.Input[str] from_address: Email address to send from.
-        :param pulumi.Input[str] from_name: Name of sender.
-        :param pulumi.Input[str] status: Status of the sender (shows whether the sender is verified).
-        :param pulumi.Input[str] subdomain: Mail domain to send from.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailSenderDnsRecordArgs']]]] dns_records: TXT and CNAME records to be registered for the Domain
+        :param pulumi.Input[str] from_address: Email address to send from
+        :param pulumi.Input[str] from_name: Name of sender
+        :param pulumi.Input[str] status: Verification status
+        :param pulumi.Input[str] subdomain: Mail domain to send from
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -306,7 +302,7 @@ class EmailSender(pulumi.CustomResource):
     @pulumi.getter(name="dnsRecords")
     def dns_records(self) -> pulumi.Output[Sequence['outputs.EmailSenderDnsRecord']]:
         """
-        TXT and CNAME records to be registered for the domain.
+        TXT and CNAME records to be registered for the Domain
         """
         return pulumi.get(self, "dns_records")
 
@@ -314,7 +310,7 @@ class EmailSender(pulumi.CustomResource):
     @pulumi.getter(name="fromAddress")
     def from_address(self) -> pulumi.Output[str]:
         """
-        Email address to send from.
+        Email address to send from
         """
         return pulumi.get(self, "from_address")
 
@@ -322,7 +318,7 @@ class EmailSender(pulumi.CustomResource):
     @pulumi.getter(name="fromName")
     def from_name(self) -> pulumi.Output[str]:
         """
-        Name of sender.
+        Name of sender
         """
         return pulumi.get(self, "from_name")
 
@@ -330,7 +326,7 @@ class EmailSender(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        Status of the sender (shows whether the sender is verified).
+        Verification status
         """
         return pulumi.get(self, "status")
 
@@ -338,7 +334,7 @@ class EmailSender(pulumi.CustomResource):
     @pulumi.getter
     def subdomain(self) -> pulumi.Output[str]:
         """
-        Mail domain to send from.
+        Mail domain to send from
         """
         return pulumi.get(self, "subdomain")
 

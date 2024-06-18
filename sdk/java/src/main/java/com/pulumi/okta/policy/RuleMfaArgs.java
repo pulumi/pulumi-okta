@@ -41,14 +41,20 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
+     * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
+     *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
+     *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     @Import(name="appIncludes")
     private @Nullable Output<List<RuleMfaAppIncludeArgs>> appIncludes;
 
     /**
-     * @return Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * @return Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
+     * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
+     *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
+     *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     public Optional<Output<List<RuleMfaAppIncludeArgs>>> appIncludes() {
@@ -56,14 +62,14 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When a user should be prompted for MFA. It can be `&#34;CHALLENGE&#34;`, `&#34;LOGIN&#34;`, or `&#34;NEVER&#34;`.
+     * When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
      * 
      */
     @Import(name="enroll")
     private @Nullable Output<String> enroll;
 
     /**
-     * @return When a user should be prompted for MFA. It can be `&#34;CHALLENGE&#34;`, `&#34;LOGIN&#34;`, or `&#34;NEVER&#34;`.
+     * @return When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
      * 
      */
     public Optional<Output<String>> enroll() {
@@ -71,14 +77,14 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Rule Name.
+     * Policy Rule Name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Policy Rule Name.
+     * @return Policy Rule Name
      * 
      */
     public Optional<Output<String>> name() {
@@ -86,14 +92,14 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+     * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      * 
      */
     @Import(name="networkConnection")
     private @Nullable Output<String> networkConnection;
 
     /**
-     * @return Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+     * @return Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      * 
      */
     public Optional<Output<String>> networkConnection() {
@@ -101,14 +107,14 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The network zones to exclude. Conflicts with `network_includes`.
+     * Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     @Import(name="networkExcludes")
     private @Nullable Output<List<String>> networkExcludes;
 
     /**
-     * @return The network zones to exclude. Conflicts with `network_includes`.
+     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     public Optional<Output<List<String>>> networkExcludes() {
@@ -116,14 +122,14 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The network zones to include. Conflicts with `network_excludes`.
+     * Required if `network_connection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     @Import(name="networkIncludes")
     private @Nullable Output<List<String>> networkIncludes;
 
     /**
-     * @return The network zones to include. Conflicts with `network_excludes`.
+     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     public Optional<Output<List<String>>> networkIncludes() {
@@ -131,14 +137,14 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy ID.
+     * Policy ID of the Rule
      * 
      */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
     /**
-     * @return Policy ID.
+     * @return Policy ID of the Rule
      * 
      */
     public Optional<Output<String>> policyId() {
@@ -146,14 +152,16 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * @return Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -161,14 +169,14 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * @return Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     public Optional<Output<String>> status() {
@@ -265,7 +273,10 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appIncludes Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+         * @param appIncludes Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
+         * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
+         *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
+         *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
          * 
          * @return builder
          * 
@@ -276,7 +287,10 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appIncludes Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+         * @param appIncludes Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
+         * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
+         *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
+         *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
          * 
          * @return builder
          * 
@@ -286,7 +300,10 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appIncludes Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+         * @param appIncludes Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
+         * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
+         *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
+         *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
          * 
          * @return builder
          * 
@@ -296,7 +313,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enroll When a user should be prompted for MFA. It can be `&#34;CHALLENGE&#34;`, `&#34;LOGIN&#34;`, or `&#34;NEVER&#34;`.
+         * @param enroll When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
          * 
          * @return builder
          * 
@@ -307,7 +324,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enroll When a user should be prompted for MFA. It can be `&#34;CHALLENGE&#34;`, `&#34;LOGIN&#34;`, or `&#34;NEVER&#34;`.
+         * @param enroll When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
          * 
          * @return builder
          * 
@@ -317,7 +334,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Policy Rule Name.
+         * @param name Policy Rule Name
          * 
          * @return builder
          * 
@@ -328,7 +345,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Policy Rule Name.
+         * @param name Policy Rule Name
          * 
          * @return builder
          * 
@@ -338,7 +355,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConnection Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+         * @param networkConnection Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
          * 
          * @return builder
          * 
@@ -349,7 +366,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConnection Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+         * @param networkConnection Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
          * 
          * @return builder
          * 
@@ -359,7 +376,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`.
+         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -370,7 +387,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`.
+         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -380,7 +397,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`.
+         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -390,7 +407,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`.
+         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -401,7 +418,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`.
+         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -411,7 +428,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`.
+         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -421,7 +438,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId Policy ID.
+         * @param policyId Policy ID of the Rule
          * 
          * @return builder
          * 
@@ -432,7 +449,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId Policy ID.
+         * @param policyId Policy ID of the Rule
          * 
          * @return builder
          * 
@@ -442,7 +459,8 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+         * @param priority Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+         * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
          * 
          * @return builder
          * 
@@ -453,7 +471,8 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+         * @param priority Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+         * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
          * 
          * @return builder
          * 
@@ -463,7 +482,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+         * @param status Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -474,7 +493,7 @@ public final class RuleMfaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+         * @param status Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
          * 
          * @return builder
          * 

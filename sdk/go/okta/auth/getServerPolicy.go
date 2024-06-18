@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve an authorization server policy from Okta.
+// Get an authorization server policy from Okta.
 //
 // ## Example Usage
 //
@@ -51,23 +51,25 @@ func LookupServerPolicy(ctx *pulumi.Context, args *LookupServerPolicyArgs, opts 
 
 // A collection of arguments for invoking getServerPolicy.
 type LookupServerPolicyArgs struct {
-	// The ID of the Auth Server.
+	// Auth server ID
 	AuthServerId string `pulumi:"authServerId"`
-	// Name of policy to retrieve.
+	// Name of the policy
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getServerPolicy.
 type LookupServerPolicyResult struct {
-	// list of clients this policy is assigned to. `["ALL_CLIENTS"]` is a special value when policy is assigned to all clients.
+	// List of clients this policy is assigned to. `[ALL_CLIENTS]` is a special value when policy is assigned to all clients.
 	AssignedClients []string `pulumi:"assignedClients"`
-	AuthServerId    string   `pulumi:"authServerId"`
-	// description of authorization server policy.
+	// Auth server ID
+	AuthServerId string `pulumi:"authServerId"`
+	// Description of authorization server policy.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Name of the policy
 	Name string `pulumi:"name"`
-	// the priority of the Auth Server Policy.
+	// Priority of the auth server policy
 	Priority int `pulumi:"priority"`
 }
 
@@ -86,9 +88,9 @@ func LookupServerPolicyOutput(ctx *pulumi.Context, args LookupServerPolicyOutput
 
 // A collection of arguments for invoking getServerPolicy.
 type LookupServerPolicyOutputArgs struct {
-	// The ID of the Auth Server.
+	// Auth server ID
 	AuthServerId pulumi.StringInput `pulumi:"authServerId"`
-	// Name of policy to retrieve.
+	// Name of the policy
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -111,16 +113,17 @@ func (o LookupServerPolicyResultOutput) ToLookupServerPolicyResultOutputWithCont
 	return o
 }
 
-// list of clients this policy is assigned to. `["ALL_CLIENTS"]` is a special value when policy is assigned to all clients.
+// List of clients this policy is assigned to. `[ALL_CLIENTS]` is a special value when policy is assigned to all clients.
 func (o LookupServerPolicyResultOutput) AssignedClients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupServerPolicyResult) []string { return v.AssignedClients }).(pulumi.StringArrayOutput)
 }
 
+// Auth server ID
 func (o LookupServerPolicyResultOutput) AuthServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerPolicyResult) string { return v.AuthServerId }).(pulumi.StringOutput)
 }
 
-// description of authorization server policy.
+// Description of authorization server policy.
 func (o LookupServerPolicyResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerPolicyResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -130,11 +133,12 @@ func (o LookupServerPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the policy
 func (o LookupServerPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerPolicyResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the priority of the Auth Server Policy.
+// Priority of the auth server policy
 func (o LookupServerPolicyResultOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupServerPolicyResult) int { return v.Priority }).(pulumi.IntOutput)
 }

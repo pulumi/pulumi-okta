@@ -13,37 +13,37 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SamlKey {
     /**
-     * @return Date created.
+     * @return Created date
      * 
      */
     private @Nullable String created;
     /**
-     * @return RSA exponent.
+     * @return RSA exponent
      * 
      */
     private @Nullable String e;
     /**
-     * @return Date the key expires.
+     * @return Expiration date
      * 
      */
     private @Nullable String expiresAt;
     /**
-     * @return Key ID.
+     * @return Key ID
      * 
      */
     private @Nullable String kid;
     /**
-     * @return Identifies the cryptographic algorithm family used with the key.
+     * @return Key type. Identifies the cryptographic algorithm family used with the key.
      * 
      */
     private @Nullable String kty;
     /**
-     * @return Date the key was last updated.
+     * @return Last updated date
      * 
      */
     private @Nullable String lastUpdated;
     /**
-     * @return RSA modulus.
+     * @return RSA modulus
      * 
      */
     private @Nullable String n;
@@ -53,61 +53,61 @@ public final class SamlKey {
      */
     private @Nullable String use;
     /**
-     * @return X.509 certificate chain.
+     * @return X.509 Certificate Chain
      * 
      */
     private @Nullable List<String> x5cs;
     /**
-     * @return X.509 certificate SHA-256 thumbprint.
+     * @return X.509 certificate SHA-256 thumbprint
      * 
      */
     private @Nullable String x5tS256;
 
     private SamlKey() {}
     /**
-     * @return Date created.
+     * @return Created date
      * 
      */
     public Optional<String> created() {
         return Optional.ofNullable(this.created);
     }
     /**
-     * @return RSA exponent.
+     * @return RSA exponent
      * 
      */
     public Optional<String> e() {
         return Optional.ofNullable(this.e);
     }
     /**
-     * @return Date the key expires.
+     * @return Expiration date
      * 
      */
     public Optional<String> expiresAt() {
         return Optional.ofNullable(this.expiresAt);
     }
     /**
-     * @return Key ID.
+     * @return Key ID
      * 
      */
     public Optional<String> kid() {
         return Optional.ofNullable(this.kid);
     }
     /**
-     * @return Identifies the cryptographic algorithm family used with the key.
+     * @return Key type. Identifies the cryptographic algorithm family used with the key.
      * 
      */
     public Optional<String> kty() {
         return Optional.ofNullable(this.kty);
     }
     /**
-     * @return Date the key was last updated.
+     * @return Last updated date
      * 
      */
     public Optional<String> lastUpdated() {
         return Optional.ofNullable(this.lastUpdated);
     }
     /**
-     * @return RSA modulus.
+     * @return RSA modulus
      * 
      */
     public Optional<String> n() {
@@ -121,14 +121,14 @@ public final class SamlKey {
         return Optional.ofNullable(this.use);
     }
     /**
-     * @return X.509 certificate chain.
+     * @return X.509 Certificate Chain
      * 
      */
     public List<String> x5cs() {
         return this.x5cs == null ? List.of() : this.x5cs;
     }
     /**
-     * @return X.509 certificate SHA-256 thumbprint.
+     * @return X.509 certificate SHA-256 thumbprint
      * 
      */
     public Optional<String> x5tS256() {

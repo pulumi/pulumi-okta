@@ -5,8 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Manages app settings of the SAML application.
  * This resource allows you to manage app settings of the SAML Application . It's basically the same as
- * `appSettingsJson` field in `okta.app.Saml` resource and can be used in cases where settings require to be managed separately.
+ * appSettingsJson field in okta.app.Saml resource and can be used in cases where settings require to be managed separately.
  *
  * ## Example Usage
  *
@@ -36,10 +37,8 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * A settings for the SAML App can be imported via the Okta ID.
- *
  * ```sh
- * $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62;
+ * $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62
  * ```
  */
 export class AppSamlAppSettings extends pulumi.CustomResource {
@@ -75,7 +74,7 @@ export class AppSamlAppSettings extends pulumi.CustomResource {
      */
     public readonly appId!: pulumi.Output<string>;
     /**
-     * Application settings in JSON format.
+     * Application settings in JSON format
      */
     public readonly settings!: pulumi.Output<string>;
 
@@ -119,7 +118,7 @@ export interface AppSamlAppSettingsState {
      */
     appId?: pulumi.Input<string>;
     /**
-     * Application settings in JSON format.
+     * Application settings in JSON format
      */
     settings?: pulumi.Input<string>;
 }
@@ -133,7 +132,7 @@ export interface AppSamlAppSettingsArgs {
      */
     appId: pulumi.Input<string>;
     /**
-     * Application settings in JSON format.
+     * Application settings in JSON format
      */
     settings: pulumi.Input<string>;
 }

@@ -41,8 +41,6 @@ namespace Pulumi.Okta
     /// 
     /// ## Import
     /// 
-    /// Okta Admin Role Targets can be imported via the Okta ID.
-    /// 
     /// ```sh
     /// $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &amp;#60;user id&amp;#62;/&amp;#60;role type&amp;#62;
     /// ```
@@ -51,31 +49,31 @@ namespace Pulumi.Okta
     public partial class AdminRoleTargets : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
+        /// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
         /// </summary>
         [Output("apps")]
         public Output<ImmutableArray<string>> Apps { get; private set; } = null!;
 
         /// <summary>
-        /// List of group IDs. Conflicts with `apps`.
+        /// List of group IDs. Conflicts with apps
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
         /// <summary>
-        /// Role ID.
+        /// ID of a role
         /// </summary>
         [Output("roleId")]
         public Output<string> RoleId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+        /// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
         /// </summary>
         [Output("roleType")]
         public Output<string> RoleType { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the user.
+        /// User associated with the role
         /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
@@ -130,7 +128,7 @@ namespace Pulumi.Okta
         private InputList<string>? _apps;
 
         /// <summary>
-        /// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
+        /// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
         /// </summary>
         public InputList<string> Apps
         {
@@ -142,7 +140,7 @@ namespace Pulumi.Okta
         private InputList<string>? _groups;
 
         /// <summary>
-        /// List of group IDs. Conflicts with `apps`.
+        /// List of group IDs. Conflicts with apps
         /// </summary>
         public InputList<string> Groups
         {
@@ -151,13 +149,13 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+        /// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
         /// </summary>
         [Input("roleType", required: true)]
         public Input<string> RoleType { get; set; } = null!;
 
         /// <summary>
-        /// ID of the user.
+        /// User associated with the role
         /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
@@ -174,7 +172,7 @@ namespace Pulumi.Okta
         private InputList<string>? _apps;
 
         /// <summary>
-        /// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3').
+        /// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
         /// </summary>
         public InputList<string> Apps
         {
@@ -186,7 +184,7 @@ namespace Pulumi.Okta
         private InputList<string>? _groups;
 
         /// <summary>
-        /// List of group IDs. Conflicts with `apps`.
+        /// List of group IDs. Conflicts with apps
         /// </summary>
         public InputList<string> Groups
         {
@@ -195,19 +193,19 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Role ID.
+        /// ID of a role
         /// </summary>
         [Input("roleId")]
         public Input<string>? RoleId { get; set; }
 
         /// <summary>
-        /// Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+        /// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
         /// </summary>
         [Input("roleType")]
         public Input<string>? RoleType { get; set; }
 
         /// <summary>
-        /// ID of the user.
+        /// User associated with the role
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }

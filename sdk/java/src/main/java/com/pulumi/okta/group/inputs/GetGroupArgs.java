@@ -32,14 +32,14 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * ID of the group. Conflicts with `&#34;name&#34;` and `&#34;type&#34;`.
+     * ID of group.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return ID of the group. Conflicts with `&#34;name&#34;` and `&#34;type&#34;`.
+     * @return ID of group.
      * 
      */
     public Optional<Output<String>> id() {
@@ -47,14 +47,14 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * whether to retrieve all member ids.
+     * Fetch group users, having default off cuts down on API calls.
      * 
      */
     @Import(name="includeUsers")
     private @Nullable Output<Boolean> includeUsers;
 
     /**
-     * @return whether to retrieve all member ids.
+     * @return Fetch group users, having default off cuts down on API calls.
      * 
      */
     public Optional<Output<Boolean>> includeUsers() {
@@ -62,37 +62,23 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * name of group to retrieve.
-     * 
-     * &gt; Okta API treats `name` as a starts with query. Therefore a name argument &#34;My&#34; will match any group starting with &#34;My&#34; such as &#34;My Group&#34; and &#34;My Office&#34;
+     * Name of group.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return name of group to retrieve.
-     * 
-     * &gt; Okta API treats `name` as a starts with query. Therefore a name argument &#34;My&#34; will match any group starting with &#34;My&#34; such as &#34;My Group&#34; and &#34;My Office&#34;
+     * @return Name of group.
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-     * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-     * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -147,7 +133,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id ID of the group. Conflicts with `&#34;name&#34;` and `&#34;type&#34;`.
+         * @param id ID of group.
          * 
          * @return builder
          * 
@@ -158,7 +144,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id ID of the group. Conflicts with `&#34;name&#34;` and `&#34;type&#34;`.
+         * @param id ID of group.
          * 
          * @return builder
          * 
@@ -168,7 +154,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param includeUsers whether to retrieve all member ids.
+         * @param includeUsers Fetch group users, having default off cuts down on API calls.
          * 
          * @return builder
          * 
@@ -179,7 +165,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param includeUsers whether to retrieve all member ids.
+         * @param includeUsers Fetch group users, having default off cuts down on API calls.
          * 
          * @return builder
          * 
@@ -189,9 +175,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name name of group to retrieve.
-         * 
-         * &gt; Okta API treats `name` as a starts with query. Therefore a name argument &#34;My&#34; will match any group starting with &#34;My&#34; such as &#34;My Group&#34; and &#34;My Office&#34;
+         * @param name Name of group.
          * 
          * @return builder
          * 
@@ -202,9 +186,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name name of group to retrieve.
-         * 
-         * &gt; Okta API treats `name` as a starts with query. Therefore a name argument &#34;My&#34; will match any group starting with &#34;My&#34; such as &#34;My Group&#34; and &#34;My Office&#34;
+         * @param name Name of group.
          * 
          * @return builder
          * 
@@ -213,25 +195,11 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
             return name(Output.of(name));
         }
 
-        /**
-         * @param type type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-         * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-         * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

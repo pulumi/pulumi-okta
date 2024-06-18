@@ -17,14 +17,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     public static final ZoneState Empty = new ZoneState();
 
     /**
-     * Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+     * Format of each array value: a string representation of an ASN numeric value
      * 
      */
     @Import(name="asns")
     private @Nullable Output<List<String>> asns;
 
     /**
-     * @return Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+     * @return Format of each array value: a string representation of an ASN numeric value
      * 
      */
     public Optional<Output<List<String>>> asns() {
@@ -32,16 +32,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-     * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+     * Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
      * 
      */
     @Import(name="dynamicLocations")
     private @Nullable Output<List<String>> dynamicLocations;
 
     /**
-     * @return Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-     * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+     * @return Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
      * 
      */
     public Optional<Output<List<String>>> dynamicLocations() {
@@ -64,14 +62,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Array of values in CIDR/range form.
+     * Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
      * 
      */
     @Import(name="gateways")
     private @Nullable Output<List<String>> gateways;
 
     /**
-     * @return Array of values in CIDR/range form.
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
      * 
      */
     public Optional<Output<List<String>>> gateways() {
@@ -79,14 +77,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the Network Zone Resource.
+     * Name of the Network Zone Resource
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the Network Zone Resource.
+     * @return Name of the Network Zone Resource
      * 
      */
     public Optional<Output<String>> name() {
@@ -94,14 +92,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Array of values in CIDR/range form. Can not be set if `usage` is set to `&#34;BLOCKLIST&#34;`.
+     * Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
      * 
      */
     @Import(name="proxies")
     private @Nullable Output<List<String>> proxies;
 
     /**
-     * @return Array of values in CIDR/range form. Can not be set if `usage` is set to `&#34;BLOCKLIST&#34;`.
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
      * 
      */
     public Optional<Output<List<String>>> proxies() {
@@ -109,14 +107,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Network Status - can either be ACTIVE or INACTIVE only.
+     * Network Status - can either be `ACTIVE` or `INACTIVE` only
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Network Status - can either be ACTIVE or INACTIVE only.
+     * @return Network Status - can either be `ACTIVE` or `INACTIVE` only
      * 
      */
     public Optional<Output<String>> status() {
@@ -124,14 +122,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of the Network Zone - can either be `&#34;IP&#34;` or `&#34;DYNAMIC&#34;` only.
+     * Type of the Network Zone - can either be `IP` or `DYNAMIC` only
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of the Network Zone - can either be `&#34;IP&#34;` or `&#34;DYNAMIC&#34;` only.
+     * @return Type of the Network Zone - can either be `IP` or `DYNAMIC` only
      * 
      */
     public Optional<Output<String>> type() {
@@ -139,14 +137,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Usage of the Network Zone - can be either `&#34;POLICY&#34;` or `&#34;BLOCKLIST&#34;`. By default, it is `&#34;POLICY&#34;`.
+     * Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
      * 
      */
     @Import(name="usage")
     private @Nullable Output<String> usage;
 
     /**
-     * @return Usage of the Network Zone - can be either `&#34;POLICY&#34;` or `&#34;BLOCKLIST&#34;`. By default, it is `&#34;POLICY&#34;`.
+     * @return Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
      * 
      */
     public Optional<Output<String>> usage() {
@@ -186,7 +184,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param asns Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+         * @param asns Format of each array value: a string representation of an ASN numeric value
          * 
          * @return builder
          * 
@@ -197,7 +195,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param asns Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+         * @param asns Format of each array value: a string representation of an ASN numeric value
          * 
          * @return builder
          * 
@@ -207,7 +205,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param asns Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+         * @param asns Format of each array value: a string representation of an ASN numeric value
          * 
          * @return builder
          * 
@@ -217,8 +215,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamicLocations Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-         * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+         * @param dynamicLocations Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
          * 
          * @return builder
          * 
@@ -229,8 +226,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamicLocations Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-         * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+         * @param dynamicLocations Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
          * 
          * @return builder
          * 
@@ -240,8 +236,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamicLocations Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-         * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+         * @param dynamicLocations Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
          * 
          * @return builder
          * 
@@ -272,7 +267,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gateways Array of values in CIDR/range form.
+         * @param gateways Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
          * 
          * @return builder
          * 
@@ -283,7 +278,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gateways Array of values in CIDR/range form.
+         * @param gateways Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
          * 
          * @return builder
          * 
@@ -293,7 +288,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gateways Array of values in CIDR/range form.
+         * @param gateways Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
          * 
          * @return builder
          * 
@@ -303,7 +298,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Network Zone Resource.
+         * @param name Name of the Network Zone Resource
          * 
          * @return builder
          * 
@@ -314,7 +309,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Network Zone Resource.
+         * @param name Name of the Network Zone Resource
          * 
          * @return builder
          * 
@@ -324,7 +319,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param proxies Array of values in CIDR/range form. Can not be set if `usage` is set to `&#34;BLOCKLIST&#34;`.
+         * @param proxies Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
          * 
          * @return builder
          * 
@@ -335,7 +330,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param proxies Array of values in CIDR/range form. Can not be set if `usage` is set to `&#34;BLOCKLIST&#34;`.
+         * @param proxies Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
          * 
          * @return builder
          * 
@@ -345,7 +340,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param proxies Array of values in CIDR/range form. Can not be set if `usage` is set to `&#34;BLOCKLIST&#34;`.
+         * @param proxies Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
          * 
          * @return builder
          * 
@@ -355,7 +350,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Network Status - can either be ACTIVE or INACTIVE only.
+         * @param status Network Status - can either be `ACTIVE` or `INACTIVE` only
          * 
          * @return builder
          * 
@@ -366,7 +361,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Network Status - can either be ACTIVE or INACTIVE only.
+         * @param status Network Status - can either be `ACTIVE` or `INACTIVE` only
          * 
          * @return builder
          * 
@@ -376,7 +371,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the Network Zone - can either be `&#34;IP&#34;` or `&#34;DYNAMIC&#34;` only.
+         * @param type Type of the Network Zone - can either be `IP` or `DYNAMIC` only
          * 
          * @return builder
          * 
@@ -387,7 +382,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the Network Zone - can either be `&#34;IP&#34;` or `&#34;DYNAMIC&#34;` only.
+         * @param type Type of the Network Zone - can either be `IP` or `DYNAMIC` only
          * 
          * @return builder
          * 
@@ -397,7 +392,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usage Usage of the Network Zone - can be either `&#34;POLICY&#34;` or `&#34;BLOCKLIST&#34;`. By default, it is `&#34;POLICY&#34;`.
+         * @param usage Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
          * 
          * @return builder
          * 
@@ -408,7 +403,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usage Usage of the Network Zone - can be either `&#34;POLICY&#34;` or `&#34;BLOCKLIST&#34;`. By default, it is `&#34;POLICY&#34;`.
+         * @param usage Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
          * 
          * @return builder
          * 

@@ -13,13 +13,7 @@ namespace Pulumi.Okta.Policy.Outputs
     [OutputType]
     public sealed class RuleIdpDiscoveryUserIdentifierPattern
     {
-        /// <summary>
-        /// The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
-        /// </summary>
         public readonly string? MatchType;
-        /// <summary>
-        /// The regex or simple match string to match against.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

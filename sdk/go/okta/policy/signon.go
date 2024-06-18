@@ -11,9 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a Sign On Policy.
-//
-// This resource allows you to create and configure a Sign On Policy.
+// Creates a Sign On Policy. This resource allows you to create and configure a Sign On Policy.
 //
 // ## Example Usage
 //
@@ -48,23 +46,21 @@ import (
 //
 // ## Import
 //
-// A Sign On Policy can be imported via the Okta ID.
-//
 // ```sh
 // $ pulumi import okta:policy/signon:Signon example &#60;policy id&#62;
 // ```
 type Signon struct {
 	pulumi.CustomResourceState
 
-	// Policy Description.
+	// Policy Description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// List of Group IDs to Include.
+	// List of Group IDs to Include
 	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
-	// Policy Name.
+	// Policy Name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Priority of the policy.
+	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+	// Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
@@ -98,28 +94,28 @@ func GetSignon(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Signon resources.
 type signonState struct {
-	// Policy Description.
+	// Policy Description
 	Description *string `pulumi:"description"`
-	// List of Group IDs to Include.
+	// List of Group IDs to Include
 	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
-	// Policy Name.
+	// Policy Name
 	Name *string `pulumi:"name"`
-	// Priority of the policy.
+	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
-	// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+	// Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status *string `pulumi:"status"`
 }
 
 type SignonState struct {
-	// Policy Description.
+	// Policy Description
 	Description pulumi.StringPtrInput
-	// List of Group IDs to Include.
+	// List of Group IDs to Include
 	GroupsIncludeds pulumi.StringArrayInput
-	// Policy Name.
+	// Policy Name
 	Name pulumi.StringPtrInput
-	// Priority of the policy.
+	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
-	// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+	// Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrInput
 }
 
@@ -128,29 +124,29 @@ func (SignonState) ElementType() reflect.Type {
 }
 
 type signonArgs struct {
-	// Policy Description.
+	// Policy Description
 	Description *string `pulumi:"description"`
-	// List of Group IDs to Include.
+	// List of Group IDs to Include
 	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
-	// Policy Name.
+	// Policy Name
 	Name *string `pulumi:"name"`
-	// Priority of the policy.
+	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority *int `pulumi:"priority"`
-	// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+	// Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Signon resource.
 type SignonArgs struct {
-	// Policy Description.
+	// Policy Description
 	Description pulumi.StringPtrInput
-	// List of Group IDs to Include.
+	// List of Group IDs to Include
 	GroupsIncludeds pulumi.StringArrayInput
-	// Policy Name.
+	// Policy Name
 	Name pulumi.StringPtrInput
-	// Priority of the policy.
+	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 	Priority pulumi.IntPtrInput
-	// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+	// Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrInput
 }
 
@@ -241,27 +237,27 @@ func (o SignonOutput) ToSignonOutputWithContext(ctx context.Context) SignonOutpu
 	return o
 }
 
-// Policy Description.
+// Policy Description
 func (o SignonOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Signon) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// List of Group IDs to Include.
+// List of Group IDs to Include
 func (o SignonOutput) GroupsIncludeds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Signon) pulumi.StringArrayOutput { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
 }
 
-// Policy Name.
+// Policy Name
 func (o SignonOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Signon) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Priority of the policy.
+// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
 func (o SignonOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Signon) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+// Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 func (o SignonOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Signon) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }

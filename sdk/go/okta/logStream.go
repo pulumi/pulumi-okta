@@ -12,29 +12,44 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an Okta Log Stream.
-//
-// This resource allows you to create and configure an Okta Log Stream.
+// Manages log streams
 //
 // ## Example Usage
 //
-// ## Import
+// ### AWS EventBridge
 //
-// Okta Log Stream can be imported via the Okta ID.
+//	resource "LogStream" "example" {
+//	  name   = "EventBridge Log Stream"
+//	  type   = "awsEventbridge"
+//	  status = "ACTIVE"
+//	  settings {
+//	    accountId        = "123456789012"
+//	    region            = "us-north-1"
+//	    eventSourceName = "LogStream"
+//	  }
+//	}
 //
-// ```sh
-// $ pulumi import okta:index/logStream:LogStream example &#60;strema id&#62;
-// ```
+// ### Splunk Event Collector
+//
+//	resource "LogStream" "example" {
+//	  name   = "Splunk log Stream"
+//	  type   = "splunkCloudLogstreaming"
+//	  status = "ACTIVE"
+//	  settings {
+//	    host    = "acme.splunkcloud.com"
+//	    edition = "gcp"
+//	    token   = "YOUR_HEC_TOKEN"
+//	  }
+//	}
 type LogStream struct {
 	pulumi.CustomResourceState
 
-	// Name of the Log Stream Resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Stream provider specific configuration.
+	// Unique name for the Log Stream object
+	Name     pulumi.StringOutput        `pulumi:"name"`
 	Settings LogStreamSettingsPtrOutput `pulumi:"settings"`
-	// Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+	// Stream status
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Type of the Log Stream - can either be `"awsEventbridge"` or `"splunkCloudLogstreaming"` only.
+	// Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -71,24 +86,22 @@ func GetLogStream(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogStream resources.
 type logStreamState struct {
-	// Name of the Log Stream Resource.
-	Name *string `pulumi:"name"`
-	// Stream provider specific configuration.
+	// Unique name for the Log Stream object
+	Name     *string            `pulumi:"name"`
 	Settings *LogStreamSettings `pulumi:"settings"`
-	// Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+	// Stream status
 	Status *string `pulumi:"status"`
-	// Type of the Log Stream - can either be `"awsEventbridge"` or `"splunkCloudLogstreaming"` only.
+	// Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
 	Type *string `pulumi:"type"`
 }
 
 type LogStreamState struct {
-	// Name of the Log Stream Resource.
-	Name pulumi.StringPtrInput
-	// Stream provider specific configuration.
+	// Unique name for the Log Stream object
+	Name     pulumi.StringPtrInput
 	Settings LogStreamSettingsPtrInput
-	// Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+	// Stream status
 	Status pulumi.StringPtrInput
-	// Type of the Log Stream - can either be `"awsEventbridge"` or `"splunkCloudLogstreaming"` only.
+	// Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
 	Type pulumi.StringPtrInput
 }
 
@@ -97,25 +110,23 @@ func (LogStreamState) ElementType() reflect.Type {
 }
 
 type logStreamArgs struct {
-	// Name of the Log Stream Resource.
-	Name *string `pulumi:"name"`
-	// Stream provider specific configuration.
+	// Unique name for the Log Stream object
+	Name     *string            `pulumi:"name"`
 	Settings *LogStreamSettings `pulumi:"settings"`
-	// Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+	// Stream status
 	Status *string `pulumi:"status"`
-	// Type of the Log Stream - can either be `"awsEventbridge"` or `"splunkCloudLogstreaming"` only.
+	// Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
 	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a LogStream resource.
 type LogStreamArgs struct {
-	// Name of the Log Stream Resource.
-	Name pulumi.StringPtrInput
-	// Stream provider specific configuration.
+	// Unique name for the Log Stream object
+	Name     pulumi.StringPtrInput
 	Settings LogStreamSettingsPtrInput
-	// Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+	// Stream status
 	Status pulumi.StringPtrInput
-	// Type of the Log Stream - can either be `"awsEventbridge"` or `"splunkCloudLogstreaming"` only.
+	// Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
 	Type pulumi.StringInput
 }
 
@@ -206,22 +217,21 @@ func (o LogStreamOutput) ToLogStreamOutputWithContext(ctx context.Context) LogSt
 	return o
 }
 
-// Name of the Log Stream Resource.
+// Unique name for the Log Stream object
 func (o LogStreamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogStream) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Stream provider specific configuration.
 func (o LogStreamOutput) Settings() LogStreamSettingsPtrOutput {
 	return o.ApplyT(func(v *LogStream) LogStreamSettingsPtrOutput { return v.Settings }).(LogStreamSettingsPtrOutput)
 }
 
-// Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+// Stream status
 func (o LogStreamOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogStream) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Type of the Log Stream - can either be `"awsEventbridge"` or `"splunkCloudLogstreaming"` only.
+// Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
 func (o LogStreamOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogStream) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

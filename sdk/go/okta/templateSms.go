@@ -12,9 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an Okta SMS Template.
-//
-// This resource allows you to create and configure an Okta SMS Template.
+// Creates an Okta SMS Template. This resource allows you to create and configure an Okta SMS Template.
 //
 // ## Example Usage
 //
@@ -55,15 +53,13 @@ import (
 //
 // ## Import
 //
-// An Okta SMS Template can be imported via the template type.
-//
 // ```sh
 // $ pulumi import okta:index/templateSms:TemplateSms example &#60;template type&#62;
 // ```
 type TemplateSms struct {
 	pulumi.CustomResourceState
 
-	// Default SMS message
+	// SMS default template
 	Template pulumi.StringOutput `pulumi:"template"`
 	// Set of translations for a particular template.
 	Translations TemplateSmsTranslationArrayOutput `pulumi:"translations"`
@@ -107,7 +103,7 @@ func GetTemplateSms(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TemplateSms resources.
 type templateSmsState struct {
-	// Default SMS message
+	// SMS default template
 	Template *string `pulumi:"template"`
 	// Set of translations for a particular template.
 	Translations []TemplateSmsTranslation `pulumi:"translations"`
@@ -116,7 +112,7 @@ type templateSmsState struct {
 }
 
 type TemplateSmsState struct {
-	// Default SMS message
+	// SMS default template
 	Template pulumi.StringPtrInput
 	// Set of translations for a particular template.
 	Translations TemplateSmsTranslationArrayInput
@@ -129,7 +125,7 @@ func (TemplateSmsState) ElementType() reflect.Type {
 }
 
 type templateSmsArgs struct {
-	// Default SMS message
+	// SMS default template
 	Template string `pulumi:"template"`
 	// Set of translations for a particular template.
 	Translations []TemplateSmsTranslation `pulumi:"translations"`
@@ -139,7 +135,7 @@ type templateSmsArgs struct {
 
 // The set of arguments for constructing a TemplateSms resource.
 type TemplateSmsArgs struct {
-	// Default SMS message
+	// SMS default template
 	Template pulumi.StringInput
 	// Set of translations for a particular template.
 	Translations TemplateSmsTranslationArrayInput
@@ -234,7 +230,7 @@ func (o TemplateSmsOutput) ToTemplateSmsOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// Default SMS message
+// SMS default template
 func (o TemplateSmsOutput) Template() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateSms) pulumi.StringOutput { return v.Template }).(pulumi.StringOutput)
 }

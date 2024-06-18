@@ -60,22 +60,18 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Import
- * 
- * This resource does not support importing.
- * 
  */
 @ResourceType(type="okta:index/emailDomainVerification:EmailDomainVerification")
 public class EmailDomainVerification extends com.pulumi.resources.CustomResource {
     /**
-     * Email domain ID.
+     * Email domain ID
      * 
      */
     @Export(name="emailDomainId", refs={String.class}, tree="[0]")
     private Output<String> emailDomainId;
 
     /**
-     * @return Email domain ID.
+     * @return Email domain ID
      * 
      */
     public Output<String> emailDomainId() {

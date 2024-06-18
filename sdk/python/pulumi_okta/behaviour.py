@@ -23,19 +23,13 @@ class BehaviourArgs:
                  velocity: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Behaviour resource.
-        :param pulumi.Input[str] type: Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
-               or `"VELOCITY"`. Resource will be recreated when the type changes.
-        :param pulumi.Input[str] location_granularity_type: Determines the method and level of detail used to evaluate the behavior.
-               Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
-               or `"SUBDIVISION"`.
-        :param pulumi.Input[str] name: Name of the behavior.
-        :param pulumi.Input[int] number_of_authentications: The number of recent authentications used to evaluate the behavior. Required
-               for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
-        :param pulumi.Input[int] radius_from_location: Radius from location (in kilometers). Should be at least 5. Required
-               when `location_granularity_type` is set to `"LAT_LONG"`.
-        :param pulumi.Input[str] status: The status of the behavior. By default, it is`"ACTIVE"`.
-        :param pulumi.Input[int] velocity: Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
-               type.
+        :param pulumi.Input[str] type: Type of the behavior. Can be set to `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE`, `ANOMALOUS_IP` or `VELOCITY`. Resource will be recreated when the type changes.e
+        :param pulumi.Input[str] location_granularity_type: Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
+        :param pulumi.Input[str] name: Name of the behavior
+        :param pulumi.Input[int] number_of_authentications: The number of recent authentications used to evaluate the behavior. Required for `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE` and `ANOMALOUS_IP` behavior types.
+        :param pulumi.Input[int] radius_from_location: Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
+        :param pulumi.Input[str] status: Behavior status: ACTIVE or INACTIVE. Default: `ACTIVE`
+        :param pulumi.Input[int] velocity: Velocity (in kilometers per hour). Should be at least 1. Required for `VELOCITY` behavior
         """
         pulumi.set(__self__, "type", type)
         if location_granularity_type is not None:
@@ -55,8 +49,7 @@ class BehaviourArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
-        or `"VELOCITY"`. Resource will be recreated when the type changes.
+        Type of the behavior. Can be set to `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE`, `ANOMALOUS_IP` or `VELOCITY`. Resource will be recreated when the type changes.e
         """
         return pulumi.get(self, "type")
 
@@ -68,9 +61,7 @@ class BehaviourArgs:
     @pulumi.getter(name="locationGranularityType")
     def location_granularity_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines the method and level of detail used to evaluate the behavior.
-        Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
-        or `"SUBDIVISION"`.
+        Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
         """
         return pulumi.get(self, "location_granularity_type")
 
@@ -82,7 +73,7 @@ class BehaviourArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the behavior.
+        Name of the behavior
         """
         return pulumi.get(self, "name")
 
@@ -94,8 +85,7 @@ class BehaviourArgs:
     @pulumi.getter(name="numberOfAuthentications")
     def number_of_authentications(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of recent authentications used to evaluate the behavior. Required
-        for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
+        The number of recent authentications used to evaluate the behavior. Required for `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE` and `ANOMALOUS_IP` behavior types.
         """
         return pulumi.get(self, "number_of_authentications")
 
@@ -107,8 +97,7 @@ class BehaviourArgs:
     @pulumi.getter(name="radiusFromLocation")
     def radius_from_location(self) -> Optional[pulumi.Input[int]]:
         """
-        Radius from location (in kilometers). Should be at least 5. Required
-        when `location_granularity_type` is set to `"LAT_LONG"`.
+        Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
         """
         return pulumi.get(self, "radius_from_location")
 
@@ -120,7 +109,7 @@ class BehaviourArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The status of the behavior. By default, it is`"ACTIVE"`.
+        Behavior status: ACTIVE or INACTIVE. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -132,8 +121,7 @@ class BehaviourArgs:
     @pulumi.getter
     def velocity(self) -> Optional[pulumi.Input[int]]:
         """
-        Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
-        type.
+        Velocity (in kilometers per hour). Should be at least 1. Required for `VELOCITY` behavior
         """
         return pulumi.get(self, "velocity")
 
@@ -154,19 +142,13 @@ class _BehaviourState:
                  velocity: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Behaviour resources.
-        :param pulumi.Input[str] location_granularity_type: Determines the method and level of detail used to evaluate the behavior.
-               Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
-               or `"SUBDIVISION"`.
-        :param pulumi.Input[str] name: Name of the behavior.
-        :param pulumi.Input[int] number_of_authentications: The number of recent authentications used to evaluate the behavior. Required
-               for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
-        :param pulumi.Input[int] radius_from_location: Radius from location (in kilometers). Should be at least 5. Required
-               when `location_granularity_type` is set to `"LAT_LONG"`.
-        :param pulumi.Input[str] status: The status of the behavior. By default, it is`"ACTIVE"`.
-        :param pulumi.Input[str] type: Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
-               or `"VELOCITY"`. Resource will be recreated when the type changes.
-        :param pulumi.Input[int] velocity: Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
-               type.
+        :param pulumi.Input[str] location_granularity_type: Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
+        :param pulumi.Input[str] name: Name of the behavior
+        :param pulumi.Input[int] number_of_authentications: The number of recent authentications used to evaluate the behavior. Required for `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE` and `ANOMALOUS_IP` behavior types.
+        :param pulumi.Input[int] radius_from_location: Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
+        :param pulumi.Input[str] status: Behavior status: ACTIVE or INACTIVE. Default: `ACTIVE`
+        :param pulumi.Input[str] type: Type of the behavior. Can be set to `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE`, `ANOMALOUS_IP` or `VELOCITY`. Resource will be recreated when the type changes.e
+        :param pulumi.Input[int] velocity: Velocity (in kilometers per hour). Should be at least 1. Required for `VELOCITY` behavior
         """
         if location_granularity_type is not None:
             pulumi.set(__self__, "location_granularity_type", location_granularity_type)
@@ -187,9 +169,7 @@ class _BehaviourState:
     @pulumi.getter(name="locationGranularityType")
     def location_granularity_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines the method and level of detail used to evaluate the behavior.
-        Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
-        or `"SUBDIVISION"`.
+        Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
         """
         return pulumi.get(self, "location_granularity_type")
 
@@ -201,7 +181,7 @@ class _BehaviourState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the behavior.
+        Name of the behavior
         """
         return pulumi.get(self, "name")
 
@@ -213,8 +193,7 @@ class _BehaviourState:
     @pulumi.getter(name="numberOfAuthentications")
     def number_of_authentications(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of recent authentications used to evaluate the behavior. Required
-        for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
+        The number of recent authentications used to evaluate the behavior. Required for `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE` and `ANOMALOUS_IP` behavior types.
         """
         return pulumi.get(self, "number_of_authentications")
 
@@ -226,8 +205,7 @@ class _BehaviourState:
     @pulumi.getter(name="radiusFromLocation")
     def radius_from_location(self) -> Optional[pulumi.Input[int]]:
         """
-        Radius from location (in kilometers). Should be at least 5. Required
-        when `location_granularity_type` is set to `"LAT_LONG"`.
+        Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
         """
         return pulumi.get(self, "radius_from_location")
 
@@ -239,7 +217,7 @@ class _BehaviourState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The status of the behavior. By default, it is`"ACTIVE"`.
+        Behavior status: ACTIVE or INACTIVE. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -251,8 +229,7 @@ class _BehaviourState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
-        or `"VELOCITY"`. Resource will be recreated when the type changes.
+        Type of the behavior. Can be set to `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE`, `ANOMALOUS_IP` or `VELOCITY`. Resource will be recreated when the type changes.e
         """
         return pulumi.get(self, "type")
 
@@ -264,8 +241,7 @@ class _BehaviourState:
     @pulumi.getter
     def velocity(self) -> Optional[pulumi.Input[int]]:
         """
-        Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
-        type.
+        Velocity (in kilometers per hour). Should be at least 1. Required for `VELOCITY` behavior
         """
         return pulumi.get(self, "velocity")
 
@@ -323,27 +299,19 @@ class Behaviour(pulumi.CustomResource):
 
         ## Import
 
-        Behavior can be imported via the Okta ID.
-
         ```sh
         $ pulumi import okta:index/behaviour:Behaviour example &#60;behavior id&#62;
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location_granularity_type: Determines the method and level of detail used to evaluate the behavior.
-               Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
-               or `"SUBDIVISION"`.
-        :param pulumi.Input[str] name: Name of the behavior.
-        :param pulumi.Input[int] number_of_authentications: The number of recent authentications used to evaluate the behavior. Required
-               for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
-        :param pulumi.Input[int] radius_from_location: Radius from location (in kilometers). Should be at least 5. Required
-               when `location_granularity_type` is set to `"LAT_LONG"`.
-        :param pulumi.Input[str] status: The status of the behavior. By default, it is`"ACTIVE"`.
-        :param pulumi.Input[str] type: Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
-               or `"VELOCITY"`. Resource will be recreated when the type changes.
-        :param pulumi.Input[int] velocity: Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
-               type.
+        :param pulumi.Input[str] location_granularity_type: Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
+        :param pulumi.Input[str] name: Name of the behavior
+        :param pulumi.Input[int] number_of_authentications: The number of recent authentications used to evaluate the behavior. Required for `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE` and `ANOMALOUS_IP` behavior types.
+        :param pulumi.Input[int] radius_from_location: Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
+        :param pulumi.Input[str] status: Behavior status: ACTIVE or INACTIVE. Default: `ACTIVE`
+        :param pulumi.Input[str] type: Type of the behavior. Can be set to `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE`, `ANOMALOUS_IP` or `VELOCITY`. Resource will be recreated when the type changes.e
+        :param pulumi.Input[int] velocity: Velocity (in kilometers per hour). Should be at least 1. Required for `VELOCITY` behavior
         """
         ...
     @overload
@@ -386,8 +354,6 @@ class Behaviour(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Behavior can be imported via the Okta ID.
 
         ```sh
         $ pulumi import okta:index/behaviour:Behaviour example &#60;behavior id&#62;
@@ -457,19 +423,13 @@ class Behaviour(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location_granularity_type: Determines the method and level of detail used to evaluate the behavior.
-               Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
-               or `"SUBDIVISION"`.
-        :param pulumi.Input[str] name: Name of the behavior.
-        :param pulumi.Input[int] number_of_authentications: The number of recent authentications used to evaluate the behavior. Required
-               for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
-        :param pulumi.Input[int] radius_from_location: Radius from location (in kilometers). Should be at least 5. Required
-               when `location_granularity_type` is set to `"LAT_LONG"`.
-        :param pulumi.Input[str] status: The status of the behavior. By default, it is`"ACTIVE"`.
-        :param pulumi.Input[str] type: Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
-               or `"VELOCITY"`. Resource will be recreated when the type changes.
-        :param pulumi.Input[int] velocity: Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
-               type.
+        :param pulumi.Input[str] location_granularity_type: Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
+        :param pulumi.Input[str] name: Name of the behavior
+        :param pulumi.Input[int] number_of_authentications: The number of recent authentications used to evaluate the behavior. Required for `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE` and `ANOMALOUS_IP` behavior types.
+        :param pulumi.Input[int] radius_from_location: Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
+        :param pulumi.Input[str] status: Behavior status: ACTIVE or INACTIVE. Default: `ACTIVE`
+        :param pulumi.Input[str] type: Type of the behavior. Can be set to `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE`, `ANOMALOUS_IP` or `VELOCITY`. Resource will be recreated when the type changes.e
+        :param pulumi.Input[int] velocity: Velocity (in kilometers per hour). Should be at least 1. Required for `VELOCITY` behavior
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -488,9 +448,7 @@ class Behaviour(pulumi.CustomResource):
     @pulumi.getter(name="locationGranularityType")
     def location_granularity_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Determines the method and level of detail used to evaluate the behavior.
-        Required for `"ANOMALOUS_LOCATION"` behavior type. Can be set to `"LAT_LONG"`, `"CITY"`, `"COUNTRY"`
-        or `"SUBDIVISION"`.
+        Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
         """
         return pulumi.get(self, "location_granularity_type")
 
@@ -498,7 +456,7 @@ class Behaviour(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the behavior.
+        Name of the behavior
         """
         return pulumi.get(self, "name")
 
@@ -506,8 +464,7 @@ class Behaviour(pulumi.CustomResource):
     @pulumi.getter(name="numberOfAuthentications")
     def number_of_authentications(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of recent authentications used to evaluate the behavior. Required
-        for `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"` and `"ANOMALOUS_IP"` behavior types.
+        The number of recent authentications used to evaluate the behavior. Required for `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE` and `ANOMALOUS_IP` behavior types.
         """
         return pulumi.get(self, "number_of_authentications")
 
@@ -515,8 +472,7 @@ class Behaviour(pulumi.CustomResource):
     @pulumi.getter(name="radiusFromLocation")
     def radius_from_location(self) -> pulumi.Output[Optional[int]]:
         """
-        Radius from location (in kilometers). Should be at least 5. Required
-        when `location_granularity_type` is set to `"LAT_LONG"`.
+        Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
         """
         return pulumi.get(self, "radius_from_location")
 
@@ -524,7 +480,7 @@ class Behaviour(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        The status of the behavior. By default, it is`"ACTIVE"`.
+        Behavior status: ACTIVE or INACTIVE. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -532,8 +488,7 @@ class Behaviour(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the behavior. Can be set to `"ANOMALOUS_LOCATION"`, `"ANOMALOUS_DEVICE"`, `"ANOMALOUS_IP"`
-        or `"VELOCITY"`. Resource will be recreated when the type changes.
+        Type of the behavior. Can be set to `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE`, `ANOMALOUS_IP` or `VELOCITY`. Resource will be recreated when the type changes.e
         """
         return pulumi.get(self, "type")
 
@@ -541,8 +496,7 @@ class Behaviour(pulumi.CustomResource):
     @pulumi.getter
     def velocity(self) -> pulumi.Output[Optional[int]]:
         """
-        Velocity (in kilometers per hour). Should be at least 1. Required for `"VELOCITY"` behavior
-        type.
+        Velocity (in kilometers per hour). Should be at least 1. Required for `VELOCITY` behavior
         """
         return pulumi.get(self, "velocity")
 

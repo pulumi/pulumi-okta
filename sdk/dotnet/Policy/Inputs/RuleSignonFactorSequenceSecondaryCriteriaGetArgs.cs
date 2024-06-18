@@ -13,13 +13,13 @@ namespace Pulumi.Okta.Policy.Inputs
     public sealed class RuleSignonFactorSequenceSecondaryCriteriaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Factor type of the additional authentication step.
+        /// Type of a Factor
         /// </summary>
         [Input("factorType", required: true)]
         public Input<string> FactorType { get; set; } = null!;
 
         /// <summary>
-        /// Provider of the additional authentication step.
+        /// Factor provider
         /// </summary>
         [Input("provider", required: true)]
         public Input<string> Provider { get; set; } = null!;

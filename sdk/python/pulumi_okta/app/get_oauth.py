@@ -104,13 +104,16 @@ class GetOauthResult:
     @property
     @pulumi.getter(name="activeOnly")
     def active_only(self) -> Optional[bool]:
+        """
+        Search only ACTIVE applications.
+        """
         return pulumi.get(self, "active_only")
 
     @property
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> bool:
         """
-        Display auto submit toolbar.
+        Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -118,7 +121,7 @@ class GetOauthResult:
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        OAuth client ID. If set during creation, app is created with this id.
+        OAuth client ID
         """
         return pulumi.get(self, "client_id")
 
@@ -126,7 +129,7 @@ class GetOauthResult:
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> str:
         """
-        The latest active client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        OAuth client secret
         """
         return pulumi.get(self, "client_secret")
 
@@ -142,7 +145,7 @@ class GetOauthResult:
     @pulumi.getter(name="grantTypes")
     def grant_types(self) -> Sequence[str]:
         """
-        List of OAuth 2.0 grant types.
+        List of OAuth 2.0 grant types
         """
         return pulumi.get(self, "grant_types")
 
@@ -150,7 +153,7 @@ class GetOauthResult:
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> bool:
         """
-        Do not display application icon on mobile app.
+        Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
@@ -158,7 +161,7 @@ class GetOauthResult:
     @pulumi.getter(name="hideWeb")
     def hide_web(self) -> bool:
         """
-        Do not display application icon to users.
+        Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
@@ -166,7 +169,7 @@ class GetOauthResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        ID of application.
+        Id of application to retrieve, conflicts with label and label_prefix.
         """
         return pulumi.get(self, "id")
 
@@ -174,20 +177,30 @@ class GetOauthResult:
     @pulumi.getter
     def label(self) -> Optional[str]:
         """
-        Label of application.
+        The label of the app to retrieve, conflicts with
+        			label_prefix and id. Label uses the ?q=\\n\\n query parameter exposed by
+        			Okta's List Apps API. The API will search both name and label using that
+        			query. Therefore similarily named and labeled apps may be returned in the query
+        			and have the unitended result of associating the wrong app with this data
+        			source. See:
+        			https://developer.okta.com/docs/reference/api/apps/#list-applications
         """
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter(name="labelPrefix")
     def label_prefix(self) -> Optional[str]:
+        """
+        Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+        			provider to do a starts with query as opposed to an equals query.
+        """
         return pulumi.get(self, "label_prefix")
 
     @property
     @pulumi.getter
     def links(self) -> str:
         """
-        generic JSON containing discoverable resources related to the app
+        Discoverable resources related to the app
         """
         return pulumi.get(self, "links")
 
@@ -195,7 +208,7 @@ class GetOauthResult:
     @pulumi.getter(name="loginMode")
     def login_mode(self) -> str:
         """
-        The type of Idp-Initiated login that the client supports, if any.
+        The type of Idp-Initiated login that the client supports, if any
         """
         return pulumi.get(self, "login_mode")
 
@@ -203,7 +216,7 @@ class GetOauthResult:
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Sequence[str]:
         """
-        List of scopes to use for the request.
+        List of scopes to use for the request when 'login_mode' == OKTA
         """
         return pulumi.get(self, "login_scopes")
 
@@ -243,7 +256,7 @@ class GetOauthResult:
     @pulumi.getter(name="postLogoutRedirectUris")
     def post_logout_redirect_uris(self) -> Sequence[str]:
         """
-        List of URIs for redirection after logout.
+        List of URIs for redirection after logout
         """
         return pulumi.get(self, "post_logout_redirect_uris")
 
@@ -266,6 +279,9 @@ class GetOauthResult:
     @property
     @pulumi.getter(name="skipGroups")
     def skip_groups(self) -> Optional[bool]:
+        """
+        Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+        """
         warnings.warn("""Because groups has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
         pulumi.log.warn("""skip_groups is deprecated: Because groups has been removed, this attribute is a no op and will be removed""")
 
@@ -274,6 +290,9 @@ class GetOauthResult:
     @property
     @pulumi.getter(name="skipUsers")
     def skip_users(self) -> Optional[bool]:
+        """
+        Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+        """
         warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
         pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
 
@@ -298,6 +317,9 @@ class GetOauthResult:
     @property
     @pulumi.getter(name="wildcardRedirect")
     def wildcard_redirect(self) -> str:
+        """
+        Indicates if the client is allowed to use wildcard matching of redirect_uris
+        """
         return pulumi.get(self, "wildcard_redirect")
 
 
@@ -343,7 +365,7 @@ def get_oauth(active_only: Optional[bool] = None,
               skip_users: Optional[bool] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOauthResult:
     """
-    Use this data source to retrieve an OIDC application from Okta.
+    Get a OIDC application from Okta.
 
     ## Example Usage
 
@@ -355,17 +377,19 @@ def get_oauth(active_only: Optional[bool] = None,
     ```
 
 
-    :param bool active_only: tells the provider to query for only `ACTIVE` applications.
-    :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
+    :param bool active_only: Search only ACTIVE applications.
+    :param str id: Id of application to retrieve, conflicts with label and label_prefix.
     :param str label: The label of the app to retrieve, conflicts with
-           `label_prefix` and `id`. Label uses the `?q=<label>` query parameter exposed by
-           Okta's List Apps API. The API will search both `name` and `label` using that
-           query. Therefore similarily named and labeled apps may be returned in the query
-           and have the unitended result of associating the wrong app with this data
-           source. See:
-           https://developer.okta.com/docs/reference/api/apps/#list-applications
-    :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-           provider to do a `starts with` query as opposed to an `equals` query.
+           			label_prefix and id. Label uses the ?q=\\n\\n query parameter exposed by
+           			Okta's List Apps API. The API will search both name and label using that
+           			query. Therefore similarily named and labeled apps may be returned in the query
+           			and have the unitended result of associating the wrong app with this data
+           			source. See:
+           			https://developer.okta.com/docs/reference/api/apps/#list-applications
+    :param str label_prefix: Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+           			provider to do a starts with query as opposed to an equals query.
+    :param bool skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+    :param bool skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
     """
     __args__ = dict()
     __args__['activeOnly'] = active_only
@@ -415,7 +439,7 @@ def get_oauth_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
                      skip_users: Optional[pulumi.Input[Optional[bool]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOauthResult]:
     """
-    Use this data source to retrieve an OIDC application from Okta.
+    Get a OIDC application from Okta.
 
     ## Example Usage
 
@@ -427,16 +451,18 @@ def get_oauth_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
     ```
 
 
-    :param bool active_only: tells the provider to query for only `ACTIVE` applications.
-    :param str id: `id` of application to retrieve, conflicts with `label` and `label_prefix`.
+    :param bool active_only: Search only ACTIVE applications.
+    :param str id: Id of application to retrieve, conflicts with label and label_prefix.
     :param str label: The label of the app to retrieve, conflicts with
-           `label_prefix` and `id`. Label uses the `?q=<label>` query parameter exposed by
-           Okta's List Apps API. The API will search both `name` and `label` using that
-           query. Therefore similarily named and labeled apps may be returned in the query
-           and have the unitended result of associating the wrong app with this data
-           source. See:
-           https://developer.okta.com/docs/reference/api/apps/#list-applications
-    :param str label_prefix: Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-           provider to do a `starts with` query as opposed to an `equals` query.
+           			label_prefix and id. Label uses the ?q=\\n\\n query parameter exposed by
+           			Okta's List Apps API. The API will search both name and label using that
+           			query. Therefore similarily named and labeled apps may be returned in the query
+           			and have the unitended result of associating the wrong app with this data
+           			source. See:
+           			https://developer.okta.com/docs/reference/api/apps/#list-applications
+    :param str label_prefix: Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+           			provider to do a starts with query as opposed to an equals query.
+    :param bool skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+    :param bool skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
     """
     ...

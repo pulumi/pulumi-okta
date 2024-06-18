@@ -14,30 +14,22 @@ public final class GetUsersSearch extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUsersSearch Empty = new GetUsersSearch();
 
-    /**
-     * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-     * 
-     */
     @Import(name="comparison")
     private @Nullable String comparison;
 
-    /**
-     * @return Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-     * 
-     */
     public Optional<String> comparison() {
         return Optional.ofNullable(this.comparison);
     }
 
     /**
-     * A raw search expression string. If present it will override name/comparison/value.
+     * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
      * 
      */
     @Import(name="expression")
     private @Nullable String expression;
 
     /**
-     * @return A raw search expression string. If present it will override name/comparison/value.
+     * @return A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
      * 
      */
     public Optional<String> expression() {
@@ -45,31 +37,23 @@ public final class GetUsersSearch extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Name of property to search against.
+     * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return Name of property to search against.
+     * @return Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Value to compare with.
-     * 
-     */
     @Import(name="value")
     private @Nullable String value;
 
-    /**
-     * @return Value to compare with.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }
@@ -101,19 +85,13 @@ public final class GetUsersSearch extends com.pulumi.resources.InvokeArgs {
             $ = new GetUsersSearch(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comparison Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparison(@Nullable String comparison) {
             $.comparison = comparison;
             return this;
         }
 
         /**
-         * @param expression A raw search expression string. If present it will override name/comparison/value.
+         * @param expression A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
          * 
          * @return builder
          * 
@@ -124,7 +102,7 @@ public final class GetUsersSearch extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of property to search against.
+         * @param name Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
          * 
          * @return builder
          * 
@@ -134,12 +112,6 @@ public final class GetUsersSearch extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
-        /**
-         * @param value Value to compare with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable String value) {
             $.value = value;
             return this;

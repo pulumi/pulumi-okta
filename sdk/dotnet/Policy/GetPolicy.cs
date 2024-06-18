@@ -12,7 +12,7 @@ namespace Pulumi.Okta.Policy
     public static class GetPolicy
     {
         /// <summary>
-        /// Use this data source to retrieve a policy from Okta.
+        /// Get a policy from Okta.
         /// 
         /// ## Example Usage
         /// 
@@ -37,7 +37,7 @@ namespace Pulumi.Okta.Policy
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("okta:policy/getPolicy:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a policy from Okta.
+        /// Get a policy from Okta.
         /// 
         /// ## Example Usage
         /// 
@@ -66,22 +66,13 @@ namespace Pulumi.Okta.Policy
     public sealed class GetPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of policy to retrieve.
+        /// Name of the policy
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
-        /// - All:
-        /// - `OKTA_SIGN_ON`
-        /// - `PASSWORD`
-        /// - `MFA_ENROLL`
-        /// - `OAUTH_AUTHORIZATION_POLICY`
-        /// - `IDP_DISCOVERY`
-        /// - OIE Only:
-        /// - `ACCESS_POLICY`
-        /// - `PROFILE_ENROLLMENT`
+        /// Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
         /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
@@ -95,22 +86,13 @@ namespace Pulumi.Okta.Policy
     public sealed class GetPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of policy to retrieve.
+        /// Name of the policy
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
-        /// - All:
-        /// - `OKTA_SIGN_ON`
-        /// - `PASSWORD`
-        /// - `MFA_ENROLL`
-        /// - `OAUTH_AUTHORIZATION_POLICY`
-        /// - `IDP_DISCOVERY`
-        /// - OIE Only:
-        /// - `ACCESS_POLICY`
-        /// - `PROFILE_ENROLLMENT`
+        /// Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -130,12 +112,15 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// name of policy.
+        /// Name of the policy
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Status of the policy
+        /// </summary>
         public readonly string Status;
         /// <summary>
-        /// type of policy.
+        /// Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
         /// </summary>
         public readonly string Type;
 

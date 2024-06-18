@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve the brands belonging to an Okta organization.
+// Get the brands belonging to an Okta organization.
 //
 // ## Example Usage
 //

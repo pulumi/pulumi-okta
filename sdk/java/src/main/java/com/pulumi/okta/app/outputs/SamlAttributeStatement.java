@@ -14,76 +14,68 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SamlAttributeStatement {
     /**
-     * @return Type of group attribute filter. Valid values are: `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, or `&#34;REGEX&#34;`
+     * @return Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`
      * 
      */
     private @Nullable String filterType;
     /**
-     * @return Filter value to use.
+     * @return Filter value to use
      * 
      */
     private @Nullable String filterValue;
     /**
-     * @return The name of the attribute statement.
+     * @return The reference name of the attribute statement
      * 
      */
     private String name;
     /**
-     * @return The attribute namespace. It can be set to `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified&#34;`, `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:uri&#34;`, or `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:basic&#34;`.
+     * @return The attribute namespace. It can be set to `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`, `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, or `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`
      * 
      */
     private @Nullable String namespace;
     /**
-     * @return The type of attribute statement value. Valid values are: `&#34;EXPRESSION&#34;` or `&#34;GROUP&#34;`. Default is `&#34;EXPRESSION&#34;`.
+     * @return The type of attribute statements object
      * 
      */
     private @Nullable String type;
-    /**
-     * @return Array of values to use.
-     * 
-     */
     private @Nullable List<String> values;
 
     private SamlAttributeStatement() {}
     /**
-     * @return Type of group attribute filter. Valid values are: `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, or `&#34;REGEX&#34;`
+     * @return Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`
      * 
      */
     public Optional<String> filterType() {
         return Optional.ofNullable(this.filterType);
     }
     /**
-     * @return Filter value to use.
+     * @return Filter value to use
      * 
      */
     public Optional<String> filterValue() {
         return Optional.ofNullable(this.filterValue);
     }
     /**
-     * @return The name of the attribute statement.
+     * @return The reference name of the attribute statement
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The attribute namespace. It can be set to `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified&#34;`, `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:uri&#34;`, or `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:basic&#34;`.
+     * @return The attribute namespace. It can be set to `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`, `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, or `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`
      * 
      */
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }
     /**
-     * @return The type of attribute statement value. Valid values are: `&#34;EXPRESSION&#34;` or `&#34;GROUP&#34;`. Default is `&#34;EXPRESSION&#34;`.
+     * @return The type of attribute statements object
      * 
      */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
-    /**
-     * @return Array of values to use.
-     * 
-     */
     public List<String> values() {
         return this.values == null ? List.of() : this.values;
     }

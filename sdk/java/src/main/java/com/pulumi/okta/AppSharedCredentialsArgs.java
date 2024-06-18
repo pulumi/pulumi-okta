@@ -18,14 +18,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     public static final AppSharedCredentialsArgs Empty = new AppSharedCredentialsArgs();
 
     /**
-     * Custom error page URL.
+     * Custom error page URL
      * 
      */
     @Import(name="accessibilityErrorRedirectUrl")
     private @Nullable Output<String> accessibilityErrorRedirectUrl;
 
     /**
-     * @return Custom error page URL.
+     * @return Custom error page URL
      * 
      */
     public Optional<Output<String>> accessibilityErrorRedirectUrl() {
@@ -33,14 +33,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      * 
      */
     @Import(name="accessibilityLoginRedirectUrl")
     private @Nullable Output<String> accessibilityLoginRedirectUrl;
 
     /**
-     * @return Custom login page for this application.
+     * @return Custom login page URL
      * 
      */
     public Optional<Output<String>> accessibilityLoginRedirectUrl() {
@@ -48,14 +48,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service. Default is `false`
      * 
      */
     @Import(name="accessibilitySelfService")
     private @Nullable Output<Boolean> accessibilitySelfService;
 
     /**
-     * @return Enable self-service. By default, it is `false`.
+     * @return Enable self service. Default is `false`
      * 
      */
     public Optional<Output<Boolean>> accessibilitySelfService() {
@@ -93,14 +93,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      * 
      */
     @Import(name="autoSubmitToolbar")
     private @Nullable Output<Boolean> autoSubmitToolbar;
 
     /**
-     * @return Display auto submit toolbar.
+     * @return Display auto submit toolbar
      * 
      */
     public Optional<Output<Boolean>> autoSubmitToolbar() {
@@ -108,14 +108,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * CSS selector for the Sign-In button in the sign-in form.
+     * Login button field
      * 
      */
     @Import(name="buttonField")
     private @Nullable Output<String> buttonField;
 
     /**
-     * @return CSS selector for the Sign-In button in the sign-in form.
+     * @return Login button field
      * 
      */
     public Optional<Output<String>> buttonField() {
@@ -123,14 +123,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * CSS selector for the checkbox.
+     * CSS selector for the checkbox
      * 
      */
     @Import(name="checkbox")
     private @Nullable Output<String> checkbox;
 
     /**
-     * @return CSS selector for the checkbox.
+     * @return CSS selector for the checkbox
      * 
      */
     public Optional<Output<String>> checkbox() {
@@ -153,14 +153,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      * 
      */
     @Import(name="hideIos")
     private @Nullable Output<Boolean> hideIos;
 
     /**
-     * @return Do not display application icon on mobile app.
+     * @return Do not display application icon on mobile app
      * 
      */
     public Optional<Output<Boolean>> hideIos() {
@@ -168,14 +168,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      * 
      */
     @Import(name="hideWeb")
     private @Nullable Output<Boolean> hideWeb;
 
     /**
-     * @return Do not display application icon to users.
+     * @return Do not display application icon to users
      * 
      */
     public Optional<Output<Boolean>> hideWeb() {
@@ -213,14 +213,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * CSS selector for the Password field in the sign-in form.
+     * Login password field
      * 
      */
     @Import(name="passwordField")
     private @Nullable Output<String> passwordField;
 
     /**
-     * @return CSS selector for the Password field in the sign-in form.
+     * @return Login password field
      * 
      */
     public Optional<Output<String>> passwordField() {
@@ -228,14 +228,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * name of application from the Okta Integration Network, if not included a custom app will be created.
+     * Name of application from the Okta Integration Network, if not included a custom app will be created.
      * 
      */
     @Import(name="preconfiguredApp")
     private @Nullable Output<String> preconfiguredApp;
 
     /**
-     * @return name of application from the Okta Integration Network, if not included a custom app will be created.
+     * @return Name of application from the Okta Integration Network, if not included a custom app will be created.
      * 
      */
     public Optional<Output<String>> preconfiguredApp() {
@@ -243,14 +243,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+     * Secondary URL of the sign-in page for this app
      * 
      */
     @Import(name="redirectUrl")
     private @Nullable Output<String> redirectUrl;
 
     /**
-     * @return Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+     * @return Secondary URL of the sign-in page for this app
      * 
      */
     public Optional<Output<String>> redirectUrl() {
@@ -288,14 +288,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The status of the application, by default, it is `&#34;ACTIVE&#34;`.
+     * Status of application. By default, it is `ACTIVE`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the application, by default, it is `&#34;ACTIVE&#34;`.
+     * @return Status of application. By default, it is `ACTIVE`
      * 
      */
     public Optional<Output<String>> status() {
@@ -333,14 +333,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Username template. Default: `&#34;${source.login}&#34;`
+     * Username template. Default: `${source.login}`
      * 
      */
     @Import(name="userNameTemplate")
     private @Nullable Output<String> userNameTemplate;
 
     /**
-     * @return Username template. Default: `&#34;${source.login}&#34;`
+     * @return Username template. Default: `${source.login}`
      * 
      */
     public Optional<Output<String>> userNameTemplate() {
@@ -348,14 +348,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+     * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      * 
      */
     @Import(name="userNameTemplatePushStatus")
     private @Nullable Output<String> userNameTemplatePushStatus;
 
     /**
-     * @return Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+     * @return Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      * 
      */
     public Optional<Output<String>> userNameTemplatePushStatus() {
@@ -363,14 +363,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Username template suffix.
+     * Username template suffix
      * 
      */
     @Import(name="userNameTemplateSuffix")
     private @Nullable Output<String> userNameTemplateSuffix;
 
     /**
-     * @return Username template suffix.
+     * @return Username template suffix
      * 
      */
     public Optional<Output<String>> userNameTemplateSuffix() {
@@ -378,14 +378,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Username template type. Default: `&#34;BUILT_IN&#34;`.
+     * Username template type. Default: `BUILT_IN`
      * 
      */
     @Import(name="userNameTemplateType")
     private @Nullable Output<String> userNameTemplateType;
 
     /**
-     * @return Username template type. Default: `&#34;BUILT_IN&#34;`.
+     * @return Username template type. Default: `BUILT_IN`
      * 
      */
     public Optional<Output<String>> userNameTemplateType() {
@@ -393,14 +393,14 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * CSS selector for the username field.
+     * Login username field
      * 
      */
     @Import(name="usernameField")
     private @Nullable Output<String> usernameField;
 
     /**
-     * @return CSS selector for the username field.
+     * @return Login username field
      * 
      */
     public Optional<Output<String>> usernameField() {
@@ -457,7 +457,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL.
+         * @param accessibilityErrorRedirectUrl Custom error page URL
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL.
+         * @param accessibilityErrorRedirectUrl Custom error page URL
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page for this application.
+         * @param accessibilityLoginRedirectUrl Custom login page URL
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page for this application.
+         * @param accessibilityLoginRedirectUrl Custom login page URL
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
+         * @param accessibilitySelfService Enable self service. Default is `false`
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
+         * @param accessibilitySelfService Enable self service. Default is `false`
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar.
+         * @param autoSubmitToolbar Display auto submit toolbar
          * 
          * @return builder
          * 
@@ -573,7 +573,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar.
+         * @param autoSubmitToolbar Display auto submit toolbar
          * 
          * @return builder
          * 
@@ -583,7 +583,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param buttonField CSS selector for the Sign-In button in the sign-in form.
+         * @param buttonField Login button field
          * 
          * @return builder
          * 
@@ -594,7 +594,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param buttonField CSS selector for the Sign-In button in the sign-in form.
+         * @param buttonField Login button field
          * 
          * @return builder
          * 
@@ -604,7 +604,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param checkbox CSS selector for the checkbox.
+         * @param checkbox CSS selector for the checkbox
          * 
          * @return builder
          * 
@@ -615,7 +615,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param checkbox CSS selector for the checkbox.
+         * @param checkbox CSS selector for the checkbox
          * 
          * @return builder
          * 
@@ -646,7 +646,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app.
+         * @param hideIos Do not display application icon on mobile app
          * 
          * @return builder
          * 
@@ -657,7 +657,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app.
+         * @param hideIos Do not display application icon on mobile app
          * 
          * @return builder
          * 
@@ -667,7 +667,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param hideWeb Do not display application icon to users.
+         * @param hideWeb Do not display application icon to users
          * 
          * @return builder
          * 
@@ -678,7 +678,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param hideWeb Do not display application icon to users.
+         * @param hideWeb Do not display application icon to users
          * 
          * @return builder
          * 
@@ -730,7 +730,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param passwordField CSS selector for the Password field in the sign-in form.
+         * @param passwordField Login password field
          * 
          * @return builder
          * 
@@ -741,7 +741,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param passwordField CSS selector for the Password field in the sign-in form.
+         * @param passwordField Login password field
          * 
          * @return builder
          * 
@@ -751,7 +751,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param preconfiguredApp name of application from the Okta Integration Network, if not included a custom app will be created.
+         * @param preconfiguredApp Name of application from the Okta Integration Network, if not included a custom app will be created.
          * 
          * @return builder
          * 
@@ -762,7 +762,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param preconfiguredApp name of application from the Okta Integration Network, if not included a custom app will be created.
+         * @param preconfiguredApp Name of application from the Okta Integration Network, if not included a custom app will be created.
          * 
          * @return builder
          * 
@@ -772,7 +772,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param redirectUrl Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+         * @param redirectUrl Secondary URL of the sign-in page for this app
          * 
          * @return builder
          * 
@@ -783,7 +783,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param redirectUrl Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+         * @param redirectUrl Secondary URL of the sign-in page for this app
          * 
          * @return builder
          * 
@@ -835,7 +835,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param status The status of the application, by default, it is `&#34;ACTIVE&#34;`.
+         * @param status Status of application. By default, it is `ACTIVE`
          * 
          * @return builder
          * 
@@ -846,7 +846,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param status The status of the application, by default, it is `&#34;ACTIVE&#34;`.
+         * @param status Status of application. By default, it is `ACTIVE`
          * 
          * @return builder
          * 
@@ -898,7 +898,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplate Username template. Default: `&#34;${source.login}&#34;`
+         * @param userNameTemplate Username template. Default: `${source.login}`
          * 
          * @return builder
          * 
@@ -909,7 +909,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplate Username template. Default: `&#34;${source.login}&#34;`
+         * @param userNameTemplate Username template. Default: `${source.login}`
          * 
          * @return builder
          * 
@@ -919,7 +919,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplatePushStatus Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+         * @param userNameTemplatePushStatus Push username on update. Valid values: `PUSH` and `DONT_PUSH`
          * 
          * @return builder
          * 
@@ -930,7 +930,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplatePushStatus Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+         * @param userNameTemplatePushStatus Push username on update. Valid values: `PUSH` and `DONT_PUSH`
          * 
          * @return builder
          * 
@@ -940,7 +940,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplateSuffix Username template suffix.
+         * @param userNameTemplateSuffix Username template suffix
          * 
          * @return builder
          * 
@@ -951,7 +951,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplateSuffix Username template suffix.
+         * @param userNameTemplateSuffix Username template suffix
          * 
          * @return builder
          * 
@@ -961,7 +961,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplateType Username template type. Default: `&#34;BUILT_IN&#34;`.
+         * @param userNameTemplateType Username template type. Default: `BUILT_IN`
          * 
          * @return builder
          * 
@@ -972,7 +972,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userNameTemplateType Username template type. Default: `&#34;BUILT_IN&#34;`.
+         * @param userNameTemplateType Username template type. Default: `BUILT_IN`
          * 
          * @return builder
          * 
@@ -982,7 +982,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param usernameField CSS selector for the username field.
+         * @param usernameField Login username field
          * 
          * @return builder
          * 
@@ -993,7 +993,7 @@ public final class AppSharedCredentialsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param usernameField CSS selector for the username field.
+         * @param usernameField Login username field
          * 
          * @return builder
          * 

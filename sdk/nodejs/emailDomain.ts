@@ -7,8 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to create and configure an email domain.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -24,8 +22,6 @@ import * as utilities from "./utilities";
  * ```
  *
  * ## Import
- *
- * Custom email domain can be imported via the Okta ID.
  *
  * ```sh
  * $ pulumi import okta:index/emailDomain:EmailDomain example &#60;domain id&#62;
@@ -68,7 +64,7 @@ export class EmailDomain extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * TXT and CNAME records to be registered for the domain.
+     * TXT and cname records to be registered for the email Domain
      */
     public /*out*/ readonly dnsValidationRecords!: pulumi.Output<outputs.EmailDomainDnsValidationRecord[]>;
     /**
@@ -80,7 +76,7 @@ export class EmailDomain extends pulumi.CustomResource {
      */
     public readonly userName!: pulumi.Output<string>;
     /**
-     * Status of the email domain (shows whether the domain is verified).
+     * Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
      */
     public /*out*/ readonly validationStatus!: pulumi.Output<string>;
 
@@ -142,7 +138,7 @@ export interface EmailDomainState {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * TXT and CNAME records to be registered for the domain.
+     * TXT and cname records to be registered for the email Domain
      */
     dnsValidationRecords?: pulumi.Input<pulumi.Input<inputs.EmailDomainDnsValidationRecord>[]>;
     /**
@@ -154,7 +150,7 @@ export interface EmailDomainState {
      */
     userName?: pulumi.Input<string>;
     /**
-     * Status of the email domain (shows whether the domain is verified).
+     * Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
      */
     validationStatus?: pulumi.Input<string>;
 }

@@ -16,14 +16,14 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSamlArgs Empty = new GetSamlArgs();
 
     /**
-     * The id of the idp to retrieve, conflicts with `name`.
+     * Id of idp.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The id of the idp to retrieve, conflicts with `name`.
+     * @return Id of idp.
      * 
      */
     public Optional<Output<String>> id() {
@@ -31,14 +31,14 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the idp to retrieve, conflicts with `id`.
+     * Name of the idp.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the idp to retrieve, conflicts with `id`.
+     * @return Name of the idp.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The id of the idp to retrieve, conflicts with `name`.
+         * @param id Id of idp.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The id of the idp to retrieve, conflicts with `name`.
+         * @param id Id of idp.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the idp to retrieve, conflicts with `id`.
+         * @param name Name of the idp.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the idp to retrieve, conflicts with `id`.
+         * @param name Name of the idp.
          * 
          * @return builder
          * 

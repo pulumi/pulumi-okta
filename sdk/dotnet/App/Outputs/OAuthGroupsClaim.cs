@@ -14,11 +14,11 @@ namespace Pulumi.Okta.App.Outputs
     public sealed class OAuthGroupsClaim
     {
         /// <summary>
-        /// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
+        /// Groups claim filter. Can only be set if type is FILTER.
         /// </summary>
         public readonly string? FilterType;
         /// <summary>
-        /// Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
+        /// Issuer mode inherited from OAuth App
         /// </summary>
         public readonly string? IssuerMode;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Okta.App.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        /// Groups claim type.
         /// </summary>
         public readonly string Type;
         /// <summary>

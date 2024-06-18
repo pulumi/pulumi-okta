@@ -10,14 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
+    /// Manages Profile Enrollment Policy Apps
     /// &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-    /// 
     /// This resource allows you to manage the apps in the Profile Enrollment Policy.
-    /// 
     /// **Important Notes:**
     ///  - Default Enrollment Policy can not be used in this resource since it is used as a policy to re-assign apps to when they are unassigned from this one.
-    ///  - When re-assigning the app to another policy, please use `depends_on` in the policy to which the app will be assigned. This is necessary to avoid
-    ///      unexpected behavior, since if the app is unassigned from the policy it is just assigned to the `Default` one.
+    ///  - When re-assigning the app to another policy, please use 'depends_on' in the policy to which the app will be assigned. This is necessary to avoid
+    ///      unexpected behavior, since if the app is unassigned from the policy it is just assigned to the 'Default' one.
     /// 
     /// ## Example Usage
     /// 
@@ -54,8 +53,6 @@ namespace Pulumi.Okta
     /// 
     /// ## Import
     /// 
-    /// A Profile Enrollment Policy Apps can be imported via the Okta ID.
-    /// 
     /// ```sh
     /// $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &amp;#60;policy id&amp;#62;
     /// ```
@@ -64,13 +61,13 @@ namespace Pulumi.Okta
     public partial class PolicyProfileEnrollmentApps : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of app IDs to be added to this policy.
+        /// List of app IDs to be added to this policy
         /// </summary>
         [Output("apps")]
         public Output<ImmutableArray<string>> Apps { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the default enrollment policy.
+        /// ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
         /// </summary>
         [Output("defaultPolicyId")]
         public Output<string> DefaultPolicyId { get; private set; } = null!;
@@ -131,7 +128,7 @@ namespace Pulumi.Okta
         private InputList<string>? _apps;
 
         /// <summary>
-        /// List of app IDs to be added to this policy.
+        /// List of app IDs to be added to this policy
         /// </summary>
         public InputList<string> Apps
         {
@@ -157,7 +154,7 @@ namespace Pulumi.Okta
         private InputList<string>? _apps;
 
         /// <summary>
-        /// List of app IDs to be added to this policy.
+        /// List of app IDs to be added to this policy
         /// </summary>
         public InputList<string> Apps
         {
@@ -166,7 +163,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// ID of the default enrollment policy.
+        /// ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
         /// </summary>
         [Input("defaultPolicyId")]
         public Input<string>? DefaultPolicyId { get; set; }

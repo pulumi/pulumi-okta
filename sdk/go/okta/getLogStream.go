@@ -11,33 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve a log stream from Okta.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupLogStream(ctx, &okta.LookupLogStreamArgs{
-//				Name: pulumi.StringRef("Example Stream"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// Log Streams
 func LookupLogStream(ctx *pulumi.Context, args *LookupLogStreamArgs, opts ...pulumi.InvokeOption) (*LookupLogStreamResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLogStreamResult
@@ -52,23 +26,21 @@ func LookupLogStream(ctx *pulumi.Context, args *LookupLogStreamArgs, opts ...pul
 type LookupLogStreamArgs struct {
 	// ID of the log stream to retrieve, conflicts with `name`.
 	Id *string `pulumi:"id"`
-	// Name of the log stream to retrieve, conflicts with `id`.
-	Name *string `pulumi:"name"`
-	// Provider specific configuration.
+	// Unique name for the Log Stream object, conflicts with `id`.
+	Name     *string               `pulumi:"name"`
 	Settings *GetLogStreamSettings `pulumi:"settings"`
 }
 
 // A collection of values returned by getLogStream.
 type LookupLogStreamResult struct {
-	// ID of the log stream.
+	// ID of the log stream to retrieve, conflicts with `name`.
 	Id *string `pulumi:"id"`
-	// Name of the log stream.
-	Name *string `pulumi:"name"`
-	// Provider specific configuration.
+	// Unique name for the Log Stream object, conflicts with `id`.
+	Name     *string               `pulumi:"name"`
 	Settings *GetLogStreamSettings `pulumi:"settings"`
-	// Log Stream Status - can either be ACTIVE or INACTIVE only.
+	// Log Stream Status - can either be ACTIVE or INACTIVE only
 	Status string `pulumi:"status"`
-	// Type of the Log Stream.
+	// Streaming provider used - aws*eventbridge or splunk*cloud_logstreaming
 	Type string `pulumi:"type"`
 }
 
@@ -89,9 +61,8 @@ func LookupLogStreamOutput(ctx *pulumi.Context, args LookupLogStreamOutputArgs, 
 type LookupLogStreamOutputArgs struct {
 	// ID of the log stream to retrieve, conflicts with `name`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the log stream to retrieve, conflicts with `id`.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Provider specific configuration.
+	// Unique name for the Log Stream object, conflicts with `id`.
+	Name     pulumi.StringPtrInput        `pulumi:"name"`
 	Settings GetLogStreamSettingsPtrInput `pulumi:"settings"`
 }
 
@@ -114,27 +85,26 @@ func (o LookupLogStreamResultOutput) ToLookupLogStreamResultOutputWithContext(ct
 	return o
 }
 
-// ID of the log stream.
+// ID of the log stream to retrieve, conflicts with `name`.
 func (o LookupLogStreamResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLogStreamResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Name of the log stream.
+// Unique name for the Log Stream object, conflicts with `id`.
 func (o LookupLogStreamResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLogStreamResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Provider specific configuration.
 func (o LookupLogStreamResultOutput) Settings() GetLogStreamSettingsPtrOutput {
 	return o.ApplyT(func(v LookupLogStreamResult) *GetLogStreamSettings { return v.Settings }).(GetLogStreamSettingsPtrOutput)
 }
 
-// Log Stream Status - can either be ACTIVE or INACTIVE only.
+// Log Stream Status - can either be ACTIVE or INACTIVE only
 func (o LookupLogStreamResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogStreamResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Type of the Log Stream.
+// Streaming provider used - aws*eventbridge or splunk*cloud_logstreaming
 func (o LookupLogStreamResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogStreamResult) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -19,14 +19,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     public static final PasswordArgs Empty = new PasswordArgs();
 
     /**
-     * Authentication Provider: `&#34;OKTA&#34;`, `&#34;ACTIVE_DIRECTORY&#34;` or `&#34;LDAP&#34;`. Default is `&#34;OKTA&#34;`. Type `&#34;string&#34;`
+     * Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
      * 
      */
     @Import(name="authProvider")
     private @Nullable Output<String> authProvider;
 
     /**
-     * @return Authentication Provider: `&#34;OKTA&#34;`, `&#34;ACTIVE_DIRECTORY&#34;` or `&#34;LDAP&#34;`. Default is `&#34;OKTA&#34;`. Type `&#34;string&#34;`
+     * @return Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
      * 
      */
     public Optional<Output<String>> authProvider() {
@@ -34,14 +34,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `&#34;string&#34;`
+     * Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
      * 
      */
     @Import(name="callRecovery")
     private @Nullable Output<String> callRecovery;
 
     /**
-     * @return Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `&#34;string&#34;`
+     * @return Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
      * 
      */
     public Optional<Output<String>> callRecovery() {
@@ -49,14 +49,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Description. Type `&#34;string&#34;`
+     * Policy Description
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Policy Description. Type `&#34;string&#34;`
+     * @return Policy Description
      * 
      */
     public Optional<Output<String>> description() {
@@ -64,14 +64,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable or disable email password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
+     * Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     @Import(name="emailRecovery")
     private @Nullable Output<String> emailRecovery;
 
     /**
-     * @return Enable or disable email password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
+     * @return Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     public Optional<Output<String>> emailRecovery() {
@@ -79,14 +79,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of Group IDs to Include. Type `&#34;list(string)&#34;`
+     * List of Group IDs to Include
      * 
      */
     @Import(name="groupsIncludeds")
     private @Nullable Output<List<String>> groupsIncludeds;
 
     /**
-     * @return List of Group IDs to Include. Type `&#34;list(string)&#34;`
+     * @return List of Group IDs to Include
      * 
      */
     public Optional<Output<List<String>>> groupsIncludeds() {
@@ -94,14 +94,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Name. Type `&#34;string&#34;`
+     * Policy Name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Policy Name. Type `&#34;string&#34;`
+     * @return Policy Name
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,14 +109,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of minutes before a locked account is unlocked: 0 = no limit.  Type `&#34;number&#34;`
+     * Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
      * 
      */
     @Import(name="passwordAutoUnlockMinutes")
     private @Nullable Output<Integer> passwordAutoUnlockMinutes;
 
     /**
-     * @return Number of minutes before a locked account is unlocked: 0 = no limit.  Type `&#34;number&#34;`
+     * @return Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
      * 
      */
     public Optional<Output<Integer>> passwordAutoUnlockMinutes() {
@@ -124,14 +124,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Check Passwords Against Common Password Dictionary. Type `&#34;bool&#34;`
+     * Check Passwords Against Common Password Dictionary. Default: `false`
      * 
      */
     @Import(name="passwordDictionaryLookup")
     private @Nullable Output<Boolean> passwordDictionaryLookup;
 
     /**
-     * @return Check Passwords Against Common Password Dictionary. Type `&#34;bool&#34;`
+     * @return Check Passwords Against Common Password Dictionary. Default: `false`
      * 
      */
     public Optional<Output<Boolean>> passwordDictionaryLookup() {
@@ -139,14 +139,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User firstName attribute must be excluded from the password. Type `&#34;bool&#34;`
+     * User firstName attribute must be excluded from the password
      * 
      */
     @Import(name="passwordExcludeFirstName")
     private @Nullable Output<Boolean> passwordExcludeFirstName;
 
     /**
-     * @return User firstName attribute must be excluded from the password. Type `&#34;bool&#34;`
+     * @return User firstName attribute must be excluded from the password
      * 
      */
     public Optional<Output<Boolean>> passwordExcludeFirstName() {
@@ -154,14 +154,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User lastName attribute must be excluded from the password. Type `&#34;bool&#34;`
+     * User lastName attribute must be excluded from the password
      * 
      */
     @Import(name="passwordExcludeLastName")
     private @Nullable Output<Boolean> passwordExcludeLastName;
 
     /**
-     * @return User lastName attribute must be excluded from the password. Type `&#34;bool&#34;`
+     * @return User lastName attribute must be excluded from the password
      * 
      */
     public Optional<Output<Boolean>> passwordExcludeLastName() {
@@ -169,14 +169,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If the username must be excluded from the password. Type `&#34;bool&#34;`
+     * If the user name must be excluded from the password. Default: `true`
      * 
      */
     @Import(name="passwordExcludeUsername")
     private @Nullable Output<Boolean> passwordExcludeUsername;
 
     /**
-     * @return If the username must be excluded from the password. Type `&#34;bool&#34;`
+     * @return If the user name must be excluded from the password. Default: `true`
      * 
      */
     public Optional<Output<Boolean>> passwordExcludeUsername() {
@@ -184,14 +184,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Length in days a user will be warned before password expiry: 0 = no warning.  Type `&#34;number&#34;`
+     * Length in days a user will be warned before password expiry: 0 = no warning. Default: `0`
      * 
      */
     @Import(name="passwordExpireWarnDays")
     private @Nullable Output<Integer> passwordExpireWarnDays;
 
     /**
-     * @return Length in days a user will be warned before password expiry: 0 = no warning.  Type `&#34;number&#34;`
+     * @return Length in days a user will be warned before password expiry: 0 = no warning. Default: `0`
      * 
      */
     public Optional<Output<Integer>> passwordExpireWarnDays() {
@@ -199,14 +199,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `&#34;number&#34;`
+     * Number of distinct passwords that must be created before they can be reused: 0 = none. Default: `0`
      * 
      */
     @Import(name="passwordHistoryCount")
     private @Nullable Output<Integer> passwordHistoryCount;
 
     /**
-     * @return Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `&#34;number&#34;`
+     * @return Number of distinct passwords that must be created before they can be reused: 0 = none. Default: `0`
      * 
      */
     public Optional<Output<Integer>> passwordHistoryCount() {
@@ -214,14 +214,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Notification channels to use to notify a user when their account has been locked. Type `&#34;set(string)&#34;`
+     * Notification channels to use to notify a user when their account has been locked.
      * 
      */
     @Import(name="passwordLockoutNotificationChannels")
     private @Nullable Output<List<String>> passwordLockoutNotificationChannels;
 
     /**
-     * @return Notification channels to use to notify a user when their account has been locked. Type `&#34;set(string)&#34;`
+     * @return Notification channels to use to notify a user when their account has been locked.
      * 
      */
     public Optional<Output<List<String>>> passwordLockoutNotificationChannels() {
@@ -229,14 +229,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Length in days a password is valid before expiry: 0 = no limit.  Type `&#34;number&#34;`
+     * Length in days a password is valid before expiry: 0 = no limit. Default: `0`
      * 
      */
     @Import(name="passwordMaxAgeDays")
     private @Nullable Output<Integer> passwordMaxAgeDays;
 
     /**
-     * @return Length in days a password is valid before expiry: 0 = no limit.  Type `&#34;number&#34;`
+     * @return Length in days a password is valid before expiry: 0 = no limit. Default: `0`
      * 
      */
     public Optional<Output<Integer>> passwordMaxAgeDays() {
@@ -244,14 +244,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `&#34;number&#34;`
+     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit. Default: `10`
      * 
      */
     @Import(name="passwordMaxLockoutAttempts")
     private @Nullable Output<Integer> passwordMaxLockoutAttempts;
 
     /**
-     * @return Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `&#34;number&#34;`
+     * @return Number of unsuccessful login attempts allowed before lockout: 0 = no limit. Default: `10`
      * 
      */
     public Optional<Output<Integer>> passwordMaxLockoutAttempts() {
@@ -259,14 +259,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Minimum time interval in minutes between password changes: 0 = no limit.  Type `&#34;number&#34;`
+     * Minimum time interval in minutes between password changes: 0 = no limit. Default: `0`
      * 
      */
     @Import(name="passwordMinAgeMinutes")
     private @Nullable Output<Integer> passwordMinAgeMinutes;
 
     /**
-     * @return Minimum time interval in minutes between password changes: 0 = no limit.  Type `&#34;number&#34;`
+     * @return Minimum time interval in minutes between password changes: 0 = no limit. Default: `0`
      * 
      */
     public Optional<Output<Integer>> passwordMinAgeMinutes() {
@@ -274,14 +274,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Minimum password length. Default is 8. Type `&#34;number&#34;`
+     * Minimum password length. Default: `8`
      * 
      */
     @Import(name="passwordMinLength")
     private @Nullable Output<Integer> passwordMinLength;
 
     /**
-     * @return Minimum password length. Default is 8. Type `&#34;number&#34;`
+     * @return Minimum password length. Default: `8`
      * 
      */
     public Optional<Output<Integer>> passwordMinLength() {
@@ -289,14 +289,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Minimum number of lower case characters in a password. Type `&#34;number&#34;`
+     * If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default: `1`
      * 
      */
     @Import(name="passwordMinLowercase")
     private @Nullable Output<Integer> passwordMinLowercase;
 
     /**
-     * @return Minimum number of lower case characters in a password. Type `&#34;number&#34;`
+     * @return If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default: `1`
      * 
      */
     public Optional<Output<Integer>> passwordMinLowercase() {
@@ -304,14 +304,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Minimum number of numbers in a password. Type `&#34;number&#34;`
+     * If a password must contain at least one number: 0 = no, 1 = yes. Default: `1`
      * 
      */
     @Import(name="passwordMinNumber")
     private @Nullable Output<Integer> passwordMinNumber;
 
     /**
-     * @return Minimum number of numbers in a password. Type `&#34;number&#34;`
+     * @return If a password must contain at least one number: 0 = no, 1 = yes. Default: `1`
      * 
      */
     public Optional<Output<Integer>> passwordMinNumber() {
@@ -319,14 +319,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Minimum number of symbols in a password. Type `&#34;number&#34;`
+     * If a password must contain at least one symbol (!{@literal @}#$%^&amp;*): 0 = no, 1 = yes. Default: `0`
      * 
      */
     @Import(name="passwordMinSymbol")
     private @Nullable Output<Integer> passwordMinSymbol;
 
     /**
-     * @return Minimum number of symbols in a password. Type `&#34;number&#34;`
+     * @return If a password must contain at least one symbol (!{@literal @}#$%^&amp;*): 0 = no, 1 = yes. Default: `0`
      * 
      */
     public Optional<Output<Integer>> passwordMinSymbol() {
@@ -334,14 +334,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Minimum number of upper case characters in a password. Type `&#34;number&#34;`
+     * If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default: `1`
      * 
      */
     @Import(name="passwordMinUppercase")
     private @Nullable Output<Integer> passwordMinUppercase;
 
     /**
-     * @return Minimum number of upper case characters in a password. Type `&#34;number&#34;`
+     * @return If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default: `1`
      * 
      */
     public Optional<Output<Integer>> passwordMinUppercase() {
@@ -349,14 +349,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If a user should be informed when their account is locked.  Type `&#34;bool&#34;`
+     * If a user should be informed when their account is locked. Default: `false`
      * 
      */
     @Import(name="passwordShowLockoutFailures")
     private @Nullable Output<Boolean> passwordShowLockoutFailures;
 
     /**
-     * @return If a user should be informed when their account is locked.  Type `&#34;bool&#34;`
+     * @return If a user should be informed when their account is locked. Default: `false`
      * 
      */
     public Optional<Output<Boolean>> passwordShowLockoutFailures() {
@@ -364,14 +364,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Priority of the policy. Type `&#34;number&#34;`
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Priority of the policy. Type `&#34;number&#34;`
+     * @return Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -379,14 +379,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Min length of the password recovery question answer.  Type `&#34;number&#34;`
+     * Min length of the password recovery question answer. Default: `4`
      * 
      */
     @Import(name="questionMinLength")
     private @Nullable Output<Integer> questionMinLength;
 
     /**
-     * @return Min length of the password recovery question answer.  Type `&#34;number&#34;`
+     * @return Min length of the password recovery question answer. Default: `4`
      * 
      */
     public Optional<Output<Integer>> questionMinLength() {
@@ -394,14 +394,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
+     * Enable or disable security question password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     @Import(name="questionRecovery")
     private @Nullable Output<String> questionRecovery;
 
     /**
-     * @return Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
+     * @return Enable or disable security question password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     public Optional<Output<String>> questionRecovery() {
@@ -409,14 +409,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Lifetime in minutes of the recovery email token.  Type `&#34;number&#34;`
+     * Lifetime in minutes of the recovery email token. Default: `60`
      * 
      */
     @Import(name="recoveryEmailToken")
     private @Nullable Output<Integer> recoveryEmailToken;
 
     /**
-     * @return Lifetime in minutes of the recovery email token.  Type `&#34;number&#34;`
+     * @return Lifetime in minutes of the recovery email token. Default: `60`
      * 
      */
     public Optional<Output<Integer>> recoveryEmailToken() {
@@ -424,14 +424,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account. Type `&#34;bool&#34;`
+     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account. Default: `false`
      * 
      */
     @Import(name="skipUnlock")
     private @Nullable Output<Boolean> skipUnlock;
 
     /**
-     * @return When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account. Type `&#34;bool&#34;`
+     * @return When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account. Default: `false`
      * 
      */
     public Optional<Output<Boolean>> skipUnlock() {
@@ -439,14 +439,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
+     * Enable or disable SMS password recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
      * 
      */
     @Import(name="smsRecovery")
     private @Nullable Output<String> smsRecovery;
 
     /**
-     * @return Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
+     * @return Enable or disable SMS password recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
      * 
      */
     public Optional<Output<String>> smsRecovery() {
@@ -454,14 +454,14 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
+     * Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
+     * @return Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     public Optional<Output<String>> status() {
@@ -522,7 +522,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authProvider Authentication Provider: `&#34;OKTA&#34;`, `&#34;ACTIVE_DIRECTORY&#34;` or `&#34;LDAP&#34;`. Default is `&#34;OKTA&#34;`. Type `&#34;string&#34;`
+         * @param authProvider Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
          * 
          * @return builder
          * 
@@ -533,7 +533,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authProvider Authentication Provider: `&#34;OKTA&#34;`, `&#34;ACTIVE_DIRECTORY&#34;` or `&#34;LDAP&#34;`. Default is `&#34;OKTA&#34;`. Type `&#34;string&#34;`
+         * @param authProvider Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
          * 
          * @return builder
          * 
@@ -543,7 +543,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param callRecovery Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `&#34;string&#34;`
+         * @param callRecovery Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param callRecovery Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `&#34;string&#34;`
+         * @param callRecovery Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
          * 
          * @return builder
          * 
@@ -564,7 +564,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Policy Description. Type `&#34;string&#34;`
+         * @param description Policy Description
          * 
          * @return builder
          * 
@@ -575,7 +575,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Policy Description. Type `&#34;string&#34;`
+         * @param description Policy Description
          * 
          * @return builder
          * 
@@ -585,7 +585,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailRecovery Enable or disable email password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
+         * @param emailRecovery Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -596,7 +596,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailRecovery Enable or disable email password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
+         * @param emailRecovery Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -606,7 +606,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsIncludeds List of Group IDs to Include. Type `&#34;list(string)&#34;`
+         * @param groupsIncludeds List of Group IDs to Include
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsIncludeds List of Group IDs to Include. Type `&#34;list(string)&#34;`
+         * @param groupsIncludeds List of Group IDs to Include
          * 
          * @return builder
          * 
@@ -627,7 +627,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsIncludeds List of Group IDs to Include. Type `&#34;list(string)&#34;`
+         * @param groupsIncludeds List of Group IDs to Include
          * 
          * @return builder
          * 
@@ -637,7 +637,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Policy Name. Type `&#34;string&#34;`
+         * @param name Policy Name
          * 
          * @return builder
          * 
@@ -648,7 +648,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Policy Name. Type `&#34;string&#34;`
+         * @param name Policy Name
          * 
          * @return builder
          * 
@@ -658,7 +658,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordAutoUnlockMinutes Number of minutes before a locked account is unlocked: 0 = no limit.  Type `&#34;number&#34;`
+         * @param passwordAutoUnlockMinutes Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
          * 
          * @return builder
          * 
@@ -669,7 +669,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordAutoUnlockMinutes Number of minutes before a locked account is unlocked: 0 = no limit.  Type `&#34;number&#34;`
+         * @param passwordAutoUnlockMinutes Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
          * 
          * @return builder
          * 
@@ -679,7 +679,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordDictionaryLookup Check Passwords Against Common Password Dictionary. Type `&#34;bool&#34;`
+         * @param passwordDictionaryLookup Check Passwords Against Common Password Dictionary. Default: `false`
          * 
          * @return builder
          * 
@@ -690,7 +690,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordDictionaryLookup Check Passwords Against Common Password Dictionary. Type `&#34;bool&#34;`
+         * @param passwordDictionaryLookup Check Passwords Against Common Password Dictionary. Default: `false`
          * 
          * @return builder
          * 
@@ -700,7 +700,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordExcludeFirstName User firstName attribute must be excluded from the password. Type `&#34;bool&#34;`
+         * @param passwordExcludeFirstName User firstName attribute must be excluded from the password
          * 
          * @return builder
          * 
@@ -711,7 +711,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordExcludeFirstName User firstName attribute must be excluded from the password. Type `&#34;bool&#34;`
+         * @param passwordExcludeFirstName User firstName attribute must be excluded from the password
          * 
          * @return builder
          * 
@@ -721,7 +721,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordExcludeLastName User lastName attribute must be excluded from the password. Type `&#34;bool&#34;`
+         * @param passwordExcludeLastName User lastName attribute must be excluded from the password
          * 
          * @return builder
          * 
@@ -732,7 +732,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordExcludeLastName User lastName attribute must be excluded from the password. Type `&#34;bool&#34;`
+         * @param passwordExcludeLastName User lastName attribute must be excluded from the password
          * 
          * @return builder
          * 
@@ -742,7 +742,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordExcludeUsername If the username must be excluded from the password. Type `&#34;bool&#34;`
+         * @param passwordExcludeUsername If the user name must be excluded from the password. Default: `true`
          * 
          * @return builder
          * 
@@ -753,7 +753,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordExcludeUsername If the username must be excluded from the password. Type `&#34;bool&#34;`
+         * @param passwordExcludeUsername If the user name must be excluded from the password. Default: `true`
          * 
          * @return builder
          * 
@@ -763,7 +763,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordExpireWarnDays Length in days a user will be warned before password expiry: 0 = no warning.  Type `&#34;number&#34;`
+         * @param passwordExpireWarnDays Length in days a user will be warned before password expiry: 0 = no warning. Default: `0`
          * 
          * @return builder
          * 
@@ -774,7 +774,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordExpireWarnDays Length in days a user will be warned before password expiry: 0 = no warning.  Type `&#34;number&#34;`
+         * @param passwordExpireWarnDays Length in days a user will be warned before password expiry: 0 = no warning. Default: `0`
          * 
          * @return builder
          * 
@@ -784,7 +784,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordHistoryCount Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `&#34;number&#34;`
+         * @param passwordHistoryCount Number of distinct passwords that must be created before they can be reused: 0 = none. Default: `0`
          * 
          * @return builder
          * 
@@ -795,7 +795,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordHistoryCount Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `&#34;number&#34;`
+         * @param passwordHistoryCount Number of distinct passwords that must be created before they can be reused: 0 = none. Default: `0`
          * 
          * @return builder
          * 
@@ -805,7 +805,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account has been locked. Type `&#34;set(string)&#34;`
+         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account has been locked.
          * 
          * @return builder
          * 
@@ -816,7 +816,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account has been locked. Type `&#34;set(string)&#34;`
+         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account has been locked.
          * 
          * @return builder
          * 
@@ -826,7 +826,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account has been locked. Type `&#34;set(string)&#34;`
+         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account has been locked.
          * 
          * @return builder
          * 
@@ -836,7 +836,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMaxAgeDays Length in days a password is valid before expiry: 0 = no limit.  Type `&#34;number&#34;`
+         * @param passwordMaxAgeDays Length in days a password is valid before expiry: 0 = no limit. Default: `0`
          * 
          * @return builder
          * 
@@ -847,7 +847,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMaxAgeDays Length in days a password is valid before expiry: 0 = no limit.  Type `&#34;number&#34;`
+         * @param passwordMaxAgeDays Length in days a password is valid before expiry: 0 = no limit. Default: `0`
          * 
          * @return builder
          * 
@@ -857,7 +857,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMaxLockoutAttempts Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `&#34;number&#34;`
+         * @param passwordMaxLockoutAttempts Number of unsuccessful login attempts allowed before lockout: 0 = no limit. Default: `10`
          * 
          * @return builder
          * 
@@ -868,7 +868,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMaxLockoutAttempts Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `&#34;number&#34;`
+         * @param passwordMaxLockoutAttempts Number of unsuccessful login attempts allowed before lockout: 0 = no limit. Default: `10`
          * 
          * @return builder
          * 
@@ -878,7 +878,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMinAgeMinutes Minimum time interval in minutes between password changes: 0 = no limit.  Type `&#34;number&#34;`
+         * @param passwordMinAgeMinutes Minimum time interval in minutes between password changes: 0 = no limit. Default: `0`
          * 
          * @return builder
          * 
@@ -889,7 +889,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMinAgeMinutes Minimum time interval in minutes between password changes: 0 = no limit.  Type `&#34;number&#34;`
+         * @param passwordMinAgeMinutes Minimum time interval in minutes between password changes: 0 = no limit. Default: `0`
          * 
          * @return builder
          * 
@@ -899,7 +899,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMinLength Minimum password length. Default is 8. Type `&#34;number&#34;`
+         * @param passwordMinLength Minimum password length. Default: `8`
          * 
          * @return builder
          * 
@@ -910,7 +910,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMinLength Minimum password length. Default is 8. Type `&#34;number&#34;`
+         * @param passwordMinLength Minimum password length. Default: `8`
          * 
          * @return builder
          * 
@@ -920,7 +920,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMinLowercase Minimum number of lower case characters in a password. Type `&#34;number&#34;`
+         * @param passwordMinLowercase If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default: `1`
          * 
          * @return builder
          * 
@@ -931,7 +931,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMinLowercase Minimum number of lower case characters in a password. Type `&#34;number&#34;`
+         * @param passwordMinLowercase If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default: `1`
          * 
          * @return builder
          * 
@@ -941,7 +941,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMinNumber Minimum number of numbers in a password. Type `&#34;number&#34;`
+         * @param passwordMinNumber If a password must contain at least one number: 0 = no, 1 = yes. Default: `1`
          * 
          * @return builder
          * 
@@ -952,7 +952,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMinNumber Minimum number of numbers in a password. Type `&#34;number&#34;`
+         * @param passwordMinNumber If a password must contain at least one number: 0 = no, 1 = yes. Default: `1`
          * 
          * @return builder
          * 
@@ -962,7 +962,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMinSymbol Minimum number of symbols in a password. Type `&#34;number&#34;`
+         * @param passwordMinSymbol If a password must contain at least one symbol (!{@literal @}#$%^&amp;*): 0 = no, 1 = yes. Default: `0`
          * 
          * @return builder
          * 
@@ -973,7 +973,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMinSymbol Minimum number of symbols in a password. Type `&#34;number&#34;`
+         * @param passwordMinSymbol If a password must contain at least one symbol (!{@literal @}#$%^&amp;*): 0 = no, 1 = yes. Default: `0`
          * 
          * @return builder
          * 
@@ -983,7 +983,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMinUppercase Minimum number of upper case characters in a password. Type `&#34;number&#34;`
+         * @param passwordMinUppercase If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default: `1`
          * 
          * @return builder
          * 
@@ -994,7 +994,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordMinUppercase Minimum number of upper case characters in a password. Type `&#34;number&#34;`
+         * @param passwordMinUppercase If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default: `1`
          * 
          * @return builder
          * 
@@ -1004,7 +1004,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordShowLockoutFailures If a user should be informed when their account is locked.  Type `&#34;bool&#34;`
+         * @param passwordShowLockoutFailures If a user should be informed when their account is locked. Default: `false`
          * 
          * @return builder
          * 
@@ -1015,7 +1015,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordShowLockoutFailures If a user should be informed when their account is locked.  Type `&#34;bool&#34;`
+         * @param passwordShowLockoutFailures If a user should be informed when their account is locked. Default: `false`
          * 
          * @return builder
          * 
@@ -1025,7 +1025,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Priority of the policy. Type `&#34;number&#34;`
+         * @param priority Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
          * 
          * @return builder
          * 
@@ -1036,7 +1036,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Priority of the policy. Type `&#34;number&#34;`
+         * @param priority Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
          * 
          * @return builder
          * 
@@ -1046,7 +1046,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param questionMinLength Min length of the password recovery question answer.  Type `&#34;number&#34;`
+         * @param questionMinLength Min length of the password recovery question answer. Default: `4`
          * 
          * @return builder
          * 
@@ -1057,7 +1057,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param questionMinLength Min length of the password recovery question answer.  Type `&#34;number&#34;`
+         * @param questionMinLength Min length of the password recovery question answer. Default: `4`
          * 
          * @return builder
          * 
@@ -1067,7 +1067,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param questionRecovery Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
+         * @param questionRecovery Enable or disable security question password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -1078,7 +1078,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param questionRecovery Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
+         * @param questionRecovery Enable or disable security question password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -1088,7 +1088,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryEmailToken Lifetime in minutes of the recovery email token.  Type `&#34;number&#34;`
+         * @param recoveryEmailToken Lifetime in minutes of the recovery email token. Default: `60`
          * 
          * @return builder
          * 
@@ -1099,7 +1099,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryEmailToken Lifetime in minutes of the recovery email token.  Type `&#34;number&#34;`
+         * @param recoveryEmailToken Lifetime in minutes of the recovery email token. Default: `60`
          * 
          * @return builder
          * 
@@ -1109,7 +1109,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipUnlock When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account. Type `&#34;bool&#34;`
+         * @param skipUnlock When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account. Default: `false`
          * 
          * @return builder
          * 
@@ -1120,7 +1120,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipUnlock When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account. Type `&#34;bool&#34;`
+         * @param skipUnlock When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account. Default: `false`
          * 
          * @return builder
          * 
@@ -1130,7 +1130,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param smsRecovery Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
+         * @param smsRecovery Enable or disable SMS password recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
          * 
          * @return builder
          * 
@@ -1141,7 +1141,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param smsRecovery Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `&#34;string&#34;`
+         * @param smsRecovery Enable or disable SMS password recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
          * 
          * @return builder
          * 
@@ -1151,7 +1151,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
+         * @param status Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -1162,7 +1162,7 @@ public final class PasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
+         * @param status Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
          * 
          * @return builder
          * 

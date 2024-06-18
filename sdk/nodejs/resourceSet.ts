@@ -5,22 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use
- * Okta Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources.
- * The `resources` field supports the following:
- *  - Apps
- *  - Groups
- *  - All Users within a Group
- *  - All Users within the org
- *  - All Groups within the org
- *  - All Apps within the org
- *  - All Apps of the same type
- *
- * > **NOTE:** This an `Early Access` feature.
+ * Manages Resource Sets as custom collections of resources. This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use Okta Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources.
+ * The 'resources' field supports the following:
+ * 	- Apps
+ * 	- Groups
+ * 	- All Users within a Group
+ * 	- All Users within the org
+ * 	- All Groups within the org
+ * 	- All Apps within the org
+ * 	- All Apps of the same type
  *
  * ## Import
- *
- * Okta Resource Set can be imported via the Okta ID.
  *
  * ```sh
  * $ pulumi import okta:index/resourceSet:ResourceSet example &#60;resource_set_id&#62;
@@ -55,16 +50,15 @@ export class ResourceSet extends pulumi.CustomResource {
     }
 
     /**
-     * A description of the Resource Set.
+     * A description of the Resource Set
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Unique name given to the Resource Set.
+     * Unique name given to the Resource Set
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * The endpoints that reference the resources to be included in the new Resource Set. At least one
-     * endpoint must be specified when creating resource set.
+     * The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
      */
     public readonly resources!: pulumi.Output<string[] | undefined>;
 
@@ -106,16 +100,15 @@ export class ResourceSet extends pulumi.CustomResource {
  */
 export interface ResourceSetState {
     /**
-     * A description of the Resource Set.
+     * A description of the Resource Set
      */
     description?: pulumi.Input<string>;
     /**
-     * Unique name given to the Resource Set.
+     * Unique name given to the Resource Set
      */
     label?: pulumi.Input<string>;
     /**
-     * The endpoints that reference the resources to be included in the new Resource Set. At least one
-     * endpoint must be specified when creating resource set.
+     * The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
      */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -125,16 +118,15 @@ export interface ResourceSetState {
  */
 export interface ResourceSetArgs {
     /**
-     * A description of the Resource Set.
+     * A description of the Resource Set
      */
     description: pulumi.Input<string>;
     /**
-     * Unique name given to the Resource Set.
+     * Unique name given to the Resource Set
      */
     label: pulumi.Input<string>;
     /**
-     * The endpoints that reference the resources to be included in the new Resource Set. At least one
-     * endpoint must be specified when creating resource set.
+     * The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
      */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
 }

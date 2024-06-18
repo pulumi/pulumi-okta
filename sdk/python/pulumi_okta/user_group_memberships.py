@@ -19,7 +19,7 @@ class UserGroupMembershipsArgs:
         """
         The set of arguments for constructing a UserGroupMemberships resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The list of Okta group IDs which the user should have membership managed for.
-        :param pulumi.Input[str] user_id: Okta user ID.
+        :param pulumi.Input[str] user_id: ID of a Okta User
         """
         pulumi.set(__self__, "groups", groups)
         pulumi.set(__self__, "user_id", user_id)
@@ -40,7 +40,7 @@ class UserGroupMembershipsArgs:
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[str]:
         """
-        Okta user ID.
+        ID of a Okta User
         """
         return pulumi.get(self, "user_id")
 
@@ -57,7 +57,7 @@ class _UserGroupMembershipsState:
         """
         Input properties used for looking up and filtering UserGroupMemberships resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The list of Okta group IDs which the user should have membership managed for.
-        :param pulumi.Input[str] user_id: Okta user ID.
+        :param pulumi.Input[str] user_id: ID of a Okta User
         """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
@@ -80,7 +80,7 @@ class _UserGroupMembershipsState:
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Okta user ID.
+        ID of a Okta User
         """
         return pulumi.get(self, "user_id")
 
@@ -120,7 +120,7 @@ class UserGroupMemberships(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The list of Okta group IDs which the user should have membership managed for.
-        :param pulumi.Input[str] user_id: Okta user ID.
+        :param pulumi.Input[str] user_id: ID of a Okta User
         """
         ...
     @overload
@@ -200,7 +200,7 @@ class UserGroupMemberships(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The list of Okta group IDs which the user should have membership managed for.
-        :param pulumi.Input[str] user_id: Okta user ID.
+        :param pulumi.Input[str] user_id: ID of a Okta User
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -222,7 +222,7 @@ class UserGroupMemberships(pulumi.CustomResource):
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[str]:
         """
-        Okta user ID.
+        ID of a Okta User
         """
         return pulumi.get(self, "user_id")
 

@@ -18,7 +18,7 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly bool AlwaysIncludeInToken;
         /// <summary>
-        /// Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+        /// Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`).
         /// </summary>
         public readonly string ClaimType;
         /// <summary>
@@ -38,11 +38,11 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Value of the claim
+        /// Value of the claim.
         /// </summary>
         public readonly string Value;
         /// <summary>
-        /// Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+        /// Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
         /// </summary>
         public readonly string ValueType;
 

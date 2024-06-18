@@ -5,47 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Creates an Okta Network Zone.
- *
- * This resource allows you to create and configure an Okta Network Zone.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.network.Zone("example", {
- *     name: "example",
- *     type: "IP",
- *     gateways: [
- *         "1.2.3.4/24",
- *         "2.3.4.5-2.3.4.15",
- *     ],
- *     proxies: [
- *         "2.2.3.4/24",
- *         "3.3.4.5-3.3.4.15",
- *     ],
- * });
- * ```
- *
- * ### Dynamic Tor Blocker
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.network.Zone("example", {
- *     name: "TOR Blocker",
- *     type: "DYNAMIC",
- *     usage: "BLOCKLIST",
- *     dynamicProxyType: "TorAnonymizer",
- * });
- * ```
+ * Creates an Okta Network Zone. This resource allows you to create and configure an Okta Network Zone.
  *
  * ## Import
- *
- * Okta Network Zone can be imported via the Okta ID.
  *
  * ```sh
  * $ pulumi import okta:network/zone:Zone example &#60;zone id&#62;
@@ -80,12 +42,11 @@ export class Zone extends pulumi.CustomResource {
     }
 
     /**
-     * Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+     * Format of each array value: a string representation of an ASN numeric value
      */
     public readonly asns!: pulumi.Output<string[] | undefined>;
     /**
-     * Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-     * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+     * Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
      */
     public readonly dynamicLocations!: pulumi.Output<string[] | undefined>;
     /**
@@ -93,27 +54,27 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly dynamicProxyType!: pulumi.Output<string | undefined>;
     /**
-     * Array of values in CIDR/range form.
+     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
      */
     public readonly gateways!: pulumi.Output<string[] | undefined>;
     /**
-     * Name of the Network Zone Resource.
+     * Name of the Network Zone Resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
      */
     public readonly proxies!: pulumi.Output<string[] | undefined>;
     /**
-     * Network Status - can either be ACTIVE or INACTIVE only.
+     * Network Status - can either be `ACTIVE` or `INACTIVE` only
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
+     * Type of the Network Zone - can either be `IP` or `DYNAMIC` only
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+     * Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
      */
     public readonly usage!: pulumi.Output<string | undefined>;
 
@@ -164,12 +125,11 @@ export class Zone extends pulumi.CustomResource {
  */
 export interface ZoneState {
     /**
-     * Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+     * Format of each array value: a string representation of an ASN numeric value
      */
     asns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-     * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+     * Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
      */
     dynamicLocations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -177,27 +137,27 @@ export interface ZoneState {
      */
     dynamicProxyType?: pulumi.Input<string>;
     /**
-     * Array of values in CIDR/range form.
+     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
      */
     gateways?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the Network Zone Resource.
+     * Name of the Network Zone Resource
      */
     name?: pulumi.Input<string>;
     /**
-     * Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
      */
     proxies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Network Status - can either be ACTIVE or INACTIVE only.
+     * Network Status - can either be `ACTIVE` or `INACTIVE` only
      */
     status?: pulumi.Input<string>;
     /**
-     * Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
+     * Type of the Network Zone - can either be `IP` or `DYNAMIC` only
      */
     type?: pulumi.Input<string>;
     /**
-     * Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+     * Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
      */
     usage?: pulumi.Input<string>;
 }
@@ -207,12 +167,11 @@ export interface ZoneState {
  */
 export interface ZoneArgs {
     /**
-     * Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+     * Format of each array value: a string representation of an ASN numeric value
      */
     asns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-     * and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+     * Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
      */
     dynamicLocations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -220,27 +179,27 @@ export interface ZoneArgs {
      */
     dynamicProxyType?: pulumi.Input<string>;
     /**
-     * Array of values in CIDR/range form.
+     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
      */
     gateways?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the Network Zone Resource.
+     * Name of the Network Zone Resource
      */
     name?: pulumi.Input<string>;
     /**
-     * Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
      */
     proxies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Network Status - can either be ACTIVE or INACTIVE only.
+     * Network Status - can either be `ACTIVE` or `INACTIVE` only
      */
     status?: pulumi.Input<string>;
     /**
-     * Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
+     * Type of the Network Zone - can either be `IP` or `DYNAMIC` only
      */
     type: pulumi.Input<string>;
     /**
-     * Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+     * Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
      */
     usage?: pulumi.Input<string>;
 }

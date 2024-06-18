@@ -31,31 +31,23 @@ public final class GetLogStreamPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Name of the log stream to retrieve, conflicts with `id`.
+     * Unique name for the Log Stream object, conflicts with `id`.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return Name of the log stream to retrieve, conflicts with `id`.
+     * @return Unique name for the Log Stream object, conflicts with `id`.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Provider specific configuration.
-     * 
-     */
     @Import(name="settings")
     private @Nullable GetLogStreamSettings settings;
 
-    /**
-     * @return Provider specific configuration.
-     * 
-     */
     public Optional<GetLogStreamSettings> settings() {
         return Optional.ofNullable(this.settings);
     }
@@ -98,7 +90,7 @@ public final class GetLogStreamPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param name Name of the log stream to retrieve, conflicts with `id`.
+         * @param name Unique name for the Log Stream object, conflicts with `id`.
          * 
          * @return builder
          * 
@@ -108,12 +100,6 @@ public final class GetLogStreamPlainArgs extends com.pulumi.resources.InvokeArgs
             return this;
         }
 
-        /**
-         * @param settings Provider specific configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settings(@Nullable GetLogStreamSettings settings) {
             $.settings = settings;
             return this;

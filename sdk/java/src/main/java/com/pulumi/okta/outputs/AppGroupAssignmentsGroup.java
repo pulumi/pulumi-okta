@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppGroupAssignmentsGroup {
     /**
-     * @return ID of the group to assign.
+     * @return A group to associate with the application
      * 
      */
     private String id;
@@ -31,7 +31,7 @@ public final class AppGroupAssignmentsGroup {
 
     private AppGroupAssignmentsGroup() {}
     /**
-     * @return ID of the group to assign.
+     * @return A group to associate with the application
      * 
      */
     public String id() {

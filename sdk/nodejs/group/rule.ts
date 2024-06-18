@@ -22,8 +22,6 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * An Okta Group Rule can be imported via the Okta ID.
- *
  * ```sh
  * $ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
  * ```
@@ -57,8 +55,7 @@ export class Rule extends pulumi.CustomResource {
     }
 
     /**
-     * The expression type to use to invoke the rule. The default
-     * is `"urn:okta:expression:1.0"`.
+     * The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
      */
     public readonly expressionType!: pulumi.Output<string | undefined>;
     /**
@@ -74,16 +71,15 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * This tells the provider to remove users added by this rule from the assigned
-     * group after destroying this resource. Default is `false`.
+     * Remove users added by this rule from the assigned group after deleting this resource. Default is `false`
      */
     public readonly removeAssignedUsers!: pulumi.Output<boolean | undefined>;
     /**
-     * The status of the group rule.
+     * Default to `ACTIVE`
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * The list of user IDs that would be excluded when rules are processed.
+     * The list of user IDs that would be excluded when rules are processed
      */
     public readonly usersExcludeds!: pulumi.Output<string[] | undefined>;
 
@@ -133,8 +129,7 @@ export class Rule extends pulumi.CustomResource {
  */
 export interface RuleState {
     /**
-     * The expression type to use to invoke the rule. The default
-     * is `"urn:okta:expression:1.0"`.
+     * The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
      */
     expressionType?: pulumi.Input<string>;
     /**
@@ -150,16 +145,15 @@ export interface RuleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * This tells the provider to remove users added by this rule from the assigned
-     * group after destroying this resource. Default is `false`.
+     * Remove users added by this rule from the assigned group after deleting this resource. Default is `false`
      */
     removeAssignedUsers?: pulumi.Input<boolean>;
     /**
-     * The status of the group rule.
+     * Default to `ACTIVE`
      */
     status?: pulumi.Input<string>;
     /**
-     * The list of user IDs that would be excluded when rules are processed.
+     * The list of user IDs that would be excluded when rules are processed
      */
     usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -169,8 +163,7 @@ export interface RuleState {
  */
 export interface RuleArgs {
     /**
-     * The expression type to use to invoke the rule. The default
-     * is `"urn:okta:expression:1.0"`.
+     * The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
      */
     expressionType?: pulumi.Input<string>;
     /**
@@ -186,16 +179,15 @@ export interface RuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * This tells the provider to remove users added by this rule from the assigned
-     * group after destroying this resource. Default is `false`.
+     * Remove users added by this rule from the assigned group after deleting this resource. Default is `false`
      */
     removeAssignedUsers?: pulumi.Input<boolean>;
     /**
-     * The status of the group rule.
+     * Default to `ACTIVE`
      */
     status?: pulumi.Input<string>;
     /**
-     * The list of user IDs that would be excluded when rules are processed.
+     * The list of user IDs that would be excluded when rules are processed
      */
     usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }

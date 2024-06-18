@@ -37,16 +37,12 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// This resource does not support importing.
     /// </summary>
     [OktaResourceType("okta:index/emailDomainVerification:EmailDomainVerification")]
     public partial class EmailDomainVerification : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Email domain ID.
+        /// Email domain ID
         /// </summary>
         [Output("emailDomainId")]
         public Output<string> EmailDomainId { get; private set; } = null!;
@@ -98,7 +94,7 @@ namespace Pulumi.Okta
     public sealed class EmailDomainVerificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Email domain ID.
+        /// Email domain ID
         /// </summary>
         [Input("emailDomainId", required: true)]
         public Input<string> EmailDomainId { get; set; } = null!;
@@ -112,7 +108,7 @@ namespace Pulumi.Okta
     public sealed class EmailDomainVerificationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Email domain ID.
+        /// Email domain ID
         /// </summary>
         [Input("emailDomainId")]
         public Input<string>? EmailDomainId { get; set; }

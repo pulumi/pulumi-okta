@@ -17,14 +17,14 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
     public static final AuthServerDefaultState Empty = new AuthServerDefaultState();
 
     /**
-     * The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+     * The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
      * 
      */
     @Import(name="audiences")
     private @Nullable Output<List<String>> audiences;
 
     /**
-     * @return The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+     * @return The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
      * 
      */
     public Optional<Output<List<String>>> audiences() {
@@ -47,14 +47,14 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `&#34;AUTO&#34;`.
+     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
      * 
      */
     @Import(name="credentialsNextRotation")
     private @Nullable Output<String> credentialsNextRotation;
 
     /**
-     * @return The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `&#34;AUTO&#34;`.
+     * @return The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
      * 
      */
     public Optional<Output<String>> credentialsNextRotation() {
@@ -62,14 +62,14 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The key rotation mode for the authorization server. Can be `&#34;AUTO&#34;` or `&#34;MANUAL&#34;`.
+     * The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `MANUAL`.Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
      * 
      */
     @Import(name="credentialsRotationMode")
     private @Nullable Output<String> credentialsRotationMode;
 
     /**
-     * @return The key rotation mode for the authorization server. Can be `&#34;AUTO&#34;` or `&#34;MANUAL&#34;`.
+     * @return The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `MANUAL`.Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
      * 
      */
     public Optional<Output<String>> credentialsRotationMode() {
@@ -107,14 +107,14 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Allows you to use a custom issuer URL. It can be set to `&#34;CUSTOM_URL&#34;`, `&#34;ORG_URL&#34;`, or `&#34;DYNAMIC&#34;`.
+     * *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
      * 
      */
     @Import(name="issuerMode")
     private @Nullable Output<String> issuerMode;
 
     /**
-     * @return Allows you to use a custom issuer URL. It can be set to `&#34;CUSTOM_URL&#34;`, `&#34;ORG_URL&#34;`, or `&#34;DYNAMIC&#34;`.
+     * @return *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
      * 
      */
     public Optional<Output<String>> issuerMode() {
@@ -152,14 +152,14 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The status of the auth server.
+     * Default to `ACTIVE`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the auth server.
+     * @return Default to `ACTIVE`
      * 
      */
     public Optional<Output<String>> status() {
@@ -200,7 +200,7 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param audiences The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+         * @param audiences The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param audiences The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+         * @param audiences The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param audiences The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+         * @param audiences The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param credentialsNextRotation The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `&#34;AUTO&#34;`.
+         * @param credentialsNextRotation The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param credentialsNextRotation The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `&#34;AUTO&#34;`.
+         * @param credentialsNextRotation The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param credentialsRotationMode The key rotation mode for the authorization server. Can be `&#34;AUTO&#34;` or `&#34;MANUAL&#34;`.
+         * @param credentialsRotationMode The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `MANUAL`.Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param credentialsRotationMode The key rotation mode for the authorization server. Can be `&#34;AUTO&#34;` or `&#34;MANUAL&#34;`.
+         * @param credentialsRotationMode The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `MANUAL`.Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param issuerMode Allows you to use a custom issuer URL. It can be set to `&#34;CUSTOM_URL&#34;`, `&#34;ORG_URL&#34;`, or `&#34;DYNAMIC&#34;`.
+         * @param issuerMode *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param issuerMode Allows you to use a custom issuer URL. It can be set to `&#34;CUSTOM_URL&#34;`, `&#34;ORG_URL&#34;`, or `&#34;DYNAMIC&#34;`.
+         * @param issuerMode *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param status The status of the auth server.
+         * @param status Default to `ACTIVE`
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class AuthServerDefaultState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param status The status of the auth server.
+         * @param status Default to `ACTIVE`
          * 
          * @return builder
          * 

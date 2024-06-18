@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Factor
 {
     /// <summary>
-    /// Allows you to manage the activation of Okta MFA methods.
-    /// 
-    /// This resource allows you to manage Okta MFA methods.
+    /// Allows you to manage the activation of Okta MFA methods. This resource allows you to manage Okta MFA methods.
     /// 
     /// ## Example Usage
     /// 
@@ -42,8 +40,7 @@ namespace Pulumi.Okta.Factor
         public Output<bool?> Active { get; private set; } = null!;
 
         /// <summary>
-        /// The MFA provider name.
-        /// Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_password"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"okta_email"`, `"rsa_token"`, `"symantec_vip"`, `"yubikey_token"`, or `"hotp"`.
+        /// The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
         /// </summary>
         [Output("providerId")]
         public Output<string> ProviderId { get; private set; } = null!;
@@ -101,8 +98,7 @@ namespace Pulumi.Okta.Factor
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// The MFA provider name.
-        /// Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_password"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"okta_email"`, `"rsa_token"`, `"symantec_vip"`, `"yubikey_token"`, or `"hotp"`.
+        /// The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
         /// </summary>
         [Input("providerId", required: true)]
         public Input<string> ProviderId { get; set; } = null!;
@@ -122,8 +118,7 @@ namespace Pulumi.Okta.Factor
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// The MFA provider name.
-        /// Allowed values are `"duo"`, `"fido_u2f"`, `"fido_webauthn"`, `"google_otp"`, `"okta_call"`, `"okta_otp"`, `"okta_password"`, `"okta_push"`, `"okta_question"`, `"okta_sms"`, `"okta_email"`, `"rsa_token"`, `"symantec_vip"`, `"yubikey_token"`, or `"hotp"`.
+        /// The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
         /// </summary>
         [Input("providerId")]
         public Input<string>? ProviderId { get; set; }

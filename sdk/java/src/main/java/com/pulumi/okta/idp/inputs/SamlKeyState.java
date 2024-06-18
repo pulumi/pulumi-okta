@@ -92,14 +92,14 @@ public final class SamlKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * base64-encoded X.509 certificate chain with DER encoding.
+     * base64-encoded X.509 certificate chain with DER encoding
      * 
      */
     @Import(name="x5cs")
     private @Nullable Output<List<String>> x5cs;
 
     /**
-     * @return base64-encoded X.509 certificate chain with DER encoding.
+     * @return base64-encoded X.509 certificate chain with DER encoding
      * 
      */
     public Optional<Output<List<String>>> x5cs() {
@@ -257,7 +257,7 @@ public final class SamlKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param x5cs base64-encoded X.509 certificate chain with DER encoding.
+         * @param x5cs base64-encoded X.509 certificate chain with DER encoding
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class SamlKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param x5cs base64-encoded X.509 certificate chain with DER encoding.
+         * @param x5cs base64-encoded X.509 certificate chain with DER encoding
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class SamlKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param x5cs base64-encoded X.509 certificate chain with DER encoding.
+         * @param x5cs base64-encoded X.509 certificate chain with DER encoding
          * 
          * @return builder
          * 

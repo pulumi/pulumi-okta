@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Creates a Password Policy.
- *
- * This resource allows you to create and configure a Password Policy.
+ * Creates a Password Policy. This resource allows you to create and configure a Password Policy.
  *
  * ## Example Usage
  *
@@ -25,8 +23,6 @@ import * as utilities from "../utilities";
  * ```
  *
  * ## Import
- *
- * A Password Policy can be imported via the Okta ID.
  *
  * ```sh
  * $ pulumi import okta:policy/password:Password example &#60;policy id&#62;
@@ -61,123 +57,123 @@ export class Password extends pulumi.CustomResource {
     }
 
     /**
-     * Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`. Type `"string"`
+     * Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
      */
     public readonly authProvider!: pulumi.Output<string | undefined>;
     /**
-     * Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `"string"`
+     * Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
      */
     public readonly callRecovery!: pulumi.Output<string | undefined>;
     /**
-     * Policy Description. Type `"string"`
+     * Policy Description
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Enable or disable email password recovery: ACTIVE or INACTIVE. Type `"string"`
+     * Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     public readonly emailRecovery!: pulumi.Output<string | undefined>;
     /**
-     * List of Group IDs to Include. Type `"list(string)"`
+     * List of Group IDs to Include
      */
     public readonly groupsIncludeds!: pulumi.Output<string[] | undefined>;
     /**
-     * Policy Name. Type `"string"`
+     * Policy Name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Number of minutes before a locked account is unlocked: 0 = no limit.  Type `"number"`
+     * Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
      */
     public readonly passwordAutoUnlockMinutes!: pulumi.Output<number | undefined>;
     /**
-     * Check Passwords Against Common Password Dictionary. Type `"bool"`
+     * Check Passwords Against Common Password Dictionary. Default: `false`
      */
     public readonly passwordDictionaryLookup!: pulumi.Output<boolean | undefined>;
     /**
-     * User firstName attribute must be excluded from the password. Type `"bool"`
+     * User firstName attribute must be excluded from the password
      */
     public readonly passwordExcludeFirstName!: pulumi.Output<boolean | undefined>;
     /**
-     * User lastName attribute must be excluded from the password. Type `"bool"`
+     * User lastName attribute must be excluded from the password
      */
     public readonly passwordExcludeLastName!: pulumi.Output<boolean | undefined>;
     /**
-     * If the username must be excluded from the password. Type `"bool"`
+     * If the user name must be excluded from the password. Default: `true`
      */
     public readonly passwordExcludeUsername!: pulumi.Output<boolean | undefined>;
     /**
-     * Length in days a user will be warned before password expiry: 0 = no warning.  Type `"number"`
+     * Length in days a user will be warned before password expiry: 0 = no warning. Default: `0`
      */
     public readonly passwordExpireWarnDays!: pulumi.Output<number | undefined>;
     /**
-     * Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `"number"`
+     * Number of distinct passwords that must be created before they can be reused: 0 = none. Default: `0`
      */
     public readonly passwordHistoryCount!: pulumi.Output<number | undefined>;
     /**
-     * Notification channels to use to notify a user when their account has been locked. Type `"set(string)"`
+     * Notification channels to use to notify a user when their account has been locked.
      */
     public readonly passwordLockoutNotificationChannels!: pulumi.Output<string[] | undefined>;
     /**
-     * Length in days a password is valid before expiry: 0 = no limit.  Type `"number"`
+     * Length in days a password is valid before expiry: 0 = no limit. Default: `0`
      */
     public readonly passwordMaxAgeDays!: pulumi.Output<number | undefined>;
     /**
-     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `"number"`
+     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit. Default: `10`
      */
     public readonly passwordMaxLockoutAttempts!: pulumi.Output<number | undefined>;
     /**
-     * Minimum time interval in minutes between password changes: 0 = no limit.  Type `"number"`
+     * Minimum time interval in minutes between password changes: 0 = no limit. Default: `0`
      */
     public readonly passwordMinAgeMinutes!: pulumi.Output<number | undefined>;
     /**
-     * Minimum password length. Default is 8. Type `"number"`
+     * Minimum password length. Default: `8`
      */
     public readonly passwordMinLength!: pulumi.Output<number | undefined>;
     /**
-     * Minimum number of lower case characters in a password. Type `"number"`
+     * If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default: `1`
      */
     public readonly passwordMinLowercase!: pulumi.Output<number | undefined>;
     /**
-     * Minimum number of numbers in a password. Type `"number"`
+     * If a password must contain at least one number: 0 = no, 1 = yes. Default: `1`
      */
     public readonly passwordMinNumber!: pulumi.Output<number | undefined>;
     /**
-     * Minimum number of symbols in a password. Type `"number"`
+     * If a password must contain at least one symbol (!@#$%^&*): 0 = no, 1 = yes. Default: `0`
      */
     public readonly passwordMinSymbol!: pulumi.Output<number | undefined>;
     /**
-     * Minimum number of upper case characters in a password. Type `"number"`
+     * If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default: `1`
      */
     public readonly passwordMinUppercase!: pulumi.Output<number | undefined>;
     /**
-     * If a user should be informed when their account is locked.  Type `"bool"`
+     * If a user should be informed when their account is locked. Default: `false`
      */
     public readonly passwordShowLockoutFailures!: pulumi.Output<boolean | undefined>;
     /**
-     * Priority of the policy. Type `"number"`
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
-     * Min length of the password recovery question answer.  Type `"number"`
+     * Min length of the password recovery question answer. Default: `4`
      */
     public readonly questionMinLength!: pulumi.Output<number | undefined>;
     /**
-     * Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `"string"`
+     * Enable or disable security question password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     public readonly questionRecovery!: pulumi.Output<string | undefined>;
     /**
-     * Lifetime in minutes of the recovery email token.  Type `"number"`
+     * Lifetime in minutes of the recovery email token. Default: `60`
      */
     public readonly recoveryEmailToken!: pulumi.Output<number | undefined>;
     /**
-     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `"bool"`
+     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Default: `false`
      */
     public readonly skipUnlock!: pulumi.Output<boolean | undefined>;
     /**
-     * Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `"string"`
+     * Enable or disable SMS password recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
      */
     public readonly smsRecovery!: pulumi.Output<string | undefined>;
     /**
-     * Policy Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+     * Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     public readonly status!: pulumi.Output<string | undefined>;
 
@@ -267,123 +263,123 @@ export class Password extends pulumi.CustomResource {
  */
 export interface PasswordState {
     /**
-     * Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`. Type `"string"`
+     * Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
      */
     authProvider?: pulumi.Input<string>;
     /**
-     * Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `"string"`
+     * Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
      */
     callRecovery?: pulumi.Input<string>;
     /**
-     * Policy Description. Type `"string"`
+     * Policy Description
      */
     description?: pulumi.Input<string>;
     /**
-     * Enable or disable email password recovery: ACTIVE or INACTIVE. Type `"string"`
+     * Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     emailRecovery?: pulumi.Input<string>;
     /**
-     * List of Group IDs to Include. Type `"list(string)"`
+     * List of Group IDs to Include
      */
     groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Policy Name. Type `"string"`
+     * Policy Name
      */
     name?: pulumi.Input<string>;
     /**
-     * Number of minutes before a locked account is unlocked: 0 = no limit.  Type `"number"`
+     * Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
      */
     passwordAutoUnlockMinutes?: pulumi.Input<number>;
     /**
-     * Check Passwords Against Common Password Dictionary. Type `"bool"`
+     * Check Passwords Against Common Password Dictionary. Default: `false`
      */
     passwordDictionaryLookup?: pulumi.Input<boolean>;
     /**
-     * User firstName attribute must be excluded from the password. Type `"bool"`
+     * User firstName attribute must be excluded from the password
      */
     passwordExcludeFirstName?: pulumi.Input<boolean>;
     /**
-     * User lastName attribute must be excluded from the password. Type `"bool"`
+     * User lastName attribute must be excluded from the password
      */
     passwordExcludeLastName?: pulumi.Input<boolean>;
     /**
-     * If the username must be excluded from the password. Type `"bool"`
+     * If the user name must be excluded from the password. Default: `true`
      */
     passwordExcludeUsername?: pulumi.Input<boolean>;
     /**
-     * Length in days a user will be warned before password expiry: 0 = no warning.  Type `"number"`
+     * Length in days a user will be warned before password expiry: 0 = no warning. Default: `0`
      */
     passwordExpireWarnDays?: pulumi.Input<number>;
     /**
-     * Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `"number"`
+     * Number of distinct passwords that must be created before they can be reused: 0 = none. Default: `0`
      */
     passwordHistoryCount?: pulumi.Input<number>;
     /**
-     * Notification channels to use to notify a user when their account has been locked. Type `"set(string)"`
+     * Notification channels to use to notify a user when their account has been locked.
      */
     passwordLockoutNotificationChannels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Length in days a password is valid before expiry: 0 = no limit.  Type `"number"`
+     * Length in days a password is valid before expiry: 0 = no limit. Default: `0`
      */
     passwordMaxAgeDays?: pulumi.Input<number>;
     /**
-     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `"number"`
+     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit. Default: `10`
      */
     passwordMaxLockoutAttempts?: pulumi.Input<number>;
     /**
-     * Minimum time interval in minutes between password changes: 0 = no limit.  Type `"number"`
+     * Minimum time interval in minutes between password changes: 0 = no limit. Default: `0`
      */
     passwordMinAgeMinutes?: pulumi.Input<number>;
     /**
-     * Minimum password length. Default is 8. Type `"number"`
+     * Minimum password length. Default: `8`
      */
     passwordMinLength?: pulumi.Input<number>;
     /**
-     * Minimum number of lower case characters in a password. Type `"number"`
+     * If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default: `1`
      */
     passwordMinLowercase?: pulumi.Input<number>;
     /**
-     * Minimum number of numbers in a password. Type `"number"`
+     * If a password must contain at least one number: 0 = no, 1 = yes. Default: `1`
      */
     passwordMinNumber?: pulumi.Input<number>;
     /**
-     * Minimum number of symbols in a password. Type `"number"`
+     * If a password must contain at least one symbol (!@#$%^&*): 0 = no, 1 = yes. Default: `0`
      */
     passwordMinSymbol?: pulumi.Input<number>;
     /**
-     * Minimum number of upper case characters in a password. Type `"number"`
+     * If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default: `1`
      */
     passwordMinUppercase?: pulumi.Input<number>;
     /**
-     * If a user should be informed when their account is locked.  Type `"bool"`
+     * If a user should be informed when their account is locked. Default: `false`
      */
     passwordShowLockoutFailures?: pulumi.Input<boolean>;
     /**
-     * Priority of the policy. Type `"number"`
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     priority?: pulumi.Input<number>;
     /**
-     * Min length of the password recovery question answer.  Type `"number"`
+     * Min length of the password recovery question answer. Default: `4`
      */
     questionMinLength?: pulumi.Input<number>;
     /**
-     * Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `"string"`
+     * Enable or disable security question password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     questionRecovery?: pulumi.Input<string>;
     /**
-     * Lifetime in minutes of the recovery email token.  Type `"number"`
+     * Lifetime in minutes of the recovery email token. Default: `60`
      */
     recoveryEmailToken?: pulumi.Input<number>;
     /**
-     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `"bool"`
+     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Default: `false`
      */
     skipUnlock?: pulumi.Input<boolean>;
     /**
-     * Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `"string"`
+     * Enable or disable SMS password recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
      */
     smsRecovery?: pulumi.Input<string>;
     /**
-     * Policy Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+     * Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     status?: pulumi.Input<string>;
 }
@@ -393,123 +389,123 @@ export interface PasswordState {
  */
 export interface PasswordArgs {
     /**
-     * Authentication Provider: `"OKTA"`, `"ACTIVE_DIRECTORY"` or `"LDAP"`. Default is `"OKTA"`. Type `"string"`
+     * Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
      */
     authProvider?: pulumi.Input<string>;
     /**
-     * Enable or disable voice call password recovery: ACTIVE or INACTIVE.  Type `"string"`
+     * Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
      */
     callRecovery?: pulumi.Input<string>;
     /**
-     * Policy Description. Type `"string"`
+     * Policy Description
      */
     description?: pulumi.Input<string>;
     /**
-     * Enable or disable email password recovery: ACTIVE or INACTIVE. Type `"string"`
+     * Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     emailRecovery?: pulumi.Input<string>;
     /**
-     * List of Group IDs to Include. Type `"list(string)"`
+     * List of Group IDs to Include
      */
     groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Policy Name. Type `"string"`
+     * Policy Name
      */
     name?: pulumi.Input<string>;
     /**
-     * Number of minutes before a locked account is unlocked: 0 = no limit.  Type `"number"`
+     * Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
      */
     passwordAutoUnlockMinutes?: pulumi.Input<number>;
     /**
-     * Check Passwords Against Common Password Dictionary. Type `"bool"`
+     * Check Passwords Against Common Password Dictionary. Default: `false`
      */
     passwordDictionaryLookup?: pulumi.Input<boolean>;
     /**
-     * User firstName attribute must be excluded from the password. Type `"bool"`
+     * User firstName attribute must be excluded from the password
      */
     passwordExcludeFirstName?: pulumi.Input<boolean>;
     /**
-     * User lastName attribute must be excluded from the password. Type `"bool"`
+     * User lastName attribute must be excluded from the password
      */
     passwordExcludeLastName?: pulumi.Input<boolean>;
     /**
-     * If the username must be excluded from the password. Type `"bool"`
+     * If the user name must be excluded from the password. Default: `true`
      */
     passwordExcludeUsername?: pulumi.Input<boolean>;
     /**
-     * Length in days a user will be warned before password expiry: 0 = no warning.  Type `"number"`
+     * Length in days a user will be warned before password expiry: 0 = no warning. Default: `0`
      */
     passwordExpireWarnDays?: pulumi.Input<number>;
     /**
-     * Number of distinct passwords that must be created before they can be reused: 0 = none.  Type `"number"`
+     * Number of distinct passwords that must be created before they can be reused: 0 = none. Default: `0`
      */
     passwordHistoryCount?: pulumi.Input<number>;
     /**
-     * Notification channels to use to notify a user when their account has been locked. Type `"set(string)"`
+     * Notification channels to use to notify a user when their account has been locked.
      */
     passwordLockoutNotificationChannels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Length in days a password is valid before expiry: 0 = no limit.  Type `"number"`
+     * Length in days a password is valid before expiry: 0 = no limit. Default: `0`
      */
     passwordMaxAgeDays?: pulumi.Input<number>;
     /**
-     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit.  Type `"number"`
+     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit. Default: `10`
      */
     passwordMaxLockoutAttempts?: pulumi.Input<number>;
     /**
-     * Minimum time interval in minutes between password changes: 0 = no limit.  Type `"number"`
+     * Minimum time interval in minutes between password changes: 0 = no limit. Default: `0`
      */
     passwordMinAgeMinutes?: pulumi.Input<number>;
     /**
-     * Minimum password length. Default is 8. Type `"number"`
+     * Minimum password length. Default: `8`
      */
     passwordMinLength?: pulumi.Input<number>;
     /**
-     * Minimum number of lower case characters in a password. Type `"number"`
+     * If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default: `1`
      */
     passwordMinLowercase?: pulumi.Input<number>;
     /**
-     * Minimum number of numbers in a password. Type `"number"`
+     * If a password must contain at least one number: 0 = no, 1 = yes. Default: `1`
      */
     passwordMinNumber?: pulumi.Input<number>;
     /**
-     * Minimum number of symbols in a password. Type `"number"`
+     * If a password must contain at least one symbol (!@#$%^&*): 0 = no, 1 = yes. Default: `0`
      */
     passwordMinSymbol?: pulumi.Input<number>;
     /**
-     * Minimum number of upper case characters in a password. Type `"number"`
+     * If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default: `1`
      */
     passwordMinUppercase?: pulumi.Input<number>;
     /**
-     * If a user should be informed when their account is locked.  Type `"bool"`
+     * If a user should be informed when their account is locked. Default: `false`
      */
     passwordShowLockoutFailures?: pulumi.Input<boolean>;
     /**
-     * Priority of the policy. Type `"number"`
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     priority?: pulumi.Input<number>;
     /**
-     * Min length of the password recovery question answer.  Type `"number"`
+     * Min length of the password recovery question answer. Default: `4`
      */
     questionMinLength?: pulumi.Input<number>;
     /**
-     * Enable or disable security question password recovery: ACTIVE or INACTIVE. Type `"string"`
+     * Enable or disable security question password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     questionRecovery?: pulumi.Input<string>;
     /**
-     * Lifetime in minutes of the recovery email token.  Type `"number"`
+     * Lifetime in minutes of the recovery email token. Default: `60`
      */
     recoveryEmailToken?: pulumi.Input<number>;
     /**
-     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Type `"bool"`
+     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Default: `false`
      */
     skipUnlock?: pulumi.Input<boolean>;
     /**
-     * Enable or disable SMS password recovery: ACTIVE or INACTIVE. Type `"string"`
+     * Enable or disable SMS password recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
      */
     smsRecovery?: pulumi.Input<string>;
     /**
-     * Policy Status: `"ACTIVE"` or `"INACTIVE"`. Type `"string"`
+     * Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     status?: pulumi.Input<string>;
 }

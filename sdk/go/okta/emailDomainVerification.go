@@ -48,14 +48,10 @@ import (
 //	}
 //
 // ```
-//
-// ## Import
-//
-// This resource does not support importing.
 type EmailDomainVerification struct {
 	pulumi.CustomResourceState
 
-	// Email domain ID.
+	// Email domain ID
 	EmailDomainId pulumi.StringOutput `pulumi:"emailDomainId"`
 }
 
@@ -92,12 +88,12 @@ func GetEmailDomainVerification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailDomainVerification resources.
 type emailDomainVerificationState struct {
-	// Email domain ID.
+	// Email domain ID
 	EmailDomainId *string `pulumi:"emailDomainId"`
 }
 
 type EmailDomainVerificationState struct {
-	// Email domain ID.
+	// Email domain ID
 	EmailDomainId pulumi.StringPtrInput
 }
 
@@ -106,13 +102,13 @@ func (EmailDomainVerificationState) ElementType() reflect.Type {
 }
 
 type emailDomainVerificationArgs struct {
-	// Email domain ID.
+	// Email domain ID
 	EmailDomainId string `pulumi:"emailDomainId"`
 }
 
 // The set of arguments for constructing a EmailDomainVerification resource.
 type EmailDomainVerificationArgs struct {
-	// Email domain ID.
+	// Email domain ID
 	EmailDomainId pulumi.StringInput
 }
 
@@ -203,7 +199,7 @@ func (o EmailDomainVerificationOutput) ToEmailDomainVerificationOutputWithContex
 	return o
 }
 
-// Email domain ID.
+// Email domain ID
 func (o EmailDomainVerificationOutput) EmailDomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailDomainVerification) pulumi.StringOutput { return v.EmailDomainId }).(pulumi.StringOutput)
 }

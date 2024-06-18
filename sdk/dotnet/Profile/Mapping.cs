@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Profile
 {
     /// <summary>
-    /// This resource allows you to manage a profile mapping by source and target IDs.
-    /// 
-    /// &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.manage` scope.
+    /// Manages a profile mapping. This resource allows you to manage a profile mapping by source and target IDs. &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.manage` scope.
     /// 
     /// ## Example Usage
     /// 
@@ -61,35 +59,32 @@ namespace Pulumi.Okta.Profile
     /// 
     /// ## Import
     /// 
-    /// There is no reason to import this resource. You can simply create the resource config and point it to a source ID. Mind here, once the source is deleted this resources will no longer exist.
+    /// ```sh
+    /// $ pulumi import okta:profile/mapping:Mapping example &amp;#60;id&amp;#62;
+    /// ```
     /// </summary>
     [OktaResourceType("okta:profile/mapping:Mapping")]
     public partial class Mapping : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether apply the changes to all users with this profile after updating or creating the these mappings.
-        /// 
-        /// &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-        /// 
-        /// &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+        /// &gt; **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+        /// &gt; **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         /// </summary>
         [Output("alwaysApply")]
         public Output<bool?> AlwaysApply { get; private set; } = null!;
 
         /// <summary>
-        /// Tells the provider whether to attempt to delete missing mappings under profile mapping.
+        /// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
         /// </summary>
         [Output("deleteWhenAbsent")]
         public Output<bool?> DeleteWhenAbsent { get; private set; } = null!;
 
-        /// <summary>
-        /// Priority of the policy.
-        /// </summary>
         [Output("mappings")]
         public Output<ImmutableArray<Outputs.MappingMapping>> Mappings { get; private set; } = null!;
 
         /// <summary>
-        /// Source id of the profile mapping.
+        /// The source id of the mapping to manage.
         /// </summary>
         [Output("sourceId")]
         public Output<string> SourceId { get; private set; } = null!;
@@ -107,7 +102,7 @@ namespace Pulumi.Okta.Profile
         public Output<string> SourceType { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the mapping target.
+        /// The target id of the mapping to manage.
         /// </summary>
         [Output("targetId")]
         public Output<string> TargetId { get; private set; } = null!;
@@ -172,26 +167,20 @@ namespace Pulumi.Okta.Profile
     {
         /// <summary>
         /// Whether apply the changes to all users with this profile after updating or creating the these mappings.
-        /// 
-        /// &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-        /// 
-        /// &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+        /// &gt; **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+        /// &gt; **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         /// </summary>
         [Input("alwaysApply")]
         public Input<bool>? AlwaysApply { get; set; }
 
         /// <summary>
-        /// Tells the provider whether to attempt to delete missing mappings under profile mapping.
+        /// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
         /// </summary>
         [Input("deleteWhenAbsent")]
         public Input<bool>? DeleteWhenAbsent { get; set; }
 
         [Input("mappings")]
         private InputList<Inputs.MappingMappingArgs>? _mappings;
-
-        /// <summary>
-        /// Priority of the policy.
-        /// </summary>
         public InputList<Inputs.MappingMappingArgs> Mappings
         {
             get => _mappings ?? (_mappings = new InputList<Inputs.MappingMappingArgs>());
@@ -199,13 +188,13 @@ namespace Pulumi.Okta.Profile
         }
 
         /// <summary>
-        /// Source id of the profile mapping.
+        /// The source id of the mapping to manage.
         /// </summary>
         [Input("sourceId", required: true)]
         public Input<string> SourceId { get; set; } = null!;
 
         /// <summary>
-        /// ID of the mapping target.
+        /// The target id of the mapping to manage.
         /// </summary>
         [Input("targetId", required: true)]
         public Input<string> TargetId { get; set; } = null!;
@@ -220,26 +209,20 @@ namespace Pulumi.Okta.Profile
     {
         /// <summary>
         /// Whether apply the changes to all users with this profile after updating or creating the these mappings.
-        /// 
-        /// &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-        /// 
-        /// &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+        /// &gt; **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+        /// &gt; **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         /// </summary>
         [Input("alwaysApply")]
         public Input<bool>? AlwaysApply { get; set; }
 
         /// <summary>
-        /// Tells the provider whether to attempt to delete missing mappings under profile mapping.
+        /// When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
         /// </summary>
         [Input("deleteWhenAbsent")]
         public Input<bool>? DeleteWhenAbsent { get; set; }
 
         [Input("mappings")]
         private InputList<Inputs.MappingMappingGetArgs>? _mappings;
-
-        /// <summary>
-        /// Priority of the policy.
-        /// </summary>
         public InputList<Inputs.MappingMappingGetArgs> Mappings
         {
             get => _mappings ?? (_mappings = new InputList<Inputs.MappingMappingGetArgs>());
@@ -247,7 +230,7 @@ namespace Pulumi.Okta.Profile
         }
 
         /// <summary>
-        /// Source id of the profile mapping.
+        /// The source id of the mapping to manage.
         /// </summary>
         [Input("sourceId")]
         public Input<string>? SourceId { get; set; }
@@ -265,7 +248,7 @@ namespace Pulumi.Okta.Profile
         public Input<string>? SourceType { get; set; }
 
         /// <summary>
-        /// ID of the mapping target.
+        /// The target id of the mapping to manage.
         /// </summary>
         [Input("targetId")]
         public Input<string>? TargetId { get; set; }

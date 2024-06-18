@@ -37,25 +37,27 @@ class GroupSchemaPropertyArgs:
                  unique: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GroupSchemaProperty resource.
-        :param pulumi.Input[str] index: The property name.
-        :param pulumi.Input[str] title: The display name.
-        :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        :param pulumi.Input[str] index: Subschema unique string identifier
+        :param pulumi.Input[str] title: Subschema title (display name)
+        :param pulumi.Input[str] type: The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]] array_one_ofs: Display name and value an enum array can be set to.
-        :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `"array"`.
-        :param pulumi.Input[str] description: The description of the group schema property.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+               - (Required) display name for the enum value.
+        :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `array`
+        :param pulumi.Input[str] description: The description of the user schema property.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
-        :param pulumi.Input[str] external_name: External name of the group schema property.
-        :param pulumi.Input[str] external_namespace: External name of the group schema property.
-        :param pulumi.Input[str] master: Master priority for the group schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]] master_override_priorities: Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
-        :param pulumi.Input[int] max_length: The maximum length of the group property value. Only applies to type `"string"`.
-        :param pulumi.Input[int] min_length: The minimum length of the group property value. Only applies to type `"string"`.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value.
-        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for this group.
-        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
-        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+        :param pulumi.Input[str] external_name: External name of the user schema property.
+        :param pulumi.Input[str] external_namespace: External namespace of the user schema property.
+        :param pulumi.Input[str] master: Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
+               `PROFILE_MASTER`
+        :param pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]] master_override_priorities: Prioritized list of profile sources (required when `master` is `OVERRIDE`).
+        :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `string`
+        :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `string`
+        :param pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+               'enum'. - 'title' - (Required) display name for the enum value.
+        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
+        :param pulumi.Input[bool] required: Whether the subschema is required
+        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         """
         pulumi.set(__self__, "index", index)
         pulumi.set(__self__, "title", title)
@@ -97,7 +99,7 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter
     def index(self) -> pulumi.Input[str]:
         """
-        The property name.
+        Subschema unique string identifier
         """
         return pulumi.get(self, "index")
 
@@ -109,7 +111,7 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
         """
-        The display name.
+        Subschema title (display name)
         """
         return pulumi.get(self, "title")
 
@@ -121,7 +123,7 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
         """
         return pulumi.get(self, "type")
 
@@ -145,7 +147,8 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter(name="arrayOneOfs")
     def array_one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]]]:
         """
-        Display name and value an enum array can be set to.
+        Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+        - (Required) display name for the enum value.
         """
         return pulumi.get(self, "array_one_ofs")
 
@@ -157,7 +160,7 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter(name="arrayType")
     def array_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the array elements if `type` is set to `"array"`.
+        The type of the array elements if `type` is set to `array`
         """
         return pulumi.get(self, "array_type")
 
@@ -169,7 +172,7 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the group schema property.
+        The description of the user schema property.
         """
         return pulumi.get(self, "description")
 
@@ -193,7 +196,7 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter(name="externalName")
     def external_name(self) -> Optional[pulumi.Input[str]]:
         """
-        External name of the group schema property.
+        External name of the user schema property.
         """
         return pulumi.get(self, "external_name")
 
@@ -205,7 +208,7 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter(name="externalNamespace")
     def external_namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        External name of the group schema property.
+        External namespace of the user schema property.
         """
         return pulumi.get(self, "external_namespace")
 
@@ -217,7 +220,8 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter
     def master(self) -> Optional[pulumi.Input[str]]:
         """
-        Master priority for the group schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
+        Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
+        `PROFILE_MASTER`
         """
         return pulumi.get(self, "master")
 
@@ -229,7 +233,7 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter(name="masterOverridePriorities")
     def master_override_priorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]]]:
         """
-        Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+        Prioritized list of profile sources (required when `master` is `OVERRIDE`).
         """
         return pulumi.get(self, "master_override_priorities")
 
@@ -241,7 +245,7 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter(name="maxLength")
     def max_length(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum length of the group property value. Only applies to type `"string"`.
+        The maximum length of the user property value. Only applies to type `string`
         """
         return pulumi.get(self, "max_length")
 
@@ -253,7 +257,7 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter(name="minLength")
     def min_length(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum length of the group property value. Only applies to type `"string"`.
+        The minimum length of the user property value. Only applies to type `string`
         """
         return pulumi.get(self, "min_length")
 
@@ -265,7 +269,8 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter(name="oneOfs")
     def one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]]]:
         """
-        Array of maps containing a mapping for display name to enum value.
+        Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+        'enum'. - 'title' - (Required) display name for the enum value.
         """
         return pulumi.get(self, "one_ofs")
 
@@ -277,7 +282,7 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[str]]:
         """
-        Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+        Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
         """
         return pulumi.get(self, "permissions")
 
@@ -289,7 +294,7 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter
     def required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the property is required for this group.
+        Whether the subschema is required
         """
         return pulumi.get(self, "required")
 
@@ -300,9 +305,6 @@ class GroupSchemaPropertyArgs:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
-        """
-        determines whether an app user attribute can be set at the Individual or Group Level.
-        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -313,7 +315,7 @@ class GroupSchemaPropertyArgs:
     @pulumi.getter
     def unique(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+        Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         """
         return pulumi.get(self, "unique")
 
@@ -347,24 +349,26 @@ class _GroupSchemaPropertyState:
         """
         Input properties used for looking up and filtering GroupSchemaProperty resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]] array_one_ofs: Display name and value an enum array can be set to.
-        :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `"array"`.
-        :param pulumi.Input[str] description: The description of the group schema property.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+               - (Required) display name for the enum value.
+        :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `array`
+        :param pulumi.Input[str] description: The description of the user schema property.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
-        :param pulumi.Input[str] external_name: External name of the group schema property.
-        :param pulumi.Input[str] external_namespace: External name of the group schema property.
-        :param pulumi.Input[str] index: The property name.
-        :param pulumi.Input[str] master: Master priority for the group schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]] master_override_priorities: Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
-        :param pulumi.Input[int] max_length: The maximum length of the group property value. Only applies to type `"string"`.
-        :param pulumi.Input[int] min_length: The minimum length of the group property value. Only applies to type `"string"`.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value.
-        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for this group.
-        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
-        :param pulumi.Input[str] title: The display name.
-        :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+        :param pulumi.Input[str] external_name: External name of the user schema property.
+        :param pulumi.Input[str] external_namespace: External namespace of the user schema property.
+        :param pulumi.Input[str] index: Subschema unique string identifier
+        :param pulumi.Input[str] master: Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
+               `PROFILE_MASTER`
+        :param pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]] master_override_priorities: Prioritized list of profile sources (required when `master` is `OVERRIDE`).
+        :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `string`
+        :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `string`
+        :param pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+               'enum'. - 'title' - (Required) display name for the enum value.
+        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
+        :param pulumi.Input[bool] required: Whether the subschema is required
+        :param pulumi.Input[str] title: Subschema title (display name)
+        :param pulumi.Input[str] type: The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
+        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         """
         if array_enums is not None:
             pulumi.set(__self__, "array_enums", array_enums)
@@ -421,7 +425,8 @@ class _GroupSchemaPropertyState:
     @pulumi.getter(name="arrayOneOfs")
     def array_one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]]]:
         """
-        Display name and value an enum array can be set to.
+        Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+        - (Required) display name for the enum value.
         """
         return pulumi.get(self, "array_one_ofs")
 
@@ -433,7 +438,7 @@ class _GroupSchemaPropertyState:
     @pulumi.getter(name="arrayType")
     def array_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the array elements if `type` is set to `"array"`.
+        The type of the array elements if `type` is set to `array`
         """
         return pulumi.get(self, "array_type")
 
@@ -445,7 +450,7 @@ class _GroupSchemaPropertyState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the group schema property.
+        The description of the user schema property.
         """
         return pulumi.get(self, "description")
 
@@ -469,7 +474,7 @@ class _GroupSchemaPropertyState:
     @pulumi.getter(name="externalName")
     def external_name(self) -> Optional[pulumi.Input[str]]:
         """
-        External name of the group schema property.
+        External name of the user schema property.
         """
         return pulumi.get(self, "external_name")
 
@@ -481,7 +486,7 @@ class _GroupSchemaPropertyState:
     @pulumi.getter(name="externalNamespace")
     def external_namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        External name of the group schema property.
+        External namespace of the user schema property.
         """
         return pulumi.get(self, "external_namespace")
 
@@ -493,7 +498,7 @@ class _GroupSchemaPropertyState:
     @pulumi.getter
     def index(self) -> Optional[pulumi.Input[str]]:
         """
-        The property name.
+        Subschema unique string identifier
         """
         return pulumi.get(self, "index")
 
@@ -505,7 +510,8 @@ class _GroupSchemaPropertyState:
     @pulumi.getter
     def master(self) -> Optional[pulumi.Input[str]]:
         """
-        Master priority for the group schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
+        Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
+        `PROFILE_MASTER`
         """
         return pulumi.get(self, "master")
 
@@ -517,7 +523,7 @@ class _GroupSchemaPropertyState:
     @pulumi.getter(name="masterOverridePriorities")
     def master_override_priorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]]]:
         """
-        Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+        Prioritized list of profile sources (required when `master` is `OVERRIDE`).
         """
         return pulumi.get(self, "master_override_priorities")
 
@@ -529,7 +535,7 @@ class _GroupSchemaPropertyState:
     @pulumi.getter(name="maxLength")
     def max_length(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum length of the group property value. Only applies to type `"string"`.
+        The maximum length of the user property value. Only applies to type `string`
         """
         return pulumi.get(self, "max_length")
 
@@ -541,7 +547,7 @@ class _GroupSchemaPropertyState:
     @pulumi.getter(name="minLength")
     def min_length(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum length of the group property value. Only applies to type `"string"`.
+        The minimum length of the user property value. Only applies to type `string`
         """
         return pulumi.get(self, "min_length")
 
@@ -553,7 +559,8 @@ class _GroupSchemaPropertyState:
     @pulumi.getter(name="oneOfs")
     def one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]]]:
         """
-        Array of maps containing a mapping for display name to enum value.
+        Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+        'enum'. - 'title' - (Required) display name for the enum value.
         """
         return pulumi.get(self, "one_ofs")
 
@@ -565,7 +572,7 @@ class _GroupSchemaPropertyState:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[str]]:
         """
-        Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+        Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
         """
         return pulumi.get(self, "permissions")
 
@@ -577,7 +584,7 @@ class _GroupSchemaPropertyState:
     @pulumi.getter
     def required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the property is required for this group.
+        Whether the subschema is required
         """
         return pulumi.get(self, "required")
 
@@ -588,9 +595,6 @@ class _GroupSchemaPropertyState:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
-        """
-        determines whether an app user attribute can be set at the Individual or Group Level.
-        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -601,7 +605,7 @@ class _GroupSchemaPropertyState:
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
         """
-        The display name.
+        Subschema title (display name)
         """
         return pulumi.get(self, "title")
 
@@ -613,7 +617,7 @@ class _GroupSchemaPropertyState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
         """
         return pulumi.get(self, "type")
 
@@ -625,7 +629,7 @@ class _GroupSchemaPropertyState:
     @pulumi.getter
     def unique(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+        Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         """
         return pulumi.get(self, "unique")
 
@@ -677,8 +681,6 @@ class GroupSchemaProperty(pulumi.CustomResource):
 
         ## Import
 
-        Group schema property can be imported via the property index.
-
         ```sh
         $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
         ```
@@ -686,24 +688,26 @@ class GroupSchemaProperty(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupSchemaPropertyArrayOneOfArgs']]]] array_one_ofs: Display name and value an enum array can be set to.
-        :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `"array"`.
-        :param pulumi.Input[str] description: The description of the group schema property.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupSchemaPropertyArrayOneOfArgs']]]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+               - (Required) display name for the enum value.
+        :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `array`
+        :param pulumi.Input[str] description: The description of the user schema property.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
-        :param pulumi.Input[str] external_name: External name of the group schema property.
-        :param pulumi.Input[str] external_namespace: External name of the group schema property.
-        :param pulumi.Input[str] index: The property name.
-        :param pulumi.Input[str] master: Master priority for the group schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupSchemaPropertyMasterOverridePriorityArgs']]]] master_override_priorities: Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
-        :param pulumi.Input[int] max_length: The maximum length of the group property value. Only applies to type `"string"`.
-        :param pulumi.Input[int] min_length: The minimum length of the group property value. Only applies to type `"string"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
-        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for this group.
-        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
-        :param pulumi.Input[str] title: The display name.
-        :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+        :param pulumi.Input[str] external_name: External name of the user schema property.
+        :param pulumi.Input[str] external_namespace: External namespace of the user schema property.
+        :param pulumi.Input[str] index: Subschema unique string identifier
+        :param pulumi.Input[str] master: Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
+               `PROFILE_MASTER`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupSchemaPropertyMasterOverridePriorityArgs']]]] master_override_priorities: Prioritized list of profile sources (required when `master` is `OVERRIDE`).
+        :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `string`
+        :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `string`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+               'enum'. - 'title' - (Required) display name for the enum value.
+        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
+        :param pulumi.Input[bool] required: Whether the subschema is required
+        :param pulumi.Input[str] title: Subschema title (display name)
+        :param pulumi.Input[str] type: The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
+        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         """
         ...
     @overload
@@ -728,8 +732,6 @@ class GroupSchemaProperty(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Group schema property can be imported via the property index.
 
         ```sh
         $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
@@ -840,24 +842,26 @@ class GroupSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupSchemaPropertyArrayOneOfArgs']]]] array_one_ofs: Display name and value an enum array can be set to.
-        :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `"array"`.
-        :param pulumi.Input[str] description: The description of the group schema property.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupSchemaPropertyArrayOneOfArgs']]]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+               - (Required) display name for the enum value.
+        :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `array`
+        :param pulumi.Input[str] description: The description of the user schema property.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
-        :param pulumi.Input[str] external_name: External name of the group schema property.
-        :param pulumi.Input[str] external_namespace: External name of the group schema property.
-        :param pulumi.Input[str] index: The property name.
-        :param pulumi.Input[str] master: Master priority for the group schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupSchemaPropertyMasterOverridePriorityArgs']]]] master_override_priorities: Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
-        :param pulumi.Input[int] max_length: The maximum length of the group property value. Only applies to type `"string"`.
-        :param pulumi.Input[int] min_length: The minimum length of the group property value. Only applies to type `"string"`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
-        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
-        :param pulumi.Input[bool] required: Whether the property is required for this group.
-        :param pulumi.Input[str] scope: determines whether an app user attribute can be set at the Individual or Group Level.
-        :param pulumi.Input[str] title: The display name.
-        :param pulumi.Input[str] type: The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
-        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+        :param pulumi.Input[str] external_name: External name of the user schema property.
+        :param pulumi.Input[str] external_namespace: External namespace of the user schema property.
+        :param pulumi.Input[str] index: Subschema unique string identifier
+        :param pulumi.Input[str] master: Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
+               `PROFILE_MASTER`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupSchemaPropertyMasterOverridePriorityArgs']]]] master_override_priorities: Prioritized list of profile sources (required when `master` is `OVERRIDE`).
+        :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `string`
+        :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `string`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+               'enum'. - 'title' - (Required) display name for the enum value.
+        :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
+        :param pulumi.Input[bool] required: Whether the subschema is required
+        :param pulumi.Input[str] title: Subschema title (display name)
+        :param pulumi.Input[str] type: The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
+        :param pulumi.Input[str] unique: Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -896,7 +900,8 @@ class GroupSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="arrayOneOfs")
     def array_one_ofs(self) -> pulumi.Output[Optional[Sequence['outputs.GroupSchemaPropertyArrayOneOf']]]:
         """
-        Display name and value an enum array can be set to.
+        Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+        - (Required) display name for the enum value.
         """
         return pulumi.get(self, "array_one_ofs")
 
@@ -904,7 +909,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="arrayType")
     def array_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of the array elements if `type` is set to `"array"`.
+        The type of the array elements if `type` is set to `array`
         """
         return pulumi.get(self, "array_type")
 
@@ -912,7 +917,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the group schema property.
+        The description of the user schema property.
         """
         return pulumi.get(self, "description")
 
@@ -928,7 +933,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="externalName")
     def external_name(self) -> pulumi.Output[Optional[str]]:
         """
-        External name of the group schema property.
+        External name of the user schema property.
         """
         return pulumi.get(self, "external_name")
 
@@ -936,7 +941,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="externalNamespace")
     def external_namespace(self) -> pulumi.Output[Optional[str]]:
         """
-        External name of the group schema property.
+        External namespace of the user schema property.
         """
         return pulumi.get(self, "external_namespace")
 
@@ -944,7 +949,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def index(self) -> pulumi.Output[str]:
         """
-        The property name.
+        Subschema unique string identifier
         """
         return pulumi.get(self, "index")
 
@@ -952,7 +957,8 @@ class GroupSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def master(self) -> pulumi.Output[Optional[str]]:
         """
-        Master priority for the group schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
+        Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
+        `PROFILE_MASTER`
         """
         return pulumi.get(self, "master")
 
@@ -960,7 +966,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="masterOverridePriorities")
     def master_override_priorities(self) -> pulumi.Output[Optional[Sequence['outputs.GroupSchemaPropertyMasterOverridePriority']]]:
         """
-        Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+        Prioritized list of profile sources (required when `master` is `OVERRIDE`).
         """
         return pulumi.get(self, "master_override_priorities")
 
@@ -968,7 +974,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="maxLength")
     def max_length(self) -> pulumi.Output[Optional[int]]:
         """
-        The maximum length of the group property value. Only applies to type `"string"`.
+        The maximum length of the user property value. Only applies to type `string`
         """
         return pulumi.get(self, "max_length")
 
@@ -976,7 +982,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="minLength")
     def min_length(self) -> pulumi.Output[Optional[int]]:
         """
-        The minimum length of the group property value. Only applies to type `"string"`.
+        The minimum length of the user property value. Only applies to type `string`
         """
         return pulumi.get(self, "min_length")
 
@@ -984,7 +990,8 @@ class GroupSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="oneOfs")
     def one_ofs(self) -> pulumi.Output[Optional[Sequence['outputs.GroupSchemaPropertyOneOf']]]:
         """
-        Array of maps containing a mapping for display name to enum value.
+        Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+        'enum'. - 'title' - (Required) display name for the enum value.
         """
         return pulumi.get(self, "one_ofs")
 
@@ -992,7 +999,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[str]]:
         """
-        Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+        Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
         """
         return pulumi.get(self, "permissions")
 
@@ -1000,23 +1007,20 @@ class GroupSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def required(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the property is required for this group.
+        Whether the subschema is required
         """
         return pulumi.get(self, "required")
 
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Output[Optional[str]]:
-        """
-        determines whether an app user attribute can be set at the Individual or Group Level.
-        """
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter
     def title(self) -> pulumi.Output[str]:
         """
-        The display name.
+        Subschema title (display name)
         """
         return pulumi.get(self, "title")
 
@@ -1024,7 +1028,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+        The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
         """
         return pulumi.get(self, "type")
 
@@ -1032,7 +1036,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def unique(self) -> pulumi.Output[Optional[str]]:
         """
-        Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+        Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         """
         return pulumi.get(self, "unique")
 

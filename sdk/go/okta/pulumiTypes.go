@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AppGroupAssignmentsGroup struct {
-	// ID of the group to assign.
+	// A group to associate with the application
 	Id string `pulumi:"id"`
 	// Priority of group assignment
 	Priority *int `pulumi:"priority"`
@@ -34,7 +34,7 @@ type AppGroupAssignmentsGroupInput interface {
 }
 
 type AppGroupAssignmentsGroupArgs struct {
-	// ID of the group to assign.
+	// A group to associate with the application
 	Id pulumi.StringInput `pulumi:"id"`
 	// Priority of group assignment
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
@@ -93,7 +93,7 @@ func (o AppGroupAssignmentsGroupOutput) ToAppGroupAssignmentsGroupOutputWithCont
 	return o
 }
 
-// ID of the group to assign.
+// A group to associate with the application
 func (o AppGroupAssignmentsGroupOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AppGroupAssignmentsGroup) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -129,12 +129,10 @@ func (o AppGroupAssignmentsGroupArrayOutput) Index(i pulumi.IntInput) AppGroupAs
 }
 
 type AppSignonPolicyRulePlatformInclude struct {
-	// Only available and required when using `osType = "OTHER"`
+	// Only available with OTHER OS type
 	OsExpression *string `pulumi:"osExpression"`
-	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
-	OsType *string `pulumi:"osType"`
-	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-	Type *string `pulumi:"type"`
+	OsType       *string `pulumi:"osType"`
+	Type         *string `pulumi:"type"`
 }
 
 // AppSignonPolicyRulePlatformIncludeInput is an input type that accepts AppSignonPolicyRulePlatformIncludeArgs and AppSignonPolicyRulePlatformIncludeOutput values.
@@ -149,12 +147,10 @@ type AppSignonPolicyRulePlatformIncludeInput interface {
 }
 
 type AppSignonPolicyRulePlatformIncludeArgs struct {
-	// Only available and required when using `osType = "OTHER"`
+	// Only available with OTHER OS type
 	OsExpression pulumi.StringPtrInput `pulumi:"osExpression"`
-	// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	OsType       pulumi.StringPtrInput `pulumi:"osType"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (AppSignonPolicyRulePlatformIncludeArgs) ElementType() reflect.Type {
@@ -208,17 +204,15 @@ func (o AppSignonPolicyRulePlatformIncludeOutput) ToAppSignonPolicyRulePlatformI
 	return o
 }
 
-// Only available and required when using `osType = "OTHER"`
+// Only available with OTHER OS type
 func (o AppSignonPolicyRulePlatformIncludeOutput) OsExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppSignonPolicyRulePlatformInclude) *string { return v.OsExpression }).(pulumi.StringPtrOutput)
 }
 
-// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
 func (o AppSignonPolicyRulePlatformIncludeOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppSignonPolicyRulePlatformInclude) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
 func (o AppSignonPolicyRulePlatformIncludeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppSignonPolicyRulePlatformInclude) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -244,9 +238,9 @@ func (o AppSignonPolicyRulePlatformIncludeArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type AppUserSchemaPropertyArrayOneOf struct {
-	// value mapping to member of `arrayEnum`.
+	// Value mapping to member of `arrayEnum`
 	Const string `pulumi:"const"`
-	// display name for the enum value.
+	// Display name for the enum value.
 	Title string `pulumi:"title"`
 }
 
@@ -262,9 +256,9 @@ type AppUserSchemaPropertyArrayOneOfInput interface {
 }
 
 type AppUserSchemaPropertyArrayOneOfArgs struct {
-	// value mapping to member of `arrayEnum`.
+	// Value mapping to member of `arrayEnum`
 	Const pulumi.StringInput `pulumi:"const"`
-	// display name for the enum value.
+	// Display name for the enum value.
 	Title pulumi.StringInput `pulumi:"title"`
 }
 
@@ -319,12 +313,12 @@ func (o AppUserSchemaPropertyArrayOneOfOutput) ToAppUserSchemaPropertyArrayOneOf
 	return o
 }
 
-// value mapping to member of `arrayEnum`.
+// Value mapping to member of `arrayEnum`
 func (o AppUserSchemaPropertyArrayOneOfOutput) Const() pulumi.StringOutput {
 	return o.ApplyT(func(v AppUserSchemaPropertyArrayOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
-// display name for the enum value.
+// Display name for the enum value.
 func (o AppUserSchemaPropertyArrayOneOfOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v AppUserSchemaPropertyArrayOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -350,9 +344,9 @@ func (o AppUserSchemaPropertyArrayOneOfArrayOutput) Index(i pulumi.IntInput) App
 }
 
 type AppUserSchemaPropertyOneOf struct {
-	// value mapping to member of `enum`.
+	// Enum value
 	Const string `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title string `pulumi:"title"`
 }
 
@@ -368,9 +362,9 @@ type AppUserSchemaPropertyOneOfInput interface {
 }
 
 type AppUserSchemaPropertyOneOfArgs struct {
-	// value mapping to member of `enum`.
+	// Enum value
 	Const pulumi.StringInput `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title pulumi.StringInput `pulumi:"title"`
 }
 
@@ -425,12 +419,12 @@ func (o AppUserSchemaPropertyOneOfOutput) ToAppUserSchemaPropertyOneOfOutputWith
 	return o
 }
 
-// value mapping to member of `enum`.
+// Enum value
 func (o AppUserSchemaPropertyOneOfOutput) Const() pulumi.StringOutput {
 	return o.ApplyT(func(v AppUserSchemaPropertyOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
-// display name for the enum value.
+// Enum title
 func (o AppUserSchemaPropertyOneOfOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v AppUserSchemaPropertyOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -1058,11 +1052,11 @@ func (o CustomizedSigninPageWidgetCustomizationsPtrOutput) WidgetGeneration() pu
 }
 
 type DomainDnsRecord struct {
-	// TXT record expiration.
+	// TXT record expiration
 	Expiration *string `pulumi:"expiration"`
-	// DNS record name.
+	// DNS record name
 	Fqdn *string `pulumi:"fqdn"`
-	// Record type can be TXT or CNAME.
+	// Record type can be TXT or CNAME
 	RecordType *string `pulumi:"recordType"`
 	// DNS verification value
 	Values []string `pulumi:"values"`
@@ -1080,11 +1074,11 @@ type DomainDnsRecordInput interface {
 }
 
 type DomainDnsRecordArgs struct {
-	// TXT record expiration.
+	// TXT record expiration
 	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
-	// DNS record name.
+	// DNS record name
 	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Record type can be TXT or CNAME.
+	// Record type can be TXT or CNAME
 	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
 	// DNS verification value
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -1141,17 +1135,17 @@ func (o DomainDnsRecordOutput) ToDomainDnsRecordOutputWithContext(ctx context.Co
 	return o
 }
 
-// TXT record expiration.
+// TXT record expiration
 func (o DomainDnsRecordOutput) Expiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDnsRecord) *string { return v.Expiration }).(pulumi.StringPtrOutput)
 }
 
-// DNS record name.
+// DNS record name
 func (o DomainDnsRecordOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDnsRecord) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// Record type can be TXT or CNAME.
+// Record type can be TXT or CNAME
 func (o DomainDnsRecordOutput) RecordType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDnsRecord) *string { return v.RecordType }).(pulumi.StringPtrOutput)
 }
@@ -1186,12 +1180,11 @@ type EmailDomainDnsValidationRecord struct {
 	//
 	// Deprecated: This field has been removed in the newest go sdk version and has become noop
 	Expiration *string `pulumi:"expiration"`
-	// DNS record name.
+	// DNS record name
 	Fqdn *string `pulumi:"fqdn"`
-	// Record type can be TXT or cname.
+	// Record type can be TXT or cname
 	RecordType *string `pulumi:"recordType"`
 	// DNS record value
-	// - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
 	Value *string `pulumi:"value"`
 }
 
@@ -1211,12 +1204,11 @@ type EmailDomainDnsValidationRecordArgs struct {
 	//
 	// Deprecated: This field has been removed in the newest go sdk version and has become noop
 	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
-	// DNS record name.
+	// DNS record name
 	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Record type can be TXT or cname.
+	// Record type can be TXT or cname
 	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
 	// DNS record value
-	// - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1278,18 +1270,17 @@ func (o EmailDomainDnsValidationRecordOutput) Expiration() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.Expiration }).(pulumi.StringPtrOutput)
 }
 
-// DNS record name.
+// DNS record name
 func (o EmailDomainDnsValidationRecordOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// Record type can be TXT or cname.
+// Record type can be TXT or cname
 func (o EmailDomainDnsValidationRecordOutput) RecordType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.RecordType }).(pulumi.StringPtrOutput)
 }
 
 // DNS record value
-// - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
 func (o EmailDomainDnsValidationRecordOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailDomainDnsValidationRecord) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1315,9 +1306,9 @@ func (o EmailDomainDnsValidationRecordArrayOutput) Index(i pulumi.IntInput) Emai
 }
 
 type EmailSenderDnsRecord struct {
-	// DNS record name.
+	// DNS record name
 	Fqdn *string `pulumi:"fqdn"`
-	// Record type can be TXT or CNAME.
+	// Record type can be TXT or CNAME
 	RecordType *string `pulumi:"recordType"`
 	// DNS verification value
 	Value *string `pulumi:"value"`
@@ -1335,9 +1326,9 @@ type EmailSenderDnsRecordInput interface {
 }
 
 type EmailSenderDnsRecordArgs struct {
-	// DNS record name.
+	// DNS record name
 	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Record type can be TXT or CNAME.
+	// Record type can be TXT or CNAME
 	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
 	// DNS verification value
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -1394,12 +1385,12 @@ func (o EmailSenderDnsRecordOutput) ToEmailSenderDnsRecordOutputWithContext(ctx 
 	return o
 }
 
-// DNS record name.
+// DNS record name
 func (o EmailSenderDnsRecordOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailSenderDnsRecord) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// Record type can be TXT or CNAME.
+// Record type can be TXT or CNAME
 func (o EmailSenderDnsRecordOutput) RecordType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailSenderDnsRecord) *string { return v.RecordType }).(pulumi.StringPtrOutput)
 }
@@ -1530,9 +1521,9 @@ func (o EventHookHeaderArrayOutput) Index(i pulumi.IntInput) EventHookHeaderOutp
 }
 
 type GroupSchemaPropertyArrayOneOf struct {
-	// value mapping to member of `enum`.
+	// Value mapping to member of `arrayEnum`
 	Const string `pulumi:"const"`
-	// display name for the enum value.
+	// Display name for the enum value.
 	Title string `pulumi:"title"`
 }
 
@@ -1548,9 +1539,9 @@ type GroupSchemaPropertyArrayOneOfInput interface {
 }
 
 type GroupSchemaPropertyArrayOneOfArgs struct {
-	// value mapping to member of `enum`.
+	// Value mapping to member of `arrayEnum`
 	Const pulumi.StringInput `pulumi:"const"`
-	// display name for the enum value.
+	// Display name for the enum value.
 	Title pulumi.StringInput `pulumi:"title"`
 }
 
@@ -1605,12 +1596,12 @@ func (o GroupSchemaPropertyArrayOneOfOutput) ToGroupSchemaPropertyArrayOneOfOutp
 	return o
 }
 
-// value mapping to member of `enum`.
+// Value mapping to member of `arrayEnum`
 func (o GroupSchemaPropertyArrayOneOfOutput) Const() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupSchemaPropertyArrayOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
-// display name for the enum value.
+// Display name for the enum value.
 func (o GroupSchemaPropertyArrayOneOfOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupSchemaPropertyArrayOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -1636,10 +1627,8 @@ func (o GroupSchemaPropertyArrayOneOfArrayOutput) Index(i pulumi.IntInput) Group
 }
 
 type GroupSchemaPropertyMasterOverridePriority struct {
-	// Type of profile source.
-	Type *string `pulumi:"type"`
-	// ID of profile source.
-	Value string `pulumi:"value"`
+	Type  *string `pulumi:"type"`
+	Value string  `pulumi:"value"`
 }
 
 // GroupSchemaPropertyMasterOverridePriorityInput is an input type that accepts GroupSchemaPropertyMasterOverridePriorityArgs and GroupSchemaPropertyMasterOverridePriorityOutput values.
@@ -1654,10 +1643,8 @@ type GroupSchemaPropertyMasterOverridePriorityInput interface {
 }
 
 type GroupSchemaPropertyMasterOverridePriorityArgs struct {
-	// Type of profile source.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// ID of profile source.
-	Value pulumi.StringInput `pulumi:"value"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
+	Value pulumi.StringInput    `pulumi:"value"`
 }
 
 func (GroupSchemaPropertyMasterOverridePriorityArgs) ElementType() reflect.Type {
@@ -1711,12 +1698,10 @@ func (o GroupSchemaPropertyMasterOverridePriorityOutput) ToGroupSchemaPropertyMa
 	return o
 }
 
-// Type of profile source.
 func (o GroupSchemaPropertyMasterOverridePriorityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupSchemaPropertyMasterOverridePriority) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// ID of profile source.
 func (o GroupSchemaPropertyMasterOverridePriorityOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupSchemaPropertyMasterOverridePriority) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1742,9 +1727,9 @@ func (o GroupSchemaPropertyMasterOverridePriorityArrayOutput) Index(i pulumi.Int
 }
 
 type GroupSchemaPropertyOneOf struct {
-	// value mapping to member of `enum`.
+	// Enum value
 	Const string `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title string `pulumi:"title"`
 }
 
@@ -1760,9 +1745,9 @@ type GroupSchemaPropertyOneOfInput interface {
 }
 
 type GroupSchemaPropertyOneOfArgs struct {
-	// value mapping to member of `enum`.
+	// Enum value
 	Const pulumi.StringInput `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title pulumi.StringInput `pulumi:"title"`
 }
 
@@ -1817,12 +1802,12 @@ func (o GroupSchemaPropertyOneOfOutput) ToGroupSchemaPropertyOneOfOutputWithCont
 	return o
 }
 
-// value mapping to member of `enum`.
+// Enum value
 func (o GroupSchemaPropertyOneOfOutput) Const() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupSchemaPropertyOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
-// display name for the enum value.
+// Enum title
 func (o GroupSchemaPropertyOneOfOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupSchemaPropertyOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -1848,17 +1833,17 @@ func (o GroupSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) GroupSchem
 }
 
 type LogStreamSettings struct {
-	// AWS account ID.
+	// AWS account ID. Required only for 'aws_eventbridge' type
 	AccountId *string `pulumi:"accountId"`
-	// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
+	// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
 	Edition *string `pulumi:"edition"`
-	// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+	// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
 	EventSourceName *string `pulumi:"eventSourceName"`
-	// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
+	// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
 	Host *string `pulumi:"host"`
-	// The destination AWS region where event source is located.
+	// The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
 	Region *string `pulumi:"region"`
-	// The HEC token for your Splunk Cloud HTTP Event Collector.
+	// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
 	Token *string `pulumi:"token"`
 }
 
@@ -1874,17 +1859,17 @@ type LogStreamSettingsInput interface {
 }
 
 type LogStreamSettingsArgs struct {
-	// AWS account ID.
+	// AWS account ID. Required only for 'aws_eventbridge' type
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
+	// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
 	Edition pulumi.StringPtrInput `pulumi:"edition"`
-	// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+	// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
 	EventSourceName pulumi.StringPtrInput `pulumi:"eventSourceName"`
-	// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
+	// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	// The destination AWS region where event source is located.
+	// The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The HEC token for your Splunk Cloud HTTP Event Collector.
+	// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
 	Token pulumi.StringPtrInput `pulumi:"token"`
 }
 
@@ -1965,32 +1950,32 @@ func (o LogStreamSettingsOutput) ToLogStreamSettingsPtrOutputWithContext(ctx con
 	}).(LogStreamSettingsPtrOutput)
 }
 
-// AWS account ID.
+// AWS account ID. Required only for 'aws_eventbridge' type
 func (o LogStreamSettingsOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogStreamSettings) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
-// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
+// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
 func (o LogStreamSettingsOutput) Edition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogStreamSettings) *string { return v.Edition }).(pulumi.StringPtrOutput)
 }
 
-// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
 func (o LogStreamSettingsOutput) EventSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogStreamSettings) *string { return v.EventSourceName }).(pulumi.StringPtrOutput)
 }
 
-// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
+// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
 func (o LogStreamSettingsOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogStreamSettings) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// The destination AWS region where event source is located.
+// The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
 func (o LogStreamSettingsOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogStreamSettings) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// The HEC token for your Splunk Cloud HTTP Event Collector.
+// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
 func (o LogStreamSettingsOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogStreamSettings) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
@@ -2019,7 +2004,7 @@ func (o LogStreamSettingsPtrOutput) Elem() LogStreamSettingsOutput {
 	}).(LogStreamSettingsOutput)
 }
 
-// AWS account ID.
+// AWS account ID. Required only for 'aws_eventbridge' type
 func (o LogStreamSettingsPtrOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogStreamSettings) *string {
 		if v == nil {
@@ -2029,7 +2014,7 @@ func (o LogStreamSettingsPtrOutput) AccountId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
+// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
 func (o LogStreamSettingsPtrOutput) Edition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogStreamSettings) *string {
 		if v == nil {
@@ -2039,7 +2024,7 @@ func (o LogStreamSettingsPtrOutput) Edition() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
 func (o LogStreamSettingsPtrOutput) EventSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogStreamSettings) *string {
 		if v == nil {
@@ -2049,7 +2034,7 @@ func (o LogStreamSettingsPtrOutput) EventSourceName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
+// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
 func (o LogStreamSettingsPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogStreamSettings) *string {
 		if v == nil {
@@ -2059,7 +2044,7 @@ func (o LogStreamSettingsPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The destination AWS region where event source is located.
+// The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
 func (o LogStreamSettingsPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogStreamSettings) *string {
 		if v == nil {
@@ -2069,7 +2054,7 @@ func (o LogStreamSettingsPtrOutput) Region() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HEC token for your Splunk Cloud HTTP Event Collector.
+// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
 func (o LogStreamSettingsPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogStreamSettings) *string {
 		if v == nil {
@@ -2084,7 +2069,7 @@ type PolicyRuleProfileEnrollmentProfileAttribute struct {
 	Label string `pulumi:"label"`
 	// The name of a User Profile property
 	Name string `pulumi:"name"`
-	// Indicates if this property is required for enrollment. Default is `false`.
+	// Indicates if this property is required for enrollment
 	Required *bool `pulumi:"required"`
 }
 
@@ -2104,7 +2089,7 @@ type PolicyRuleProfileEnrollmentProfileAttributeArgs struct {
 	Label pulumi.StringInput `pulumi:"label"`
 	// The name of a User Profile property
 	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates if this property is required for enrollment. Default is `false`.
+	// Indicates if this property is required for enrollment
 	Required pulumi.BoolPtrInput `pulumi:"required"`
 }
 
@@ -2169,7 +2154,7 @@ func (o PolicyRuleProfileEnrollmentProfileAttributeOutput) Name() pulumi.StringO
 	return o.ApplyT(func(v PolicyRuleProfileEnrollmentProfileAttribute) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates if this property is required for enrollment. Default is `false`.
+// Indicates if this property is required for enrollment
 func (o PolicyRuleProfileEnrollmentProfileAttributeOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyRuleProfileEnrollmentProfileAttribute) *bool { return v.Required }).(pulumi.BoolPtrOutput)
 }
@@ -2903,9 +2888,9 @@ func (o TemplateSmsTranslationArrayOutput) Index(i pulumi.IntInput) TemplateSmsT
 }
 
 type UserSchemaPropertyArrayOneOf struct {
-	// value mapping to member of `enum`.
+	// Value mapping to member of `arrayEnum`
 	Const string `pulumi:"const"`
-	// display name for the enum value.
+	// Display name for the enum value.
 	Title string `pulumi:"title"`
 }
 
@@ -2921,9 +2906,9 @@ type UserSchemaPropertyArrayOneOfInput interface {
 }
 
 type UserSchemaPropertyArrayOneOfArgs struct {
-	// value mapping to member of `enum`.
+	// Value mapping to member of `arrayEnum`
 	Const pulumi.StringInput `pulumi:"const"`
-	// display name for the enum value.
+	// Display name for the enum value.
 	Title pulumi.StringInput `pulumi:"title"`
 }
 
@@ -2978,12 +2963,12 @@ func (o UserSchemaPropertyArrayOneOfOutput) ToUserSchemaPropertyArrayOneOfOutput
 	return o
 }
 
-// value mapping to member of `enum`.
+// Value mapping to member of `arrayEnum`
 func (o UserSchemaPropertyArrayOneOfOutput) Const() pulumi.StringOutput {
 	return o.ApplyT(func(v UserSchemaPropertyArrayOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
-// display name for the enum value.
+// Display name for the enum value.
 func (o UserSchemaPropertyArrayOneOfOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v UserSchemaPropertyArrayOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -3009,10 +2994,8 @@ func (o UserSchemaPropertyArrayOneOfArrayOutput) Index(i pulumi.IntInput) UserSc
 }
 
 type UserSchemaPropertyMasterOverridePriority struct {
-	// Type of profile source.
-	Type *string `pulumi:"type"`
-	// ID of profile source.
-	Value string `pulumi:"value"`
+	Type  *string `pulumi:"type"`
+	Value string  `pulumi:"value"`
 }
 
 // UserSchemaPropertyMasterOverridePriorityInput is an input type that accepts UserSchemaPropertyMasterOverridePriorityArgs and UserSchemaPropertyMasterOverridePriorityOutput values.
@@ -3027,10 +3010,8 @@ type UserSchemaPropertyMasterOverridePriorityInput interface {
 }
 
 type UserSchemaPropertyMasterOverridePriorityArgs struct {
-	// Type of profile source.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// ID of profile source.
-	Value pulumi.StringInput `pulumi:"value"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
+	Value pulumi.StringInput    `pulumi:"value"`
 }
 
 func (UserSchemaPropertyMasterOverridePriorityArgs) ElementType() reflect.Type {
@@ -3084,12 +3065,10 @@ func (o UserSchemaPropertyMasterOverridePriorityOutput) ToUserSchemaPropertyMast
 	return o
 }
 
-// Type of profile source.
 func (o UserSchemaPropertyMasterOverridePriorityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSchemaPropertyMasterOverridePriority) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// ID of profile source.
 func (o UserSchemaPropertyMasterOverridePriorityOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v UserSchemaPropertyMasterOverridePriority) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3115,9 +3094,9 @@ func (o UserSchemaPropertyMasterOverridePriorityArrayOutput) Index(i pulumi.IntI
 }
 
 type UserSchemaPropertyOneOf struct {
-	// value mapping to member of `enum`.
+	// Enum value
 	Const string `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title string `pulumi:"title"`
 }
 
@@ -3133,9 +3112,9 @@ type UserSchemaPropertyOneOfInput interface {
 }
 
 type UserSchemaPropertyOneOfArgs struct {
-	// value mapping to member of `enum`.
+	// Enum value
 	Const pulumi.StringInput `pulumi:"const"`
-	// display name for the enum value.
+	// Enum title
 	Title pulumi.StringInput `pulumi:"title"`
 }
 
@@ -3190,12 +3169,12 @@ func (o UserSchemaPropertyOneOfOutput) ToUserSchemaPropertyOneOfOutputWithContex
 	return o
 }
 
-// value mapping to member of `enum`.
+// Enum value
 func (o UserSchemaPropertyOneOfOutput) Const() pulumi.StringOutput {
 	return o.ApplyT(func(v UserSchemaPropertyOneOf) string { return v.Const }).(pulumi.StringOutput)
 }
 
-// display name for the enum value.
+// Enum title
 func (o UserSchemaPropertyOneOfOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v UserSchemaPropertyOneOf) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -3223,7 +3202,7 @@ func (o UserSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) UserSchemaP
 type GetAuthServerClaimsClaim struct {
 	// Specifies whether to include Claims in the token.
 	AlwaysIncludeInToken bool `pulumi:"alwaysIncludeInToken"`
-	// Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+	// Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`).
 	ClaimType string `pulumi:"claimType"`
 	// ID of the claim.
 	Id string `pulumi:"id"`
@@ -3233,9 +3212,9 @@ type GetAuthServerClaimsClaim struct {
 	Scopes []string `pulumi:"scopes"`
 	// Status of the claim.
 	Status string `pulumi:"status"`
-	// Value of the claim
+	// Value of the claim.
 	Value string `pulumi:"value"`
-	// Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+	// Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
 	ValueType string `pulumi:"valueType"`
 }
 
@@ -3253,7 +3232,7 @@ type GetAuthServerClaimsClaimInput interface {
 type GetAuthServerClaimsClaimArgs struct {
 	// Specifies whether to include Claims in the token.
 	AlwaysIncludeInToken pulumi.BoolInput `pulumi:"alwaysIncludeInToken"`
-	// Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+	// Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`).
 	ClaimType pulumi.StringInput `pulumi:"claimType"`
 	// ID of the claim.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -3263,9 +3242,9 @@ type GetAuthServerClaimsClaimArgs struct {
 	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
 	// Status of the claim.
 	Status pulumi.StringInput `pulumi:"status"`
-	// Value of the claim
+	// Value of the claim.
 	Value pulumi.StringInput `pulumi:"value"`
-	// Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+	// Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
 	ValueType pulumi.StringInput `pulumi:"valueType"`
 }
 
@@ -3325,7 +3304,7 @@ func (o GetAuthServerClaimsClaimOutput) AlwaysIncludeInToken() pulumi.BoolOutput
 	return o.ApplyT(func(v GetAuthServerClaimsClaim) bool { return v.AlwaysIncludeInToken }).(pulumi.BoolOutput)
 }
 
-// Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+// Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`).
 func (o GetAuthServerClaimsClaimOutput) ClaimType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.ClaimType }).(pulumi.StringOutput)
 }
@@ -3350,12 +3329,12 @@ func (o GetAuthServerClaimsClaimOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Value of the claim
+// Value of the claim.
 func (o GetAuthServerClaimsClaimOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.Value }).(pulumi.StringOutput)
 }
 
-// Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+// Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
 func (o GetAuthServerClaimsClaimOutput) ValueType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthServerClaimsClaim) string { return v.ValueType }).(pulumi.StringOutput)
 }
@@ -4249,11 +4228,11 @@ func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) WidgetGeneration() pu
 }
 
 type GetDomainDnsRecord struct {
-	// TXT record expiration.
+	// TXT record expiration
 	Expiration string `pulumi:"expiration"`
-	// DNS record name.
+	// DNS record name
 	Fqdn string `pulumi:"fqdn"`
-	// Record type can be TXT or CNAME.
+	// Record type can be TXT or CNAME
 	RecordType string `pulumi:"recordType"`
 	// DNS verification value
 	Values []string `pulumi:"values"`
@@ -4271,11 +4250,11 @@ type GetDomainDnsRecordInput interface {
 }
 
 type GetDomainDnsRecordArgs struct {
-	// TXT record expiration.
+	// TXT record expiration
 	Expiration pulumi.StringInput `pulumi:"expiration"`
-	// DNS record name.
+	// DNS record name
 	Fqdn pulumi.StringInput `pulumi:"fqdn"`
-	// Record type can be TXT or CNAME.
+	// Record type can be TXT or CNAME
 	RecordType pulumi.StringInput `pulumi:"recordType"`
 	// DNS verification value
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -4332,17 +4311,17 @@ func (o GetDomainDnsRecordOutput) ToGetDomainDnsRecordOutputWithContext(ctx cont
 	return o
 }
 
-// TXT record expiration.
+// TXT record expiration
 func (o GetDomainDnsRecordOutput) Expiration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainDnsRecord) string { return v.Expiration }).(pulumi.StringOutput)
 }
 
-// DNS record name.
+// DNS record name
 func (o GetDomainDnsRecordOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainDnsRecord) string { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// Record type can be TXT or CNAME.
+// Record type can be TXT or CNAME
 func (o GetDomainDnsRecordOutput) RecordType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainDnsRecord) string { return v.RecordType }).(pulumi.StringOutput)
 }
@@ -4515,7 +4494,7 @@ func (o GetEmailCustomizationsEmailCustomizationArrayOutput) Index(i pulumi.IntI
 }
 
 type GetGroupsGroup struct {
-	// raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+	// Raw JSON containing all custom profile attributes. Likely only useful on groups of type
 	CustomProfileAttributes string `pulumi:"customProfileAttributes"`
 	// Group description.
 	Description string `pulumi:"description"`
@@ -4523,8 +4502,7 @@ type GetGroupsGroup struct {
 	Id string `pulumi:"id"`
 	// Group name.
 	Name string `pulumi:"name"`
-	// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-	// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+	// Group type.
 	Type string `pulumi:"type"`
 }
 
@@ -4540,7 +4518,7 @@ type GetGroupsGroupInput interface {
 }
 
 type GetGroupsGroupArgs struct {
-	// raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+	// Raw JSON containing all custom profile attributes. Likely only useful on groups of type
 	CustomProfileAttributes pulumi.StringInput `pulumi:"customProfileAttributes"`
 	// Group description.
 	Description pulumi.StringInput `pulumi:"description"`
@@ -4548,8 +4526,7 @@ type GetGroupsGroupArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// Group name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-	// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+	// Group type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4604,7 +4581,7 @@ func (o GetGroupsGroupOutput) ToGetGroupsGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
-// raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+// Raw JSON containing all custom profile attributes. Likely only useful on groups of type
 func (o GetGroupsGroupOutput) CustomProfileAttributes() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.CustomProfileAttributes }).(pulumi.StringOutput)
 }
@@ -4624,8 +4601,7 @@ func (o GetGroupsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+// Group type.
 func (o GetGroupsGroupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4653,15 +4629,15 @@ func (o GetGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetGroupsGroupOutput
 type GetLogStreamSettings struct {
 	// AWS account ID. Required only for 'aws_eventbridge' type
 	AccountId string `pulumi:"accountId"`
-	// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+	// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
 	Edition string `pulumi:"edition"`
 	// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
 	EventSourceName string `pulumi:"eventSourceName"`
-	// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+	// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
 	Host string `pulumi:"host"`
 	// The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
 	Region string `pulumi:"region"`
-	// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+	// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
 	Token string `pulumi:"token"`
 }
 
@@ -4679,15 +4655,15 @@ type GetLogStreamSettingsInput interface {
 type GetLogStreamSettingsArgs struct {
 	// AWS account ID. Required only for 'aws_eventbridge' type
 	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+	// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
 	Edition pulumi.StringInput `pulumi:"edition"`
 	// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
 	EventSourceName pulumi.StringInput `pulumi:"eventSourceName"`
-	// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+	// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
 	Host pulumi.StringInput `pulumi:"host"`
 	// The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
 	Region pulumi.StringInput `pulumi:"region"`
-	// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+	// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
 	Token pulumi.StringInput `pulumi:"token"`
 }
 
@@ -4773,7 +4749,7 @@ func (o GetLogStreamSettingsOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogStreamSettings) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
 func (o GetLogStreamSettingsOutput) Edition() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogStreamSettings) string { return v.Edition }).(pulumi.StringOutput)
 }
@@ -4783,7 +4759,7 @@ func (o GetLogStreamSettingsOutput) EventSourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogStreamSettings) string { return v.EventSourceName }).(pulumi.StringOutput)
 }
 
-// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
 func (o GetLogStreamSettingsOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogStreamSettings) string { return v.Host }).(pulumi.StringOutput)
 }
@@ -4793,7 +4769,7 @@ func (o GetLogStreamSettingsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogStreamSettings) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
 func (o GetLogStreamSettingsOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogStreamSettings) string { return v.Token }).(pulumi.StringOutput)
 }
@@ -4832,7 +4808,7 @@ func (o GetLogStreamSettingsPtrOutput) AccountId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
 func (o GetLogStreamSettingsPtrOutput) Edition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLogStreamSettings) *string {
 		if v == nil {
@@ -4852,7 +4828,7 @@ func (o GetLogStreamSettingsPtrOutput) EventSourceName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
 func (o GetLogStreamSettingsPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLogStreamSettings) *string {
 		if v == nil {
@@ -4872,7 +4848,7 @@ func (o GetLogStreamSettingsPtrOutput) Region() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
 func (o GetLogStreamSettingsPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLogStreamSettings) *string {
 		if v == nil {
@@ -5519,13 +5495,13 @@ func (o GetThemesThemeArrayOutput) Index(i pulumi.IntInput) GetThemesThemeOutput
 type GetTrustedOriginsTrustedOrigin struct {
 	// Whether the Trusted Origin is active or not - can only be issued post-creation
 	Active bool `pulumi:"active"`
-	// The ID of the Trusted Origin.
+	// Unique identifier
 	Id string `pulumi:"id"`
-	// Unique name for this trusted origin.
+	// Unique name for this trusted origin
 	Name string `pulumi:"name"`
-	// Unique origin URL for this trusted origin.
+	// Unique origin URL for this trusted origin
 	Origin string `pulumi:"origin"`
-	// Scopes of the Trusted Origin
+	// Scopes of the Trusted Origin - can either be CORS or REDIRECT only
 	Scopes []string `pulumi:"scopes"`
 }
 
@@ -5543,13 +5519,13 @@ type GetTrustedOriginsTrustedOriginInput interface {
 type GetTrustedOriginsTrustedOriginArgs struct {
 	// Whether the Trusted Origin is active or not - can only be issued post-creation
 	Active pulumi.BoolInput `pulumi:"active"`
-	// The ID of the Trusted Origin.
+	// Unique identifier
 	Id pulumi.StringInput `pulumi:"id"`
-	// Unique name for this trusted origin.
+	// Unique name for this trusted origin
 	Name pulumi.StringInput `pulumi:"name"`
-	// Unique origin URL for this trusted origin.
+	// Unique origin URL for this trusted origin
 	Origin pulumi.StringInput `pulumi:"origin"`
-	// Scopes of the Trusted Origin
+	// Scopes of the Trusted Origin - can either be CORS or REDIRECT only
 	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
 }
 
@@ -5609,22 +5585,22 @@ func (o GetTrustedOriginsTrustedOriginOutput) Active() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetTrustedOriginsTrustedOrigin) bool { return v.Active }).(pulumi.BoolOutput)
 }
 
-// The ID of the Trusted Origin.
+// Unique identifier
 func (o GetTrustedOriginsTrustedOriginOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrustedOriginsTrustedOrigin) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Unique name for this trusted origin.
+// Unique name for this trusted origin
 func (o GetTrustedOriginsTrustedOriginOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrustedOriginsTrustedOrigin) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Unique origin URL for this trusted origin.
+// Unique origin URL for this trusted origin
 func (o GetTrustedOriginsTrustedOriginOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrustedOriginsTrustedOrigin) string { return v.Origin }).(pulumi.StringOutput)
 }
 
-// Scopes of the Trusted Origin
+// Scopes of the Trusted Origin - can either be CORS or REDIRECT only
 func (o GetTrustedOriginsTrustedOriginOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTrustedOriginsTrustedOrigin) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
@@ -5650,9 +5626,7 @@ func (o GetTrustedOriginsTrustedOriginArrayOutput) Index(i pulumi.IntInput) GetT
 }
 
 type GetUserSecurityQuestionsQuestion struct {
-	// Security question unique key.
-	Key string `pulumi:"key"`
-	// Display text for security question.
+	Key  string `pulumi:"key"`
 	Text string `pulumi:"text"`
 }
 
@@ -5668,9 +5642,7 @@ type GetUserSecurityQuestionsQuestionInput interface {
 }
 
 type GetUserSecurityQuestionsQuestionArgs struct {
-	// Security question unique key.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Display text for security question.
+	Key  pulumi.StringInput `pulumi:"key"`
 	Text pulumi.StringInput `pulumi:"text"`
 }
 
@@ -5725,12 +5697,10 @@ func (o GetUserSecurityQuestionsQuestionOutput) ToGetUserSecurityQuestionsQuesti
 	return o
 }
 
-// Security question unique key.
 func (o GetUserSecurityQuestionsQuestionOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserSecurityQuestionsQuestion) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Display text for security question.
 func (o GetUserSecurityQuestionsQuestionOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserSecurityQuestionsQuestion) string { return v.Text }).(pulumi.StringOutput)
 }

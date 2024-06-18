@@ -12,7 +12,7 @@ namespace Pulumi.Okta.Idp
     public static class GetOidc
     {
         /// <summary>
-        /// Use this data source to retrieve a OIDC IdP from Okta.
+        /// Get a OIDC IdP from Okta.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Okta.Idp
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOidcResult>("okta:idp/getOidc:getOidc", args ?? new GetOidcArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a OIDC IdP from Okta.
+        /// Get a OIDC IdP from Okta.
         /// 
         /// ## Example Usage
         /// 
@@ -64,13 +64,13 @@ namespace Pulumi.Okta.Idp
     public sealed class GetOidcArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The id of the idp to retrieve, conflicts with `name`.
+        /// Id of idp.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The name of the idp to retrieve, conflicts with `id`.
+        /// Name of the idp.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -84,13 +84,13 @@ namespace Pulumi.Okta.Idp
     public sealed class GetOidcInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The id of the idp to retrieve, conflicts with `name`.
+        /// Id of idp.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the idp to retrieve, conflicts with `id`.
+        /// Name of the idp.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -122,7 +122,7 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly string ClientSecret;
         /// <summary>
-        /// id of idp.
+        /// Id of idp.
         /// </summary>
         public readonly string? Id;
         /// <summary>
@@ -146,7 +146,7 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly int MaxClockSkew;
         /// <summary>
-        /// name of the idp.
+        /// Name of the idp.
         /// </summary>
         public readonly string? Name;
         /// <summary>
@@ -166,7 +166,7 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly string TokenUrl;
         /// <summary>
-        /// type of idp.
+        /// Type of idp.
         /// </summary>
         public readonly string Type;
         /// <summary>

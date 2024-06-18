@@ -6,8 +6,8 @@ import * as utilities from "./utilities";
 
 /**
  * Manages API scopes for OAuth applications.
- *
  * This resource allows you to grant or revoke API scopes for OAuth2 applications within your organization.
+ * Note: you have to create an application before using this resource.
  *
  * ## Example Usage
  *
@@ -27,10 +27,8 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * OAuth API scopes can be imported via the Okta Application ID.
- *
  * ```sh
- * $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62;
+ * $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62
  * ```
  */
 export class AppOauthApiScope extends pulumi.CustomResource {
@@ -70,7 +68,7 @@ export class AppOauthApiScope extends pulumi.CustomResource {
      */
     public readonly issuer!: pulumi.Output<string>;
     /**
-     * List of scopes for which consent is granted.
+     * Scopes of the application for which consent is granted.
      */
     public readonly scopes!: pulumi.Output<string[]>;
 
@@ -123,7 +121,7 @@ export interface AppOauthApiScopeState {
      */
     issuer?: pulumi.Input<string>;
     /**
-     * List of scopes for which consent is granted.
+     * Scopes of the application for which consent is granted.
      */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -141,7 +139,7 @@ export interface AppOauthApiScopeArgs {
      */
     issuer: pulumi.Input<string>;
     /**
-     * List of scopes for which consent is granted.
+     * Scopes of the application for which consent is granted.
      */
     scopes: pulumi.Input<pulumi.Input<string>[]>;
 }

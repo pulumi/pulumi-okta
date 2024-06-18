@@ -108,10 +108,8 @@ class GetUserSearchResult(dict):
                  name: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str comparison: Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-        :param str expression: A raw search expression string. If present it will override name/comparison/value.
-        :param str name: Name of property to search against.
-        :param str value: Value to compare with.
+        :param str expression: A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        :param str name: Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
         if comparison is not None:
             pulumi.set(__self__, "comparison", comparison)
@@ -125,16 +123,13 @@ class GetUserSearchResult(dict):
     @property
     @pulumi.getter
     def comparison(self) -> Optional[str]:
-        """
-        Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-        """
         return pulumi.get(self, "comparison")
 
     @property
     @pulumi.getter
     def expression(self) -> Optional[str]:
         """
-        A raw search expression string. If present it will override name/comparison/value.
+        A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
         return pulumi.get(self, "expression")
 
@@ -142,16 +137,13 @@ class GetUserSearchResult(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of property to search against.
+        Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        Value to compare with.
-        """
         return pulumi.get(self, "value")
 
 
@@ -163,10 +155,8 @@ class GetUsersSearchResult(dict):
                  name: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str comparison: Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-        :param str expression: A raw search expression string. If present it will override name/comparison/value.
-        :param str name: Name of property to search against.
-        :param str value: Value to compare with.
+        :param str expression: A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        :param str name: Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
         if comparison is not None:
             pulumi.set(__self__, "comparison", comparison)
@@ -180,16 +170,13 @@ class GetUsersSearchResult(dict):
     @property
     @pulumi.getter
     def comparison(self) -> Optional[str]:
-        """
-        Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-        """
         return pulumi.get(self, "comparison")
 
     @property
     @pulumi.getter
     def expression(self) -> Optional[str]:
         """
-        A raw search expression string. If present it will override name/comparison/value.
+        A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
         return pulumi.get(self, "expression")
 
@@ -197,16 +184,13 @@ class GetUsersSearchResult(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of property to search against.
+        Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        Value to compare with.
-        """
         return pulumi.get(self, "value")
 
 
@@ -250,43 +234,6 @@ class GetUsersUserResult(dict):
                  title: str,
                  user_type: str,
                  zip_code: str):
-        """
-        :param Sequence[str] admin_roles: Administrator roles assigned to user.
-        :param str city: City or locality component of user's address.
-        :param str cost_center: Name of a cost center assigned to user.
-        :param str country_code: Country name component of user's address.
-        :param str custom_profile_attributes: Raw JSON containing all custom profile attributes.
-        :param str department: Name of user's department.
-        :param str display_name: Name of the user, suitable for display to end users.
-        :param str division: Name of user's division.
-        :param str email: Primary email address of user.
-        :param str employee_number: Organization or company assigned unique identifier for the user.
-        :param str first_name: Given name of the user.
-        :param Sequence[str] group_memberships: Groups user belongs to.
-        :param str honorific_prefix: Honorific prefix(es) of the user, or title in most Western languages.
-        :param str honorific_suffix: Honorific suffix(es) of the user.
-        :param str last_name: Family name of the user.
-        :param str locale: User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
-        :param str login: Unique identifier for the user.
-        :param str manager: Display name of the user's manager.
-        :param str manager_id: `id` of a user's manager.
-        :param str middle_name: Middle name(s) of the user.
-        :param str mobile_phone: Mobile phone number of user.
-        :param str nick_name: Casual way to address the user in real life.
-        :param str organization: Name of user's organization.
-        :param str postal_address: Mailing address component of user's address.
-        :param str preferred_language: User's preferred written or spoken languages.
-        :param str primary_phone: Primary phone number of user such as home number.
-        :param str profile_url: URL of user's online profile (e.g. a web page).
-        :param str second_email: Secondary email address of user typically used for account recovery.
-        :param str state: State or region component of user's address (region).
-        :param str status: Current status of user.
-        :param str street_address: Full street address component of user's address.
-        :param str timezone: User's time zone.
-        :param str title: User's title, such as "Vice President".
-        :param str user_type: Used to describe the organization to user relationship such as "Employee" or "Contractor".
-        :param str zip_code: Zipcode or postal code component of user's address (postalCode)
-        """
         pulumi.set(__self__, "admin_roles", admin_roles)
         pulumi.set(__self__, "city", city)
         pulumi.set(__self__, "cost_center", cost_center)
@@ -328,113 +275,71 @@ class GetUsersUserResult(dict):
     @property
     @pulumi.getter(name="adminRoles")
     def admin_roles(self) -> Sequence[str]:
-        """
-        Administrator roles assigned to user.
-        """
         return pulumi.get(self, "admin_roles")
 
     @property
     @pulumi.getter
     def city(self) -> str:
-        """
-        City or locality component of user's address.
-        """
         return pulumi.get(self, "city")
 
     @property
     @pulumi.getter(name="costCenter")
     def cost_center(self) -> str:
-        """
-        Name of a cost center assigned to user.
-        """
         return pulumi.get(self, "cost_center")
 
     @property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> str:
-        """
-        Country name component of user's address.
-        """
         return pulumi.get(self, "country_code")
 
     @property
     @pulumi.getter(name="customProfileAttributes")
     def custom_profile_attributes(self) -> str:
-        """
-        Raw JSON containing all custom profile attributes.
-        """
         return pulumi.get(self, "custom_profile_attributes")
 
     @property
     @pulumi.getter
     def department(self) -> str:
-        """
-        Name of user's department.
-        """
         return pulumi.get(self, "department")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
-        """
-        Name of the user, suitable for display to end users.
-        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
     def division(self) -> str:
-        """
-        Name of user's division.
-        """
         return pulumi.get(self, "division")
 
     @property
     @pulumi.getter
     def email(self) -> str:
-        """
-        Primary email address of user.
-        """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter(name="employeeNumber")
     def employee_number(self) -> str:
-        """
-        Organization or company assigned unique identifier for the user.
-        """
         return pulumi.get(self, "employee_number")
 
     @property
     @pulumi.getter(name="firstName")
     def first_name(self) -> str:
-        """
-        Given name of the user.
-        """
         return pulumi.get(self, "first_name")
 
     @property
     @pulumi.getter(name="groupMemberships")
     def group_memberships(self) -> Sequence[str]:
-        """
-        Groups user belongs to.
-        """
         return pulumi.get(self, "group_memberships")
 
     @property
     @pulumi.getter(name="honorificPrefix")
     def honorific_prefix(self) -> str:
-        """
-        Honorific prefix(es) of the user, or title in most Western languages.
-        """
         return pulumi.get(self, "honorific_prefix")
 
     @property
     @pulumi.getter(name="honorificSuffix")
     def honorific_suffix(self) -> str:
-        """
-        Honorific suffix(es) of the user.
-        """
         return pulumi.get(self, "honorific_suffix")
 
     @property
@@ -445,105 +350,66 @@ class GetUsersUserResult(dict):
     @property
     @pulumi.getter(name="lastName")
     def last_name(self) -> str:
-        """
-        Family name of the user.
-        """
         return pulumi.get(self, "last_name")
 
     @property
     @pulumi.getter
     def locale(self) -> str:
-        """
-        User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
-        """
         return pulumi.get(self, "locale")
 
     @property
     @pulumi.getter
     def login(self) -> str:
-        """
-        Unique identifier for the user.
-        """
         return pulumi.get(self, "login")
 
     @property
     @pulumi.getter
     def manager(self) -> str:
-        """
-        Display name of the user's manager.
-        """
         return pulumi.get(self, "manager")
 
     @property
     @pulumi.getter(name="managerId")
     def manager_id(self) -> str:
-        """
-        `id` of a user's manager.
-        """
         return pulumi.get(self, "manager_id")
 
     @property
     @pulumi.getter(name="middleName")
     def middle_name(self) -> str:
-        """
-        Middle name(s) of the user.
-        """
         return pulumi.get(self, "middle_name")
 
     @property
     @pulumi.getter(name="mobilePhone")
     def mobile_phone(self) -> str:
-        """
-        Mobile phone number of user.
-        """
         return pulumi.get(self, "mobile_phone")
 
     @property
     @pulumi.getter(name="nickName")
     def nick_name(self) -> str:
-        """
-        Casual way to address the user in real life.
-        """
         return pulumi.get(self, "nick_name")
 
     @property
     @pulumi.getter
     def organization(self) -> str:
-        """
-        Name of user's organization.
-        """
         return pulumi.get(self, "organization")
 
     @property
     @pulumi.getter(name="postalAddress")
     def postal_address(self) -> str:
-        """
-        Mailing address component of user's address.
-        """
         return pulumi.get(self, "postal_address")
 
     @property
     @pulumi.getter(name="preferredLanguage")
     def preferred_language(self) -> str:
-        """
-        User's preferred written or spoken languages.
-        """
         return pulumi.get(self, "preferred_language")
 
     @property
     @pulumi.getter(name="primaryPhone")
     def primary_phone(self) -> str:
-        """
-        Primary phone number of user such as home number.
-        """
         return pulumi.get(self, "primary_phone")
 
     @property
     @pulumi.getter(name="profileUrl")
     def profile_url(self) -> str:
-        """
-        URL of user's online profile (e.g. a web page).
-        """
         return pulumi.get(self, "profile_url")
 
     @property
@@ -554,65 +420,41 @@ class GetUsersUserResult(dict):
     @property
     @pulumi.getter(name="secondEmail")
     def second_email(self) -> str:
-        """
-        Secondary email address of user typically used for account recovery.
-        """
         return pulumi.get(self, "second_email")
 
     @property
     @pulumi.getter
     def state(self) -> str:
-        """
-        State or region component of user's address (region).
-        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        Current status of user.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="streetAddress")
     def street_address(self) -> str:
-        """
-        Full street address component of user's address.
-        """
         return pulumi.get(self, "street_address")
 
     @property
     @pulumi.getter
     def timezone(self) -> str:
-        """
-        User's time zone.
-        """
         return pulumi.get(self, "timezone")
 
     @property
     @pulumi.getter
     def title(self) -> str:
-        """
-        User's title, such as "Vice President".
-        """
         return pulumi.get(self, "title")
 
     @property
     @pulumi.getter(name="userType")
     def user_type(self) -> str:
-        """
-        Used to describe the organization to user relationship such as "Employee" or "Contractor".
-        """
         return pulumi.get(self, "user_type")
 
     @property
     @pulumi.getter(name="zipCode")
     def zip_code(self) -> str:
-        """
-        Zipcode or postal code component of user's address (postalCode)
-        """
         return pulumi.get(self, "zip_code")
 
 

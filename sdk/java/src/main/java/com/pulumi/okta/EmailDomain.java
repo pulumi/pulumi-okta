@@ -16,8 +16,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and configure an email domain.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -58,8 +56,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Custom email domain can be imported via the Okta ID.
- * 
  * ```sh
  * $ pulumi import okta:index/emailDomain:EmailDomain example &amp;#60;domain id&amp;#62;
  * ```
@@ -96,14 +92,14 @@ public class EmailDomain extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
-     * TXT and CNAME records to be registered for the domain.
+     * TXT and cname records to be registered for the email Domain
      * 
      */
     @Export(name="dnsValidationRecords", refs={List.class,EmailDomainDnsValidationRecord.class}, tree="[0,1]")
     private Output<List<EmailDomainDnsValidationRecord>> dnsValidationRecords;
 
     /**
-     * @return TXT and CNAME records to be registered for the domain.
+     * @return TXT and cname records to be registered for the email Domain
      * 
      */
     public Output<List<EmailDomainDnsValidationRecord>> dnsValidationRecords() {
@@ -138,14 +134,14 @@ public class EmailDomain extends com.pulumi.resources.CustomResource {
         return this.userName;
     }
     /**
-     * Status of the email domain (shows whether the domain is verified).
+     * Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
      * 
      */
     @Export(name="validationStatus", refs={String.class}, tree="[0]")
     private Output<String> validationStatus;
 
     /**
-     * @return Status of the email domain (shows whether the domain is verified).
+     * @return Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
      * 
      */
     public Output<String> validationStatus() {

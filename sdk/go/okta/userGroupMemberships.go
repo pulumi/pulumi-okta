@@ -56,7 +56,7 @@ type UserGroupMemberships struct {
 
 	// The list of Okta group IDs which the user should have membership managed for.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
-	// Okta user ID.
+	// ID of a Okta User
 	UserId pulumi.StringOutput `pulumi:"userId"`
 }
 
@@ -98,14 +98,14 @@ func GetUserGroupMemberships(ctx *pulumi.Context,
 type userGroupMembershipsState struct {
 	// The list of Okta group IDs which the user should have membership managed for.
 	Groups []string `pulumi:"groups"`
-	// Okta user ID.
+	// ID of a Okta User
 	UserId *string `pulumi:"userId"`
 }
 
 type UserGroupMembershipsState struct {
 	// The list of Okta group IDs which the user should have membership managed for.
 	Groups pulumi.StringArrayInput
-	// Okta user ID.
+	// ID of a Okta User
 	UserId pulumi.StringPtrInput
 }
 
@@ -116,7 +116,7 @@ func (UserGroupMembershipsState) ElementType() reflect.Type {
 type userGroupMembershipsArgs struct {
 	// The list of Okta group IDs which the user should have membership managed for.
 	Groups []string `pulumi:"groups"`
-	// Okta user ID.
+	// ID of a Okta User
 	UserId string `pulumi:"userId"`
 }
 
@@ -124,7 +124,7 @@ type userGroupMembershipsArgs struct {
 type UserGroupMembershipsArgs struct {
 	// The list of Okta group IDs which the user should have membership managed for.
 	Groups pulumi.StringArrayInput
-	// Okta user ID.
+	// ID of a Okta User
 	UserId pulumi.StringInput
 }
 
@@ -220,7 +220,7 @@ func (o UserGroupMembershipsOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserGroupMemberships) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// Okta user ID.
+// ID of a Okta User
 func (o UserGroupMembershipsOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroupMemberships) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }

@@ -15,14 +15,14 @@ public final class EmailDomainVerificationArgs extends com.pulumi.resources.Reso
     public static final EmailDomainVerificationArgs Empty = new EmailDomainVerificationArgs();
 
     /**
-     * Email domain ID.
+     * Email domain ID
      * 
      */
     @Import(name="emailDomainId", required=true)
     private Output<String> emailDomainId;
 
     /**
-     * @return Email domain ID.
+     * @return Email domain ID
      * 
      */
     public Output<String> emailDomainId() {
@@ -54,7 +54,7 @@ public final class EmailDomainVerificationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param emailDomainId Email domain ID.
+         * @param emailDomainId Email domain ID
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class EmailDomainVerificationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param emailDomainId Email domain ID.
+         * @param emailDomainId Email domain ID
          * 
          * @return builder
          * 

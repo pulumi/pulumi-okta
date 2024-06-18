@@ -16,8 +16,8 @@ import javax.annotation.Nullable;
 
 /**
  * Manages API scopes for OAuth applications.
- * 
  * This resource allows you to grant or revoke API scopes for OAuth2 applications within your organization.
+ * Note: you have to create an application before using this resource.
  * 
  * ## Example Usage
  * 
@@ -60,10 +60,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * OAuth API scopes can be imported via the Okta Application ID.
- * 
  * ```sh
- * $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &amp;#60;app id&amp;#62;
+ * $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &amp;#60;app id&amp;#62
  * ```
  * 
  */
@@ -98,14 +96,14 @@ public class AppOauthApiScope extends com.pulumi.resources.CustomResource {
         return this.issuer;
     }
     /**
-     * List of scopes for which consent is granted.
+     * Scopes of the application for which consent is granted.
      * 
      */
     @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopes;
 
     /**
-     * @return List of scopes for which consent is granted.
+     * @return Scopes of the application for which consent is granted.
      * 
      */
     public Output<List<String>> scopes() {

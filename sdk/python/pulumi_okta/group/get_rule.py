@@ -88,7 +88,7 @@ class GetRuleResult:
     @pulumi.getter
     def status(self) -> Optional[str]:
         """
-        The status of the group rule.
+        Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -121,7 +121,7 @@ def get_rule(id: Optional[str] = None,
              status: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
-    Use this data source to retrieve a group rule from Okta.
+    Get a group rule from Okta.
 
     ## Example Usage
 
@@ -133,9 +133,9 @@ def get_rule(id: Optional[str] = None,
     ```
 
 
-    :param str id: The ID of the group rule to retrieve.
-    :param str name: The name of the Group Rule to retrieve.
-    :param str status: The status of the group rule.
+    :param str id: The ID of the Group Rule.
+    :param str name: The name of the Group Rule.
+    :param str status: Default to `ACTIVE`
     """
     __args__ = dict()
     __args__['id'] = id
@@ -160,7 +160,7 @@ def get_rule_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                     status: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
     """
-    Use this data source to retrieve a group rule from Okta.
+    Get a group rule from Okta.
 
     ## Example Usage
 
@@ -172,8 +172,8 @@ def get_rule_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str id: The ID of the group rule to retrieve.
-    :param str name: The name of the Group Rule to retrieve.
-    :param str status: The status of the group rule.
+    :param str id: The ID of the Group Rule.
+    :param str name: The name of the Group Rule.
+    :param str status: Default to `ACTIVE`
     """
     ...

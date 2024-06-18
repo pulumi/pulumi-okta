@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// Creates security question factor for a user.
-    /// 
-    /// This resource allows you to create and configure security question factor for a user.
+    /// Creates security question factor for a user. This resource allows you to create and configure security question factor for a user.
     /// 
     /// ## Example Usage
     /// 
@@ -60,8 +58,6 @@ namespace Pulumi.Okta
     /// ```
     /// 
     /// ## Import
-    /// 
-    /// Security question factor for a user can be imported via the `user_id` and the `factor_id`.
     /// 
     /// ```sh
     /// $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &amp;#60;user id&amp;#62;/&amp;#60;question factor id&amp;#62;

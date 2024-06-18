@@ -12,17 +12,13 @@ namespace Pulumi.Okta
     public static class GetTheme
     {
         /// <summary>
-        /// Use this data source to retrieve a 
-        /// [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
-        /// of a brand for an Okta orgnanization.
+        /// Get a single Theme of a Brand of an Okta Organization.
         /// </summary>
         public static Task<GetThemeResult> InvokeAsync(GetThemeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetThemeResult>("okta:index/getTheme:getTheme", args ?? new GetThemeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a 
-        /// [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
-        /// of a brand for an Okta orgnanization.
+        /// Get a single Theme of a Brand of an Okta Organization.
         /// </summary>
         public static Output<GetThemeResult> Invoke(GetThemeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThemeResult>("okta:index/getTheme:getTheme", args ?? new GetThemeInvokeArgs(), options.WithDefaults());
@@ -77,17 +73,20 @@ namespace Pulumi.Okta
         /// Background image URL
         /// </summary>
         public readonly string BackgroundImageUrl;
+        /// <summary>
+        /// Brand ID
+        /// </summary>
         public readonly string BrandId;
         /// <summary>
-        /// (Enum) Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+        /// Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
         /// </summary>
         public readonly string EmailTemplateTouchPointVariant;
         /// <summary>
-        /// (Enum) Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+        /// Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
         /// </summary>
         public readonly string EndUserDashboardTouchPointVariant;
         /// <summary>
-        /// (Enum) Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        /// Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         /// </summary>
         public readonly string ErrorPageTouchPointVariant;
         /// <summary>
@@ -95,11 +94,11 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly string FaviconUrl;
         /// <summary>
-        /// Theme URL
+        /// The ID of the theme
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Link relations for this object - JSON HAL - Discoverable resources related to the brand
+        /// Link relations for this object - JSON HAL - Discoverable resources related to the email template
         /// </summary>
         public readonly string Links;
         /// <summary>
@@ -123,9 +122,12 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly string SecondaryColorHex;
         /// <summary>
-        /// (Enum) Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        /// Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         /// </summary>
         public readonly string SignInPageTouchPointVariant;
+        /// <summary>
+        /// Theme ID
+        /// </summary>
         public readonly string ThemeId;
 
         [OutputConstructor]

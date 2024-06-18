@@ -36,6 +36,9 @@ class GetTrustedOriginsResult:
     @property
     @pulumi.getter
     def filter(self) -> Optional[str]:
+        """
+        Filter criteria. Filter value will be URL-encoded by the provider
+        """
         return pulumi.get(self, "filter")
 
     @property
@@ -66,7 +69,7 @@ class AwaitableGetTrustedOriginsResult(GetTrustedOriginsResult):
 def get_trusted_origins(filter: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrustedOriginsResult:
     """
-    This resource allows you to retrieve a list of trusted origins from Okta.
+    Get List of Trusted Origins using filters.
 
     ## Example Usage
 
@@ -78,7 +81,7 @@ def get_trusted_origins(filter: Optional[str] = None,
     ```
 
 
-    :param str filter: Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
+    :param str filter: Filter criteria. Filter value will be URL-encoded by the provider
     """
     __args__ = dict()
     __args__['filter'] = filter
@@ -95,7 +98,7 @@ def get_trusted_origins(filter: Optional[str] = None,
 def get_trusted_origins_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustedOriginsResult]:
     """
-    This resource allows you to retrieve a list of trusted origins from Okta.
+    Get List of Trusted Origins using filters.
 
     ## Example Usage
 
@@ -107,6 +110,6 @@ def get_trusted_origins_output(filter: Optional[pulumi.Input[Optional[str]]] = N
     ```
 
 
-    :param str filter: Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
+    :param str filter: Filter criteria. Filter value will be URL-encoded by the provider
     """
     ...

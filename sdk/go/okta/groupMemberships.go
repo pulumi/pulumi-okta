@@ -13,16 +13,14 @@ import (
 )
 
 // Resource to manage a set of memberships for a specific group.
-//
 // This resource will allow you to bulk manage group membership in Okta for a given
 // group. This offers an interface to pass multiple users into a single resource
 // call, for better API resource usage. If you need a relationship of a single
-// user to many groups, please use the `UserGroupMemberships` resource.
-//
+// user to many groups, please use the 'okta_user_group_memberships' resource.
 // **Important**: The default behavior of the resource is to only maintain the
 // state of user ids that are assigned it. This behavior will signal drift only if
 // those users stop being part of the group. If the desired behavior is track all
-// users that are added/removed from the group make use of the `trackAllUsers`
+// users that are added/removed from the group make use of the 'track_all_users'
 // argument with this resource.
 //
 // ## Example Usage
@@ -79,9 +77,9 @@ import (
 type GroupMemberships struct {
 	pulumi.CustomResourceState
 
-	// Okta group ID.
+	// ID of a Okta group.
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
-	// The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+	// The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
 	TrackAllUsers pulumi.BoolPtrOutput `pulumi:"trackAllUsers"`
 	// The list of Okta user IDs which the group should have membership managed for.
 	Users pulumi.StringArrayOutput `pulumi:"users"`
@@ -123,18 +121,18 @@ func GetGroupMemberships(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupMemberships resources.
 type groupMembershipsState struct {
-	// Okta group ID.
+	// ID of a Okta group.
 	GroupId *string `pulumi:"groupId"`
-	// The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+	// The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
 	TrackAllUsers *bool `pulumi:"trackAllUsers"`
 	// The list of Okta user IDs which the group should have membership managed for.
 	Users []string `pulumi:"users"`
 }
 
 type GroupMembershipsState struct {
-	// Okta group ID.
+	// ID of a Okta group.
 	GroupId pulumi.StringPtrInput
-	// The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+	// The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
 	TrackAllUsers pulumi.BoolPtrInput
 	// The list of Okta user IDs which the group should have membership managed for.
 	Users pulumi.StringArrayInput
@@ -145,9 +143,9 @@ func (GroupMembershipsState) ElementType() reflect.Type {
 }
 
 type groupMembershipsArgs struct {
-	// Okta group ID.
+	// ID of a Okta group.
 	GroupId string `pulumi:"groupId"`
-	// The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+	// The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
 	TrackAllUsers *bool `pulumi:"trackAllUsers"`
 	// The list of Okta user IDs which the group should have membership managed for.
 	Users []string `pulumi:"users"`
@@ -155,9 +153,9 @@ type groupMembershipsArgs struct {
 
 // The set of arguments for constructing a GroupMemberships resource.
 type GroupMembershipsArgs struct {
-	// Okta group ID.
+	// ID of a Okta group.
 	GroupId pulumi.StringInput
-	// The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+	// The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
 	TrackAllUsers pulumi.BoolPtrInput
 	// The list of Okta user IDs which the group should have membership managed for.
 	Users pulumi.StringArrayInput
@@ -250,12 +248,12 @@ func (o GroupMembershipsOutput) ToGroupMembershipsOutputWithContext(ctx context.
 	return o
 }
 
-// Okta group ID.
+// ID of a Okta group.
 func (o GroupMembershipsOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMemberships) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }
 
-// The resource will concern itself with all users added/deleted to the group; even those managed outside of the resource.
+// The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
 func (o GroupMembershipsOutput) TrackAllUsers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupMemberships) pulumi.BoolPtrOutput { return v.TrackAllUsers }).(pulumi.BoolPtrOutput)
 }

@@ -12,30 +12,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleMfaAppExclude {
-    /**
-     * @return ID of the Rule.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return Policy Rule Name.
-     * 
-     */
     private @Nullable String name;
     private String type;
 
     private RuleMfaAppExclude() {}
-    /**
-     * @return ID of the Rule.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Policy Rule Name.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

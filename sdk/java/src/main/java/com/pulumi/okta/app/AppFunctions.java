@@ -24,7 +24,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class AppFunctions {
     /**
-     * Use this data source to retrieve an application from Okta.
+     * Get an application of any kind from Okta.
      * 
      * ## Example Usage
      * 
@@ -66,7 +66,7 @@ public final class AppFunctions {
         return getApp(GetAppArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve an application from Okta.
+     * Get an application of any kind from Okta.
      * 
      * ## Example Usage
      * 
@@ -108,7 +108,7 @@ public final class AppFunctions {
         return getAppPlain(GetAppPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve an application from Okta.
+     * Get an application of any kind from Okta.
      * 
      * ## Example Usage
      * 
@@ -150,7 +150,7 @@ public final class AppFunctions {
         return getApp(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve an application from Okta.
+     * Get an application of any kind from Okta.
      * 
      * ## Example Usage
      * 
@@ -192,7 +192,7 @@ public final class AppFunctions {
         return getAppPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve an application from Okta.
+     * Get an application of any kind from Okta.
      * 
      * ## Example Usage
      * 
@@ -234,7 +234,7 @@ public final class AppFunctions {
         return Deployment.getInstance().invoke("okta:app/getApp:getApp", TypeShape.of(GetAppResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve an application from Okta.
+     * Get an application of any kind from Okta.
      * 
      * ## Example Usage
      * 
@@ -276,7 +276,7 @@ public final class AppFunctions {
         return Deployment.getInstance().invokeAsync("okta:app/getApp:getApp", TypeShape.of(GetAppResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve the metadata for SAML application from Okta.
+     * Get a SAML application&#39;s metadata from Okta.
      * 
      * ## Example Usage
      * 
@@ -319,7 +319,7 @@ public final class AppFunctions {
         return getMetadataSaml(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve the metadata for SAML application from Okta.
+     * Get a SAML application&#39;s metadata from Okta.
      * 
      * ## Example Usage
      * 
@@ -362,7 +362,7 @@ public final class AppFunctions {
         return getMetadataSamlPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve the metadata for SAML application from Okta.
+     * Get a SAML application&#39;s metadata from Okta.
      * 
      * ## Example Usage
      * 
@@ -405,7 +405,7 @@ public final class AppFunctions {
         return Deployment.getInstance().invoke("okta:app/getMetadataSaml:getMetadataSaml", TypeShape.of(GetMetadataSamlResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve the metadata for SAML application from Okta.
+     * Get a SAML application&#39;s metadata from Okta.
      * 
      * ## Example Usage
      * 
@@ -448,7 +448,7 @@ public final class AppFunctions {
         return Deployment.getInstance().invokeAsync("okta:app/getMetadataSaml:getMetadataSaml", TypeShape.of(GetMetadataSamlResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve an OIDC application from Okta.
+     * Get a OIDC application from Okta.
      * 
      * ## Example Usage
      * 
@@ -490,7 +490,7 @@ public final class AppFunctions {
         return getOauth(GetOauthArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve an OIDC application from Okta.
+     * Get a OIDC application from Okta.
      * 
      * ## Example Usage
      * 
@@ -532,7 +532,7 @@ public final class AppFunctions {
         return getOauthPlain(GetOauthPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve an OIDC application from Okta.
+     * Get a OIDC application from Okta.
      * 
      * ## Example Usage
      * 
@@ -574,7 +574,7 @@ public final class AppFunctions {
         return getOauth(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve an OIDC application from Okta.
+     * Get a OIDC application from Okta.
      * 
      * ## Example Usage
      * 
@@ -616,7 +616,7 @@ public final class AppFunctions {
         return getOauthPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve an OIDC application from Okta.
+     * Get a OIDC application from Okta.
      * 
      * ## Example Usage
      * 
@@ -658,7 +658,7 @@ public final class AppFunctions {
         return Deployment.getInstance().invoke("okta:app/getOauth:getOauth", TypeShape.of(GetOauthResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve an OIDC application from Okta.
+     * Get a OIDC application from Okta.
      * 
      * ## Example Usage
      * 
@@ -700,7 +700,7 @@ public final class AppFunctions {
         return Deployment.getInstance().invokeAsync("okta:app/getOauth:getOauth", TypeShape.of(GetOauthResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve an SAML application from Okta.
+     * Get a SAML application from Okta.
      * 
      * ## Example Usage
      * 
@@ -742,7 +742,7 @@ public final class AppFunctions {
         return getSaml(GetSamlArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve an SAML application from Okta.
+     * Get a SAML application from Okta.
      * 
      * ## Example Usage
      * 
@@ -784,7 +784,7 @@ public final class AppFunctions {
         return getSamlPlain(GetSamlPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve an SAML application from Okta.
+     * Get a SAML application from Okta.
      * 
      * ## Example Usage
      * 
@@ -826,7 +826,7 @@ public final class AppFunctions {
         return getSaml(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve an SAML application from Okta.
+     * Get a SAML application from Okta.
      * 
      * ## Example Usage
      * 
@@ -868,7 +868,7 @@ public final class AppFunctions {
         return getSamlPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve an SAML application from Okta.
+     * Get a SAML application from Okta.
      * 
      * ## Example Usage
      * 
@@ -910,7 +910,7 @@ public final class AppFunctions {
         return Deployment.getInstance().invoke("okta:app/getSaml:getSaml", TypeShape.of(GetSamlResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve an SAML application from Okta.
+     * Get a SAML application from Okta.
      * 
      * ## Example Usage
      * 

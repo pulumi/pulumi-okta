@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// &gt; **DEPRECATED** use `okta.EmailDomainVerification` instead.
-    /// 
     /// Verifies the email sender. The resource won't be created if the email sender could not be verified.
+    /// 
+    /// &gt; **DEPRECATED** The api for this resource has been deprecated. Please use `okta.EmailDomainVerification` instead.
     /// 
     /// ## Example Usage
     /// 
@@ -38,16 +38,12 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// This resource does not support importing.
     /// </summary>
     [OktaResourceType("okta:index/emailSenderVerification:EmailSenderVerification")]
     public partial class EmailSenderVerification : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Email sender ID.
+        /// Email sender ID
         /// </summary>
         [Output("senderId")]
         public Output<string> SenderId { get; private set; } = null!;
@@ -99,7 +95,7 @@ namespace Pulumi.Okta
     public sealed class EmailSenderVerificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Email sender ID.
+        /// Email sender ID
         /// </summary>
         [Input("senderId", required: true)]
         public Input<string> SenderId { get; set; } = null!;
@@ -113,7 +109,7 @@ namespace Pulumi.Okta
     public sealed class EmailSenderVerificationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Email sender ID.
+        /// Email sender ID
         /// </summary>
         [Input("senderId")]
         public Input<string>? SenderId { get; set; }

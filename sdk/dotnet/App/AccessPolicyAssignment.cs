@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
+    /// Manages assignment of Access Policy to an Application.
+    /// 
+    /// **Warning**: do not use as this will update okta_app_*.authentication_policy and vice versa
+    /// 
     /// Assigns an access policy (colloquially known as a sign-on policy and/or an
     /// authentication policy) to an application. This resource does not perform true
     /// delete as it will not delete an application and the app's access policy can't be
@@ -23,9 +27,37 @@ namespace Pulumi.Okta.App
     /// policy_, in the public API the policy is of type
     /// [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
     /// 
-    /// ## Import
+    /// ## Example Usage
     /// 
-    /// An Okta App's Access Policy Assignment can be imported via its associated Application ID.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var access = Okta.Policy.GetPolicy.Invoke(new()
+    ///     {
+    ///         Name = "Any two factors",
+    ///         Type = "ACCESS_POLICY",
+    ///     });
+    /// 
+    ///     var example = Okta.App.GetApp.Invoke(new()
+    ///     {
+    ///         Label = "Example App",
+    ///     });
+    /// 
+    ///     var assignment = new Okta.App.AccessPolicyAssignment("assignment", new()
+    ///     {
+    ///         AppId = example.Apply(getAppResult =&gt; getAppResult.Id),
+    ///         PolicyId = access.Apply(getPolicyResult =&gt; getPolicyResult.Id),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
     /// 
     /// ```sh
     /// $ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example &amp;#60;app id&amp;#62;

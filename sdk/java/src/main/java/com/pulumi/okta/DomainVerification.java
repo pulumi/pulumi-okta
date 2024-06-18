@@ -14,9 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Verifies the Domain. This is replacement for the `verify` field from the `okta.Domain` resource. The resource won&#39;t be
- * created if the domain could not be verified. The provider will make several requests to verify the domain until
- * the API returns `VERIFIED` verification status.
+ * Verifies the Domain. This is replacement for the `verify` field from the `okta.Domain` resource. The resource won&#39;t be created if the domain could not be verified. The provider will make several requests to verify the domain until the API returns `VERIFIED` verification status.
  * 
  * ## Example Usage
  * 
@@ -59,22 +57,18 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Import
- * 
- * This resource does not support importing.
- * 
  */
 @ResourceType(type="okta:index/domainVerification:DomainVerification")
 public class DomainVerification extends com.pulumi.resources.CustomResource {
     /**
-     * Domain ID.
+     * Domain&#39;s ID
      * 
      */
     @Export(name="domainId", refs={String.class}, tree="[0]")
     private Output<String> domainId;
 
     /**
-     * @return Domain ID.
+     * @return Domain&#39;s ID
      * 
      */
     public Output<String> domainId() {

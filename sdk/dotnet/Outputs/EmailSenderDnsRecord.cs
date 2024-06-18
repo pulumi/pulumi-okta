@@ -14,11 +14,11 @@ namespace Pulumi.Okta.Outputs
     public sealed class EmailSenderDnsRecord
     {
         /// <summary>
-        /// DNS record name.
+        /// DNS record name
         /// </summary>
         public readonly string? Fqdn;
         /// <summary>
-        /// Record type can be TXT or CNAME.
+        /// Record type can be TXT or CNAME
         /// </summary>
         public readonly string? RecordType;
         /// <summary>

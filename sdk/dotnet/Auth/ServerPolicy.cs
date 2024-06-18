@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Auth
 {
     /// <summary>
-    /// Creates an Authorization Server Policy.
-    /// 
-    /// This resource allows you to create and configure an Authorization Server Policy.
+    /// Creates an Authorization Server Policy. This resource allows you to create and configure an Authorization Server Policy.
     /// 
     /// ## Example Usage
     /// 
@@ -42,8 +40,6 @@ namespace Pulumi.Okta.Auth
     /// 
     /// ## Import
     /// 
-    /// Authorization Server Policy can be imported via the Auth Server ID and Policy ID.
-    /// 
     /// ```sh
     /// $ pulumi import okta:auth/serverPolicy:ServerPolicy example &amp;#60;auth server id&amp;#62;/&amp;#60;policy id&amp;#62;
     /// ```
@@ -58,7 +54,7 @@ namespace Pulumi.Okta.Auth
         public Output<string> AuthServerId { get; private set; } = null!;
 
         /// <summary>
-        /// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+        /// The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
         /// </summary>
         [Output("clientWhitelists")]
         public Output<ImmutableArray<string>> ClientWhitelists { get; private set; } = null!;
@@ -76,13 +72,13 @@ namespace Pulumi.Okta.Auth
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The priority of the Auth Server Policy.
+        /// Priority of the auth server policy
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the Auth Server Policy.
+        /// Default to `ACTIVE`
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -143,7 +139,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _clientWhitelists;
 
         /// <summary>
-        /// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+        /// The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
         /// </summary>
         public InputList<string> ClientWhitelists
         {
@@ -164,13 +160,13 @@ namespace Pulumi.Okta.Auth
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The priority of the Auth Server Policy.
+        /// Priority of the auth server policy
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
-        /// The status of the Auth Server Policy.
+        /// Default to `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -193,7 +189,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _clientWhitelists;
 
         /// <summary>
-        /// The clients to whitelist the policy for. `["ALL_CLIENTS"]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
+        /// The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
         /// </summary>
         public InputList<string> ClientWhitelists
         {
@@ -214,13 +210,13 @@ namespace Pulumi.Okta.Auth
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The priority of the Auth Server Policy.
+        /// Priority of the auth server policy
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The status of the Auth Server Policy.
+        /// Default to `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

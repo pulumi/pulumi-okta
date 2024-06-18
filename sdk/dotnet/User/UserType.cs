@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.User
 {
     /// <summary>
-    /// Creates a User type.
-    /// 
-    /// This resource allows you to create and configure a User Type.
+    /// Creates a User type. This resource allows you to create and configure a User Type.
     /// 
     /// ## Example Usage
     /// 
@@ -35,8 +33,6 @@ namespace Pulumi.Okta.User
     /// ```
     /// 
     /// ## Import
-    /// 
-    /// A User Type can be imported via the Okta ID.
     /// 
     /// ```sh
     /// $ pulumi import okta:user/userType:UserType example &amp;#60;user type id&amp;#62;

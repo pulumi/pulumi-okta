@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
+// Get a set of groups assigned to an Okta application.
 //
 // ## Example Usage
 //
@@ -50,15 +50,15 @@ func LookupAppGroupAssignments(ctx *pulumi.Context, args *LookupAppGroupAssignme
 
 // A collection of arguments for invoking getAppGroupAssignments.
 type LookupAppGroupAssignmentsArgs struct {
-	// The ID of the Okta application you want to retrieve the groups for.
+	// ID of the Okta App being queried for groups
 	Id string `pulumi:"id"`
 }
 
 // A collection of values returned by getAppGroupAssignments.
 type LookupAppGroupAssignmentsResult struct {
-	// List of groups IDs assigned to the application.
+	// List of groups IDs assigned to the app
 	Groups []string `pulumi:"groups"`
-	// ID of application.
+	// ID of the Okta App being queried for groups
 	Id string `pulumi:"id"`
 }
 
@@ -77,7 +77,7 @@ func LookupAppGroupAssignmentsOutput(ctx *pulumi.Context, args LookupAppGroupAss
 
 // A collection of arguments for invoking getAppGroupAssignments.
 type LookupAppGroupAssignmentsOutputArgs struct {
-	// The ID of the Okta application you want to retrieve the groups for.
+	// ID of the Okta App being queried for groups
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -100,12 +100,12 @@ func (o LookupAppGroupAssignmentsResultOutput) ToLookupAppGroupAssignmentsResult
 	return o
 }
 
-// List of groups IDs assigned to the application.
+// List of groups IDs assigned to the app
 func (o LookupAppGroupAssignmentsResultOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAppGroupAssignmentsResult) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// ID of application.
+// ID of the Okta App being queried for groups
 func (o LookupAppGroupAssignmentsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppGroupAssignmentsResult) string { return v.Id }).(pulumi.StringOutput)
 }

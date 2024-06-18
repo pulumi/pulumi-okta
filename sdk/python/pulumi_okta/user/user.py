@@ -60,56 +60,47 @@ class UserArgs:
                  zip_code: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input[str] email: User profile property.
-        :param pulumi.Input[str] first_name: User's First Name, required by default.
-        :param pulumi.Input[str] last_name: User's Last Name, required by default.
-        :param pulumi.Input[str] login: User profile property.
-        :param pulumi.Input[str] city: User profile property.
-        :param pulumi.Input[str] cost_center: User profile property.
-        :param pulumi.Input[str] country_code: User profile property.
-        :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
-        :param pulumi.Input[str] department: User profile property.
-        :param pulumi.Input[str] display_name: User profile property.
-        :param pulumi.Input[str] division: User profile property.
-        :param pulumi.Input[str] employee_number: User profile property.
-        :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used
-               when user is being created and works only when `password` field is set. Default is `false`.
-        :param pulumi.Input[str] honorific_prefix: User profile property.
-        :param pulumi.Input[str] honorific_suffix: User profile property.
-        :param pulumi.Input[str] locale: User profile property.
-        :param pulumi.Input[str] manager: User profile property.
-        :param pulumi.Input[str] manager_id: User profile property.
-        :param pulumi.Input[str] middle_name: User profile property.
-        :param pulumi.Input[str] mobile_phone: User profile property.
-        :param pulumi.Input[str] nick_name: User profile property.
-        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
-               outside the provider. After successful password change this field should be removed and `password` field should be used
-               for further changes.
-        :param pulumi.Input[str] organization: User profile property.
-        :param pulumi.Input[str] password: User password.
+        :param pulumi.Input[str] email: User primary email address
+        :param pulumi.Input[str] first_name: User first name
+        :param pulumi.Input[str] last_name: User last name
+        :param pulumi.Input[str] login: User Okta login
+        :param pulumi.Input[str] city: User city
+        :param pulumi.Input[str] cost_center: User cost center
+        :param pulumi.Input[str] country_code: User country code
+        :param pulumi.Input[str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+        :param pulumi.Input[str] department: User department
+        :param pulumi.Input[str] display_name: User display name, suitable to show end users
+        :param pulumi.Input[str] division: User division
+        :param pulumi.Input[str] employee_number: User employee number
+        :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set. Default: `false`
+        :param pulumi.Input[str] honorific_prefix: User honorific prefix
+        :param pulumi.Input[str] honorific_suffix: User honorific suffix
+        :param pulumi.Input[str] locale: User default location
+        :param pulumi.Input[str] manager: Manager of User
+        :param pulumi.Input[str] manager_id: Manager ID of User
+        :param pulumi.Input[str] middle_name: User middle name
+        :param pulumi.Input[str] mobile_phone: User mobile phone number
+        :param pulumi.Input[str] nick_name: User nickname
+        :param pulumi.Input[str] old_password: Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
+        :param pulumi.Input[str] organization: User organization
+        :param pulumi.Input[str] password: User Password
         :param pulumi.Input['UserPasswordHashArgs'] password_hash: Specifies a hashed password to import into Okta.
-        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification
-               of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
-               from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
-               field should not be specified when using Password Import Inline Hook.
-        :param pulumi.Input[str] postal_address: User profile property.
-        :param pulumi.Input[str] preferred_language: User profile property.
-        :param pulumi.Input[str] primary_phone: User profile property.
-        :param pulumi.Input[str] profile_url: User profile property.
-        :param pulumi.Input[str] recovery_answer: User password recovery answer.
-               
-               - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
-               - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
-        :param pulumi.Input[str] recovery_question: User password recovery question.
-        :param pulumi.Input[str] second_email: User profile property.
+        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
+        :param pulumi.Input[str] postal_address: User mailing address
+        :param pulumi.Input[str] preferred_language: User preferred language
+        :param pulumi.Input[str] primary_phone: User primary phone number
+        :param pulumi.Input[str] profile_url: User online profile (web page)
+        :param pulumi.Input[str] recovery_answer: User Password Recovery Answer
+        :param pulumi.Input[str] recovery_question: User Password Recovery Question
+        :param pulumi.Input[str] second_email: User secondary email address, used for account recovery
         :param pulumi.Input[bool] skip_roles: Do not populate user roles information (prevents additional API call)
-        :param pulumi.Input[str] state: User profile property.
-        :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
-        :param pulumi.Input[str] street_address: User profile property.
-        :param pulumi.Input[str] timezone: User profile property.
-        :param pulumi.Input[str] title: User profile property.
-        :param pulumi.Input[str] user_type: User profile property.
-        :param pulumi.Input[str] zip_code: User profile property.
+        :param pulumi.Input[str] state: User state or region
+        :param pulumi.Input[str] status: User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
+        :param pulumi.Input[str] street_address: User street address
+        :param pulumi.Input[str] timezone: User default timezone
+        :param pulumi.Input[str] title: User title
+        :param pulumi.Input[str] user_type: User employee type
+        :param pulumi.Input[str] zip_code: User zipcode or postal code
         """
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "first_name", first_name)
@@ -199,7 +190,7 @@ class UserArgs:
     @pulumi.getter
     def email(self) -> pulumi.Input[str]:
         """
-        User profile property.
+        User primary email address
         """
         return pulumi.get(self, "email")
 
@@ -211,7 +202,7 @@ class UserArgs:
     @pulumi.getter(name="firstName")
     def first_name(self) -> pulumi.Input[str]:
         """
-        User's First Name, required by default.
+        User first name
         """
         return pulumi.get(self, "first_name")
 
@@ -223,7 +214,7 @@ class UserArgs:
     @pulumi.getter(name="lastName")
     def last_name(self) -> pulumi.Input[str]:
         """
-        User's Last Name, required by default.
+        User last name
         """
         return pulumi.get(self, "last_name")
 
@@ -235,7 +226,7 @@ class UserArgs:
     @pulumi.getter
     def login(self) -> pulumi.Input[str]:
         """
-        User profile property.
+        User Okta login
         """
         return pulumi.get(self, "login")
 
@@ -247,7 +238,7 @@ class UserArgs:
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User city
         """
         return pulumi.get(self, "city")
 
@@ -259,7 +250,7 @@ class UserArgs:
     @pulumi.getter(name="costCenter")
     def cost_center(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User cost center
         """
         return pulumi.get(self, "cost_center")
 
@@ -271,7 +262,7 @@ class UserArgs:
     @pulumi.getter(name="countryCode")
     def country_code(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User country code
         """
         return pulumi.get(self, "country_code")
 
@@ -283,7 +274,7 @@ class UserArgs:
     @pulumi.getter(name="customProfileAttributes")
     def custom_profile_attributes(self) -> Optional[pulumi.Input[str]]:
         """
-        raw JSON containing all custom profile attributes.
+        JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
         """
         return pulumi.get(self, "custom_profile_attributes")
 
@@ -304,7 +295,7 @@ class UserArgs:
     @pulumi.getter
     def department(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User department
         """
         return pulumi.get(self, "department")
 
@@ -316,7 +307,7 @@ class UserArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User display name, suitable to show end users
         """
         return pulumi.get(self, "display_name")
 
@@ -328,7 +319,7 @@ class UserArgs:
     @pulumi.getter
     def division(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User division
         """
         return pulumi.get(self, "division")
 
@@ -340,7 +331,7 @@ class UserArgs:
     @pulumi.getter(name="employeeNumber")
     def employee_number(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User employee number
         """
         return pulumi.get(self, "employee_number")
 
@@ -352,8 +343,7 @@ class UserArgs:
     @pulumi.getter(name="expirePasswordOnCreate")
     def expire_password_on_create(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to `true`, the user will have to change the password at the next login. This property will be used
-        when user is being created and works only when `password` field is set. Default is `false`.
+        If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set. Default: `false`
         """
         return pulumi.get(self, "expire_password_on_create")
 
@@ -365,7 +355,7 @@ class UserArgs:
     @pulumi.getter(name="honorificPrefix")
     def honorific_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User honorific prefix
         """
         return pulumi.get(self, "honorific_prefix")
 
@@ -377,7 +367,7 @@ class UserArgs:
     @pulumi.getter(name="honorificSuffix")
     def honorific_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User honorific suffix
         """
         return pulumi.get(self, "honorific_suffix")
 
@@ -389,7 +379,7 @@ class UserArgs:
     @pulumi.getter
     def locale(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User default location
         """
         return pulumi.get(self, "locale")
 
@@ -401,7 +391,7 @@ class UserArgs:
     @pulumi.getter
     def manager(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        Manager of User
         """
         return pulumi.get(self, "manager")
 
@@ -413,7 +403,7 @@ class UserArgs:
     @pulumi.getter(name="managerId")
     def manager_id(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        Manager ID of User
         """
         return pulumi.get(self, "manager_id")
 
@@ -425,7 +415,7 @@ class UserArgs:
     @pulumi.getter(name="middleName")
     def middle_name(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User middle name
         """
         return pulumi.get(self, "middle_name")
 
@@ -437,7 +427,7 @@ class UserArgs:
     @pulumi.getter(name="mobilePhone")
     def mobile_phone(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User mobile phone number
         """
         return pulumi.get(self, "mobile_phone")
 
@@ -449,7 +439,7 @@ class UserArgs:
     @pulumi.getter(name="nickName")
     def nick_name(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User nickname
         """
         return pulumi.get(self, "nick_name")
 
@@ -461,9 +451,7 @@ class UserArgs:
     @pulumi.getter(name="oldPassword")
     def old_password(self) -> Optional[pulumi.Input[str]]:
         """
-        Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
-        outside the provider. After successful password change this field should be removed and `password` field should be used
-        for further changes.
+        Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
         """
         return pulumi.get(self, "old_password")
 
@@ -475,7 +463,7 @@ class UserArgs:
     @pulumi.getter
     def organization(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User organization
         """
         return pulumi.get(self, "organization")
 
@@ -487,7 +475,7 @@ class UserArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        User password.
+        User Password
         """
         return pulumi.get(self, "password")
 
@@ -511,10 +499,7 @@ class UserArgs:
     @pulumi.getter(name="passwordInlineHook")
     def password_inline_hook(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies that a Password Import Inline Hook should be triggered to handle verification
-        of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
-        from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
-        field should not be specified when using Password Import Inline Hook.
+        Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
         """
         return pulumi.get(self, "password_inline_hook")
 
@@ -526,7 +511,7 @@ class UserArgs:
     @pulumi.getter(name="postalAddress")
     def postal_address(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User mailing address
         """
         return pulumi.get(self, "postal_address")
 
@@ -538,7 +523,7 @@ class UserArgs:
     @pulumi.getter(name="preferredLanguage")
     def preferred_language(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User preferred language
         """
         return pulumi.get(self, "preferred_language")
 
@@ -550,7 +535,7 @@ class UserArgs:
     @pulumi.getter(name="primaryPhone")
     def primary_phone(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User primary phone number
         """
         return pulumi.get(self, "primary_phone")
 
@@ -562,7 +547,7 @@ class UserArgs:
     @pulumi.getter(name="profileUrl")
     def profile_url(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User online profile (web page)
         """
         return pulumi.get(self, "profile_url")
 
@@ -574,10 +559,7 @@ class UserArgs:
     @pulumi.getter(name="recoveryAnswer")
     def recovery_answer(self) -> Optional[pulumi.Input[str]]:
         """
-        User password recovery answer.
-
-        - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
-        - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
+        User Password Recovery Answer
         """
         return pulumi.get(self, "recovery_answer")
 
@@ -589,7 +571,7 @@ class UserArgs:
     @pulumi.getter(name="recoveryQuestion")
     def recovery_question(self) -> Optional[pulumi.Input[str]]:
         """
-        User password recovery question.
+        User Password Recovery Question
         """
         return pulumi.get(self, "recovery_question")
 
@@ -601,7 +583,7 @@ class UserArgs:
     @pulumi.getter(name="secondEmail")
     def second_email(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User secondary email address, used for account recovery
         """
         return pulumi.get(self, "second_email")
 
@@ -628,7 +610,7 @@ class UserArgs:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User state or region
         """
         return pulumi.get(self, "state")
 
@@ -640,7 +622,7 @@ class UserArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
+        User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -652,7 +634,7 @@ class UserArgs:
     @pulumi.getter(name="streetAddress")
     def street_address(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User street address
         """
         return pulumi.get(self, "street_address")
 
@@ -664,7 +646,7 @@ class UserArgs:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User default timezone
         """
         return pulumi.get(self, "timezone")
 
@@ -676,7 +658,7 @@ class UserArgs:
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User title
         """
         return pulumi.get(self, "title")
 
@@ -688,7 +670,7 @@ class UserArgs:
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User employee type
         """
         return pulumi.get(self, "user_type")
 
@@ -700,7 +682,7 @@ class UserArgs:
     @pulumi.getter(name="zipCode")
     def zip_code(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User zipcode or postal code
         """
         return pulumi.get(self, "zip_code")
 
@@ -757,57 +739,48 @@ class _UserState:
                  zip_code: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering User resources.
-        :param pulumi.Input[str] city: User profile property.
-        :param pulumi.Input[str] cost_center: User profile property.
-        :param pulumi.Input[str] country_code: User profile property.
-        :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
-        :param pulumi.Input[str] department: User profile property.
-        :param pulumi.Input[str] display_name: User profile property.
-        :param pulumi.Input[str] division: User profile property.
-        :param pulumi.Input[str] email: User profile property.
-        :param pulumi.Input[str] employee_number: User profile property.
-        :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used
-               when user is being created and works only when `password` field is set. Default is `false`.
-        :param pulumi.Input[str] first_name: User's First Name, required by default.
-        :param pulumi.Input[str] honorific_prefix: User profile property.
-        :param pulumi.Input[str] honorific_suffix: User profile property.
-        :param pulumi.Input[str] last_name: User's Last Name, required by default.
-        :param pulumi.Input[str] locale: User profile property.
-        :param pulumi.Input[str] login: User profile property.
-        :param pulumi.Input[str] manager: User profile property.
-        :param pulumi.Input[str] manager_id: User profile property.
-        :param pulumi.Input[str] middle_name: User profile property.
-        :param pulumi.Input[str] mobile_phone: User profile property.
-        :param pulumi.Input[str] nick_name: User profile property.
-        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
-               outside the provider. After successful password change this field should be removed and `password` field should be used
-               for further changes.
-        :param pulumi.Input[str] organization: User profile property.
-        :param pulumi.Input[str] password: User password.
+        :param pulumi.Input[str] city: User city
+        :param pulumi.Input[str] cost_center: User cost center
+        :param pulumi.Input[str] country_code: User country code
+        :param pulumi.Input[str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+        :param pulumi.Input[str] department: User department
+        :param pulumi.Input[str] display_name: User display name, suitable to show end users
+        :param pulumi.Input[str] division: User division
+        :param pulumi.Input[str] email: User primary email address
+        :param pulumi.Input[str] employee_number: User employee number
+        :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set. Default: `false`
+        :param pulumi.Input[str] first_name: User first name
+        :param pulumi.Input[str] honorific_prefix: User honorific prefix
+        :param pulumi.Input[str] honorific_suffix: User honorific suffix
+        :param pulumi.Input[str] last_name: User last name
+        :param pulumi.Input[str] locale: User default location
+        :param pulumi.Input[str] login: User Okta login
+        :param pulumi.Input[str] manager: Manager of User
+        :param pulumi.Input[str] manager_id: Manager ID of User
+        :param pulumi.Input[str] middle_name: User middle name
+        :param pulumi.Input[str] mobile_phone: User mobile phone number
+        :param pulumi.Input[str] nick_name: User nickname
+        :param pulumi.Input[str] old_password: Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
+        :param pulumi.Input[str] organization: User organization
+        :param pulumi.Input[str] password: User Password
         :param pulumi.Input['UserPasswordHashArgs'] password_hash: Specifies a hashed password to import into Okta.
-        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification
-               of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
-               from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
-               field should not be specified when using Password Import Inline Hook.
-        :param pulumi.Input[str] postal_address: User profile property.
-        :param pulumi.Input[str] preferred_language: User profile property.
-        :param pulumi.Input[str] primary_phone: User profile property.
-        :param pulumi.Input[str] profile_url: User profile property.
+        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
+        :param pulumi.Input[str] postal_address: User mailing address
+        :param pulumi.Input[str] preferred_language: User preferred language
+        :param pulumi.Input[str] primary_phone: User primary phone number
+        :param pulumi.Input[str] profile_url: User online profile (web page)
         :param pulumi.Input[str] raw_status: The raw status of the User in Okta - (status is mapped)
-        :param pulumi.Input[str] recovery_answer: User password recovery answer.
-               
-               - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
-               - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
-        :param pulumi.Input[str] recovery_question: User password recovery question.
-        :param pulumi.Input[str] second_email: User profile property.
+        :param pulumi.Input[str] recovery_answer: User Password Recovery Answer
+        :param pulumi.Input[str] recovery_question: User Password Recovery Question
+        :param pulumi.Input[str] second_email: User secondary email address, used for account recovery
         :param pulumi.Input[bool] skip_roles: Do not populate user roles information (prevents additional API call)
-        :param pulumi.Input[str] state: User profile property.
-        :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
-        :param pulumi.Input[str] street_address: User profile property.
-        :param pulumi.Input[str] timezone: User profile property.
-        :param pulumi.Input[str] title: User profile property.
-        :param pulumi.Input[str] user_type: User profile property.
-        :param pulumi.Input[str] zip_code: User profile property.
+        :param pulumi.Input[str] state: User state or region
+        :param pulumi.Input[str] status: User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
+        :param pulumi.Input[str] street_address: User street address
+        :param pulumi.Input[str] timezone: User default timezone
+        :param pulumi.Input[str] title: User title
+        :param pulumi.Input[str] user_type: User employee type
+        :param pulumi.Input[str] zip_code: User zipcode or postal code
         """
         if city is not None:
             pulumi.set(__self__, "city", city)
@@ -903,7 +876,7 @@ class _UserState:
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User city
         """
         return pulumi.get(self, "city")
 
@@ -915,7 +888,7 @@ class _UserState:
     @pulumi.getter(name="costCenter")
     def cost_center(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User cost center
         """
         return pulumi.get(self, "cost_center")
 
@@ -927,7 +900,7 @@ class _UserState:
     @pulumi.getter(name="countryCode")
     def country_code(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User country code
         """
         return pulumi.get(self, "country_code")
 
@@ -939,7 +912,7 @@ class _UserState:
     @pulumi.getter(name="customProfileAttributes")
     def custom_profile_attributes(self) -> Optional[pulumi.Input[str]]:
         """
-        raw JSON containing all custom profile attributes.
+        JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
         """
         return pulumi.get(self, "custom_profile_attributes")
 
@@ -960,7 +933,7 @@ class _UserState:
     @pulumi.getter
     def department(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User department
         """
         return pulumi.get(self, "department")
 
@@ -972,7 +945,7 @@ class _UserState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User display name, suitable to show end users
         """
         return pulumi.get(self, "display_name")
 
@@ -984,7 +957,7 @@ class _UserState:
     @pulumi.getter
     def division(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User division
         """
         return pulumi.get(self, "division")
 
@@ -996,7 +969,7 @@ class _UserState:
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User primary email address
         """
         return pulumi.get(self, "email")
 
@@ -1008,7 +981,7 @@ class _UserState:
     @pulumi.getter(name="employeeNumber")
     def employee_number(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User employee number
         """
         return pulumi.get(self, "employee_number")
 
@@ -1020,8 +993,7 @@ class _UserState:
     @pulumi.getter(name="expirePasswordOnCreate")
     def expire_password_on_create(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to `true`, the user will have to change the password at the next login. This property will be used
-        when user is being created and works only when `password` field is set. Default is `false`.
+        If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set. Default: `false`
         """
         return pulumi.get(self, "expire_password_on_create")
 
@@ -1033,7 +1005,7 @@ class _UserState:
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[str]]:
         """
-        User's First Name, required by default.
+        User first name
         """
         return pulumi.get(self, "first_name")
 
@@ -1045,7 +1017,7 @@ class _UserState:
     @pulumi.getter(name="honorificPrefix")
     def honorific_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User honorific prefix
         """
         return pulumi.get(self, "honorific_prefix")
 
@@ -1057,7 +1029,7 @@ class _UserState:
     @pulumi.getter(name="honorificSuffix")
     def honorific_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User honorific suffix
         """
         return pulumi.get(self, "honorific_suffix")
 
@@ -1069,7 +1041,7 @@ class _UserState:
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[str]]:
         """
-        User's Last Name, required by default.
+        User last name
         """
         return pulumi.get(self, "last_name")
 
@@ -1081,7 +1053,7 @@ class _UserState:
     @pulumi.getter
     def locale(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User default location
         """
         return pulumi.get(self, "locale")
 
@@ -1093,7 +1065,7 @@ class _UserState:
     @pulumi.getter
     def login(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User Okta login
         """
         return pulumi.get(self, "login")
 
@@ -1105,7 +1077,7 @@ class _UserState:
     @pulumi.getter
     def manager(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        Manager of User
         """
         return pulumi.get(self, "manager")
 
@@ -1117,7 +1089,7 @@ class _UserState:
     @pulumi.getter(name="managerId")
     def manager_id(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        Manager ID of User
         """
         return pulumi.get(self, "manager_id")
 
@@ -1129,7 +1101,7 @@ class _UserState:
     @pulumi.getter(name="middleName")
     def middle_name(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User middle name
         """
         return pulumi.get(self, "middle_name")
 
@@ -1141,7 +1113,7 @@ class _UserState:
     @pulumi.getter(name="mobilePhone")
     def mobile_phone(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User mobile phone number
         """
         return pulumi.get(self, "mobile_phone")
 
@@ -1153,7 +1125,7 @@ class _UserState:
     @pulumi.getter(name="nickName")
     def nick_name(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User nickname
         """
         return pulumi.get(self, "nick_name")
 
@@ -1165,9 +1137,7 @@ class _UserState:
     @pulumi.getter(name="oldPassword")
     def old_password(self) -> Optional[pulumi.Input[str]]:
         """
-        Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
-        outside the provider. After successful password change this field should be removed and `password` field should be used
-        for further changes.
+        Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
         """
         return pulumi.get(self, "old_password")
 
@@ -1179,7 +1149,7 @@ class _UserState:
     @pulumi.getter
     def organization(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User organization
         """
         return pulumi.get(self, "organization")
 
@@ -1191,7 +1161,7 @@ class _UserState:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        User password.
+        User Password
         """
         return pulumi.get(self, "password")
 
@@ -1215,10 +1185,7 @@ class _UserState:
     @pulumi.getter(name="passwordInlineHook")
     def password_inline_hook(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies that a Password Import Inline Hook should be triggered to handle verification
-        of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
-        from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
-        field should not be specified when using Password Import Inline Hook.
+        Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
         """
         return pulumi.get(self, "password_inline_hook")
 
@@ -1230,7 +1197,7 @@ class _UserState:
     @pulumi.getter(name="postalAddress")
     def postal_address(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User mailing address
         """
         return pulumi.get(self, "postal_address")
 
@@ -1242,7 +1209,7 @@ class _UserState:
     @pulumi.getter(name="preferredLanguage")
     def preferred_language(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User preferred language
         """
         return pulumi.get(self, "preferred_language")
 
@@ -1254,7 +1221,7 @@ class _UserState:
     @pulumi.getter(name="primaryPhone")
     def primary_phone(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User primary phone number
         """
         return pulumi.get(self, "primary_phone")
 
@@ -1266,7 +1233,7 @@ class _UserState:
     @pulumi.getter(name="profileUrl")
     def profile_url(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User online profile (web page)
         """
         return pulumi.get(self, "profile_url")
 
@@ -1290,10 +1257,7 @@ class _UserState:
     @pulumi.getter(name="recoveryAnswer")
     def recovery_answer(self) -> Optional[pulumi.Input[str]]:
         """
-        User password recovery answer.
-
-        - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
-        - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
+        User Password Recovery Answer
         """
         return pulumi.get(self, "recovery_answer")
 
@@ -1305,7 +1269,7 @@ class _UserState:
     @pulumi.getter(name="recoveryQuestion")
     def recovery_question(self) -> Optional[pulumi.Input[str]]:
         """
-        User password recovery question.
+        User Password Recovery Question
         """
         return pulumi.get(self, "recovery_question")
 
@@ -1317,7 +1281,7 @@ class _UserState:
     @pulumi.getter(name="secondEmail")
     def second_email(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User secondary email address, used for account recovery
         """
         return pulumi.get(self, "second_email")
 
@@ -1344,7 +1308,7 @@ class _UserState:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User state or region
         """
         return pulumi.get(self, "state")
 
@@ -1356,7 +1320,7 @@ class _UserState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
+        User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -1368,7 +1332,7 @@ class _UserState:
     @pulumi.getter(name="streetAddress")
     def street_address(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User street address
         """
         return pulumi.get(self, "street_address")
 
@@ -1380,7 +1344,7 @@ class _UserState:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User default timezone
         """
         return pulumi.get(self, "timezone")
 
@@ -1392,7 +1356,7 @@ class _UserState:
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User title
         """
         return pulumi.get(self, "title")
 
@@ -1404,7 +1368,7 @@ class _UserState:
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User employee type
         """
         return pulumi.get(self, "user_type")
 
@@ -1416,7 +1380,7 @@ class _UserState:
     @pulumi.getter(name="zipCode")
     def zip_code(self) -> Optional[pulumi.Input[str]]:
         """
-        User profile property.
+        User zipcode or postal code
         """
         return pulumi.get(self, "zip_code")
 
@@ -1474,126 +1438,97 @@ class User(pulumi.CustomResource):
                  zip_code: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates an Okta User.
-
-        This resource allows you to create and configure an Okta User.
+        Creates an Okta User. This resource allows you to create and configure an Okta User.
 
         ## Example Usage
 
-        Full profile:
+        ### Full profile:
+        resource "user.User" "example" {
+          first_name         = "John"
+          last_name          = "Smith"
+          login              = "john.smith@example.com"
+          email              = "john.smith@example.com"
+          city               = "New York"
+          cost_center        = "10"
+          country_code       = "US"
+          department         = "IT"
+          display_name       = "Dr. John Smith"
+          division           = "Acquisitions"
+          employee_number    = "111111"
+          honorific_prefix   = "Dr."
+          honorific_suffix   = "Jr."
+          locale             = "en_US"
+          manager            = "Jimbo"
+          manager_id         = "222222"
+          middle_name        = "John"
+          mobile_phone       = "1112223333"
+          nick_name          = "Johnny"
+          organization       = "Testing Inc."
+          postal_address     = "1234 Testing St."
+          preferred_language = "en-us"
+          primary_phone      = "4445556666"
+          profile_url        = "https://www.example.com/profile"
+          second_email       = "john.smith.fun@example.com"
+          state              = "NY"
+          street_address     = "5678 Testing Ave."
+          timezone           = "America/New_York"
+          title              = "Director"
+          user_type          = "Employee"
+          zip_code           = "11111"
+        }
 
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.user.User("example",
-            first_name="John",
-            last_name="Smith",
-            login="john.smith@example.com",
-            email="john.smith@example.com",
-            city="New York",
-            cost_center="10",
-            country_code="US",
-            department="IT",
-            display_name="Dr. John Smith",
-            division="Acquisitions",
-            employee_number="111111",
-            honorific_prefix="Dr.",
-            honorific_suffix="Jr.",
-            locale="en_US",
-            manager="Jimbo",
-            manager_id="222222",
-            middle_name="John",
-            mobile_phone="1112223333",
-            nick_name="Johnny",
-            organization="Testing Inc.",
-            postal_address="1234 Testing St.",
-            preferred_language="en-us",
-            primary_phone="4445556666",
-            profile_url="https://www.example.com/profile",
-            second_email="john.smith.fun@example.com",
-            state="NY",
-            street_address="5678 Testing Ave.",
-            timezone="America/New_York",
-            title="Director",
-            user_type="Employee",
-            zip_code="11111")
-        ```
-
-        With Password Inline Hook:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        test2 = okta.user.User("test2",
-            first_name="John",
-            last_name="Smith",
-            login="example@example.com",
-            email="example@example.com",
-            password_inline_hook="default")
-        ```
-
-        ## Import
-
-        An Okta User can be imported via the ID.
-
-        ```sh
-        $ pulumi import okta:user/user:User example &#60;user id&#62;
-        ```
+        ### With Password Inline Hook:
+        resource "user.User" "test2" {
+          first_name           = "John"
+          last_name            = "Smith"
+          login                = "example@example.com"
+          email                = "example@example.com"
+          password_inline_hook = "default"
+        }
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] city: User profile property.
-        :param pulumi.Input[str] cost_center: User profile property.
-        :param pulumi.Input[str] country_code: User profile property.
-        :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
-        :param pulumi.Input[str] department: User profile property.
-        :param pulumi.Input[str] display_name: User profile property.
-        :param pulumi.Input[str] division: User profile property.
-        :param pulumi.Input[str] email: User profile property.
-        :param pulumi.Input[str] employee_number: User profile property.
-        :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used
-               when user is being created and works only when `password` field is set. Default is `false`.
-        :param pulumi.Input[str] first_name: User's First Name, required by default.
-        :param pulumi.Input[str] honorific_prefix: User profile property.
-        :param pulumi.Input[str] honorific_suffix: User profile property.
-        :param pulumi.Input[str] last_name: User's Last Name, required by default.
-        :param pulumi.Input[str] locale: User profile property.
-        :param pulumi.Input[str] login: User profile property.
-        :param pulumi.Input[str] manager: User profile property.
-        :param pulumi.Input[str] manager_id: User profile property.
-        :param pulumi.Input[str] middle_name: User profile property.
-        :param pulumi.Input[str] mobile_phone: User profile property.
-        :param pulumi.Input[str] nick_name: User profile property.
-        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
-               outside the provider. After successful password change this field should be removed and `password` field should be used
-               for further changes.
-        :param pulumi.Input[str] organization: User profile property.
-        :param pulumi.Input[str] password: User password.
+        :param pulumi.Input[str] city: User city
+        :param pulumi.Input[str] cost_center: User cost center
+        :param pulumi.Input[str] country_code: User country code
+        :param pulumi.Input[str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+        :param pulumi.Input[str] department: User department
+        :param pulumi.Input[str] display_name: User display name, suitable to show end users
+        :param pulumi.Input[str] division: User division
+        :param pulumi.Input[str] email: User primary email address
+        :param pulumi.Input[str] employee_number: User employee number
+        :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set. Default: `false`
+        :param pulumi.Input[str] first_name: User first name
+        :param pulumi.Input[str] honorific_prefix: User honorific prefix
+        :param pulumi.Input[str] honorific_suffix: User honorific suffix
+        :param pulumi.Input[str] last_name: User last name
+        :param pulumi.Input[str] locale: User default location
+        :param pulumi.Input[str] login: User Okta login
+        :param pulumi.Input[str] manager: Manager of User
+        :param pulumi.Input[str] manager_id: Manager ID of User
+        :param pulumi.Input[str] middle_name: User middle name
+        :param pulumi.Input[str] mobile_phone: User mobile phone number
+        :param pulumi.Input[str] nick_name: User nickname
+        :param pulumi.Input[str] old_password: Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
+        :param pulumi.Input[str] organization: User organization
+        :param pulumi.Input[str] password: User Password
         :param pulumi.Input[pulumi.InputType['UserPasswordHashArgs']] password_hash: Specifies a hashed password to import into Okta.
-        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification
-               of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
-               from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
-               field should not be specified when using Password Import Inline Hook.
-        :param pulumi.Input[str] postal_address: User profile property.
-        :param pulumi.Input[str] preferred_language: User profile property.
-        :param pulumi.Input[str] primary_phone: User profile property.
-        :param pulumi.Input[str] profile_url: User profile property.
-        :param pulumi.Input[str] recovery_answer: User password recovery answer.
-               
-               - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
-               - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
-        :param pulumi.Input[str] recovery_question: User password recovery question.
-        :param pulumi.Input[str] second_email: User profile property.
+        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
+        :param pulumi.Input[str] postal_address: User mailing address
+        :param pulumi.Input[str] preferred_language: User preferred language
+        :param pulumi.Input[str] primary_phone: User primary phone number
+        :param pulumi.Input[str] profile_url: User online profile (web page)
+        :param pulumi.Input[str] recovery_answer: User Password Recovery Answer
+        :param pulumi.Input[str] recovery_question: User Password Recovery Question
+        :param pulumi.Input[str] second_email: User secondary email address, used for account recovery
         :param pulumi.Input[bool] skip_roles: Do not populate user roles information (prevents additional API call)
-        :param pulumi.Input[str] state: User profile property.
-        :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
-        :param pulumi.Input[str] street_address: User profile property.
-        :param pulumi.Input[str] timezone: User profile property.
-        :param pulumi.Input[str] title: User profile property.
-        :param pulumi.Input[str] user_type: User profile property.
-        :param pulumi.Input[str] zip_code: User profile property.
+        :param pulumi.Input[str] state: User state or region
+        :param pulumi.Input[str] status: User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
+        :param pulumi.Input[str] street_address: User street address
+        :param pulumi.Input[str] timezone: User default timezone
+        :param pulumi.Input[str] title: User title
+        :param pulumi.Input[str] user_type: User employee type
+        :param pulumi.Input[str] zip_code: User zipcode or postal code
         """
         ...
     @overload
@@ -1602,73 +1537,53 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an Okta User.
-
-        This resource allows you to create and configure an Okta User.
+        Creates an Okta User. This resource allows you to create and configure an Okta User.
 
         ## Example Usage
 
-        Full profile:
+        ### Full profile:
+        resource "user.User" "example" {
+          first_name         = "John"
+          last_name          = "Smith"
+          login              = "john.smith@example.com"
+          email              = "john.smith@example.com"
+          city               = "New York"
+          cost_center        = "10"
+          country_code       = "US"
+          department         = "IT"
+          display_name       = "Dr. John Smith"
+          division           = "Acquisitions"
+          employee_number    = "111111"
+          honorific_prefix   = "Dr."
+          honorific_suffix   = "Jr."
+          locale             = "en_US"
+          manager            = "Jimbo"
+          manager_id         = "222222"
+          middle_name        = "John"
+          mobile_phone       = "1112223333"
+          nick_name          = "Johnny"
+          organization       = "Testing Inc."
+          postal_address     = "1234 Testing St."
+          preferred_language = "en-us"
+          primary_phone      = "4445556666"
+          profile_url        = "https://www.example.com/profile"
+          second_email       = "john.smith.fun@example.com"
+          state              = "NY"
+          street_address     = "5678 Testing Ave."
+          timezone           = "America/New_York"
+          title              = "Director"
+          user_type          = "Employee"
+          zip_code           = "11111"
+        }
 
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.user.User("example",
-            first_name="John",
-            last_name="Smith",
-            login="john.smith@example.com",
-            email="john.smith@example.com",
-            city="New York",
-            cost_center="10",
-            country_code="US",
-            department="IT",
-            display_name="Dr. John Smith",
-            division="Acquisitions",
-            employee_number="111111",
-            honorific_prefix="Dr.",
-            honorific_suffix="Jr.",
-            locale="en_US",
-            manager="Jimbo",
-            manager_id="222222",
-            middle_name="John",
-            mobile_phone="1112223333",
-            nick_name="Johnny",
-            organization="Testing Inc.",
-            postal_address="1234 Testing St.",
-            preferred_language="en-us",
-            primary_phone="4445556666",
-            profile_url="https://www.example.com/profile",
-            second_email="john.smith.fun@example.com",
-            state="NY",
-            street_address="5678 Testing Ave.",
-            timezone="America/New_York",
-            title="Director",
-            user_type="Employee",
-            zip_code="11111")
-        ```
-
-        With Password Inline Hook:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        test2 = okta.user.User("test2",
-            first_name="John",
-            last_name="Smith",
-            login="example@example.com",
-            email="example@example.com",
-            password_inline_hook="default")
-        ```
-
-        ## Import
-
-        An Okta User can be imported via the ID.
-
-        ```sh
-        $ pulumi import okta:user/user:User example &#60;user id&#62;
-        ```
+        ### With Password Inline Hook:
+        resource "user.User" "test2" {
+          first_name           = "John"
+          last_name            = "Smith"
+          login                = "example@example.com"
+          email                = "example@example.com"
+          password_inline_hook = "default"
+        }
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
@@ -1849,57 +1764,48 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] city: User profile property.
-        :param pulumi.Input[str] cost_center: User profile property.
-        :param pulumi.Input[str] country_code: User profile property.
-        :param pulumi.Input[str] custom_profile_attributes: raw JSON containing all custom profile attributes.
-        :param pulumi.Input[str] department: User profile property.
-        :param pulumi.Input[str] display_name: User profile property.
-        :param pulumi.Input[str] division: User profile property.
-        :param pulumi.Input[str] email: User profile property.
-        :param pulumi.Input[str] employee_number: User profile property.
-        :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used
-               when user is being created and works only when `password` field is set. Default is `false`.
-        :param pulumi.Input[str] first_name: User's First Name, required by default.
-        :param pulumi.Input[str] honorific_prefix: User profile property.
-        :param pulumi.Input[str] honorific_suffix: User profile property.
-        :param pulumi.Input[str] last_name: User's Last Name, required by default.
-        :param pulumi.Input[str] locale: User profile property.
-        :param pulumi.Input[str] login: User profile property.
-        :param pulumi.Input[str] manager: User profile property.
-        :param pulumi.Input[str] manager_id: User profile property.
-        :param pulumi.Input[str] middle_name: User profile property.
-        :param pulumi.Input[str] mobile_phone: User profile property.
-        :param pulumi.Input[str] nick_name: User profile property.
-        :param pulumi.Input[str] old_password: Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
-               outside the provider. After successful password change this field should be removed and `password` field should be used
-               for further changes.
-        :param pulumi.Input[str] organization: User profile property.
-        :param pulumi.Input[str] password: User password.
+        :param pulumi.Input[str] city: User city
+        :param pulumi.Input[str] cost_center: User cost center
+        :param pulumi.Input[str] country_code: User country code
+        :param pulumi.Input[str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+        :param pulumi.Input[str] department: User department
+        :param pulumi.Input[str] display_name: User display name, suitable to show end users
+        :param pulumi.Input[str] division: User division
+        :param pulumi.Input[str] email: User primary email address
+        :param pulumi.Input[str] employee_number: User employee number
+        :param pulumi.Input[bool] expire_password_on_create: If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set. Default: `false`
+        :param pulumi.Input[str] first_name: User first name
+        :param pulumi.Input[str] honorific_prefix: User honorific prefix
+        :param pulumi.Input[str] honorific_suffix: User honorific suffix
+        :param pulumi.Input[str] last_name: User last name
+        :param pulumi.Input[str] locale: User default location
+        :param pulumi.Input[str] login: User Okta login
+        :param pulumi.Input[str] manager: Manager of User
+        :param pulumi.Input[str] manager_id: Manager ID of User
+        :param pulumi.Input[str] middle_name: User middle name
+        :param pulumi.Input[str] mobile_phone: User mobile phone number
+        :param pulumi.Input[str] nick_name: User nickname
+        :param pulumi.Input[str] old_password: Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
+        :param pulumi.Input[str] organization: User organization
+        :param pulumi.Input[str] password: User Password
         :param pulumi.Input[pulumi.InputType['UserPasswordHashArgs']] password_hash: Specifies a hashed password to import into Okta.
-        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification
-               of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
-               from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
-               field should not be specified when using Password Import Inline Hook.
-        :param pulumi.Input[str] postal_address: User profile property.
-        :param pulumi.Input[str] preferred_language: User profile property.
-        :param pulumi.Input[str] primary_phone: User profile property.
-        :param pulumi.Input[str] profile_url: User profile property.
+        :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
+        :param pulumi.Input[str] postal_address: User mailing address
+        :param pulumi.Input[str] preferred_language: User preferred language
+        :param pulumi.Input[str] primary_phone: User primary phone number
+        :param pulumi.Input[str] profile_url: User online profile (web page)
         :param pulumi.Input[str] raw_status: The raw status of the User in Okta - (status is mapped)
-        :param pulumi.Input[str] recovery_answer: User password recovery answer.
-               
-               - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
-               - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
-        :param pulumi.Input[str] recovery_question: User password recovery question.
-        :param pulumi.Input[str] second_email: User profile property.
+        :param pulumi.Input[str] recovery_answer: User Password Recovery Answer
+        :param pulumi.Input[str] recovery_question: User Password Recovery Question
+        :param pulumi.Input[str] second_email: User secondary email address, used for account recovery
         :param pulumi.Input[bool] skip_roles: Do not populate user roles information (prevents additional API call)
-        :param pulumi.Input[str] state: User profile property.
-        :param pulumi.Input[str] status: User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
-        :param pulumi.Input[str] street_address: User profile property.
-        :param pulumi.Input[str] timezone: User profile property.
-        :param pulumi.Input[str] title: User profile property.
-        :param pulumi.Input[str] user_type: User profile property.
-        :param pulumi.Input[str] zip_code: User profile property.
+        :param pulumi.Input[str] state: User state or region
+        :param pulumi.Input[str] status: User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
+        :param pulumi.Input[str] street_address: User street address
+        :param pulumi.Input[str] timezone: User default timezone
+        :param pulumi.Input[str] title: User title
+        :param pulumi.Input[str] user_type: User employee type
+        :param pulumi.Input[str] zip_code: User zipcode or postal code
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1954,7 +1860,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def city(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User city
         """
         return pulumi.get(self, "city")
 
@@ -1962,7 +1868,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="costCenter")
     def cost_center(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User cost center
         """
         return pulumi.get(self, "cost_center")
 
@@ -1970,7 +1876,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="countryCode")
     def country_code(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User country code
         """
         return pulumi.get(self, "country_code")
 
@@ -1978,7 +1884,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="customProfileAttributes")
     def custom_profile_attributes(self) -> pulumi.Output[str]:
         """
-        raw JSON containing all custom profile attributes.
+        JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
         """
         return pulumi.get(self, "custom_profile_attributes")
 
@@ -1991,7 +1897,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def department(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User department
         """
         return pulumi.get(self, "department")
 
@@ -1999,7 +1905,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User display name, suitable to show end users
         """
         return pulumi.get(self, "display_name")
 
@@ -2007,7 +1913,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def division(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User division
         """
         return pulumi.get(self, "division")
 
@@ -2015,7 +1921,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def email(self) -> pulumi.Output[str]:
         """
-        User profile property.
+        User primary email address
         """
         return pulumi.get(self, "email")
 
@@ -2023,7 +1929,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="employeeNumber")
     def employee_number(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User employee number
         """
         return pulumi.get(self, "employee_number")
 
@@ -2031,8 +1937,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="expirePasswordOnCreate")
     def expire_password_on_create(self) -> pulumi.Output[Optional[bool]]:
         """
-        If set to `true`, the user will have to change the password at the next login. This property will be used
-        when user is being created and works only when `password` field is set. Default is `false`.
+        If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set. Default: `false`
         """
         return pulumi.get(self, "expire_password_on_create")
 
@@ -2040,7 +1945,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="firstName")
     def first_name(self) -> pulumi.Output[str]:
         """
-        User's First Name, required by default.
+        User first name
         """
         return pulumi.get(self, "first_name")
 
@@ -2048,7 +1953,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="honorificPrefix")
     def honorific_prefix(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User honorific prefix
         """
         return pulumi.get(self, "honorific_prefix")
 
@@ -2056,7 +1961,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="honorificSuffix")
     def honorific_suffix(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User honorific suffix
         """
         return pulumi.get(self, "honorific_suffix")
 
@@ -2064,7 +1969,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="lastName")
     def last_name(self) -> pulumi.Output[str]:
         """
-        User's Last Name, required by default.
+        User last name
         """
         return pulumi.get(self, "last_name")
 
@@ -2072,7 +1977,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def locale(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User default location
         """
         return pulumi.get(self, "locale")
 
@@ -2080,7 +1985,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def login(self) -> pulumi.Output[str]:
         """
-        User profile property.
+        User Okta login
         """
         return pulumi.get(self, "login")
 
@@ -2088,7 +1993,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def manager(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        Manager of User
         """
         return pulumi.get(self, "manager")
 
@@ -2096,7 +2001,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="managerId")
     def manager_id(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        Manager ID of User
         """
         return pulumi.get(self, "manager_id")
 
@@ -2104,7 +2009,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="middleName")
     def middle_name(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User middle name
         """
         return pulumi.get(self, "middle_name")
 
@@ -2112,7 +2017,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="mobilePhone")
     def mobile_phone(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User mobile phone number
         """
         return pulumi.get(self, "mobile_phone")
 
@@ -2120,7 +2025,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="nickName")
     def nick_name(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User nickname
         """
         return pulumi.get(self, "nick_name")
 
@@ -2128,9 +2033,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="oldPassword")
     def old_password(self) -> pulumi.Output[Optional[str]]:
         """
-        Old user password. **IMPORTANT**: Should be ONLY set in case the password was changed
-        outside the provider. After successful password change this field should be removed and `password` field should be used
-        for further changes.
+        Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
         """
         return pulumi.get(self, "old_password")
 
@@ -2138,7 +2041,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def organization(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User organization
         """
         return pulumi.get(self, "organization")
 
@@ -2146,7 +2049,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
         """
-        User password.
+        User Password
         """
         return pulumi.get(self, "password")
 
@@ -2162,10 +2065,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="passwordInlineHook")
     def password_inline_hook(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies that a Password Import Inline Hook should be triggered to handle verification
-        of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly
-        from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password`
-        field should not be specified when using Password Import Inline Hook.
+        Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
         """
         return pulumi.get(self, "password_inline_hook")
 
@@ -2173,7 +2073,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="postalAddress")
     def postal_address(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User mailing address
         """
         return pulumi.get(self, "postal_address")
 
@@ -2181,7 +2081,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="preferredLanguage")
     def preferred_language(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User preferred language
         """
         return pulumi.get(self, "preferred_language")
 
@@ -2189,7 +2089,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="primaryPhone")
     def primary_phone(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User primary phone number
         """
         return pulumi.get(self, "primary_phone")
 
@@ -2197,7 +2097,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="profileUrl")
     def profile_url(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User online profile (web page)
         """
         return pulumi.get(self, "profile_url")
 
@@ -2213,10 +2113,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="recoveryAnswer")
     def recovery_answer(self) -> pulumi.Output[Optional[str]]:
         """
-        User password recovery answer.
-
-        - `password hash` - (Optional) Specifies a hashed password to import into Okta. When updating a user with a hashed password the user must be in the `STAGED` status.
-        - `algorithm"` - (Required) The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.
+        User Password Recovery Answer
         """
         return pulumi.get(self, "recovery_answer")
 
@@ -2224,7 +2121,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="recoveryQuestion")
     def recovery_question(self) -> pulumi.Output[Optional[str]]:
         """
-        User password recovery question.
+        User Password Recovery Question
         """
         return pulumi.get(self, "recovery_question")
 
@@ -2232,7 +2129,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="secondEmail")
     def second_email(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User secondary email address, used for account recovery
         """
         return pulumi.get(self, "second_email")
 
@@ -2251,7 +2148,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User state or region
         """
         return pulumi.get(self, "state")
 
@@ -2259,7 +2156,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property. Valid values are "ACTIVE", "DEPROVISIONED", "STAGED", "SUSPENDED"
+        User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -2267,7 +2164,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="streetAddress")
     def street_address(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User street address
         """
         return pulumi.get(self, "street_address")
 
@@ -2275,7 +2172,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def timezone(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User default timezone
         """
         return pulumi.get(self, "timezone")
 
@@ -2283,7 +2180,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def title(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User title
         """
         return pulumi.get(self, "title")
 
@@ -2291,7 +2188,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="userType")
     def user_type(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User employee type
         """
         return pulumi.get(self, "user_type")
 
@@ -2299,7 +2196,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="zipCode")
     def zip_code(self) -> pulumi.Output[Optional[str]]:
         """
-        User profile property.
+        User zipcode or postal code
         """
         return pulumi.get(self, "zip_code")
 

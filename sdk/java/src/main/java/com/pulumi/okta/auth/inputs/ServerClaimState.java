@@ -48,14 +48,14 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
+     * Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
      * 
      */
     @Import(name="claimType")
     private @Nullable Output<String> claimType;
 
     /**
-     * @return Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
+     * @return Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
      * 
      */
     public Optional<Output<String>> claimType() {
@@ -63,14 +63,14 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the type of group filter if `value_type` is `&#34;GROUPS&#34;`. Can be set to one of the following `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+     * Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      * 
      */
     @Import(name="groupFilterType")
     private @Nullable Output<String> groupFilterType;
 
     /**
-     * @return Specifies the type of group filter if `value_type` is `&#34;GROUPS&#34;`. Can be set to one of the following `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+     * @return Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      * 
      */
     public Optional<Output<String>> groupFilterType() {
@@ -108,14 +108,14 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The status of the application. It defaults to `&#34;ACTIVE&#34;`.
+     * Default to `ACTIVE`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the application. It defaults to `&#34;ACTIVE&#34;`.
+     * @return Default to `ACTIVE`
      * 
      */
     public Optional<Output<String>> status() {
@@ -138,14 +138,14 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of value of the claim. It can be set to `&#34;EXPRESSION&#34;` or `&#34;GROUPS&#34;`. It defaults to `&#34;EXPRESSION&#34;`.
+     * The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
      * 
      */
     @Import(name="valueType")
     private @Nullable Output<String> valueType;
 
     /**
-     * @return The type of value of the claim. It can be set to `&#34;EXPRESSION&#34;` or `&#34;GROUPS&#34;`. It defaults to `&#34;EXPRESSION&#34;`.
+     * @return The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
      * 
      */
     public Optional<Output<String>> valueType() {
@@ -227,7 +227,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param claimType Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
+         * @param claimType Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param claimType Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
+         * @param claimType Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupFilterType Specifies the type of group filter if `value_type` is `&#34;GROUPS&#34;`. Can be set to one of the following `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+         * @param groupFilterType Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupFilterType Specifies the type of group filter if `value_type` is `&#34;GROUPS&#34;`. Can be set to one of the following `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+         * @param groupFilterType Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the application. It defaults to `&#34;ACTIVE&#34;`.
+         * @param status Default to `ACTIVE`
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the application. It defaults to `&#34;ACTIVE&#34;`.
+         * @param status Default to `ACTIVE`
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param valueType The type of value of the claim. It can be set to `&#34;EXPRESSION&#34;` or `&#34;GROUPS&#34;`. It defaults to `&#34;EXPRESSION&#34;`.
+         * @param valueType The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param valueType The type of value of the claim. It can be set to `&#34;EXPRESSION&#34;` or `&#34;GROUPS&#34;`. It defaults to `&#34;EXPRESSION&#34;`.
+         * @param valueType The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
          * 
          * @return builder
          * 

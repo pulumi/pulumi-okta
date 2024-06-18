@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetMetadataSamlResult {
     /**
-     * @return whether assertions are signed.
+     * @return Whether assertions are signed.
      * 
      */
     private Boolean assertionsSigned;
     /**
-     * @return whether authn requests are signed.
+     * @return Whether authn requests are signed.
      * 
      */
     private Boolean authnRequestSigned;
@@ -29,7 +29,7 @@ public final class GetMetadataSamlResult {
      */
     private String encryptionCertificate;
     /**
-     * @return Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
+     * @return Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
      * 
      */
     private String entityId;
@@ -48,9 +48,13 @@ public final class GetMetadataSamlResult {
      * 
      */
     private String id;
+    /**
+     * @return The id of the IdP to retrieve metadata for.
+     * 
+     */
     private @Nullable String idpId;
     /**
-     * @return raw IdP metadata.
+     * @return Raw IdP metadata.
      * 
      */
     private String metadata;
@@ -62,14 +66,14 @@ public final class GetMetadataSamlResult {
 
     private GetMetadataSamlResult() {}
     /**
-     * @return whether assertions are signed.
+     * @return Whether assertions are signed.
      * 
      */
     public Boolean assertionsSigned() {
         return this.assertionsSigned;
     }
     /**
-     * @return whether authn requests are signed.
+     * @return Whether authn requests are signed.
      * 
      */
     public Boolean authnRequestSigned() {
@@ -83,7 +87,7 @@ public final class GetMetadataSamlResult {
         return this.encryptionCertificate;
     }
     /**
-     * @return Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
+     * @return Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
      * 
      */
     public String entityId() {
@@ -110,11 +114,15 @@ public final class GetMetadataSamlResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The id of the IdP to retrieve metadata for.
+     * 
+     */
     public Optional<String> idpId() {
         return Optional.ofNullable(this.idpId);
     }
     /**
-     * @return raw IdP metadata.
+     * @return Raw IdP metadata.
      * 
      */
     public String metadata() {

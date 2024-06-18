@@ -21,11 +21,11 @@ class SignonArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Signon resource.
-        :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
-        :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[int] priority: Priority of the policy.
-        :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        :param pulumi.Input[str] description: Policy Description
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[str] name: Policy Name
+        :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        :param pulumi.Input[str] status: Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -42,7 +42,7 @@ class SignonArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Description.
+        Policy Description
         """
         return pulumi.get(self, "description")
 
@@ -54,7 +54,7 @@ class SignonArgs:
     @pulumi.getter(name="groupsIncludeds")
     def groups_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Group IDs to Include.
+        List of Group IDs to Include
         """
         return pulumi.get(self, "groups_includeds")
 
@@ -66,7 +66,7 @@ class SignonArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Name.
+        Policy Name
         """
         return pulumi.get(self, "name")
 
@@ -78,7 +78,7 @@ class SignonArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        Priority of the policy.
+        Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         """
         return pulumi.get(self, "priority")
 
@@ -90,7 +90,7 @@ class SignonArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -109,11 +109,11 @@ class _SignonState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Signon resources.
-        :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
-        :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[int] priority: Priority of the policy.
-        :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        :param pulumi.Input[str] description: Policy Description
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[str] name: Policy Name
+        :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        :param pulumi.Input[str] status: Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -130,7 +130,7 @@ class _SignonState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Description.
+        Policy Description
         """
         return pulumi.get(self, "description")
 
@@ -142,7 +142,7 @@ class _SignonState:
     @pulumi.getter(name="groupsIncludeds")
     def groups_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Group IDs to Include.
+        List of Group IDs to Include
         """
         return pulumi.get(self, "groups_includeds")
 
@@ -154,7 +154,7 @@ class _SignonState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Name.
+        Policy Name
         """
         return pulumi.get(self, "name")
 
@@ -166,7 +166,7 @@ class _SignonState:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        Priority of the policy.
+        Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         """
         return pulumi.get(self, "priority")
 
@@ -178,7 +178,7 @@ class _SignonState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -199,9 +199,7 @@ class Signon(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates a Sign On Policy.
-
-        This resource allows you to create and configure a Sign On Policy.
+        Creates a Sign On Policy. This resource allows you to create and configure a Sign On Policy.
 
         ## Example Usage
 
@@ -218,19 +216,17 @@ class Signon(pulumi.CustomResource):
 
         ## Import
 
-        A Sign On Policy can be imported via the Okta ID.
-
         ```sh
         $ pulumi import okta:policy/signon:Signon example &#60;policy id&#62;
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
-        :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[int] priority: Priority of the policy.
-        :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        :param pulumi.Input[str] description: Policy Description
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[str] name: Policy Name
+        :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        :param pulumi.Input[str] status: Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         ...
     @overload
@@ -239,9 +235,7 @@ class Signon(pulumi.CustomResource):
                  args: Optional[SignonArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a Sign On Policy.
-
-        This resource allows you to create and configure a Sign On Policy.
+        Creates a Sign On Policy. This resource allows you to create and configure a Sign On Policy.
 
         ## Example Usage
 
@@ -257,8 +251,6 @@ class Signon(pulumi.CustomResource):
         ```
 
         ## Import
-
-        A Sign On Policy can be imported via the Okta ID.
 
         ```sh
         $ pulumi import okta:policy/signon:Signon example &#60;policy id&#62;
@@ -320,11 +312,11 @@ class Signon(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Policy Description.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include.
-        :param pulumi.Input[str] name: Policy Name.
-        :param pulumi.Input[int] priority: Priority of the policy.
-        :param pulumi.Input[str] status: Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        :param pulumi.Input[str] description: Policy Description
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[str] name: Policy Name
+        :param pulumi.Input[int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        :param pulumi.Input[str] status: Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -341,7 +333,7 @@ class Signon(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Policy Description.
+        Policy Description
         """
         return pulumi.get(self, "description")
 
@@ -349,7 +341,7 @@ class Signon(pulumi.CustomResource):
     @pulumi.getter(name="groupsIncludeds")
     def groups_includeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of Group IDs to Include.
+        List of Group IDs to Include
         """
         return pulumi.get(self, "groups_includeds")
 
@@ -357,7 +349,7 @@ class Signon(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Policy Name.
+        Policy Name
         """
         return pulumi.get(self, "name")
 
@@ -365,7 +357,7 @@ class Signon(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[int]]:
         """
-        Priority of the policy.
+        Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         """
         return pulumi.get(self, "priority")
 
@@ -373,7 +365,7 @@ class Signon(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 

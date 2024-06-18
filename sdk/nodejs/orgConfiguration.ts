@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you manage org settings, logo, support and communication options.
+ * Manages org settings, logo, support and communication.
  *
  * > **IMPORTANT:** You must specify all Org Setting properties when you update an org's profile. Any property not specified in the script will be deleted.
  *
@@ -22,8 +22,6 @@ import * as utilities from "./utilities";
  * ```
  *
  * ## Import
- *
- * Okta Org Configuration can be imported even without specifying the Org ID.
  *
  * ```sh
  * $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
@@ -90,8 +88,7 @@ export class OrgConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly expiresAt!: pulumi.Output<string>;
     /**
-     * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-     * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+     * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
@@ -222,8 +219,7 @@ export interface OrgConfigurationState {
      */
     expiresAt?: pulumi.Input<string>;
     /**
-     * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-     * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+     * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      */
     logo?: pulumi.Input<string>;
     /**
@@ -293,8 +289,7 @@ export interface OrgConfigurationArgs {
      */
     endUserSupportHelpUrl?: pulumi.Input<string>;
     /**
-     * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-     * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+     * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      */
     logo?: pulumi.Input<string>;
     /**

@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * These operations allow the creation and manipulation of custom roles as custom collections of permissions.
+ * Resource to manage administrative Role assignments for a User
  *
- * > **NOTE:** This an `Early Access` feature.
+ * These operations allow the creation and manipulation of custom roles as custom collections of permissions.
  *
  * ## Example Usage
  *
@@ -24,10 +24,8 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Okta Custom Admin Role can be imported via the Okta ID.
- *
  * ```sh
- * $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62;
+ * $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62
  * ```
  */
 export class AdminRoleCustom extends pulumi.CustomResource {
@@ -59,47 +57,47 @@ export class AdminRoleCustom extends pulumi.CustomResource {
     }
 
     /**
-     * A human-readable description of the new Role.
+     * A human-readable description of the new Role
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * The name given to the new Role.
+     * The name given to the new Role
      */
     public readonly label!: pulumi.Output<string>;
     /**
      * The permissions that the new Role grants. At least one
-     * permission must be specified when creating custom role. Valid values: `"okta.authzServers.manage"`,
-     * `"okta.authzServers.read"`,
-     * `"okta.apps.assignment.manage"`,
-     * `"okta.apps.manage"`,
-     * `"okta.apps.read"`,
-     * `"okta.customizations.manage"`,
-     * `"okta.customizations.read"`,
-     * `"okta.groups.appAssignment.manage"`,
-     * `"okta.groups.create"`,
-     * `"okta.groups.manage"`,
-     * `"okta.groups.members.manage"`,
-     * `"okta.groups.read"`,
-     * `"okta.profilesources.import.run"`,
-     * `"okta.users.appAssignment.manage"`,
-     * `"okta.users.create"`,
-     * `"okta.users.credentials.expirePassword"`,
-     * `"okta.users.credentials.manage"`,
-     * `"okta.users.credentials.resetFactors"`,
-     * `"okta.users.credentials.resetPassword"`,
-     * `"okta.users.groupMembership.manage"`,
-     * `"okta.users.lifecycle.activate"`,
-     * `"okta.users.lifecycle.clearSessions"`,
-     * `"okta.users.lifecycle.deactivate"`,
-     * `"okta.users.lifecycle.delete"`,
-     * `"okta.users.lifecycle.manage"`,
-     * `"okta.users.lifecycle.suspend"`,
-     * `"okta.users.lifecycle.unlock"`,
-     * `"okta.users.lifecycle.unsuspend"`,
-     * `"okta.users.manage"`,
-     * `"okta.users.read"`,
-     * `"okta.users.userprofile.manage"`,
-     * `"okta.workflows.invoke"`.,
+     * 			permission must be specified when creating custom role. Valid values: "okta.authzServers.manage",
+     * 		  "okta.authzServers.read",
+     * 		  "okta.apps.assignment.manage",
+     * 		  "okta.apps.manage",
+     * 		  "okta.apps.read",
+     * 		  "okta.customizations.manage",
+     * 		  "okta.customizations.read",
+     * 		  "okta.groups.appAssignment.manage",
+     * 		  "okta.groups.create",
+     * 		  "okta.groups.manage",
+     * 		  "okta.groups.members.manage",
+     * 		  "okta.groups.read",
+     * 		  "okta.profilesources.import.run",
+     * 		  "okta.users.appAssignment.manage",
+     * 		  "okta.users.create",
+     * 		  "okta.users.credentials.expirePassword",
+     * 		  "okta.users.credentials.manage",
+     * 		  "okta.users.credentials.resetFactors",
+     * 		  "okta.users.credentials.resetPassword",
+     * 		  "okta.users.groupMembership.manage",
+     * 		  "okta.users.lifecycle.activate",
+     * 		  "okta.users.lifecycle.clearSessions",
+     * 		  "okta.users.lifecycle.deactivate",
+     * 		  "okta.users.lifecycle.delete",
+     * 		  "okta.users.lifecycle.manage",
+     * 		  "okta.users.lifecycle.suspend",
+     * 		  "okta.users.lifecycle.unlock",
+     * 		  "okta.users.lifecycle.unsuspend",
+     * 		  "okta.users.manage",
+     * 		  "okta.users.read",
+     * 		  "okta.users.userprofile.manage",
+     * 		  "okta.workflows.invoke".,
      */
     public readonly permissions!: pulumi.Output<string[] | undefined>;
 
@@ -141,47 +139,47 @@ export class AdminRoleCustom extends pulumi.CustomResource {
  */
 export interface AdminRoleCustomState {
     /**
-     * A human-readable description of the new Role.
+     * A human-readable description of the new Role
      */
     description?: pulumi.Input<string>;
     /**
-     * The name given to the new Role.
+     * The name given to the new Role
      */
     label?: pulumi.Input<string>;
     /**
      * The permissions that the new Role grants. At least one
-     * permission must be specified when creating custom role. Valid values: `"okta.authzServers.manage"`,
-     * `"okta.authzServers.read"`,
-     * `"okta.apps.assignment.manage"`,
-     * `"okta.apps.manage"`,
-     * `"okta.apps.read"`,
-     * `"okta.customizations.manage"`,
-     * `"okta.customizations.read"`,
-     * `"okta.groups.appAssignment.manage"`,
-     * `"okta.groups.create"`,
-     * `"okta.groups.manage"`,
-     * `"okta.groups.members.manage"`,
-     * `"okta.groups.read"`,
-     * `"okta.profilesources.import.run"`,
-     * `"okta.users.appAssignment.manage"`,
-     * `"okta.users.create"`,
-     * `"okta.users.credentials.expirePassword"`,
-     * `"okta.users.credentials.manage"`,
-     * `"okta.users.credentials.resetFactors"`,
-     * `"okta.users.credentials.resetPassword"`,
-     * `"okta.users.groupMembership.manage"`,
-     * `"okta.users.lifecycle.activate"`,
-     * `"okta.users.lifecycle.clearSessions"`,
-     * `"okta.users.lifecycle.deactivate"`,
-     * `"okta.users.lifecycle.delete"`,
-     * `"okta.users.lifecycle.manage"`,
-     * `"okta.users.lifecycle.suspend"`,
-     * `"okta.users.lifecycle.unlock"`,
-     * `"okta.users.lifecycle.unsuspend"`,
-     * `"okta.users.manage"`,
-     * `"okta.users.read"`,
-     * `"okta.users.userprofile.manage"`,
-     * `"okta.workflows.invoke"`.,
+     * 			permission must be specified when creating custom role. Valid values: "okta.authzServers.manage",
+     * 		  "okta.authzServers.read",
+     * 		  "okta.apps.assignment.manage",
+     * 		  "okta.apps.manage",
+     * 		  "okta.apps.read",
+     * 		  "okta.customizations.manage",
+     * 		  "okta.customizations.read",
+     * 		  "okta.groups.appAssignment.manage",
+     * 		  "okta.groups.create",
+     * 		  "okta.groups.manage",
+     * 		  "okta.groups.members.manage",
+     * 		  "okta.groups.read",
+     * 		  "okta.profilesources.import.run",
+     * 		  "okta.users.appAssignment.manage",
+     * 		  "okta.users.create",
+     * 		  "okta.users.credentials.expirePassword",
+     * 		  "okta.users.credentials.manage",
+     * 		  "okta.users.credentials.resetFactors",
+     * 		  "okta.users.credentials.resetPassword",
+     * 		  "okta.users.groupMembership.manage",
+     * 		  "okta.users.lifecycle.activate",
+     * 		  "okta.users.lifecycle.clearSessions",
+     * 		  "okta.users.lifecycle.deactivate",
+     * 		  "okta.users.lifecycle.delete",
+     * 		  "okta.users.lifecycle.manage",
+     * 		  "okta.users.lifecycle.suspend",
+     * 		  "okta.users.lifecycle.unlock",
+     * 		  "okta.users.lifecycle.unsuspend",
+     * 		  "okta.users.manage",
+     * 		  "okta.users.read",
+     * 		  "okta.users.userprofile.manage",
+     * 		  "okta.workflows.invoke".,
      */
     permissions?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -191,47 +189,47 @@ export interface AdminRoleCustomState {
  */
 export interface AdminRoleCustomArgs {
     /**
-     * A human-readable description of the new Role.
+     * A human-readable description of the new Role
      */
     description: pulumi.Input<string>;
     /**
-     * The name given to the new Role.
+     * The name given to the new Role
      */
     label: pulumi.Input<string>;
     /**
      * The permissions that the new Role grants. At least one
-     * permission must be specified when creating custom role. Valid values: `"okta.authzServers.manage"`,
-     * `"okta.authzServers.read"`,
-     * `"okta.apps.assignment.manage"`,
-     * `"okta.apps.manage"`,
-     * `"okta.apps.read"`,
-     * `"okta.customizations.manage"`,
-     * `"okta.customizations.read"`,
-     * `"okta.groups.appAssignment.manage"`,
-     * `"okta.groups.create"`,
-     * `"okta.groups.manage"`,
-     * `"okta.groups.members.manage"`,
-     * `"okta.groups.read"`,
-     * `"okta.profilesources.import.run"`,
-     * `"okta.users.appAssignment.manage"`,
-     * `"okta.users.create"`,
-     * `"okta.users.credentials.expirePassword"`,
-     * `"okta.users.credentials.manage"`,
-     * `"okta.users.credentials.resetFactors"`,
-     * `"okta.users.credentials.resetPassword"`,
-     * `"okta.users.groupMembership.manage"`,
-     * `"okta.users.lifecycle.activate"`,
-     * `"okta.users.lifecycle.clearSessions"`,
-     * `"okta.users.lifecycle.deactivate"`,
-     * `"okta.users.lifecycle.delete"`,
-     * `"okta.users.lifecycle.manage"`,
-     * `"okta.users.lifecycle.suspend"`,
-     * `"okta.users.lifecycle.unlock"`,
-     * `"okta.users.lifecycle.unsuspend"`,
-     * `"okta.users.manage"`,
-     * `"okta.users.read"`,
-     * `"okta.users.userprofile.manage"`,
-     * `"okta.workflows.invoke"`.,
+     * 			permission must be specified when creating custom role. Valid values: "okta.authzServers.manage",
+     * 		  "okta.authzServers.read",
+     * 		  "okta.apps.assignment.manage",
+     * 		  "okta.apps.manage",
+     * 		  "okta.apps.read",
+     * 		  "okta.customizations.manage",
+     * 		  "okta.customizations.read",
+     * 		  "okta.groups.appAssignment.manage",
+     * 		  "okta.groups.create",
+     * 		  "okta.groups.manage",
+     * 		  "okta.groups.members.manage",
+     * 		  "okta.groups.read",
+     * 		  "okta.profilesources.import.run",
+     * 		  "okta.users.appAssignment.manage",
+     * 		  "okta.users.create",
+     * 		  "okta.users.credentials.expirePassword",
+     * 		  "okta.users.credentials.manage",
+     * 		  "okta.users.credentials.resetFactors",
+     * 		  "okta.users.credentials.resetPassword",
+     * 		  "okta.users.groupMembership.manage",
+     * 		  "okta.users.lifecycle.activate",
+     * 		  "okta.users.lifecycle.clearSessions",
+     * 		  "okta.users.lifecycle.deactivate",
+     * 		  "okta.users.lifecycle.delete",
+     * 		  "okta.users.lifecycle.manage",
+     * 		  "okta.users.lifecycle.suspend",
+     * 		  "okta.users.lifecycle.unlock",
+     * 		  "okta.users.lifecycle.unsuspend",
+     * 		  "okta.users.manage",
+     * 		  "okta.users.read",
+     * 		  "okta.users.userprofile.manage",
+     * 		  "okta.workflows.invoke".,
      */
     permissions?: pulumi.Input<pulumi.Input<string>[]>;
 }

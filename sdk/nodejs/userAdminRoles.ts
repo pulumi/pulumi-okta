@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Resource to manage a set of admin roles for a specific user.
- *
- * This resource allows you to manage admin roles for a single user, independent of the user schema itself.
+ * Resource to manage a set of administrator roles for a specific user. This resource allows you to manage admin roles for a single user, independent of the user schema itself.
  *
  * ## Example Usage
  *
@@ -28,8 +26,6 @@ import * as utilities from "./utilities";
  * ```
  *
  * ## Import
- *
- * Existing user admin roles can be imported via the Okta User ID.
  *
  * ```sh
  * $ pulumi import okta:index/userAdminRoles:UserAdminRoles example &#60;user id&#62;
@@ -64,16 +60,15 @@ export class UserAdminRoles extends pulumi.CustomResource {
     }
 
     /**
-     * The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      */
     public readonly adminRoles!: pulumi.Output<string[]>;
     /**
-     * When this setting is enabled, the admins won't receive any of the default Okta
-     * administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+     * When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
      */
     public readonly disableNotifications!: pulumi.Output<boolean | undefined>;
     /**
-     * Okta user ID.
+     * ID of a Okta User
      */
     public readonly userId!: pulumi.Output<string>;
 
@@ -115,16 +110,15 @@ export class UserAdminRoles extends pulumi.CustomResource {
  */
 export interface UserAdminRolesState {
     /**
-     * The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      */
     adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When this setting is enabled, the admins won't receive any of the default Okta
-     * administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+     * When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
      */
     disableNotifications?: pulumi.Input<boolean>;
     /**
-     * Okta user ID.
+     * ID of a Okta User
      */
     userId?: pulumi.Input<string>;
 }
@@ -134,16 +128,15 @@ export interface UserAdminRolesState {
  */
 export interface UserAdminRolesArgs {
     /**
-     * The list of Okta user admin roles, e.g. `["APP_ADMIN", "USER_ADMIN"]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      */
     adminRoles: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When this setting is enabled, the admins won't receive any of the default Okta
-     * administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+     * When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
      */
     disableNotifications?: pulumi.Input<boolean>;
     /**
-     * Okta user ID.
+     * ID of a Okta User
      */
     userId: pulumi.Input<string>;
 }

@@ -12,32 +12,6 @@ import (
 )
 
 // Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
-//
-// - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.GetOrgMetadata(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOrgMetadata(ctx *pulumi.Context, args *GetOrgMetadataArgs, opts ...pulumi.InvokeOption) (*GetOrgMetadataResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrgMetadataResult

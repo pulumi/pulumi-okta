@@ -18,9 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates a SAML Identity Provider.
- * 
- * This resource allows you to create and configure a SAML Identity Provider.
+ * Creates a SAML Identity Provider. This resource allows you to create and configure a SAML Identity Provider.
  * 
  * ## Example Usage
  * 
@@ -68,8 +66,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An SAML IdP can be imported via the Okta ID.
- * 
  * ```sh
  * $ pulumi import okta:idp/saml:Saml example &amp;#60;idp id&amp;#62;
  * ```
@@ -78,14 +74,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:idp/saml:Saml")
 public class Saml extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the account linking action for an IdP user.
+     * Specifies the account linking action for an IdP user. Default: `AUTO`
      * 
      */
     @Export(name="accountLinkAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountLinkAction;
 
     /**
-     * @return Specifies the account linking action for an IdP user.
+     * @return Specifies the account linking action for an IdP user. Default: `AUTO`
      * 
      */
     public Output<Optional<String>> accountLinkAction() {
@@ -112,70 +108,62 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return this.acsBinding;
     }
     /**
-     * The type of ACS. It can be `&#34;INSTANCE&#34;` or `&#34;ORG&#34;`.
+     * The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
      * 
      */
     @Export(name="acsType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acsType;
 
     /**
-     * @return The type of ACS. It can be `&#34;INSTANCE&#34;` or `&#34;ORG&#34;`.
+     * @return The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
      * 
      */
     public Output<Optional<String>> acsType() {
         return Codegen.optional(this.acsType);
     }
-    /**
-     * The audience restriction for the IdP.
-     * 
-     */
     @Export(name="audience", refs={String.class}, tree="[0]")
     private Output<String> audience;
 
-    /**
-     * @return The audience restriction for the IdP.
-     * 
-     */
     public Output<String> audience() {
         return this.audience;
     }
     /**
-     * Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+     * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     @Export(name="deprovisionedAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deprovisionedAction;
 
     /**
-     * @return Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+     * @return Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     public Output<Optional<String>> deprovisionedAction() {
         return Codegen.optional(this.deprovisionedAction);
     }
     /**
-     * Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+     * Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      * 
      */
     @Export(name="groupsAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupsAction;
 
     /**
-     * @return Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+     * @return Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      * 
      */
     public Output<Optional<String>> groupsAction() {
         return Codegen.optional(this.groupsAction);
     }
     /**
-     * List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+     * List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
      * 
      */
     @Export(name="groupsAssignments", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupsAssignments;
 
     /**
-     * @return List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+     * @return List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
      * 
      */
     public Output<Optional<List<String>>> groupsAssignments() {
@@ -196,14 +184,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.groupsAttribute);
     }
     /**
-     * Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+     * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
      * 
      */
     @Export(name="groupsFilters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupsFilters;
 
     /**
-     * @return Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+     * @return Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
      * 
      */
     public Output<Optional<List<String>>> groupsFilters() {
@@ -224,14 +212,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return this.issuer;
     }
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
      * 
      */
     @Export(name="issuerMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerMode;
 
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
      * 
      */
     public Output<Optional<String>> issuerMode() {
@@ -266,28 +254,28 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxClockSkew);
     }
     /**
-     * The Application&#39;s display name.
+     * Name of the IdP
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The Application&#39;s display name.
+     * @return Name of the IdP
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The name identifier format to use. By default `&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#34;`.
+     * The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
      * 
      */
     @Export(name="nameFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nameFormat;
 
     /**
-     * @return The name identifier format to use. By default `&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#34;`.
+     * @return The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
      * 
      */
     public Output<Optional<String>> nameFormat() {
@@ -308,84 +296,84 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.profileMaster);
     }
     /**
-     * Provisioning action for an IdP user during authentication.
+     * Provisioning action for an IdP user during authentication. Default: `AUTO`
      * 
      */
     @Export(name="provisioningAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> provisioningAction;
 
     /**
-     * @return Provisioning action for an IdP user during authentication.
+     * @return Provisioning action for an IdP user during authentication. Default: `AUTO`
      * 
      */
     public Output<Optional<String>> provisioningAction() {
         return Codegen.optional(this.provisioningAction);
     }
     /**
-     * The XML digital signature algorithm used when signing an AuthnRequest message. It can be `&#34;SHA-256&#34;` or `&#34;SHA-1&#34;`.
+     * The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
      * 
      */
     @Export(name="requestSignatureAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestSignatureAlgorithm;
 
     /**
-     * @return The XML digital signature algorithm used when signing an AuthnRequest message. It can be `&#34;SHA-256&#34;` or `&#34;SHA-1&#34;`.
+     * @return The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
      * 
      */
     public Output<Optional<String>> requestSignatureAlgorithm() {
         return Codegen.optional(this.requestSignatureAlgorithm);
     }
     /**
-     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
      * 
      */
     @Export(name="requestSignatureScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestSignatureScope;
 
     /**
-     * @return Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+     * @return Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
      * 
      */
     public Output<Optional<String>> requestSignatureScope() {
         return Codegen.optional(this.requestSignatureScope);
     }
     /**
-     * The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `&#34;SHA-256&#34;` or `&#34;SHA-1&#34;`.
+     * The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
      * 
      */
     @Export(name="responseSignatureAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> responseSignatureAlgorithm;
 
     /**
-     * @return The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `&#34;SHA-256&#34;` or `&#34;SHA-1&#34;`.
+     * @return The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
      * 
      */
     public Output<Optional<String>> responseSignatureAlgorithm() {
         return Codegen.optional(this.responseSignatureAlgorithm);
     }
     /**
-     * Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `&#34;RESPONSE&#34;`, `&#34;ASSERTION&#34;`, or `&#34;ANY&#34;`.
+     * Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
      * 
      */
     @Export(name="responseSignatureScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> responseSignatureScope;
 
     /**
-     * @return Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `&#34;RESPONSE&#34;`, `&#34;ASSERTION&#34;`, or `&#34;ANY&#34;`.
+     * @return Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
      * 
      */
     public Output<Optional<String>> responseSignatureScope() {
         return Codegen.optional(this.responseSignatureScope);
     }
     /**
-     * The method of making an SSO request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
      * 
      */
     @Export(name="ssoBinding", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ssoBinding;
 
     /**
-     * @return The method of making an SSO request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * @return The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
      * 
      */
     public Output<Optional<String>> ssoBinding() {
@@ -420,14 +408,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return this.ssoUrl;
     }
     /**
-     * Status of the IdP.
+     * Default to `ACTIVE`
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Status of the IdP.
+     * @return Default to `ACTIVE`
      * 
      */
     public Output<Optional<String>> status() {
@@ -448,98 +436,82 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.subjectFilter);
     }
     /**
-     * The name format. By default `&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#34;`.
+     * The name format.
      * 
      */
     @Export(name="subjectFormats", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> subjectFormats;
 
     /**
-     * @return The name format. By default `&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#34;`.
+     * @return The name format.
      * 
      */
     public Output<Optional<List<String>>> subjectFormats() {
         return Codegen.optional(this.subjectFormats);
     }
     /**
-     * Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      * 
      */
     @Export(name="subjectMatchAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectMatchAttribute;
 
     /**
-     * @return Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * @return Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      * 
      */
     public Output<Optional<String>> subjectMatchAttribute() {
         return Codegen.optional(this.subjectMatchAttribute);
     }
     /**
-     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      * 
      */
     @Export(name="subjectMatchType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectMatchType;
 
     /**
-     * @return Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * @return Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      * 
      */
     public Output<Optional<String>> subjectMatchType() {
         return Codegen.optional(this.subjectMatchType);
     }
     /**
-     * Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+     * Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     @Export(name="suspendedAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> suspendedAction;
 
     /**
-     * @return Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+     * @return Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     public Output<Optional<String>> suspendedAction() {
         return Codegen.optional(this.suspendedAction);
     }
-    /**
-     * Type of the IdP.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return Type of the IdP.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
-    /**
-     * User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
-     * 
-     */
     @Export(name="userTypeId", refs={String.class}, tree="[0]")
     private Output<String> userTypeId;
 
-    /**
-     * @return User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
-     * 
-     */
     public Output<String> userTypeId() {
         return this.userTypeId;
     }
     /**
-     * Okta EL Expression to generate or transform a unique username for the IdP user.
+     * Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      * 
      */
     @Export(name="usernameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> usernameTemplate;
 
     /**
-     * @return Okta EL Expression to generate or transform a unique username for the IdP user.
+     * @return Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      * 
      */
     public Output<Optional<String>> usernameTemplate() {

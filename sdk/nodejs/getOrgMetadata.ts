@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
- *
- * - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.getOrgMetadata({});
- * ```
  */
 export function getOrgMetadata(args?: GetOrgMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetOrgMetadataResult> {
     args = args || {};
@@ -67,17 +56,6 @@ export interface GetOrgMetadataResult {
 }
 /**
  * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
- *
- * - [Org Well Known Metadata Reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSetting/#tag/OrgSetting/operation/getWellknownOrgMetadata)
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = okta.getOrgMetadata({});
- * ```
  */
 export function getOrgMetadataOutput(args?: GetOrgMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrgMetadataResult> {
     return pulumi.output(args).apply((a: any) => getOrgMetadata(a, opts))

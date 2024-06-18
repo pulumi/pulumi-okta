@@ -16,11 +16,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages rate limiting.
  * This resource allows you to configure the client-based rate limit and rate limiting communications settings.
- * 
  * &gt; **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
- * 
- * &gt; **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+ * **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
  * 
  * ## Example Usage
  * 
@@ -61,8 +60,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Rate limit settings can be imported without any parameters.
- * 
  * ```sh
  * $ pulumi import okta:index/rateLimiting:RateLimiting example .
  * ```
@@ -71,16 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/rateLimiting:RateLimiting")
 public class RateLimiting extends com.pulumi.resources.CustomResource {
     /**
-     * Called during authentication. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
-     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
+     * Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      * 
      */
     @Export(name="authorize", refs={String.class}, tree="[0]")
     private Output<String> authorize;
 
     /**
-     * @return Called during authentication. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
-     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
+     * @return Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      * 
      */
     public Output<String> authorize() {
@@ -101,16 +96,14 @@ public class RateLimiting extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.communicationsEnabled);
     }
     /**
-     * Called when accessing the Okta hosted login page. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
-     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
+     * Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      * 
      */
     @Export(name="login", refs={String.class}, tree="[0]")
     private Output<String> login;
 
     /**
-     * @return Called when accessing the Okta hosted login page. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
-     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
+     * @return Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      * 
      */
     public Output<String> login() {

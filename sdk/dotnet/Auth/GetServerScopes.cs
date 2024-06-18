@@ -12,7 +12,7 @@ namespace Pulumi.Okta.Auth
     public static class GetServerScopes
     {
         /// <summary>
-        /// Use this data source to retrieve a list of authorization server scopes from Okta.
+        /// Get a list of authorization server scopes from Okta.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Okta.Auth
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerScopesResult>("okta:auth/getServerScopes:getServerScopes", args ?? new GetServerScopesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a list of authorization server scopes from Okta.
+        /// Get a list of authorization server scopes from Okta.
         /// 
         /// ## Example Usage
         /// 
@@ -64,7 +64,7 @@ namespace Pulumi.Okta.Auth
     public sealed class GetServerScopesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Auth server ID.
+        /// Auth server ID
         /// </summary>
         [Input("authServerId", required: true)]
         public string AuthServerId { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.Okta.Auth
     public sealed class GetServerScopesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Auth server ID.
+        /// Auth server ID
         /// </summary>
         [Input("authServerId", required: true)]
         public Input<string> AuthServerId { get; set; } = null!;
@@ -93,13 +93,16 @@ namespace Pulumi.Okta.Auth
     [OutputType]
     public sealed class GetServerScopesResult
     {
+        /// <summary>
+        /// Auth server ID
+        /// </summary>
         public readonly string AuthServerId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// collection of authorization server scopes retrieved from Okta with the following properties.
+        /// Collection of authorization server scopes retrieved from Okta with the following properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServerScopesScopeResult> Scopes;
 

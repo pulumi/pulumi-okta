@@ -17,14 +17,14 @@ public final class PolicyProfileEnrollmentAppsState extends com.pulumi.resources
     public static final PolicyProfileEnrollmentAppsState Empty = new PolicyProfileEnrollmentAppsState();
 
     /**
-     * List of app IDs to be added to this policy.
+     * List of app IDs to be added to this policy
      * 
      */
     @Import(name="apps")
     private @Nullable Output<List<String>> apps;
 
     /**
-     * @return List of app IDs to be added to this policy.
+     * @return List of app IDs to be added to this policy
      * 
      */
     public Optional<Output<List<String>>> apps() {
@@ -32,14 +32,14 @@ public final class PolicyProfileEnrollmentAppsState extends com.pulumi.resources
     }
 
     /**
-     * ID of the default enrollment policy.
+     * ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
      * 
      */
     @Import(name="defaultPolicyId")
     private @Nullable Output<String> defaultPolicyId;
 
     /**
-     * @return ID of the default enrollment policy.
+     * @return ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
      * 
      */
     public Optional<Output<String>> defaultPolicyId() {
@@ -88,7 +88,7 @@ public final class PolicyProfileEnrollmentAppsState extends com.pulumi.resources
         }
 
         /**
-         * @param apps List of app IDs to be added to this policy.
+         * @param apps List of app IDs to be added to this policy
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class PolicyProfileEnrollmentAppsState extends com.pulumi.resources
         }
 
         /**
-         * @param apps List of app IDs to be added to this policy.
+         * @param apps List of app IDs to be added to this policy
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class PolicyProfileEnrollmentAppsState extends com.pulumi.resources
         }
 
         /**
-         * @param apps List of app IDs to be added to this policy.
+         * @param apps List of app IDs to be added to this policy
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class PolicyProfileEnrollmentAppsState extends com.pulumi.resources
         }
 
         /**
-         * @param defaultPolicyId ID of the default enrollment policy.
+         * @param defaultPolicyId ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class PolicyProfileEnrollmentAppsState extends com.pulumi.resources
         }
 
         /**
-         * @param defaultPolicyId ID of the default enrollment policy.
+         * @param defaultPolicyId ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
          * 
          * @return builder
          * 

@@ -7,9 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates an inline hook.
- *
- * This resource allows you to create and configure an inline hook.
+ * Creates an inline hook. This resource allows you to create and configure an inline hook.
  *
  * ## Example Usage
  *
@@ -35,8 +33,6 @@ import * as utilities from "../utilities";
  * ```
  *
  * ## Import
- *
- * An inline hook can be imported via the Okta ID.
  *
  * ```sh
  * $ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
@@ -70,13 +66,7 @@ export class Hook extends pulumi.CustomResource {
         return obj['__pulumiType'] === Hook.__pulumiType;
     }
 
-    /**
-     * Authentication required for inline hook request.
-     */
     public readonly auth!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Details of the endpoint the inline hook will hit.
-     */
     public readonly channel!: pulumi.Output<{[key: string]: string}>;
     /**
      * Map of headers to send along in inline hook request.
@@ -95,7 +85,7 @@ export class Hook extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * The version of the hook. The currently-supported version is `"1.0.0"`.
+     * The version of the hook. The currently-supported version is `1.0.0`.
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -147,13 +137,7 @@ export class Hook extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Hook resources.
  */
 export interface HookState {
-    /**
-     * Authentication required for inline hook request.
-     */
     auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Details of the endpoint the inline hook will hit.
-     */
     channel?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of headers to send along in inline hook request.
@@ -172,7 +156,7 @@ export interface HookState {
      */
     type?: pulumi.Input<string>;
     /**
-     * The version of the hook. The currently-supported version is `"1.0.0"`.
+     * The version of the hook. The currently-supported version is `1.0.0`.
      */
     version?: pulumi.Input<string>;
 }
@@ -181,13 +165,7 @@ export interface HookState {
  * The set of arguments for constructing a Hook resource.
  */
 export interface HookArgs {
-    /**
-     * Authentication required for inline hook request.
-     */
     auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Details of the endpoint the inline hook will hit.
-     */
     channel: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of headers to send along in inline hook request.
@@ -206,7 +184,7 @@ export interface HookArgs {
      */
     type: pulumi.Input<string>;
     /**
-     * The version of the hook. The currently-supported version is `"1.0.0"`.
+     * The version of the hook. The currently-supported version is `1.0.0`.
      */
     version: pulumi.Input<string>;
 }

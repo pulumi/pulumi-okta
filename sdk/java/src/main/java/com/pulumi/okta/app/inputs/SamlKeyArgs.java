@@ -17,14 +17,14 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
     public static final SamlKeyArgs Empty = new SamlKeyArgs();
 
     /**
-     * Date created.
+     * Created date
      * 
      */
     @Import(name="created")
     private @Nullable Output<String> created;
 
     /**
-     * @return Date created.
+     * @return Created date
      * 
      */
     public Optional<Output<String>> created() {
@@ -32,14 +32,14 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * RSA exponent.
+     * RSA exponent
      * 
      */
     @Import(name="e")
     private @Nullable Output<String> e;
 
     /**
-     * @return RSA exponent.
+     * @return RSA exponent
      * 
      */
     public Optional<Output<String>> e() {
@@ -47,14 +47,14 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Date the key expires.
+     * Expiration date
      * 
      */
     @Import(name="expiresAt")
     private @Nullable Output<String> expiresAt;
 
     /**
-     * @return Date the key expires.
+     * @return Expiration date
      * 
      */
     public Optional<Output<String>> expiresAt() {
@@ -62,14 +62,14 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key ID.
+     * Key ID
      * 
      */
     @Import(name="kid")
     private @Nullable Output<String> kid;
 
     /**
-     * @return Key ID.
+     * @return Key ID
      * 
      */
     public Optional<Output<String>> kid() {
@@ -77,14 +77,14 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identifies the cryptographic algorithm family used with the key.
+     * Key type. Identifies the cryptographic algorithm family used with the key.
      * 
      */
     @Import(name="kty")
     private @Nullable Output<String> kty;
 
     /**
-     * @return Identifies the cryptographic algorithm family used with the key.
+     * @return Key type. Identifies the cryptographic algorithm family used with the key.
      * 
      */
     public Optional<Output<String>> kty() {
@@ -92,14 +92,14 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Date the key was last updated.
+     * Last updated date
      * 
      */
     @Import(name="lastUpdated")
     private @Nullable Output<String> lastUpdated;
 
     /**
-     * @return Date the key was last updated.
+     * @return Last updated date
      * 
      */
     public Optional<Output<String>> lastUpdated() {
@@ -107,14 +107,14 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * RSA modulus.
+     * RSA modulus
      * 
      */
     @Import(name="n")
     private @Nullable Output<String> n;
 
     /**
-     * @return RSA modulus.
+     * @return RSA modulus
      * 
      */
     public Optional<Output<String>> n() {
@@ -137,14 +137,14 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * X.509 certificate chain.
+     * X.509 Certificate Chain
      * 
      */
     @Import(name="x5cs")
     private @Nullable Output<List<String>> x5cs;
 
     /**
-     * @return X.509 certificate chain.
+     * @return X.509 Certificate Chain
      * 
      */
     public Optional<Output<List<String>>> x5cs() {
@@ -152,14 +152,14 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * X.509 certificate SHA-256 thumbprint.
+     * X.509 certificate SHA-256 thumbprint
      * 
      */
     @Import(name="x5tS256")
     private @Nullable Output<String> x5tS256;
 
     /**
-     * @return X.509 certificate SHA-256 thumbprint.
+     * @return X.509 certificate SHA-256 thumbprint
      * 
      */
     public Optional<Output<String>> x5tS256() {
@@ -200,7 +200,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param created Date created.
+         * @param created Created date
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param created Date created.
+         * @param created Created date
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param e RSA exponent.
+         * @param e RSA exponent
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param e RSA exponent.
+         * @param e RSA exponent
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expiresAt Date the key expires.
+         * @param expiresAt Expiration date
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expiresAt Date the key expires.
+         * @param expiresAt Expiration date
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kid Key ID.
+         * @param kid Key ID
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kid Key ID.
+         * @param kid Key ID
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kty Identifies the cryptographic algorithm family used with the key.
+         * @param kty Key type. Identifies the cryptographic algorithm family used with the key.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kty Identifies the cryptographic algorithm family used with the key.
+         * @param kty Key type. Identifies the cryptographic algorithm family used with the key.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdated Date the key was last updated.
+         * @param lastUpdated Last updated date
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdated Date the key was last updated.
+         * @param lastUpdated Last updated date
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param n RSA modulus.
+         * @param n RSA modulus
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param n RSA modulus.
+         * @param n RSA modulus
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param x5cs X.509 certificate chain.
+         * @param x5cs X.509 Certificate Chain
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param x5cs X.509 certificate chain.
+         * @param x5cs X.509 Certificate Chain
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param x5cs X.509 certificate chain.
+         * @param x5cs X.509 Certificate Chain
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param x5tS256 X.509 certificate SHA-256 thumbprint.
+         * @param x5tS256 X.509 certificate SHA-256 thumbprint
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class SamlKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param x5tS256 X.509 certificate SHA-256 thumbprint.
+         * @param x5tS256 X.509 certificate SHA-256 thumbprint
          * 
          * @return builder
          * 

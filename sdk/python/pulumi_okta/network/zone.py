@@ -25,16 +25,15 @@ class ZoneArgs:
                  usage: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Zone resource.
-        :param pulumi.Input[str] type: Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-               and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        :param pulumi.Input[str] type: Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Format of each array value: a string representation of an ASN numeric value
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
         :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
-        :param pulumi.Input[str] name: Name of the Network Zone Resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
-        :param pulumi.Input[str] status: Network Status - can either be ACTIVE or INACTIVE only.
-        :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        :param pulumi.Input[str] name: Name of the Network Zone Resource
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+        :param pulumi.Input[str] status: Network Status - can either be `ACTIVE` or `INACTIVE` only
+        :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
         """
         pulumi.set(__self__, "type", type)
         if asns is not None:
@@ -58,7 +57,7 @@ class ZoneArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
+        Type of the Network Zone - can either be `IP` or `DYNAMIC` only
         """
         return pulumi.get(self, "type")
 
@@ -70,7 +69,7 @@ class ZoneArgs:
     @pulumi.getter
     def asns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+        Format of each array value: a string representation of an ASN numeric value
         """
         return pulumi.get(self, "asns")
 
@@ -82,8 +81,7 @@ class ZoneArgs:
     @pulumi.getter(name="dynamicLocations")
     def dynamic_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-        and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
         """
         return pulumi.get(self, "dynamic_locations")
 
@@ -107,7 +105,7 @@ class ZoneArgs:
     @pulumi.getter
     def gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of values in CIDR/range form.
+        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
         """
         return pulumi.get(self, "gateways")
 
@@ -119,7 +117,7 @@ class ZoneArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Network Zone Resource.
+        Name of the Network Zone Resource
         """
         return pulumi.get(self, "name")
 
@@ -131,7 +129,7 @@ class ZoneArgs:
     @pulumi.getter
     def proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
         """
         return pulumi.get(self, "proxies")
 
@@ -143,7 +141,7 @@ class ZoneArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Network Status - can either be ACTIVE or INACTIVE only.
+        Network Status - can either be `ACTIVE` or `INACTIVE` only
         """
         return pulumi.get(self, "status")
 
@@ -155,7 +153,7 @@ class ZoneArgs:
     @pulumi.getter
     def usage(self) -> Optional[pulumi.Input[str]]:
         """
-        Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+        Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
         """
         return pulumi.get(self, "usage")
 
@@ -178,16 +176,15 @@ class _ZoneState:
                  usage: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Zone resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-               and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Format of each array value: a string representation of an ASN numeric value
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
         :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
-        :param pulumi.Input[str] name: Name of the Network Zone Resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
-        :param pulumi.Input[str] status: Network Status - can either be ACTIVE or INACTIVE only.
-        :param pulumi.Input[str] type: Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
-        :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        :param pulumi.Input[str] name: Name of the Network Zone Resource
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+        :param pulumi.Input[str] status: Network Status - can either be `ACTIVE` or `INACTIVE` only
+        :param pulumi.Input[str] type: Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+        :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
         """
         if asns is not None:
             pulumi.set(__self__, "asns", asns)
@@ -212,7 +209,7 @@ class _ZoneState:
     @pulumi.getter
     def asns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+        Format of each array value: a string representation of an ASN numeric value
         """
         return pulumi.get(self, "asns")
 
@@ -224,8 +221,7 @@ class _ZoneState:
     @pulumi.getter(name="dynamicLocations")
     def dynamic_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-        and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
         """
         return pulumi.get(self, "dynamic_locations")
 
@@ -249,7 +245,7 @@ class _ZoneState:
     @pulumi.getter
     def gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of values in CIDR/range form.
+        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
         """
         return pulumi.get(self, "gateways")
 
@@ -261,7 +257,7 @@ class _ZoneState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Network Zone Resource.
+        Name of the Network Zone Resource
         """
         return pulumi.get(self, "name")
 
@@ -273,7 +269,7 @@ class _ZoneState:
     @pulumi.getter
     def proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
         """
         return pulumi.get(self, "proxies")
 
@@ -285,7 +281,7 @@ class _ZoneState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Network Status - can either be ACTIVE or INACTIVE only.
+        Network Status - can either be `ACTIVE` or `INACTIVE` only
         """
         return pulumi.get(self, "status")
 
@@ -297,7 +293,7 @@ class _ZoneState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
+        Type of the Network Zone - can either be `IP` or `DYNAMIC` only
         """
         return pulumi.get(self, "type")
 
@@ -309,7 +305,7 @@ class _ZoneState:
     @pulumi.getter
     def usage(self) -> Optional[pulumi.Input[str]]:
         """
-        Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+        Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
         """
         return pulumi.get(self, "usage")
 
@@ -334,45 +330,9 @@ class Zone(pulumi.CustomResource):
                  usage: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates an Okta Network Zone.
-
-        This resource allows you to create and configure an Okta Network Zone.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.network.Zone("example",
-            name="example",
-            type="IP",
-            gateways=[
-                "1.2.3.4/24",
-                "2.3.4.5-2.3.4.15",
-            ],
-            proxies=[
-                "2.2.3.4/24",
-                "3.3.4.5-3.3.4.15",
-            ])
-        ```
-
-        ### Dynamic Tor Blocker
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.network.Zone("example",
-            name="TOR Blocker",
-            type="DYNAMIC",
-            usage="BLOCKLIST",
-            dynamic_proxy_type="TorAnonymizer")
-        ```
+        Creates an Okta Network Zone. This resource allows you to create and configure an Okta Network Zone.
 
         ## Import
-
-        Okta Network Zone can be imported via the Okta ID.
 
         ```sh
         $ pulumi import okta:network/zone:Zone example &#60;zone id&#62;
@@ -380,16 +340,15 @@ class Zone(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-               and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Format of each array value: a string representation of an ASN numeric value
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
         :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
-        :param pulumi.Input[str] name: Name of the Network Zone Resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
-        :param pulumi.Input[str] status: Network Status - can either be ACTIVE or INACTIVE only.
-        :param pulumi.Input[str] type: Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
-        :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        :param pulumi.Input[str] name: Name of the Network Zone Resource
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+        :param pulumi.Input[str] status: Network Status - can either be `ACTIVE` or `INACTIVE` only
+        :param pulumi.Input[str] type: Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+        :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
         """
         ...
     @overload
@@ -398,45 +357,9 @@ class Zone(pulumi.CustomResource):
                  args: ZoneArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an Okta Network Zone.
-
-        This resource allows you to create and configure an Okta Network Zone.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.network.Zone("example",
-            name="example",
-            type="IP",
-            gateways=[
-                "1.2.3.4/24",
-                "2.3.4.5-2.3.4.15",
-            ],
-            proxies=[
-                "2.2.3.4/24",
-                "3.3.4.5-3.3.4.15",
-            ])
-        ```
-
-        ### Dynamic Tor Blocker
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.network.Zone("example",
-            name="TOR Blocker",
-            type="DYNAMIC",
-            usage="BLOCKLIST",
-            dynamic_proxy_type="TorAnonymizer")
-        ```
+        Creates an Okta Network Zone. This resource allows you to create and configure an Okta Network Zone.
 
         ## Import
-
-        Okta Network Zone can be imported via the Okta ID.
 
         ```sh
         $ pulumi import okta:network/zone:Zone example &#60;zone id&#62;
@@ -512,16 +435,15 @@ class Zone(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-               and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Format of each array value: a string representation of an ASN numeric value
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
         :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form.
-        :param pulumi.Input[str] name: Name of the Network Zone Resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
-        :param pulumi.Input[str] status: Network Status - can either be ACTIVE or INACTIVE only.
-        :param pulumi.Input[str] type: Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
-        :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        :param pulumi.Input[str] name: Name of the Network Zone Resource
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+        :param pulumi.Input[str] status: Network Status - can either be `ACTIVE` or `INACTIVE` only
+        :param pulumi.Input[str] type: Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+        :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -542,7 +464,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def asns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Array of Autonomous System Numbers (each element is a string representation of an ASN numeric value).
+        Format of each array value: a string representation of an ASN numeric value
         """
         return pulumi.get(self, "asns")
 
@@ -550,8 +472,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter(name="dynamicLocations")
     def dynamic_locations(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Array of locations [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-        and [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). Format code: countryCode OR countryCode-regionCode.
+        Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
         """
         return pulumi.get(self, "dynamic_locations")
 
@@ -567,7 +488,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def gateways(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Array of values in CIDR/range form.
+        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
         """
         return pulumi.get(self, "gateways")
 
@@ -575,7 +496,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the Network Zone Resource.
+        Name of the Network Zone Resource
         """
         return pulumi.get(self, "name")
 
@@ -583,7 +504,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def proxies(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Array of values in CIDR/range form. Can not be set if `usage` is set to `"BLOCKLIST"`.
+        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
         """
         return pulumi.get(self, "proxies")
 
@@ -591,7 +512,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        Network Status - can either be ACTIVE or INACTIVE only.
+        Network Status - can either be `ACTIVE` or `INACTIVE` only
         """
         return pulumi.get(self, "status")
 
@@ -599,7 +520,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the Network Zone - can either be `"IP"` or `"DYNAMIC"` only.
+        Type of the Network Zone - can either be `IP` or `DYNAMIC` only
         """
         return pulumi.get(self, "type")
 
@@ -607,7 +528,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def usage(self) -> pulumi.Output[Optional[str]]:
         """
-        Usage of the Network Zone - can be either `"POLICY"` or `"BLOCKLIST"`. By default, it is `"POLICY"`.
+        Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
         """
         return pulumi.get(self, "usage")
 

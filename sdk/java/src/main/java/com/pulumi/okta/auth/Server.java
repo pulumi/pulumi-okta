@@ -16,9 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates an Authorization Server.
- * 
- * This resource allows you to create and configure an Authorization Server.
+ * Creates an Authorization Server. This resource allows you to create and configure an Authorization Server.
  * 
  * ## Example Usage
  * 
@@ -61,8 +59,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Authorization Server can be imported via the Okta ID.
- * 
  * ```sh
  * $ pulumi import okta:auth/server:Server example &amp;#60;auth server id&amp;#62;
  * ```
@@ -71,14 +67,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:auth/server:Server")
 public class Server extends com.pulumi.resources.CustomResource {
     /**
-     * The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+     * The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
      * 
      */
     @Export(name="audiences", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> audiences;
 
     /**
-     * @return The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+     * @return The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
      * 
      */
     public Output<List<String>> audiences() {
@@ -99,28 +95,28 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.credentialsLastRotated;
     }
     /**
-     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `&#34;AUTO&#34;`.
+     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
      * 
      */
     @Export(name="credentialsNextRotation", refs={String.class}, tree="[0]")
     private Output<String> credentialsNextRotation;
 
     /**
-     * @return The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `&#34;AUTO&#34;`.
+     * @return The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
      * 
      */
     public Output<String> credentialsNextRotation() {
         return this.credentialsNextRotation;
     }
     /**
-     * The key rotation mode for the authorization server. Can be `&#34;AUTO&#34;` or `&#34;MANUAL&#34;`.
+     * The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `AUTO`
      * 
      */
     @Export(name="credentialsRotationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> credentialsRotationMode;
 
     /**
-     * @return The key rotation mode for the authorization server. Can be `&#34;AUTO&#34;` or `&#34;MANUAL&#34;`.
+     * @return The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `AUTO`
      * 
      */
     public Output<Optional<String>> credentialsRotationMode() {
@@ -155,14 +151,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.issuer;
     }
     /**
-     * Allows you to use a custom issuer URL. It can be set to `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`.
+     * *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
      * 
      */
     @Export(name="issuerMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerMode;
 
     /**
-     * @return Allows you to use a custom issuer URL. It can be set to `&#34;CUSTOM_URL&#34;`,`&#34;ORG_URL&#34;` or `&#34;DYNAMIC&#34;`.
+     * @return *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
      * 
      */
     public Output<Optional<String>> issuerMode() {
@@ -197,14 +193,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The status of the auth server. It defaults to `&#34;ACTIVE&#34;`
+     * Default to `ACTIVE`
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return The status of the auth server. It defaults to `&#34;ACTIVE&#34;`
+     * @return Default to `ACTIVE`
      * 
      */
     public Output<Optional<String>> status() {

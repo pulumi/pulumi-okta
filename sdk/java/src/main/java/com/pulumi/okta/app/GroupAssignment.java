@@ -17,40 +17,79 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.GroupAssignment;
+ * import com.pulumi.okta.app.GroupAssignmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GroupAssignment("example", GroupAssignmentArgs.builder()
+ *             .appId("<app id>")
+ *             .groupId("<group id>")
+ *             .profile("""
+ * {
+ *   "<app_profile_field>": "<value>"
+ * }
+ *             """)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
- * An application group assignment can be imported via the `app_id` and the `group_id`.
- * 
  * ```sh
- * $ pulumi import okta:app/groupAssignment:GroupAssignment example &amp;#60;app_id&amp;#62;/&amp;#60;group_id&amp;#62;
+ * $ pulumi import okta:app/groupAssignment:GroupAssignment example &amp;#60;app_id&amp;#62;/&amp;#60;group_id&amp;#62
  * ```
  * 
  */
 @ResourceType(type="okta:app/groupAssignment:GroupAssignment")
 public class GroupAssignment extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the application to assign a group to.
+     * App to associate group with
      * 
      */
     @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
-     * @return The ID of the application to assign a group to.
+     * @return App to associate group with
      * 
      */
     public Output<String> appId() {
         return this.appId;
     }
     /**
-     * The ID of the group to assign the app to.
+     * Group associated with the application
      * 
      */
     @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
     /**
-     * @return The ID of the group to assign the app to.
+     * @return Group associated with the application
      * 
      */
     public Output<String> groupId() {

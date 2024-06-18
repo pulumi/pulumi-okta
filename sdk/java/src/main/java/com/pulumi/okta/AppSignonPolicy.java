@@ -16,103 +16,11 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
+ * ## Import
  * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.AppSignonPolicy;
- * import com.pulumi.okta.AppSignonPolicyArgs;
- * import com.pulumi.okta.app.OAuth;
- * import com.pulumi.okta.app.OAuthArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myAppPolicy = new AppSignonPolicy("myAppPolicy", AppSignonPolicyArgs.builder()
- *             .name("My App Sign-On Policy")
- *             .description("Authentication Policy to be used on my app.")
- *             .build());
- * 
- *         var myApp = new OAuth("myApp", OAuthArgs.builder()
- *             .label("My App")
- *             .type("web")
- *             .grantTypes("authorization_code")
- *             .redirectUris("http://localhost:3000")
- *             .postLogoutRedirectUris("http://localhost:3000")
- *             .responseTypes("code")
- *             .authenticationPolicy(myAppPolicy.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * The created policy can be extended using `app_signon_policy_rules`.
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.AppSignonPolicy;
- * import com.pulumi.okta.AppSignonPolicyArgs;
- * import com.pulumi.okta.AppSignonPolicyRule;
- * import com.pulumi.okta.AppSignonPolicyRuleArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myAppPolicy = new AppSignonPolicy("myAppPolicy", AppSignonPolicyArgs.builder()
- *             .name("My App Sign-On Policy")
- *             .description("Authentication Policy to be used on my app.")
- *             .build());
- * 
- *         var someRule = new AppSignonPolicyRule("someRule", AppSignonPolicyRuleArgs.builder()
- *             .policyId(oktaAppSignonPolicy.myAppPolicy().id())
- *             .name("Some Rule")
- *             .factorMode("1FA")
- *             .reAuthenticationFrequency("PT43800H")
- *             .constraints(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("knowledge", jsonObject(
- *                         jsonProperty("types", jsonArray("password"))
- *                     ))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
+ * ```sh
+ * $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example &amp;#60;policy_id&amp;#62;
+ * ```
  * 
  */
 @ResourceType(type="okta:index/appSignonPolicy:AppSignonPolicy")

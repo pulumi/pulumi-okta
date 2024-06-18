@@ -18,7 +18,7 @@ public final class GetAuthServerClaimsClaim {
      */
     private Boolean alwaysIncludeInToken;
     /**
-     * @return Specifies whether the Claim is for an access token (`&#34;RESOURCE&#34;`) or ID token (`&#34;IDENTITY&#34;`).
+     * @return Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`).
      * 
      */
     private String claimType;
@@ -43,12 +43,12 @@ public final class GetAuthServerClaimsClaim {
      */
     private String status;
     /**
-     * @return Value of the claim
+     * @return Value of the claim.
      * 
      */
     private String value;
     /**
-     * @return Specifies whether the Claim is an Okta EL expression (`&#34;EXPRESSION&#34;`), a set of groups (`&#34;GROUPS&#34;`), or a system claim (`&#34;SYSTEM&#34;`)
+     * @return Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
      * 
      */
     private String valueType;
@@ -62,7 +62,7 @@ public final class GetAuthServerClaimsClaim {
         return this.alwaysIncludeInToken;
     }
     /**
-     * @return Specifies whether the Claim is for an access token (`&#34;RESOURCE&#34;`) or ID token (`&#34;IDENTITY&#34;`).
+     * @return Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`).
      * 
      */
     public String claimType() {
@@ -97,14 +97,14 @@ public final class GetAuthServerClaimsClaim {
         return this.status;
     }
     /**
-     * @return Value of the claim
+     * @return Value of the claim.
      * 
      */
     public String value() {
         return this.value;
     }
     /**
-     * @return Specifies whether the Claim is an Okta EL expression (`&#34;EXPRESSION&#34;`), a set of groups (`&#34;GROUPS&#34;`), or a system claim (`&#34;SYSTEM&#34;`)
+     * @return Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
      * 
      */
     public String valueType() {

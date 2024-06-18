@@ -21,7 +21,7 @@ class TemplateSmsArgs:
                  translations: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSmsTranslationArgs']]]] = None):
         """
         The set of arguments for constructing a TemplateSms resource.
-        :param pulumi.Input[str] template: Default SMS message
+        :param pulumi.Input[str] template: SMS default template
         :param pulumi.Input[str] type: SMS template type
         :param pulumi.Input[Sequence[pulumi.Input['TemplateSmsTranslationArgs']]] translations: Set of translations for a particular template.
         """
@@ -34,7 +34,7 @@ class TemplateSmsArgs:
     @pulumi.getter
     def template(self) -> pulumi.Input[str]:
         """
-        Default SMS message
+        SMS default template
         """
         return pulumi.get(self, "template")
 
@@ -75,7 +75,7 @@ class _TemplateSmsState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TemplateSms resources.
-        :param pulumi.Input[str] template: Default SMS message
+        :param pulumi.Input[str] template: SMS default template
         :param pulumi.Input[Sequence[pulumi.Input['TemplateSmsTranslationArgs']]] translations: Set of translations for a particular template.
         :param pulumi.Input[str] type: SMS template type
         """
@@ -90,7 +90,7 @@ class _TemplateSmsState:
     @pulumi.getter
     def template(self) -> Optional[pulumi.Input[str]]:
         """
-        Default SMS message
+        SMS default template
         """
         return pulumi.get(self, "template")
 
@@ -133,9 +133,7 @@ class TemplateSms(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates an Okta SMS Template.
-
-        This resource allows you to create and configure an Okta SMS Template.
+        Creates an Okta SMS Template. This resource allows you to create and configure an Okta SMS Template.
 
         ## Example Usage
 
@@ -160,15 +158,13 @@ class TemplateSms(pulumi.CustomResource):
 
         ## Import
 
-        An Okta SMS Template can be imported via the template type.
-
         ```sh
         $ pulumi import okta:index/templateSms:TemplateSms example &#60;template type&#62;
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] template: Default SMS message
+        :param pulumi.Input[str] template: SMS default template
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateSmsTranslationArgs']]]] translations: Set of translations for a particular template.
         :param pulumi.Input[str] type: SMS template type
         """
@@ -179,9 +175,7 @@ class TemplateSms(pulumi.CustomResource):
                  args: TemplateSmsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an Okta SMS Template.
-
-        This resource allows you to create and configure an Okta SMS Template.
+        Creates an Okta SMS Template. This resource allows you to create and configure an Okta SMS Template.
 
         ## Example Usage
 
@@ -205,8 +199,6 @@ class TemplateSms(pulumi.CustomResource):
         ```
 
         ## Import
-
-        An Okta SMS Template can be imported via the template type.
 
         ```sh
         $ pulumi import okta:index/templateSms:TemplateSms example &#60;template type&#62;
@@ -266,7 +258,7 @@ class TemplateSms(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] template: Default SMS message
+        :param pulumi.Input[str] template: SMS default template
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateSmsTranslationArgs']]]] translations: Set of translations for a particular template.
         :param pulumi.Input[str] type: SMS template type
         """
@@ -283,7 +275,7 @@ class TemplateSms(pulumi.CustomResource):
     @pulumi.getter
     def template(self) -> pulumi.Output[str]:
         """
-        Default SMS message
+        SMS default template
         """
         return pulumi.get(self, "template")
 

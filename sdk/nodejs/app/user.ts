@@ -20,8 +20,6 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * An Application User can be imported via the Okta ID.
- *
  * ```sh
  * $ pulumi import okta:app/user:User example &#60;app id&#62;/&#60;user id&#62;
  * ```
@@ -55,7 +53,7 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
-     * App to associate user with.
+     * App to associate user with
      */
     public readonly appId!: pulumi.Output<string>;
     public /*out*/ readonly hasSharedUsername!: pulumi.Output<boolean>;
@@ -68,16 +66,15 @@ export class User extends pulumi.CustomResource {
      */
     public readonly profile!: pulumi.Output<string | undefined>;
     /**
-     * Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+     * Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      */
     public readonly retainAssignment!: pulumi.Output<boolean | undefined>;
     /**
-     * User to associate the application with.
+     * User associated with the application
      */
     public readonly userId!: pulumi.Output<string>;
     /**
-     * The username to use for the app user. In case the user is assigned to the app with 
-     * 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+     * The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
      */
     public readonly username!: pulumi.Output<string | undefined>;
 
@@ -129,7 +126,7 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserState {
     /**
-     * App to associate user with.
+     * App to associate user with
      */
     appId?: pulumi.Input<string>;
     hasSharedUsername?: pulumi.Input<boolean>;
@@ -142,16 +139,15 @@ export interface UserState {
      */
     profile?: pulumi.Input<string>;
     /**
-     * Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+     * Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      */
     retainAssignment?: pulumi.Input<boolean>;
     /**
-     * User to associate the application with.
+     * User associated with the application
      */
     userId?: pulumi.Input<string>;
     /**
-     * The username to use for the app user. In case the user is assigned to the app with 
-     * 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+     * The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
      */
     username?: pulumi.Input<string>;
 }
@@ -161,7 +157,7 @@ export interface UserState {
  */
 export interface UserArgs {
     /**
-     * App to associate user with.
+     * App to associate user with
      */
     appId: pulumi.Input<string>;
     /**
@@ -173,16 +169,15 @@ export interface UserArgs {
      */
     profile?: pulumi.Input<string>;
     /**
-     * Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+     * Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      */
     retainAssignment?: pulumi.Input<boolean>;
     /**
-     * User to associate the application with.
+     * User associated with the application
      */
     userId: pulumi.Input<string>;
     /**
-     * The username to use for the app user. In case the user is assigned to the app with 
-     * 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+     * The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
      */
     username?: pulumi.Input<string>;
 }

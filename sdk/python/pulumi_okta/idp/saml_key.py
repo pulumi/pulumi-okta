@@ -17,7 +17,7 @@ class SamlKeyArgs:
                  x5cs: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The set of arguments for constructing a SamlKey resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
         """
         pulumi.set(__self__, "x5cs", x5cs)
 
@@ -25,7 +25,7 @@ class SamlKeyArgs:
     @pulumi.getter
     def x5cs(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        base64-encoded X.509 certificate chain with DER encoding.
+        base64-encoded X.509 certificate chain with DER encoding
         """
         return pulumi.get(self, "x5cs")
 
@@ -51,7 +51,7 @@ class _SamlKeyState:
         :param pulumi.Input[str] kid: Key ID.
         :param pulumi.Input[str] kty: Identifies the cryptographic algorithm family used with the key.
         :param pulumi.Input[str] use: Intended use of the public key.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
         :param pulumi.Input[str] x5t_s256: base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
         """
         if created is not None:
@@ -133,7 +133,7 @@ class _SamlKeyState:
     @pulumi.getter
     def x5cs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        base64-encoded X.509 certificate chain with DER encoding.
+        base64-encoded X.509 certificate chain with DER encoding
         """
         return pulumi.get(self, "x5cs")
 
@@ -186,15 +186,13 @@ class SamlKey(pulumi.CustomResource):
 
         ## Import
 
-        A SAML IdP Signing Key can be imported via the key id.
-
         ```sh
         $ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
         """
         ...
     @overload
@@ -226,8 +224,6 @@ class SamlKey(pulumi.CustomResource):
         ```
 
         ## Import
-
-        A SAML IdP Signing Key can be imported via the key id.
 
         ```sh
         $ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
@@ -296,7 +292,7 @@ class SamlKey(pulumi.CustomResource):
         :param pulumi.Input[str] kid: Key ID.
         :param pulumi.Input[str] kty: Identifies the cryptographic algorithm family used with the key.
         :param pulumi.Input[str] use: Intended use of the public key.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
         :param pulumi.Input[str] x5t_s256: base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -356,7 +352,7 @@ class SamlKey(pulumi.CustomResource):
     @pulumi.getter
     def x5cs(self) -> pulumi.Output[Sequence[str]]:
         """
-        base64-encoded X.509 certificate chain with DER encoding.
+        base64-encoded X.509 certificate chain with DER encoding
         """
         return pulumi.get(self, "x5cs")
 

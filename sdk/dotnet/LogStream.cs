@@ -10,43 +10,54 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// Creates an Okta Log Stream.
-    /// 
-    /// This resource allows you to create and configure an Okta Log Stream.
+    /// Manages log streams
     /// 
     /// ## Example Usage
     /// 
-    /// ## Import
+    /// ### AWS EventBridge
+    /// resource "okta.LogStream" "example" {
+    ///   name   = "EventBridge Log Stream"
+    ///   type   = "aws_eventbridge"
+    ///   status = "ACTIVE"
+    ///   settings {
+    ///     account_id        = "123456789012"
+    ///     region            = "us-north-1"
+    ///     event_source_name = "okta.LogStream"
+    ///   }
+    /// }
     /// 
-    /// Okta Log Stream can be imported via the Okta ID.
-    /// 
-    /// ```sh
-    /// $ pulumi import okta:index/logStream:LogStream example &amp;#60;strema id&amp;#62;
-    /// ```
+    /// ### Splunk Event Collector
+    /// resource "okta.LogStream" "example" {
+    ///   name   = "Splunk log Stream"
+    ///   type   = "splunk_cloud_logstreaming"
+    ///   status = "ACTIVE"
+    ///   settings {
+    ///     host    = "acme.splunkcloud.com"
+    ///     edition = "gcp"
+    ///     token   = "YOUR_HEC_TOKEN"
+    ///   }
+    /// }
     /// </summary>
     [OktaResourceType("okta:index/logStream:LogStream")]
     public partial class LogStream : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the Log Stream Resource.
+        /// Unique name for the Log Stream object
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Stream provider specific configuration.
-        /// </summary>
         [Output("settings")]
         public Output<Outputs.LogStreamSettings?> Settings { get; private set; } = null!;
 
         /// <summary>
-        /// Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+        /// Stream status
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the Log Stream - can either be `"aws_eventbridge"` or `"splunk_cloud_logstreaming"` only.
+        /// Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -98,25 +109,22 @@ namespace Pulumi.Okta
     public sealed class LogStreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Log Stream Resource.
+        /// Unique name for the Log Stream object
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Stream provider specific configuration.
-        /// </summary>
         [Input("settings")]
         public Input<Inputs.LogStreamSettingsArgs>? Settings { get; set; }
 
         /// <summary>
-        /// Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+        /// Stream status
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Type of the Log Stream - can either be `"aws_eventbridge"` or `"splunk_cloud_logstreaming"` only.
+        /// Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -130,25 +138,22 @@ namespace Pulumi.Okta
     public sealed class LogStreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Log Stream Resource.
+        /// Unique name for the Log Stream object
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Stream provider specific configuration.
-        /// </summary>
         [Input("settings")]
         public Input<Inputs.LogStreamSettingsGetArgs>? Settings { get; set; }
 
         /// <summary>
-        /// Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+        /// Stream status
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Type of the Log Stream - can either be `"aws_eventbridge"` or `"splunk_cloud_logstreaming"` only.
+        /// Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

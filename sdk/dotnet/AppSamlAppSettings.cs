@@ -10,8 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
+    /// Manages app settings of the SAML application.
     /// This resource allows you to manage app settings of the SAML Application . It's basically the same as
-    /// `app_settings_json` field in `okta.app.Saml` resource and can be used in cases where settings require to be managed separately.
+    /// app_settings_json field in okta.app.Saml resource and can be used in cases where settings require to be managed separately.
     /// 
     /// ## Example Usage
     /// 
@@ -52,10 +53,8 @@ namespace Pulumi.Okta
     /// 
     /// ## Import
     /// 
-    /// A settings for the SAML App can be imported via the Okta ID.
-    /// 
     /// ```sh
-    /// $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &amp;#60;app id&amp;#62;
+    /// $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &amp;#60;app id&amp;#62
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appSamlAppSettings:AppSamlAppSettings")]
@@ -68,7 +67,7 @@ namespace Pulumi.Okta
         public Output<string> AppId { get; private set; } = null!;
 
         /// <summary>
-        /// Application settings in JSON format.
+        /// Application settings in JSON format
         /// </summary>
         [Output("settings")]
         public Output<string> Settings { get; private set; } = null!;
@@ -126,7 +125,7 @@ namespace Pulumi.Okta
         public Input<string> AppId { get; set; } = null!;
 
         /// <summary>
-        /// Application settings in JSON format.
+        /// Application settings in JSON format
         /// </summary>
         [Input("settings", required: true)]
         public Input<string> Settings { get; set; } = null!;
@@ -146,7 +145,7 @@ namespace Pulumi.Okta
         public Input<string>? AppId { get; set; }
 
         /// <summary>
-        /// Application settings in JSON format.
+        /// Application settings in JSON format
         /// </summary>
         [Input("settings")]
         public Input<string>? Settings { get; set; }

@@ -21,14 +21,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     public static final AppSignonPolicyRuleArgs Empty = new AppSignonPolicyRuleArgs();
 
     /**
-     * Allow or deny access based on the rule conditions. It can be set to `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. Default is `&#34;ALLOW&#34;`.
+     * Allow or deny access based on the rule conditions: ALLOW or DENY
      * 
      */
     @Import(name="access")
     private @Nullable Output<String> access;
 
     /**
-     * @return Allow or deny access based on the rule conditions. It can be set to `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. Default is `&#34;ALLOW&#34;`.
+     * @return Allow or deny access based on the rule conditions: ALLOW or DENY
      * 
      */
     public Optional<Output<String>> access() {
@@ -36,14 +36,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+     * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
      * 
      */
     @Import(name="constraints")
     private @Nullable Output<List<String>> constraints;
 
     /**
-     * @return An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+     * @return An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
      * 
      */
     public Optional<Output<List<String>>> constraints() {
@@ -51,14 +51,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+     * This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
      * 
      */
     @Import(name="customExpression")
     private @Nullable Output<String> customExpression;
 
     /**
-     * @return This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+     * @return This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
      * 
      */
     public Optional<Output<String>> customExpression() {
@@ -66,14 +66,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of device assurances IDs to be included.
+     * List of device assurance IDs to include
      * 
      */
     @Import(name="deviceAssurancesIncludeds")
     private @Nullable Output<List<String>> deviceAssurancesIncludeds;
 
     /**
-     * @return List of device assurances IDs to be included.
+     * @return List of device assurance IDs to include
      * 
      */
     public Optional<Output<List<String>>> deviceAssurancesIncludeds() {
@@ -81,16 +81,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * If the device is managed. A device is managed if it&#39;s managed by a device management
-     * system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
+     * If the device is managed. A device is managed if it&#39;s managed by a device management system. When managed is passed, registered must also be included and must be set to true.
      * 
      */
     @Import(name="deviceIsManaged")
     private @Nullable Output<Boolean> deviceIsManaged;
 
     /**
-     * @return If the device is managed. A device is managed if it&#39;s managed by a device management
-     * system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
+     * @return If the device is managed. A device is managed if it&#39;s managed by a device management system. When managed is passed, registered must also be included and must be set to true.
      * 
      */
     public Optional<Output<Boolean>> deviceIsManaged() {
@@ -98,16 +96,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * If the device is registered. A device is registered if the User enrolls with Okta
-     * Verify that is installed on the device. Can only be set to `true`.
+     * If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
      * 
      */
     @Import(name="deviceIsRegistered")
     private @Nullable Output<Boolean> deviceIsRegistered;
 
     /**
-     * @return If the device is registered. A device is registered if the User enrolls with Okta
-     * Verify that is installed on the device. Can only be set to `true`.
+     * @return If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
      * 
      */
     public Optional<Output<Boolean>> deviceIsRegistered() {
@@ -115,14 +111,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The number of factors required to satisfy this assurance level. It can be set to `&#34;1FA&#34;` or `&#34;2FA&#34;`. Default is `&#34;2FA&#34;`.
+     * The number of factors required to satisfy this assurance level
      * 
      */
     @Import(name="factorMode")
     private @Nullable Output<String> factorMode;
 
     /**
-     * @return The number of factors required to satisfy this assurance level. It can be set to `&#34;1FA&#34;` or `&#34;2FA&#34;`. Default is `&#34;2FA&#34;`.
+     * @return The number of factors required to satisfy this assurance level
      * 
      */
     public Optional<Output<String>> factorMode() {
@@ -130,14 +126,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of groups IDs to be excluded.
+     * List of group IDs to exclude
      * 
      */
     @Import(name="groupsExcludeds")
     private @Nullable Output<List<String>> groupsExcludeds;
 
     /**
-     * @return List of groups IDs to be excluded.
+     * @return List of group IDs to exclude
      * 
      */
     public Optional<Output<List<String>>> groupsExcludeds() {
@@ -145,14 +141,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of groups IDs to be included.
+     * List of group IDs to include
      * 
      */
     @Import(name="groupsIncludeds")
     private @Nullable Output<List<String>> groupsIncludeds;
 
     /**
-     * @return List of groups IDs to be included.
+     * @return List of group IDs to include
      * 
      */
     public Optional<Output<List<String>>> groupsIncludeds() {
@@ -160,14 +156,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `&#34;PT1H&#34;`.
+     * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
      * 
      */
     @Import(name="inactivityPeriod")
     private @Nullable Output<String> inactivityPeriod;
 
     /**
-     * @return The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `&#34;PT1H&#34;`.
+     * @return The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
      * 
      */
     public Optional<Output<String>> inactivityPeriod() {
@@ -175,14 +171,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Name of the policy rule.
+     * Policy Rule Name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the policy rule.
+     * @return Policy Rule Name
      * 
      */
     public Optional<Output<String>> name() {
@@ -190,14 +186,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+     * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
      * 
      */
     @Import(name="networkConnection")
     private @Nullable Output<String> networkConnection;
 
     /**
-     * @return Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+     * @return Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
      * 
      */
     public Optional<Output<String>> networkConnection() {
@@ -205,14 +201,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of network zones IDs to exclude. Conflicts with `network_includes`.
+     * The zones to exclude
      * 
      */
     @Import(name="networkExcludes")
     private @Nullable Output<List<String>> networkExcludes;
 
     /**
-     * @return List of network zones IDs to exclude. Conflicts with `network_includes`.
+     * @return The zones to exclude
      * 
      */
     public Optional<Output<List<String>>> networkExcludes() {
@@ -220,44 +216,36 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of network zones IDs to include. Conflicts with `network_excludes`.
+     * The zones to include
      * 
      */
     @Import(name="networkIncludes")
     private @Nullable Output<List<String>> networkIncludes;
 
     /**
-     * @return List of network zones IDs to include. Conflicts with `network_excludes`.
+     * @return The zones to include
      * 
      */
     public Optional<Output<List<String>>> networkIncludes() {
         return Optional.ofNullable(this.networkIncludes);
     }
 
-    /**
-     * List of particular platforms or devices to match on.
-     * 
-     */
     @Import(name="platformIncludes")
     private @Nullable Output<List<AppSignonPolicyRulePlatformIncludeArgs>> platformIncludes;
 
-    /**
-     * @return List of particular platforms or devices to match on.
-     * 
-     */
     public Optional<Output<List<AppSignonPolicyRulePlatformIncludeArgs>>> platformIncludes() {
         return Optional.ofNullable(this.platformIncludes);
     }
 
     /**
-     * ID of the app sign-on policy.
+     * ID of the policy
      * 
      */
     @Import(name="policyId", required=true)
     private Output<String> policyId;
 
     /**
-     * @return ID of the app sign-on policy.
+     * @return ID of the policy
      * 
      */
     public Output<String> policyId() {
@@ -280,14 +268,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `&#34;PT0S&#34;` - every sign-in attempt, `&#34;PT43800H&#34;` - once per session. Default is `&#34;PT2H&#34;`.
+     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
      * 
      */
     @Import(name="reAuthenticationFrequency")
     private @Nullable Output<String> reAuthenticationFrequency;
 
     /**
-     * @return The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `&#34;PT0S&#34;` - every sign-in attempt, `&#34;PT43800H&#34;` - once per session. Default is `&#34;PT2H&#34;`.
+     * @return The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
      * 
      */
     public Optional<Output<String>> reAuthenticationFrequency() {
@@ -295,14 +283,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The risk score specifies a particular level of risk to match on. Valid values are: `&#34;ANY&#34;`, `&#34;LOW&#34;`, `&#34;MEDIUM&#34;`, `&#34;HIGH&#34;`. Default is `&#34;ANY&#34;`.
+     * The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      * 
      */
     @Import(name="riskScore")
     private @Nullable Output<String> riskScore;
 
     /**
-     * @return The risk score specifies a particular level of risk to match on. Valid values are: `&#34;ANY&#34;`, `&#34;LOW&#34;`, `&#34;MEDIUM&#34;`, `&#34;HIGH&#34;`. Default is `&#34;ANY&#34;`.
+     * @return The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      * 
      */
     public Optional<Output<String>> riskScore() {
@@ -325,14 +313,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Verification Method type. It can be set to `&#34;ASSURANCE&#34;`. Default is `&#34;ASSURANCE&#34;`.
+     * The Verification Method type
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The Verification Method type. It can be set to `&#34;ASSURANCE&#34;`. Default is `&#34;ASSURANCE&#34;`.
+     * @return The Verification Method type
      * 
      */
     public Optional<Output<String>> type() {
@@ -340,14 +328,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of user types IDs to be excluded.
+     * Set of User Type IDs to exclude
      * 
      */
     @Import(name="userTypesExcludeds")
     private @Nullable Output<List<String>> userTypesExcludeds;
 
     /**
-     * @return List of user types IDs to be excluded.
+     * @return Set of User Type IDs to exclude
      * 
      */
     public Optional<Output<List<String>>> userTypesExcludeds() {
@@ -355,14 +343,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of user types IDs to be included.
+     * Set of User Type IDs to include
      * 
      */
     @Import(name="userTypesIncludeds")
     private @Nullable Output<List<String>> userTypesIncludeds;
 
     /**
-     * @return List of user types IDs to be included.
+     * @return Set of User Type IDs to include
      * 
      */
     public Optional<Output<List<String>>> userTypesIncludeds() {
@@ -370,14 +358,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of users IDs to be excluded.
+     * Set of User IDs to exclude
      * 
      */
     @Import(name="usersExcludeds")
     private @Nullable Output<List<String>> usersExcludeds;
 
     /**
-     * @return List of users IDs to be excluded.
+     * @return Set of User IDs to exclude
      * 
      */
     public Optional<Output<List<String>>> usersExcludeds() {
@@ -385,14 +373,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of users IDs to be included.
+     * Set of User IDs to include
      * 
      */
     @Import(name="usersIncludeds")
     private @Nullable Output<List<String>> usersIncludeds;
 
     /**
-     * @return List of users IDs to be included.
+     * @return Set of User IDs to include
      * 
      */
     public Optional<Output<List<String>>> usersIncludeds() {
@@ -448,7 +436,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param access Allow or deny access based on the rule conditions. It can be set to `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. Default is `&#34;ALLOW&#34;`.
+         * @param access Allow or deny access based on the rule conditions: ALLOW or DENY
          * 
          * @return builder
          * 
@@ -459,7 +447,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param access Allow or deny access based on the rule conditions. It can be set to `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. Default is `&#34;ALLOW&#34;`.
+         * @param access Allow or deny access based on the rule conditions: ALLOW or DENY
          * 
          * @return builder
          * 
@@ -469,7 +457,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param constraints An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+         * @param constraints An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
          * 
          * @return builder
          * 
@@ -480,7 +468,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param constraints An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+         * @param constraints An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
          * 
          * @return builder
          * 
@@ -490,7 +478,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param constraints An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+         * @param constraints An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
          * 
          * @return builder
          * 
@@ -500,7 +488,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param customExpression This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+         * @param customExpression This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
          * 
          * @return builder
          * 
@@ -511,7 +499,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param customExpression This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+         * @param customExpression This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
          * 
          * @return builder
          * 
@@ -521,7 +509,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param deviceAssurancesIncludeds List of device assurances IDs to be included.
+         * @param deviceAssurancesIncludeds List of device assurance IDs to include
          * 
          * @return builder
          * 
@@ -532,7 +520,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param deviceAssurancesIncludeds List of device assurances IDs to be included.
+         * @param deviceAssurancesIncludeds List of device assurance IDs to include
          * 
          * @return builder
          * 
@@ -542,7 +530,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param deviceAssurancesIncludeds List of device assurances IDs to be included.
+         * @param deviceAssurancesIncludeds List of device assurance IDs to include
          * 
          * @return builder
          * 
@@ -552,8 +540,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param deviceIsManaged If the device is managed. A device is managed if it&#39;s managed by a device management
-         * system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
+         * @param deviceIsManaged If the device is managed. A device is managed if it&#39;s managed by a device management system. When managed is passed, registered must also be included and must be set to true.
          * 
          * @return builder
          * 
@@ -564,8 +551,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param deviceIsManaged If the device is managed. A device is managed if it&#39;s managed by a device management
-         * system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
+         * @param deviceIsManaged If the device is managed. A device is managed if it&#39;s managed by a device management system. When managed is passed, registered must also be included and must be set to true.
          * 
          * @return builder
          * 
@@ -575,8 +561,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param deviceIsRegistered If the device is registered. A device is registered if the User enrolls with Okta
-         * Verify that is installed on the device. Can only be set to `true`.
+         * @param deviceIsRegistered If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
          * 
          * @return builder
          * 
@@ -587,8 +572,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param deviceIsRegistered If the device is registered. A device is registered if the User enrolls with Okta
-         * Verify that is installed on the device. Can only be set to `true`.
+         * @param deviceIsRegistered If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
          * 
          * @return builder
          * 
@@ -598,7 +582,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param factorMode The number of factors required to satisfy this assurance level. It can be set to `&#34;1FA&#34;` or `&#34;2FA&#34;`. Default is `&#34;2FA&#34;`.
+         * @param factorMode The number of factors required to satisfy this assurance level
          * 
          * @return builder
          * 
@@ -609,7 +593,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param factorMode The number of factors required to satisfy this assurance level. It can be set to `&#34;1FA&#34;` or `&#34;2FA&#34;`. Default is `&#34;2FA&#34;`.
+         * @param factorMode The number of factors required to satisfy this assurance level
          * 
          * @return builder
          * 
@@ -619,7 +603,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param groupsExcludeds List of groups IDs to be excluded.
+         * @param groupsExcludeds List of group IDs to exclude
          * 
          * @return builder
          * 
@@ -630,7 +614,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param groupsExcludeds List of groups IDs to be excluded.
+         * @param groupsExcludeds List of group IDs to exclude
          * 
          * @return builder
          * 
@@ -640,7 +624,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param groupsExcludeds List of groups IDs to be excluded.
+         * @param groupsExcludeds List of group IDs to exclude
          * 
          * @return builder
          * 
@@ -650,7 +634,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param groupsIncludeds List of groups IDs to be included.
+         * @param groupsIncludeds List of group IDs to include
          * 
          * @return builder
          * 
@@ -661,7 +645,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param groupsIncludeds List of groups IDs to be included.
+         * @param groupsIncludeds List of group IDs to include
          * 
          * @return builder
          * 
@@ -671,7 +655,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param groupsIncludeds List of groups IDs to be included.
+         * @param groupsIncludeds List of group IDs to include
          * 
          * @return builder
          * 
@@ -681,7 +665,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param inactivityPeriod The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `&#34;PT1H&#34;`.
+         * @param inactivityPeriod The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
          * 
          * @return builder
          * 
@@ -692,7 +676,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param inactivityPeriod The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `&#34;PT1H&#34;`.
+         * @param inactivityPeriod The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
          * 
          * @return builder
          * 
@@ -702,7 +686,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name Name of the policy rule.
+         * @param name Policy Rule Name
          * 
          * @return builder
          * 
@@ -713,7 +697,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name Name of the policy rule.
+         * @param name Policy Rule Name
          * 
          * @return builder
          * 
@@ -723,7 +707,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param networkConnection Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+         * @param networkConnection Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
          * 
          * @return builder
          * 
@@ -734,7 +718,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param networkConnection Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+         * @param networkConnection Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
          * 
          * @return builder
          * 
@@ -744,7 +728,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param networkExcludes List of network zones IDs to exclude. Conflicts with `network_includes`.
+         * @param networkExcludes The zones to exclude
          * 
          * @return builder
          * 
@@ -755,7 +739,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param networkExcludes List of network zones IDs to exclude. Conflicts with `network_includes`.
+         * @param networkExcludes The zones to exclude
          * 
          * @return builder
          * 
@@ -765,7 +749,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param networkExcludes List of network zones IDs to exclude. Conflicts with `network_includes`.
+         * @param networkExcludes The zones to exclude
          * 
          * @return builder
          * 
@@ -775,7 +759,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param networkIncludes List of network zones IDs to include. Conflicts with `network_excludes`.
+         * @param networkIncludes The zones to include
          * 
          * @return builder
          * 
@@ -786,7 +770,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param networkIncludes List of network zones IDs to include. Conflicts with `network_excludes`.
+         * @param networkIncludes The zones to include
          * 
          * @return builder
          * 
@@ -796,7 +780,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param networkIncludes List of network zones IDs to include. Conflicts with `network_excludes`.
+         * @param networkIncludes The zones to include
          * 
          * @return builder
          * 
@@ -805,39 +789,21 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
             return networkIncludes(List.of(networkIncludes));
         }
 
-        /**
-         * @param platformIncludes List of particular platforms or devices to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder platformIncludes(@Nullable Output<List<AppSignonPolicyRulePlatformIncludeArgs>> platformIncludes) {
             $.platformIncludes = platformIncludes;
             return this;
         }
 
-        /**
-         * @param platformIncludes List of particular platforms or devices to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder platformIncludes(List<AppSignonPolicyRulePlatformIncludeArgs> platformIncludes) {
             return platformIncludes(Output.of(platformIncludes));
         }
 
-        /**
-         * @param platformIncludes List of particular platforms or devices to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder platformIncludes(AppSignonPolicyRulePlatformIncludeArgs... platformIncludes) {
             return platformIncludes(List.of(platformIncludes));
         }
 
         /**
-         * @param policyId ID of the app sign-on policy.
+         * @param policyId ID of the policy
          * 
          * @return builder
          * 
@@ -848,7 +814,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param policyId ID of the app sign-on policy.
+         * @param policyId ID of the policy
          * 
          * @return builder
          * 
@@ -879,7 +845,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param reAuthenticationFrequency The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `&#34;PT0S&#34;` - every sign-in attempt, `&#34;PT43800H&#34;` - once per session. Default is `&#34;PT2H&#34;`.
+         * @param reAuthenticationFrequency The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
          * 
          * @return builder
          * 
@@ -890,7 +856,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param reAuthenticationFrequency The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `&#34;PT0S&#34;` - every sign-in attempt, `&#34;PT43800H&#34;` - once per session. Default is `&#34;PT2H&#34;`.
+         * @param reAuthenticationFrequency The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
          * 
          * @return builder
          * 
@@ -900,7 +866,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param riskScore The risk score specifies a particular level of risk to match on. Valid values are: `&#34;ANY&#34;`, `&#34;LOW&#34;`, `&#34;MEDIUM&#34;`, `&#34;HIGH&#34;`. Default is `&#34;ANY&#34;`.
+         * @param riskScore The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
          * 
          * @return builder
          * 
@@ -911,7 +877,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param riskScore The risk score specifies a particular level of risk to match on. Valid values are: `&#34;ANY&#34;`, `&#34;LOW&#34;`, `&#34;MEDIUM&#34;`, `&#34;HIGH&#34;`. Default is `&#34;ANY&#34;`.
+         * @param riskScore The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
          * 
          * @return builder
          * 
@@ -942,7 +908,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The Verification Method type. It can be set to `&#34;ASSURANCE&#34;`. Default is `&#34;ASSURANCE&#34;`.
+         * @param type The Verification Method type
          * 
          * @return builder
          * 
@@ -953,7 +919,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The Verification Method type. It can be set to `&#34;ASSURANCE&#34;`. Default is `&#34;ASSURANCE&#34;`.
+         * @param type The Verification Method type
          * 
          * @return builder
          * 
@@ -963,7 +929,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param userTypesExcludeds List of user types IDs to be excluded.
+         * @param userTypesExcludeds Set of User Type IDs to exclude
          * 
          * @return builder
          * 
@@ -974,7 +940,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param userTypesExcludeds List of user types IDs to be excluded.
+         * @param userTypesExcludeds Set of User Type IDs to exclude
          * 
          * @return builder
          * 
@@ -984,7 +950,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param userTypesExcludeds List of user types IDs to be excluded.
+         * @param userTypesExcludeds Set of User Type IDs to exclude
          * 
          * @return builder
          * 
@@ -994,7 +960,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param userTypesIncludeds List of user types IDs to be included.
+         * @param userTypesIncludeds Set of User Type IDs to include
          * 
          * @return builder
          * 
@@ -1005,7 +971,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param userTypesIncludeds List of user types IDs to be included.
+         * @param userTypesIncludeds Set of User Type IDs to include
          * 
          * @return builder
          * 
@@ -1015,7 +981,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param userTypesIncludeds List of user types IDs to be included.
+         * @param userTypesIncludeds Set of User Type IDs to include
          * 
          * @return builder
          * 
@@ -1025,7 +991,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param usersExcludeds List of users IDs to be excluded.
+         * @param usersExcludeds Set of User IDs to exclude
          * 
          * @return builder
          * 
@@ -1036,7 +1002,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param usersExcludeds List of users IDs to be excluded.
+         * @param usersExcludeds Set of User IDs to exclude
          * 
          * @return builder
          * 
@@ -1046,7 +1012,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param usersExcludeds List of users IDs to be excluded.
+         * @param usersExcludeds Set of User IDs to exclude
          * 
          * @return builder
          * 
@@ -1056,7 +1022,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param usersIncludeds List of users IDs to be included.
+         * @param usersIncludeds Set of User IDs to include
          * 
          * @return builder
          * 
@@ -1067,7 +1033,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param usersIncludeds List of users IDs to be included.
+         * @param usersIncludeds Set of User IDs to include
          * 
          * @return builder
          * 
@@ -1077,7 +1043,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param usersIncludeds List of users IDs to be included.
+         * @param usersIncludeds Set of User IDs to include
          * 
          * @return builder
          * 

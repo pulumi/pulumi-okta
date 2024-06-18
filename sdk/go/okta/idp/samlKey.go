@@ -64,8 +64,6 @@ import (
 //
 // ## Import
 //
-// A SAML IdP Signing Key can be imported via the key id.
-//
 // ```sh
 // $ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
 // ```
@@ -82,7 +80,7 @@ type SamlKey struct {
 	Kty pulumi.StringOutput `pulumi:"kty"`
 	// Intended use of the public key.
 	Use pulumi.StringOutput `pulumi:"use"`
-	// base64-encoded X.509 certificate chain with DER encoding.
+	// base64-encoded X.509 certificate chain with DER encoding
 	X5cs pulumi.StringArrayOutput `pulumi:"x5cs"`
 	// base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
 	X5tS256 pulumi.StringOutput `pulumi:"x5tS256"`
@@ -131,7 +129,7 @@ type samlKeyState struct {
 	Kty *string `pulumi:"kty"`
 	// Intended use of the public key.
 	Use *string `pulumi:"use"`
-	// base64-encoded X.509 certificate chain with DER encoding.
+	// base64-encoded X.509 certificate chain with DER encoding
 	X5cs []string `pulumi:"x5cs"`
 	// base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
 	X5tS256 *string `pulumi:"x5tS256"`
@@ -148,7 +146,7 @@ type SamlKeyState struct {
 	Kty pulumi.StringPtrInput
 	// Intended use of the public key.
 	Use pulumi.StringPtrInput
-	// base64-encoded X.509 certificate chain with DER encoding.
+	// base64-encoded X.509 certificate chain with DER encoding
 	X5cs pulumi.StringArrayInput
 	// base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
 	X5tS256 pulumi.StringPtrInput
@@ -159,13 +157,13 @@ func (SamlKeyState) ElementType() reflect.Type {
 }
 
 type samlKeyArgs struct {
-	// base64-encoded X.509 certificate chain with DER encoding.
+	// base64-encoded X.509 certificate chain with DER encoding
 	X5cs []string `pulumi:"x5cs"`
 }
 
 // The set of arguments for constructing a SamlKey resource.
 type SamlKeyArgs struct {
-	// base64-encoded X.509 certificate chain with DER encoding.
+	// base64-encoded X.509 certificate chain with DER encoding
 	X5cs pulumi.StringArrayInput
 }
 
@@ -281,7 +279,7 @@ func (o SamlKeyOutput) Use() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamlKey) pulumi.StringOutput { return v.Use }).(pulumi.StringOutput)
 }
 
-// base64-encoded X.509 certificate chain with DER encoding.
+// base64-encoded X.509 certificate chain with DER encoding
 func (o SamlKeyOutput) X5cs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SamlKey) pulumi.StringArrayOutput { return v.X5cs }).(pulumi.StringArrayOutput)
 }

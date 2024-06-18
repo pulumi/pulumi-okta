@@ -13,31 +13,31 @@ namespace Pulumi.Okta.Inputs
     public sealed class LogStreamSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS account ID.
+        /// AWS account ID. Required only for 'aws_eventbridge' type
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
+        /// Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
         /// </summary>
         [Input("edition")]
         public Input<string>? Edition { get; set; }
 
         /// <summary>
-        /// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+        /// An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
         /// </summary>
         [Input("eventSourceName")]
         public Input<string>? EventSourceName { get; set; }
 
         /// <summary>
-        /// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
+        /// The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
         /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
 
         /// <summary>
-        /// The destination AWS region where event source is located.
+        /// The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Okta.Inputs
         private Input<string>? _token;
 
         /// <summary>
-        /// The HEC token for your Splunk Cloud HTTP Event Collector.
+        /// The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
         /// </summary>
         public Input<string>? Token
         {

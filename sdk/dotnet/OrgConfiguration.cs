@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// This resource allows you manage org settings, logo, support and communication options.
+    /// Manages org settings, logo, support and communication.
     /// 
     /// &gt; **IMPORTANT:** You must specify all Org Setting properties when you update an org's profile. Any property not specified in the script will be deleted.
     /// 
@@ -34,8 +34,6 @@ namespace Pulumi.Okta
     /// ```
     /// 
     /// ## Import
-    /// 
-    /// Okta Org Configuration can be imported even without specifying the Org ID.
     /// 
     /// ```sh
     /// $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
@@ -93,8 +91,7 @@ namespace Pulumi.Okta
         public Output<string> ExpiresAt { get; private set; } = null!;
 
         /// <summary>
-        /// Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-        /// orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+        /// Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         /// </summary>
         [Output("logo")]
         public Output<string?> Logo { get; private set; } = null!;
@@ -236,8 +233,7 @@ namespace Pulumi.Okta
         public Input<string>? EndUserSupportHelpUrl { get; set; }
 
         /// <summary>
-        /// Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-        /// orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+        /// Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
@@ -341,8 +337,7 @@ namespace Pulumi.Okta
         public Input<string>? ExpiresAt { get; set; }
 
         /// <summary>
-        /// Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-        /// orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+        /// Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }

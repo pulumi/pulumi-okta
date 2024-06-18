@@ -43,33 +43,30 @@ class AppSignonPolicyRuleArgs:
                  users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AppSignonPolicyRule resource.
-        :param pulumi.Input[str] policy_id: ID of the app sign-on policy.
-        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
-        :param pulumi.Input[str] custom_expression: This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_assurances_includeds: List of device assurances IDs to be included.
-        :param pulumi.Input[bool] device_is_managed: If the device is managed. A device is managed if it's managed by a device management
-               system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
-        :param pulumi.Input[bool] device_is_registered: If the device is registered. A device is registered if the User enrolls with Okta
-               Verify that is installed on the device. Can only be set to `true`.
-        :param pulumi.Input[str] factor_mode: The number of factors required to satisfy this assurance level. It can be set to `"1FA"` or `"2FA"`. Default is `"2FA"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_excludeds: List of groups IDs to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of groups IDs to be included.
-        :param pulumi.Input[str] inactivity_period: The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
-        :param pulumi.Input[str] name: Name of the policy rule.
-        :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: List of network zones IDs to exclude. Conflicts with `network_includes`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: List of network zones IDs to include. Conflicts with `network_excludes`.
-        :param pulumi.Input[Sequence[pulumi.Input['AppSignonPolicyRulePlatformIncludeArgs']]] platform_includes: List of particular platforms or devices to match on.
+        :param pulumi.Input[str] policy_id: ID of the policy
+        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
+        :param pulumi.Input[str] custom_expression: This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_assurances_includeds: List of device assurance IDs to include
+        :param pulumi.Input[bool] device_is_managed: If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
+        :param pulumi.Input[bool] device_is_registered: If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
+        :param pulumi.Input[str] factor_mode: The number of factors required to satisfy this assurance level
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_excludeds: List of group IDs to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of group IDs to include
+        :param pulumi.Input[str] inactivity_period: The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
+        :param pulumi.Input[str] name: Policy Rule Name
+        :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
         :param pulumi.Input[int] priority: Priority of the rule.
-        :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `"PT0S"` - every sign-in attempt, `"PT43800H"` - once per session. Default is `"PT2H"`.
-        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on. Valid values are: `"ANY"`, `"LOW"`, `"MEDIUM"`, `"HIGH"`. Default is `"ANY"`.
+        :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         :param pulumi.Input[str] status: Status of the rule
-        :param pulumi.Input[str] type: The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: List of user types IDs to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_includeds: List of user types IDs to be included.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: List of users IDs to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_includeds: List of users IDs to be included.
+        :param pulumi.Input[str] type: The Verification Method type
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: Set of User Type IDs to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_includeds: Set of User Type IDs to include
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_includeds: Set of User IDs to include
         """
         pulumi.set(__self__, "policy_id", policy_id)
         if access is not None:
@@ -125,7 +122,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Input[str]:
         """
-        ID of the app sign-on policy.
+        ID of the policy
         """
         return pulumi.get(self, "policy_id")
 
@@ -137,7 +134,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter
     def access(self) -> Optional[pulumi.Input[str]]:
         """
-        Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
+        Allow or deny access based on the rule conditions: ALLOW or DENY
         """
         return pulumi.get(self, "access")
 
@@ -149,7 +146,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter
     def constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+        An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
         """
         return pulumi.get(self, "constraints")
 
@@ -161,7 +158,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="customExpression")
     def custom_expression(self) -> Optional[pulumi.Input[str]]:
         """
-        This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+        This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         """
         return pulumi.get(self, "custom_expression")
 
@@ -173,7 +170,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="deviceAssurancesIncludeds")
     def device_assurances_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of device assurances IDs to be included.
+        List of device assurance IDs to include
         """
         return pulumi.get(self, "device_assurances_includeds")
 
@@ -185,8 +182,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="deviceIsManaged")
     def device_is_managed(self) -> Optional[pulumi.Input[bool]]:
         """
-        If the device is managed. A device is managed if it's managed by a device management
-        system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
+        If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
         """
         return pulumi.get(self, "device_is_managed")
 
@@ -198,8 +194,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="deviceIsRegistered")
     def device_is_registered(self) -> Optional[pulumi.Input[bool]]:
         """
-        If the device is registered. A device is registered if the User enrolls with Okta
-        Verify that is installed on the device. Can only be set to `true`.
+        If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
         """
         return pulumi.get(self, "device_is_registered")
 
@@ -211,7 +206,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="factorMode")
     def factor_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The number of factors required to satisfy this assurance level. It can be set to `"1FA"` or `"2FA"`. Default is `"2FA"`.
+        The number of factors required to satisfy this assurance level
         """
         return pulumi.get(self, "factor_mode")
 
@@ -223,7 +218,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="groupsExcludeds")
     def groups_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of groups IDs to be excluded.
+        List of group IDs to exclude
         """
         return pulumi.get(self, "groups_excludeds")
 
@@ -235,7 +230,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="groupsIncludeds")
     def groups_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of groups IDs to be included.
+        List of group IDs to include
         """
         return pulumi.get(self, "groups_includeds")
 
@@ -247,7 +242,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="inactivityPeriod")
     def inactivity_period(self) -> Optional[pulumi.Input[str]]:
         """
-        The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+        The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
         """
         return pulumi.get(self, "inactivity_period")
 
@@ -259,7 +254,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the policy rule.
+        Policy Rule Name
         """
         return pulumi.get(self, "name")
 
@@ -271,7 +266,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="networkConnection")
     def network_connection(self) -> Optional[pulumi.Input[str]]:
         """
-        Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+        Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         """
         return pulumi.get(self, "network_connection")
 
@@ -283,7 +278,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="networkExcludes")
     def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of network zones IDs to exclude. Conflicts with `network_includes`.
+        The zones to exclude
         """
         return pulumi.get(self, "network_excludes")
 
@@ -295,7 +290,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="networkIncludes")
     def network_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of network zones IDs to include. Conflicts with `network_excludes`.
+        The zones to include
         """
         return pulumi.get(self, "network_includes")
 
@@ -306,9 +301,6 @@ class AppSignonPolicyRuleArgs:
     @property
     @pulumi.getter(name="platformIncludes")
     def platform_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppSignonPolicyRulePlatformIncludeArgs']]]]:
-        """
-        List of particular platforms or devices to match on.
-        """
         return pulumi.get(self, "platform_includes")
 
     @platform_includes.setter
@@ -331,7 +323,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="reAuthenticationFrequency")
     def re_authentication_frequency(self) -> Optional[pulumi.Input[str]]:
         """
-        The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `"PT0S"` - every sign-in attempt, `"PT43800H"` - once per session. Default is `"PT2H"`.
+        The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
         """
         return pulumi.get(self, "re_authentication_frequency")
 
@@ -343,7 +335,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="riskScore")
     def risk_score(self) -> Optional[pulumi.Input[str]]:
         """
-        The risk score specifies a particular level of risk to match on. Valid values are: `"ANY"`, `"LOW"`, `"MEDIUM"`, `"HIGH"`. Default is `"ANY"`.
+        The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         """
         return pulumi.get(self, "risk_score")
 
@@ -367,7 +359,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+        The Verification Method type
         """
         return pulumi.get(self, "type")
 
@@ -379,7 +371,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="userTypesExcludeds")
     def user_types_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of user types IDs to be excluded.
+        Set of User Type IDs to exclude
         """
         return pulumi.get(self, "user_types_excludeds")
 
@@ -391,7 +383,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="userTypesIncludeds")
     def user_types_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of user types IDs to be included.
+        Set of User Type IDs to include
         """
         return pulumi.get(self, "user_types_includeds")
 
@@ -403,7 +395,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="usersExcludeds")
     def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of users IDs to be excluded.
+        Set of User IDs to exclude
         """
         return pulumi.get(self, "users_excludeds")
 
@@ -415,7 +407,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="usersIncludeds")
     def users_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of users IDs to be included.
+        Set of User IDs to include
         """
         return pulumi.get(self, "users_includeds")
 
@@ -455,34 +447,31 @@ class _AppSignonPolicyRuleState:
                  users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering AppSignonPolicyRule resources.
-        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
-        :param pulumi.Input[str] custom_expression: This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_assurances_includeds: List of device assurances IDs to be included.
-        :param pulumi.Input[bool] device_is_managed: If the device is managed. A device is managed if it's managed by a device management
-               system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
-        :param pulumi.Input[bool] device_is_registered: If the device is registered. A device is registered if the User enrolls with Okta
-               Verify that is installed on the device. Can only be set to `true`.
-        :param pulumi.Input[str] factor_mode: The number of factors required to satisfy this assurance level. It can be set to `"1FA"` or `"2FA"`. Default is `"2FA"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_excludeds: List of groups IDs to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of groups IDs to be included.
-        :param pulumi.Input[str] inactivity_period: The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
-        :param pulumi.Input[str] name: Name of the policy rule.
-        :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: List of network zones IDs to exclude. Conflicts with `network_includes`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: List of network zones IDs to include. Conflicts with `network_excludes`.
-        :param pulumi.Input[Sequence[pulumi.Input['AppSignonPolicyRulePlatformIncludeArgs']]] platform_includes: List of particular platforms or devices to match on.
-        :param pulumi.Input[str] policy_id: ID of the app sign-on policy.
+        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
+        :param pulumi.Input[str] custom_expression: This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_assurances_includeds: List of device assurance IDs to include
+        :param pulumi.Input[bool] device_is_managed: If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
+        :param pulumi.Input[bool] device_is_registered: If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
+        :param pulumi.Input[str] factor_mode: The number of factors required to satisfy this assurance level
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_excludeds: List of group IDs to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of group IDs to include
+        :param pulumi.Input[str] inactivity_period: The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
+        :param pulumi.Input[str] name: Policy Rule Name
+        :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
+        :param pulumi.Input[str] policy_id: ID of the policy
         :param pulumi.Input[int] priority: Priority of the rule.
-        :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `"PT0S"` - every sign-in attempt, `"PT43800H"` - once per session. Default is `"PT2H"`.
-        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on. Valid values are: `"ANY"`, `"LOW"`, `"MEDIUM"`, `"HIGH"`. Default is `"ANY"`.
+        :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         :param pulumi.Input[str] status: Status of the rule
-        :param pulumi.Input[bool] system: Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy.
-        :param pulumi.Input[str] type: The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: List of user types IDs to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_includeds: List of user types IDs to be included.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: List of users IDs to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_includeds: List of users IDs to be included.
+        :param pulumi.Input[bool] system: Often the `Catch-all Rule` this rule is the system (default) rule for its associated policy
+        :param pulumi.Input[str] type: The Verification Method type
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: Set of User Type IDs to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_includeds: Set of User Type IDs to include
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_includeds: Set of User IDs to include
         """
         if access is not None:
             pulumi.set(__self__, "access", access)
@@ -541,7 +530,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter
     def access(self) -> Optional[pulumi.Input[str]]:
         """
-        Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
+        Allow or deny access based on the rule conditions: ALLOW or DENY
         """
         return pulumi.get(self, "access")
 
@@ -553,7 +542,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter
     def constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+        An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
         """
         return pulumi.get(self, "constraints")
 
@@ -565,7 +554,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="customExpression")
     def custom_expression(self) -> Optional[pulumi.Input[str]]:
         """
-        This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+        This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         """
         return pulumi.get(self, "custom_expression")
 
@@ -577,7 +566,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="deviceAssurancesIncludeds")
     def device_assurances_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of device assurances IDs to be included.
+        List of device assurance IDs to include
         """
         return pulumi.get(self, "device_assurances_includeds")
 
@@ -589,8 +578,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="deviceIsManaged")
     def device_is_managed(self) -> Optional[pulumi.Input[bool]]:
         """
-        If the device is managed. A device is managed if it's managed by a device management
-        system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
+        If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
         """
         return pulumi.get(self, "device_is_managed")
 
@@ -602,8 +590,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="deviceIsRegistered")
     def device_is_registered(self) -> Optional[pulumi.Input[bool]]:
         """
-        If the device is registered. A device is registered if the User enrolls with Okta
-        Verify that is installed on the device. Can only be set to `true`.
+        If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
         """
         return pulumi.get(self, "device_is_registered")
 
@@ -615,7 +602,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="factorMode")
     def factor_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The number of factors required to satisfy this assurance level. It can be set to `"1FA"` or `"2FA"`. Default is `"2FA"`.
+        The number of factors required to satisfy this assurance level
         """
         return pulumi.get(self, "factor_mode")
 
@@ -627,7 +614,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="groupsExcludeds")
     def groups_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of groups IDs to be excluded.
+        List of group IDs to exclude
         """
         return pulumi.get(self, "groups_excludeds")
 
@@ -639,7 +626,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="groupsIncludeds")
     def groups_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of groups IDs to be included.
+        List of group IDs to include
         """
         return pulumi.get(self, "groups_includeds")
 
@@ -651,7 +638,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="inactivityPeriod")
     def inactivity_period(self) -> Optional[pulumi.Input[str]]:
         """
-        The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+        The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
         """
         return pulumi.get(self, "inactivity_period")
 
@@ -663,7 +650,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the policy rule.
+        Policy Rule Name
         """
         return pulumi.get(self, "name")
 
@@ -675,7 +662,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="networkConnection")
     def network_connection(self) -> Optional[pulumi.Input[str]]:
         """
-        Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+        Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         """
         return pulumi.get(self, "network_connection")
 
@@ -687,7 +674,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="networkExcludes")
     def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of network zones IDs to exclude. Conflicts with `network_includes`.
+        The zones to exclude
         """
         return pulumi.get(self, "network_excludes")
 
@@ -699,7 +686,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="networkIncludes")
     def network_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of network zones IDs to include. Conflicts with `network_excludes`.
+        The zones to include
         """
         return pulumi.get(self, "network_includes")
 
@@ -710,9 +697,6 @@ class _AppSignonPolicyRuleState:
     @property
     @pulumi.getter(name="platformIncludes")
     def platform_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppSignonPolicyRulePlatformIncludeArgs']]]]:
-        """
-        List of particular platforms or devices to match on.
-        """
         return pulumi.get(self, "platform_includes")
 
     @platform_includes.setter
@@ -723,7 +707,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the app sign-on policy.
+        ID of the policy
         """
         return pulumi.get(self, "policy_id")
 
@@ -747,7 +731,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="reAuthenticationFrequency")
     def re_authentication_frequency(self) -> Optional[pulumi.Input[str]]:
         """
-        The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `"PT0S"` - every sign-in attempt, `"PT43800H"` - once per session. Default is `"PT2H"`.
+        The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
         """
         return pulumi.get(self, "re_authentication_frequency")
 
@@ -759,7 +743,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="riskScore")
     def risk_score(self) -> Optional[pulumi.Input[str]]:
         """
-        The risk score specifies a particular level of risk to match on. Valid values are: `"ANY"`, `"LOW"`, `"MEDIUM"`, `"HIGH"`. Default is `"ANY"`.
+        The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         """
         return pulumi.get(self, "risk_score")
 
@@ -783,7 +767,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter
     def system(self) -> Optional[pulumi.Input[bool]]:
         """
-        Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy.
+        Often the `Catch-all Rule` this rule is the system (default) rule for its associated policy
         """
         return pulumi.get(self, "system")
 
@@ -795,7 +779,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+        The Verification Method type
         """
         return pulumi.get(self, "type")
 
@@ -807,7 +791,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="userTypesExcludeds")
     def user_types_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of user types IDs to be excluded.
+        Set of User Type IDs to exclude
         """
         return pulumi.get(self, "user_types_excludeds")
 
@@ -819,7 +803,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="userTypesIncludeds")
     def user_types_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of user types IDs to be included.
+        Set of User Type IDs to include
         """
         return pulumi.get(self, "user_types_includeds")
 
@@ -831,7 +815,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="usersExcludeds")
     def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of users IDs to be excluded.
+        Set of User IDs to exclude
         """
         return pulumi.get(self, "users_excludeds")
 
@@ -843,7 +827,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="usersIncludeds")
     def users_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of users IDs to be included.
+        Set of User IDs to include
         """
         return pulumi.get(self, "users_includeds")
 
@@ -884,302 +868,38 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-
-        This resource allows you to create and configure a sign-on policy rule for the application.
-
-        A default or `Catch-all Rule` sign-on policy rule can be imported and managed as a custom rule.
-        The only difference is that these fields are immutable and can not be managed: `network_connection`, `network_excludes`,
-        `network_includes`, `platform_include`, `custom_expression`, `device_is_registered`, `device_is_managed`, `users_excluded`,
-        `users_included`, `groups_excluded`, `groups_included`, `user_types_excluded` and `user_types_included`.
-
-        ## Example Usage
-
-        ### Simple usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        test_saml = okta.app.Saml("test",
-            label="My App",
-            sso_url="https://google.com",
-            recipient="https://here.com",
-            destination="https://its-about-the-journey.com",
-            audience="https://audience.com",
-            status="ACTIVE",
-            subject_name_id_template="${user.userName}",
-            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-            signature_algorithm="RSA_SHA256",
-            response_signed=True,
-            digest_algorithm="SHA256",
-            honor_force_authn=False,
-            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport")
-        test = okta.get_app_signon_policy_output(app_id=test_saml.id)
-        test_app_signon_policy_rule = okta.AppSignonPolicyRule("test",
-            policy_id=test.id,
-            name="testAcc_replace_with_uuid")
-        ```
-
-        This will create an app sign-on policy rule with the following `THEN` block:
-
-        ### Rule with Constraints
-
-        ### Example 1:
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_okta as okta
-
-        test = okta.AppSignonPolicyRule("test",
-            policy_id=test_okta_app_signon_policy["id"],
-            name="testAcc_replace_with_uuid",
-            constraints=[json.dumps({
-                "knowledge": {
-                    "types": ["password"],
-                },
-            })])
-        ```
-
-        This will create an app sign-on policy rule with the following `THEN` block:
-
-        ### Example 2:
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_okta as okta
-
-        test = okta.AppSignonPolicyRule("test",
-            policy_id=test_okta_app_signon_policy["id"],
-            name="testAcc_replace_with_uuid",
-            constraints=[json.dumps({
-                "knowledge": {
-                    "reauthenticateIn": "PT2H",
-                    "types": ["password"],
-                },
-                "possession": {
-                    "deviceBound": "REQUIRED",
-                    "hardwareProtection": "REQUIRED",
-                },
-            })])
-        ```
-
-        This will create an app sign-on policy rule with the following `THEN` block:
-
-        More examples can be
-        found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
-
-        ### Complex example
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_okta as okta
-
-        test_saml = okta.app.Saml("test",
-            label="testAcc_replace_with_uuid",
-            sso_url="https://google.com",
-            recipient="https://here.com",
-            destination="https://its-about-the-journey.com",
-            audience="https://audience.com",
-            subject_name_id_template="${user.userName}",
-            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-            response_signed=True,
-            signature_algorithm="RSA_SHA256",
-            digest_algorithm="SHA256",
-            honor_force_authn=False,
-            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-            single_logout_issuer="https://dunshire.okta.com",
-            single_logout_url="https://dunshire.okta.com/logout",
-            single_logout_certificate=\"\"\"MIIFnDCCA4QCCQDBSLbiON2T1zANBgkqhkiG9w0BAQsFADCBjzELMAkGA1UEBhMCVVMxDjAMBgNV\\x0d
-        BAgMBU1haW5lMRAwDgYDVQQHDAdDYXJpYm91MRcwFQYDVQQKDA5Tbm93bWFrZXJzIEluYzEUMBIG\\x0d
-        A1UECwwLRW5naW5lZXJpbmcxDTALBgNVBAMMBFNub3cxIDAeBgkqhkiG9w0BCQEWEWVtYWlsQGV4\\x0d
-        YW1wbGUuY29tMB4XDTIwMTIwMzIyNDY0M1oXDTMwMTIwMTIyNDY0M1owgY8xCzAJBgNVBAYTAlVT\\x0d
-        MQ4wDAYDVQQIDAVNYWluZTEQMA4GA1UEBwwHQ2FyaWJvdTEXMBUGA1UECgwOU25vd21ha2VycyBJ\\x0d
-        bmMxFDASBgNVBAsMC0VuZ2luZWVyaW5nMQ0wCwYDVQQDDARTbm93MSAwHgYJKoZIhvcNAQkBFhFl\\x0d
-        bWFpbEBleGFtcGxlLmNvbTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBANMmWDjXPdoa\\x0d
-        PyzIENqeY9njLan2FqCbQPSestWUUcb6NhDsJVGSQ7XR+ozQA5TaJzbP7cAJUj8vCcbqMZsgOQAu\\x0d
-        O/pzYyQEKptLmrGvPn7xkJ1A1xLkp2NY18cpDTeUPueJUoidZ9EJwEuyUZIktzxNNU1pA1lGijiu\\x0d
-        2XNxs9d9JR/hm3tCu9Im8qLVB4JtX80YUa6QtlRjWR/H8a373AYCOASdoB3c57fIPD8ATDNy2w/c\\x0d
-        fCVGiyKDMFB+GA/WTsZpOP3iohRp8ltAncSuzypcztb2iE+jijtTsiC9kUA2abAJqqpoCJubNShi\\x0d
-        Vff4822czpziS44MV2guC9wANi8u3Uyl5MKsU95j01jzadKRP5S+2f0K+n8n4UoV9fnqZFyuGAKd\\x0d
-        CJi9K6NlSAP+TgPe/JP9FOSuxQOHWJfmdLHdJD+evoKi9E55sr5lRFK0xU1Fj5Ld7zjC0pXPhtJf\\x0d
-        sgjEZzD433AsHnRzvRT1KSNCPkLYomznZo5n9rWYgCQ8HcytlQDTesmKE+s05E/VSWNtH84XdDrt\\x0d
-        ieXwfwhHfaABSu+WjZYxi9CXdFCSvXhsgufUcK4FbYAHl/ga/cJxZc52yFC7Pcq0u9O2BSCjYPdQ\\x0d
-        DAHs9dhT1RhwVLM8RmoAzgxyyzau0gxnAlgSBD9FMW6dXqIHIp8yAAg9cRXhYRTNAgMBAAEwDQYJ\\x0d
-        KoZIhvcNAQELBQADggIBADofEC1SvG8qa7pmKCjB/E9Sxhk3mvUO9Gq43xzwVb721Ng3VYf4vGU3\\x0d
-        wLUwJeLt0wggnj26NJweN5T3q9T8UMxZhHSWvttEU3+S1nArRB0beti716HSlOCDx4wTmBu/D1MG\\x0d
-        t/kZYFJw+zuzvAcbYct2pK69AQhD8xAIbQvqADJI7cCK3yRry+aWtppc58P81KYabUlCfFXfhJ9E\\x0d
-        P72ffN4jVHpX3lxxYh7FKAdiKbY2FYzjsc7RdgKI1R3iAAZUCGBTvezNzaetGzTUjjl/g1tcVYij\\x0d
-        ltH9ZOQBPlUMI88lxUxqgRTerpPmAJH00CACx4JFiZrweLM1trZyy06wNDQgLrqHr3EOagBF/O2h\\x0d
-        hfTehNdVr6iq3YhKWBo4/+RL0RCzHMh4u86VbDDnDn4Y6HzLuyIAtBFoikoKM6UHTOa0Pqv2bBr5\\x0d
-        wbkRkVUxl9yJJw/HmTCdfnsM9dTOJUKzEglnGF2184Gg+qJDZB6fSf0EAO1F6sTqiSswl+uHQZiy\\x0d
-        DaZzyU7Gg5seKOZ20zTRaX3Ihj9Zij/ORnrARE7eM/usKMECp+7syUwAUKxDCZkGiUdskmOhhBGL\\x0d
-        JtbyK3F2UvoJoLsm3pIcvMak9KwMjSTGJB47ABUP1+w+zGcNk0D5Co3IJ6QekiLfWJyQ+kKsWLKt\\x0d
-        zOYQQatrnBagM7MI2/T4\\x0d
-        \"\"\",
-            attribute_statements=[okta.app.SamlAttributeStatementArgs(
-                type="GROUP",
-                name="groups",
-                filter_type="REGEX",
-                filter_value=".*",
-            )])
-        test = okta.get_app_signon_policy_output(app_id=test_saml.id)
-        test_user = []
-        for range in [{"value": i} for i in range(0, 5)]:
-            test_user.append(okta.user.User(f"test-{range['value']}",
-                first_name="TestAcc",
-                last_name="Smith",
-                login=f"testAcc_{range['value']}@example.com",
-                email=f"testAcc_{range['value']}@example.com"))
-        this = []
-        for range in [{"value": i} for i in range(0, 5)]:
-            this.append(okta.group.Group(f"this-{range['value']}",
-                name=f"testAcc_{range['value']}",
-                description=f"testAcc_{range['value']}"))
-        test_user_type = okta.user.UserType("test",
-            name="testAcc_replace_with_uuid",
-            display_name="Terraform Acceptance Test User Type Updated",
-            description="Terraform Acceptance Test User Type Updated")
-        test_zone = okta.network.Zone("test",
-            name="testAcc_replace_with_uuid",
-            type="IP",
-            gateways=[
-                "1.2.3.4/24",
-                "2.3.4.5-2.3.4.15",
-            ],
-            proxies=[
-                "2.2.3.4/24",
-                "3.3.4.5-3.3.4.15",
-            ])
-        default = okta.user.get_user_type(name="user")
-        test_device_assurance_android = okta.policy.DeviceAssuranceAndroid("test",
-            name="test",
-            os_version="12",
-            jailbreak=False)
-        test_app_signon_policy_rule = okta.AppSignonPolicyRule("test",
-            name="testAcc_replace_with_uuid",
-            policy_id=test.id,
-            access="ALLOW",
-            custom_expression="user.status == \\"ACTIVE\\"",
-            device_is_managed=False,
-            device_is_registered=True,
-            factor_mode="2FA",
-            groups_excludeds=[
-                this[2].id,
-                this[3].id,
-                this[4].id,
-            ],
-            groups_includeds=[
-                this[0].id,
-                this[1].id,
-            ],
-            device_assurances_includeds=[test_device_assurance_android.id],
-            network_connection="ZONE",
-            network_includes=[test_zone.id],
-            platform_includes=[
-                okta.AppSignonPolicyRulePlatformIncludeArgs(
-                    os_type="ANDROID",
-                    type="MOBILE",
-                ),
-                okta.AppSignonPolicyRulePlatformIncludeArgs(
-                    os_type="IOS",
-                    type="MOBILE",
-                ),
-                okta.AppSignonPolicyRulePlatformIncludeArgs(
-                    os_type="MACOS",
-                    type="DESKTOP",
-                ),
-                okta.AppSignonPolicyRulePlatformIncludeArgs(
-                    os_type="OTHER",
-                    type="DESKTOP",
-                ),
-                okta.AppSignonPolicyRulePlatformIncludeArgs(
-                    os_type="OTHER",
-                    type="MOBILE",
-                ),
-                okta.AppSignonPolicyRulePlatformIncludeArgs(
-                    os_type="WINDOWS",
-                    type="DESKTOP",
-                ),
-                okta.AppSignonPolicyRulePlatformIncludeArgs(
-                    os_type="CHROMEOS",
-                    type="DESKTOP",
-                ),
-            ],
-            priority=98,
-            re_authentication_frequency="PT43800H",
-            type="ASSURANCE",
-            user_types_excludeds=[test_user_type.id],
-            user_types_includeds=[default.id],
-            users_excludeds=[
-                test_user[2].id,
-                test_user[3].id,
-                test_user[4].id,
-            ],
-            users_includeds=[
-                test_user[0].id,
-                test_user[1].id,
-            ],
-            constraints=[
-                json.dumps({
-                    "knowledge": {
-                        "reauthenticateIn": "PT2H",
-                        "types": ["password"],
-                    },
-                    "possession": {
-                        "deviceBound": "REQUIRED",
-                    },
-                }),
-                json.dumps({
-                    "possession": {
-                        "deviceBound": "REQUIRED",
-                        "hardwareProtection": "REQUIRED",
-                        "userPresence": "OPTIONAL",
-                    },
-                }),
-            ])
-        ```
-
         ## Import
 
-        Okta app sign-on policy rule can be imported via the Okta ID.
-
         ```sh
-        $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
+        $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
-        :param pulumi.Input[str] custom_expression: This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_assurances_includeds: List of device assurances IDs to be included.
-        :param pulumi.Input[bool] device_is_managed: If the device is managed. A device is managed if it's managed by a device management
-               system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
-        :param pulumi.Input[bool] device_is_registered: If the device is registered. A device is registered if the User enrolls with Okta
-               Verify that is installed on the device. Can only be set to `true`.
-        :param pulumi.Input[str] factor_mode: The number of factors required to satisfy this assurance level. It can be set to `"1FA"` or `"2FA"`. Default is `"2FA"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_excludeds: List of groups IDs to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of groups IDs to be included.
-        :param pulumi.Input[str] inactivity_period: The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
-        :param pulumi.Input[str] name: Name of the policy rule.
-        :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: List of network zones IDs to exclude. Conflicts with `network_includes`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: List of network zones IDs to include. Conflicts with `network_excludes`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSignonPolicyRulePlatformIncludeArgs']]]] platform_includes: List of particular platforms or devices to match on.
-        :param pulumi.Input[str] policy_id: ID of the app sign-on policy.
+        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
+        :param pulumi.Input[str] custom_expression: This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_assurances_includeds: List of device assurance IDs to include
+        :param pulumi.Input[bool] device_is_managed: If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
+        :param pulumi.Input[bool] device_is_registered: If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
+        :param pulumi.Input[str] factor_mode: The number of factors required to satisfy this assurance level
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_excludeds: List of group IDs to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of group IDs to include
+        :param pulumi.Input[str] inactivity_period: The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
+        :param pulumi.Input[str] name: Policy Rule Name
+        :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
+        :param pulumi.Input[str] policy_id: ID of the policy
         :param pulumi.Input[int] priority: Priority of the rule.
-        :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `"PT0S"` - every sign-in attempt, `"PT43800H"` - once per session. Default is `"PT2H"`.
-        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on. Valid values are: `"ANY"`, `"LOW"`, `"MEDIUM"`, `"HIGH"`. Default is `"ANY"`.
+        :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         :param pulumi.Input[str] status: Status of the rule
-        :param pulumi.Input[str] type: The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: List of user types IDs to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_includeds: List of user types IDs to be included.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: List of users IDs to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_includeds: List of users IDs to be included.
+        :param pulumi.Input[str] type: The Verification Method type
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: Set of User Type IDs to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_includeds: Set of User Type IDs to include
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_includeds: Set of User IDs to include
         """
         ...
     @overload
@@ -1188,271 +908,10 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  args: AppSignonPolicyRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-
-        This resource allows you to create and configure a sign-on policy rule for the application.
-
-        A default or `Catch-all Rule` sign-on policy rule can be imported and managed as a custom rule.
-        The only difference is that these fields are immutable and can not be managed: `network_connection`, `network_excludes`,
-        `network_includes`, `platform_include`, `custom_expression`, `device_is_registered`, `device_is_managed`, `users_excluded`,
-        `users_included`, `groups_excluded`, `groups_included`, `user_types_excluded` and `user_types_included`.
-
-        ## Example Usage
-
-        ### Simple usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        test_saml = okta.app.Saml("test",
-            label="My App",
-            sso_url="https://google.com",
-            recipient="https://here.com",
-            destination="https://its-about-the-journey.com",
-            audience="https://audience.com",
-            status="ACTIVE",
-            subject_name_id_template="${user.userName}",
-            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-            signature_algorithm="RSA_SHA256",
-            response_signed=True,
-            digest_algorithm="SHA256",
-            honor_force_authn=False,
-            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport")
-        test = okta.get_app_signon_policy_output(app_id=test_saml.id)
-        test_app_signon_policy_rule = okta.AppSignonPolicyRule("test",
-            policy_id=test.id,
-            name="testAcc_replace_with_uuid")
-        ```
-
-        This will create an app sign-on policy rule with the following `THEN` block:
-
-        ### Rule with Constraints
-
-        ### Example 1:
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_okta as okta
-
-        test = okta.AppSignonPolicyRule("test",
-            policy_id=test_okta_app_signon_policy["id"],
-            name="testAcc_replace_with_uuid",
-            constraints=[json.dumps({
-                "knowledge": {
-                    "types": ["password"],
-                },
-            })])
-        ```
-
-        This will create an app sign-on policy rule with the following `THEN` block:
-
-        ### Example 2:
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_okta as okta
-
-        test = okta.AppSignonPolicyRule("test",
-            policy_id=test_okta_app_signon_policy["id"],
-            name="testAcc_replace_with_uuid",
-            constraints=[json.dumps({
-                "knowledge": {
-                    "reauthenticateIn": "PT2H",
-                    "types": ["password"],
-                },
-                "possession": {
-                    "deviceBound": "REQUIRED",
-                    "hardwareProtection": "REQUIRED",
-                },
-            })])
-        ```
-
-        This will create an app sign-on policy rule with the following `THEN` block:
-
-        More examples can be
-        found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
-
-        ### Complex example
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_okta as okta
-
-        test_saml = okta.app.Saml("test",
-            label="testAcc_replace_with_uuid",
-            sso_url="https://google.com",
-            recipient="https://here.com",
-            destination="https://its-about-the-journey.com",
-            audience="https://audience.com",
-            subject_name_id_template="${user.userName}",
-            subject_name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-            response_signed=True,
-            signature_algorithm="RSA_SHA256",
-            digest_algorithm="SHA256",
-            honor_force_authn=False,
-            authn_context_class_ref="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-            single_logout_issuer="https://dunshire.okta.com",
-            single_logout_url="https://dunshire.okta.com/logout",
-            single_logout_certificate=\"\"\"MIIFnDCCA4QCCQDBSLbiON2T1zANBgkqhkiG9w0BAQsFADCBjzELMAkGA1UEBhMCVVMxDjAMBgNV\\x0d
-        BAgMBU1haW5lMRAwDgYDVQQHDAdDYXJpYm91MRcwFQYDVQQKDA5Tbm93bWFrZXJzIEluYzEUMBIG\\x0d
-        A1UECwwLRW5naW5lZXJpbmcxDTALBgNVBAMMBFNub3cxIDAeBgkqhkiG9w0BCQEWEWVtYWlsQGV4\\x0d
-        YW1wbGUuY29tMB4XDTIwMTIwMzIyNDY0M1oXDTMwMTIwMTIyNDY0M1owgY8xCzAJBgNVBAYTAlVT\\x0d
-        MQ4wDAYDVQQIDAVNYWluZTEQMA4GA1UEBwwHQ2FyaWJvdTEXMBUGA1UECgwOU25vd21ha2VycyBJ\\x0d
-        bmMxFDASBgNVBAsMC0VuZ2luZWVyaW5nMQ0wCwYDVQQDDARTbm93MSAwHgYJKoZIhvcNAQkBFhFl\\x0d
-        bWFpbEBleGFtcGxlLmNvbTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBANMmWDjXPdoa\\x0d
-        PyzIENqeY9njLan2FqCbQPSestWUUcb6NhDsJVGSQ7XR+ozQA5TaJzbP7cAJUj8vCcbqMZsgOQAu\\x0d
-        O/pzYyQEKptLmrGvPn7xkJ1A1xLkp2NY18cpDTeUPueJUoidZ9EJwEuyUZIktzxNNU1pA1lGijiu\\x0d
-        2XNxs9d9JR/hm3tCu9Im8qLVB4JtX80YUa6QtlRjWR/H8a373AYCOASdoB3c57fIPD8ATDNy2w/c\\x0d
-        fCVGiyKDMFB+GA/WTsZpOP3iohRp8ltAncSuzypcztb2iE+jijtTsiC9kUA2abAJqqpoCJubNShi\\x0d
-        Vff4822czpziS44MV2guC9wANi8u3Uyl5MKsU95j01jzadKRP5S+2f0K+n8n4UoV9fnqZFyuGAKd\\x0d
-        CJi9K6NlSAP+TgPe/JP9FOSuxQOHWJfmdLHdJD+evoKi9E55sr5lRFK0xU1Fj5Ld7zjC0pXPhtJf\\x0d
-        sgjEZzD433AsHnRzvRT1KSNCPkLYomznZo5n9rWYgCQ8HcytlQDTesmKE+s05E/VSWNtH84XdDrt\\x0d
-        ieXwfwhHfaABSu+WjZYxi9CXdFCSvXhsgufUcK4FbYAHl/ga/cJxZc52yFC7Pcq0u9O2BSCjYPdQ\\x0d
-        DAHs9dhT1RhwVLM8RmoAzgxyyzau0gxnAlgSBD9FMW6dXqIHIp8yAAg9cRXhYRTNAgMBAAEwDQYJ\\x0d
-        KoZIhvcNAQELBQADggIBADofEC1SvG8qa7pmKCjB/E9Sxhk3mvUO9Gq43xzwVb721Ng3VYf4vGU3\\x0d
-        wLUwJeLt0wggnj26NJweN5T3q9T8UMxZhHSWvttEU3+S1nArRB0beti716HSlOCDx4wTmBu/D1MG\\x0d
-        t/kZYFJw+zuzvAcbYct2pK69AQhD8xAIbQvqADJI7cCK3yRry+aWtppc58P81KYabUlCfFXfhJ9E\\x0d
-        P72ffN4jVHpX3lxxYh7FKAdiKbY2FYzjsc7RdgKI1R3iAAZUCGBTvezNzaetGzTUjjl/g1tcVYij\\x0d
-        ltH9ZOQBPlUMI88lxUxqgRTerpPmAJH00CACx4JFiZrweLM1trZyy06wNDQgLrqHr3EOagBF/O2h\\x0d
-        hfTehNdVr6iq3YhKWBo4/+RL0RCzHMh4u86VbDDnDn4Y6HzLuyIAtBFoikoKM6UHTOa0Pqv2bBr5\\x0d
-        wbkRkVUxl9yJJw/HmTCdfnsM9dTOJUKzEglnGF2184Gg+qJDZB6fSf0EAO1F6sTqiSswl+uHQZiy\\x0d
-        DaZzyU7Gg5seKOZ20zTRaX3Ihj9Zij/ORnrARE7eM/usKMECp+7syUwAUKxDCZkGiUdskmOhhBGL\\x0d
-        JtbyK3F2UvoJoLsm3pIcvMak9KwMjSTGJB47ABUP1+w+zGcNk0D5Co3IJ6QekiLfWJyQ+kKsWLKt\\x0d
-        zOYQQatrnBagM7MI2/T4\\x0d
-        \"\"\",
-            attribute_statements=[okta.app.SamlAttributeStatementArgs(
-                type="GROUP",
-                name="groups",
-                filter_type="REGEX",
-                filter_value=".*",
-            )])
-        test = okta.get_app_signon_policy_output(app_id=test_saml.id)
-        test_user = []
-        for range in [{"value": i} for i in range(0, 5)]:
-            test_user.append(okta.user.User(f"test-{range['value']}",
-                first_name="TestAcc",
-                last_name="Smith",
-                login=f"testAcc_{range['value']}@example.com",
-                email=f"testAcc_{range['value']}@example.com"))
-        this = []
-        for range in [{"value": i} for i in range(0, 5)]:
-            this.append(okta.group.Group(f"this-{range['value']}",
-                name=f"testAcc_{range['value']}",
-                description=f"testAcc_{range['value']}"))
-        test_user_type = okta.user.UserType("test",
-            name="testAcc_replace_with_uuid",
-            display_name="Terraform Acceptance Test User Type Updated",
-            description="Terraform Acceptance Test User Type Updated")
-        test_zone = okta.network.Zone("test",
-            name="testAcc_replace_with_uuid",
-            type="IP",
-            gateways=[
-                "1.2.3.4/24",
-                "2.3.4.5-2.3.4.15",
-            ],
-            proxies=[
-                "2.2.3.4/24",
-                "3.3.4.5-3.3.4.15",
-            ])
-        default = okta.user.get_user_type(name="user")
-        test_device_assurance_android = okta.policy.DeviceAssuranceAndroid("test",
-            name="test",
-            os_version="12",
-            jailbreak=False)
-        test_app_signon_policy_rule = okta.AppSignonPolicyRule("test",
-            name="testAcc_replace_with_uuid",
-            policy_id=test.id,
-            access="ALLOW",
-            custom_expression="user.status == \\"ACTIVE\\"",
-            device_is_managed=False,
-            device_is_registered=True,
-            factor_mode="2FA",
-            groups_excludeds=[
-                this[2].id,
-                this[3].id,
-                this[4].id,
-            ],
-            groups_includeds=[
-                this[0].id,
-                this[1].id,
-            ],
-            device_assurances_includeds=[test_device_assurance_android.id],
-            network_connection="ZONE",
-            network_includes=[test_zone.id],
-            platform_includes=[
-                okta.AppSignonPolicyRulePlatformIncludeArgs(
-                    os_type="ANDROID",
-                    type="MOBILE",
-                ),
-                okta.AppSignonPolicyRulePlatformIncludeArgs(
-                    os_type="IOS",
-                    type="MOBILE",
-                ),
-                okta.AppSignonPolicyRulePlatformIncludeArgs(
-                    os_type="MACOS",
-                    type="DESKTOP",
-                ),
-                okta.AppSignonPolicyRulePlatformIncludeArgs(
-                    os_type="OTHER",
-                    type="DESKTOP",
-                ),
-                okta.AppSignonPolicyRulePlatformIncludeArgs(
-                    os_type="OTHER",
-                    type="MOBILE",
-                ),
-                okta.AppSignonPolicyRulePlatformIncludeArgs(
-                    os_type="WINDOWS",
-                    type="DESKTOP",
-                ),
-                okta.AppSignonPolicyRulePlatformIncludeArgs(
-                    os_type="CHROMEOS",
-                    type="DESKTOP",
-                ),
-            ],
-            priority=98,
-            re_authentication_frequency="PT43800H",
-            type="ASSURANCE",
-            user_types_excludeds=[test_user_type.id],
-            user_types_includeds=[default.id],
-            users_excludeds=[
-                test_user[2].id,
-                test_user[3].id,
-                test_user[4].id,
-            ],
-            users_includeds=[
-                test_user[0].id,
-                test_user[1].id,
-            ],
-            constraints=[
-                json.dumps({
-                    "knowledge": {
-                        "reauthenticateIn": "PT2H",
-                        "types": ["password"],
-                    },
-                    "possession": {
-                        "deviceBound": "REQUIRED",
-                    },
-                }),
-                json.dumps({
-                    "possession": {
-                        "deviceBound": "REQUIRED",
-                        "hardwareProtection": "REQUIRED",
-                        "userPresence": "OPTIONAL",
-                    },
-                }),
-            ])
-        ```
-
         ## Import
 
-        Okta app sign-on policy rule can be imported via the Okta ID.
-
         ```sh
-        $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
+        $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62
         ```
 
         :param str resource_name: The name of the resource.
@@ -1575,34 +1034,31 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
-        :param pulumi.Input[str] custom_expression: This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_assurances_includeds: List of device assurances IDs to be included.
-        :param pulumi.Input[bool] device_is_managed: If the device is managed. A device is managed if it's managed by a device management
-               system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
-        :param pulumi.Input[bool] device_is_registered: If the device is registered. A device is registered if the User enrolls with Okta
-               Verify that is installed on the device. Can only be set to `true`.
-        :param pulumi.Input[str] factor_mode: The number of factors required to satisfy this assurance level. It can be set to `"1FA"` or `"2FA"`. Default is `"2FA"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_excludeds: List of groups IDs to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of groups IDs to be included.
-        :param pulumi.Input[str] inactivity_period: The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
-        :param pulumi.Input[str] name: Name of the policy rule.
-        :param pulumi.Input[str] network_connection: Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: List of network zones IDs to exclude. Conflicts with `network_includes`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: List of network zones IDs to include. Conflicts with `network_excludes`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSignonPolicyRulePlatformIncludeArgs']]]] platform_includes: List of particular platforms or devices to match on.
-        :param pulumi.Input[str] policy_id: ID of the app sign-on policy.
+        :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
+        :param pulumi.Input[str] custom_expression: This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_assurances_includeds: List of device assurance IDs to include
+        :param pulumi.Input[bool] device_is_managed: If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
+        :param pulumi.Input[bool] device_is_registered: If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
+        :param pulumi.Input[str] factor_mode: The number of factors required to satisfy this assurance level
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_excludeds: List of group IDs to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_includeds: List of group IDs to include
+        :param pulumi.Input[str] inactivity_period: The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
+        :param pulumi.Input[str] name: Policy Rule Name
+        :param pulumi.Input[str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_excludes: The zones to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_includes: The zones to include
+        :param pulumi.Input[str] policy_id: ID of the policy
         :param pulumi.Input[int] priority: Priority of the rule.
-        :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `"PT0S"` - every sign-in attempt, `"PT43800H"` - once per session. Default is `"PT2H"`.
-        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on. Valid values are: `"ANY"`, `"LOW"`, `"MEDIUM"`, `"HIGH"`. Default is `"ANY"`.
+        :param pulumi.Input[str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        :param pulumi.Input[str] risk_score: The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         :param pulumi.Input[str] status: Status of the rule
-        :param pulumi.Input[bool] system: Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy.
-        :param pulumi.Input[str] type: The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: List of user types IDs to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_includeds: List of user types IDs to be included.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: List of users IDs to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_includeds: List of users IDs to be included.
+        :param pulumi.Input[bool] system: Often the `Catch-all Rule` this rule is the system (default) rule for its associated policy
+        :param pulumi.Input[str] type: The Verification Method type
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_excludeds: Set of User Type IDs to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_types_includeds: Set of User Type IDs to include
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_excludeds: Set of User IDs to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_includeds: Set of User IDs to include
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1640,7 +1096,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter
     def access(self) -> pulumi.Output[Optional[str]]:
         """
-        Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
+        Allow or deny access based on the rule conditions: ALLOW or DENY
         """
         return pulumi.get(self, "access")
 
@@ -1648,7 +1104,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter
     def constraints(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+        An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
         """
         return pulumi.get(self, "constraints")
 
@@ -1656,7 +1112,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="customExpression")
     def custom_expression(self) -> pulumi.Output[Optional[str]]:
         """
-        This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+        This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         """
         return pulumi.get(self, "custom_expression")
 
@@ -1664,7 +1120,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="deviceAssurancesIncludeds")
     def device_assurances_includeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of device assurances IDs to be included.
+        List of device assurance IDs to include
         """
         return pulumi.get(self, "device_assurances_includeds")
 
@@ -1672,8 +1128,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="deviceIsManaged")
     def device_is_managed(self) -> pulumi.Output[Optional[bool]]:
         """
-        If the device is managed. A device is managed if it's managed by a device management
-        system. When managed is passed, `device_is_registered` must also be included and must be set to `true`.
+        If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
         """
         return pulumi.get(self, "device_is_managed")
 
@@ -1681,8 +1136,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="deviceIsRegistered")
     def device_is_registered(self) -> pulumi.Output[Optional[bool]]:
         """
-        If the device is registered. A device is registered if the User enrolls with Okta
-        Verify that is installed on the device. Can only be set to `true`.
+        If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
         """
         return pulumi.get(self, "device_is_registered")
 
@@ -1690,7 +1144,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="factorMode")
     def factor_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The number of factors required to satisfy this assurance level. It can be set to `"1FA"` or `"2FA"`. Default is `"2FA"`.
+        The number of factors required to satisfy this assurance level
         """
         return pulumi.get(self, "factor_mode")
 
@@ -1698,7 +1152,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="groupsExcludeds")
     def groups_excludeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of groups IDs to be excluded.
+        List of group IDs to exclude
         """
         return pulumi.get(self, "groups_excludeds")
 
@@ -1706,7 +1160,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="groupsIncludeds")
     def groups_includeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of groups IDs to be included.
+        List of group IDs to include
         """
         return pulumi.get(self, "groups_includeds")
 
@@ -1714,7 +1168,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="inactivityPeriod")
     def inactivity_period(self) -> pulumi.Output[Optional[str]]:
         """
-        The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+        The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
         """
         return pulumi.get(self, "inactivity_period")
 
@@ -1722,7 +1176,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the policy rule.
+        Policy Rule Name
         """
         return pulumi.get(self, "name")
 
@@ -1730,7 +1184,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="networkConnection")
     def network_connection(self) -> pulumi.Output[Optional[str]]:
         """
-        Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+        Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         """
         return pulumi.get(self, "network_connection")
 
@@ -1738,7 +1192,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="networkExcludes")
     def network_excludes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of network zones IDs to exclude. Conflicts with `network_includes`.
+        The zones to exclude
         """
         return pulumi.get(self, "network_excludes")
 
@@ -1746,23 +1200,20 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="networkIncludes")
     def network_includes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of network zones IDs to include. Conflicts with `network_excludes`.
+        The zones to include
         """
         return pulumi.get(self, "network_includes")
 
     @property
     @pulumi.getter(name="platformIncludes")
     def platform_includes(self) -> pulumi.Output[Optional[Sequence['outputs.AppSignonPolicyRulePlatformInclude']]]:
-        """
-        List of particular platforms or devices to match on.
-        """
         return pulumi.get(self, "platform_includes")
 
     @property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Output[str]:
         """
-        ID of the app sign-on policy.
+        ID of the policy
         """
         return pulumi.get(self, "policy_id")
 
@@ -1778,7 +1229,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="reAuthenticationFrequency")
     def re_authentication_frequency(self) -> pulumi.Output[Optional[str]]:
         """
-        The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `"PT0S"` - every sign-in attempt, `"PT43800H"` - once per session. Default is `"PT2H"`.
+        The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
         """
         return pulumi.get(self, "re_authentication_frequency")
 
@@ -1786,7 +1237,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="riskScore")
     def risk_score(self) -> pulumi.Output[str]:
         """
-        The risk score specifies a particular level of risk to match on. Valid values are: `"ANY"`, `"LOW"`, `"MEDIUM"`, `"HIGH"`. Default is `"ANY"`.
+        The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         """
         return pulumi.get(self, "risk_score")
 
@@ -1802,7 +1253,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter
     def system(self) -> pulumi.Output[bool]:
         """
-        Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy.
+        Often the `Catch-all Rule` this rule is the system (default) rule for its associated policy
         """
         return pulumi.get(self, "system")
 
@@ -1810,7 +1261,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+        The Verification Method type
         """
         return pulumi.get(self, "type")
 
@@ -1818,7 +1269,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="userTypesExcludeds")
     def user_types_excludeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of user types IDs to be excluded.
+        Set of User Type IDs to exclude
         """
         return pulumi.get(self, "user_types_excludeds")
 
@@ -1826,7 +1277,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="userTypesIncludeds")
     def user_types_includeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of user types IDs to be included.
+        Set of User Type IDs to include
         """
         return pulumi.get(self, "user_types_includeds")
 
@@ -1834,7 +1285,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="usersExcludeds")
     def users_excludeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of users IDs to be excluded.
+        Set of User IDs to exclude
         """
         return pulumi.get(self, "users_excludeds")
 
@@ -1842,7 +1293,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="usersIncludeds")
     def users_includeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of users IDs to be included.
+        Set of User IDs to include
         """
         return pulumi.get(self, "users_includeds")
 

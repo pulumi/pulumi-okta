@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// Verifies the Event Hook. The resource won't be created unless the URI provided in the event hook returns a valid
-    /// JSON object with verification. See [Event Hooks](https://developer.okta.com/docs/concepts/event-hooks/#one-time-verification-request)
-    /// documentation for details.
+    /// Verifies the Event Hook. The resource won't be created unless the URI provided in the event hook returns a valid JSON object with verification. See [Event Hooks](https://developer.okta.com/docs/concepts/event-hooks/#one-time-verification-request) documentation for details.
     /// 
     /// ## Example Usage
     /// 
@@ -53,16 +51,12 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// This resource does not support importing.
     /// </summary>
     [OktaResourceType("okta:index/eventHookVerification:EventHookVerification")]
     public partial class EventHookVerification : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Event Hook ID.
+        /// Event hook ID
         /// </summary>
         [Output("eventHookId")]
         public Output<string> EventHookId { get; private set; } = null!;
@@ -114,7 +108,7 @@ namespace Pulumi.Okta
     public sealed class EventHookVerificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Event Hook ID.
+        /// Event hook ID
         /// </summary>
         [Input("eventHookId", required: true)]
         public Input<string> EventHookId { get; set; } = null!;
@@ -128,7 +122,7 @@ namespace Pulumi.Okta
     public sealed class EventHookVerificationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Event Hook ID.
+        /// Event hook ID
         /// </summary>
         [Input("eventHookId")]
         public Input<string>? EventHookId { get; set; }

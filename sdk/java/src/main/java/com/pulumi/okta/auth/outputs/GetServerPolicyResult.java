@@ -13,13 +13,17 @@ import java.util.Objects;
 @CustomType
 public final class GetServerPolicyResult {
     /**
-     * @return list of clients this policy is assigned to. `[&#34;ALL_CLIENTS&#34;]` is a special value when policy is assigned to all clients.
+     * @return List of clients this policy is assigned to. `[ALL_CLIENTS]` is a special value when policy is assigned to all clients.
      * 
      */
     private List<String> assignedClients;
+    /**
+     * @return Auth server ID
+     * 
+     */
     private String authServerId;
     /**
-     * @return description of authorization server policy.
+     * @return Description of authorization server policy.
      * 
      */
     private String description;
@@ -28,26 +32,34 @@ public final class GetServerPolicyResult {
      * 
      */
     private String id;
+    /**
+     * @return Name of the policy
+     * 
+     */
     private String name;
     /**
-     * @return the priority of the Auth Server Policy.
+     * @return Priority of the auth server policy
      * 
      */
     private Integer priority;
 
     private GetServerPolicyResult() {}
     /**
-     * @return list of clients this policy is assigned to. `[&#34;ALL_CLIENTS&#34;]` is a special value when policy is assigned to all clients.
+     * @return List of clients this policy is assigned to. `[ALL_CLIENTS]` is a special value when policy is assigned to all clients.
      * 
      */
     public List<String> assignedClients() {
         return this.assignedClients;
     }
+    /**
+     * @return Auth server ID
+     * 
+     */
     public String authServerId() {
         return this.authServerId;
     }
     /**
-     * @return description of authorization server policy.
+     * @return Description of authorization server policy.
      * 
      */
     public String description() {
@@ -60,11 +72,15 @@ public final class GetServerPolicyResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Name of the policy
+     * 
+     */
     public String name() {
         return this.name;
     }
     /**
-     * @return the priority of the Auth Server Policy.
+     * @return Priority of the auth server policy
      * 
      */
     public Integer priority() {

@@ -29,14 +29,14 @@ public final class GetLogStreamSettings extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws_govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws*govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk*cloud_logstreaming&#39; type
      * 
      */
     @Import(name="edition", required=true)
     private String edition;
 
     /**
-     * @return Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws_govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * @return Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws*govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk*cloud_logstreaming&#39; type
      * 
      */
     public String edition() {
@@ -59,14 +59,14 @@ public final class GetLogStreamSettings extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     @Import(name="host", required=true)
     private String host;
 
     /**
-     * @return The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * @return The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     public String host() {
@@ -89,14 +89,14 @@ public final class GetLogStreamSettings extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     @Import(name="token", required=true)
     private String token;
 
     /**
-     * @return The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * @return The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     public String token() {
@@ -144,7 +144,7 @@ public final class GetLogStreamSettings extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param edition Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws_govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+         * @param edition Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws*govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk*cloud_logstreaming&#39; type
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class GetLogStreamSettings extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param host The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+         * @param host The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk*cloud*logstreaming&#39; type
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class GetLogStreamSettings extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param token The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk_cloud_logstreaming&#39; type
+         * @param token The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk*cloud*logstreaming&#39; type
          * 
          * @return builder
          * 

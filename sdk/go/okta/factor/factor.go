@@ -12,9 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allows you to manage the activation of Okta MFA methods.
-//
-// This resource allows you to manage Okta MFA methods.
+// Allows you to manage the activation of Okta MFA methods. This resource allows you to manage Okta MFA methods.
 //
 // ## Example Usage
 //
@@ -46,8 +44,7 @@ type Factor struct {
 
 	// Whether to activate the provider, by default, it is set to `true`.
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
-	// The MFA provider name.
-	// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+	// The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
 	ProviderId pulumi.StringOutput `pulumi:"providerId"`
 }
 
@@ -86,16 +83,14 @@ func GetFactor(ctx *pulumi.Context,
 type factorState struct {
 	// Whether to activate the provider, by default, it is set to `true`.
 	Active *bool `pulumi:"active"`
-	// The MFA provider name.
-	// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+	// The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
 	ProviderId *string `pulumi:"providerId"`
 }
 
 type FactorState struct {
 	// Whether to activate the provider, by default, it is set to `true`.
 	Active pulumi.BoolPtrInput
-	// The MFA provider name.
-	// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+	// The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
 	ProviderId pulumi.StringPtrInput
 }
 
@@ -106,8 +101,7 @@ func (FactorState) ElementType() reflect.Type {
 type factorArgs struct {
 	// Whether to activate the provider, by default, it is set to `true`.
 	Active *bool `pulumi:"active"`
-	// The MFA provider name.
-	// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+	// The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
 	ProviderId string `pulumi:"providerId"`
 }
 
@@ -115,8 +109,7 @@ type factorArgs struct {
 type FactorArgs struct {
 	// Whether to activate the provider, by default, it is set to `true`.
 	Active pulumi.BoolPtrInput
-	// The MFA provider name.
-	// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+	// The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
 	ProviderId pulumi.StringInput
 }
 
@@ -212,8 +205,7 @@ func (o FactorOutput) Active() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Factor) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
 }
 
-// The MFA provider name.
-// Allowed values are `"duo"`, `"fidoU2f"`, `"fidoWebauthn"`, `"googleOtp"`, `"oktaCall"`, `"oktaOtp"`, `"oktaPassword"`, `"oktaPush"`, `"oktaQuestion"`, `"oktaSms"`, `"oktaEmail"`, `"rsaToken"`, `"symantecVip"`, `"yubikeyToken"`, or `"hotp"`.
+// The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
 func (o FactorOutput) ProviderId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Factor) pulumi.StringOutput { return v.ProviderId }).(pulumi.StringOutput)
 }

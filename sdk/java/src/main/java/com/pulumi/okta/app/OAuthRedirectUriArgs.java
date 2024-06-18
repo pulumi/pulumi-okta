@@ -15,14 +15,14 @@ public final class OAuthRedirectUriArgs extends com.pulumi.resources.ResourceArg
     public static final OAuthRedirectUriArgs Empty = new OAuthRedirectUriArgs();
 
     /**
-     * OAuth application ID. Note: `app_id` can not be changed once set.
+     * OAuth application ID.
      * 
      */
     @Import(name="appId", required=true)
     private Output<String> appId;
 
     /**
-     * @return OAuth application ID. Note: `app_id` can not be changed once set.
+     * @return OAuth application ID.
      * 
      */
     public Output<String> appId() {
@@ -70,7 +70,7 @@ public final class OAuthRedirectUriArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appId OAuth application ID. Note: `app_id` can not be changed once set.
+         * @param appId OAuth application ID.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class OAuthRedirectUriArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appId OAuth application ID. Note: `app_id` can not be changed once set.
+         * @param appId OAuth application ID.
          * 
          * @return builder
          * 

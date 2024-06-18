@@ -17,16 +17,14 @@ public final class RateLimitingState extends com.pulumi.resources.ResourceArgs {
     public static final RateLimitingState Empty = new RateLimitingState();
 
     /**
-     * Called during authentication. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
-     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
+     * Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      * 
      */
     @Import(name="authorize")
     private @Nullable Output<String> authorize;
 
     /**
-     * @return Called during authentication. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
-     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
+     * @return Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      * 
      */
     public Optional<Output<String>> authorize() {
@@ -49,16 +47,14 @@ public final class RateLimitingState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Called when accessing the Okta hosted login page. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
-     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
+     * Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      * 
      */
     @Import(name="login")
     private @Nullable Output<String> login;
 
     /**
-     * @return Called when accessing the Okta hosted login page. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
-     * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
+     * @return Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      * 
      */
     public Optional<Output<String>> login() {
@@ -92,8 +88,7 @@ public final class RateLimitingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorize Called during authentication. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
-         * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
+         * @param authorize Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
          * 
          * @return builder
          * 
@@ -104,8 +99,7 @@ public final class RateLimitingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorize Called during authentication. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
-         * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
+         * @param authorize Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
          * 
          * @return builder
          * 
@@ -136,8 +130,7 @@ public final class RateLimitingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param login Called when accessing the Okta hosted login page. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
-         * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
+         * @param login Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
          * 
          * @return builder
          * 
@@ -148,8 +141,7 @@ public final class RateLimitingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param login Called when accessing the Okta hosted login page. Valid values: `&#34;ENFORCE&#34;` _(Enforce limit and
-         * log per client (recommended))_, `&#34;DISABLE&#34;` _(Do nothing (not recommended))_, `&#34;PREVIEW&#34;` _(Log per client)_.
+         * @param login Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
          * 
          * @return builder
          * 

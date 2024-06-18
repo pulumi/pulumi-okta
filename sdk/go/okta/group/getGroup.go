@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve a group from Okta.
+// Get a group from Okta.
 //
 // ## Example Usage
 //
@@ -52,32 +52,29 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 type LookupGroupArgs struct {
 	// Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
 	DelayReadSeconds *string `pulumi:"delayReadSeconds"`
-	// ID of the group. Conflicts with `"name"` and `"type"`.
+	// ID of group.
 	Id *string `pulumi:"id"`
-	// whether to retrieve all member ids.
+	// Fetch group users, having default off cuts down on API calls.
 	IncludeUsers *bool `pulumi:"includeUsers"`
-	// name of group to retrieve.
-	//
-	// > Okta API treats `name` as a starts with query. Therefore a name argument "My" will match any group starting with "My" such as "My Group" and "My Office"
+	// Name of group.
 	Name *string `pulumi:"name"`
-	// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-	// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
 	Type *string `pulumi:"type"`
 }
 
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
+	// Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
 	DelayReadSeconds *string `pulumi:"delayReadSeconds"`
-	// description of group.
+	// Description of group.
 	Description string `pulumi:"description"`
 	// ID of group.
-	Id           string `pulumi:"id"`
-	IncludeUsers *bool  `pulumi:"includeUsers"`
-	// name of group.
-	Name string `pulumi:"name"`
-	// type of group.
+	Id string `pulumi:"id"`
+	// Fetch group users, having default off cuts down on API calls.
+	IncludeUsers *bool `pulumi:"includeUsers"`
+	// Name of group.
+	Name string  `pulumi:"name"`
 	Type *string `pulumi:"type"`
-	// user ids that are members of this group, only included if `includeUsers` is set to `true`.
+	// Users associated with the group. This can also be done per user.
 	Users []string `pulumi:"users"`
 }
 
@@ -98,16 +95,12 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 type LookupGroupOutputArgs struct {
 	// Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
 	DelayReadSeconds pulumi.StringPtrInput `pulumi:"delayReadSeconds"`
-	// ID of the group. Conflicts with `"name"` and `"type"`.
+	// ID of group.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// whether to retrieve all member ids.
+	// Fetch group users, having default off cuts down on API calls.
 	IncludeUsers pulumi.BoolPtrInput `pulumi:"includeUsers"`
-	// name of group to retrieve.
-	//
-	// > Okta API treats `name` as a starts with query. Therefore a name argument "My" will match any group starting with "My" such as "My Group" and "My Office"
+	// Name of group.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-	// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -130,11 +123,12 @@ func (o LookupGroupResultOutput) ToLookupGroupResultOutputWithContext(ctx contex
 	return o
 }
 
+// Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
 func (o LookupGroupResultOutput) DelayReadSeconds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *string { return v.DelayReadSeconds }).(pulumi.StringPtrOutput)
 }
 
-// description of group.
+// Description of group.
 func (o LookupGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -144,21 +138,21 @@ func (o LookupGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Fetch group users, having default off cuts down on API calls.
 func (o LookupGroupResultOutput) IncludeUsers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *bool { return v.IncludeUsers }).(pulumi.BoolPtrOutput)
 }
 
-// name of group.
+// Name of group.
 func (o LookupGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// type of group.
 func (o LookupGroupResultOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// user ids that are members of this group, only included if `includeUsers` is set to `true`.
+// Users associated with the group. This can also be done per user.
 func (o LookupGroupResultOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []string { return v.Users }).(pulumi.StringArrayOutput)
 }

@@ -22,10 +22,9 @@ class LogStreamArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LogStream resource.
-        :param pulumi.Input[str] type: Type of the Log Stream - can either be `"aws_eventbridge"` or `"splunk_cloud_logstreaming"` only.
-        :param pulumi.Input[str] name: Name of the Log Stream Resource.
-        :param pulumi.Input['LogStreamSettingsArgs'] settings: Stream provider specific configuration.
-        :param pulumi.Input[str] status: Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+        :param pulumi.Input[str] type: Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
+        :param pulumi.Input[str] name: Unique name for the Log Stream object
+        :param pulumi.Input[str] status: Stream status
         """
         pulumi.set(__self__, "type", type)
         if name is not None:
@@ -39,7 +38,7 @@ class LogStreamArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of the Log Stream - can either be `"aws_eventbridge"` or `"splunk_cloud_logstreaming"` only.
+        Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
         """
         return pulumi.get(self, "type")
 
@@ -51,7 +50,7 @@ class LogStreamArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Log Stream Resource.
+        Unique name for the Log Stream object
         """
         return pulumi.get(self, "name")
 
@@ -62,9 +61,6 @@ class LogStreamArgs:
     @property
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input['LogStreamSettingsArgs']]:
-        """
-        Stream provider specific configuration.
-        """
         return pulumi.get(self, "settings")
 
     @settings.setter
@@ -75,7 +71,7 @@ class LogStreamArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+        Stream status
         """
         return pulumi.get(self, "status")
 
@@ -93,10 +89,9 @@ class _LogStreamState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LogStream resources.
-        :param pulumi.Input[str] name: Name of the Log Stream Resource.
-        :param pulumi.Input['LogStreamSettingsArgs'] settings: Stream provider specific configuration.
-        :param pulumi.Input[str] status: Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
-        :param pulumi.Input[str] type: Type of the Log Stream - can either be `"aws_eventbridge"` or `"splunk_cloud_logstreaming"` only.
+        :param pulumi.Input[str] name: Unique name for the Log Stream object
+        :param pulumi.Input[str] status: Stream status
+        :param pulumi.Input[str] type: Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -111,7 +106,7 @@ class _LogStreamState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Log Stream Resource.
+        Unique name for the Log Stream object
         """
         return pulumi.get(self, "name")
 
@@ -122,9 +117,6 @@ class _LogStreamState:
     @property
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input['LogStreamSettingsArgs']]:
-        """
-        Stream provider specific configuration.
-        """
         return pulumi.get(self, "settings")
 
     @settings.setter
@@ -135,7 +127,7 @@ class _LogStreamState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+        Stream status
         """
         return pulumi.get(self, "status")
 
@@ -147,7 +139,7 @@ class _LogStreamState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the Log Stream - can either be `"aws_eventbridge"` or `"splunk_cloud_logstreaming"` only.
+        Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
         """
         return pulumi.get(self, "type")
 
@@ -167,26 +159,39 @@ class LogStream(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates an Okta Log Stream.
-
-        This resource allows you to create and configure an Okta Log Stream.
+        Manages log streams
 
         ## Example Usage
 
-        ## Import
+        ### AWS EventBridge
+        resource "LogStream" "example" {
+          name   = "EventBridge Log Stream"
+          type   = "aws_eventbridge"
+          status = "ACTIVE"
+          settings {
+            account_id        = "123456789012"
+            region            = "us-north-1"
+            event_source_name = "LogStream"
+          }
+        }
 
-        Okta Log Stream can be imported via the Okta ID.
-
-        ```sh
-        $ pulumi import okta:index/logStream:LogStream example &#60;strema id&#62;
-        ```
+        ### Splunk Event Collector
+        resource "LogStream" "example" {
+          name   = "Splunk log Stream"
+          type   = "splunk_cloud_logstreaming"
+          status = "ACTIVE"
+          settings {
+            host    = "acme.splunkcloud.com"
+            edition = "gcp"
+            token   = "YOUR_HEC_TOKEN"
+          }
+        }
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the Log Stream Resource.
-        :param pulumi.Input[pulumi.InputType['LogStreamSettingsArgs']] settings: Stream provider specific configuration.
-        :param pulumi.Input[str] status: Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
-        :param pulumi.Input[str] type: Type of the Log Stream - can either be `"aws_eventbridge"` or `"splunk_cloud_logstreaming"` only.
+        :param pulumi.Input[str] name: Unique name for the Log Stream object
+        :param pulumi.Input[str] status: Stream status
+        :param pulumi.Input[str] type: Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
         """
         ...
     @overload
@@ -195,19 +200,33 @@ class LogStream(pulumi.CustomResource):
                  args: LogStreamArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an Okta Log Stream.
-
-        This resource allows you to create and configure an Okta Log Stream.
+        Manages log streams
 
         ## Example Usage
 
-        ## Import
+        ### AWS EventBridge
+        resource "LogStream" "example" {
+          name   = "EventBridge Log Stream"
+          type   = "aws_eventbridge"
+          status = "ACTIVE"
+          settings {
+            account_id        = "123456789012"
+            region            = "us-north-1"
+            event_source_name = "LogStream"
+          }
+        }
 
-        Okta Log Stream can be imported via the Okta ID.
-
-        ```sh
-        $ pulumi import okta:index/logStream:LogStream example &#60;strema id&#62;
-        ```
+        ### Splunk Event Collector
+        resource "LogStream" "example" {
+          name   = "Splunk log Stream"
+          type   = "splunk_cloud_logstreaming"
+          status = "ACTIVE"
+          settings {
+            host    = "acme.splunkcloud.com"
+            edition = "gcp"
+            token   = "YOUR_HEC_TOKEN"
+          }
+        }
 
         :param str resource_name: The name of the resource.
         :param LogStreamArgs args: The arguments to use to populate this resource's properties.
@@ -264,10 +283,9 @@ class LogStream(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the Log Stream Resource.
-        :param pulumi.Input[pulumi.InputType['LogStreamSettingsArgs']] settings: Stream provider specific configuration.
-        :param pulumi.Input[str] status: Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
-        :param pulumi.Input[str] type: Type of the Log Stream - can either be `"aws_eventbridge"` or `"splunk_cloud_logstreaming"` only.
+        :param pulumi.Input[str] name: Unique name for the Log Stream object
+        :param pulumi.Input[str] status: Stream status
+        :param pulumi.Input[str] type: Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -283,23 +301,20 @@ class LogStream(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the Log Stream Resource.
+        Unique name for the Log Stream object
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def settings(self) -> pulumi.Output[Optional['outputs.LogStreamSettings']]:
-        """
-        Stream provider specific configuration.
-        """
         return pulumi.get(self, "settings")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+        Stream status
         """
         return pulumi.get(self, "status")
 
@@ -307,7 +322,7 @@ class LogStream(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the Log Stream - can either be `"aws_eventbridge"` or `"splunk_cloud_logstreaming"` only.
+        Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
         """
         return pulumi.get(self, "type")
 

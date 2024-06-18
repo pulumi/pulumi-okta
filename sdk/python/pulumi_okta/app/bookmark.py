@@ -33,19 +33,19 @@ class BookmarkArgs:
         The set of arguments for constructing a Bookmark resource.
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] url: The URL of the bookmark.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
-        :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[bool] request_integration: Would you like Okta to add an integration for this app?
-        :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+        :param pulumi.Input[str] status: Status of application. By default, it is `ACTIVE`
         """
         pulumi.set(__self__, "label", label)
         pulumi.set(__self__, "url", url)
@@ -104,7 +104,7 @@ class BookmarkArgs:
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
     def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom error page URL.
+        Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
@@ -116,7 +116,7 @@ class BookmarkArgs:
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom login page for this application.
+        Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -128,7 +128,7 @@ class BookmarkArgs:
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable self-service. By default, it is `false`.
+        Enable self service. Default is `false`
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -164,7 +164,7 @@ class BookmarkArgs:
     @pulumi.getter(name="authenticationPolicy")
     def authentication_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
         """
         return pulumi.get(self, "authentication_policy")
 
@@ -176,7 +176,7 @@ class BookmarkArgs:
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
         """
-        Display auto submit toolbar.
+        Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -200,7 +200,7 @@ class BookmarkArgs:
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon on mobile app.
+        Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
@@ -212,7 +212,7 @@ class BookmarkArgs:
     @pulumi.getter(name="hideWeb")
     def hide_web(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon to users.
+        Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
@@ -248,7 +248,7 @@ class BookmarkArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+        Status of application. By default, it is `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -280,23 +280,23 @@ class _BookmarkState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Bookmark resources.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
-        :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
-        :param pulumi.Input[str] logo_url: Direct link of application logo.
+        :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[bool] request_integration: Would you like Okta to add an integration for this app?
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
-        :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+        :param pulumi.Input[str] status: Status of application. By default, it is `ACTIVE`
         :param pulumi.Input[str] url: The URL of the bookmark.
         """
         if accessibility_error_redirect_url is not None:
@@ -340,7 +340,7 @@ class _BookmarkState:
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
     def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom error page URL.
+        Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
@@ -352,7 +352,7 @@ class _BookmarkState:
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom login page for this application.
+        Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -364,7 +364,7 @@ class _BookmarkState:
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable self-service. By default, it is `false`.
+        Enable self service. Default is `false`
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -400,7 +400,7 @@ class _BookmarkState:
     @pulumi.getter(name="authenticationPolicy")
     def authentication_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
         """
         return pulumi.get(self, "authentication_policy")
 
@@ -412,7 +412,7 @@ class _BookmarkState:
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> Optional[pulumi.Input[bool]]:
         """
-        Display auto submit toolbar.
+        Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -436,7 +436,7 @@ class _BookmarkState:
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon on mobile app.
+        Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
@@ -448,7 +448,7 @@ class _BookmarkState:
     @pulumi.getter(name="hideWeb")
     def hide_web(self) -> Optional[pulumi.Input[bool]]:
         """
-        Do not display application icon to users.
+        Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
@@ -484,7 +484,7 @@ class _BookmarkState:
     @pulumi.getter(name="logoUrl")
     def logo_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Direct link of application logo.
+        URL of the application's logo
         """
         return pulumi.get(self, "logo_url")
 
@@ -532,7 +532,7 @@ class _BookmarkState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+        Status of application. By default, it is `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -576,9 +576,8 @@ class Bookmark(pulumi.CustomResource):
                  __props__=None):
         """
         This resource allows you to create and configure a Bookmark Application.
-
-        > During an apply if there is change in `status` the app will first be
-        activated or deactivated in accordance with the `status` change. Then, all
+        > During an apply if there is change in status the app will first be
+        activated or deactivated in accordance with the status change. Then, all
         other arguments that changed will be applied.
 
         ## Example Usage
@@ -594,28 +593,26 @@ class Bookmark(pulumi.CustomResource):
 
         ## Import
 
-        A Bookmark App can be imported via the Okta ID.
-
         ```sh
-        $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;
+        $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62t
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
-        :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[bool] request_integration: Would you like Okta to add an integration for this app?
-        :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+        :param pulumi.Input[str] status: Status of application. By default, it is `ACTIVE`
         :param pulumi.Input[str] url: The URL of the bookmark.
         """
         ...
@@ -626,9 +623,8 @@ class Bookmark(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and configure a Bookmark Application.
-
-        > During an apply if there is change in `status` the app will first be
-        activated or deactivated in accordance with the `status` change. Then, all
+        > During an apply if there is change in status the app will first be
+        activated or deactivated in accordance with the status change. Then, all
         other arguments that changed will be applied.
 
         ## Example Usage
@@ -644,10 +640,8 @@ class Bookmark(pulumi.CustomResource):
 
         ## Import
 
-        A Bookmark App can be imported via the Okta ID.
-
         ```sh
-        $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62;
+        $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62t
         ```
 
         :param str resource_name: The name of the resource.
@@ -746,23 +740,23 @@ class Bookmark(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL.
-        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page for this application.
-        :param pulumi.Input[bool] accessibility_self_service: Enable self-service. By default, it is `false`.
+        :param pulumi.Input[str] accessibility_error_redirect_url: Custom error page URL
+        :param pulumi.Input[str] accessibility_login_redirect_url: Custom login page URL
+        :param pulumi.Input[bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[str] admin_note: Application notes for admins.
         :param pulumi.Input[str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
-        :param pulumi.Input[str] authentication_policy: The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
-        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar.
+        :param pulumi.Input[str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+        :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app.
-        :param pulumi.Input[bool] hide_web: Do not display application icon to users.
+        :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
+        :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
-        :param pulumi.Input[str] logo_url: Direct link of application logo.
+        :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[bool] request_integration: Would you like Okta to add an integration for this app?
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
-        :param pulumi.Input[str] status: Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+        :param pulumi.Input[str] status: Status of application. By default, it is `ACTIVE`
         :param pulumi.Input[str] url: The URL of the bookmark.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -793,7 +787,7 @@ class Bookmark(pulumi.CustomResource):
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
     def accessibility_error_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Custom error page URL.
+        Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
@@ -801,7 +795,7 @@ class Bookmark(pulumi.CustomResource):
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
     def accessibility_login_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Custom login page for this application.
+        Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
@@ -809,7 +803,7 @@ class Bookmark(pulumi.CustomResource):
     @pulumi.getter(name="accessibilitySelfService")
     def accessibility_self_service(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable self-service. By default, it is `false`.
+        Enable self service. Default is `false`
         """
         return pulumi.get(self, "accessibility_self_service")
 
@@ -831,9 +825,9 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authenticationPolicy")
-    def authentication_policy(self) -> pulumi.Output[Optional[str]]:
+    def authentication_policy(self) -> pulumi.Output[str]:
         """
-        The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+        The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
         """
         return pulumi.get(self, "authentication_policy")
 
@@ -841,7 +835,7 @@ class Bookmark(pulumi.CustomResource):
     @pulumi.getter(name="autoSubmitToolbar")
     def auto_submit_toolbar(self) -> pulumi.Output[Optional[bool]]:
         """
-        Display auto submit toolbar.
+        Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
@@ -857,7 +851,7 @@ class Bookmark(pulumi.CustomResource):
     @pulumi.getter(name="hideIos")
     def hide_ios(self) -> pulumi.Output[Optional[bool]]:
         """
-        Do not display application icon on mobile app.
+        Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
@@ -865,7 +859,7 @@ class Bookmark(pulumi.CustomResource):
     @pulumi.getter(name="hideWeb")
     def hide_web(self) -> pulumi.Output[Optional[bool]]:
         """
-        Do not display application icon to users.
+        Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
@@ -889,7 +883,7 @@ class Bookmark(pulumi.CustomResource):
     @pulumi.getter(name="logoUrl")
     def logo_url(self) -> pulumi.Output[str]:
         """
-        Direct link of application logo.
+        URL of the application's logo
         """
         return pulumi.get(self, "logo_url")
 
@@ -921,7 +915,7 @@ class Bookmark(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+        Status of application. By default, it is `ACTIVE`
         """
         return pulumi.get(self, "status")
 

@@ -19,14 +19,14 @@ public final class RuleSignonFactorSequenceArgs extends com.pulumi.resources.Res
     public static final RuleSignonFactorSequenceArgs Empty = new RuleSignonFactorSequenceArgs();
 
     /**
-     * Primary factor type of the auth section.
+     * Type of a Factor
      * 
      */
     @Import(name="primaryCriteriaFactorType", required=true)
     private Output<String> primaryCriteriaFactorType;
 
     /**
-     * @return Primary factor type of the auth section.
+     * @return Type of a Factor
      * 
      */
     public Output<String> primaryCriteriaFactorType() {
@@ -34,31 +34,23 @@ public final class RuleSignonFactorSequenceArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Primary provider of the auth section.
+     * Factor provider
      * 
      */
     @Import(name="primaryCriteriaProvider", required=true)
     private Output<String> primaryCriteriaProvider;
 
     /**
-     * @return Primary provider of the auth section.
+     * @return Factor provider
      * 
      */
     public Output<String> primaryCriteriaProvider() {
         return this.primaryCriteriaProvider;
     }
 
-    /**
-     * Additional authentication steps.
-     * 
-     */
     @Import(name="secondaryCriterias")
     private @Nullable Output<List<RuleSignonFactorSequenceSecondaryCriteriaArgs>> secondaryCriterias;
 
-    /**
-     * @return Additional authentication steps.
-     * 
-     */
     public Optional<Output<List<RuleSignonFactorSequenceSecondaryCriteriaArgs>>> secondaryCriterias() {
         return Optional.ofNullable(this.secondaryCriterias);
     }
@@ -90,7 +82,7 @@ public final class RuleSignonFactorSequenceArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param primaryCriteriaFactorType Primary factor type of the auth section.
+         * @param primaryCriteriaFactorType Type of a Factor
          * 
          * @return builder
          * 
@@ -101,7 +93,7 @@ public final class RuleSignonFactorSequenceArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param primaryCriteriaFactorType Primary factor type of the auth section.
+         * @param primaryCriteriaFactorType Type of a Factor
          * 
          * @return builder
          * 
@@ -111,7 +103,7 @@ public final class RuleSignonFactorSequenceArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param primaryCriteriaProvider Primary provider of the auth section.
+         * @param primaryCriteriaProvider Factor provider
          * 
          * @return builder
          * 
@@ -122,7 +114,7 @@ public final class RuleSignonFactorSequenceArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param primaryCriteriaProvider Primary provider of the auth section.
+         * @param primaryCriteriaProvider Factor provider
          * 
          * @return builder
          * 
@@ -131,33 +123,15 @@ public final class RuleSignonFactorSequenceArgs extends com.pulumi.resources.Res
             return primaryCriteriaProvider(Output.of(primaryCriteriaProvider));
         }
 
-        /**
-         * @param secondaryCriterias Additional authentication steps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secondaryCriterias(@Nullable Output<List<RuleSignonFactorSequenceSecondaryCriteriaArgs>> secondaryCriterias) {
             $.secondaryCriterias = secondaryCriterias;
             return this;
         }
 
-        /**
-         * @param secondaryCriterias Additional authentication steps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secondaryCriterias(List<RuleSignonFactorSequenceSecondaryCriteriaArgs> secondaryCriterias) {
             return secondaryCriterias(Output.of(secondaryCriterias));
         }
 
-        /**
-         * @param secondaryCriterias Additional authentication steps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secondaryCriterias(RuleSignonFactorSequenceSecondaryCriteriaArgs... secondaryCriterias) {
             return secondaryCriterias(List.of(secondaryCriterias));
         }

@@ -19,10 +19,9 @@ class ResourceSetArgs:
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ResourceSet resource.
-        :param pulumi.Input[str] description: A description of the Resource Set.
-        :param pulumi.Input[str] label: Unique name given to the Resource Set.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The endpoints that reference the resources to be included in the new Resource Set. At least one
-               endpoint must be specified when creating resource set.
+        :param pulumi.Input[str] description: A description of the Resource Set
+        :param pulumi.Input[str] label: Unique name given to the Resource Set
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "label", label)
@@ -33,7 +32,7 @@ class ResourceSetArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[str]:
         """
-        A description of the Resource Set.
+        A description of the Resource Set
         """
         return pulumi.get(self, "description")
 
@@ -45,7 +44,7 @@ class ResourceSetArgs:
     @pulumi.getter
     def label(self) -> pulumi.Input[str]:
         """
-        Unique name given to the Resource Set.
+        Unique name given to the Resource Set
         """
         return pulumi.get(self, "label")
 
@@ -57,8 +56,7 @@ class ResourceSetArgs:
     @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The endpoints that reference the resources to be included in the new Resource Set. At least one
-        endpoint must be specified when creating resource set.
+        The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
         """
         return pulumi.get(self, "resources")
 
@@ -75,10 +73,9 @@ class _ResourceSetState:
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ResourceSet resources.
-        :param pulumi.Input[str] description: A description of the Resource Set.
-        :param pulumi.Input[str] label: Unique name given to the Resource Set.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The endpoints that reference the resources to be included in the new Resource Set. At least one
-               endpoint must be specified when creating resource set.
+        :param pulumi.Input[str] description: A description of the Resource Set
+        :param pulumi.Input[str] label: Unique name given to the Resource Set
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -91,7 +88,7 @@ class _ResourceSetState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the Resource Set.
+        A description of the Resource Set
         """
         return pulumi.get(self, "description")
 
@@ -103,7 +100,7 @@ class _ResourceSetState:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        Unique name given to the Resource Set.
+        Unique name given to the Resource Set
         """
         return pulumi.get(self, "label")
 
@@ -115,8 +112,7 @@ class _ResourceSetState:
     @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The endpoints that reference the resources to be included in the new Resource Set. At least one
-        endpoint must be specified when creating resource set.
+        The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
         """
         return pulumi.get(self, "resources")
 
@@ -135,22 +131,17 @@ class ResourceSet(pulumi.CustomResource):
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use
-        Okta Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources.
-        The `resources` field supports the following:
-         - Apps
-         - Groups
-         - All Users within a Group
-         - All Users within the org
-         - All Groups within the org
-         - All Apps within the org
-         - All Apps of the same type
-
-        > **NOTE:** This an `Early Access` feature.
+        Manages Resource Sets as custom collections of resources. This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use Okta Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources.
+        The 'resources' field supports the following:
+        	- Apps
+        	- Groups
+        	- All Users within a Group
+        	- All Users within the org
+        	- All Groups within the org
+        	- All Apps within the org
+        	- All Apps of the same type
 
         ## Import
-
-        Okta Resource Set can be imported via the Okta ID.
 
         ```sh
         $ pulumi import okta:index/resourceSet:ResourceSet example &#60;resource_set_id&#62;
@@ -158,10 +149,9 @@ class ResourceSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description of the Resource Set.
-        :param pulumi.Input[str] label: Unique name given to the Resource Set.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The endpoints that reference the resources to be included in the new Resource Set. At least one
-               endpoint must be specified when creating resource set.
+        :param pulumi.Input[str] description: A description of the Resource Set
+        :param pulumi.Input[str] label: Unique name given to the Resource Set
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
         """
         ...
     @overload
@@ -170,22 +160,17 @@ class ResourceSet(pulumi.CustomResource):
                  args: ResourceSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use
-        Okta Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources.
-        The `resources` field supports the following:
-         - Apps
-         - Groups
-         - All Users within a Group
-         - All Users within the org
-         - All Groups within the org
-         - All Apps within the org
-         - All Apps of the same type
-
-        > **NOTE:** This an `Early Access` feature.
+        Manages Resource Sets as custom collections of resources. This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use Okta Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources.
+        The 'resources' field supports the following:
+        	- Apps
+        	- Groups
+        	- All Users within a Group
+        	- All Users within the org
+        	- All Groups within the org
+        	- All Apps within the org
+        	- All Apps of the same type
 
         ## Import
-
-        Okta Resource Set can be imported via the Okta ID.
 
         ```sh
         $ pulumi import okta:index/resourceSet:ResourceSet example &#60;resource_set_id&#62;
@@ -245,10 +230,9 @@ class ResourceSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description of the Resource Set.
-        :param pulumi.Input[str] label: Unique name given to the Resource Set.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The endpoints that reference the resources to be included in the new Resource Set. At least one
-               endpoint must be specified when creating resource set.
+        :param pulumi.Input[str] description: A description of the Resource Set
+        :param pulumi.Input[str] label: Unique name given to the Resource Set
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -263,7 +247,7 @@ class ResourceSet(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        A description of the Resource Set.
+        A description of the Resource Set
         """
         return pulumi.get(self, "description")
 
@@ -271,7 +255,7 @@ class ResourceSet(pulumi.CustomResource):
     @pulumi.getter
     def label(self) -> pulumi.Output[str]:
         """
-        Unique name given to the Resource Set.
+        Unique name given to the Resource Set
         """
         return pulumi.get(self, "label")
 
@@ -279,8 +263,7 @@ class ResourceSet(pulumi.CustomResource):
     @pulumi.getter
     def resources(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The endpoints that reference the resources to be included in the new Resource Set. At least one
-        endpoint must be specified when creating resource set.
+        The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
         """
         return pulumi.get(self, "resources")
 

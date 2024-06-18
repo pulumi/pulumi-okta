@@ -20,14 +20,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     public static final RuleSignonState Empty = new RuleSignonState();
 
     /**
-     * Allow or deny access based on the rule conditions: `&#34;ALLOW&#34;`, `&#34;DENY&#34;` or `&#34;CHALLENGE&#34;`. The default is `&#34;ALLOW&#34;`.
+     * Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
      * 
      */
     @Import(name="access")
     private @Nullable Output<String> access;
 
     /**
-     * @return Allow or deny access based on the rule conditions: `&#34;ALLOW&#34;`, `&#34;DENY&#34;` or `&#34;CHALLENGE&#34;`. The default is `&#34;ALLOW&#34;`.
+     * @return Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
      * 
      */
     public Optional<Output<String>> access() {
@@ -35,14 +35,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Authentication entrypoint: `&#34;ANY&#34;`, `&#34;LDAP_INTERFACE&#34;` or `&#34;RADIUS&#34;`.
+     * Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
      * 
      */
     @Import(name="authtype")
     private @Nullable Output<String> authtype;
 
     /**
-     * @return Authentication entrypoint: `&#34;ANY&#34;`, `&#34;LDAP_INTERFACE&#34;` or `&#34;RADIUS&#34;`.
+     * @return Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
      * 
      */
     public Optional<Output<String>> authtype() {
@@ -50,14 +50,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of behavior IDs.
+     * List of behavior IDs
      * 
      */
     @Import(name="behaviors")
     private @Nullable Output<List<String>> behaviors;
 
     /**
-     * @return List of behavior IDs.
+     * @return List of behavior IDs
      * 
      */
     public Optional<Output<List<String>>> behaviors() {
@@ -65,14 +65,20 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Auth factor sequences. Should be set if `access = &#34;CHALLENGE&#34;`.
+     * Auth factor sequences. Should be set if &#39;access = &#34;CHALLENGE&#34;&#39;. - &#39;primary_criteria_provider&#39; - (Required) Primary
+     * provider of the auth section. - &#39;primary_criteria_factor_type&#39; - (Required) Primary factor type of the auth section. -
+     * &#39;secondary_criteria&#39; - (Optional) Additional authentication steps. - &#39;provider&#39; - (Required) Provider of the additional
+     * authentication step. - &#39;factor_type&#39; - (Required) Factor type of the additional authentication step.
      * 
      */
     @Import(name="factorSequences")
     private @Nullable Output<List<RuleSignonFactorSequenceArgs>> factorSequences;
 
     /**
-     * @return Auth factor sequences. Should be set if `access = &#34;CHALLENGE&#34;`.
+     * @return Auth factor sequences. Should be set if &#39;access = &#34;CHALLENGE&#34;&#39;. - &#39;primary_criteria_provider&#39; - (Required) Primary
+     * provider of the auth section. - &#39;primary_criteria_factor_type&#39; - (Required) Primary factor type of the auth section. -
+     * &#39;secondary_criteria&#39; - (Optional) Additional authentication steps. - &#39;provider&#39; - (Required) Provider of the additional
+     * authentication step. - &#39;factor_type&#39; - (Required) Factor type of the additional authentication step.
      * 
      */
     public Optional<Output<List<RuleSignonFactorSequenceArgs>>> factorSequences() {
@@ -80,18 +86,16 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines the identity provider for this rule. Valid values are `&#34;ANY&#34;`, `&#34;OKTA&#34;`, and `&#34;SPECIFIC_IDP&#34;`.
-     * 
-     * &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of
+     * `identity_provider` requires a feature flag to be enabled.
      * 
      */
     @Import(name="identityProvider")
     private @Nullable Output<String> identityProvider;
 
     /**
-     * @return Defines the identity provider for this rule. Valid values are `&#34;ANY&#34;`, `&#34;OKTA&#34;`, and `&#34;SPECIFIC_IDP&#34;`.
-     * 
-     * &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+     * @return Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of
+     * `identity_provider` requires a feature flag to be enabled.
      * 
      */
     public Optional<Output<String>> identityProvider() {
@@ -99,14 +103,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When identity_provider is `&#34;SPECIFIC_IDP&#34;` then this is the list of IdP IDs to apply the rule on.
+     * When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
      * 
      */
     @Import(name="identityProviderIds")
     private @Nullable Output<List<String>> identityProviderIds;
 
     /**
-     * @return When identity_provider is `&#34;SPECIFIC_IDP&#34;` then this is the list of IdP IDs to apply the rule on.
+     * @return When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
      * 
      */
     public Optional<Output<List<String>>> identityProviderIds() {
@@ -114,14 +118,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Elapsed time before the next MFA challenge.
+     * Elapsed time before the next MFA challenge
      * 
      */
     @Import(name="mfaLifetime")
     private @Nullable Output<Integer> mfaLifetime;
 
     /**
-     * @return Elapsed time before the next MFA challenge.
+     * @return Elapsed time before the next MFA challenge
      * 
      */
     public Optional<Output<Integer>> mfaLifetime() {
@@ -129,14 +133,16 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `&#34;DEVICE&#34;`, `&#34;SESSION&#34;` or `&#34;ALWAYS&#34;`.
+     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
+     * or`ALWAYS`.
      * 
      */
     @Import(name="mfaPrompt")
     private @Nullable Output<String> mfaPrompt;
 
     /**
-     * @return Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `&#34;DEVICE&#34;`, `&#34;SESSION&#34;` or `&#34;ALWAYS&#34;`.
+     * @return Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
+     * or`ALWAYS`.
      * 
      */
     public Optional<Output<String>> mfaPrompt() {
@@ -144,14 +150,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Remember MFA device. The default `false`.
+     * Remember MFA device. Default: `false`
      * 
      */
     @Import(name="mfaRememberDevice")
     private @Nullable Output<Boolean> mfaRememberDevice;
 
     /**
-     * @return Remember MFA device. The default `false`.
+     * @return Remember MFA device. Default: `false`
      * 
      */
     public Optional<Output<Boolean>> mfaRememberDevice() {
@@ -159,14 +165,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Require MFA. By default is `false`.
+     * Require MFA. Default: `false`
      * 
      */
     @Import(name="mfaRequired")
     private @Nullable Output<Boolean> mfaRequired;
 
     /**
-     * @return Require MFA. By default is `false`.
+     * @return Require MFA. Default: `false`
      * 
      */
     public Optional<Output<Boolean>> mfaRequired() {
@@ -174,14 +180,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Rule Name.
+     * Policy Rule Name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Policy Rule Name.
+     * @return Policy Rule Name
      * 
      */
     public Optional<Output<String>> name() {
@@ -189,14 +195,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+     * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      * 
      */
     @Import(name="networkConnection")
     private @Nullable Output<String> networkConnection;
 
     /**
-     * @return Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+     * @return Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      * 
      */
     public Optional<Output<String>> networkConnection() {
@@ -204,14 +210,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The network zones to exclude. Conflicts with `network_includes`.
+     * Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     @Import(name="networkExcludes")
     private @Nullable Output<List<String>> networkExcludes;
 
     /**
-     * @return The network zones to exclude. Conflicts with `network_includes`.
+     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     public Optional<Output<List<String>>> networkExcludes() {
@@ -219,14 +225,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The network zones to include. Conflicts with `network_excludes`.
+     * Required if `network_connection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     @Import(name="networkIncludes")
     private @Nullable Output<List<String>> networkIncludes;
 
     /**
-     * @return The network zones to include. Conflicts with `network_excludes`.
+     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     public Optional<Output<List<String>>> networkIncludes() {
@@ -234,14 +240,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy ID.
+     * Policy ID of the Rule
      * 
      */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
     /**
-     * @return Policy ID.
+     * @return Policy ID of the Rule
      * 
      */
     public Optional<Output<String>> policyId() {
@@ -249,16 +255,16 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
-     * `&#34;PASSWORD_IDP_ANY_FACTOR&#34;`, `&#34;PASSWORD_IDP&#34;`.
+     * Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
+     * `PASSWORD_IDP`.
      * 
      */
     @Import(name="primaryFactor")
     private @Nullable Output<String> primaryFactor;
 
     /**
-     * @return Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
-     * `&#34;PASSWORD_IDP_ANY_FACTOR&#34;`, `&#34;PASSWORD_IDP&#34;`.
+     * @return Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
+     * `PASSWORD_IDP`.
      * 
      */
     public Optional<Output<String>> primaryFactor() {
@@ -266,14 +272,16 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * @return Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -281,8 +289,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Risc level: `&#34;ANY&#34;`, `&#34;LOW&#34;`, `&#34;MEDIUM&#34;` or `&#34;HIGH&#34;`. Default is `&#34;ANY&#34;`. It can be also
-     * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+     * Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
      * 
      * @deprecated
      * Attribute typo, switch to risk_level instead. Default: `ANY`
@@ -293,8 +300,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> riscLevel;
 
     /**
-     * @return Risc level: `&#34;ANY&#34;`, `&#34;LOW&#34;`, `&#34;MEDIUM&#34;` or `&#34;HIGH&#34;`. Default is `&#34;ANY&#34;`. It can be also
-     * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+     * @return Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
      * 
      * @deprecated
      * Attribute typo, switch to risk_level instead. Default: `ANY`
@@ -321,14 +327,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Max minutes a session can be idle.,
+     * Max minutes a session can be idle. Default: `120`
      * 
      */
     @Import(name="sessionIdle")
     private @Nullable Output<Integer> sessionIdle;
 
     /**
-     * @return Max minutes a session can be idle.,
+     * @return Max minutes a session can be idle. Default: `120`
      * 
      */
     public Optional<Output<Integer>> sessionIdle() {
@@ -336,14 +342,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Max minutes a session is active: Disable = 0.
+     * Max minutes a session is active: Disable = 0. Default: `120`
      * 
      */
     @Import(name="sessionLifetime")
     private @Nullable Output<Integer> sessionLifetime;
 
     /**
-     * @return Max minutes a session is active: Disable = 0.
+     * @return Max minutes a session is active: Disable = 0. Default: `120`
      * 
      */
     public Optional<Output<Integer>> sessionLifetime() {
@@ -351,14 +357,16 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
+     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
+     * cookies. Default: `false`
      * 
      */
     @Import(name="sessionPersistent")
     private @Nullable Output<Boolean> sessionPersistent;
 
     /**
-     * @return Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
+     * @return Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
+     * cookies. Default: `false`
      * 
      */
     public Optional<Output<Boolean>> sessionPersistent() {
@@ -366,14 +374,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * @return Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     public Optional<Output<String>> status() {
@@ -381,14 +389,14 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of user IDs that would be excluded when rules are processed.
+     * Set of User IDs to Exclude
      * 
      */
     @Import(name="usersExcludeds")
     private @Nullable Output<List<String>> usersExcludeds;
 
     /**
-     * @return The list of user IDs that would be excluded when rules are processed.
+     * @return Set of User IDs to Exclude
      * 
      */
     public Optional<Output<List<String>>> usersExcludeds() {
@@ -443,7 +451,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param access Allow or deny access based on the rule conditions: `&#34;ALLOW&#34;`, `&#34;DENY&#34;` or `&#34;CHALLENGE&#34;`. The default is `&#34;ALLOW&#34;`.
+         * @param access Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
          * 
          * @return builder
          * 
@@ -454,7 +462,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param access Allow or deny access based on the rule conditions: `&#34;ALLOW&#34;`, `&#34;DENY&#34;` or `&#34;CHALLENGE&#34;`. The default is `&#34;ALLOW&#34;`.
+         * @param access Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
          * 
          * @return builder
          * 
@@ -464,7 +472,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authtype Authentication entrypoint: `&#34;ANY&#34;`, `&#34;LDAP_INTERFACE&#34;` or `&#34;RADIUS&#34;`.
+         * @param authtype Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
          * 
          * @return builder
          * 
@@ -475,7 +483,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authtype Authentication entrypoint: `&#34;ANY&#34;`, `&#34;LDAP_INTERFACE&#34;` or `&#34;RADIUS&#34;`.
+         * @param authtype Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
          * 
          * @return builder
          * 
@@ -485,7 +493,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param behaviors List of behavior IDs.
+         * @param behaviors List of behavior IDs
          * 
          * @return builder
          * 
@@ -496,7 +504,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param behaviors List of behavior IDs.
+         * @param behaviors List of behavior IDs
          * 
          * @return builder
          * 
@@ -506,7 +514,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param behaviors List of behavior IDs.
+         * @param behaviors List of behavior IDs
          * 
          * @return builder
          * 
@@ -516,7 +524,10 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param factorSequences Auth factor sequences. Should be set if `access = &#34;CHALLENGE&#34;`.
+         * @param factorSequences Auth factor sequences. Should be set if &#39;access = &#34;CHALLENGE&#34;&#39;. - &#39;primary_criteria_provider&#39; - (Required) Primary
+         * provider of the auth section. - &#39;primary_criteria_factor_type&#39; - (Required) Primary factor type of the auth section. -
+         * &#39;secondary_criteria&#39; - (Optional) Additional authentication steps. - &#39;provider&#39; - (Required) Provider of the additional
+         * authentication step. - &#39;factor_type&#39; - (Required) Factor type of the additional authentication step.
          * 
          * @return builder
          * 
@@ -527,7 +538,10 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param factorSequences Auth factor sequences. Should be set if `access = &#34;CHALLENGE&#34;`.
+         * @param factorSequences Auth factor sequences. Should be set if &#39;access = &#34;CHALLENGE&#34;&#39;. - &#39;primary_criteria_provider&#39; - (Required) Primary
+         * provider of the auth section. - &#39;primary_criteria_factor_type&#39; - (Required) Primary factor type of the auth section. -
+         * &#39;secondary_criteria&#39; - (Optional) Additional authentication steps. - &#39;provider&#39; - (Required) Provider of the additional
+         * authentication step. - &#39;factor_type&#39; - (Required) Factor type of the additional authentication step.
          * 
          * @return builder
          * 
@@ -537,7 +551,10 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param factorSequences Auth factor sequences. Should be set if `access = &#34;CHALLENGE&#34;`.
+         * @param factorSequences Auth factor sequences. Should be set if &#39;access = &#34;CHALLENGE&#34;&#39;. - &#39;primary_criteria_provider&#39; - (Required) Primary
+         * provider of the auth section. - &#39;primary_criteria_factor_type&#39; - (Required) Primary factor type of the auth section. -
+         * &#39;secondary_criteria&#39; - (Optional) Additional authentication steps. - &#39;provider&#39; - (Required) Provider of the additional
+         * authentication step. - &#39;factor_type&#39; - (Required) Factor type of the additional authentication step.
          * 
          * @return builder
          * 
@@ -547,9 +564,8 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProvider Defines the identity provider for this rule. Valid values are `&#34;ANY&#34;`, `&#34;OKTA&#34;`, and `&#34;SPECIFIC_IDP&#34;`.
-         * 
-         * &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+         * @param identityProvider Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of
+         * `identity_provider` requires a feature flag to be enabled.
          * 
          * @return builder
          * 
@@ -560,9 +576,8 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProvider Defines the identity provider for this rule. Valid values are `&#34;ANY&#34;`, `&#34;OKTA&#34;`, and `&#34;SPECIFIC_IDP&#34;`.
-         * 
-         * &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+         * @param identityProvider Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of
+         * `identity_provider` requires a feature flag to be enabled.
          * 
          * @return builder
          * 
@@ -572,7 +587,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProviderIds When identity_provider is `&#34;SPECIFIC_IDP&#34;` then this is the list of IdP IDs to apply the rule on.
+         * @param identityProviderIds When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
          * 
          * @return builder
          * 
@@ -583,7 +598,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProviderIds When identity_provider is `&#34;SPECIFIC_IDP&#34;` then this is the list of IdP IDs to apply the rule on.
+         * @param identityProviderIds When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
          * 
          * @return builder
          * 
@@ -593,7 +608,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProviderIds When identity_provider is `&#34;SPECIFIC_IDP&#34;` then this is the list of IdP IDs to apply the rule on.
+         * @param identityProviderIds When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
          * 
          * @return builder
          * 
@@ -603,7 +618,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mfaLifetime Elapsed time before the next MFA challenge.
+         * @param mfaLifetime Elapsed time before the next MFA challenge
          * 
          * @return builder
          * 
@@ -614,7 +629,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mfaLifetime Elapsed time before the next MFA challenge.
+         * @param mfaLifetime Elapsed time before the next MFA challenge
          * 
          * @return builder
          * 
@@ -624,7 +639,8 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mfaPrompt Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `&#34;DEVICE&#34;`, `&#34;SESSION&#34;` or `&#34;ALWAYS&#34;`.
+         * @param mfaPrompt Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
+         * or`ALWAYS`.
          * 
          * @return builder
          * 
@@ -635,7 +651,8 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mfaPrompt Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `&#34;DEVICE&#34;`, `&#34;SESSION&#34;` or `&#34;ALWAYS&#34;`.
+         * @param mfaPrompt Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
+         * or`ALWAYS`.
          * 
          * @return builder
          * 
@@ -645,7 +662,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mfaRememberDevice Remember MFA device. The default `false`.
+         * @param mfaRememberDevice Remember MFA device. Default: `false`
          * 
          * @return builder
          * 
@@ -656,7 +673,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mfaRememberDevice Remember MFA device. The default `false`.
+         * @param mfaRememberDevice Remember MFA device. Default: `false`
          * 
          * @return builder
          * 
@@ -666,7 +683,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mfaRequired Require MFA. By default is `false`.
+         * @param mfaRequired Require MFA. Default: `false`
          * 
          * @return builder
          * 
@@ -677,7 +694,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mfaRequired Require MFA. By default is `false`.
+         * @param mfaRequired Require MFA. Default: `false`
          * 
          * @return builder
          * 
@@ -687,7 +704,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Policy Rule Name.
+         * @param name Policy Rule Name
          * 
          * @return builder
          * 
@@ -698,7 +715,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Policy Rule Name.
+         * @param name Policy Rule Name
          * 
          * @return builder
          * 
@@ -708,7 +725,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConnection Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+         * @param networkConnection Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
          * 
          * @return builder
          * 
@@ -719,7 +736,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConnection Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`.
+         * @param networkConnection Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
          * 
          * @return builder
          * 
@@ -729,7 +746,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`.
+         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -740,7 +757,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`.
+         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -750,7 +767,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`.
+         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -760,7 +777,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`.
+         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -771,7 +788,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`.
+         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -781,7 +798,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`.
+         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -791,7 +808,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId Policy ID.
+         * @param policyId Policy ID of the Rule
          * 
          * @return builder
          * 
@@ -802,7 +819,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId Policy ID.
+         * @param policyId Policy ID of the Rule
          * 
          * @return builder
          * 
@@ -812,8 +829,8 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryFactor Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
-         * `&#34;PASSWORD_IDP_ANY_FACTOR&#34;`, `&#34;PASSWORD_IDP&#34;`.
+         * @param primaryFactor Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
+         * `PASSWORD_IDP`.
          * 
          * @return builder
          * 
@@ -824,8 +841,8 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryFactor Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values:
-         * `&#34;PASSWORD_IDP_ANY_FACTOR&#34;`, `&#34;PASSWORD_IDP&#34;`.
+         * @param primaryFactor Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
+         * `PASSWORD_IDP`.
          * 
          * @return builder
          * 
@@ -835,7 +852,8 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+         * @param priority Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+         * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
          * 
          * @return builder
          * 
@@ -846,7 +864,8 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+         * @param priority Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+         * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
          * 
          * @return builder
          * 
@@ -856,8 +875,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param riscLevel Risc level: `&#34;ANY&#34;`, `&#34;LOW&#34;`, `&#34;MEDIUM&#34;` or `&#34;HIGH&#34;`. Default is `&#34;ANY&#34;`. It can be also
-         * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+         * @param riscLevel Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
          * 
          * @return builder
          * 
@@ -872,8 +890,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param riscLevel Risc level: `&#34;ANY&#34;`, `&#34;LOW&#34;`, `&#34;MEDIUM&#34;` or `&#34;HIGH&#34;`. Default is `&#34;ANY&#34;`. It can be also
-         * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+         * @param riscLevel Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
          * 
          * @return builder
          * 
@@ -908,7 +925,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sessionIdle Max minutes a session can be idle.,
+         * @param sessionIdle Max minutes a session can be idle. Default: `120`
          * 
          * @return builder
          * 
@@ -919,7 +936,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sessionIdle Max minutes a session can be idle.,
+         * @param sessionIdle Max minutes a session can be idle. Default: `120`
          * 
          * @return builder
          * 
@@ -929,7 +946,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sessionLifetime Max minutes a session is active: Disable = 0.
+         * @param sessionLifetime Max minutes a session is active: Disable = 0. Default: `120`
          * 
          * @return builder
          * 
@@ -940,7 +957,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sessionLifetime Max minutes a session is active: Disable = 0.
+         * @param sessionLifetime Max minutes a session is active: Disable = 0. Default: `120`
          * 
          * @return builder
          * 
@@ -950,7 +967,8 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sessionPersistent Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
+         * @param sessionPersistent Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
+         * cookies. Default: `false`
          * 
          * @return builder
          * 
@@ -961,7 +979,8 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sessionPersistent Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
+         * @param sessionPersistent Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
+         * cookies. Default: `false`
          * 
          * @return builder
          * 
@@ -971,7 +990,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+         * @param status Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -982,7 +1001,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+         * @param status Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -992,7 +1011,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed.
+         * @param usersExcludeds Set of User IDs to Exclude
          * 
          * @return builder
          * 
@@ -1003,7 +1022,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed.
+         * @param usersExcludeds Set of User IDs to Exclude
          * 
          * @return builder
          * 
@@ -1013,7 +1032,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed.
+         * @param usersExcludeds Set of User IDs to Exclude
          * 
          * @return builder
          * 

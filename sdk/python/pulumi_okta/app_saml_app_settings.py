@@ -19,7 +19,7 @@ class AppSamlAppSettingsArgs:
         """
         The set of arguments for constructing a AppSamlAppSettings resource.
         :param pulumi.Input[str] app_id: ID of the application.
-        :param pulumi.Input[str] settings: Application settings in JSON format.
+        :param pulumi.Input[str] settings: Application settings in JSON format
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "settings", settings)
@@ -40,7 +40,7 @@ class AppSamlAppSettingsArgs:
     @pulumi.getter
     def settings(self) -> pulumi.Input[str]:
         """
-        Application settings in JSON format.
+        Application settings in JSON format
         """
         return pulumi.get(self, "settings")
 
@@ -57,7 +57,7 @@ class _AppSamlAppSettingsState:
         """
         Input properties used for looking up and filtering AppSamlAppSettings resources.
         :param pulumi.Input[str] app_id: ID of the application.
-        :param pulumi.Input[str] settings: Application settings in JSON format.
+        :param pulumi.Input[str] settings: Application settings in JSON format
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -80,7 +80,7 @@ class _AppSamlAppSettingsState:
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input[str]]:
         """
-        Application settings in JSON format.
+        Application settings in JSON format
         """
         return pulumi.get(self, "settings")
 
@@ -98,8 +98,9 @@ class AppSamlAppSettings(pulumi.CustomResource):
                  settings: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages app settings of the SAML application.
         This resource allows you to manage app settings of the SAML Application . It's basically the same as
-        `app_settings_json` field in `app.Saml` resource and can be used in cases where settings require to be managed separately.
+        app_settings_json field in app.Saml resource and can be used in cases where settings require to be managed separately.
 
         ## Example Usage
 
@@ -128,16 +129,14 @@ class AppSamlAppSettings(pulumi.CustomResource):
 
         ## Import
 
-        A settings for the SAML App can be imported via the Okta ID.
-
         ```sh
-        $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62;
+        $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: ID of the application.
-        :param pulumi.Input[str] settings: Application settings in JSON format.
+        :param pulumi.Input[str] settings: Application settings in JSON format
         """
         ...
     @overload
@@ -146,8 +145,9 @@ class AppSamlAppSettings(pulumi.CustomResource):
                  args: AppSamlAppSettingsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages app settings of the SAML application.
         This resource allows you to manage app settings of the SAML Application . It's basically the same as
-        `app_settings_json` field in `app.Saml` resource and can be used in cases where settings require to be managed separately.
+        app_settings_json field in app.Saml resource and can be used in cases where settings require to be managed separately.
 
         ## Example Usage
 
@@ -176,10 +176,8 @@ class AppSamlAppSettings(pulumi.CustomResource):
 
         ## Import
 
-        A settings for the SAML App can be imported via the Okta ID.
-
         ```sh
-        $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62;
+        $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62
         ```
 
         :param str resource_name: The name of the resource.
@@ -234,7 +232,7 @@ class AppSamlAppSettings(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: ID of the application.
-        :param pulumi.Input[str] settings: Application settings in JSON format.
+        :param pulumi.Input[str] settings: Application settings in JSON format
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -256,7 +254,7 @@ class AppSamlAppSettings(pulumi.CustomResource):
     @pulumi.getter
     def settings(self) -> pulumi.Output[str]:
         """
-        Application settings in JSON format.
+        Application settings in JSON format
         """
         return pulumi.get(self, "settings")
 

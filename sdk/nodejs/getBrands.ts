@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to retrieve the brands belonging to an Okta organization.
+ * Get the brands belonging to an Okta organization.
  *
  * ## Example Usage
  *
@@ -39,7 +39,7 @@ export interface GetBrandsResult {
     readonly id: string;
 }
 /**
- * Use this data source to retrieve the brands belonging to an Okta organization.
+ * Get the brands belonging to an Okta organization.
  *
  * ## Example Usage
  *

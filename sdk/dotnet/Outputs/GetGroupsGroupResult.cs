@@ -14,7 +14,7 @@ namespace Pulumi.Okta.Outputs
     public sealed class GetGroupsGroupResult
     {
         /// <summary>
-        /// raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+        /// Raw JSON containing all custom profile attributes. Likely only useful on groups of type
         /// </summary>
         public readonly string CustomProfileAttributes;
         /// <summary>
@@ -30,8 +30,7 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-        /// (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+        /// Group type.
         /// </summary>
         public readonly string Type;
 

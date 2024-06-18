@@ -12,49 +12,13 @@ namespace Pulumi.Okta
     public static class GetLogStream
     {
         /// <summary>
-        /// Use this data source to retrieve a log stream from Okta.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Okta.GetLogStream.Invoke(new()
-        ///     {
-        ///         Name = "Example Stream",
-        ///     });
-        /// 
-        /// });
-        /// ```
+        /// Log Streams
         /// </summary>
         public static Task<GetLogStreamResult> InvokeAsync(GetLogStreamArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogStreamResult>("okta:index/getLogStream:getLogStream", args ?? new GetLogStreamArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a log stream from Okta.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Okta = Pulumi.Okta;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Okta.GetLogStream.Invoke(new()
-        ///     {
-        ///         Name = "Example Stream",
-        ///     });
-        /// 
-        /// });
-        /// ```
+        /// Log Streams
         /// </summary>
         public static Output<GetLogStreamResult> Invoke(GetLogStreamInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogStreamResult>("okta:index/getLogStream:getLogStream", args ?? new GetLogStreamInvokeArgs(), options.WithDefaults());
@@ -70,14 +34,11 @@ namespace Pulumi.Okta
         public string? Id { get; set; }
 
         /// <summary>
-        /// Name of the log stream to retrieve, conflicts with `id`.
+        /// Unique name for the Log Stream object, conflicts with `id`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Provider specific configuration.
-        /// </summary>
         [Input("settings")]
         public Inputs.GetLogStreamSettingsArgs? Settings { get; set; }
 
@@ -96,14 +57,11 @@ namespace Pulumi.Okta
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the log stream to retrieve, conflicts with `id`.
+        /// Unique name for the Log Stream object, conflicts with `id`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Provider specific configuration.
-        /// </summary>
         [Input("settings")]
         public Input<Inputs.GetLogStreamSettingsInputArgs>? Settings { get; set; }
 
@@ -118,23 +76,20 @@ namespace Pulumi.Okta
     public sealed class GetLogStreamResult
     {
         /// <summary>
-        /// ID of the log stream.
+        /// ID of the log stream to retrieve, conflicts with `name`.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Name of the log stream.
+        /// Unique name for the Log Stream object, conflicts with `id`.
         /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Provider specific configuration.
-        /// </summary>
         public readonly Outputs.GetLogStreamSettingsResult? Settings;
         /// <summary>
-        /// Log Stream Status - can either be ACTIVE or INACTIVE only.
+        /// Log Stream Status - can either be ACTIVE or INACTIVE only
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Type of the Log Stream.
+        /// Streaming provider used - aws*eventbridge or splunk*cloud_logstreaming
         /// </summary>
         public readonly string Type;
 

@@ -13,13 +13,7 @@ namespace Pulumi.Okta.Policy.Outputs
     [OutputType]
     public sealed class RuleIdpDiscoveryAppExclude
     {
-        /// <summary>
-        /// ID of the Rule.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// Policy rule name.
-        /// </summary>
         public readonly string? Name;
         public readonly string Type;
 

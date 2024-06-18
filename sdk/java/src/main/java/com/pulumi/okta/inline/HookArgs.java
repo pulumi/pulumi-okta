@@ -19,32 +19,16 @@ public final class HookArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final HookArgs Empty = new HookArgs();
 
-    /**
-     * Authentication required for inline hook request.
-     * 
-     */
     @Import(name="auth")
     private @Nullable Output<Map<String,String>> auth;
 
-    /**
-     * @return Authentication required for inline hook request.
-     * 
-     */
     public Optional<Output<Map<String,String>>> auth() {
         return Optional.ofNullable(this.auth);
     }
 
-    /**
-     * Details of the endpoint the inline hook will hit.
-     * 
-     */
     @Import(name="channel", required=true)
     private Output<Map<String,String>> channel;
 
-    /**
-     * @return Details of the endpoint the inline hook will hit.
-     * 
-     */
     public Output<Map<String,String>> channel() {
         return this.channel;
     }
@@ -110,14 +94,14 @@ public final class HookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version of the hook. The currently-supported version is `&#34;1.0.0&#34;`.
+     * The version of the hook. The currently-supported version is `1.0.0`.
      * 
      */
     @Import(name="version", required=true)
     private Output<String> version;
 
     /**
-     * @return The version of the hook. The currently-supported version is `&#34;1.0.0&#34;`.
+     * @return The version of the hook. The currently-supported version is `1.0.0`.
      * 
      */
     public Output<String> version() {
@@ -154,44 +138,20 @@ public final class HookArgs extends com.pulumi.resources.ResourceArgs {
             $ = new HookArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param auth Authentication required for inline hook request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder auth(@Nullable Output<Map<String,String>> auth) {
             $.auth = auth;
             return this;
         }
 
-        /**
-         * @param auth Authentication required for inline hook request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder auth(Map<String,String> auth) {
             return auth(Output.of(auth));
         }
 
-        /**
-         * @param channel Details of the endpoint the inline hook will hit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder channel(Output<Map<String,String>> channel) {
             $.channel = channel;
             return this;
         }
 
-        /**
-         * @param channel Details of the endpoint the inline hook will hit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder channel(Map<String,String> channel) {
             return channel(Output.of(channel));
         }
@@ -291,7 +251,7 @@ public final class HookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version of the hook. The currently-supported version is `&#34;1.0.0&#34;`.
+         * @param version The version of the hook. The currently-supported version is `1.0.0`.
          * 
          * @return builder
          * 
@@ -302,7 +262,7 @@ public final class HookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version of the hook. The currently-supported version is `&#34;1.0.0&#34;`.
+         * @param version The version of the hook. The currently-supported version is `1.0.0`.
          * 
          * @return builder
          * 

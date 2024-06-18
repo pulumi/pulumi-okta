@@ -5,9 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+ * Get a sign-on policy for the application.
  *
- * Use this data source to retrieve a sign-on policy for the application.
+ * > **WARNING:** This feature is only available as a part of the
+ * Identity Engine. Contact support
+ * for further information.
  *
  * > Inside the product a sign-on policy is referenced as an _authentication
  * policy_, in the public API the policy is of type
@@ -37,7 +39,7 @@ export function getAppSignonPolicy(args: GetAppSignonPolicyArgs, opts?: pulumi.I
  */
 export interface GetAppSignonPolicyArgs {
     /**
-     * The application ID.
+     * App ID
      */
     appId: string;
 }
@@ -46,17 +48,25 @@ export interface GetAppSignonPolicyArgs {
  * A collection of values returned by getAppSignonPolicy.
  */
 export interface GetAppSignonPolicyResult {
+    /**
+     * App ID
+     */
     readonly appId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Policy name
+     */
     readonly name: string;
 }
 /**
- * > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+ * Get a sign-on policy for the application.
  *
- * Use this data source to retrieve a sign-on policy for the application.
+ * > **WARNING:** This feature is only available as a part of the
+ * Identity Engine. Contact support
+ * for further information.
  *
  * > Inside the product a sign-on policy is referenced as an _authentication
  * policy_, in the public API the policy is of type
@@ -82,7 +92,7 @@ export function getAppSignonPolicyOutput(args: GetAppSignonPolicyOutputArgs, opt
  */
 export interface GetAppSignonPolicyOutputArgs {
     /**
-     * The application ID.
+     * App ID
      */
     appId: pulumi.Input<string>;
 }

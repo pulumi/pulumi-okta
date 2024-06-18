@@ -7,9 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * This resource allows you to manage a profile mapping by source and target IDs.
- *
- * > **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.manage` scope.
+ * Manages a profile mapping. This resource allows you to manage a profile mapping by source and target IDs. > **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.manage` scope.
  *
  * ## Example Usage
  *
@@ -45,7 +43,9 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * There is no reason to import this resource. You can simply create the resource config and point it to a source ID. Mind here, once the source is deleted this resources will no longer exist.
+ * ```sh
+ * $ pulumi import okta:profile/mapping:Mapping example &#60;id&#62;
+ * ```
  */
 export class Mapping extends pulumi.CustomResource {
     /**
@@ -77,22 +77,17 @@ export class Mapping extends pulumi.CustomResource {
 
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
-     *
-     * > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-     *
-     * > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+     * > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+     * > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      */
     public readonly alwaysApply!: pulumi.Output<boolean | undefined>;
     /**
-     * Tells the provider whether to attempt to delete missing mappings under profile mapping.
+     * When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
      */
     public readonly deleteWhenAbsent!: pulumi.Output<boolean | undefined>;
-    /**
-     * Priority of the policy.
-     */
     public readonly mappings!: pulumi.Output<outputs.profile.MappingMapping[] | undefined>;
     /**
-     * Source id of the profile mapping.
+     * The source id of the mapping to manage.
      */
     public readonly sourceId!: pulumi.Output<string>;
     /**
@@ -104,7 +99,7 @@ export class Mapping extends pulumi.CustomResource {
      */
     public /*out*/ readonly sourceType!: pulumi.Output<string>;
     /**
-     * ID of the mapping target.
+     * The target id of the mapping to manage.
      */
     public readonly targetId!: pulumi.Output<string>;
     /**
@@ -167,22 +162,17 @@ export class Mapping extends pulumi.CustomResource {
 export interface MappingState {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
-     *
-     * > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-     *
-     * > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+     * > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+     * > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      */
     alwaysApply?: pulumi.Input<boolean>;
     /**
-     * Tells the provider whether to attempt to delete missing mappings under profile mapping.
+     * When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
      */
     deleteWhenAbsent?: pulumi.Input<boolean>;
-    /**
-     * Priority of the policy.
-     */
     mappings?: pulumi.Input<pulumi.Input<inputs.profile.MappingMapping>[]>;
     /**
-     * Source id of the profile mapping.
+     * The source id of the mapping to manage.
      */
     sourceId?: pulumi.Input<string>;
     /**
@@ -194,7 +184,7 @@ export interface MappingState {
      */
     sourceType?: pulumi.Input<string>;
     /**
-     * ID of the mapping target.
+     * The target id of the mapping to manage.
      */
     targetId?: pulumi.Input<string>;
     /**
@@ -213,26 +203,21 @@ export interface MappingState {
 export interface MappingArgs {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
-     *
-     * > **WARNING**: `alwaysApply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-     *
-     * > **WARNING:** `alwaysApply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+     * > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+     * > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      */
     alwaysApply?: pulumi.Input<boolean>;
     /**
-     * Tells the provider whether to attempt to delete missing mappings under profile mapping.
+     * When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
      */
     deleteWhenAbsent?: pulumi.Input<boolean>;
-    /**
-     * Priority of the policy.
-     */
     mappings?: pulumi.Input<pulumi.Input<inputs.profile.MappingMapping>[]>;
     /**
-     * Source id of the profile mapping.
+     * The source id of the mapping to manage.
      */
     sourceId: pulumi.Input<string>;
     /**
-     * ID of the mapping target.
+     * The target id of the mapping to manage.
      */
     targetId: pulumi.Input<string>;
 }

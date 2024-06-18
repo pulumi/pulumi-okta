@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Auth
 {
     /// <summary>
-    /// Creates an Authorization Server.
-    /// 
-    /// This resource allows you to create and configure an Authorization Server.
+    /// Creates an Authorization Server. This resource allows you to create and configure an Authorization Server.
     /// 
     /// ## Example Usage
     /// 
@@ -41,8 +39,6 @@ namespace Pulumi.Okta.Auth
     /// 
     /// ## Import
     /// 
-    /// Authorization Server can be imported via the Okta ID.
-    /// 
     /// ```sh
     /// $ pulumi import okta:auth/server:Server example &amp;#60;auth server id&amp;#62;
     /// ```
@@ -51,7 +47,7 @@ namespace Pulumi.Okta.Auth
     public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        /// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
         /// </summary>
         [Output("audiences")]
         public Output<ImmutableArray<string>> Audiences { get; private set; } = null!;
@@ -63,13 +59,13 @@ namespace Pulumi.Okta.Auth
         public Output<string> CredentialsLastRotated { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `"AUTO"`.
+        /// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
         /// </summary>
         [Output("credentialsNextRotation")]
         public Output<string> CredentialsNextRotation { get; private set; } = null!;
 
         /// <summary>
-        /// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        /// The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `AUTO`
         /// </summary>
         [Output("credentialsRotationMode")]
         public Output<string?> CredentialsRotationMode { get; private set; } = null!;
@@ -87,7 +83,7 @@ namespace Pulumi.Okta.Auth
         public Output<string> Issuer { get; private set; } = null!;
 
         /// <summary>
-        /// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
+        /// *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
         /// </summary>
         [Output("issuerMode")]
         public Output<string?> IssuerMode { get; private set; } = null!;
@@ -105,7 +101,7 @@ namespace Pulumi.Okta.Auth
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the auth server. It defaults to `"ACTIVE"`
+        /// Default to `ACTIVE`
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -160,7 +156,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _audiences;
 
         /// <summary>
-        /// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        /// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
         /// </summary>
         public InputList<string> Audiences
         {
@@ -169,7 +165,7 @@ namespace Pulumi.Okta.Auth
         }
 
         /// <summary>
-        /// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        /// The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `AUTO`
         /// </summary>
         [Input("credentialsRotationMode")]
         public Input<string>? CredentialsRotationMode { get; set; }
@@ -181,7 +177,7 @@ namespace Pulumi.Okta.Auth
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
+        /// *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
@@ -193,7 +189,7 @@ namespace Pulumi.Okta.Auth
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The status of the auth server. It defaults to `"ACTIVE"`
+        /// Default to `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -210,7 +206,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _audiences;
 
         /// <summary>
-        /// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        /// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
         /// </summary>
         public InputList<string> Audiences
         {
@@ -225,13 +221,13 @@ namespace Pulumi.Okta.Auth
         public Input<string>? CredentialsLastRotated { get; set; }
 
         /// <summary>
-        /// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `"AUTO"`.
+        /// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
         /// </summary>
         [Input("credentialsNextRotation")]
         public Input<string>? CredentialsNextRotation { get; set; }
 
         /// <summary>
-        /// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        /// The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `AUTO`
         /// </summary>
         [Input("credentialsRotationMode")]
         public Input<string>? CredentialsRotationMode { get; set; }
@@ -249,7 +245,7 @@ namespace Pulumi.Okta.Auth
         public Input<string>? Issuer { get; set; }
 
         /// <summary>
-        /// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
+        /// *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
@@ -267,7 +263,7 @@ namespace Pulumi.Okta.Auth
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The status of the auth server. It defaults to `"ACTIVE"`
+        /// Default to `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

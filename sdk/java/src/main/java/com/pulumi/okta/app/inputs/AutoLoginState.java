@@ -17,14 +17,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     public static final AutoLoginState Empty = new AutoLoginState();
 
     /**
-     * Custom error page URL.
+     * Custom error page URL
      * 
      */
     @Import(name="accessibilityErrorRedirectUrl")
     private @Nullable Output<String> accessibilityErrorRedirectUrl;
 
     /**
-     * @return Custom error page URL.
+     * @return Custom error page URL
      * 
      */
     public Optional<Output<String>> accessibilityErrorRedirectUrl() {
@@ -32,14 +32,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      * 
      */
     @Import(name="accessibilityLoginRedirectUrl")
     private @Nullable Output<String> accessibilityLoginRedirectUrl;
 
     /**
-     * @return Custom login page for this application.
+     * @return Custom login page URL
      * 
      */
     public Optional<Output<String>> accessibilityLoginRedirectUrl() {
@@ -47,14 +47,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service. Default is `false`
      * 
      */
     @Import(name="accessibilitySelfService")
     private @Nullable Output<Boolean> accessibilitySelfService;
 
     /**
-     * @return Enable self-service. By default, it is `false`.
+     * @return Enable self service. Default is `false`
      * 
      */
     public Optional<Output<Boolean>> accessibilitySelfService() {
@@ -92,14 +92,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Application settings in JSON format.
+     * Application settings in JSON format
      * 
      */
     @Import(name="appSettingsJson")
     private @Nullable Output<String> appSettingsJson;
 
     /**
-     * @return Application settings in JSON format.
+     * @return Application settings in JSON format
      * 
      */
     public Optional<Output<String>> appSettingsJson() {
@@ -107,14 +107,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      * 
      */
     @Import(name="autoSubmitToolbar")
     private @Nullable Output<Boolean> autoSubmitToolbar;
 
     /**
-     * @return Display auto submit toolbar.
+     * @return Display auto submit toolbar
      * 
      */
     public Optional<Output<Boolean>> autoSubmitToolbar() {
@@ -122,14 +122,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One of: `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
+     * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
      * 
      */
     @Import(name="credentialsScheme")
     private @Nullable Output<String> credentialsScheme;
 
     /**
-     * @return One of: `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
+     * @return Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
      * 
      */
     public Optional<Output<String>> credentialsScheme() {
@@ -152,14 +152,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      * 
      */
     @Import(name="hideIos")
     private @Nullable Output<Boolean> hideIos;
 
     /**
-     * @return Do not display application icon on mobile app.
+     * @return Do not display application icon on mobile app
      * 
      */
     public Optional<Output<Boolean>> hideIos() {
@@ -167,14 +167,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      * 
      */
     @Import(name="hideWeb")
     private @Nullable Output<Boolean> hideWeb;
 
     /**
-     * @return Do not display application icon to users.
+     * @return Do not display application icon to users
      * 
      */
     public Optional<Output<Boolean>> hideWeb() {
@@ -212,14 +212,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Direct link of application logo.
+     * URL of the application&#39;s logo
      * 
      */
     @Import(name="logoUrl")
     private @Nullable Output<String> logoUrl;
 
     /**
-     * @return Direct link of application logo.
+     * @return URL of the application&#39;s logo
      * 
      */
     public Optional<Output<String>> logoUrl() {
@@ -227,14 +227,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name assigned to the application by Okta.
+     * Name of the app.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name assigned to the application by Okta.
+     * @return Name of the app.
      * 
      */
     public Optional<Output<String>> name() {
@@ -257,14 +257,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
+     * Allow user to reveal password. Default is false. It can not be set to true if credentials*scheme is &#34;ADMIN*SETS*CREDENTIALS&#34;, &#34;SHARED*USERNAME*AND*PASSWORD&#34; or &#34;EXTERNAL*PASSWORD*SYNC&#34;.
      * 
      */
     @Import(name="revealPassword")
     private @Nullable Output<Boolean> revealPassword;
 
     /**
-     * @return Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
+     * @return Allow user to reveal password. Default is false. It can not be set to true if credentials*scheme is &#34;ADMIN*SETS*CREDENTIALS&#34;, &#34;SHARED*USERNAME*AND*PASSWORD&#34; or &#34;EXTERNAL*PASSWORD*SYNC&#34;.
      * 
      */
     public Optional<Output<Boolean>> revealPassword() {
@@ -272,14 +272,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Shared password, required for certain schemes
+     * Shared password, required for certain schemes.
      * 
      */
     @Import(name="sharedPassword")
     private @Nullable Output<String> sharedPassword;
 
     /**
-     * @return Shared password, required for certain schemes
+     * @return Shared password, required for certain schemes.
      * 
      */
     public Optional<Output<String>> sharedPassword() {
@@ -287,14 +287,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Shared username, required for certain schemes
+     * Shared username, required for certain schemes.
      * 
      */
     @Import(name="sharedUsername")
     private @Nullable Output<String> sharedUsername;
 
     /**
-     * @return Shared username, required for certain schemes
+     * @return Shared username, required for certain schemes.
      * 
      */
     public Optional<Output<String>> sharedUsername() {
@@ -302,14 +302,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sign-on mode of the application.
+     * Sign on mode of application.
      * 
      */
     @Import(name="signOnMode")
     private @Nullable Output<String> signOnMode;
 
     /**
-     * @return Sign-on mode of the application.
+     * @return Sign on mode of application.
      * 
      */
     public Optional<Output<String>> signOnMode() {
@@ -317,14 +317,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
+     * Post login redirect URL
      * 
      */
     @Import(name="signOnRedirectUrl")
     private @Nullable Output<String> signOnRedirectUrl;
 
     /**
-     * @return Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
+     * @return Post login redirect URL
      * 
      */
     public Optional<Output<String>> signOnRedirectUrl() {
@@ -332,14 +332,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * App login page URL
+     * Login URL
      * 
      */
     @Import(name="signOnUrl")
     private @Nullable Output<String> signOnUrl;
 
     /**
-     * @return App login page URL
+     * @return Login URL
      * 
      */
     public Optional<Output<String>> signOnUrl() {
@@ -347,14 +347,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The status of the application, by default, it is `&#34;ACTIVE&#34;`.
+     * Status of application. By default, it is `ACTIVE`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the application, by default, it is `&#34;ACTIVE&#34;`.
+     * @return Status of application. By default, it is `ACTIVE`
      * 
      */
     public Optional<Output<String>> status() {
@@ -362,14 +362,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username template. Default: `&#34;${source.login}&#34;`
+     * Username template. Default: `${source.login}`
      * 
      */
     @Import(name="userNameTemplate")
     private @Nullable Output<String> userNameTemplate;
 
     /**
-     * @return Username template. Default: `&#34;${source.login}&#34;`
+     * @return Username template. Default: `${source.login}`
      * 
      */
     public Optional<Output<String>> userNameTemplate() {
@@ -377,14 +377,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+     * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      * 
      */
     @Import(name="userNameTemplatePushStatus")
     private @Nullable Output<String> userNameTemplatePushStatus;
 
     /**
-     * @return Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+     * @return Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      * 
      */
     public Optional<Output<String>> userNameTemplatePushStatus() {
@@ -392,14 +392,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username template suffix.
+     * Username template suffix
      * 
      */
     @Import(name="userNameTemplateSuffix")
     private @Nullable Output<String> userNameTemplateSuffix;
 
     /**
-     * @return Username template suffix.
+     * @return Username template suffix
      * 
      */
     public Optional<Output<String>> userNameTemplateSuffix() {
@@ -407,14 +407,14 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username template type. Default: `&#34;BUILT_IN&#34;`.
+     * Username template type. Default: `BUILT_IN`
      * 
      */
     @Import(name="userNameTemplateType")
     private @Nullable Output<String> userNameTemplateType;
 
     /**
-     * @return Username template type. Default: `&#34;BUILT_IN&#34;`.
+     * @return Username template type. Default: `BUILT_IN`
      * 
      */
     public Optional<Output<String>> userNameTemplateType() {
@@ -472,7 +472,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL.
+         * @param accessibilityErrorRedirectUrl Custom error page URL
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL.
+         * @param accessibilityErrorRedirectUrl Custom error page URL
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page for this application.
+         * @param accessibilityLoginRedirectUrl Custom login page URL
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page for this application.
+         * @param accessibilityLoginRedirectUrl Custom login page URL
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
+         * @param accessibilitySelfService Enable self service. Default is `false`
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
+         * @param accessibilitySelfService Enable self service. Default is `false`
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appSettingsJson Application settings in JSON format.
+         * @param appSettingsJson Application settings in JSON format
          * 
          * @return builder
          * 
@@ -588,7 +588,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appSettingsJson Application settings in JSON format.
+         * @param appSettingsJson Application settings in JSON format
          * 
          * @return builder
          * 
@@ -598,7 +598,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar.
+         * @param autoSubmitToolbar Display auto submit toolbar
          * 
          * @return builder
          * 
@@ -609,7 +609,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar.
+         * @param autoSubmitToolbar Display auto submit toolbar
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentialsScheme One of: `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
+         * @param credentialsScheme Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
          * 
          * @return builder
          * 
@@ -630,7 +630,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentialsScheme One of: `&#34;EDIT_USERNAME_AND_PASSWORD&#34;`, `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;EDIT_PASSWORD_ONLY&#34;`, `&#34;EXTERNAL_PASSWORD_SYNC&#34;`, or `&#34;SHARED_USERNAME_AND_PASSWORD&#34;`.
+         * @param credentialsScheme Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
          * 
          * @return builder
          * 
@@ -661,7 +661,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app.
+         * @param hideIos Do not display application icon on mobile app
          * 
          * @return builder
          * 
@@ -672,7 +672,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app.
+         * @param hideIos Do not display application icon on mobile app
          * 
          * @return builder
          * 
@@ -682,7 +682,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideWeb Do not display application icon to users.
+         * @param hideWeb Do not display application icon to users
          * 
          * @return builder
          * 
@@ -693,7 +693,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideWeb Do not display application icon to users.
+         * @param hideWeb Do not display application icon to users
          * 
          * @return builder
          * 
@@ -745,7 +745,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logoUrl Direct link of application logo.
+         * @param logoUrl URL of the application&#39;s logo
          * 
          * @return builder
          * 
@@ -756,7 +756,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logoUrl Direct link of application logo.
+         * @param logoUrl URL of the application&#39;s logo
          * 
          * @return builder
          * 
@@ -766,7 +766,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name assigned to the application by Okta.
+         * @param name Name of the app.
          * 
          * @return builder
          * 
@@ -777,7 +777,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name assigned to the application by Okta.
+         * @param name Name of the app.
          * 
          * @return builder
          * 
@@ -808,7 +808,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revealPassword Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
+         * @param revealPassword Allow user to reveal password. Default is false. It can not be set to true if credentials*scheme is &#34;ADMIN*SETS*CREDENTIALS&#34;, &#34;SHARED*USERNAME*AND*PASSWORD&#34; or &#34;EXTERNAL*PASSWORD*SYNC&#34;.
          * 
          * @return builder
          * 
@@ -819,7 +819,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revealPassword Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `&#34;ADMIN_SETS_CREDENTIALS&#34;`, `&#34;SHARED_USERNAME_AND_PASSWORD&#34;` or `&#34;EXTERNAL_PASSWORD_SYNC&#34;`.
+         * @param revealPassword Allow user to reveal password. Default is false. It can not be set to true if credentials*scheme is &#34;ADMIN*SETS*CREDENTIALS&#34;, &#34;SHARED*USERNAME*AND*PASSWORD&#34; or &#34;EXTERNAL*PASSWORD*SYNC&#34;.
          * 
          * @return builder
          * 
@@ -829,7 +829,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sharedPassword Shared password, required for certain schemes
+         * @param sharedPassword Shared password, required for certain schemes.
          * 
          * @return builder
          * 
@@ -840,7 +840,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sharedPassword Shared password, required for certain schemes
+         * @param sharedPassword Shared password, required for certain schemes.
          * 
          * @return builder
          * 
@@ -850,7 +850,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sharedUsername Shared username, required for certain schemes
+         * @param sharedUsername Shared username, required for certain schemes.
          * 
          * @return builder
          * 
@@ -861,7 +861,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sharedUsername Shared username, required for certain schemes
+         * @param sharedUsername Shared username, required for certain schemes.
          * 
          * @return builder
          * 
@@ -871,7 +871,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signOnMode Sign-on mode of the application.
+         * @param signOnMode Sign on mode of application.
          * 
          * @return builder
          * 
@@ -882,7 +882,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signOnMode Sign-on mode of the application.
+         * @param signOnMode Sign on mode of application.
          * 
          * @return builder
          * 
@@ -892,7 +892,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signOnRedirectUrl Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
+         * @param signOnRedirectUrl Post login redirect URL
          * 
          * @return builder
          * 
@@ -903,7 +903,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signOnRedirectUrl Redirect URL; if going to the login page URL redirects to another page, then enter that URL here
+         * @param signOnRedirectUrl Post login redirect URL
          * 
          * @return builder
          * 
@@ -913,7 +913,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signOnUrl App login page URL
+         * @param signOnUrl Login URL
          * 
          * @return builder
          * 
@@ -924,7 +924,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param signOnUrl App login page URL
+         * @param signOnUrl Login URL
          * 
          * @return builder
          * 
@@ -934,7 +934,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the application, by default, it is `&#34;ACTIVE&#34;`.
+         * @param status Status of application. By default, it is `ACTIVE`
          * 
          * @return builder
          * 
@@ -945,7 +945,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the application, by default, it is `&#34;ACTIVE&#34;`.
+         * @param status Status of application. By default, it is `ACTIVE`
          * 
          * @return builder
          * 
@@ -955,7 +955,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplate Username template. Default: `&#34;${source.login}&#34;`
+         * @param userNameTemplate Username template. Default: `${source.login}`
          * 
          * @return builder
          * 
@@ -966,7 +966,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplate Username template. Default: `&#34;${source.login}&#34;`
+         * @param userNameTemplate Username template. Default: `${source.login}`
          * 
          * @return builder
          * 
@@ -976,7 +976,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplatePushStatus Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+         * @param userNameTemplatePushStatus Push username on update. Valid values: `PUSH` and `DONT_PUSH`
          * 
          * @return builder
          * 
@@ -987,7 +987,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplatePushStatus Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+         * @param userNameTemplatePushStatus Push username on update. Valid values: `PUSH` and `DONT_PUSH`
          * 
          * @return builder
          * 
@@ -997,7 +997,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateSuffix Username template suffix.
+         * @param userNameTemplateSuffix Username template suffix
          * 
          * @return builder
          * 
@@ -1008,7 +1008,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateSuffix Username template suffix.
+         * @param userNameTemplateSuffix Username template suffix
          * 
          * @return builder
          * 
@@ -1018,7 +1018,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateType Username template type. Default: `&#34;BUILT_IN&#34;`.
+         * @param userNameTemplateType Username template type. Default: `BUILT_IN`
          * 
          * @return builder
          * 
@@ -1029,7 +1029,7 @@ public final class AutoLoginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userNameTemplateType Username template type. Default: `&#34;BUILT_IN&#34;`.
+         * @param userNameTemplateType Username template type. Default: `BUILT_IN`
          * 
          * @return builder
          * 

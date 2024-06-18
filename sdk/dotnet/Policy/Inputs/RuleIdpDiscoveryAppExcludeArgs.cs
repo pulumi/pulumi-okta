@@ -12,15 +12,9 @@ namespace Pulumi.Okta.Policy.Inputs
 
     public sealed class RuleIdpDiscoveryAppExcludeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the Rule.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Policy rule name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

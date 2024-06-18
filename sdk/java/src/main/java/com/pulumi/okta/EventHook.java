@@ -18,9 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates an event hook.
- * 
- * This resource allows you to create and configure an event hook.
+ * Creates an event hook. This resource allows you to create and configure an event hook.
  * 
  * ## Example Usage
  * 
@@ -72,8 +70,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An event hook can be imported via the Okta ID.
- * 
  * ```sh
  * $ pulumi import okta:index/eventHook:EventHook example &amp;#60;hook id&amp;#62;
  * ```
@@ -82,14 +78,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/eventHook:EventHook")
 public class EventHook extends com.pulumi.resources.CustomResource {
     /**
-     * Authentication required for event hook request.
+     * Details of the endpoint the event hook will hit. - &#39;version&#39; - (Required) The version of the channel. The
+     * currently-supported version is &#39;1.0.0&#39;. - &#39;uri&#39; - (Required) The URI the hook will hit. - &#39;type&#39; - (Optional) The type
+     * of hook to trigger. Currently, the only supported type is &#39;HTTP&#39;.
      * 
      */
     @Export(name="auth", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> auth;
 
     /**
-     * @return Authentication required for event hook request.
+     * @return Details of the endpoint the event hook will hit. - &#39;version&#39; - (Required) The version of the channel. The
+     * currently-supported version is &#39;1.0.0&#39;. - &#39;uri&#39; - (Required) The URI the hook will hit. - &#39;type&#39; - (Optional) The type
+     * of hook to trigger. Currently, the only supported type is &#39;HTTP&#39;.
      * 
      */
     public Output<Optional<Map<String,String>>> auth() {
@@ -110,14 +110,16 @@ public class EventHook extends com.pulumi.resources.CustomResource {
         return this.channel;
     }
     /**
-     * The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+     * The events that will be delivered to this hook. [See here for a list of supported
+     * events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
      * 
      */
     @Export(name="events", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> events;
 
     /**
-     * @return The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+     * @return The events that will be delivered to this hook. [See here for a list of supported
+     * events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
      * 
      */
     public Output<List<String>> events() {

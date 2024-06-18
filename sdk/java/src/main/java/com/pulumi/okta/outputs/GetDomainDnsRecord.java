@@ -12,17 +12,17 @@ import java.util.Objects;
 @CustomType
 public final class GetDomainDnsRecord {
     /**
-     * @return TXT record expiration.
+     * @return TXT record expiration
      * 
      */
     private String expiration;
     /**
-     * @return DNS record name.
+     * @return DNS record name
      * 
      */
     private String fqdn;
     /**
-     * @return Record type can be TXT or CNAME.
+     * @return Record type can be TXT or CNAME
      * 
      */
     private String recordType;
@@ -34,21 +34,21 @@ public final class GetDomainDnsRecord {
 
     private GetDomainDnsRecord() {}
     /**
-     * @return TXT record expiration.
+     * @return TXT record expiration
      * 
      */
     public String expiration() {
         return this.expiration;
     }
     /**
-     * @return DNS record name.
+     * @return DNS record name
      * 
      */
     public String fqdn() {
         return this.fqdn;
     }
     /**
-     * @return Record type can be TXT or CNAME.
+     * @return Record type can be TXT or CNAME
      * 
      */
     public String recordType() {

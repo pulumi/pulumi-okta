@@ -16,10 +16,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and configure a Basic Auth Application.
- * 
- * &gt; During an apply if there is change in `status` the app will first be
- * activated or deactivated in accordance with the `status` change. Then, all
+ * This resource allows you to create and configure an Auto Login Okta Application.
+ * &gt; During an apply if there is change in status the app will first be
+ * activated or deactivated in accordance with the status change. Then, all
  * other arguments that changed will be applied.
  * 
  * ## Example Usage
@@ -61,52 +60,50 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A Basic Auth App can be imported via the Okta ID.
- * 
  * ```sh
- * $ pulumi import okta:app/basicAuth:BasicAuth example &amp;#60;app id&amp;#62;
+ * $ pulumi import okta:app/basicAuth:BasicAuth example &amp;#60;app id&amp;#62
  * ```
  * 
  */
 @ResourceType(type="okta:app/basicAuth:BasicAuth")
 public class BasicAuth extends com.pulumi.resources.CustomResource {
     /**
-     * Custom error page URL.
+     * Custom error page URL
      * 
      */
     @Export(name="accessibilityErrorRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityErrorRedirectUrl;
 
     /**
-     * @return Custom error page URL.
+     * @return Custom error page URL
      * 
      */
     public Output<Optional<String>> accessibilityErrorRedirectUrl() {
         return Codegen.optional(this.accessibilityErrorRedirectUrl);
     }
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      * 
      */
     @Export(name="accessibilityLoginRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityLoginRedirectUrl;
 
     /**
-     * @return Custom login page for this application.
+     * @return Custom login page URL
      * 
      */
     public Output<Optional<String>> accessibilityLoginRedirectUrl() {
         return Codegen.optional(this.accessibilityLoginRedirectUrl);
     }
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service. Default is `false`
      * 
      */
     @Export(name="accessibilitySelfService", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessibilitySelfService;
 
     /**
-     * @return Enable self-service. By default, it is `false`.
+     * @return Enable self service. Default is `false`
      * 
      */
     public Output<Optional<Boolean>> accessibilitySelfService() {
@@ -155,14 +152,14 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
         return this.authUrl;
     }
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      * 
      */
     @Export(name="autoSubmitToolbar", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoSubmitToolbar;
 
     /**
-     * @return Display auto submit toolbar.
+     * @return Display auto submit toolbar
      * 
      */
     public Output<Optional<Boolean>> autoSubmitToolbar() {
@@ -183,28 +180,28 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enduserNote);
     }
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      * 
      */
     @Export(name="hideIos", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideIos;
 
     /**
-     * @return Do not display application icon on mobile app.
+     * @return Do not display application icon on mobile app
      * 
      */
     public Output<Optional<Boolean>> hideIos() {
         return Codegen.optional(this.hideIos);
     }
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      * 
      */
     @Export(name="hideWeb", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideWeb;
 
     /**
-     * @return Do not display application icon to users.
+     * @return Do not display application icon to users
      * 
      */
     public Output<Optional<Boolean>> hideWeb() {
@@ -225,28 +222,28 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
         return this.label;
     }
     /**
-     * Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
-     * @return Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * @return Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     public Output<Optional<String>> logo() {
         return Codegen.optional(this.logo);
     }
     /**
-     * Direct link of application logo.
+     * URL of the application&#39;s logo
      * 
      */
     @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
-     * @return Direct link of application logo.
+     * @return URL of the application&#39;s logo
      * 
      */
     public Output<String> logoUrl() {
@@ -281,14 +278,14 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
         return this.signOnMode;
     }
     /**
-     * Status of application. (`&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`).
+     * Status of application. By default, it is `ACTIVE`
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Status of application. (`&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`).
+     * @return Status of application. By default, it is `ACTIVE`
      * 
      */
     public Output<Optional<String>> status() {

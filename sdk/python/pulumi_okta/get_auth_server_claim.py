@@ -61,13 +61,16 @@ class GetAuthServerClaimResult:
     @property
     @pulumi.getter(name="authServerId")
     def auth_server_id(self) -> str:
+        """
+        Auth server ID
+        """
         return pulumi.get(self, "auth_server_id")
 
     @property
     @pulumi.getter(name="claimType")
     def claim_type(self) -> str:
         """
-        Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+        Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`).
         """
         return pulumi.get(self, "claim_type")
 
@@ -75,7 +78,7 @@ class GetAuthServerClaimResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        ID of the claim.
+        Name of the claim. Conflicts with `name`.
         """
         return pulumi.get(self, "id")
 
@@ -83,7 +86,7 @@ class GetAuthServerClaimResult:
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the claim.
+        Name of the claim. Conflicts with `id`.
         """
         return pulumi.get(self, "name")
 
@@ -91,7 +94,7 @@ class GetAuthServerClaimResult:
     @pulumi.getter
     def scopes(self) -> Sequence[str]:
         """
-        Specifies the scopes for this Claim.
+        Auth server claim list of scopes
         """
         return pulumi.get(self, "scopes")
 
@@ -107,7 +110,7 @@ class GetAuthServerClaimResult:
     @pulumi.getter
     def value(self) -> str:
         """
-        Value of the claim
+        Value of the claim.
         """
         return pulumi.get(self, "value")
 
@@ -115,7 +118,7 @@ class GetAuthServerClaimResult:
     @pulumi.getter(name="valueType")
     def value_type(self) -> str:
         """
-        Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+        Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
         """
         return pulumi.get(self, "value_type")
 
@@ -142,7 +145,7 @@ def get_auth_server_claim(auth_server_id: Optional[str] = None,
                           name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthServerClaimResult:
     """
-    Use this data source to retrieve authorization server claim from Okta.
+    Get authorization server claim from Okta.
 
     ## Example Usage
 
@@ -155,8 +158,8 @@ def get_auth_server_claim(auth_server_id: Optional[str] = None,
     ```
 
 
-    :param str auth_server_id: Auth server ID.
-    :param str id: ID of the claim. Conflicts with `name`.
+    :param str auth_server_id: Auth server ID
+    :param str id: Name of the claim. Conflicts with `name`.
     :param str name: Name of the claim. Conflicts with `id`.
     """
     __args__ = dict()
@@ -184,7 +187,7 @@ def get_auth_server_claim_output(auth_server_id: Optional[pulumi.Input[str]] = N
                                  name: Optional[pulumi.Input[Optional[str]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthServerClaimResult]:
     """
-    Use this data source to retrieve authorization server claim from Okta.
+    Get authorization server claim from Okta.
 
     ## Example Usage
 
@@ -197,8 +200,8 @@ def get_auth_server_claim_output(auth_server_id: Optional[pulumi.Input[str]] = N
     ```
 
 
-    :param str auth_server_id: Auth server ID.
-    :param str id: ID of the claim. Conflicts with `name`.
+    :param str auth_server_id: Auth server ID
+    :param str id: Name of the claim. Conflicts with `name`.
     :param str name: Name of the claim. Conflicts with `id`.
     """
     ...

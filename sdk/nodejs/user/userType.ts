@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Creates a User type.
- *
- * This resource allows you to create and configure a User Type.
+ * Creates a User type. This resource allows you to create and configure a User Type.
  *
  * ## Example Usage
  *
@@ -23,8 +21,6 @@ import * as utilities from "../utilities";
  * ```
  *
  * ## Import
- *
- * A User Type can be imported via the Okta ID.
  *
  * ```sh
  * $ pulumi import okta:user/userType:UserType example &#60;user type id&#62;

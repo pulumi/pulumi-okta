@@ -5,14 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Creates an MFA Policy.
- *
- * This resource allows you to create and configure an MFA Policy.
- *
- * > Requires Org Feature Flag `OKTA_MFA_POLICY`. Contact support to have this feature flag ***enabled***.
- *
- * > Unless Org Feature Flag `ENG_ENABLE_OPTIONAL_PASSWORD_ENROLLMENT` is ***disabled*** `oktaPassword` or `oktaEmail` must be present and its `enroll` value set to `REQUIRED`. Contact support to have this feature flag ***disabled***.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -49,8 +41,6 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * An MFA Policy can be imported via the Okta ID.
- *
  * ```sh
  * $ pulumi import okta:policy/mfa:Mfa example &#60;policy id&#62;
  * ```
@@ -84,113 +74,49 @@ export class Mfa extends pulumi.CustomResource {
     }
 
     /**
-     * Policy Description.
+     * Policy Description
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * DUO MFA policy settings (✓ Classic, ✓ OIE).
-     */
     public readonly duo!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * External IDP MFA policy settings (✓ OIE).
-     */
     public readonly externalIdp!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Fido U2F MFA policy settings (✓ Classic).
-     */
     public readonly fidoU2f!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Fido Web Authn MFA policy settings (✓ Classic).
-     */
     public readonly fidoWebauthn!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Google OTP MFA policy settings (✓ Classic, ✓ OIE).
-     */
     public readonly googleOtp!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * List of Group IDs to Include.
+     * List of Group IDs to Include
      */
     public readonly groupsIncludeds!: pulumi.Output<string[] | undefined>;
-    /**
-     * HMAC-based One-Time Password MFA policy settings (✓ Classic).
-     */
     public readonly hotp!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
-     * > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
+     * Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
      */
     public readonly isOie!: pulumi.Output<boolean | undefined>;
     /**
-     * Policy Name.
+     * Policy Name
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Okta Call MFA policy settings (✓ Classic).
-     */
     public readonly oktaCall!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Okta Email MFA policy settings (✓ Classic, ✓ OIE).
-     */
     public readonly oktaEmail!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
-     */
     public readonly oktaOtp!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Okta Password MFA policy settings (✓ Classic, ✓ OIE).
-     */
     public readonly oktaPassword!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Okta Push MFA policy settings (✓ Classic).
-     */
     public readonly oktaPush!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Okta Question MFA policy settings (✓ Classic).
-     */
     public readonly oktaQuestion!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Okta SMS MFA policy settings (✓ Classic).
-     */
     public readonly oktaSms!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Okta Verify MFA policy settings (✓ OIE).
-     */
     public readonly oktaVerify!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * On-Prem MFA MFA policy settings (✓ OIE).
-     */
     public readonly onpremMfa!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Phone Number MFA policy settings (✓ OIE).
-     */
     public readonly phoneNumber!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Priority of the policy.
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
-    /**
-     * RSA Token MFA policy settings (✓ Classic, ✓ OIE).
-     */
     public readonly rsaToken!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Security Question MFA policy settings (✓ OIE).
-     */
     public readonly securityQuestion!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+     * Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     public readonly status!: pulumi.Output<string | undefined>;
-    /**
-     * Symantec VIP MFA policy settings (✓ Classic).
-     */
     public readonly symantecVip!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
-     */
     public readonly webauthn!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
-     */
     public readonly yubikeyToken!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -273,113 +199,49 @@ export class Mfa extends pulumi.CustomResource {
  */
 export interface MfaState {
     /**
-     * Policy Description.
+     * Policy Description
      */
     description?: pulumi.Input<string>;
-    /**
-     * DUO MFA policy settings (✓ Classic, ✓ OIE).
-     */
     duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * External IDP MFA policy settings (✓ OIE).
-     */
     externalIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Fido U2F MFA policy settings (✓ Classic).
-     */
     fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Fido Web Authn MFA policy settings (✓ Classic).
-     */
     fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Google OTP MFA policy settings (✓ Classic, ✓ OIE).
-     */
     googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * List of Group IDs to Include.
+     * List of Group IDs to Include
      */
     groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * HMAC-based One-Time Password MFA policy settings (✓ Classic).
-     */
     hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
-     * > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
+     * Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
      */
     isOie?: pulumi.Input<boolean>;
     /**
-     * Policy Name.
+     * Policy Name
      */
     name?: pulumi.Input<string>;
-    /**
-     * Okta Call MFA policy settings (✓ Classic).
-     */
     oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Okta Email MFA policy settings (✓ Classic, ✓ OIE).
-     */
     oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
-     */
     oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Okta Password MFA policy settings (✓ Classic, ✓ OIE).
-     */
     oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Okta Push MFA policy settings (✓ Classic).
-     */
     oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Okta Question MFA policy settings (✓ Classic).
-     */
     oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Okta SMS MFA policy settings (✓ Classic).
-     */
     oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Okta Verify MFA policy settings (✓ OIE).
-     */
     oktaVerify?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * On-Prem MFA MFA policy settings (✓ OIE).
-     */
     onpremMfa?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Phone Number MFA policy settings (✓ OIE).
-     */
     phoneNumber?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Priority of the policy.
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     priority?: pulumi.Input<number>;
-    /**
-     * RSA Token MFA policy settings (✓ Classic, ✓ OIE).
-     */
     rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Security Question MFA policy settings (✓ OIE).
-     */
     securityQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+     * Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     status?: pulumi.Input<string>;
-    /**
-     * Symantec VIP MFA policy settings (✓ Classic).
-     */
     symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
-     */
     webauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
-     */
     yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -388,112 +250,48 @@ export interface MfaState {
  */
 export interface MfaArgs {
     /**
-     * Policy Description.
+     * Policy Description
      */
     description?: pulumi.Input<string>;
-    /**
-     * DUO MFA policy settings (✓ Classic, ✓ OIE).
-     */
     duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * External IDP MFA policy settings (✓ OIE).
-     */
     externalIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Fido U2F MFA policy settings (✓ Classic).
-     */
     fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Fido Web Authn MFA policy settings (✓ Classic).
-     */
     fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Google OTP MFA policy settings (✓ Classic, ✓ OIE).
-     */
     googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * List of Group IDs to Include.
+     * List of Group IDs to Include
      */
     groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * HMAC-based One-Time Password MFA policy settings (✓ Classic).
-     */
     hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
-     * > **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
+     * Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
      */
     isOie?: pulumi.Input<boolean>;
     /**
-     * Policy Name.
+     * Policy Name
      */
     name?: pulumi.Input<string>;
-    /**
-     * Okta Call MFA policy settings (✓ Classic).
-     */
     oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Okta Email MFA policy settings (✓ Classic, ✓ OIE).
-     */
     oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
-     */
     oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Okta Password MFA policy settings (✓ Classic, ✓ OIE).
-     */
     oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Okta Push MFA policy settings (✓ Classic).
-     */
     oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Okta Question MFA policy settings (✓ Classic).
-     */
     oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Okta SMS MFA policy settings (✓ Classic).
-     */
     oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Okta Verify MFA policy settings (✓ OIE).
-     */
     oktaVerify?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * On-Prem MFA MFA policy settings (✓ OIE).
-     */
     onpremMfa?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Phone Number MFA policy settings (✓ OIE).
-     */
     phoneNumber?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Priority of the policy.
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
     priority?: pulumi.Input<number>;
-    /**
-     * RSA Token MFA policy settings (✓ Classic, ✓ OIE).
-     */
     rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Security Question MFA policy settings (✓ OIE).
-     */
     securityQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+     * Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     status?: pulumi.Input<string>;
-    /**
-     * Symantec VIP MFA policy settings (✓ Classic).
-     */
     symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
-     */
     webauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
-     */
     yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

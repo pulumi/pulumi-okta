@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 
 export interface AppGroupAssignmentsGroup {
     /**
-     * ID of the group to assign.
+     * A group to associate with the application
      */
     id: pulumi.Input<string>;
     /**
@@ -22,37 +22,31 @@ export interface AppGroupAssignmentsGroup {
 
 export interface AppSignonPolicyRulePlatformInclude {
     /**
-     * Only available and required when using `osType = "OTHER"`
+     * Only available with OTHER OS type
      */
     osExpression?: pulumi.Input<string>;
-    /**
-     * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
-     */
     osType?: pulumi.Input<string>;
-    /**
-     * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-     */
     type?: pulumi.Input<string>;
 }
 
 export interface AppUserSchemaPropertyArrayOneOf {
     /**
-     * value mapping to member of `arrayEnum`.
+     * Value mapping to member of `arrayEnum`
      */
     const: pulumi.Input<string>;
     /**
-     * display name for the enum value.
+     * Display name for the enum value.
      */
     title: pulumi.Input<string>;
 }
 
 export interface AppUserSchemaPropertyOneOf {
     /**
-     * value mapping to member of `enum`.
+     * Enum value
      */
     const: pulumi.Input<string>;
     /**
-     * display name for the enum value.
+     * Enum title
      */
     title: pulumi.Input<string>;
 }
@@ -92,15 +86,15 @@ export interface CustomizedSigninPageWidgetCustomizations {
 
 export interface DomainDnsRecord {
     /**
-     * TXT record expiration.
+     * TXT record expiration
      */
     expiration?: pulumi.Input<string>;
     /**
-     * DNS record name.
+     * DNS record name
      */
     fqdn?: pulumi.Input<string>;
     /**
-     * Record type can be TXT or CNAME.
+     * Record type can be TXT or CNAME
      */
     recordType?: pulumi.Input<string>;
     /**
@@ -117,27 +111,26 @@ export interface EmailDomainDnsValidationRecord {
      */
     expiration?: pulumi.Input<string>;
     /**
-     * DNS record name.
+     * DNS record name
      */
     fqdn?: pulumi.Input<string>;
     /**
-     * Record type can be TXT or cname.
+     * Record type can be TXT or cname
      */
     recordType?: pulumi.Input<string>;
     /**
      * DNS record value
-     * - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
      */
     value?: pulumi.Input<string>;
 }
 
 export interface EmailSenderDnsRecord {
     /**
-     * DNS record name.
+     * DNS record name
      */
     fqdn?: pulumi.Input<string>;
     /**
-     * Record type can be TXT or CNAME.
+     * Record type can be TXT or CNAME
      */
     recordType?: pulumi.Input<string>;
     /**
@@ -223,7 +216,7 @@ export interface GetLogStreamSettings {
      */
     accountId?: string;
     /**
-     * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+     * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
      */
     edition?: string;
     /**
@@ -231,7 +224,7 @@ export interface GetLogStreamSettings {
      */
     eventSourceName?: string;
     /**
-     * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+     * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
      */
     host?: string;
     /**
@@ -239,7 +232,7 @@ export interface GetLogStreamSettings {
      */
     region?: string;
     /**
-     * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+     * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
      */
     token?: string;
 }
@@ -250,7 +243,7 @@ export interface GetLogStreamSettingsArgs {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+     * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
      */
     edition?: pulumi.Input<string>;
     /**
@@ -258,7 +251,7 @@ export interface GetLogStreamSettingsArgs {
      */
     eventSourceName?: pulumi.Input<string>;
     /**
-     * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+     * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
      */
     host?: pulumi.Input<string>;
     /**
@@ -266,7 +259,7 @@ export interface GetLogStreamSettingsArgs {
      */
     region?: pulumi.Input<string>;
     /**
-     * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+     * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
      */
     token?: pulumi.Input<string>;
 }
@@ -313,60 +306,54 @@ export interface GetOrgMetadataSettingsArgs {
 
 export interface GroupSchemaPropertyArrayOneOf {
     /**
-     * value mapping to member of `enum`.
+     * Value mapping to member of `arrayEnum`
      */
     const: pulumi.Input<string>;
     /**
-     * display name for the enum value.
+     * Display name for the enum value.
      */
     title: pulumi.Input<string>;
 }
 
 export interface GroupSchemaPropertyMasterOverridePriority {
-    /**
-     * Type of profile source.
-     */
     type?: pulumi.Input<string>;
-    /**
-     * ID of profile source.
-     */
     value: pulumi.Input<string>;
 }
 
 export interface GroupSchemaPropertyOneOf {
     /**
-     * value mapping to member of `enum`.
+     * Enum value
      */
     const: pulumi.Input<string>;
     /**
-     * display name for the enum value.
+     * Enum title
      */
     title: pulumi.Input<string>;
 }
 
 export interface LogStreamSettings {
     /**
-     * AWS account ID.
+     * AWS account ID. Required only for 'aws_eventbridge' type
      */
     accountId?: pulumi.Input<string>;
     /**
-     * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
+     * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
      */
     edition?: pulumi.Input<string>;
     /**
-     * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+     * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
      */
     eventSourceName?: pulumi.Input<string>;
     /**
-     * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
+     * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
      */
     host?: pulumi.Input<string>;
     /**
-     * The destination AWS region where event source is located.
+     * The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
      */
     region?: pulumi.Input<string>;
     /**
-     * The HEC token for your Splunk Cloud HTTP Event Collector.
+     * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
      */
     token?: pulumi.Input<string>;
 }
@@ -381,7 +368,7 @@ export interface PolicyRuleProfileEnrollmentProfileAttribute {
      */
     name: pulumi.Input<string>;
     /**
-     * Indicates if this property is required for enrollment. Default is `false`.
+     * Indicates if this property is required for enrollment
      */
     required?: pulumi.Input<boolean>;
 }
@@ -432,44 +419,38 @@ export interface TemplateSmsTranslation {
 
 export interface UserSchemaPropertyArrayOneOf {
     /**
-     * value mapping to member of `enum`.
+     * Value mapping to member of `arrayEnum`
      */
     const: pulumi.Input<string>;
     /**
-     * display name for the enum value.
+     * Display name for the enum value.
      */
     title: pulumi.Input<string>;
 }
 
 export interface UserSchemaPropertyMasterOverridePriority {
-    /**
-     * Type of profile source.
-     */
     type?: pulumi.Input<string>;
-    /**
-     * ID of profile source.
-     */
     value: pulumi.Input<string>;
 }
 
 export interface UserSchemaPropertyOneOf {
     /**
-     * value mapping to member of `enum`.
+     * Enum value
      */
     const: pulumi.Input<string>;
     /**
-     * display name for the enum value.
+     * Enum title
      */
     title: pulumi.Input<string>;
 }
 export namespace app {
     export interface OAuthGroupsClaim {
         /**
-         * Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
+         * Groups claim filter. Can only be set if type is FILTER.
          */
         filterType?: pulumi.Input<string>;
         /**
-         * Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
+         * Issuer mode inherited from OAuth App
          */
         issuerMode?: pulumi.Input<string>;
         /**
@@ -477,7 +458,7 @@ export namespace app {
          */
         name: pulumi.Input<string>;
         /**
-         * Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+         * Groups claim type.
          */
         type: pulumi.Input<string>;
         /**
@@ -515,58 +496,55 @@ export namespace app {
 
     export interface SamlAttributeStatement {
         /**
-         * Type of group attribute filter. Valid values are: `"STARTS_WITH"`, `"EQUALS"`, `"CONTAINS"`, or `"REGEX"`
+         * Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`
          */
         filterType?: pulumi.Input<string>;
         /**
-         * Filter value to use.
+         * Filter value to use
          */
         filterValue?: pulumi.Input<string>;
         /**
-         * The name of the attribute statement.
+         * The reference name of the attribute statement
          */
         name: pulumi.Input<string>;
         /**
-         * The attribute namespace. It can be set to `"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"`, `"urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`, or `"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"`.
+         * The attribute namespace. It can be set to `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`, `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, or `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`
          */
         namespace?: pulumi.Input<string>;
         /**
-         * The type of attribute statement value. Valid values are: `"EXPRESSION"` or `"GROUP"`. Default is `"EXPRESSION"`.
+         * The type of attribute statements object
          */
         type?: pulumi.Input<string>;
-        /**
-         * Array of values to use.
-         */
         values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface SamlKey {
         /**
-         * Date created.
+         * Created date
          */
         created?: pulumi.Input<string>;
         /**
-         * RSA exponent.
+         * RSA exponent
          */
         e?: pulumi.Input<string>;
         /**
-         * Date the key expires.
+         * Expiration date
          */
         expiresAt?: pulumi.Input<string>;
         /**
-         * Key ID.
+         * Key ID
          */
         kid?: pulumi.Input<string>;
         /**
-         * Identifies the cryptographic algorithm family used with the key.
+         * Key type. Identifies the cryptographic algorithm family used with the key.
          */
         kty?: pulumi.Input<string>;
         /**
-         * Date the key was last updated.
+         * Last updated date
          */
         lastUpdated?: pulumi.Input<string>;
         /**
-         * RSA modulus.
+         * RSA modulus
          */
         n?: pulumi.Input<string>;
         /**
@@ -574,11 +552,11 @@ export namespace app {
          */
         use?: pulumi.Input<string>;
         /**
-         * X.509 certificate chain.
+         * X.509 Certificate Chain
          */
         x5cs?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * X.509 certificate SHA-256 thumbprint.
+         * X.509 certificate SHA-256 thumbprint
          */
         x5tS256?: pulumi.Input<string>;
     }
@@ -596,107 +574,62 @@ export namespace inline {
 
 export namespace policy {
     export interface RuleIdpDiscoveryAppExclude {
-        /**
-         * ID of the Rule.
-         */
         id?: pulumi.Input<string>;
-        /**
-         * Policy rule name.
-         */
         name?: pulumi.Input<string>;
         type: pulumi.Input<string>;
     }
 
     export interface RuleIdpDiscoveryAppInclude {
-        /**
-         * Use if `type` is `"APP"` to indicate the application id to include.
-         */
         id?: pulumi.Input<string>;
-        /**
-         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
-         */
         name?: pulumi.Input<string>;
-        /**
-         * One of: `"APP"`, `"APP_TYPE"`
-         */
         type: pulumi.Input<string>;
     }
 
     export interface RuleIdpDiscoveryPlatformInclude {
         /**
-         * Only available when using `osType = "OTHER"`
+         * Only available with OTHER OS type
          */
         osExpression?: pulumi.Input<string>;
-        /**
-         * One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`
-         */
         osType?: pulumi.Input<string>;
-        /**
-         * One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-         */
         type?: pulumi.Input<string>;
     }
 
     export interface RuleIdpDiscoveryUserIdentifierPattern {
-        /**
-         * The kind of pattern. For regex, use `"EXPRESSION"`. For simple string matches, use one of the following: `"SUFFIX"`, `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`
-         */
         matchType?: pulumi.Input<string>;
-        /**
-         * The regex or simple match string to match against.
-         */
         value?: pulumi.Input<string>;
     }
 
     export interface RuleMfaAppExclude {
-        /**
-         * ID of the Rule.
-         */
         id?: pulumi.Input<string>;
-        /**
-         * Policy Rule Name.
-         */
         name?: pulumi.Input<string>;
         type: pulumi.Input<string>;
     }
 
     export interface RuleMfaAppInclude {
-        /**
-         * Use if `type` is `"APP"` to indicate the application id to include.
-         */
         id?: pulumi.Input<string>;
-        /**
-         * Use if the `type` is `"APP_TYPE"` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahooMail`) of applications should be included.
-         */
         name?: pulumi.Input<string>;
-        /**
-         * One of: `"APP"`, `"APP_TYPE"`
-         */
         type: pulumi.Input<string>;
     }
 
     export interface RuleSignonFactorSequence {
         /**
-         * Primary factor type of the auth section.
+         * Type of a Factor
          */
         primaryCriteriaFactorType: pulumi.Input<string>;
         /**
-         * Primary provider of the auth section.
+         * Factor provider
          */
         primaryCriteriaProvider: pulumi.Input<string>;
-        /**
-         * Additional authentication steps.
-         */
         secondaryCriterias?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequenceSecondaryCriteria>[]>;
     }
 
     export interface RuleSignonFactorSequenceSecondaryCriteria {
         /**
-         * Factor type of the additional authentication step.
+         * Type of a Factor
          */
         factorType: pulumi.Input<string>;
         /**
-         * Provider of the additional authentication step.
+         * Factor provider
          */
         provider: pulumi.Input<string>;
     }
@@ -704,95 +637,65 @@ export namespace policy {
 
 export namespace profile {
     export interface MappingMapping {
-        /**
-         * Combination or single source properties that will be mapped to the target property.
-         */
         expression: pulumi.Input<string>;
         /**
-         * Key of mapping.
+         * The mapping property key.
          */
         id: pulumi.Input<string>;
-        /**
-         * Whether to update target properties on user create & update or just on create.
-         */
         pushStatus?: pulumi.Input<string>;
     }
 }
 
 export namespace user {
     export interface GetUserSearch {
-        /**
-         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-         */
         comparison?: string;
         /**
-         * A raw search expression string. If present it will override name/comparison/value.
+         * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
          */
         expression?: string;
         /**
-         * Name of property to search against.
+         * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
          */
         name?: string;
-        /**
-         * Value to compare with.
-         */
         value?: string;
     }
 
     export interface GetUserSearchArgs {
-        /**
-         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-         */
         comparison?: pulumi.Input<string>;
         /**
-         * A raw search expression string. If present it will override name/comparison/value.
+         * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
          */
         expression?: pulumi.Input<string>;
         /**
-         * Name of property to search against.
+         * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
          */
         name?: pulumi.Input<string>;
-        /**
-         * Value to compare with.
-         */
         value?: pulumi.Input<string>;
     }
 
     export interface GetUsersSearch {
-        /**
-         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-         */
         comparison?: string;
         /**
-         * A raw search expression string. If present it will override name/comparison/value.
+         * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
          */
         expression?: string;
         /**
-         * Name of property to search against.
+         * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
          */
         name?: string;
-        /**
-         * Value to compare with.
-         */
         value?: string;
     }
 
     export interface GetUsersSearchArgs {
-        /**
-         * Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-         */
         comparison?: pulumi.Input<string>;
         /**
-         * A raw search expression string. If present it will override name/comparison/value.
+         * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
          */
         expression?: pulumi.Input<string>;
         /**
-         * Name of property to search against.
+         * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
          */
         name?: pulumi.Input<string>;
-        /**
-         * Value to compare with.
-         */
         value?: pulumi.Input<string>;
     }
 

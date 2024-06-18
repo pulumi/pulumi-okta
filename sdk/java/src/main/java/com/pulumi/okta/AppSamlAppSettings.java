@@ -14,8 +14,9 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Manages app settings of the SAML application.
  * This resource allows you to manage app settings of the SAML Application . It&#39;s basically the same as
- * `app_settings_json` field in `okta.app.Saml` resource and can be used in cases where settings require to be managed separately.
+ * app_settings_json field in okta.app.Saml resource and can be used in cases where settings require to be managed separately.
  * 
  * ## Example Usage
  * 
@@ -74,10 +75,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A settings for the SAML App can be imported via the Okta ID.
- * 
  * ```sh
- * $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &amp;#60;app id&amp;#62;
+ * $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &amp;#60;app id&amp;#62
  * ```
  * 
  */
@@ -98,14 +97,14 @@ public class AppSamlAppSettings extends com.pulumi.resources.CustomResource {
         return this.appId;
     }
     /**
-     * Application settings in JSON format.
+     * Application settings in JSON format
      * 
      */
     @Export(name="settings", refs={String.class}, tree="[0]")
     private Output<String> settings;
 
     /**
-     * @return Application settings in JSON format.
+     * @return Application settings in JSON format
      * 
      */
     public Output<String> settings() {

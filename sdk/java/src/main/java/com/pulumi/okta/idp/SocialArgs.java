@@ -20,14 +20,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     public static final SocialArgs Empty = new SocialArgs();
 
     /**
-     * Specifies the account linking action for an IdP user.
+     * Specifies the account linking action for an IdP user. Default: `AUTO`
      * 
      */
     @Import(name="accountLinkAction")
     private @Nullable Output<String> accountLinkAction;
 
     /**
-     * @return Specifies the account linking action for an IdP user.
+     * @return Specifies the account linking action for an IdP user. Default: `AUTO`
      * 
      */
     public Optional<Output<String>> accountLinkAction() {
@@ -50,14 +50,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Key ID that you obtained from Apple when you created the private key for the client.
+     * The Key ID that you obtained from Apple when you created the private key for the client
      * 
      */
     @Import(name="appleKid")
     private @Nullable Output<String> appleKid;
 
     /**
-     * @return The Key ID that you obtained from Apple when you created the private key for the client.
+     * @return The Key ID that you obtained from Apple when you created the private key for the client
      * 
      */
     public Optional<Output<String>> appleKid() {
@@ -65,18 +65,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Key ID that you obtained from Apple when you created the private
-     * key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
-     * and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
+     * The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
      * 
      */
     @Import(name="applePrivateKey")
     private @Nullable Output<String> applePrivateKey;
 
     /**
-     * @return The Key ID that you obtained from Apple when you created the private
-     * key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
-     * and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
+     * @return The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
      * 
      */
     public Optional<Output<String>> applePrivateKey() {
@@ -84,14 +80,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Team ID associated with your Apple developer account.
+     * The Team ID associated with your Apple developer account
      * 
      */
     @Import(name="appleTeamId")
     private @Nullable Output<String> appleTeamId;
 
     /**
-     * @return The Team ID associated with your Apple developer account.
+     * @return The Team ID associated with your Apple developer account
      * 
      */
     public Optional<Output<String>> appleTeamId() {
@@ -129,14 +125,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+     * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     @Import(name="deprovisionedAction")
     private @Nullable Output<String> deprovisionedAction;
 
     /**
-     * @return Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+     * @return Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     public Optional<Output<String>> deprovisionedAction() {
@@ -144,14 +140,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+     * Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      * 
      */
     @Import(name="groupsAction")
     private @Nullable Output<String> groupsAction;
 
     /**
-     * @return Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+     * @return Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      * 
      */
     public Optional<Output<String>> groupsAction() {
@@ -159,14 +155,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+     * List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
      * 
      */
     @Import(name="groupsAssignments")
     private @Nullable Output<List<String>> groupsAssignments;
 
     /**
-     * @return List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+     * @return List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
      * 
      */
     public Optional<Output<List<String>>> groupsAssignments() {
@@ -189,14 +185,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+     * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
      * 
      */
     @Import(name="groupsFilters")
     private @Nullable Output<List<String>> groupsFilters;
 
     /**
-     * @return Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+     * @return Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
      * 
      */
     public Optional<Output<List<String>>> groupsFilters() {
@@ -204,14 +200,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
      * 
      */
     @Import(name="issuerMode")
     private @Nullable Output<String> issuerMode;
 
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
      * 
      */
     public Optional<Output<String>> issuerMode() {
@@ -234,14 +230,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Application&#39;s display name.
+     * Name of the IdP
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The Application&#39;s display name.
+     * @return Name of the IdP
      * 
      */
     public Optional<Output<String>> name() {
@@ -264,14 +260,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+     * The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
      * 
      */
     @Import(name="protocolType")
     private @Nullable Output<String> protocolType;
 
     /**
-     * @return The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+     * @return The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
      * 
      */
     public Optional<Output<String>> protocolType() {
@@ -279,14 +275,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Provisioning action for an IdP user during authentication.
+     * Provisioning action for an IdP user during authentication. Default: `AUTO`
      * 
      */
     @Import(name="provisioningAction")
     private @Nullable Output<String> provisioningAction;
 
     /**
-     * @return Provisioning action for an IdP user during authentication.
+     * @return Provisioning action for an IdP user during authentication. Default: `AUTO`
      * 
      */
     public Optional<Output<String>> provisioningAction() {
@@ -309,14 +305,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of the IdP.
+     * Default to `ACTIVE`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of the IdP.
+     * @return Default to `ACTIVE`
      * 
      */
     public Optional<Output<String>> status() {
@@ -324,14 +320,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      * 
      */
     @Import(name="subjectMatchAttribute")
     private @Nullable Output<String> subjectMatchAttribute;
 
     /**
-     * @return Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * @return Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      * 
      */
     public Optional<Output<String>> subjectMatchAttribute() {
@@ -339,14 +335,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      * 
      */
     @Import(name="subjectMatchType")
     private @Nullable Output<String> subjectMatchType;
 
     /**
-     * @return Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * @return Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      * 
      */
     public Optional<Output<String>> subjectMatchType() {
@@ -354,14 +350,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+     * Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     @Import(name="suspendedAction")
     private @Nullable Output<String> suspendedAction;
 
     /**
-     * @return Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+     * @return Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     public Optional<Output<String>> suspendedAction() {
@@ -369,14 +365,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+     * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+     * @return Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
      * 
      */
     public Output<String> type() {
@@ -384,14 +380,14 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Okta EL Expression to generate or transform a unique username for the IdP user.
+     * Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      * 
      */
     @Import(name="usernameTemplate")
     private @Nullable Output<String> usernameTemplate;
 
     /**
-     * @return Okta EL Expression to generate or transform a unique username for the IdP user.
+     * @return Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      * 
      */
     public Optional<Output<String>> usernameTemplate() {
@@ -447,7 +443,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountLinkAction Specifies the account linking action for an IdP user.
+         * @param accountLinkAction Specifies the account linking action for an IdP user. Default: `AUTO`
          * 
          * @return builder
          * 
@@ -458,7 +454,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountLinkAction Specifies the account linking action for an IdP user.
+         * @param accountLinkAction Specifies the account linking action for an IdP user. Default: `AUTO`
          * 
          * @return builder
          * 
@@ -499,7 +495,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appleKid The Key ID that you obtained from Apple when you created the private key for the client.
+         * @param appleKid The Key ID that you obtained from Apple when you created the private key for the client
          * 
          * @return builder
          * 
@@ -510,7 +506,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appleKid The Key ID that you obtained from Apple when you created the private key for the client.
+         * @param appleKid The Key ID that you obtained from Apple when you created the private key for the client
          * 
          * @return builder
          * 
@@ -520,9 +516,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applePrivateKey The Key ID that you obtained from Apple when you created the private
-         * key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
-         * and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
+         * @param applePrivateKey The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
          * 
          * @return builder
          * 
@@ -533,9 +527,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applePrivateKey The Key ID that you obtained from Apple when you created the private
-         * key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
-         * and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
+         * @param applePrivateKey The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
          * 
          * @return builder
          * 
@@ -545,7 +537,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appleTeamId The Team ID associated with your Apple developer account.
+         * @param appleTeamId The Team ID associated with your Apple developer account
          * 
          * @return builder
          * 
@@ -556,7 +548,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appleTeamId The Team ID associated with your Apple developer account.
+         * @param appleTeamId The Team ID associated with your Apple developer account
          * 
          * @return builder
          * 
@@ -608,7 +600,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -619,7 +611,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -629,7 +621,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -640,7 +632,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -650,7 +642,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
          * 
          * @return builder
          * 
@@ -661,7 +653,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
          * 
          * @return builder
          * 
@@ -671,7 +663,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
          * 
          * @return builder
          * 
@@ -702,7 +694,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
          * 
          * @return builder
          * 
@@ -713,7 +705,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
          * 
          * @return builder
          * 
@@ -723,7 +715,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
          * 
          * @return builder
          * 
@@ -733,7 +725,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
          * 
          * @return builder
          * 
@@ -744,7 +736,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
          * 
          * @return builder
          * 
@@ -775,7 +767,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Application&#39;s display name.
+         * @param name Name of the IdP
          * 
          * @return builder
          * 
@@ -786,7 +778,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Application&#39;s display name.
+         * @param name Name of the IdP
          * 
          * @return builder
          * 
@@ -817,7 +809,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolType The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+         * @param protocolType The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
          * 
          * @return builder
          * 
@@ -828,7 +820,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolType The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+         * @param protocolType The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
          * 
          * @return builder
          * 
@@ -838,7 +830,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param provisioningAction Provisioning action for an IdP user during authentication.
+         * @param provisioningAction Provisioning action for an IdP user during authentication. Default: `AUTO`
          * 
          * @return builder
          * 
@@ -849,7 +841,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param provisioningAction Provisioning action for an IdP user during authentication.
+         * @param provisioningAction Provisioning action for an IdP user during authentication. Default: `AUTO`
          * 
          * @return builder
          * 
@@ -890,7 +882,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the IdP.
+         * @param status Default to `ACTIVE`
          * 
          * @return builder
          * 
@@ -901,7 +893,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the IdP.
+         * @param status Default to `ACTIVE`
          * 
          * @return builder
          * 
@@ -911,7 +903,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
          * 
          * @return builder
          * 
@@ -922,7 +914,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
          * 
          * @return builder
          * 
@@ -932,7 +924,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
          * 
          * @return builder
          * 
@@ -943,7 +935,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
          * 
          * @return builder
          * 
@@ -953,7 +945,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -964,7 +956,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -974,7 +966,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+         * @param type Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
          * 
          * @return builder
          * 
@@ -985,7 +977,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+         * @param type Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
          * 
          * @return builder
          * 
@@ -995,7 +987,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user.
+         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
          * 
          * @return builder
          * 
@@ -1006,7 +998,7 @@ public final class SocialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user.
+         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
          * 
          * @return builder
          * 

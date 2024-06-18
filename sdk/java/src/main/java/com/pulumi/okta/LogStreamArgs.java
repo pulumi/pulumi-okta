@@ -18,44 +18,36 @@ public final class LogStreamArgs extends com.pulumi.resources.ResourceArgs {
     public static final LogStreamArgs Empty = new LogStreamArgs();
 
     /**
-     * Name of the Log Stream Resource.
+     * Unique name for the Log Stream object
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the Log Stream Resource.
+     * @return Unique name for the Log Stream object
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Stream provider specific configuration.
-     * 
-     */
     @Import(name="settings")
     private @Nullable Output<LogStreamSettingsArgs> settings;
 
-    /**
-     * @return Stream provider specific configuration.
-     * 
-     */
     public Optional<Output<LogStreamSettingsArgs>> settings() {
         return Optional.ofNullable(this.settings);
     }
 
     /**
-     * Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+     * Stream status
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+     * @return Stream status
      * 
      */
     public Optional<Output<String>> status() {
@@ -63,14 +55,14 @@ public final class LogStreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of the Log Stream - can either be `&#34;aws_eventbridge&#34;` or `&#34;splunk_cloud_logstreaming&#34;` only.
+     * Streaming provider used - &#39;aws*eventbridge&#39; or &#39;splunk*cloud_logstreaming&#39;
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of the Log Stream - can either be `&#34;aws_eventbridge&#34;` or `&#34;splunk_cloud_logstreaming&#34;` only.
+     * @return Streaming provider used - &#39;aws*eventbridge&#39; or &#39;splunk*cloud_logstreaming&#39;
      * 
      */
     public Output<String> type() {
@@ -105,7 +97,7 @@ public final class LogStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Log Stream Resource.
+         * @param name Unique name for the Log Stream object
          * 
          * @return builder
          * 
@@ -116,7 +108,7 @@ public final class LogStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Log Stream Resource.
+         * @param name Unique name for the Log Stream object
          * 
          * @return builder
          * 
@@ -125,29 +117,17 @@ public final class LogStreamArgs extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
-        /**
-         * @param settings Stream provider specific configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settings(@Nullable Output<LogStreamSettingsArgs> settings) {
             $.settings = settings;
             return this;
         }
 
-        /**
-         * @param settings Stream provider specific configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settings(LogStreamSettingsArgs settings) {
             return settings(Output.of(settings));
         }
 
         /**
-         * @param status Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+         * @param status Stream status
          * 
          * @return builder
          * 
@@ -158,7 +138,7 @@ public final class LogStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+         * @param status Stream status
          * 
          * @return builder
          * 
@@ -168,7 +148,7 @@ public final class LogStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the Log Stream - can either be `&#34;aws_eventbridge&#34;` or `&#34;splunk_cloud_logstreaming&#34;` only.
+         * @param type Streaming provider used - &#39;aws*eventbridge&#39; or &#39;splunk*cloud_logstreaming&#39;
          * 
          * @return builder
          * 
@@ -179,7 +159,7 @@ public final class LogStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the Log Stream - can either be `&#34;aws_eventbridge&#34;` or `&#34;splunk_cloud_logstreaming&#34;` only.
+         * @param type Streaming provider used - &#39;aws*eventbridge&#39; or &#39;splunk*cloud_logstreaming&#39;
          * 
          * @return builder
          * 

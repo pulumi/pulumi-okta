@@ -10,67 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
+    /// Manages Org-Wide CAPTCHA settings
     /// &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-    /// 
     /// This resource allows you to configure which parts of the authentication flow requires users to pass the CAPTCHA logic.
-    /// CAPTCHA org-wide settings can be disabled by unsetting `captcha_id` and `enabled_for`.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Captcha("example", new()
-    ///     {
-    ///         Name = "My CAPTCHA",
-    ///         Type = "HCAPTCHA",
-    ///         SiteKey = "some_key",
-    ///         SecretKey = "some_secret_key",
-    ///     });
-    /// 
-    ///     var exampleCaptchaOrgWideSettings = new Okta.CaptchaOrgWideSettings("example", new()
-    ///     {
-    ///         CaptchaId = test.Id,
-    ///         EnabledFors = new[]
-    ///         {
-    ///             "SSR",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// The following example disables org-wide CAPTCHA.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Captcha("example", new()
-    ///     {
-    ///         Name = "My CAPTCHA",
-    ///         Type = "HCAPTCHA",
-    ///         SiteKey = "some_key",
-    ///         SecretKey = "some_secret_key",
-    ///     });
-    /// 
-    ///     var exampleCaptchaOrgWideSettings = new Okta.CaptchaOrgWideSettings("example");
-    /// 
-    /// });
-    /// ```
+    /// CAPTCHA org-wide settings can be disabled by unsetting 'captcha_id' and 'enabled_for'.
     /// 
     /// ## Import
-    /// 
-    /// Org-Wide CAPTCHA settings can be imported without any parameters.
     /// 
     /// ```sh
     /// $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
@@ -80,13 +25,13 @@ namespace Pulumi.Okta
     public partial class CaptchaOrgWideSettings : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the CAPTCHA.
+        /// Array of pages that have CAPTCHA enabled. Valid values: `SSR`, `SSPR` and `SIGN_IN`.
         /// </summary>
         [Output("captchaId")]
         public Output<string?> CaptchaId { get; private set; } = null!;
 
         /// <summary>
-        /// Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
+        /// Set of pages that have CAPTCHA enabled
         /// </summary>
         [Output("enabledFors")]
         public Output<ImmutableArray<string>> EnabledFors { get; private set; } = null!;
@@ -138,7 +83,7 @@ namespace Pulumi.Okta
     public sealed class CaptchaOrgWideSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the CAPTCHA.
+        /// Array of pages that have CAPTCHA enabled. Valid values: `SSR`, `SSPR` and `SIGN_IN`.
         /// </summary>
         [Input("captchaId")]
         public Input<string>? CaptchaId { get; set; }
@@ -147,7 +92,7 @@ namespace Pulumi.Okta
         private InputList<string>? _enabledFors;
 
         /// <summary>
-        /// Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
+        /// Set of pages that have CAPTCHA enabled
         /// </summary>
         public InputList<string> EnabledFors
         {
@@ -164,7 +109,7 @@ namespace Pulumi.Okta
     public sealed class CaptchaOrgWideSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the CAPTCHA.
+        /// Array of pages that have CAPTCHA enabled. Valid values: `SSR`, `SSPR` and `SIGN_IN`.
         /// </summary>
         [Input("captchaId")]
         public Input<string>? CaptchaId { get; set; }
@@ -173,7 +118,7 @@ namespace Pulumi.Okta
         private InputList<string>? _enabledFors;
 
         /// <summary>
-        /// Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
+        /// Set of pages that have CAPTCHA enabled
         /// </summary>
         public InputList<string> EnabledFors
         {

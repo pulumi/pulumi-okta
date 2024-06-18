@@ -14,31 +14,31 @@ namespace Pulumi.Okta.App.Outputs
     public sealed class SamlKey
     {
         /// <summary>
-        /// Date created.
+        /// Created date
         /// </summary>
         public readonly string? Created;
         /// <summary>
-        /// RSA exponent.
+        /// RSA exponent
         /// </summary>
         public readonly string? E;
         /// <summary>
-        /// Date the key expires.
+        /// Expiration date
         /// </summary>
         public readonly string? ExpiresAt;
         /// <summary>
-        /// Key ID.
+        /// Key ID
         /// </summary>
         public readonly string? Kid;
         /// <summary>
-        /// Identifies the cryptographic algorithm family used with the key.
+        /// Key type. Identifies the cryptographic algorithm family used with the key.
         /// </summary>
         public readonly string? Kty;
         /// <summary>
-        /// Date the key was last updated.
+        /// Last updated date
         /// </summary>
         public readonly string? LastUpdated;
         /// <summary>
-        /// RSA modulus.
+        /// RSA modulus
         /// </summary>
         public readonly string? N;
         /// <summary>
@@ -46,11 +46,11 @@ namespace Pulumi.Okta.App.Outputs
         /// </summary>
         public readonly string? Use;
         /// <summary>
-        /// X.509 certificate chain.
+        /// X.509 Certificate Chain
         /// </summary>
         public readonly ImmutableArray<string> X5cs;
         /// <summary>
-        /// X.509 certificate SHA-256 thumbprint.
+        /// X.509 certificate SHA-256 thumbprint
         /// </summary>
         public readonly string? X5tS256;
 

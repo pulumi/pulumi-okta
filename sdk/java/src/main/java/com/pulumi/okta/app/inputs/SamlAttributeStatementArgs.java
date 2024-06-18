@@ -18,14 +18,14 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
     public static final SamlAttributeStatementArgs Empty = new SamlAttributeStatementArgs();
 
     /**
-     * Type of group attribute filter. Valid values are: `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, or `&#34;REGEX&#34;`
+     * Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`
      * 
      */
     @Import(name="filterType")
     private @Nullable Output<String> filterType;
 
     /**
-     * @return Type of group attribute filter. Valid values are: `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, or `&#34;REGEX&#34;`
+     * @return Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`
      * 
      */
     public Optional<Output<String>> filterType() {
@@ -33,14 +33,14 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Filter value to use.
+     * Filter value to use
      * 
      */
     @Import(name="filterValue")
     private @Nullable Output<String> filterValue;
 
     /**
-     * @return Filter value to use.
+     * @return Filter value to use
      * 
      */
     public Optional<Output<String>> filterValue() {
@@ -48,14 +48,14 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The name of the attribute statement.
+     * The reference name of the attribute statement
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the attribute statement.
+     * @return The reference name of the attribute statement
      * 
      */
     public Output<String> name() {
@@ -63,14 +63,14 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The attribute namespace. It can be set to `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified&#34;`, `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:uri&#34;`, or `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:basic&#34;`.
+     * The attribute namespace. It can be set to `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`, `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, or `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`
      * 
      */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
     /**
-     * @return The attribute namespace. It can be set to `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified&#34;`, `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:uri&#34;`, or `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:basic&#34;`.
+     * @return The attribute namespace. It can be set to `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`, `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, or `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`
      * 
      */
     public Optional<Output<String>> namespace() {
@@ -78,31 +78,23 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The type of attribute statement value. Valid values are: `&#34;EXPRESSION&#34;` or `&#34;GROUP&#34;`. Default is `&#34;EXPRESSION&#34;`.
+     * The type of attribute statements object
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of attribute statement value. Valid values are: `&#34;EXPRESSION&#34;` or `&#34;GROUP&#34;`. Default is `&#34;EXPRESSION&#34;`.
+     * @return The type of attribute statements object
      * 
      */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * Array of values to use.
-     * 
-     */
     @Import(name="values")
     private @Nullable Output<List<String>> values;
 
-    /**
-     * @return Array of values to use.
-     * 
-     */
     public Optional<Output<List<String>>> values() {
         return Optional.ofNullable(this.values);
     }
@@ -137,7 +129,7 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param filterType Type of group attribute filter. Valid values are: `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, or `&#34;REGEX&#34;`
+         * @param filterType Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`
          * 
          * @return builder
          * 
@@ -148,7 +140,7 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param filterType Type of group attribute filter. Valid values are: `&#34;STARTS_WITH&#34;`, `&#34;EQUALS&#34;`, `&#34;CONTAINS&#34;`, or `&#34;REGEX&#34;`
+         * @param filterType Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`
          * 
          * @return builder
          * 
@@ -158,7 +150,7 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param filterValue Filter value to use.
+         * @param filterValue Filter value to use
          * 
          * @return builder
          * 
@@ -169,7 +161,7 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param filterValue Filter value to use.
+         * @param filterValue Filter value to use
          * 
          * @return builder
          * 
@@ -179,7 +171,7 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name The name of the attribute statement.
+         * @param name The reference name of the attribute statement
          * 
          * @return builder
          * 
@@ -190,7 +182,7 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name The name of the attribute statement.
+         * @param name The reference name of the attribute statement
          * 
          * @return builder
          * 
@@ -200,7 +192,7 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param namespace The attribute namespace. It can be set to `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified&#34;`, `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:uri&#34;`, or `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:basic&#34;`.
+         * @param namespace The attribute namespace. It can be set to `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`, `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, or `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`
          * 
          * @return builder
          * 
@@ -211,7 +203,7 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param namespace The attribute namespace. It can be set to `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified&#34;`, `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:uri&#34;`, or `&#34;urn:oasis:names:tc:SAML:2.0:attrname-format:basic&#34;`.
+         * @param namespace The attribute namespace. It can be set to `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`, `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, or `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`
          * 
          * @return builder
          * 
@@ -221,7 +213,7 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The type of attribute statement value. Valid values are: `&#34;EXPRESSION&#34;` or `&#34;GROUP&#34;`. Default is `&#34;EXPRESSION&#34;`.
+         * @param type The type of attribute statements object
          * 
          * @return builder
          * 
@@ -232,7 +224,7 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The type of attribute statement value. Valid values are: `&#34;EXPRESSION&#34;` or `&#34;GROUP&#34;`. Default is `&#34;EXPRESSION&#34;`.
+         * @param type The type of attribute statements object
          * 
          * @return builder
          * 
@@ -241,33 +233,15 @@ public final class SamlAttributeStatementArgs extends com.pulumi.resources.Resou
             return type(Output.of(type));
         }
 
-        /**
-         * @param values Array of values to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(@Nullable Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Array of values to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values Array of values to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

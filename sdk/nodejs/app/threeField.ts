@@ -5,15 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * This resource allows you to create and configure a Three Field Application.
- *
- * > During an apply if there is change in `status` the app will first be
- * activated or deactivated in accordance with the `status` change. Then, all
- * other arguments that changed will be applied.
+ * Creates a Three Field Application.
+ * 		This resource allows you to create and configure a Three Field Application.
+ * 		> During an apply if there is change in 'status' the app will first be
+ * 		activated or deactivated in accordance with the 'status' change. Then, all
+ * 		other arguments that changed will be applied.
  *
  * ## Import
- *
- * A Three Field App can be imported via the Okta ID.
  *
  * ```sh
  * $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;
@@ -48,15 +46,15 @@ export class ThreeField extends pulumi.CustomResource {
     }
 
     /**
-     * Custom error page URL.
+     * Custom error page URL
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      */
     public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service. Default is `false`
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
@@ -68,15 +66,15 @@ export class ThreeField extends pulumi.CustomResource {
      */
     public readonly appLinksJson!: pulumi.Output<string | undefined>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
     /**
-     * Login button field CSS selector.
+     * Login button field CSS selector
      */
     public readonly buttonSelector!: pulumi.Output<string>;
     /**
-     * Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+     * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
      */
     public readonly credentialsScheme!: pulumi.Output<string | undefined>;
     /**
@@ -84,23 +82,23 @@ export class ThreeField extends pulumi.CustomResource {
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
-     * Extra field CSS selector.
+     * Extra field CSS selector
      */
     public readonly extraFieldSelector!: pulumi.Output<string>;
     /**
-     * Value for extra form field.
+     * Value for extra form field
      */
     public readonly extraFieldValue!: pulumi.Output<string>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     public readonly hideIos!: pulumi.Output<boolean | undefined>;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     public readonly hideWeb!: pulumi.Output<boolean | undefined>;
     /**
-     * The display name of the Application.
+     * The Application's display name.
      */
     public readonly label!: pulumi.Output<string>;
     /**
@@ -108,19 +106,19 @@ export class ThreeField extends pulumi.CustomResource {
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
-     * Direct link of application logo.
+     * URL of the application's logo
      */
     public /*out*/ readonly logoUrl!: pulumi.Output<string>;
     /**
-     * Name assigned to the application by Okta.
+     * Name of the app.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Login password field CSS selector.
+     * Login password field CSS selector
      */
     public readonly passwordSelector!: pulumi.Output<string>;
     /**
-     * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+     * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
      */
     public readonly revealPassword!: pulumi.Output<boolean | undefined>;
     /**
@@ -132,39 +130,39 @@ export class ThreeField extends pulumi.CustomResource {
      */
     public readonly sharedUsername!: pulumi.Output<string | undefined>;
     /**
-     * Sign-on mode of application.
+     * Sign on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Status of application. By default, it is `"ACTIVE"`.
+     * Status of application. By default, it is `ACTIVE`
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Login URL.
+     * Login URL
      */
     public readonly url!: pulumi.Output<string>;
     /**
-     * A regex that further restricts URL to the specified regex.
+     * A regex that further restricts URL to the specified regex
      */
     public readonly urlRegex!: pulumi.Output<string | undefined>;
     /**
-     * Username template. Default: `"${source.login}"`
+     * Username template. Default: `${source.login}`
      */
     public readonly userNameTemplate!: pulumi.Output<string | undefined>;
     /**
-     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
     public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
     /**
-     * Username template suffix.
+     * Username template suffix
      */
     public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
     /**
-     * Username template type. Default: `"BUILT_IN"`.
+     * Username template type. Default: `BUILT_IN`
      */
     public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
     /**
-     * Login username field CSS selector.
+     * Login username field CSS selector
      */
     public readonly usernameSelector!: pulumi.Output<string>;
 
@@ -275,15 +273,15 @@ export class ThreeField extends pulumi.CustomResource {
  */
 export interface ThreeFieldState {
     /**
-     * Custom error page URL.
+     * Custom error page URL
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service. Default is `false`
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -295,15 +293,15 @@ export interface ThreeFieldState {
      */
     appLinksJson?: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * Login button field CSS selector.
+     * Login button field CSS selector
      */
     buttonSelector?: pulumi.Input<string>;
     /**
-     * Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+     * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
      */
     credentialsScheme?: pulumi.Input<string>;
     /**
@@ -311,23 +309,23 @@ export interface ThreeFieldState {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Extra field CSS selector.
+     * Extra field CSS selector
      */
     extraFieldSelector?: pulumi.Input<string>;
     /**
-     * Value for extra form field.
+     * Value for extra form field
      */
     extraFieldValue?: pulumi.Input<string>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
-     * The display name of the Application.
+     * The Application's display name.
      */
     label?: pulumi.Input<string>;
     /**
@@ -335,19 +333,19 @@ export interface ThreeFieldState {
      */
     logo?: pulumi.Input<string>;
     /**
-     * Direct link of application logo.
+     * URL of the application's logo
      */
     logoUrl?: pulumi.Input<string>;
     /**
-     * Name assigned to the application by Okta.
+     * Name of the app.
      */
     name?: pulumi.Input<string>;
     /**
-     * Login password field CSS selector.
+     * Login password field CSS selector
      */
     passwordSelector?: pulumi.Input<string>;
     /**
-     * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+     * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
      */
     revealPassword?: pulumi.Input<boolean>;
     /**
@@ -359,39 +357,39 @@ export interface ThreeFieldState {
      */
     sharedUsername?: pulumi.Input<string>;
     /**
-     * Sign-on mode of application.
+     * Sign on mode of application.
      */
     signOnMode?: pulumi.Input<string>;
     /**
-     * Status of application. By default, it is `"ACTIVE"`.
+     * Status of application. By default, it is `ACTIVE`
      */
     status?: pulumi.Input<string>;
     /**
-     * Login URL.
+     * Login URL
      */
     url?: pulumi.Input<string>;
     /**
-     * A regex that further restricts URL to the specified regex.
+     * A regex that further restricts URL to the specified regex
      */
     urlRegex?: pulumi.Input<string>;
     /**
-     * Username template. Default: `"${source.login}"`
+     * Username template. Default: `${source.login}`
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
-     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
     userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
-     * Username template suffix.
+     * Username template suffix
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type. Default: `"BUILT_IN"`.
+     * Username template type. Default: `BUILT_IN`
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
-     * Login username field CSS selector.
+     * Login username field CSS selector
      */
     usernameSelector?: pulumi.Input<string>;
 }
@@ -401,15 +399,15 @@ export interface ThreeFieldState {
  */
 export interface ThreeFieldArgs {
     /**
-     * Custom error page URL.
+     * Custom error page URL
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service. Default is `false`
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -421,15 +419,15 @@ export interface ThreeFieldArgs {
      */
     appLinksJson?: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * Login button field CSS selector.
+     * Login button field CSS selector
      */
     buttonSelector: pulumi.Input<string>;
     /**
-     * Application credentials scheme. Can be set to `"EDIT_USERNAME_AND_PASSWORD"`, `"ADMIN_SETS_CREDENTIALS"`, `"EDIT_PASSWORD_ONLY"`, `"EXTERNAL_PASSWORD_SYNC"`, or `"SHARED_USERNAME_AND_PASSWORD"`.
+     * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
      */
     credentialsScheme?: pulumi.Input<string>;
     /**
@@ -437,23 +435,23 @@ export interface ThreeFieldArgs {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Extra field CSS selector.
+     * Extra field CSS selector
      */
     extraFieldSelector: pulumi.Input<string>;
     /**
-     * Value for extra form field.
+     * Value for extra form field
      */
     extraFieldValue: pulumi.Input<string>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
-     * The display name of the Application.
+     * The Application's display name.
      */
     label: pulumi.Input<string>;
     /**
@@ -461,11 +459,11 @@ export interface ThreeFieldArgs {
      */
     logo?: pulumi.Input<string>;
     /**
-     * Login password field CSS selector.
+     * Login password field CSS selector
      */
     passwordSelector: pulumi.Input<string>;
     /**
-     * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `"ADMIN_SETS_CREDENTIALS"`, `"SHARED_USERNAME_AND_PASSWORD"` or `"EXTERNAL_PASSWORD_SYNC"`.
+     * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
      */
     revealPassword?: pulumi.Input<boolean>;
     /**
@@ -477,35 +475,35 @@ export interface ThreeFieldArgs {
      */
     sharedUsername?: pulumi.Input<string>;
     /**
-     * Status of application. By default, it is `"ACTIVE"`.
+     * Status of application. By default, it is `ACTIVE`
      */
     status?: pulumi.Input<string>;
     /**
-     * Login URL.
+     * Login URL
      */
     url: pulumi.Input<string>;
     /**
-     * A regex that further restricts URL to the specified regex.
+     * A regex that further restricts URL to the specified regex
      */
     urlRegex?: pulumi.Input<string>;
     /**
-     * Username template. Default: `"${source.login}"`
+     * Username template. Default: `${source.login}`
      */
     userNameTemplate?: pulumi.Input<string>;
     /**
-     * Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+     * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
     userNameTemplatePushStatus?: pulumi.Input<string>;
     /**
-     * Username template suffix.
+     * Username template suffix
      */
     userNameTemplateSuffix?: pulumi.Input<string>;
     /**
-     * Username template type. Default: `"BUILT_IN"`.
+     * Username template type. Default: `BUILT_IN`
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
-     * Login username field CSS selector.
+     * Login username field CSS selector
      */
     usernameSelector: pulumi.Input<string>;
 }

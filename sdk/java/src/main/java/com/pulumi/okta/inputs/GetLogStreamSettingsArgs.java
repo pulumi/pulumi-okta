@@ -30,14 +30,14 @@ public final class GetLogStreamSettingsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws_govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws*govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk*cloud_logstreaming&#39; type
      * 
      */
     @Import(name="edition", required=true)
     private Output<String> edition;
 
     /**
-     * @return Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws_govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * @return Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws*govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk*cloud_logstreaming&#39; type
      * 
      */
     public Output<String> edition() {
@@ -60,14 +60,14 @@ public final class GetLogStreamSettingsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     @Import(name="host", required=true)
     private Output<String> host;
 
     /**
-     * @return The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * @return The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     public Output<String> host() {
@@ -90,14 +90,14 @@ public final class GetLogStreamSettingsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     @Import(name="token", required=true)
     private Output<String> token;
 
     /**
-     * @return The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * @return The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     public Output<String> token() {
@@ -155,7 +155,7 @@ public final class GetLogStreamSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param edition Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws_govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+         * @param edition Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws*govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk*cloud_logstreaming&#39; type
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class GetLogStreamSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param edition Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws_govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+         * @param edition Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws*govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk*cloud_logstreaming&#39; type
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class GetLogStreamSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param host The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+         * @param host The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk*cloud*logstreaming&#39; type
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class GetLogStreamSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param host The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+         * @param host The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk*cloud*logstreaming&#39; type
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class GetLogStreamSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param token The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk_cloud_logstreaming&#39; type
+         * @param token The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk*cloud*logstreaming&#39; type
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class GetLogStreamSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param token The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk_cloud_logstreaming&#39; type
+         * @param token The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk*cloud*logstreaming&#39; type
          * 
          * @return builder
          * 

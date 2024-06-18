@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to configure Threat Insight Settings.
+// Manages Okta Threat Insight Settings. This resource allows you to configure Threat Insight Settings.
 //
 // ## Example Usage
 //
@@ -61,23 +61,15 @@ import (
 //
 // ## Import
 //
-// Threat Insight Settings can be imported without any parameters.
-//
 // ```sh
 // $ pulumi import okta:index/threatInsightSettings:ThreatInsightSettings example _
 // ```
 type ThreatInsightSettings struct {
 	pulumi.CustomResourceState
 
-	// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values
-	// are `"none"`, `"audit"`, or `"block"`. A value of `"none"` indicates that ThreatInsight is disabled. A value of `"audit"`
-	// indicates that Okta logs suspicious requests in the System Log. A value of `"block"` indicates that Okta logs suspicious
-	// requests in the System Log and blocks the requests.
+	// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
 	Action pulumi.StringOutput `pulumi:"action"`
-	// Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type.
-	// IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-	// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
-	// is not guarantee from the API sides
+	// Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
 	NetworkExcludes pulumi.StringArrayOutput `pulumi:"networkExcludes"`
 }
 
@@ -114,28 +106,16 @@ func GetThreatInsightSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ThreatInsightSettings resources.
 type threatInsightSettingsState struct {
-	// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values
-	// are `"none"`, `"audit"`, or `"block"`. A value of `"none"` indicates that ThreatInsight is disabled. A value of `"audit"`
-	// indicates that Okta logs suspicious requests in the System Log. A value of `"block"` indicates that Okta logs suspicious
-	// requests in the System Log and blocks the requests.
+	// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
 	Action *string `pulumi:"action"`
-	// Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type.
-	// IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-	// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
-	// is not guarantee from the API sides
+	// Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
 	NetworkExcludes []string `pulumi:"networkExcludes"`
 }
 
 type ThreatInsightSettingsState struct {
-	// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values
-	// are `"none"`, `"audit"`, or `"block"`. A value of `"none"` indicates that ThreatInsight is disabled. A value of `"audit"`
-	// indicates that Okta logs suspicious requests in the System Log. A value of `"block"` indicates that Okta logs suspicious
-	// requests in the System Log and blocks the requests.
+	// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
 	Action pulumi.StringPtrInput
-	// Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type.
-	// IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-	// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
-	// is not guarantee from the API sides
+	// Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
 	NetworkExcludes pulumi.StringArrayInput
 }
 
@@ -144,29 +124,17 @@ func (ThreatInsightSettingsState) ElementType() reflect.Type {
 }
 
 type threatInsightSettingsArgs struct {
-	// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values
-	// are `"none"`, `"audit"`, or `"block"`. A value of `"none"` indicates that ThreatInsight is disabled. A value of `"audit"`
-	// indicates that Okta logs suspicious requests in the System Log. A value of `"block"` indicates that Okta logs suspicious
-	// requests in the System Log and blocks the requests.
+	// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
 	Action string `pulumi:"action"`
-	// Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type.
-	// IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-	// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
-	// is not guarantee from the API sides
+	// Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
 	NetworkExcludes []string `pulumi:"networkExcludes"`
 }
 
 // The set of arguments for constructing a ThreatInsightSettings resource.
 type ThreatInsightSettingsArgs struct {
-	// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values
-	// are `"none"`, `"audit"`, or `"block"`. A value of `"none"` indicates that ThreatInsight is disabled. A value of `"audit"`
-	// indicates that Okta logs suspicious requests in the System Log. A value of `"block"` indicates that Okta logs suspicious
-	// requests in the System Log and blocks the requests.
+	// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
 	Action pulumi.StringInput
-	// Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type.
-	// IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-	// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
-	// is not guarantee from the API sides
+	// Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
 	NetworkExcludes pulumi.StringArrayInput
 }
 
@@ -257,18 +225,12 @@ func (o ThreatInsightSettingsOutput) ToThreatInsightSettingsOutputWithContext(ct
 	return o
 }
 
-// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values
-// are `"none"`, `"audit"`, or `"block"`. A value of `"none"` indicates that ThreatInsight is disabled. A value of `"audit"`
-// indicates that Okta logs suspicious requests in the System Log. A value of `"block"` indicates that Okta logs suspicious
-// requests in the System Log and blocks the requests.
+// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
 func (o ThreatInsightSettingsOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatInsightSettings) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
 
-// Accepts a list of Network Zone IDs. Can only accept zones of `"IP"` type.
-// IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-// This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone
-// is not guarantee from the API sides
+// Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
 func (o ThreatInsightSettingsOutput) NetworkExcludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ThreatInsightSettings) pulumi.StringArrayOutput { return v.NetworkExcludes }).(pulumi.StringArrayOutput)
 }

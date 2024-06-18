@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// This resource allows you to create and configure an email domain.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -35,8 +33,6 @@ namespace Pulumi.Okta
     /// 
     /// ## Import
     /// 
-    /// Custom email domain can be imported via the Okta ID.
-    /// 
     /// ```sh
     /// $ pulumi import okta:index/emailDomain:EmailDomain example &amp;#60;domain id&amp;#62;
     /// ```
@@ -57,7 +53,7 @@ namespace Pulumi.Okta
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// TXT and CNAME records to be registered for the domain.
+        /// TXT and cname records to be registered for the email Domain
         /// </summary>
         [Output("dnsValidationRecords")]
         public Output<ImmutableArray<Outputs.EmailDomainDnsValidationRecord>> DnsValidationRecords { get; private set; } = null!;
@@ -75,7 +71,7 @@ namespace Pulumi.Okta
         public Output<string> UserName { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the email domain (shows whether the domain is verified).
+        /// Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
         /// </summary>
         [Output("validationStatus")]
         public Output<string> ValidationStatus { get; private set; } = null!;
@@ -174,7 +170,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.EmailDomainDnsValidationRecordGetArgs>? _dnsValidationRecords;
 
         /// <summary>
-        /// TXT and CNAME records to be registered for the domain.
+        /// TXT and cname records to be registered for the email Domain
         /// </summary>
         public InputList<Inputs.EmailDomainDnsValidationRecordGetArgs> DnsValidationRecords
         {
@@ -195,7 +191,7 @@ namespace Pulumi.Okta
         public Input<string>? UserName { get; set; }
 
         /// <summary>
-        /// Status of the email domain (shows whether the domain is verified).
+        /// Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
         /// </summary>
         [Input("validationStatus")]
         public Input<string>? ValidationStatus { get; set; }

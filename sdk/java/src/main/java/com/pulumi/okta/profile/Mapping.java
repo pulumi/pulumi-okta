@@ -18,9 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to manage a profile mapping by source and target IDs.
- * 
- * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.manage` scope.
+ * Manages a profile mapping. This resource allows you to manage a profile mapping by source and target IDs. &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.manage` scope.
  * 
  * ## Example Usage
  * 
@@ -82,17 +80,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * There is no reason to import this resource. You can simply create the resource config and point it to a source ID. Mind here, once the source is deleted this resources will no longer exist.
+ * ```sh
+ * $ pulumi import okta:profile/mapping:Mapping example &amp;#60;id&amp;#62;
+ * ```
  * 
  */
 @ResourceType(type="okta:profile/mapping:Mapping")
 public class Mapping extends com.pulumi.resources.CustomResource {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
-     * 
-     * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-     * 
-     * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+     * &gt; **WARNING:**: &#39;always*apply&#39; is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+     * **WARNING:** &#39;always*apply&#39; makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      * 
      */
     @Export(name="alwaysApply", refs={Boolean.class}, tree="[0]")
@@ -100,52 +98,42 @@ public class Mapping extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Whether apply the changes to all users with this profile after updating or creating the these mappings.
-     * 
-     * &gt; **WARNING**: `always_apply` is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-     * 
-     * &gt; **WARNING:** `always_apply` makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+     * &gt; **WARNING:**: &#39;always*apply&#39; is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
+     * **WARNING:** &#39;always*apply&#39; makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      * 
      */
     public Output<Optional<Boolean>> alwaysApply() {
         return Codegen.optional(this.alwaysApply);
     }
     /**
-     * Tells the provider whether to attempt to delete missing mappings under profile mapping.
+     * When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
      * 
      */
     @Export(name="deleteWhenAbsent", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteWhenAbsent;
 
     /**
-     * @return Tells the provider whether to attempt to delete missing mappings under profile mapping.
+     * @return When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
      * 
      */
     public Output<Optional<Boolean>> deleteWhenAbsent() {
         return Codegen.optional(this.deleteWhenAbsent);
     }
-    /**
-     * Priority of the policy.
-     * 
-     */
     @Export(name="mappings", refs={List.class,MappingMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MappingMapping>> mappings;
 
-    /**
-     * @return Priority of the policy.
-     * 
-     */
     public Output<Optional<List<MappingMapping>>> mappings() {
         return Codegen.optional(this.mappings);
     }
     /**
-     * Source id of the profile mapping.
+     * The source id of the mapping to manage.
      * 
      */
     @Export(name="sourceId", refs={String.class}, tree="[0]")
     private Output<String> sourceId;
 
     /**
-     * @return Source id of the profile mapping.
+     * @return The source id of the mapping to manage.
      * 
      */
     public Output<String> sourceId() {
@@ -180,14 +168,14 @@ public class Mapping extends com.pulumi.resources.CustomResource {
         return this.sourceType;
     }
     /**
-     * ID of the mapping target.
+     * The target id of the mapping to manage.
      * 
      */
     @Export(name="targetId", refs={String.class}, tree="[0]")
     private Output<String> targetId;
 
     /**
-     * @return ID of the mapping target.
+     * @return The target id of the mapping to manage.
      * 
      */
     public Output<String> targetId() {

@@ -16,14 +16,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages Profile Enrollment Policy Apps
  * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
- * 
  * This resource allows you to manage the apps in the Profile Enrollment Policy.
- * 
  * **Important Notes:**
  *  - Default Enrollment Policy can not be used in this resource since it is used as a policy to re-assign apps to when they are unassigned from this one.
- *  - When re-assigning the app to another policy, please use `depends_on` in the policy to which the app will be assigned. This is necessary to avoid
- *      unexpected behavior, since if the app is unassigned from the policy it is just assigned to the `Default` one.
+ *  - When re-assigning the app to another policy, please use &#39;depends_on&#39; in the policy to which the app will be assigned. This is necessary to avoid
+ *      unexpected behavior, since if the app is unassigned from the policy it is just assigned to the &#39;Default&#39; one.
  * 
  * ## Example Usage
  * 
@@ -76,8 +75,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A Profile Enrollment Policy Apps can be imported via the Okta ID.
- * 
  * ```sh
  * $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &amp;#60;policy id&amp;#62;
  * ```
@@ -86,28 +83,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps")
 public class PolicyProfileEnrollmentApps extends com.pulumi.resources.CustomResource {
     /**
-     * List of app IDs to be added to this policy.
+     * List of app IDs to be added to this policy
      * 
      */
     @Export(name="apps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> apps;
 
     /**
-     * @return List of app IDs to be added to this policy.
+     * @return List of app IDs to be added to this policy
      * 
      */
     public Output<Optional<List<String>>> apps() {
         return Codegen.optional(this.apps);
     }
     /**
-     * ID of the default enrollment policy.
+     * ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
      * 
      */
     @Export(name="defaultPolicyId", refs={String.class}, tree="[0]")
     private Output<String> defaultPolicyId;
 
     /**
-     * @return ID of the default enrollment policy.
+     * @return ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
      * 
      */
     public Output<String> defaultPolicyId() {

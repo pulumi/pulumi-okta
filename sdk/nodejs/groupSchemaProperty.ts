@@ -25,8 +25,6 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Group schema property can be imported via the property index.
- *
  * ```sh
  * $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
  * ```
@@ -64,15 +62,16 @@ export class GroupSchemaProperty extends pulumi.CustomResource {
      */
     public readonly arrayEnums!: pulumi.Output<string[] | undefined>;
     /**
-     * Display name and value an enum array can be set to.
+     * Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+     * - (Required) display name for the enum value.
      */
     public readonly arrayOneOfs!: pulumi.Output<outputs.GroupSchemaPropertyArrayOneOf[] | undefined>;
     /**
-     * The type of the array elements if `type` is set to `"array"`.
+     * The type of the array elements if `type` is set to `array`
      */
     public readonly arrayType!: pulumi.Output<string | undefined>;
     /**
-     * The description of the group schema property.
+     * The description of the user schema property.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -80,59 +79,58 @@ export class GroupSchemaProperty extends pulumi.CustomResource {
      */
     public readonly enums!: pulumi.Output<string[] | undefined>;
     /**
-     * External name of the group schema property.
+     * External name of the user schema property.
      */
     public readonly externalName!: pulumi.Output<string | undefined>;
     /**
-     * External name of the group schema property.
+     * External namespace of the user schema property.
      */
     public readonly externalNamespace!: pulumi.Output<string | undefined>;
     /**
-     * The property name.
+     * Subschema unique string identifier
      */
     public readonly index!: pulumi.Output<string>;
     /**
-     * Master priority for the group schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
+     * Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
+     * `PROFILE_MASTER`
      */
     public readonly master!: pulumi.Output<string | undefined>;
     /**
-     * Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+     * Prioritized list of profile sources (required when `master` is `OVERRIDE`).
      */
     public readonly masterOverridePriorities!: pulumi.Output<outputs.GroupSchemaPropertyMasterOverridePriority[] | undefined>;
     /**
-     * The maximum length of the group property value. Only applies to type `"string"`.
+     * The maximum length of the user property value. Only applies to type `string`
      */
     public readonly maxLength!: pulumi.Output<number | undefined>;
     /**
-     * The minimum length of the group property value. Only applies to type `"string"`.
+     * The minimum length of the user property value. Only applies to type `string`
      */
     public readonly minLength!: pulumi.Output<number | undefined>;
     /**
-     * Array of maps containing a mapping for display name to enum value.
+     * Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+     * 'enum'. - 'title' - (Required) display name for the enum value.
      */
     public readonly oneOfs!: pulumi.Output<outputs.GroupSchemaPropertyOneOf[] | undefined>;
     /**
-     * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+     * Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
      */
     public readonly permissions!: pulumi.Output<string | undefined>;
     /**
-     * Whether the property is required for this group.
+     * Whether the subschema is required
      */
     public readonly required!: pulumi.Output<boolean | undefined>;
-    /**
-     * determines whether an app user attribute can be set at the Individual or Group Level.
-     */
     public readonly scope!: pulumi.Output<string | undefined>;
     /**
-     * The display name.
+     * Subschema title (display name)
      */
     public readonly title!: pulumi.Output<string>;
     /**
-     * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+     * The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+     * Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
      */
     public readonly unique!: pulumi.Output<string | undefined>;
 
@@ -213,15 +211,16 @@ export interface GroupSchemaPropertyState {
      */
     arrayEnums?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Display name and value an enum array can be set to.
+     * Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+     * - (Required) display name for the enum value.
      */
     arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.GroupSchemaPropertyArrayOneOf>[]>;
     /**
-     * The type of the array elements if `type` is set to `"array"`.
+     * The type of the array elements if `type` is set to `array`
      */
     arrayType?: pulumi.Input<string>;
     /**
-     * The description of the group schema property.
+     * The description of the user schema property.
      */
     description?: pulumi.Input<string>;
     /**
@@ -229,59 +228,58 @@ export interface GroupSchemaPropertyState {
      */
     enums?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * External name of the group schema property.
+     * External name of the user schema property.
      */
     externalName?: pulumi.Input<string>;
     /**
-     * External name of the group schema property.
+     * External namespace of the user schema property.
      */
     externalNamespace?: pulumi.Input<string>;
     /**
-     * The property name.
+     * Subschema unique string identifier
      */
     index?: pulumi.Input<string>;
     /**
-     * Master priority for the group schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
+     * Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
+     * `PROFILE_MASTER`
      */
     master?: pulumi.Input<string>;
     /**
-     * Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+     * Prioritized list of profile sources (required when `master` is `OVERRIDE`).
      */
     masterOverridePriorities?: pulumi.Input<pulumi.Input<inputs.GroupSchemaPropertyMasterOverridePriority>[]>;
     /**
-     * The maximum length of the group property value. Only applies to type `"string"`.
+     * The maximum length of the user property value. Only applies to type `string`
      */
     maxLength?: pulumi.Input<number>;
     /**
-     * The minimum length of the group property value. Only applies to type `"string"`.
+     * The minimum length of the user property value. Only applies to type `string`
      */
     minLength?: pulumi.Input<number>;
     /**
-     * Array of maps containing a mapping for display name to enum value.
+     * Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+     * 'enum'. - 'title' - (Required) display name for the enum value.
      */
     oneOfs?: pulumi.Input<pulumi.Input<inputs.GroupSchemaPropertyOneOf>[]>;
     /**
-     * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+     * Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
      */
     permissions?: pulumi.Input<string>;
     /**
-     * Whether the property is required for this group.
+     * Whether the subschema is required
      */
     required?: pulumi.Input<boolean>;
-    /**
-     * determines whether an app user attribute can be set at the Individual or Group Level.
-     */
     scope?: pulumi.Input<string>;
     /**
-     * The display name.
+     * Subschema title (display name)
      */
     title?: pulumi.Input<string>;
     /**
-     * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+     * The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
      */
     type?: pulumi.Input<string>;
     /**
-     * Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+     * Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
      */
     unique?: pulumi.Input<string>;
 }
@@ -295,15 +293,16 @@ export interface GroupSchemaPropertyArgs {
      */
     arrayEnums?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Display name and value an enum array can be set to.
+     * Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+     * - (Required) display name for the enum value.
      */
     arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.GroupSchemaPropertyArrayOneOf>[]>;
     /**
-     * The type of the array elements if `type` is set to `"array"`.
+     * The type of the array elements if `type` is set to `array`
      */
     arrayType?: pulumi.Input<string>;
     /**
-     * The description of the group schema property.
+     * The description of the user schema property.
      */
     description?: pulumi.Input<string>;
     /**
@@ -311,59 +310,58 @@ export interface GroupSchemaPropertyArgs {
      */
     enums?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * External name of the group schema property.
+     * External name of the user schema property.
      */
     externalName?: pulumi.Input<string>;
     /**
-     * External name of the group schema property.
+     * External namespace of the user schema property.
      */
     externalNamespace?: pulumi.Input<string>;
     /**
-     * The property name.
+     * Subschema unique string identifier
      */
     index: pulumi.Input<string>;
     /**
-     * Master priority for the group schema property. It can be set to `"PROFILE_MASTER"`, `"OVERRIDE"` or `"OKTA"`.
+     * Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
+     * `PROFILE_MASTER`
      */
     master?: pulumi.Input<string>;
     /**
-     * Prioritized list of profile sources (required when `master` is `"OVERRIDE"`).
+     * Prioritized list of profile sources (required when `master` is `OVERRIDE`).
      */
     masterOverridePriorities?: pulumi.Input<pulumi.Input<inputs.GroupSchemaPropertyMasterOverridePriority>[]>;
     /**
-     * The maximum length of the group property value. Only applies to type `"string"`.
+     * The maximum length of the user property value. Only applies to type `string`
      */
     maxLength?: pulumi.Input<number>;
     /**
-     * The minimum length of the group property value. Only applies to type `"string"`.
+     * The minimum length of the user property value. Only applies to type `string`
      */
     minLength?: pulumi.Input<number>;
     /**
-     * Array of maps containing a mapping for display name to enum value.
+     * Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+     * 'enum'. - 'title' - (Required) display name for the enum value.
      */
     oneOfs?: pulumi.Input<pulumi.Input<inputs.GroupSchemaPropertyOneOf>[]>;
     /**
-     * Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+     * Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
      */
     permissions?: pulumi.Input<string>;
     /**
-     * Whether the property is required for this group.
+     * Whether the subschema is required
      */
     required?: pulumi.Input<boolean>;
-    /**
-     * determines whether an app user attribute can be set at the Individual or Group Level.
-     */
     scope?: pulumi.Input<string>;
     /**
-     * The display name.
+     * Subschema title (display name)
      */
     title: pulumi.Input<string>;
     /**
-     * The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+     * The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
      */
     type: pulumi.Input<string>;
     /**
-     * Whether the property should be unique. It can be set to `"UNIQUE_VALIDATED"` or `"NOT_UNIQUE"`.
+     * Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
      */
     unique?: pulumi.Input<string>;
 }

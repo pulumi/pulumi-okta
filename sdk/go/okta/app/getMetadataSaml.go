@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve the metadata for SAML application from Okta.
+// Get a SAML application's metadata from Okta.
 //
 // ## Example Usage
 //
@@ -59,19 +59,21 @@ type GetMetadataSamlArgs struct {
 
 // A collection of values returned by getMetadataSaml.
 type GetMetadataSamlResult struct {
+	// The application ID.
 	AppId string `pulumi:"appId"`
-	// public certificate from application metadata.
+	// Public certificate from application metadata.
 	Certificate string `pulumi:"certificate"`
-	// Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
+	// Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
 	EntityId string `pulumi:"entityId"`
 	// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
 	HttpPostBinding string `pulumi:"httpPostBinding"`
 	// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
 	HttpRedirectBinding string `pulumi:"httpRedirectBinding"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Certificate Key ID.
 	KeyId *string `pulumi:"keyId"`
-	// raw metadata of application.
+	// Raw metadata of application.
 	Metadata string `pulumi:"metadata"`
 	// Whether authn requests are signed.
 	WantAuthnRequestsSigned bool `pulumi:"wantAuthnRequestsSigned"`
@@ -117,16 +119,17 @@ func (o GetMetadataSamlResultOutput) ToGetMetadataSamlResultOutputWithContext(ct
 	return o
 }
 
+// The application ID.
 func (o GetMetadataSamlResultOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.AppId }).(pulumi.StringOutput)
 }
 
-// public certificate from application metadata.
+// Public certificate from application metadata.
 func (o GetMetadataSamlResultOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.Certificate }).(pulumi.StringOutput)
 }
 
-// Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
+// Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
 func (o GetMetadataSamlResultOutput) EntityId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.EntityId }).(pulumi.StringOutput)
 }
@@ -146,11 +149,12 @@ func (o GetMetadataSamlResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Certificate Key ID.
 func (o GetMetadataSamlResultOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetMetadataSamlResult) *string { return v.KeyId }).(pulumi.StringPtrOutput)
 }
 
-// raw metadata of application.
+// Raw metadata of application.
 func (o GetMetadataSamlResultOutput) Metadata() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.Metadata }).(pulumi.StringOutput)
 }

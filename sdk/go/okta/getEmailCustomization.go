@@ -11,9 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve the [email
-// customization](https://developer.okta.com/docs/reference/api/brands/#get-email-customization)
-// of an email template belonging to a brand in an Okta organization.
+// Get the email customization of an email template belonging to a brand in an Okta organization.
 func LookupEmailCustomization(ctx *pulumi.Context, args *LookupEmailCustomizationArgs, opts ...pulumi.InvokeOption) (*LookupEmailCustomizationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEmailCustomizationResult
@@ -28,7 +26,7 @@ func LookupEmailCustomization(ctx *pulumi.Context, args *LookupEmailCustomizatio
 type LookupEmailCustomizationArgs struct {
 	// Brand ID
 	BrandId string `pulumi:"brandId"`
-	// Customization ID
+	// The ID of the customization
 	CustomizationId string `pulumi:"customizationId"`
 	// Template Name
 	TemplateName string `pulumi:"templateName"`
@@ -37,10 +35,12 @@ type LookupEmailCustomizationArgs struct {
 // A collection of values returned by getEmailCustomization.
 type LookupEmailCustomizationResult struct {
 	// The body of the customization
-	Body            string `pulumi:"body"`
-	BrandId         string `pulumi:"brandId"`
+	Body string `pulumi:"body"`
+	// Brand ID
+	BrandId string `pulumi:"brandId"`
+	// The ID of the customization
 	CustomizationId string `pulumi:"customizationId"`
-	// Customization ID
+	// The ID of the customization
 	Id string `pulumi:"id"`
 	// Whether the customization is the default
 	IsDefault bool `pulumi:"isDefault"`
@@ -49,7 +49,8 @@ type LookupEmailCustomizationResult struct {
 	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
 	Links string `pulumi:"links"`
 	// The subject of the customization
-	Subject      string `pulumi:"subject"`
+	Subject string `pulumi:"subject"`
+	// Template Name
 	TemplateName string `pulumi:"templateName"`
 }
 
@@ -70,7 +71,7 @@ func LookupEmailCustomizationOutput(ctx *pulumi.Context, args LookupEmailCustomi
 type LookupEmailCustomizationOutputArgs struct {
 	// Brand ID
 	BrandId pulumi.StringInput `pulumi:"brandId"`
-	// Customization ID
+	// The ID of the customization
 	CustomizationId pulumi.StringInput `pulumi:"customizationId"`
 	// Template Name
 	TemplateName pulumi.StringInput `pulumi:"templateName"`
@@ -100,15 +101,17 @@ func (o LookupEmailCustomizationResultOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailCustomizationResult) string { return v.Body }).(pulumi.StringOutput)
 }
 
+// Brand ID
 func (o LookupEmailCustomizationResultOutput) BrandId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailCustomizationResult) string { return v.BrandId }).(pulumi.StringOutput)
 }
 
+// The ID of the customization
 func (o LookupEmailCustomizationResultOutput) CustomizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailCustomizationResult) string { return v.CustomizationId }).(pulumi.StringOutput)
 }
 
-// Customization ID
+// The ID of the customization
 func (o LookupEmailCustomizationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailCustomizationResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -133,6 +136,7 @@ func (o LookupEmailCustomizationResultOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailCustomizationResult) string { return v.Subject }).(pulumi.StringOutput)
 }
 
+// Template Name
 func (o LookupEmailCustomizationResultOutput) TemplateName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailCustomizationResult) string { return v.TemplateName }).(pulumi.StringOutput)
 }

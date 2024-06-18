@@ -6,16 +6,13 @@ import * as utilities from "./utilities";
 
 /**
  * Manages certificate for the domain.
- *
- * This resource's `certificate`, `privateKey`, and `certificateChain` attributes
+ * This resource's 'certificate', 'private_key', and 'certificate_chain' attributes
  * hold actual PEM values and can be referred to by other configs requiring
  * certificate and private key inputs. This is inline with TF's best
  * practices
  * of not encrypting state.
- *
  * See Let's Encrypt Certbot notes at the end of this
- * documentation for notes on how to generate a domain certificate with Let's
- * Encrypt Certbot
+ * documentation for notes on how to generate a domain certificate with Let's Encrypt Certbot
  *
  * ## Example Usage
  *
@@ -62,10 +59,6 @@ import * as utilities from "./utilities";
  * `certificate`       | `cert.pem`
  * `certificateChain` | `chain.pem`
  * `privateKey`       | `privkey.pem`
- *
- * ## Import
- *
- * This resource does not support importing.
  */
 export class DomainCertificate extends pulumi.CustomResource {
     /**
@@ -96,23 +89,23 @@ export class DomainCertificate extends pulumi.CustomResource {
     }
 
     /**
-     * Certificate content.
+     * Certificate content
      */
     public readonly certificate!: pulumi.Output<string>;
     /**
-     * Certificate certificate chain.
+     * Certificate chain
      */
     public readonly certificateChain!: pulumi.Output<string>;
     /**
-     * Domain ID.
+     * Domain's ID
      */
     public readonly domainId!: pulumi.Output<string>;
     /**
-     * Certificate private key.
+     * Certificate private key
      */
     public readonly privateKey!: pulumi.Output<string>;
     /**
-     * Certificate type. Valid value is `"PEM"`.
+     * Certificate type. Valid value is `PEM`
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -167,23 +160,23 @@ export class DomainCertificate extends pulumi.CustomResource {
  */
 export interface DomainCertificateState {
     /**
-     * Certificate content.
+     * Certificate content
      */
     certificate?: pulumi.Input<string>;
     /**
-     * Certificate certificate chain.
+     * Certificate chain
      */
     certificateChain?: pulumi.Input<string>;
     /**
-     * Domain ID.
+     * Domain's ID
      */
     domainId?: pulumi.Input<string>;
     /**
-     * Certificate private key.
+     * Certificate private key
      */
     privateKey?: pulumi.Input<string>;
     /**
-     * Certificate type. Valid value is `"PEM"`.
+     * Certificate type. Valid value is `PEM`
      */
     type?: pulumi.Input<string>;
 }
@@ -193,23 +186,23 @@ export interface DomainCertificateState {
  */
 export interface DomainCertificateArgs {
     /**
-     * Certificate content.
+     * Certificate content
      */
     certificate: pulumi.Input<string>;
     /**
-     * Certificate certificate chain.
+     * Certificate chain
      */
     certificateChain: pulumi.Input<string>;
     /**
-     * Domain ID.
+     * Domain's ID
      */
     domainId: pulumi.Input<string>;
     /**
-     * Certificate private key.
+     * Certificate private key
      */
     privateKey: pulumi.Input<string>;
     /**
-     * Certificate type. Valid value is `"PEM"`.
+     * Certificate type. Valid value is `PEM`
      */
     type: pulumi.Input<string>;
 }

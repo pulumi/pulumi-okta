@@ -131,9 +131,7 @@ class UserType(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates a User type.
-
-        This resource allows you to create and configure a User Type.
+        Creates a User type. This resource allows you to create and configure a User Type.
 
         ## Example Usage
 
@@ -148,8 +146,6 @@ class UserType(pulumi.CustomResource):
         ```
 
         ## Import
-
-        A User Type can be imported via the Okta ID.
 
         ```sh
         $ pulumi import okta:user/userType:UserType example &#60;user type id&#62;
@@ -168,9 +164,7 @@ class UserType(pulumi.CustomResource):
                  args: UserTypeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a User type.
-
-        This resource allows you to create and configure a User Type.
+        Creates a User type. This resource allows you to create and configure a User Type.
 
         ## Example Usage
 
@@ -185,8 +179,6 @@ class UserType(pulumi.CustomResource):
         ```
 
         ## Import
-
-        A User Type can be imported via the Okta ID.
 
         ```sh
         $ pulumi import okta:user/userType:UserType example &#60;user type id&#62;

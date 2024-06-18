@@ -14,9 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Verifies the Event Hook. The resource won&#39;t be created unless the URI provided in the event hook returns a valid
- * JSON object with verification. See [Event Hooks](https://developer.okta.com/docs/concepts/event-hooks/#one-time-verification-request)
- * documentation for details.
+ * Verifies the Event Hook. The resource won&#39;t be created unless the URI provided in the event hook returns a valid JSON object with verification. See [Event Hooks](https://developer.okta.com/docs/concepts/event-hooks/#one-time-verification-request) documentation for details.
  * 
  * ## Example Usage
  * 
@@ -72,22 +70,18 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Import
- * 
- * This resource does not support importing.
- * 
  */
 @ResourceType(type="okta:index/eventHookVerification:EventHookVerification")
 public class EventHookVerification extends com.pulumi.resources.CustomResource {
     /**
-     * Event Hook ID.
+     * Event hook ID
      * 
      */
     @Export(name="eventHookId", refs={String.class}, tree="[0]")
     private Output<String> eventHookId;
 
     /**
-     * @return Event Hook ID.
+     * @return Event hook ID
      * 
      */
     public Output<String> eventHookId() {

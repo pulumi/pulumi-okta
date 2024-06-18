@@ -17,14 +17,14 @@ public final class DomainDnsRecordArgs extends com.pulumi.resources.ResourceArgs
     public static final DomainDnsRecordArgs Empty = new DomainDnsRecordArgs();
 
     /**
-     * TXT record expiration.
+     * TXT record expiration
      * 
      */
     @Import(name="expiration")
     private @Nullable Output<String> expiration;
 
     /**
-     * @return TXT record expiration.
+     * @return TXT record expiration
      * 
      */
     public Optional<Output<String>> expiration() {
@@ -32,14 +32,14 @@ public final class DomainDnsRecordArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * DNS record name.
+     * DNS record name
      * 
      */
     @Import(name="fqdn")
     private @Nullable Output<String> fqdn;
 
     /**
-     * @return DNS record name.
+     * @return DNS record name
      * 
      */
     public Optional<Output<String>> fqdn() {
@@ -47,14 +47,14 @@ public final class DomainDnsRecordArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Record type can be TXT or CNAME.
+     * Record type can be TXT or CNAME
      * 
      */
     @Import(name="recordType")
     private @Nullable Output<String> recordType;
 
     /**
-     * @return Record type can be TXT or CNAME.
+     * @return Record type can be TXT or CNAME
      * 
      */
     public Optional<Output<String>> recordType() {
@@ -104,7 +104,7 @@ public final class DomainDnsRecordArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param expiration TXT record expiration.
+         * @param expiration TXT record expiration
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DomainDnsRecordArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param expiration TXT record expiration.
+         * @param expiration TXT record expiration
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class DomainDnsRecordArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param fqdn DNS record name.
+         * @param fqdn DNS record name
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class DomainDnsRecordArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param fqdn DNS record name.
+         * @param fqdn DNS record name
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class DomainDnsRecordArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param recordType Record type can be TXT or CNAME.
+         * @param recordType Record type can be TXT or CNAME
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class DomainDnsRecordArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param recordType Record type can be TXT or CNAME.
+         * @param recordType Record type can be TXT or CNAME
          * 
          * @return builder
          * 

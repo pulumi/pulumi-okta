@@ -18,22 +18,22 @@ public final class GetTrustedOriginsTrustedOrigin {
      */
     private Boolean active;
     /**
-     * @return The ID of the Trusted Origin.
+     * @return Unique identifier
      * 
      */
     private String id;
     /**
-     * @return Unique name for this trusted origin.
+     * @return Unique name for this trusted origin
      * 
      */
     private String name;
     /**
-     * @return Unique origin URL for this trusted origin.
+     * @return Unique origin URL for this trusted origin
      * 
      */
     private String origin;
     /**
-     * @return Scopes of the Trusted Origin
+     * @return Scopes of the Trusted Origin - can either be CORS or REDIRECT only
      * 
      */
     private List<String> scopes;
@@ -47,28 +47,28 @@ public final class GetTrustedOriginsTrustedOrigin {
         return this.active;
     }
     /**
-     * @return The ID of the Trusted Origin.
+     * @return Unique identifier
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return Unique name for this trusted origin.
+     * @return Unique name for this trusted origin
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Unique origin URL for this trusted origin.
+     * @return Unique origin URL for this trusted origin
      * 
      */
     public String origin() {
         return this.origin;
     }
     /**
-     * @return Scopes of the Trusted Origin
+     * @return Scopes of the Trusted Origin - can either be CORS or REDIRECT only
      * 
      */
     public List<String> scopes() {

@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to create and configure an Okta
- * [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.Brand("example", {name: "example"});
+ * ```
  *
  * ## Import
- *
- * An Okta Brand can be imported via the ID.
  *
  * ```sh
  * $ pulumi import okta:index/brand:Brand example &#60;brand id&#62;
@@ -45,12 +49,11 @@ export class Brand extends pulumi.CustomResource {
     }
 
     /**
-     * Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
+     * Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
      */
     public readonly agreeToCustomPrivacyPolicy!: pulumi.Output<boolean>;
     /**
-     * (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
-     * - `DEPRECATED`: Please stop using this field as it has become noop.
+     * Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
      *
      * @deprecated Okta has fully support brand creation, this attribute is a no op and will be removed
      */
@@ -72,15 +75,15 @@ export class Brand extends pulumi.CustomResource {
      */
     public readonly defaultAppClassicApplicationUri!: pulumi.Output<string | undefined>;
     /**
-     * (Read-only) Email Domain ID tied to this brand
+     * Email Domain ID tied to this brand
      */
     public /*out*/ readonly emailDomainId!: pulumi.Output<string>;
     /**
-     * (Read-only) Is this the default brand
+     * Is this the default brand
      */
     public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
     /**
-     * (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+     * Link relations for this object - JSON HAL - Discoverable resources related to the brand
      */
     public /*out*/ readonly links!: pulumi.Output<string>;
     /**
@@ -92,7 +95,7 @@ export class Brand extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+     * Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
      */
     public readonly removePoweredByOkta!: pulumi.Output<boolean>;
 
@@ -146,12 +149,11 @@ export class Brand extends pulumi.CustomResource {
  */
 export interface BrandState {
     /**
-     * Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
+     * Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
      */
     agreeToCustomPrivacyPolicy?: pulumi.Input<boolean>;
     /**
-     * (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
-     * - `DEPRECATED`: Please stop using this field as it has become noop.
+     * Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
      *
      * @deprecated Okta has fully support brand creation, this attribute is a no op and will be removed
      */
@@ -173,15 +175,15 @@ export interface BrandState {
      */
     defaultAppClassicApplicationUri?: pulumi.Input<string>;
     /**
-     * (Read-only) Email Domain ID tied to this brand
+     * Email Domain ID tied to this brand
      */
     emailDomainId?: pulumi.Input<string>;
     /**
-     * (Read-only) Is this the default brand
+     * Is this the default brand
      */
     isDefault?: pulumi.Input<boolean>;
     /**
-     * (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+     * Link relations for this object - JSON HAL - Discoverable resources related to the brand
      */
     links?: pulumi.Input<string>;
     /**
@@ -193,7 +195,7 @@ export interface BrandState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+     * Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
      */
     removePoweredByOkta?: pulumi.Input<boolean>;
 }
@@ -203,12 +205,11 @@ export interface BrandState {
  */
 export interface BrandArgs {
     /**
-     * Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
+     * Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
      */
     agreeToCustomPrivacyPolicy?: pulumi.Input<boolean>;
     /**
-     * (Read-only) Brand ID, used for read (faux-create). Setting `brandId` to `default` is equivalent to importing the default brand by its ID.
-     * - `DEPRECATED`: Please stop using this field as it has become noop.
+     * Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
      *
      * @deprecated Okta has fully support brand creation, this attribute is a no op and will be removed
      */
@@ -238,7 +239,7 @@ export interface BrandArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+     * Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
      */
     removePoweredByOkta?: pulumi.Input<boolean>;
 }

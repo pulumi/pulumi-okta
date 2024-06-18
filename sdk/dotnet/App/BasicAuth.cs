@@ -10,10 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
-    /// This resource allows you to create and configure a Basic Auth Application.
-    /// 
-    /// &gt; During an apply if there is change in `status` the app will first be
-    /// activated or deactivated in accordance with the `status` change. Then, all
+    /// This resource allows you to create and configure an Auto Login Okta Application.
+    /// &gt; During an apply if there is change in status the app will first be
+    /// activated or deactivated in accordance with the status change. Then, all
     /// other arguments that changed will be applied.
     /// 
     /// ## Example Usage
@@ -38,29 +37,27 @@ namespace Pulumi.Okta.App
     /// 
     /// ## Import
     /// 
-    /// A Basic Auth App can be imported via the Okta ID.
-    /// 
     /// ```sh
-    /// $ pulumi import okta:app/basicAuth:BasicAuth example &amp;#60;app id&amp;#62;
+    /// $ pulumi import okta:app/basicAuth:BasicAuth example &amp;#60;app id&amp;#62
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/basicAuth:BasicAuth")]
     public partial class BasicAuth : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Custom error page URL.
+        /// Custom error page URL
         /// </summary>
         [Output("accessibilityErrorRedirectUrl")]
         public Output<string?> AccessibilityErrorRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Custom login page for this application.
+        /// Custom login page URL
         /// </summary>
         [Output("accessibilityLoginRedirectUrl")]
         public Output<string?> AccessibilityLoginRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Enable self-service. By default, it is `false`.
+        /// Enable self service. Default is `false`
         /// </summary>
         [Output("accessibilitySelfService")]
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
@@ -84,7 +81,7 @@ namespace Pulumi.Okta.App
         public Output<string> AuthUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Display auto submit toolbar.
+        /// Display auto submit toolbar
         /// </summary>
         [Output("autoSubmitToolbar")]
         public Output<bool?> AutoSubmitToolbar { get; private set; } = null!;
@@ -96,13 +93,13 @@ namespace Pulumi.Okta.App
         public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon on mobile app.
+        /// Do not display application icon on mobile app
         /// </summary>
         [Output("hideIos")]
         public Output<bool?> HideIos { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon to users.
+        /// Do not display application icon to users
         /// </summary>
         [Output("hideWeb")]
         public Output<bool?> HideWeb { get; private set; } = null!;
@@ -114,13 +111,13 @@ namespace Pulumi.Okta.App
         public Output<string> Label { get; private set; } = null!;
 
         /// <summary>
-        /// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         /// </summary>
         [Output("logo")]
         public Output<string?> Logo { get; private set; } = null!;
 
         /// <summary>
-        /// Direct link of application logo.
+        /// URL of the application's logo
         /// </summary>
         [Output("logoUrl")]
         public Output<string> LogoUrl { get; private set; } = null!;
@@ -138,7 +135,7 @@ namespace Pulumi.Okta.App
         public Output<string> SignOnMode { get; private set; } = null!;
 
         /// <summary>
-        /// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+        /// Status of application. By default, it is `ACTIVE`
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -196,19 +193,19 @@ namespace Pulumi.Okta.App
     public sealed class BasicAuthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom error page URL.
+        /// Custom error page URL
         /// </summary>
         [Input("accessibilityErrorRedirectUrl")]
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
-        /// Custom login page for this application.
+        /// Custom login page URL
         /// </summary>
         [Input("accessibilityLoginRedirectUrl")]
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self-service. By default, it is `false`.
+        /// Enable self service. Default is `false`
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -232,7 +229,7 @@ namespace Pulumi.Okta.App
         public Input<string> AuthUrl { get; set; } = null!;
 
         /// <summary>
-        /// Display auto submit toolbar.
+        /// Display auto submit toolbar
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
@@ -244,13 +241,13 @@ namespace Pulumi.Okta.App
         public Input<string>? EnduserNote { get; set; }
 
         /// <summary>
-        /// Do not display application icon on mobile app.
+        /// Do not display application icon on mobile app
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users.
+        /// Do not display application icon to users
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
@@ -262,13 +259,13 @@ namespace Pulumi.Okta.App
         public Input<string> Label { get; set; } = null!;
 
         /// <summary>
-        /// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
 
         /// <summary>
-        /// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+        /// Status of application. By default, it is `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -288,19 +285,19 @@ namespace Pulumi.Okta.App
     public sealed class BasicAuthState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom error page URL.
+        /// Custom error page URL
         /// </summary>
         [Input("accessibilityErrorRedirectUrl")]
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
-        /// Custom login page for this application.
+        /// Custom login page URL
         /// </summary>
         [Input("accessibilityLoginRedirectUrl")]
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self-service. By default, it is `false`.
+        /// Enable self service. Default is `false`
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -324,7 +321,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AuthUrl { get; set; }
 
         /// <summary>
-        /// Display auto submit toolbar.
+        /// Display auto submit toolbar
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
@@ -336,13 +333,13 @@ namespace Pulumi.Okta.App
         public Input<string>? EnduserNote { get; set; }
 
         /// <summary>
-        /// Do not display application icon on mobile app.
+        /// Do not display application icon on mobile app
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users.
+        /// Do not display application icon to users
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
@@ -354,13 +351,13 @@ namespace Pulumi.Okta.App
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        /// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         /// </summary>
         [Input("logo")]
         public Input<string>? Logo { get; set; }
 
         /// <summary>
-        /// Direct link of application logo.
+        /// URL of the application's logo
         /// </summary>
         [Input("logoUrl")]
         public Input<string>? LogoUrl { get; set; }
@@ -378,7 +375,7 @@ namespace Pulumi.Okta.App
         public Input<string>? SignOnMode { get; set; }
 
         /// <summary>
-        /// Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+        /// Status of application. By default, it is `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

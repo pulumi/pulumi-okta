@@ -12,7 +12,7 @@ namespace Pulumi.Okta.Idp
     public static class GetMetadataSaml
     {
         /// <summary>
-        /// Use this data source to retrieve SAML IdP metadata from Okta.
+        /// Get SAML IdP metadata from Okta.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Okta.Idp
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:idp/getMetadataSaml:getMetadataSaml", args ?? new GetMetadataSamlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve SAML IdP metadata from Okta.
+        /// Get SAML IdP metadata from Okta.
         /// 
         /// ## Example Usage
         /// 
@@ -94,11 +94,11 @@ namespace Pulumi.Okta.Idp
     public sealed class GetMetadataSamlResult
     {
         /// <summary>
-        /// whether assertions are signed.
+        /// Whether assertions are signed.
         /// </summary>
         public readonly bool AssertionsSigned;
         /// <summary>
-        /// whether authn requests are signed.
+        /// Whether authn requests are signed.
         /// </summary>
         public readonly bool AuthnRequestSigned;
         /// <summary>
@@ -106,7 +106,7 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly string EncryptionCertificate;
         /// <summary>
-        /// Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
+        /// Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
         /// </summary>
         public readonly string EntityId;
         /// <summary>
@@ -121,9 +121,12 @@ namespace Pulumi.Okta.Idp
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The id of the IdP to retrieve metadata for.
+        /// </summary>
         public readonly string? IdpId;
         /// <summary>
-        /// raw IdP metadata.
+        /// Raw IdP metadata.
         /// </summary>
         public readonly string Metadata;
         /// <summary>

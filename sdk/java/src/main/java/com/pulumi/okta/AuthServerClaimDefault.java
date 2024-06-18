@@ -18,7 +18,6 @@ import javax.annotation.Nullable;
 
 /**
  * Configures Default Authorization Server Claim.
- * 
  * This resource allows you to configure Default Authorization Server Claims.
  * 
  * ## Example Usage
@@ -60,14 +59,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Authorization Server Claim can be imported via the Auth Server ID and Claim ID or Claim Name.
- * 
- * ```sh
- * $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim id&amp;#62;
- * ```
- * 
- * or
- * 
  * ```sh
  * $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim name&amp;#62;
  * ```
@@ -104,46 +95,42 @@ public class AuthServerClaimDefault extends com.pulumi.resources.CustomResource 
         return this.authServerId;
     }
     /**
-     * Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
+     * Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
      * 
      */
     @Export(name="claimType", refs={String.class}, tree="[0]")
     private Output<String> claimType;
 
     /**
-     * @return Specifies whether the claim is for an access token `&#34;RESOURCE&#34;` or ID token `&#34;IDENTITY&#34;`.
+     * @return Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
      * 
      */
     public Output<String> claimType() {
         return this.claimType;
     }
     /**
-     * The name of the claim. Can be set to `&#34;sub&#34;`, `&#34;address&#34;`, `&#34;birthdate&#34;`, `&#34;email&#34;`,
-     * `&#34;email_verified&#34;`, `&#34;family_name&#34;`, `&#34;gender&#34;`, `&#34;given_name&#34;`, `&#34;locale&#34;`, `&#34;middle_name&#34;`, `&#34;name&#34;`, `&#34;nickname&#34;`,
-     * `&#34;phone_number&#34;`, `&#34;picture&#34;`, `&#34;preferred_username&#34;`, `&#34;profile&#34;`, `&#34;updated_at&#34;`, `&#34;website&#34;`, `&#34;zoneinfo&#34;`.
+     * The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the claim. Can be set to `&#34;sub&#34;`, `&#34;address&#34;`, `&#34;birthdate&#34;`, `&#34;email&#34;`,
-     * `&#34;email_verified&#34;`, `&#34;family_name&#34;`, `&#34;gender&#34;`, `&#34;given_name&#34;`, `&#34;locale&#34;`, `&#34;middle_name&#34;`, `&#34;name&#34;`, `&#34;nickname&#34;`,
-     * `&#34;phone_number&#34;`, `&#34;picture&#34;`, `&#34;preferred_username&#34;`, `&#34;profile&#34;`, `&#34;updated_at&#34;`, `&#34;website&#34;`, `&#34;zoneinfo&#34;`.
+     * @return The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The list of scopes the auth server claim is tied to.
+     * Auth server claim list of scopes
      * 
      */
     @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopes;
 
     /**
-     * @return The list of scopes the auth server claim is tied to.
+     * @return Auth server claim list of scopes
      * 
      */
     public Output<List<String>> scopes() {
@@ -164,14 +151,14 @@ public class AuthServerClaimDefault extends com.pulumi.resources.CustomResource 
         return this.status;
     }
     /**
-     * The value of the claim. Only required for `&#34;sub&#34;` claim.
+     * The value of the claim. Only required for `sub` claim.
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> value;
 
     /**
-     * @return The value of the claim. Only required for `&#34;sub&#34;` claim.
+     * @return The value of the claim. Only required for `sub` claim.
      * 
      */
     public Output<Optional<String>> value() {

@@ -5,41 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Creates an Okta Group.
- *
- * This resource allows you to create and configure an Okta Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.group.Group("example", {
- *     name: "Example",
- *     description: "My Example Group",
- * });
- * ```
- *
- * Custom profile attributes
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.group.Group("example", {
- *     name: "Example",
- *     description: "My Example Group",
- *     customProfileAttributes: JSON.stringify({
- *         example1: "testing1234",
- *         example2: true,
- *         example3: 54321,
- *     }),
- * });
- * ```
+ * Creates an Okta Group. This resource allows you to create and configure an Okta Group.
  *
  * ## Import
- *
- * An Okta Group can be imported via the Okta ID.
  *
  * ```sh
  * $ pulumi import okta:group/group:Group example &#60;group id&#62;
@@ -74,7 +42,7 @@ export class Group extends pulumi.CustomResource {
     }
 
     /**
-     * raw JSON containing all custom profile attributes.
+     * JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
      */
     public readonly customProfileAttributes!: pulumi.Output<string | undefined>;
     /**
@@ -126,7 +94,7 @@ export class Group extends pulumi.CustomResource {
  */
 export interface GroupState {
     /**
-     * raw JSON containing all custom profile attributes.
+     * JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
      */
     customProfileAttributes?: pulumi.Input<string>;
     /**
@@ -150,7 +118,7 @@ export interface GroupState {
  */
 export interface GroupArgs {
     /**
-     * raw JSON containing all custom profile attributes.
+     * JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
      */
     customProfileAttributes?: pulumi.Input<string>;
     /**

@@ -18,16 +18,15 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly string? Expiration;
         /// <summary>
-        /// DNS record name.
+        /// DNS record name
         /// </summary>
         public readonly string? Fqdn;
         /// <summary>
-        /// Record type can be TXT or cname.
+        /// Record type can be TXT or cname
         /// </summary>
         public readonly string? RecordType;
         /// <summary>
         /// DNS record value
-        /// - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
         /// </summary>
         public readonly string? Value;
 

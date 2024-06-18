@@ -16,9 +16,9 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Assigns groups to an application.
+ * Assigns groups to an application. This resource allows you to create multiple App Group assignments.
  * 
- * This resource allows you to create multiple App Group assignments.
+ * **Important**: Do not use in conjunction with for_each
  * 
  * ## Example Usage
  * 
@@ -72,10 +72,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An application&#39;s group assignments can be imported via `app_id`.
- * 
  * ```sh
- * $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &amp;#60;app_id&amp;#62;
+ * $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &amp;#60;app_id&amp;#62
  * ```
  * 
  */
@@ -96,14 +94,14 @@ public class AppGroupAssignments extends com.pulumi.resources.CustomResource {
         return this.appId;
     }
     /**
-     * A group to assign the app to.
+     * A group to assign to this application
      * 
      */
     @Export(name="groups", refs={List.class,AppGroupAssignmentsGroup.class}, tree="[0,1]")
     private Output<List<AppGroupAssignmentsGroup>> groups;
 
     /**
-     * @return A group to assign the app to.
+     * @return A group to assign to this application
      * 
      */
     public Output<List<AppGroupAssignmentsGroup>> groups() {

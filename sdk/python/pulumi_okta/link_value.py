@@ -20,8 +20,8 @@ class LinkValueArgs:
         """
         The set of arguments for constructing a LinkValue resource.
         :param pulumi.Input[str] primary_name: Name of the `primary` relationship being assigned.
-        :param pulumi.Input[str] primary_user_id: User ID to be assigned to `primary` for the `associated` user in the specified relationship.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_user_ids: Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+        :param pulumi.Input[str] primary_user_id: User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_user_ids: Set of User IDs or login values of the users to be assigned the `associated` relationship.
         """
         pulumi.set(__self__, "primary_name", primary_name)
         pulumi.set(__self__, "primary_user_id", primary_user_id)
@@ -44,7 +44,7 @@ class LinkValueArgs:
     @pulumi.getter(name="primaryUserId")
     def primary_user_id(self) -> pulumi.Input[str]:
         """
-        User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+        User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
         """
         return pulumi.get(self, "primary_user_id")
 
@@ -56,7 +56,7 @@ class LinkValueArgs:
     @pulumi.getter(name="associatedUserIds")
     def associated_user_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+        Set of User IDs or login values of the users to be assigned the `associated` relationship.
         """
         return pulumi.get(self, "associated_user_ids")
 
@@ -73,9 +73,9 @@ class _LinkValueState:
                  primary_user_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LinkValue resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_user_ids: Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_user_ids: Set of User IDs or login values of the users to be assigned the `associated` relationship.
         :param pulumi.Input[str] primary_name: Name of the `primary` relationship being assigned.
-        :param pulumi.Input[str] primary_user_id: User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+        :param pulumi.Input[str] primary_user_id: User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
         """
         if associated_user_ids is not None:
             pulumi.set(__self__, "associated_user_ids", associated_user_ids)
@@ -88,7 +88,7 @@ class _LinkValueState:
     @pulumi.getter(name="associatedUserIds")
     def associated_user_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+        Set of User IDs or login values of the users to be assigned the `associated` relationship.
         """
         return pulumi.get(self, "associated_user_ids")
 
@@ -112,7 +112,7 @@ class _LinkValueState:
     @pulumi.getter(name="primaryUserId")
     def primary_user_id(self) -> Optional[pulumi.Input[str]]:
         """
-        User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+        User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
         """
         return pulumi.get(self, "primary_user_id")
 
@@ -131,7 +131,7 @@ class LinkValue(pulumi.CustomResource):
                  primary_user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Link value operations allow you to create relationships between primary and associated users.
+        Manages users relationships. Link value operations allow you to create relationships between primary and associated users.
 
         ## Example Usage
 
@@ -172,17 +172,15 @@ class LinkValue(pulumi.CustomResource):
 
         ## Import
 
-        Okta Link Value can be imported via Primary Name and Primary User ID.
-
         ```sh
         $ pulumi import okta:index/linkValue:LinkValue example &#60;primary_name&#62;/&#60;primary_user_id&#62;
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_user_ids: Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_user_ids: Set of User IDs or login values of the users to be assigned the `associated` relationship.
         :param pulumi.Input[str] primary_name: Name of the `primary` relationship being assigned.
-        :param pulumi.Input[str] primary_user_id: User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+        :param pulumi.Input[str] primary_user_id: User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
         """
         ...
     @overload
@@ -191,7 +189,7 @@ class LinkValue(pulumi.CustomResource):
                  args: LinkValueArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Link value operations allow you to create relationships between primary and associated users.
+        Manages users relationships. Link value operations allow you to create relationships between primary and associated users.
 
         ## Example Usage
 
@@ -231,8 +229,6 @@ class LinkValue(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Okta Link Value can be imported via Primary Name and Primary User ID.
 
         ```sh
         $ pulumi import okta:index/linkValue:LinkValue example &#60;primary_name&#62;/&#60;primary_user_id&#62;
@@ -292,9 +288,9 @@ class LinkValue(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_user_ids: Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_user_ids: Set of User IDs or login values of the users to be assigned the `associated` relationship.
         :param pulumi.Input[str] primary_name: Name of the `primary` relationship being assigned.
-        :param pulumi.Input[str] primary_user_id: User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+        :param pulumi.Input[str] primary_user_id: User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -309,7 +305,7 @@ class LinkValue(pulumi.CustomResource):
     @pulumi.getter(name="associatedUserIds")
     def associated_user_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+        Set of User IDs or login values of the users to be assigned the `associated` relationship.
         """
         return pulumi.get(self, "associated_user_ids")
 
@@ -325,7 +321,7 @@ class LinkValue(pulumi.CustomResource):
     @pulumi.getter(name="primaryUserId")
     def primary_user_id(self) -> pulumi.Output[str]:
         """
-        User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+        User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
         """
         return pulumi.get(self, "primary_user_id")
 

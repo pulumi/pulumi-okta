@@ -19,12 +19,9 @@ import javax.annotation.Nullable;
 
 /**
  * Configures default MFA Policy.
- * 
  * This resource allows you to configure default MFA Policy.
- * 
- * &gt; Requires Org Feature Flag `OKTA_MFA_POLICY`. Contact support to have this feature flag ***enabled***.
- * 
- * &gt; Unless Org Feature Flag `ENG_ENABLE_OPTIONAL_PASSWORD_ENROLLMENT` is ***disabled*** `okta_password` or `okta_email` must be present and its `enroll` value set to `REQUIRED`. Contact support to have this feature flag ***disabled***.
+ * &gt; Requires Org Feature Flag &#39;OKTA_MFA_POLICY&#39;. Contact support to have this feature flag ***enabled***.
+ * Unless Org Feature Flag &#39;ENG_ENABLE_OPTIONAL_PASSWORD_ENROLLMENT&#39; is ***disabled*** &#39;okta_password&#39; or &#39;okta_email&#39; must be present and its &#39;enroll&#39; value set to &#39;REQUIRED&#39;. Contact support to have this feature flag ***disabled***.
  * 
  * ## Example Usage
  * 
@@ -69,11 +66,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * &gt; If the `okta.PolicyMfaDefault` is used in conjunction with `okta.policy.Mfa` resources, ensure to use a `depends_on` attribute for the default policy to ensure that all other policies are created/updated first such that the `priority` field can be appropriately computed on the first plan/apply.
- * 
  * ## Import
- * 
- * Default MFA Policy can be imported without providing Okta ID.
  * 
  * ```sh
  * $ pulumi import okta:index/policyMfaDefault:PolicyMfaDefault example .
@@ -83,382 +76,212 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/policyMfaDefault:PolicyMfaDefault")
 public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
     /**
-     * ID of the default Okta group.
+     * Default group ID (always included)
      * 
      */
     @Export(name="defaultIncludedGroupId", refs={String.class}, tree="[0]")
     private Output<String> defaultIncludedGroupId;
 
     /**
-     * @return ID of the default Okta group.
+     * @return Default group ID (always included)
      * 
      */
     public Output<String> defaultIncludedGroupId() {
         return this.defaultIncludedGroupId;
     }
     /**
-     * Default policy description.
+     * Default policy description
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return Default policy description.
+     * @return Default policy description
      * 
      */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * DUO MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     @Export(name="duo", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> duo;
 
-    /**
-     * @return DUO MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     public Output<Optional<Map<String,String>>> duo() {
         return Codegen.optional(this.duo);
     }
-    /**
-     * External IDP MFA policy settings (✓ OIE).
-     * 
-     */
     @Export(name="externalIdp", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> externalIdp;
 
-    /**
-     * @return External IDP MFA policy settings (✓ OIE).
-     * 
-     */
     public Output<Optional<Map<String,String>>> externalIdp() {
         return Codegen.optional(this.externalIdp);
     }
-    /**
-     * Fido U2F MFA policy settings (✓ Classic).
-     * 
-     */
     @Export(name="fidoU2f", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> fidoU2f;
 
-    /**
-     * @return Fido U2F MFA policy settings (✓ Classic).
-     * 
-     */
     public Output<Optional<Map<String,String>>> fidoU2f() {
         return Codegen.optional(this.fidoU2f);
     }
-    /**
-     * Fido Web Authn MFA policy settings (✓ Classic).
-     * 
-     */
     @Export(name="fidoWebauthn", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> fidoWebauthn;
 
-    /**
-     * @return Fido Web Authn MFA policy settings (✓ Classic).
-     * 
-     */
     public Output<Optional<Map<String,String>>> fidoWebauthn() {
         return Codegen.optional(this.fidoWebauthn);
     }
-    /**
-     * Google OTP MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     @Export(name="googleOtp", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> googleOtp;
 
-    /**
-     * @return Google OTP MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     public Output<Optional<Map<String,String>>> googleOtp() {
         return Codegen.optional(this.googleOtp);
     }
-    /**
-     * HMAC-based One-Time Password MFA policy settings (✓ Classic).
-     * 
-     */
     @Export(name="hotp", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> hotp;
 
-    /**
-     * @return HMAC-based One-Time Password MFA policy settings (✓ Classic).
-     * 
-     */
     public Output<Optional<Map<String,String>>> hotp() {
         return Codegen.optional(this.hotp);
     }
     /**
-     * Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
-     * &gt; **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
+     * Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
      * 
      */
     @Export(name="isOie", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isOie;
 
     /**
-     * @return Boolean that specifies whether to use the newer Okta Identity Engine (OIE) with policy authenticators instead of the classic engine with Factors. This value determines which of the following policy factor settings can be configured. (Default = `false`)
-     * &gt; **WARNING:** Tenant must have the Okta Identity Engine enabled in order to use this feature.
+     * @return Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
      * 
      */
     public Output<Optional<Boolean>> isOie() {
         return Codegen.optional(this.isOie);
     }
     /**
-     * Default policy name.
+     * Default policy name
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Default policy name.
+     * @return Default policy name
      * 
      */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Okta Call MFA policy settings (✓ Classic).
-     * 
-     */
     @Export(name="oktaCall", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaCall;
 
-    /**
-     * @return Okta Call MFA policy settings (✓ Classic).
-     * 
-     */
     public Output<Optional<Map<String,String>>> oktaCall() {
         return Codegen.optional(this.oktaCall);
     }
-    /**
-     * Okta Email MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     @Export(name="oktaEmail", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaEmail;
 
-    /**
-     * @return Okta Email MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     public Output<Optional<Map<String,String>>> oktaEmail() {
         return Codegen.optional(this.oktaEmail);
     }
-    /**
-     * Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
-     * 
-     */
     @Export(name="oktaOtp", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaOtp;
 
-    /**
-     * @return Okta OTP (via the Okta Verify app) MFA policy settings (✓ Classic).
-     * 
-     */
     public Output<Optional<Map<String,String>>> oktaOtp() {
         return Codegen.optional(this.oktaOtp);
     }
-    /**
-     * Okta Password MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     @Export(name="oktaPassword", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaPassword;
 
-    /**
-     * @return Okta Password MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     public Output<Optional<Map<String,String>>> oktaPassword() {
         return Codegen.optional(this.oktaPassword);
     }
-    /**
-     * Okta Push MFA policy settings (✓ Classic).
-     * 
-     */
     @Export(name="oktaPush", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaPush;
 
-    /**
-     * @return Okta Push MFA policy settings (✓ Classic).
-     * 
-     */
     public Output<Optional<Map<String,String>>> oktaPush() {
         return Codegen.optional(this.oktaPush);
     }
-    /**
-     * Okta Question MFA policy settings (✓ Classic).
-     * 
-     */
     @Export(name="oktaQuestion", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaQuestion;
 
-    /**
-     * @return Okta Question MFA policy settings (✓ Classic).
-     * 
-     */
     public Output<Optional<Map<String,String>>> oktaQuestion() {
         return Codegen.optional(this.oktaQuestion);
     }
-    /**
-     * Okta SMS MFA policy settings (✓ Classic).
-     * 
-     */
     @Export(name="oktaSms", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaSms;
 
-    /**
-     * @return Okta SMS MFA policy settings (✓ Classic).
-     * 
-     */
     public Output<Optional<Map<String,String>>> oktaSms() {
         return Codegen.optional(this.oktaSms);
     }
-    /**
-     * Okta Verify MFA policy settings (✓ OIE).
-     * 
-     */
     @Export(name="oktaVerify", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> oktaVerify;
 
-    /**
-     * @return Okta Verify MFA policy settings (✓ OIE).
-     * 
-     */
     public Output<Optional<Map<String,String>>> oktaVerify() {
         return Codegen.optional(this.oktaVerify);
     }
-    /**
-     * On-Prem MFA MFA policy settings (✓ OIE).
-     * 
-     */
     @Export(name="onpremMfa", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> onpremMfa;
 
-    /**
-     * @return On-Prem MFA MFA policy settings (✓ OIE).
-     * 
-     */
     public Output<Optional<Map<String,String>>> onpremMfa() {
         return Codegen.optional(this.onpremMfa);
     }
-    /**
-     * Phone Number MFA policy settings (✓ OIE).
-     * 
-     */
     @Export(name="phoneNumber", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> phoneNumber;
 
-    /**
-     * @return Phone Number MFA policy settings (✓ OIE).
-     * 
-     */
     public Output<Optional<Map<String,String>>> phoneNumber() {
         return Codegen.optional(this.phoneNumber);
     }
     /**
-     * Default policy priority.
+     * Default policy priority
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
-     * @return Default policy priority.
+     * @return Default policy priority
      * 
      */
     public Output<Integer> priority() {
         return this.priority;
     }
-    /**
-     * RSA Token MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     @Export(name="rsaToken", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> rsaToken;
 
-    /**
-     * @return RSA Token MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     public Output<Optional<Map<String,String>>> rsaToken() {
         return Codegen.optional(this.rsaToken);
     }
-    /**
-     * Security Question MFA policy settings (✓ OIE).
-     * 
-     */
     @Export(name="securityQuestion", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> securityQuestion;
 
-    /**
-     * @return Security Question MFA policy settings (✓ OIE).
-     * 
-     */
     public Output<Optional<Map<String,String>>> securityQuestion() {
         return Codegen.optional(this.securityQuestion);
     }
     /**
-     * Default policy status.
+     * Default policy status
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return Default policy status.
+     * @return Default policy status
      * 
      */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Symantec VIP MFA policy settings (✓ Classic).
-     * 
-     */
     @Export(name="symantecVip", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> symantecVip;
 
-    /**
-     * @return Symantec VIP MFA policy settings (✓ Classic).
-     * 
-     */
     public Output<Optional<Map<String,String>>> symantecVip() {
         return Codegen.optional(this.symantecVip);
     }
-    /**
-     * FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
-     * 
-     */
     @Export(name="webauthn", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> webauthn;
 
-    /**
-     * @return FIDO2 (WebAuthn) MFA policy settings (✓ OIE).
-     * 
-     */
     public Output<Optional<Map<String,String>>> webauthn() {
         return Codegen.optional(this.webauthn);
     }
-    /**
-     * Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     @Export(name="yubikeyToken", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> yubikeyToken;
 
-    /**
-     * @return Yubikey Token MFA policy settings (✓ Classic, ✓ OIE).
-     * 
-     */
     public Output<Optional<Map<String,String>>> yubikeyToken() {
         return Codegen.optional(this.yubikeyToken);
     }

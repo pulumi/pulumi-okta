@@ -15,18 +15,14 @@ public final class GetRoleSubscriptionArgs extends com.pulumi.resources.InvokeAr
     public static final GetRoleSubscriptionArgs Empty = new GetRoleSubscriptionArgs();
 
     /**
-     * Type of the notification. Valid values: `&#34;CONNECTOR_AGENT&#34;`, `&#34;USER_LOCKED_OUT&#34;`,
-     * `&#34;APP_IMPORT&#34;`, `&#34;LDAP_AGENT&#34;`, `&#34;AD_AGENT&#34;`, `&#34;OKTA_ANNOUNCEMENT&#34;`, `&#34;OKTA_ISSUE&#34;`, `&#34;OKTA_UPDATE&#34;`, `&#34;IWA_AGENT&#34;`,
-     * `&#34;USER_DEPROVISION&#34;`, `&#34;REPORT_SUSPICIOUS_ACTIVITY&#34;`, `&#34;RATELIMIT_NOTIFICATION&#34;`.
+     * Type of the notification
      * 
      */
     @Import(name="notificationType", required=true)
     private Output<String> notificationType;
 
     /**
-     * @return Type of the notification. Valid values: `&#34;CONNECTOR_AGENT&#34;`, `&#34;USER_LOCKED_OUT&#34;`,
-     * `&#34;APP_IMPORT&#34;`, `&#34;LDAP_AGENT&#34;`, `&#34;AD_AGENT&#34;`, `&#34;OKTA_ANNOUNCEMENT&#34;`, `&#34;OKTA_ISSUE&#34;`, `&#34;OKTA_UPDATE&#34;`, `&#34;IWA_AGENT&#34;`,
-     * `&#34;USER_DEPROVISION&#34;`, `&#34;REPORT_SUSPICIOUS_ACTIVITY&#34;`, `&#34;RATELIMIT_NOTIFICATION&#34;`.
+     * @return Type of the notification
      * 
      */
     public Output<String> notificationType() {
@@ -34,38 +30,14 @@ public final class GetRoleSubscriptionArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * Type of the role. Valid values:
-     * `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`,
-     * `&#34;APP_ADMIN&#34;`,
-     * `&#34;CUSTOM&#34;`,
-     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
-     * `&#34;HELP_DESK_ADMIN&#34;`,
-     * `&#34;MOBILE_ADMIN&#34;`,
-     * `&#34;ORG_ADMIN&#34;`,
-     * `&#34;READ_ONLY_ADMIN&#34;`,
-     * `&#34;REPORT_ADMIN&#34;`,
-     * `&#34;SUPER_ADMIN&#34;`,
-     * `&#34;USER_ADMIN&#34;`
-     * .
+     * Type of the role
      * 
      */
     @Import(name="roleType", required=true)
     private Output<String> roleType;
 
     /**
-     * @return Type of the role. Valid values:
-     * `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`,
-     * `&#34;APP_ADMIN&#34;`,
-     * `&#34;CUSTOM&#34;`,
-     * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
-     * `&#34;HELP_DESK_ADMIN&#34;`,
-     * `&#34;MOBILE_ADMIN&#34;`,
-     * `&#34;ORG_ADMIN&#34;`,
-     * `&#34;READ_ONLY_ADMIN&#34;`,
-     * `&#34;REPORT_ADMIN&#34;`,
-     * `&#34;SUPER_ADMIN&#34;`,
-     * `&#34;USER_ADMIN&#34;`
-     * .
+     * @return Type of the role
      * 
      */
     public Output<String> roleType() {
@@ -98,9 +70,7 @@ public final class GetRoleSubscriptionArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param notificationType Type of the notification. Valid values: `&#34;CONNECTOR_AGENT&#34;`, `&#34;USER_LOCKED_OUT&#34;`,
-         * `&#34;APP_IMPORT&#34;`, `&#34;LDAP_AGENT&#34;`, `&#34;AD_AGENT&#34;`, `&#34;OKTA_ANNOUNCEMENT&#34;`, `&#34;OKTA_ISSUE&#34;`, `&#34;OKTA_UPDATE&#34;`, `&#34;IWA_AGENT&#34;`,
-         * `&#34;USER_DEPROVISION&#34;`, `&#34;REPORT_SUSPICIOUS_ACTIVITY&#34;`, `&#34;RATELIMIT_NOTIFICATION&#34;`.
+         * @param notificationType Type of the notification
          * 
          * @return builder
          * 
@@ -111,9 +81,7 @@ public final class GetRoleSubscriptionArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param notificationType Type of the notification. Valid values: `&#34;CONNECTOR_AGENT&#34;`, `&#34;USER_LOCKED_OUT&#34;`,
-         * `&#34;APP_IMPORT&#34;`, `&#34;LDAP_AGENT&#34;`, `&#34;AD_AGENT&#34;`, `&#34;OKTA_ANNOUNCEMENT&#34;`, `&#34;OKTA_ISSUE&#34;`, `&#34;OKTA_UPDATE&#34;`, `&#34;IWA_AGENT&#34;`,
-         * `&#34;USER_DEPROVISION&#34;`, `&#34;REPORT_SUSPICIOUS_ACTIVITY&#34;`, `&#34;RATELIMIT_NOTIFICATION&#34;`.
+         * @param notificationType Type of the notification
          * 
          * @return builder
          * 
@@ -123,19 +91,7 @@ public final class GetRoleSubscriptionArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param roleType Type of the role. Valid values:
-         * `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`,
-         * `&#34;APP_ADMIN&#34;`,
-         * `&#34;CUSTOM&#34;`,
-         * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
-         * `&#34;HELP_DESK_ADMIN&#34;`,
-         * `&#34;MOBILE_ADMIN&#34;`,
-         * `&#34;ORG_ADMIN&#34;`,
-         * `&#34;READ_ONLY_ADMIN&#34;`,
-         * `&#34;REPORT_ADMIN&#34;`,
-         * `&#34;SUPER_ADMIN&#34;`,
-         * `&#34;USER_ADMIN&#34;`
-         * .
+         * @param roleType Type of the role
          * 
          * @return builder
          * 
@@ -146,19 +102,7 @@ public final class GetRoleSubscriptionArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param roleType Type of the role. Valid values:
-         * `&#34;API_ACCESS_MANAGEMENT_ADMIN&#34;`,
-         * `&#34;APP_ADMIN&#34;`,
-         * `&#34;CUSTOM&#34;`,
-         * `&#34;GROUP_MEMBERSHIP_ADMIN&#34;`,
-         * `&#34;HELP_DESK_ADMIN&#34;`,
-         * `&#34;MOBILE_ADMIN&#34;`,
-         * `&#34;ORG_ADMIN&#34;`,
-         * `&#34;READ_ONLY_ADMIN&#34;`,
-         * `&#34;REPORT_ADMIN&#34;`,
-         * `&#34;SUPER_ADMIN&#34;`,
-         * `&#34;USER_ADMIN&#34;`
-         * .
+         * @param roleType Type of the role
          * 
          * @return builder
          * 

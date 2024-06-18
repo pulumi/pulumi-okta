@@ -16,9 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Allows you to manage the activation of Okta MFA methods.
- * 
- * This resource allows you to manage Okta MFA methods.
+ * Allows you to manage the activation of Okta MFA methods. This resource allows you to manage Okta MFA methods.
  * 
  * ## Example Usage
  * 
@@ -73,16 +71,14 @@ public class Factor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.active);
     }
     /**
-     * The MFA provider name.
-     * Allowed values are `&#34;duo&#34;`, `&#34;fido_u2f&#34;`, `&#34;fido_webauthn&#34;`, `&#34;google_otp&#34;`, `&#34;okta_call&#34;`, `&#34;okta_otp&#34;`, `&#34;okta_password&#34;`, `&#34;okta_push&#34;`, `&#34;okta_question&#34;`, `&#34;okta_sms&#34;`, `&#34;okta_email&#34;`, `&#34;rsa_token&#34;`, `&#34;symantec_vip&#34;`, `&#34;yubikey_token&#34;`, or `&#34;hotp&#34;`.
+     * The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
      * 
      */
     @Export(name="providerId", refs={String.class}, tree="[0]")
     private Output<String> providerId;
 
     /**
-     * @return The MFA provider name.
-     * Allowed values are `&#34;duo&#34;`, `&#34;fido_u2f&#34;`, `&#34;fido_webauthn&#34;`, `&#34;google_otp&#34;`, `&#34;okta_call&#34;`, `&#34;okta_otp&#34;`, `&#34;okta_password&#34;`, `&#34;okta_push&#34;`, `&#34;okta_question&#34;`, `&#34;okta_sms&#34;`, `&#34;okta_email&#34;`, `&#34;rsa_token&#34;`, `&#34;symantec_vip&#34;`, `&#34;yubikey_token&#34;`, or `&#34;hotp&#34;`.
+     * @return The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
      * 
      */
     public Output<String> providerId() {

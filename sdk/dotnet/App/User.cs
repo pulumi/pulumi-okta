@@ -32,8 +32,6 @@ namespace Pulumi.Okta.App
     /// 
     /// ## Import
     /// 
-    /// An Application User can be imported via the Okta ID.
-    /// 
     /// ```sh
     /// $ pulumi import okta:app/user:User example &amp;#60;app id&amp;#62;/&amp;#60;user id&amp;#62;
     /// ```
@@ -42,7 +40,7 @@ namespace Pulumi.Okta.App
     public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// App to associate user with.
+        /// App to associate user with
         /// </summary>
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
@@ -63,20 +61,19 @@ namespace Pulumi.Okta.App
         public Output<string?> Profile { get; private set; } = null!;
 
         /// <summary>
-        /// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        /// Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         /// </summary>
         [Output("retainAssignment")]
         public Output<bool?> RetainAssignment { get; private set; } = null!;
 
         /// <summary>
-        /// User to associate the application with.
+        /// User associated with the application
         /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
 
         /// <summary>
-        /// The username to use for the app user. In case the user is assigned to the app with 
-        /// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+        /// The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
         /// </summary>
         [Output("username")]
         public Output<string?> Username { get; private set; } = null!;
@@ -132,7 +129,7 @@ namespace Pulumi.Okta.App
     public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// App to associate user with.
+        /// App to associate user with
         /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
@@ -160,20 +157,19 @@ namespace Pulumi.Okta.App
         public Input<string>? Profile { get; set; }
 
         /// <summary>
-        /// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        /// Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         /// </summary>
         [Input("retainAssignment")]
         public Input<bool>? RetainAssignment { get; set; }
 
         /// <summary>
-        /// User to associate the application with.
+        /// User associated with the application
         /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
 
         /// <summary>
-        /// The username to use for the app user. In case the user is assigned to the app with 
-        /// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+        /// The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
@@ -187,7 +183,7 @@ namespace Pulumi.Okta.App
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// App to associate user with.
+        /// App to associate user with
         /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }
@@ -218,20 +214,19 @@ namespace Pulumi.Okta.App
         public Input<string>? Profile { get; set; }
 
         /// <summary>
-        /// Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+        /// Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         /// </summary>
         [Input("retainAssignment")]
         public Input<bool>? RetainAssignment { get; set; }
 
         /// <summary>
-        /// User to associate the application with.
+        /// User associated with the application
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
 
         /// <summary>
-        /// The username to use for the app user. In case the user is assigned to the app with 
-        /// 'SHARED_USERNAME_AND_PASSWORD' credentials scheme, this field will be computed and should not be set.
+        /// The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

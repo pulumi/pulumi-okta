@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve SAML IdP metadata from Okta.
+ * Get SAML IdP metadata from Okta.
  *
  * ## Example Usage
  *
@@ -42,11 +42,11 @@ export interface GetMetadataSamlArgs {
  */
 export interface GetMetadataSamlResult {
     /**
-     * whether assertions are signed.
+     * Whether assertions are signed.
      */
     readonly assertionsSigned: boolean;
     /**
-     * whether authn requests are signed.
+     * Whether authn requests are signed.
      */
     readonly authnRequestSigned: boolean;
     /**
@@ -54,7 +54,7 @@ export interface GetMetadataSamlResult {
      */
     readonly encryptionCertificate: string;
     /**
-     * Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
+     * Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
      */
     readonly entityId: string;
     /**
@@ -69,9 +69,12 @@ export interface GetMetadataSamlResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The id of the IdP to retrieve metadata for.
+     */
     readonly idpId?: string;
     /**
-     * raw IdP metadata.
+     * Raw IdP metadata.
      */
     readonly metadata: string;
     /**
@@ -80,7 +83,7 @@ export interface GetMetadataSamlResult {
     readonly signingCertificate: string;
 }
 /**
- * Use this data source to retrieve SAML IdP metadata from Okta.
+ * Get SAML IdP metadata from Okta.
  *
  * ## Example Usage
  *

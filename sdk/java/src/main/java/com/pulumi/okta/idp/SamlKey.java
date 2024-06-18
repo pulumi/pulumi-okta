@@ -69,8 +69,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A SAML IdP Signing Key can be imported via the key id.
- * 
  * ```sh
  * $ pulumi import okta:idp/samlKey:SamlKey example &amp;#60;key id&amp;#62;
  * ```
@@ -149,14 +147,14 @@ public class SamlKey extends com.pulumi.resources.CustomResource {
         return this.use;
     }
     /**
-     * base64-encoded X.509 certificate chain with DER encoding.
+     * base64-encoded X.509 certificate chain with DER encoding
      * 
      */
     @Export(name="x5cs", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> x5cs;
 
     /**
-     * @return base64-encoded X.509 certificate chain with DER encoding.
+     * @return base64-encoded X.509 certificate chain with DER encoding
      * 
      */
     public Output<List<String>> x5cs() {

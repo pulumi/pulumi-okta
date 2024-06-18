@@ -12,8 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+// Creates a Profile Enrollment Policy Rule.
 //
+// > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
 // A [profile enrollment
 // policy](https://developer.okta.com/docs/reference/api/policy/#profile-enrollment-policy)
 // is limited to one default rule. This resource does not create a rule for an
@@ -99,35 +100,37 @@ import (
 //
 // ## Import
 //
-// A Policy Rule can be imported via the Policy and Rule ID.
-//
 // ```sh
 // $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &#60;policy id&#62;/&#60;rule id&#62;
 // ```
 type PolicyRuleProfileEnrollment struct {
 	pulumi.CustomResourceState
 
-	// Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
+	// Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
 	Access pulumi.StringPtrOutput `pulumi:"access"`
-	// Indicates whether email verification should occur before access is granted. Default is `true`.
+	// Indicates whether email verification should occur before access is granted. Default: `true`.
 	EmailVerification pulumi.BoolPtrOutput `pulumi:"emailVerification"`
-	// ID of a Registration Inline Hook.
+	// ID of a Registration Inline Hook
 	InlineHookId pulumi.StringPtrOutput `pulumi:"inlineHookId"`
-	// Name of the Rule.
+	// Name of the rule
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Policy ID.
+	// ID of the policy
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
-	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
+	// these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
+	// the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
+	// supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
+	// Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
 	ProfileAttributes PolicyRuleProfileEnrollmentProfileAttributeArrayOutput `pulumi:"profileAttributes"`
-	// Enabled or disabled progressive profiling action rule conditions. Valid values are: `"ENABLED"`, `"DISABLED"`. Default is `"DISABLED"`.
+	// Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
 	ProgressiveProfilingAction pulumi.StringPtrOutput `pulumi:"progressiveProfilingAction"`
-	// Status of the Rule.
+	// Status of the rule
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The ID of a Group that this User should be added to.
+	// The ID of a Group that this User should be added to
 	TargetGroupId pulumi.StringPtrOutput `pulumi:"targetGroupId"`
 	// Value created by the backend. If present all policy updates must include this attribute/value.
 	UiSchemaId pulumi.StringPtrOutput `pulumi:"uiSchemaId"`
-	// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+	// Which action should be taken if this User is new. Valid values are: `DENY`, `REGISTER`
 	UnknownUserAction pulumi.StringOutput `pulumi:"unknownUserAction"`
 }
 
@@ -167,52 +170,60 @@ func GetPolicyRuleProfileEnrollment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyRuleProfileEnrollment resources.
 type policyRuleProfileEnrollmentState struct {
-	// Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
+	// Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
 	Access *string `pulumi:"access"`
-	// Indicates whether email verification should occur before access is granted. Default is `true`.
+	// Indicates whether email verification should occur before access is granted. Default: `true`.
 	EmailVerification *bool `pulumi:"emailVerification"`
-	// ID of a Registration Inline Hook.
+	// ID of a Registration Inline Hook
 	InlineHookId *string `pulumi:"inlineHookId"`
-	// Name of the Rule.
+	// Name of the rule
 	Name *string `pulumi:"name"`
-	// Policy ID.
+	// ID of the policy
 	PolicyId *string `pulumi:"policyId"`
-	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
+	// these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
+	// the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
+	// supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
+	// Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
 	ProfileAttributes []PolicyRuleProfileEnrollmentProfileAttribute `pulumi:"profileAttributes"`
-	// Enabled or disabled progressive profiling action rule conditions. Valid values are: `"ENABLED"`, `"DISABLED"`. Default is `"DISABLED"`.
+	// Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
 	ProgressiveProfilingAction *string `pulumi:"progressiveProfilingAction"`
-	// Status of the Rule.
+	// Status of the rule
 	Status *string `pulumi:"status"`
-	// The ID of a Group that this User should be added to.
+	// The ID of a Group that this User should be added to
 	TargetGroupId *string `pulumi:"targetGroupId"`
 	// Value created by the backend. If present all policy updates must include this attribute/value.
 	UiSchemaId *string `pulumi:"uiSchemaId"`
-	// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+	// Which action should be taken if this User is new. Valid values are: `DENY`, `REGISTER`
 	UnknownUserAction *string `pulumi:"unknownUserAction"`
 }
 
 type PolicyRuleProfileEnrollmentState struct {
-	// Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
+	// Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
 	Access pulumi.StringPtrInput
-	// Indicates whether email verification should occur before access is granted. Default is `true`.
+	// Indicates whether email verification should occur before access is granted. Default: `true`.
 	EmailVerification pulumi.BoolPtrInput
-	// ID of a Registration Inline Hook.
+	// ID of a Registration Inline Hook
 	InlineHookId pulumi.StringPtrInput
-	// Name of the Rule.
+	// Name of the rule
 	Name pulumi.StringPtrInput
-	// Policy ID.
+	// ID of the policy
 	PolicyId pulumi.StringPtrInput
-	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
+	// these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
+	// the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
+	// supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
+	// Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
 	ProfileAttributes PolicyRuleProfileEnrollmentProfileAttributeArrayInput
-	// Enabled or disabled progressive profiling action rule conditions. Valid values are: `"ENABLED"`, `"DISABLED"`. Default is `"DISABLED"`.
+	// Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
 	ProgressiveProfilingAction pulumi.StringPtrInput
-	// Status of the Rule.
+	// Status of the rule
 	Status pulumi.StringPtrInput
-	// The ID of a Group that this User should be added to.
+	// The ID of a Group that this User should be added to
 	TargetGroupId pulumi.StringPtrInput
 	// Value created by the backend. If present all policy updates must include this attribute/value.
 	UiSchemaId pulumi.StringPtrInput
-	// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+	// Which action should be taken if this User is new. Valid values are: `DENY`, `REGISTER`
 	UnknownUserAction pulumi.StringPtrInput
 }
 
@@ -221,45 +232,53 @@ func (PolicyRuleProfileEnrollmentState) ElementType() reflect.Type {
 }
 
 type policyRuleProfileEnrollmentArgs struct {
-	// Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
+	// Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
 	Access *string `pulumi:"access"`
-	// Indicates whether email verification should occur before access is granted. Default is `true`.
+	// Indicates whether email verification should occur before access is granted. Default: `true`.
 	EmailVerification *bool `pulumi:"emailVerification"`
-	// ID of a Registration Inline Hook.
+	// ID of a Registration Inline Hook
 	InlineHookId *string `pulumi:"inlineHookId"`
-	// Policy ID.
+	// ID of the policy
 	PolicyId string `pulumi:"policyId"`
-	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
+	// these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
+	// the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
+	// supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
+	// Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
 	ProfileAttributes []PolicyRuleProfileEnrollmentProfileAttribute `pulumi:"profileAttributes"`
-	// Enabled or disabled progressive profiling action rule conditions. Valid values are: `"ENABLED"`, `"DISABLED"`. Default is `"DISABLED"`.
+	// Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
 	ProgressiveProfilingAction *string `pulumi:"progressiveProfilingAction"`
-	// The ID of a Group that this User should be added to.
+	// The ID of a Group that this User should be added to
 	TargetGroupId *string `pulumi:"targetGroupId"`
 	// Value created by the backend. If present all policy updates must include this attribute/value.
 	UiSchemaId *string `pulumi:"uiSchemaId"`
-	// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+	// Which action should be taken if this User is new. Valid values are: `DENY`, `REGISTER`
 	UnknownUserAction string `pulumi:"unknownUserAction"`
 }
 
 // The set of arguments for constructing a PolicyRuleProfileEnrollment resource.
 type PolicyRuleProfileEnrollmentArgs struct {
-	// Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
+	// Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
 	Access pulumi.StringPtrInput
-	// Indicates whether email verification should occur before access is granted. Default is `true`.
+	// Indicates whether email verification should occur before access is granted. Default: `true`.
 	EmailVerification pulumi.BoolPtrInput
-	// ID of a Registration Inline Hook.
+	// ID of a Registration Inline Hook
 	InlineHookId pulumi.StringPtrInput
-	// Policy ID.
+	// ID of the policy
 	PolicyId pulumi.StringInput
-	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
+	// these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
+	// the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
+	// supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
+	// Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
 	ProfileAttributes PolicyRuleProfileEnrollmentProfileAttributeArrayInput
-	// Enabled or disabled progressive profiling action rule conditions. Valid values are: `"ENABLED"`, `"DISABLED"`. Default is `"DISABLED"`.
+	// Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
 	ProgressiveProfilingAction pulumi.StringPtrInput
-	// The ID of a Group that this User should be added to.
+	// The ID of a Group that this User should be added to
 	TargetGroupId pulumi.StringPtrInput
 	// Value created by the backend. If present all policy updates must include this attribute/value.
 	UiSchemaId pulumi.StringPtrInput
-	// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+	// Which action should be taken if this User is new. Valid values are: `DENY`, `REGISTER`
 	UnknownUserAction pulumi.StringInput
 }
 
@@ -350,49 +369,53 @@ func (o PolicyRuleProfileEnrollmentOutput) ToPolicyRuleProfileEnrollmentOutputWi
 	return o
 }
 
-// Allow or deny access based on the rule conditions. Valid values are: `"ALLOW"`, `"DENY"`. Default is `"ALLOW"`.
+// Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
 func (o PolicyRuleProfileEnrollmentOutput) Access() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringPtrOutput { return v.Access }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether email verification should occur before access is granted. Default is `true`.
+// Indicates whether email verification should occur before access is granted. Default: `true`.
 func (o PolicyRuleProfileEnrollmentOutput) EmailVerification() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.BoolPtrOutput { return v.EmailVerification }).(pulumi.BoolPtrOutput)
 }
 
-// ID of a Registration Inline Hook.
+// ID of a Registration Inline Hook
 func (o PolicyRuleProfileEnrollmentOutput) InlineHookId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringPtrOutput { return v.InlineHookId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Rule.
+// Name of the rule
 func (o PolicyRuleProfileEnrollmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Policy ID.
+// ID of the policy
 func (o PolicyRuleProfileEnrollmentOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
+// these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
+// the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
+// supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
+// Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
 func (o PolicyRuleProfileEnrollmentOutput) ProfileAttributes() PolicyRuleProfileEnrollmentProfileAttributeArrayOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) PolicyRuleProfileEnrollmentProfileAttributeArrayOutput {
 		return v.ProfileAttributes
 	}).(PolicyRuleProfileEnrollmentProfileAttributeArrayOutput)
 }
 
-// Enabled or disabled progressive profiling action rule conditions. Valid values are: `"ENABLED"`, `"DISABLED"`. Default is `"DISABLED"`.
+// Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
 func (o PolicyRuleProfileEnrollmentOutput) ProgressiveProfilingAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringPtrOutput { return v.ProgressiveProfilingAction }).(pulumi.StringPtrOutput)
 }
 
-// Status of the Rule.
+// Status of the rule
 func (o PolicyRuleProfileEnrollmentOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The ID of a Group that this User should be added to.
+// The ID of a Group that this User should be added to
 func (o PolicyRuleProfileEnrollmentOutput) TargetGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringPtrOutput { return v.TargetGroupId }).(pulumi.StringPtrOutput)
 }
@@ -402,7 +425,7 @@ func (o PolicyRuleProfileEnrollmentOutput) UiSchemaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringPtrOutput { return v.UiSchemaId }).(pulumi.StringPtrOutput)
 }
 
-// Which action should be taken if this User is new. Valid values are: `"DENY"`, `"REGISTER"`.
+// Which action should be taken if this User is new. Valid values are: `DENY`, `REGISTER`
 func (o PolicyRuleProfileEnrollmentOutput) UnknownUserAction() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringOutput { return v.UnknownUserAction }).(pulumi.StringOutput)
 }

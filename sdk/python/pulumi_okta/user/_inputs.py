@@ -108,10 +108,8 @@ class GetUserSearchArgs:
                  name: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str comparison: Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-        :param str expression: A raw search expression string. If present it will override name/comparison/value.
-        :param str name: Name of property to search against.
-        :param str value: Value to compare with.
+        :param str expression: A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        :param str name: Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
         if comparison is not None:
             pulumi.set(__self__, "comparison", comparison)
@@ -125,9 +123,6 @@ class GetUserSearchArgs:
     @property
     @pulumi.getter
     def comparison(self) -> Optional[str]:
-        """
-        Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -138,7 +133,7 @@ class GetUserSearchArgs:
     @pulumi.getter
     def expression(self) -> Optional[str]:
         """
-        A raw search expression string. If present it will override name/comparison/value.
+        A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
         return pulumi.get(self, "expression")
 
@@ -150,7 +145,7 @@ class GetUserSearchArgs:
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of property to search against.
+        Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
         return pulumi.get(self, "name")
 
@@ -161,9 +156,6 @@ class GetUserSearchArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        Value to compare with.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -179,10 +171,8 @@ class GetUsersSearchArgs:
                  name: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str comparison: Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-        :param str expression: A raw search expression string. If present it will override name/comparison/value.
-        :param str name: Name of property to search against.
-        :param str value: Value to compare with.
+        :param str expression: A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        :param str name: Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
         if comparison is not None:
             pulumi.set(__self__, "comparison", comparison)
@@ -196,9 +186,6 @@ class GetUsersSearchArgs:
     @property
     @pulumi.getter
     def comparison(self) -> Optional[str]:
-        """
-        Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -209,7 +196,7 @@ class GetUsersSearchArgs:
     @pulumi.getter
     def expression(self) -> Optional[str]:
         """
-        A raw search expression string. If present it will override name/comparison/value.
+        A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
         return pulumi.get(self, "expression")
 
@@ -221,7 +208,7 @@ class GetUsersSearchArgs:
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of property to search against.
+        Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
         """
         return pulumi.get(self, "name")
 
@@ -232,9 +219,6 @@ class GetUsersSearchArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        Value to compare with.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
