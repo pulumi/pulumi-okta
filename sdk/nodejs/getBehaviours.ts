@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to retrieve a behaviors from Okta.
+ * Get a behaviors by search criteria.
  *
  * ## Example Usage
  *
@@ -34,7 +34,7 @@ export function getBehaviours(args?: GetBehavioursArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetBehavioursArgs {
     /**
-     * Searches query to look up behaviors.
+     * Searches the name property of behaviors for matching value
      */
     q?: string;
 }
@@ -43,18 +43,18 @@ export interface GetBehavioursArgs {
  * A collection of values returned by getBehaviours.
  */
 export interface GetBehavioursResult {
-    /**
-     * List of behaviors.
-     */
     readonly behaviors: outputs.GetBehavioursBehavior[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Searches the name property of behaviors for matching value
+     */
     readonly q?: string;
 }
 /**
- * Use this data source to retrieve a behaviors from Okta.
+ * Get a behaviors by search criteria.
  *
  * ## Example Usage
  *
@@ -76,7 +76,7 @@ export function getBehavioursOutput(args?: GetBehavioursOutputArgs, opts?: pulum
  */
 export interface GetBehavioursOutputArgs {
     /**
-     * Searches query to look up behaviors.
+     * Searches the name property of behaviors for matching value
      */
     q?: pulumi.Input<string>;
 }

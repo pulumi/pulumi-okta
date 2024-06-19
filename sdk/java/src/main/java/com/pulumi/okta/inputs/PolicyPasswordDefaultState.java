@@ -19,14 +19,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     public static final PolicyPasswordDefaultState Empty = new PolicyPasswordDefaultState();
 
     /**
-     * Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+     * Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
      * 
      */
     @Import(name="callRecovery")
     private @Nullable Output<String> callRecovery;
 
     /**
-     * @return Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+     * @return Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
      * 
      */
     public Optional<Output<String>> callRecovery() {
@@ -34,14 +34,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Default authentication provider.
+     * Default Authentication Provider
      * 
      */
     @Import(name="defaultAuthProvider")
     private @Nullable Output<String> defaultAuthProvider;
 
     /**
-     * @return Default authentication provider.
+     * @return Default Authentication Provider
      * 
      */
     public Optional<Output<String>> defaultAuthProvider() {
@@ -49,14 +49,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * ID of the default Okta group.
+     * Default group ID (always included)
      * 
      */
     @Import(name="defaultIncludedGroupId")
     private @Nullable Output<String> defaultIncludedGroupId;
 
     /**
-     * @return ID of the default Okta group.
+     * @return Default group ID (always included)
      * 
      */
     public Optional<Output<String>> defaultIncludedGroupId() {
@@ -64,14 +64,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Default policy description.
+     * Default policy description
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Default policy description.
+     * @return Default policy description
      * 
      */
     public Optional<Output<String>> description() {
@@ -79,14 +79,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Enable or disable email password recovery: ACTIVE or INACTIVE.
+     * Enable or disable email password recovery: ACTIVE or INACTIVE. Default: `ACTIVE`
      * 
      */
     @Import(name="emailRecovery")
     private @Nullable Output<String> emailRecovery;
 
     /**
-     * @return Enable or disable email password recovery: ACTIVE or INACTIVE.
+     * @return Enable or disable email password recovery: ACTIVE or INACTIVE. Default: `ACTIVE`
      * 
      */
     public Optional<Output<String>> emailRecovery() {
@@ -94,14 +94,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Default policy name.
+     * Default policy name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Default policy name.
+     * @return Default policy name
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,14 +109,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Number of minutes before a locked account is unlocked: 0 = no limit.
+     * Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
      * 
      */
     @Import(name="passwordAutoUnlockMinutes")
     private @Nullable Output<Integer> passwordAutoUnlockMinutes;
 
     /**
-     * @return Number of minutes before a locked account is unlocked: 0 = no limit.
+     * @return Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
      * 
      */
     public Optional<Output<Integer>> passwordAutoUnlockMinutes() {
@@ -124,14 +124,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Check Passwords Against Common Password Dictionary.
+     * Check Passwords Against Common Password Dictionary. Default: `false`
      * 
      */
     @Import(name="passwordDictionaryLookup")
     private @Nullable Output<Boolean> passwordDictionaryLookup;
 
     /**
-     * @return Check Passwords Against Common Password Dictionary.
+     * @return Check Passwords Against Common Password Dictionary. Default: `false`
      * 
      */
     public Optional<Output<Boolean>> passwordDictionaryLookup() {
@@ -139,14 +139,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * User firstName attribute must be excluded from the password.
+     * User firstName attribute must be excluded from the password
      * 
      */
     @Import(name="passwordExcludeFirstName")
     private @Nullable Output<Boolean> passwordExcludeFirstName;
 
     /**
-     * @return User firstName attribute must be excluded from the password.
+     * @return User firstName attribute must be excluded from the password
      * 
      */
     public Optional<Output<Boolean>> passwordExcludeFirstName() {
@@ -154,14 +154,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * User lastName attribute must be excluded from the password.
+     * User lastName attribute must be excluded from the password
      * 
      */
     @Import(name="passwordExcludeLastName")
     private @Nullable Output<Boolean> passwordExcludeLastName;
 
     /**
-     * @return User lastName attribute must be excluded from the password.
+     * @return User lastName attribute must be excluded from the password
      * 
      */
     public Optional<Output<Boolean>> passwordExcludeLastName() {
@@ -169,14 +169,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * If the username must be excluded from the password.
+     * If the user name must be excluded from the password. Default: `true`
      * 
      */
     @Import(name="passwordExcludeUsername")
     private @Nullable Output<Boolean> passwordExcludeUsername;
 
     /**
-     * @return If the username must be excluded from the password.
+     * @return If the user name must be excluded from the password. Default: `true`
      * 
      */
     public Optional<Output<Boolean>> passwordExcludeUsername() {
@@ -184,14 +184,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Length in days a user will be warned before password expiry: 0 = no warning.
+     * Length in days a user will be warned before password expiry: 0 = no warning. Default: `0`
      * 
      */
     @Import(name="passwordExpireWarnDays")
     private @Nullable Output<Integer> passwordExpireWarnDays;
 
     /**
-     * @return Length in days a user will be warned before password expiry: 0 = no warning.
+     * @return Length in days a user will be warned before password expiry: 0 = no warning. Default: `0`
      * 
      */
     public Optional<Output<Integer>> passwordExpireWarnDays() {
@@ -199,16 +199,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Number of distinct passwords that must be created before they can be reused: 0 =
-     * none.
+     * Number of distinct passwords that must be created before they can be reused: 0 = none. Default: `4`
      * 
      */
     @Import(name="passwordHistoryCount")
     private @Nullable Output<Integer> passwordHistoryCount;
 
     /**
-     * @return Number of distinct passwords that must be created before they can be reused: 0 =
-     * none.
+     * @return Number of distinct passwords that must be created before they can be reused: 0 = none. Default: `4`
      * 
      */
     public Optional<Output<Integer>> passwordHistoryCount() {
@@ -216,16 +214,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Notification channels to use to notify a user when their account
-     * has been locked.
+     * Notification channels to use to notify a user when their account has been locked.
      * 
      */
     @Import(name="passwordLockoutNotificationChannels")
     private @Nullable Output<List<String>> passwordLockoutNotificationChannels;
 
     /**
-     * @return Notification channels to use to notify a user when their account
-     * has been locked.
+     * @return Notification channels to use to notify a user when their account has been locked.
      * 
      */
     public Optional<Output<List<String>>> passwordLockoutNotificationChannels() {
@@ -233,14 +229,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Length in days a password is valid before expiry: 0 = no limit.,
+     * Length in days a password is valid before expiry: 0 = no limit. Default: `0`
      * 
      */
     @Import(name="passwordMaxAgeDays")
     private @Nullable Output<Integer> passwordMaxAgeDays;
 
     /**
-     * @return Length in days a password is valid before expiry: 0 = no limit.,
+     * @return Length in days a password is valid before expiry: 0 = no limit. Default: `0`
      * 
      */
     public Optional<Output<Integer>> passwordMaxAgeDays() {
@@ -248,16 +244,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Number of unsuccessful login attempts allowed before lockout: 0 = no
-     * limit.
+     * Number of unsuccessful login attempts allowed before lockout: 0 = no limit. Default: `10`
      * 
      */
     @Import(name="passwordMaxLockoutAttempts")
     private @Nullable Output<Integer> passwordMaxLockoutAttempts;
 
     /**
-     * @return Number of unsuccessful login attempts allowed before lockout: 0 = no
-     * limit.
+     * @return Number of unsuccessful login attempts allowed before lockout: 0 = no limit. Default: `10`
      * 
      */
     public Optional<Output<Integer>> passwordMaxLockoutAttempts() {
@@ -265,14 +259,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Minimum time interval in minutes between password changes: 0 = no limit.
+     * Minimum time interval in minutes between password changes: 0 = no limit. Default: `0`
      * 
      */
     @Import(name="passwordMinAgeMinutes")
     private @Nullable Output<Integer> passwordMinAgeMinutes;
 
     /**
-     * @return Minimum time interval in minutes between password changes: 0 = no limit.
+     * @return Minimum time interval in minutes between password changes: 0 = no limit. Default: `0`
      * 
      */
     public Optional<Output<Integer>> passwordMinAgeMinutes() {
@@ -280,14 +274,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Minimum password length. Default is 8.
+     * Minimum password length. Default is `8`.
      * 
      */
     @Import(name="passwordMinLength")
     private @Nullable Output<Integer> passwordMinLength;
 
     /**
-     * @return Minimum password length. Default is 8.
+     * @return Minimum password length. Default is `8`.
      * 
      */
     public Optional<Output<Integer>> passwordMinLength() {
@@ -295,14 +289,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Minimum number of lower case characters in a password.
+     * If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
      * 
      */
     @Import(name="passwordMinLowercase")
     private @Nullable Output<Integer> passwordMinLowercase;
 
     /**
-     * @return Minimum number of lower case characters in a password.
+     * @return If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
      * 
      */
     public Optional<Output<Integer>> passwordMinLowercase() {
@@ -310,14 +304,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Minimum number of numbers in a password.
+     * If a password must contain at least one number: 0 = no, 1 = yes. Default = `1`
      * 
      */
     @Import(name="passwordMinNumber")
     private @Nullable Output<Integer> passwordMinNumber;
 
     /**
-     * @return Minimum number of numbers in a password.
+     * @return If a password must contain at least one number: 0 = no, 1 = yes. Default = `1`
      * 
      */
     public Optional<Output<Integer>> passwordMinNumber() {
@@ -325,14 +319,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Minimum number of symbols in a password.
+     * If a password must contain at least one symbol (!{@literal @}#$%^&amp;*): 0 = no, 1 = yes. Default = `0`
      * 
      */
     @Import(name="passwordMinSymbol")
     private @Nullable Output<Integer> passwordMinSymbol;
 
     /**
-     * @return Minimum number of symbols in a password.
+     * @return If a password must contain at least one symbol (!{@literal @}#$%^&amp;*): 0 = no, 1 = yes. Default = `0`
      * 
      */
     public Optional<Output<Integer>> passwordMinSymbol() {
@@ -340,14 +334,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Minimum number of upper case characters in a password.
+     * If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
      * 
      */
     @Import(name="passwordMinUppercase")
     private @Nullable Output<Integer> passwordMinUppercase;
 
     /**
-     * @return Minimum number of upper case characters in a password.
+     * @return If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
      * 
      */
     public Optional<Output<Integer>> passwordMinUppercase() {
@@ -355,14 +349,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * If a user should be informed when their account is locked.
+     * If a user should be informed when their account is locked. Default: `false`
      * 
      */
     @Import(name="passwordShowLockoutFailures")
     private @Nullable Output<Boolean> passwordShowLockoutFailures;
 
     /**
-     * @return If a user should be informed when their account is locked.
+     * @return If a user should be informed when their account is locked. Default: `false`
      * 
      */
     public Optional<Output<Boolean>> passwordShowLockoutFailures() {
@@ -370,14 +364,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Default policy priority.
+     * Default policy priority
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Default policy priority.
+     * @return Default policy priority
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -385,14 +379,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Min length of the password recovery question answer.
+     * Min length of the password recovery question answer. Default: `4`
      * 
      */
     @Import(name="questionMinLength")
     private @Nullable Output<Integer> questionMinLength;
 
     /**
-     * @return Min length of the password recovery question answer.
+     * @return Min length of the password recovery question answer. Default: `4`
      * 
      */
     public Optional<Output<Integer>> questionMinLength() {
@@ -400,14 +394,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Enable or disable security question password recovery: ACTIVE or INACTIVE.
+     * Enable or disable security question password recovery: ACTIVE or INACTIVE. Default: `ACTIVE`
      * 
      */
     @Import(name="questionRecovery")
     private @Nullable Output<String> questionRecovery;
 
     /**
-     * @return Enable or disable security question password recovery: ACTIVE or INACTIVE.
+     * @return Enable or disable security question password recovery: ACTIVE or INACTIVE. Default: `ACTIVE`
      * 
      */
     public Optional<Output<String>> questionRecovery() {
@@ -415,14 +409,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Lifetime in minutes of the recovery email token.
+     * Lifetime in minutes of the recovery email token. Default: `60`
      * 
      */
     @Import(name="recoveryEmailToken")
     private @Nullable Output<Integer> recoveryEmailToken;
 
     /**
-     * @return Lifetime in minutes of the recovery email token.
+     * @return Lifetime in minutes of the recovery email token. Default: `60`
      * 
      */
     public Optional<Output<Integer>> recoveryEmailToken() {
@@ -430,16 +424,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also
-     * attempt to unlock the user&#39;s Windows account.
+     * When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account. Default: `false`
      * 
      */
     @Import(name="skipUnlock")
     private @Nullable Output<Boolean> skipUnlock;
 
     /**
-     * @return When an Active Directory user is locked out of Okta, the Okta unlock operation should also
-     * attempt to unlock the user&#39;s Windows account.
+     * @return When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account. Default: `false`
      * 
      */
     public Optional<Output<Boolean>> skipUnlock() {
@@ -447,14 +439,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Enable or disable SMS password recovery: ACTIVE or INACTIVE.
+     * Enable or disable SMS password recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
      * 
      */
     @Import(name="smsRecovery")
     private @Nullable Output<String> smsRecovery;
 
     /**
-     * @return Enable or disable SMS password recovery: ACTIVE or INACTIVE.
+     * @return Enable or disable SMS password recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
      * 
      */
     public Optional<Output<String>> smsRecovery() {
@@ -462,14 +454,14 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Default policy status.
+     * Default policy status
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Default policy status.
+     * @return Default policy status
      * 
      */
     public Optional<Output<String>> status() {
@@ -530,7 +522,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param callRecovery Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+         * @param callRecovery Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
          * 
          * @return builder
          * 
@@ -541,7 +533,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param callRecovery Enable or disable voice call password recovery: ACTIVE or INACTIVE.
+         * @param callRecovery Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
          * 
          * @return builder
          * 
@@ -551,7 +543,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param defaultAuthProvider Default authentication provider.
+         * @param defaultAuthProvider Default Authentication Provider
          * 
          * @return builder
          * 
@@ -562,7 +554,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param defaultAuthProvider Default authentication provider.
+         * @param defaultAuthProvider Default Authentication Provider
          * 
          * @return builder
          * 
@@ -572,7 +564,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param defaultIncludedGroupId ID of the default Okta group.
+         * @param defaultIncludedGroupId Default group ID (always included)
          * 
          * @return builder
          * 
@@ -583,7 +575,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param defaultIncludedGroupId ID of the default Okta group.
+         * @param defaultIncludedGroupId Default group ID (always included)
          * 
          * @return builder
          * 
@@ -593,7 +585,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param description Default policy description.
+         * @param description Default policy description
          * 
          * @return builder
          * 
@@ -604,7 +596,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param description Default policy description.
+         * @param description Default policy description
          * 
          * @return builder
          * 
@@ -614,7 +606,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param emailRecovery Enable or disable email password recovery: ACTIVE or INACTIVE.
+         * @param emailRecovery Enable or disable email password recovery: ACTIVE or INACTIVE. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -625,7 +617,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param emailRecovery Enable or disable email password recovery: ACTIVE or INACTIVE.
+         * @param emailRecovery Enable or disable email password recovery: ACTIVE or INACTIVE. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -635,7 +627,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Default policy name.
+         * @param name Default policy name
          * 
          * @return builder
          * 
@@ -646,7 +638,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Default policy name.
+         * @param name Default policy name
          * 
          * @return builder
          * 
@@ -656,7 +648,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordAutoUnlockMinutes Number of minutes before a locked account is unlocked: 0 = no limit.
+         * @param passwordAutoUnlockMinutes Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
          * 
          * @return builder
          * 
@@ -667,7 +659,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordAutoUnlockMinutes Number of minutes before a locked account is unlocked: 0 = no limit.
+         * @param passwordAutoUnlockMinutes Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
          * 
          * @return builder
          * 
@@ -677,7 +669,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordDictionaryLookup Check Passwords Against Common Password Dictionary.
+         * @param passwordDictionaryLookup Check Passwords Against Common Password Dictionary. Default: `false`
          * 
          * @return builder
          * 
@@ -688,7 +680,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordDictionaryLookup Check Passwords Against Common Password Dictionary.
+         * @param passwordDictionaryLookup Check Passwords Against Common Password Dictionary. Default: `false`
          * 
          * @return builder
          * 
@@ -698,7 +690,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordExcludeFirstName User firstName attribute must be excluded from the password.
+         * @param passwordExcludeFirstName User firstName attribute must be excluded from the password
          * 
          * @return builder
          * 
@@ -709,7 +701,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordExcludeFirstName User firstName attribute must be excluded from the password.
+         * @param passwordExcludeFirstName User firstName attribute must be excluded from the password
          * 
          * @return builder
          * 
@@ -719,7 +711,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordExcludeLastName User lastName attribute must be excluded from the password.
+         * @param passwordExcludeLastName User lastName attribute must be excluded from the password
          * 
          * @return builder
          * 
@@ -730,7 +722,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordExcludeLastName User lastName attribute must be excluded from the password.
+         * @param passwordExcludeLastName User lastName attribute must be excluded from the password
          * 
          * @return builder
          * 
@@ -740,7 +732,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordExcludeUsername If the username must be excluded from the password.
+         * @param passwordExcludeUsername If the user name must be excluded from the password. Default: `true`
          * 
          * @return builder
          * 
@@ -751,7 +743,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordExcludeUsername If the username must be excluded from the password.
+         * @param passwordExcludeUsername If the user name must be excluded from the password. Default: `true`
          * 
          * @return builder
          * 
@@ -761,7 +753,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordExpireWarnDays Length in days a user will be warned before password expiry: 0 = no warning.
+         * @param passwordExpireWarnDays Length in days a user will be warned before password expiry: 0 = no warning. Default: `0`
          * 
          * @return builder
          * 
@@ -772,7 +764,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordExpireWarnDays Length in days a user will be warned before password expiry: 0 = no warning.
+         * @param passwordExpireWarnDays Length in days a user will be warned before password expiry: 0 = no warning. Default: `0`
          * 
          * @return builder
          * 
@@ -782,8 +774,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordHistoryCount Number of distinct passwords that must be created before they can be reused: 0 =
-         * none.
+         * @param passwordHistoryCount Number of distinct passwords that must be created before they can be reused: 0 = none. Default: `4`
          * 
          * @return builder
          * 
@@ -794,8 +785,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordHistoryCount Number of distinct passwords that must be created before they can be reused: 0 =
-         * none.
+         * @param passwordHistoryCount Number of distinct passwords that must be created before they can be reused: 0 = none. Default: `4`
          * 
          * @return builder
          * 
@@ -805,8 +795,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account
-         * has been locked.
+         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account has been locked.
          * 
          * @return builder
          * 
@@ -817,8 +806,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account
-         * has been locked.
+         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account has been locked.
          * 
          * @return builder
          * 
@@ -828,8 +816,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account
-         * has been locked.
+         * @param passwordLockoutNotificationChannels Notification channels to use to notify a user when their account has been locked.
          * 
          * @return builder
          * 
@@ -839,7 +826,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMaxAgeDays Length in days a password is valid before expiry: 0 = no limit.,
+         * @param passwordMaxAgeDays Length in days a password is valid before expiry: 0 = no limit. Default: `0`
          * 
          * @return builder
          * 
@@ -850,7 +837,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMaxAgeDays Length in days a password is valid before expiry: 0 = no limit.,
+         * @param passwordMaxAgeDays Length in days a password is valid before expiry: 0 = no limit. Default: `0`
          * 
          * @return builder
          * 
@@ -860,8 +847,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMaxLockoutAttempts Number of unsuccessful login attempts allowed before lockout: 0 = no
-         * limit.
+         * @param passwordMaxLockoutAttempts Number of unsuccessful login attempts allowed before lockout: 0 = no limit. Default: `10`
          * 
          * @return builder
          * 
@@ -872,8 +858,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMaxLockoutAttempts Number of unsuccessful login attempts allowed before lockout: 0 = no
-         * limit.
+         * @param passwordMaxLockoutAttempts Number of unsuccessful login attempts allowed before lockout: 0 = no limit. Default: `10`
          * 
          * @return builder
          * 
@@ -883,7 +868,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMinAgeMinutes Minimum time interval in minutes between password changes: 0 = no limit.
+         * @param passwordMinAgeMinutes Minimum time interval in minutes between password changes: 0 = no limit. Default: `0`
          * 
          * @return builder
          * 
@@ -894,7 +879,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMinAgeMinutes Minimum time interval in minutes between password changes: 0 = no limit.
+         * @param passwordMinAgeMinutes Minimum time interval in minutes between password changes: 0 = no limit. Default: `0`
          * 
          * @return builder
          * 
@@ -904,7 +889,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMinLength Minimum password length. Default is 8.
+         * @param passwordMinLength Minimum password length. Default is `8`.
          * 
          * @return builder
          * 
@@ -915,7 +900,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMinLength Minimum password length. Default is 8.
+         * @param passwordMinLength Minimum password length. Default is `8`.
          * 
          * @return builder
          * 
@@ -925,7 +910,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMinLowercase Minimum number of lower case characters in a password.
+         * @param passwordMinLowercase If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
          * 
          * @return builder
          * 
@@ -936,7 +921,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMinLowercase Minimum number of lower case characters in a password.
+         * @param passwordMinLowercase If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default = 1
          * 
          * @return builder
          * 
@@ -946,7 +931,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMinNumber Minimum number of numbers in a password.
+         * @param passwordMinNumber If a password must contain at least one number: 0 = no, 1 = yes. Default = `1`
          * 
          * @return builder
          * 
@@ -957,7 +942,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMinNumber Minimum number of numbers in a password.
+         * @param passwordMinNumber If a password must contain at least one number: 0 = no, 1 = yes. Default = `1`
          * 
          * @return builder
          * 
@@ -967,7 +952,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMinSymbol Minimum number of symbols in a password.
+         * @param passwordMinSymbol If a password must contain at least one symbol (!{@literal @}#$%^&amp;*): 0 = no, 1 = yes. Default = `0`
          * 
          * @return builder
          * 
@@ -978,7 +963,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMinSymbol Minimum number of symbols in a password.
+         * @param passwordMinSymbol If a password must contain at least one symbol (!{@literal @}#$%^&amp;*): 0 = no, 1 = yes. Default = `0`
          * 
          * @return builder
          * 
@@ -988,7 +973,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMinUppercase Minimum number of upper case characters in a password.
+         * @param passwordMinUppercase If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
          * 
          * @return builder
          * 
@@ -999,7 +984,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordMinUppercase Minimum number of upper case characters in a password.
+         * @param passwordMinUppercase If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default = 1
          * 
          * @return builder
          * 
@@ -1009,7 +994,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordShowLockoutFailures If a user should be informed when their account is locked.
+         * @param passwordShowLockoutFailures If a user should be informed when their account is locked. Default: `false`
          * 
          * @return builder
          * 
@@ -1020,7 +1005,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param passwordShowLockoutFailures If a user should be informed when their account is locked.
+         * @param passwordShowLockoutFailures If a user should be informed when their account is locked. Default: `false`
          * 
          * @return builder
          * 
@@ -1030,7 +1015,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param priority Default policy priority.
+         * @param priority Default policy priority
          * 
          * @return builder
          * 
@@ -1041,7 +1026,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param priority Default policy priority.
+         * @param priority Default policy priority
          * 
          * @return builder
          * 
@@ -1051,7 +1036,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param questionMinLength Min length of the password recovery question answer.
+         * @param questionMinLength Min length of the password recovery question answer. Default: `4`
          * 
          * @return builder
          * 
@@ -1062,7 +1047,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param questionMinLength Min length of the password recovery question answer.
+         * @param questionMinLength Min length of the password recovery question answer. Default: `4`
          * 
          * @return builder
          * 
@@ -1072,7 +1057,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param questionRecovery Enable or disable security question password recovery: ACTIVE or INACTIVE.
+         * @param questionRecovery Enable or disable security question password recovery: ACTIVE or INACTIVE. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -1083,7 +1068,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param questionRecovery Enable or disable security question password recovery: ACTIVE or INACTIVE.
+         * @param questionRecovery Enable or disable security question password recovery: ACTIVE or INACTIVE. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -1093,7 +1078,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param recoveryEmailToken Lifetime in minutes of the recovery email token.
+         * @param recoveryEmailToken Lifetime in minutes of the recovery email token. Default: `60`
          * 
          * @return builder
          * 
@@ -1104,7 +1089,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param recoveryEmailToken Lifetime in minutes of the recovery email token.
+         * @param recoveryEmailToken Lifetime in minutes of the recovery email token. Default: `60`
          * 
          * @return builder
          * 
@@ -1114,8 +1099,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param skipUnlock When an Active Directory user is locked out of Okta, the Okta unlock operation should also
-         * attempt to unlock the user&#39;s Windows account.
+         * @param skipUnlock When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account. Default: `false`
          * 
          * @return builder
          * 
@@ -1126,8 +1110,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param skipUnlock When an Active Directory user is locked out of Okta, the Okta unlock operation should also
-         * attempt to unlock the user&#39;s Windows account.
+         * @param skipUnlock When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user&#39;s Windows account. Default: `false`
          * 
          * @return builder
          * 
@@ -1137,7 +1120,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param smsRecovery Enable or disable SMS password recovery: ACTIVE or INACTIVE.
+         * @param smsRecovery Enable or disable SMS password recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
          * 
          * @return builder
          * 
@@ -1148,7 +1131,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param smsRecovery Enable or disable SMS password recovery: ACTIVE or INACTIVE.
+         * @param smsRecovery Enable or disable SMS password recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
          * 
          * @return builder
          * 
@@ -1158,7 +1141,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param status Default policy status.
+         * @param status Default policy status
          * 
          * @return builder
          * 
@@ -1169,7 +1152,7 @@ public final class PolicyPasswordDefaultState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param status Default policy status.
+         * @param status Default policy status
          * 
          * @return builder
          * 

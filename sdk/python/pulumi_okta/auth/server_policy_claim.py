@@ -32,23 +32,26 @@ class ServerPolicyClaimArgs:
                  user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ServerPolicyClaim resource.
-        :param pulumi.Input[str] auth_server_id: Auth Server ID.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
-               `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
-               `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interaction_code"` (*OIE only*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
-        :param pulumi.Input[str] policy_id: Auth Server Policy ID.
-        :param pulumi.Input[int] priority: Priority of the auth server policy rule.
+        :param pulumi.Input[str] auth_server_id: Auth server ID
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `authorization_code`, `implicit`, `password`, `client_credentials`,
+               `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*),
+               `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access
+               Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interaction_code` (*OIE only*).
+               For `implicit` value either `user_whitelist` or `group_whitelist` should be set.
+        :param pulumi.Input[str] policy_id: Auth server policy ID
+        :param pulumi.Input[int] priority: Priority of the auth server policy rule
         :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_blacklists: Specifies a set of Groups whose Users are to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_whitelists: Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_whitelists: Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
         :param pulumi.Input[str] inline_hook_id: The ID of the inline token to trigger.
-        :param pulumi.Input[str] name: Auth Server Policy Rule name.
+        :param pulumi.Input[str] name: Auth server policy rule name
         :param pulumi.Input[int] refresh_token_lifetime_minutes: Lifetime of refresh token.
-        :param pulumi.Input[int] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
-               `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
-        :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
-        :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
+        :param pulumi.Input[int] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
+               `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and
+               `refresh_token_lifetime_minutes`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `
+        :param pulumi.Input[str] status: Default to `ACTIVE`
+        :param pulumi.Input[str] type: Auth server policy rule type, unlikely this will be anything other then the default
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_blacklists: Specifies a set of Users to be excluded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelists: Specifies a set of Users to be included.
         """
@@ -85,7 +88,7 @@ class ServerPolicyClaimArgs:
     @pulumi.getter(name="authServerId")
     def auth_server_id(self) -> pulumi.Input[str]:
         """
-        Auth Server ID.
+        Auth server ID
         """
         return pulumi.get(self, "auth_server_id")
 
@@ -97,9 +100,11 @@ class ServerPolicyClaimArgs:
     @pulumi.getter(name="grantTypeWhitelists")
     def grant_type_whitelists(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
-        `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
-        `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interaction_code"` (*OIE only*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        Accepted grant type values, `authorization_code`, `implicit`, `password`, `client_credentials`,
+        `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*),
+        `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access
+        Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interaction_code` (*OIE only*).
+        For `implicit` value either `user_whitelist` or `group_whitelist` should be set.
         """
         return pulumi.get(self, "grant_type_whitelists")
 
@@ -111,7 +116,7 @@ class ServerPolicyClaimArgs:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Input[str]:
         """
-        Auth Server Policy ID.
+        Auth server policy ID
         """
         return pulumi.get(self, "policy_id")
 
@@ -123,7 +128,7 @@ class ServerPolicyClaimArgs:
     @pulumi.getter
     def priority(self) -> pulumi.Input[int]:
         """
-        Priority of the auth server policy rule.
+        Priority of the auth server policy rule
         """
         return pulumi.get(self, "priority")
 
@@ -159,7 +164,7 @@ class ServerPolicyClaimArgs:
     @pulumi.getter(name="groupWhitelists")
     def group_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
+        Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
         """
         return pulumi.get(self, "group_whitelists")
 
@@ -183,7 +188,7 @@ class ServerPolicyClaimArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Auth Server Policy Rule name.
+        Auth server policy rule name
         """
         return pulumi.get(self, "name")
 
@@ -207,8 +212,9 @@ class ServerPolicyClaimArgs:
     @pulumi.getter(name="refreshTokenWindowMinutes")
     def refresh_token_window_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
-        `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
+        Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
+        `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and
+        `refresh_token_lifetime_minutes`.
         """
         return pulumi.get(self, "refresh_token_window_minutes")
 
@@ -220,7 +226,7 @@ class ServerPolicyClaimArgs:
     @pulumi.getter(name="scopeWhitelists")
     def scope_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
+        Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `
         """
         return pulumi.get(self, "scope_whitelists")
 
@@ -232,7 +238,7 @@ class ServerPolicyClaimArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The status of the Auth Server Policy Rule.
+        Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -244,7 +250,7 @@ class ServerPolicyClaimArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the Auth Server Policy Rule.
+        Auth server policy rule type, unlikely this will be anything other then the default
         """
         return pulumi.get(self, "type")
 
@@ -300,23 +306,26 @@ class _ServerPolicyClaimState:
         """
         Input properties used for looking up and filtering ServerPolicyClaim resources.
         :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
-        :param pulumi.Input[str] auth_server_id: Auth Server ID.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
-               `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
-               `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interaction_code"` (*OIE only*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        :param pulumi.Input[str] auth_server_id: Auth server ID
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `authorization_code`, `implicit`, `password`, `client_credentials`,
+               `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*),
+               `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access
+               Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interaction_code` (*OIE only*).
+               For `implicit` value either `user_whitelist` or `group_whitelist` should be set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_blacklists: Specifies a set of Groups whose Users are to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_whitelists: Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_whitelists: Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
         :param pulumi.Input[str] inline_hook_id: The ID of the inline token to trigger.
-        :param pulumi.Input[str] name: Auth Server Policy Rule name.
-        :param pulumi.Input[str] policy_id: Auth Server Policy ID.
-        :param pulumi.Input[int] priority: Priority of the auth server policy rule.
+        :param pulumi.Input[str] name: Auth server policy rule name
+        :param pulumi.Input[str] policy_id: Auth server policy ID
+        :param pulumi.Input[int] priority: Priority of the auth server policy rule
         :param pulumi.Input[int] refresh_token_lifetime_minutes: Lifetime of refresh token.
-        :param pulumi.Input[int] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
-               `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
-        :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
-        :param pulumi.Input[bool] system: The rule is the system (default) rule for its associated policy.
-        :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
+        :param pulumi.Input[int] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
+               `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and
+               `refresh_token_lifetime_minutes`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `
+        :param pulumi.Input[str] status: Default to `ACTIVE`
+        :param pulumi.Input[bool] system: The rule is the system (default) rule for its associated policy
+        :param pulumi.Input[str] type: Auth server policy rule type, unlikely this will be anything other then the default
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_blacklists: Specifies a set of Users to be excluded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelists: Specifies a set of Users to be included.
         """
@@ -371,7 +380,7 @@ class _ServerPolicyClaimState:
     @pulumi.getter(name="authServerId")
     def auth_server_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Auth Server ID.
+        Auth server ID
         """
         return pulumi.get(self, "auth_server_id")
 
@@ -383,9 +392,11 @@ class _ServerPolicyClaimState:
     @pulumi.getter(name="grantTypeWhitelists")
     def grant_type_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
-        `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
-        `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interaction_code"` (*OIE only*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        Accepted grant type values, `authorization_code`, `implicit`, `password`, `client_credentials`,
+        `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*),
+        `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access
+        Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interaction_code` (*OIE only*).
+        For `implicit` value either `user_whitelist` or `group_whitelist` should be set.
         """
         return pulumi.get(self, "grant_type_whitelists")
 
@@ -409,7 +420,7 @@ class _ServerPolicyClaimState:
     @pulumi.getter(name="groupWhitelists")
     def group_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
+        Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
         """
         return pulumi.get(self, "group_whitelists")
 
@@ -433,7 +444,7 @@ class _ServerPolicyClaimState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Auth Server Policy Rule name.
+        Auth server policy rule name
         """
         return pulumi.get(self, "name")
 
@@ -445,7 +456,7 @@ class _ServerPolicyClaimState:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Auth Server Policy ID.
+        Auth server policy ID
         """
         return pulumi.get(self, "policy_id")
 
@@ -457,7 +468,7 @@ class _ServerPolicyClaimState:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        Priority of the auth server policy rule.
+        Priority of the auth server policy rule
         """
         return pulumi.get(self, "priority")
 
@@ -481,8 +492,9 @@ class _ServerPolicyClaimState:
     @pulumi.getter(name="refreshTokenWindowMinutes")
     def refresh_token_window_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
-        `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
+        Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
+        `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and
+        `refresh_token_lifetime_minutes`.
         """
         return pulumi.get(self, "refresh_token_window_minutes")
 
@@ -494,7 +506,7 @@ class _ServerPolicyClaimState:
     @pulumi.getter(name="scopeWhitelists")
     def scope_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
+        Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `
         """
         return pulumi.get(self, "scope_whitelists")
 
@@ -506,7 +518,7 @@ class _ServerPolicyClaimState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The status of the Auth Server Policy Rule.
+        Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -518,7 +530,7 @@ class _ServerPolicyClaimState:
     @pulumi.getter
     def system(self) -> Optional[pulumi.Input[bool]]:
         """
-        The rule is the system (default) rule for its associated policy.
+        The rule is the system (default) rule for its associated policy
         """
         return pulumi.get(self, "system")
 
@@ -530,7 +542,7 @@ class _ServerPolicyClaimState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the Auth Server Policy Rule.
+        Auth server policy rule type, unlikely this will be anything other then the default
         """
         return pulumi.get(self, "type")
 
@@ -591,49 +603,29 @@ class ServerPolicyClaim(pulumi.CustomResource):
                  user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.auth.ServerPolicyRule("example",
-            auth_server_id="<auth server id>",
-            policy_id="<auth server policy id>",
-            status="ACTIVE",
-            name="example",
-            priority=1,
-            group_whitelists=["<group ids>"],
-            grant_type_whitelists=["implicit"])
-        ```
-
-        ## Import
-
-        Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
-
-        ```sh
-        $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example &#60;auth server id&#62;/&#60;policy id&#62;/&#60;policy rule id&#62;
-        ```
-
+        Create a ServerPolicyClaim resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
-        :param pulumi.Input[str] auth_server_id: Auth Server ID.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
-               `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
-               `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interaction_code"` (*OIE only*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        :param pulumi.Input[str] auth_server_id: Auth server ID
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `authorization_code`, `implicit`, `password`, `client_credentials`,
+               `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*),
+               `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access
+               Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interaction_code` (*OIE only*).
+               For `implicit` value either `user_whitelist` or `group_whitelist` should be set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_blacklists: Specifies a set of Groups whose Users are to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_whitelists: Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_whitelists: Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
         :param pulumi.Input[str] inline_hook_id: The ID of the inline token to trigger.
-        :param pulumi.Input[str] name: Auth Server Policy Rule name.
-        :param pulumi.Input[str] policy_id: Auth Server Policy ID.
-        :param pulumi.Input[int] priority: Priority of the auth server policy rule.
+        :param pulumi.Input[str] name: Auth server policy rule name
+        :param pulumi.Input[str] policy_id: Auth server policy ID
+        :param pulumi.Input[int] priority: Priority of the auth server policy rule
         :param pulumi.Input[int] refresh_token_lifetime_minutes: Lifetime of refresh token.
-        :param pulumi.Input[int] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
-               `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
-        :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
-        :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
+        :param pulumi.Input[int] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
+               `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and
+               `refresh_token_lifetime_minutes`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `
+        :param pulumi.Input[str] status: Default to `ACTIVE`
+        :param pulumi.Input[str] type: Auth server policy rule type, unlikely this will be anything other then the default
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_blacklists: Specifies a set of Users to be excluded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelists: Specifies a set of Users to be included.
         """
@@ -644,30 +636,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
                  args: ServerPolicyClaimArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.auth.ServerPolicyRule("example",
-            auth_server_id="<auth server id>",
-            policy_id="<auth server policy id>",
-            status="ACTIVE",
-            name="example",
-            priority=1,
-            group_whitelists=["<group ids>"],
-            grant_type_whitelists=["implicit"])
-        ```
-
-        ## Import
-
-        Authorization Server Policy Rule can be imported via the Auth Server ID, Policy ID, and Policy Rule ID.
-
-        ```sh
-        $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example &#60;auth server id&#62;/&#60;policy id&#62;/&#60;policy rule id&#62;
-        ```
-
+        Create a ServerPolicyClaim resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServerPolicyClaimArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -769,23 +738,26 @@ class ServerPolicyClaim(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
-        :param pulumi.Input[str] auth_server_id: Auth Server ID.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
-               `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
-               `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interaction_code"` (*OIE only*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        :param pulumi.Input[str] auth_server_id: Auth server ID
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_type_whitelists: Accepted grant type values, `authorization_code`, `implicit`, `password`, `client_credentials`,
+               `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*),
+               `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access
+               Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interaction_code` (*OIE only*).
+               For `implicit` value either `user_whitelist` or `group_whitelist` should be set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_blacklists: Specifies a set of Groups whose Users are to be excluded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_whitelists: Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_whitelists: Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
         :param pulumi.Input[str] inline_hook_id: The ID of the inline token to trigger.
-        :param pulumi.Input[str] name: Auth Server Policy Rule name.
-        :param pulumi.Input[str] policy_id: Auth Server Policy ID.
-        :param pulumi.Input[int] priority: Priority of the auth server policy rule.
+        :param pulumi.Input[str] name: Auth server policy rule name
+        :param pulumi.Input[str] policy_id: Auth server policy ID
+        :param pulumi.Input[int] priority: Priority of the auth server policy rule
         :param pulumi.Input[int] refresh_token_lifetime_minutes: Lifetime of refresh token.
-        :param pulumi.Input[int] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
-               `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
-        :param pulumi.Input[str] status: The status of the Auth Server Policy Rule.
-        :param pulumi.Input[bool] system: The rule is the system (default) rule for its associated policy.
-        :param pulumi.Input[str] type: The type of the Auth Server Policy Rule.
+        :param pulumi.Input[int] refresh_token_window_minutes: Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
+               `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and
+               `refresh_token_lifetime_minutes`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_whitelists: Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `
+        :param pulumi.Input[str] status: Default to `ACTIVE`
+        :param pulumi.Input[bool] system: The rule is the system (default) rule for its associated policy
+        :param pulumi.Input[str] type: Auth server policy rule type, unlikely this will be anything other then the default
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_blacklists: Specifies a set of Users to be excluded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelists: Specifies a set of Users to be included.
         """
@@ -824,7 +796,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @pulumi.getter(name="authServerId")
     def auth_server_id(self) -> pulumi.Output[str]:
         """
-        Auth Server ID.
+        Auth server ID
         """
         return pulumi.get(self, "auth_server_id")
 
@@ -832,9 +804,11 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @pulumi.getter(name="grantTypeWhitelists")
     def grant_type_whitelists(self) -> pulumi.Output[Sequence[str]]:
         """
-        Accepted grant type values, `"authorization_code"`, `"implicit"`, `"password"`, `"client_credentials"`, 
-        `"urn:ietf:params:oauth:grant-type:saml2-bearer"` (*Early Access Property*), `"urn:ietf:params:oauth:grant-type:token-exchange"` (*Early Access Property*),
-        `"urn:ietf:params:oauth:grant-type:device_code"` (*Early Access Property*), `"interaction_code"` (*OIE only*). For `"implicit"` value either `user_whitelist` or `group_whitelist` should be set.
+        Accepted grant type values, `authorization_code`, `implicit`, `password`, `client_credentials`,
+        `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*),
+        `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access
+        Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interaction_code` (*OIE only*).
+        For `implicit` value either `user_whitelist` or `group_whitelist` should be set.
         """
         return pulumi.get(self, "grant_type_whitelists")
 
@@ -850,7 +824,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @pulumi.getter(name="groupWhitelists")
     def group_whitelists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `"EVERYONE"`.
+        Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
         """
         return pulumi.get(self, "group_whitelists")
 
@@ -866,7 +840,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Auth Server Policy Rule name.
+        Auth server policy rule name
         """
         return pulumi.get(self, "name")
 
@@ -874,7 +848,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Output[str]:
         """
-        Auth Server Policy ID.
+        Auth server policy ID
         """
         return pulumi.get(self, "policy_id")
 
@@ -882,7 +856,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[int]:
         """
-        Priority of the auth server policy rule.
+        Priority of the auth server policy rule
         """
         return pulumi.get(self, "priority")
 
@@ -898,8 +872,9 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @pulumi.getter(name="refreshTokenWindowMinutes")
     def refresh_token_window_minutes(self) -> pulumi.Output[Optional[int]]:
         """
-        Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).
-        `"refresh_token_window_minutes"` must be between `"access_token_lifetime_minutes"` and `"refresh_token_lifetime_minutes"`.
+        Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
+        `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and
+        `refresh_token_lifetime_minutes`.
         """
         return pulumi.get(self, "refresh_token_window_minutes")
 
@@ -907,7 +882,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @pulumi.getter(name="scopeWhitelists")
     def scope_whitelists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `"*"`.
+        Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `
         """
         return pulumi.get(self, "scope_whitelists")
 
@@ -915,7 +890,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        The status of the Auth Server Policy Rule.
+        Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -923,7 +898,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @pulumi.getter
     def system(self) -> pulumi.Output[bool]:
         """
-        The rule is the system (default) rule for its associated policy.
+        The rule is the system (default) rule for its associated policy
         """
         return pulumi.get(self, "system")
 
@@ -931,7 +906,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of the Auth Server Policy Rule.
+        Auth server policy rule type, unlikely this will be anything other then the default
         """
         return pulumi.get(self, "type")
 

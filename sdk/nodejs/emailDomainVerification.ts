@@ -21,10 +21,6 @@ import * as utilities from "./utilities";
  * });
  * const exampleEmailDomainVerification = new okta.EmailDomainVerification("example", {emailDomainId: valid.id});
  * ```
- *
- * ## Import
- *
- * This resource does not support importing.
  */
 export class EmailDomainVerification extends pulumi.CustomResource {
     /**
@@ -55,7 +51,7 @@ export class EmailDomainVerification extends pulumi.CustomResource {
     }
 
     /**
-     * Email domain ID.
+     * Email domain ID
      */
     public readonly emailDomainId!: pulumi.Output<string>;
 
@@ -90,7 +86,7 @@ export class EmailDomainVerification extends pulumi.CustomResource {
  */
 export interface EmailDomainVerificationState {
     /**
-     * Email domain ID.
+     * Email domain ID
      */
     emailDomainId?: pulumi.Input<string>;
 }
@@ -100,7 +96,7 @@ export interface EmailDomainVerificationState {
  */
 export interface EmailDomainVerificationArgs {
     /**
-     * Email domain ID.
+     * Email domain ID
      */
     emailDomainId: pulumi.Input<string>;
 }

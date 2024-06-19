@@ -12,9 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Verifies the Event Hook. The resource won't be created unless the URI provided in the event hook returns a valid
-// JSON object with verification. See [Event Hooks](https://developer.okta.com/docs/concepts/event-hooks/#one-time-verification-request)
-// documentation for details.
+// Verifies the Event Hook. The resource won't be created unless the URI provided in the event hook returns a valid JSON object with verification. See [Event Hooks](https://developer.okta.com/docs/concepts/event-hooks/#one-time-verification-request) documentation for details.
 //
 // ## Example Usage
 //
@@ -61,14 +59,10 @@ import (
 //	}
 //
 // ```
-//
-// ## Import
-//
-// This resource does not support importing.
 type EventHookVerification struct {
 	pulumi.CustomResourceState
 
-	// Event Hook ID.
+	// Event hook ID
 	EventHookId pulumi.StringOutput `pulumi:"eventHookId"`
 }
 
@@ -105,12 +99,12 @@ func GetEventHookVerification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventHookVerification resources.
 type eventHookVerificationState struct {
-	// Event Hook ID.
+	// Event hook ID
 	EventHookId *string `pulumi:"eventHookId"`
 }
 
 type EventHookVerificationState struct {
-	// Event Hook ID.
+	// Event hook ID
 	EventHookId pulumi.StringPtrInput
 }
 
@@ -119,13 +113,13 @@ func (EventHookVerificationState) ElementType() reflect.Type {
 }
 
 type eventHookVerificationArgs struct {
-	// Event Hook ID.
+	// Event hook ID
 	EventHookId string `pulumi:"eventHookId"`
 }
 
 // The set of arguments for constructing a EventHookVerification resource.
 type EventHookVerificationArgs struct {
-	// Event Hook ID.
+	// Event hook ID
 	EventHookId pulumi.StringInput
 }
 
@@ -216,7 +210,7 @@ func (o EventHookVerificationOutput) ToEventHookVerificationOutputWithContext(ct
 	return o
 }
 
-// Event Hook ID.
+// Event hook ID
 func (o EventHookVerificationOutput) EventHookId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHookVerification) pulumi.StringOutput { return v.EventHookId }).(pulumi.StringOutput)
 }

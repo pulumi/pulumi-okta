@@ -16,7 +16,7 @@ public final class GetLogStreamSettings {
      */
     private String accountId;
     /**
-     * @return Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws_govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * @return Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws*govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk*cloud_logstreaming&#39; type
      * 
      */
     private String edition;
@@ -26,7 +26,7 @@ public final class GetLogStreamSettings {
      */
     private String eventSourceName;
     /**
-     * @return The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * @return The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     private String host;
@@ -36,7 +36,7 @@ public final class GetLogStreamSettings {
      */
     private String region;
     /**
-     * @return The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * @return The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     private String token;
@@ -50,7 +50,7 @@ public final class GetLogStreamSettings {
         return this.accountId;
     }
     /**
-     * @return Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws_govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * @return Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws*govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk*cloud_logstreaming&#39; type
      * 
      */
     public String edition() {
@@ -64,7 +64,7 @@ public final class GetLogStreamSettings {
         return this.eventSourceName;
     }
     /**
-     * @return The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * @return The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     public String host() {
@@ -78,7 +78,7 @@ public final class GetLogStreamSettings {
         return this.region;
     }
     /**
-     * @return The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk_cloud_logstreaming&#39; type
+     * @return The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     public String token() {

@@ -37,14 +37,20 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Applications to include in discovery rule.
+     * Applications to include in discovery rule. - &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to
+     * include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in
+     * instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included. - &#39;type&#39; - (Required) One of:
+     * &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     @Import(name="appIncludes")
     private @Nullable Output<List<RuleIdpDiscoveryAppIncludeArgs>> appIncludes;
 
     /**
-     * @return Applications to include in discovery rule.
+     * @return Applications to include in discovery rule. - &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to
+     * include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in
+     * instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included. - &#39;type&#39; - (Required) One of:
+     * &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     public Optional<Output<List<RuleIdpDiscoveryAppIncludeArgs>>> appIncludes() {
@@ -67,14 +73,16 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Type of Idp. One of: `&#34;SAML2&#34;`, `&#34;IWA&#34;`, `&#34;AgentlessDSSO&#34;`, `&#34;X509&#34;`, `&#34;FACEBOOK&#34;`, `&#34;GOOGLE&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;OIDC&#34;`
+     * Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
+     * Default: `OKTA`
      * 
      */
     @Import(name="idpType")
     private @Nullable Output<String> idpType;
 
     /**
-     * @return Type of Idp. One of: `&#34;SAML2&#34;`, `&#34;IWA&#34;`, `&#34;AgentlessDSSO&#34;`, `&#34;X509&#34;`, `&#34;FACEBOOK&#34;`, `&#34;GOOGLE&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;OIDC&#34;`
+     * @return Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
+     * Default: `OKTA`
      * 
      */
     public Optional<Output<String>> idpType() {
@@ -82,14 +90,14 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Policy rule name.
+     * Policy Rule Name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Policy rule name.
+     * @return Policy Rule Name
      * 
      */
     public Optional<Output<String>> name() {
@@ -97,14 +105,14 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The network selection mode. One of `&#34;ANYWEHRE&#34;` or `&#34;ZONE&#34;`.
+     * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      * 
      */
     @Import(name="networkConnection")
     private @Nullable Output<String> networkConnection;
 
     /**
-     * @return The network selection mode. One of `&#34;ANYWEHRE&#34;` or `&#34;ZONE&#34;`.
+     * @return Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      * 
      */
     public Optional<Output<String>> networkConnection() {
@@ -112,14 +120,14 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to exclude.
+     * Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     @Import(name="networkExcludes")
     private @Nullable Output<List<String>> networkExcludes;
 
     /**
-     * @return Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to exclude.
+     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     public Optional<Output<List<String>>> networkExcludes() {
@@ -127,14 +135,14 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to include.
+     * Required if `network_connection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     @Import(name="networkIncludes")
     private @Nullable Output<List<String>> networkIncludes;
 
     /**
-     * @return Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to include.
+     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     public Optional<Output<List<String>>> networkIncludes() {
@@ -161,14 +169,14 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Policy ID.
+     * Policy ID of the Rule
      * 
      */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
     /**
-     * @return Policy ID.
+     * @return Policy ID of the Rule
      * 
      */
     public Optional<Output<String>> policyId() {
@@ -176,14 +184,16 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * @return Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -191,14 +201,14 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Idp rule status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. By default, it is `&#34;ACTIVE&#34;`.
+     * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Idp rule status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. By default, it is `&#34;ACTIVE&#34;`.
+     * @return Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     public Optional<Output<String>> status() {
@@ -206,14 +216,16 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+     * Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
+     * This is the attribute or identifier that the `user_identifier_patterns` are checked against.
      * 
      */
     @Import(name="userIdentifierAttribute")
     private @Nullable Output<String> userIdentifierAttribute;
 
     /**
-     * @return Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+     * @return Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
+     * This is the attribute or identifier that the `user_identifier_patterns` are checked against.
      * 
      */
     public Optional<Output<String>> userIdentifierAttribute() {
@@ -221,14 +233,20 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies a User Identifier pattern condition to match against. If `match_type` of `&#34;EXPRESSION&#34;` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+     * Specifies a User Identifier pattern condition to match against. If &#39;match_type&#39; of &#39;EXPRESSION&#39; is used, only a *single*
+     * element can be set, otherwise multiple elements of matching patterns may be provided. - &#39;match_type&#39; - (Optional) The
+     * kind of pattern. For regex, use &#39;EXPRESSION&#39;. For simple string matches, use one of the following: &#39;SUFFIX&#39;, &#39;EQUALS&#39;,
+     * &#39;STARTS_WITH&#39;, &#39;CONTAINS&#39; - &#39;value&#39; - (Optional) The regex or simple match string to match against.
      * 
      */
     @Import(name="userIdentifierPatterns")
     private @Nullable Output<List<RuleIdpDiscoveryUserIdentifierPatternArgs>> userIdentifierPatterns;
 
     /**
-     * @return Specifies a User Identifier pattern condition to match against. If `match_type` of `&#34;EXPRESSION&#34;` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+     * @return Specifies a User Identifier pattern condition to match against. If &#39;match_type&#39; of &#39;EXPRESSION&#39; is used, only a *single*
+     * element can be set, otherwise multiple elements of matching patterns may be provided. - &#39;match_type&#39; - (Optional) The
+     * kind of pattern. For regex, use &#39;EXPRESSION&#39;. For simple string matches, use one of the following: &#39;SUFFIX&#39;, &#39;EQUALS&#39;,
+     * &#39;STARTS_WITH&#39;, &#39;CONTAINS&#39; - &#39;value&#39; - (Optional) The regex or simple match string to match against.
      * 
      */
     public Optional<Output<List<RuleIdpDiscoveryUserIdentifierPatternArgs>>> userIdentifierPatterns() {
@@ -236,14 +254,14 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * One of: `&#34;IDENTIFIER&#34;`, `&#34;ATTRIBUTE&#34;`
+     * One of: `IDENTIFIER`, `ATTRIBUTE`
      * 
      */
     @Import(name="userIdentifierType")
     private @Nullable Output<String> userIdentifierType;
 
     /**
-     * @return One of: `&#34;IDENTIFIER&#34;`, `&#34;ATTRIBUTE&#34;`
+     * @return One of: `IDENTIFIER`, `ATTRIBUTE`
      * 
      */
     public Optional<Output<String>> userIdentifierType() {
@@ -320,7 +338,10 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appIncludes Applications to include in discovery rule.
+         * @param appIncludes Applications to include in discovery rule. - &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to
+         * include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in
+         * instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included. - &#39;type&#39; - (Required) One of:
+         * &#39;APP&#39;, &#39;APP_TYPE&#39;
          * 
          * @return builder
          * 
@@ -331,7 +352,10 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appIncludes Applications to include in discovery rule.
+         * @param appIncludes Applications to include in discovery rule. - &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to
+         * include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in
+         * instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included. - &#39;type&#39; - (Required) One of:
+         * &#39;APP&#39;, &#39;APP_TYPE&#39;
          * 
          * @return builder
          * 
@@ -341,7 +365,10 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appIncludes Applications to include in discovery rule.
+         * @param appIncludes Applications to include in discovery rule. - &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to
+         * include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in
+         * instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included. - &#39;type&#39; - (Required) One of:
+         * &#39;APP&#39;, &#39;APP_TYPE&#39;
          * 
          * @return builder
          * 
@@ -372,7 +399,8 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param idpType Type of Idp. One of: `&#34;SAML2&#34;`, `&#34;IWA&#34;`, `&#34;AgentlessDSSO&#34;`, `&#34;X509&#34;`, `&#34;FACEBOOK&#34;`, `&#34;GOOGLE&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;OIDC&#34;`
+         * @param idpType Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
+         * Default: `OKTA`
          * 
          * @return builder
          * 
@@ -383,7 +411,8 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param idpType Type of Idp. One of: `&#34;SAML2&#34;`, `&#34;IWA&#34;`, `&#34;AgentlessDSSO&#34;`, `&#34;X509&#34;`, `&#34;FACEBOOK&#34;`, `&#34;GOOGLE&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;OIDC&#34;`
+         * @param idpType Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
+         * Default: `OKTA`
          * 
          * @return builder
          * 
@@ -393,7 +422,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Policy rule name.
+         * @param name Policy Rule Name
          * 
          * @return builder
          * 
@@ -404,7 +433,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Policy rule name.
+         * @param name Policy Rule Name
          * 
          * @return builder
          * 
@@ -414,7 +443,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkConnection The network selection mode. One of `&#34;ANYWEHRE&#34;` or `&#34;ZONE&#34;`.
+         * @param networkConnection Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
          * 
          * @return builder
          * 
@@ -425,7 +454,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkConnection The network selection mode. One of `&#34;ANYWEHRE&#34;` or `&#34;ZONE&#34;`.
+         * @param networkConnection Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
          * 
          * @return builder
          * 
@@ -435,7 +464,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkExcludes Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to exclude.
+         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -446,7 +475,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkExcludes Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to exclude.
+         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -456,7 +485,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkExcludes Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to exclude.
+         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -466,7 +495,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkIncludes Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to include.
+         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -477,7 +506,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkIncludes Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to include.
+         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -487,7 +516,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkIncludes Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to include.
+         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -534,7 +563,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param policyId Policy ID.
+         * @param policyId Policy ID of the Rule
          * 
          * @return builder
          * 
@@ -545,7 +574,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param policyId Policy ID.
+         * @param policyId Policy ID of the Rule
          * 
          * @return builder
          * 
@@ -555,7 +584,8 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param priority Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+         * @param priority Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+         * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
          * 
          * @return builder
          * 
@@ -566,7 +596,8 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param priority Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+         * @param priority Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+         * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
          * 
          * @return builder
          * 
@@ -576,7 +607,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param status Idp rule status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. By default, it is `&#34;ACTIVE&#34;`.
+         * @param status Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -587,7 +618,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param status Idp rule status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. By default, it is `&#34;ACTIVE&#34;`.
+         * @param status Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -597,7 +628,8 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param userIdentifierAttribute Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+         * @param userIdentifierAttribute Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
+         * This is the attribute or identifier that the `user_identifier_patterns` are checked against.
          * 
          * @return builder
          * 
@@ -608,7 +640,8 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param userIdentifierAttribute Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+         * @param userIdentifierAttribute Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
+         * This is the attribute or identifier that the `user_identifier_patterns` are checked against.
          * 
          * @return builder
          * 
@@ -618,7 +651,10 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param userIdentifierPatterns Specifies a User Identifier pattern condition to match against. If `match_type` of `&#34;EXPRESSION&#34;` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+         * @param userIdentifierPatterns Specifies a User Identifier pattern condition to match against. If &#39;match_type&#39; of &#39;EXPRESSION&#39; is used, only a *single*
+         * element can be set, otherwise multiple elements of matching patterns may be provided. - &#39;match_type&#39; - (Optional) The
+         * kind of pattern. For regex, use &#39;EXPRESSION&#39;. For simple string matches, use one of the following: &#39;SUFFIX&#39;, &#39;EQUALS&#39;,
+         * &#39;STARTS_WITH&#39;, &#39;CONTAINS&#39; - &#39;value&#39; - (Optional) The regex or simple match string to match against.
          * 
          * @return builder
          * 
@@ -629,7 +665,10 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param userIdentifierPatterns Specifies a User Identifier pattern condition to match against. If `match_type` of `&#34;EXPRESSION&#34;` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+         * @param userIdentifierPatterns Specifies a User Identifier pattern condition to match against. If &#39;match_type&#39; of &#39;EXPRESSION&#39; is used, only a *single*
+         * element can be set, otherwise multiple elements of matching patterns may be provided. - &#39;match_type&#39; - (Optional) The
+         * kind of pattern. For regex, use &#39;EXPRESSION&#39;. For simple string matches, use one of the following: &#39;SUFFIX&#39;, &#39;EQUALS&#39;,
+         * &#39;STARTS_WITH&#39;, &#39;CONTAINS&#39; - &#39;value&#39; - (Optional) The regex or simple match string to match against.
          * 
          * @return builder
          * 
@@ -639,7 +678,10 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param userIdentifierPatterns Specifies a User Identifier pattern condition to match against. If `match_type` of `&#34;EXPRESSION&#34;` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+         * @param userIdentifierPatterns Specifies a User Identifier pattern condition to match against. If &#39;match_type&#39; of &#39;EXPRESSION&#39; is used, only a *single*
+         * element can be set, otherwise multiple elements of matching patterns may be provided. - &#39;match_type&#39; - (Optional) The
+         * kind of pattern. For regex, use &#39;EXPRESSION&#39;. For simple string matches, use one of the following: &#39;SUFFIX&#39;, &#39;EQUALS&#39;,
+         * &#39;STARTS_WITH&#39;, &#39;CONTAINS&#39; - &#39;value&#39; - (Optional) The regex or simple match string to match against.
          * 
          * @return builder
          * 
@@ -649,7 +691,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param userIdentifierType One of: `&#34;IDENTIFIER&#34;`, `&#34;ATTRIBUTE&#34;`
+         * @param userIdentifierType One of: `IDENTIFIER`, `ATTRIBUTE`
          * 
          * @return builder
          * 
@@ -660,7 +702,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param userIdentifierType One of: `&#34;IDENTIFIER&#34;`, `&#34;ATTRIBUTE&#34;`
+         * @param userIdentifierType One of: `IDENTIFIER`, `ATTRIBUTE`
          * 
          * @return builder
          * 

@@ -79,13 +79,16 @@ class GetThemeResult:
     @property
     @pulumi.getter(name="brandId")
     def brand_id(self) -> str:
+        """
+        Brand ID
+        """
         return pulumi.get(self, "brand_id")
 
     @property
     @pulumi.getter(name="emailTemplateTouchPointVariant")
     def email_template_touch_point_variant(self) -> str:
         """
-        (Enum) Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
+        Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
         """
         return pulumi.get(self, "email_template_touch_point_variant")
 
@@ -93,7 +96,7 @@ class GetThemeResult:
     @pulumi.getter(name="endUserDashboardTouchPointVariant")
     def end_user_dashboard_touch_point_variant(self) -> str:
         """
-        (Enum) Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
+        Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
         """
         return pulumi.get(self, "end_user_dashboard_touch_point_variant")
 
@@ -101,7 +104,7 @@ class GetThemeResult:
     @pulumi.getter(name="errorPageTouchPointVariant")
     def error_page_touch_point_variant(self) -> str:
         """
-        (Enum) Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         """
         return pulumi.get(self, "error_page_touch_point_variant")
 
@@ -117,7 +120,7 @@ class GetThemeResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Theme URL
+        The ID of the theme
         """
         return pulumi.get(self, "id")
 
@@ -125,7 +128,7 @@ class GetThemeResult:
     @pulumi.getter
     def links(self) -> str:
         """
-        Link relations for this object - JSON HAL - Discoverable resources related to the brand
+        Link relations for this object - JSON HAL - Discoverable resources related to the email template
         """
         return pulumi.get(self, "links")
 
@@ -173,13 +176,16 @@ class GetThemeResult:
     @pulumi.getter(name="signInPageTouchPointVariant")
     def sign_in_page_touch_point_variant(self) -> str:
         """
-        (Enum) Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
+        Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         """
         return pulumi.get(self, "sign_in_page_touch_point_variant")
 
     @property
     @pulumi.getter(name="themeId")
     def theme_id(self) -> str:
+        """
+        Theme ID
+        """
         return pulumi.get(self, "theme_id")
 
 
@@ -210,9 +216,7 @@ def get_theme(brand_id: Optional[str] = None,
               theme_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThemeResult:
     """
-    Use this data source to retrieve a
-    [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
-    of a brand for an Okta orgnanization.
+    Get a single Theme of a Brand of an Okta Organization.
 
 
     :param str brand_id: Brand ID
@@ -247,9 +251,7 @@ def get_theme_output(brand_id: Optional[pulumi.Input[str]] = None,
                      theme_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThemeResult]:
     """
-    Use this data source to retrieve a
-    [Theme](https://developer.okta.com/docs/reference/api/brands/#theme-response-object)
-    of a brand for an Okta orgnanization.
+    Get a single Theme of a Brand of an Okta Organization.
 
 
     :param str brand_id: Brand ID

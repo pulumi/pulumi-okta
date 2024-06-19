@@ -48,14 +48,14 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * TXT and CNAME records to be registered for the domain.
+     * TXT and cname records to be registered for the email Domain
      * 
      */
     @Import(name="dnsValidationRecords")
     private @Nullable Output<List<EmailDomainDnsValidationRecordArgs>> dnsValidationRecords;
 
     /**
-     * @return TXT and CNAME records to be registered for the domain.
+     * @return TXT and cname records to be registered for the email Domain
      * 
      */
     public Optional<Output<List<EmailDomainDnsValidationRecordArgs>>> dnsValidationRecords() {
@@ -93,14 +93,14 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of the email domain (shows whether the domain is verified).
+     * Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
      * 
      */
     @Import(name="validationStatus")
     private @Nullable Output<String> validationStatus;
 
     /**
-     * @return Status of the email domain (shows whether the domain is verified).
+     * @return Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
      * 
      */
     public Optional<Output<String>> validationStatus() {
@@ -179,7 +179,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsValidationRecords TXT and CNAME records to be registered for the domain.
+         * @param dnsValidationRecords TXT and cname records to be registered for the email Domain
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsValidationRecords TXT and CNAME records to be registered for the domain.
+         * @param dnsValidationRecords TXT and cname records to be registered for the email Domain
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsValidationRecords TXT and CNAME records to be registered for the domain.
+         * @param dnsValidationRecords TXT and cname records to be registered for the email Domain
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationStatus Status of the email domain (shows whether the domain is verified).
+         * @param validationStatus Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class EmailDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationStatus Status of the email domain (shows whether the domain is verified).
+         * @param validationStatus Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
          * 
          * @return builder
          * 

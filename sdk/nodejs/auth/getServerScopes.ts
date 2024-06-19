@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve a list of authorization server scopes from Okta.
+ * Get a list of authorization server scopes from Okta.
  *
  * ## Example Usage
  *
@@ -33,7 +33,7 @@ export function getServerScopes(args: GetServerScopesArgs, opts?: pulumi.InvokeO
  */
 export interface GetServerScopesArgs {
     /**
-     * Auth server ID.
+     * Auth server ID
      */
     authServerId: string;
 }
@@ -42,18 +42,21 @@ export interface GetServerScopesArgs {
  * A collection of values returned by getServerScopes.
  */
 export interface GetServerScopesResult {
+    /**
+     * Auth server ID
+     */
     readonly authServerId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * collection of authorization server scopes retrieved from Okta with the following properties.
+     * Collection of authorization server scopes retrieved from Okta with the following properties.
      */
     readonly scopes: outputs.auth.GetServerScopesScope[];
 }
 /**
- * Use this data source to retrieve a list of authorization server scopes from Okta.
+ * Get a list of authorization server scopes from Okta.
  *
  * ## Example Usage
  *
@@ -75,7 +78,7 @@ export function getServerScopesOutput(args: GetServerScopesOutputArgs, opts?: pu
  */
 export interface GetServerScopesOutputArgs {
     /**
-     * Auth server ID.
+     * Auth server ID
      */
     authServerId: pulumi.Input<string>;
 }

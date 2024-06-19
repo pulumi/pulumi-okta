@@ -18,16 +18,14 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
     public static final RuleState Empty = new RuleState();
 
     /**
-     * The expression type to use to invoke the rule. The default
-     * is `&#34;urn:okta:expression:1.0&#34;`.
+     * The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
      * 
      */
     @Import(name="expressionType")
     private @Nullable Output<String> expressionType;
 
     /**
-     * @return The expression type to use to invoke the rule. The default
-     * is `&#34;urn:okta:expression:1.0&#34;`.
+     * @return The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
      * 
      */
     public Optional<Output<String>> expressionType() {
@@ -80,16 +78,14 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * This tells the provider to remove users added by this rule from the assigned
-     * group after destroying this resource. Default is `false`.
+     * Remove users added by this rule from the assigned group after deleting this resource. Default is `false`
      * 
      */
     @Import(name="removeAssignedUsers")
     private @Nullable Output<Boolean> removeAssignedUsers;
 
     /**
-     * @return This tells the provider to remove users added by this rule from the assigned
-     * group after destroying this resource. Default is `false`.
+     * @return Remove users added by this rule from the assigned group after deleting this resource. Default is `false`
      * 
      */
     public Optional<Output<Boolean>> removeAssignedUsers() {
@@ -97,14 +93,14 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The status of the group rule.
+     * Default to `ACTIVE`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the group rule.
+     * @return Default to `ACTIVE`
      * 
      */
     public Optional<Output<String>> status() {
@@ -112,14 +108,14 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of user IDs that would be excluded when rules are processed.
+     * The list of user IDs that would be excluded when rules are processed
      * 
      */
     @Import(name="usersExcludeds")
     private @Nullable Output<List<String>> usersExcludeds;
 
     /**
-     * @return The list of user IDs that would be excluded when rules are processed.
+     * @return The list of user IDs that would be excluded when rules are processed
      * 
      */
     public Optional<Output<List<String>>> usersExcludeds() {
@@ -157,8 +153,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expressionType The expression type to use to invoke the rule. The default
-         * is `&#34;urn:okta:expression:1.0&#34;`.
+         * @param expressionType The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
          * 
          * @return builder
          * 
@@ -169,8 +164,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expressionType The expression type to use to invoke the rule. The default
-         * is `&#34;urn:okta:expression:1.0&#34;`.
+         * @param expressionType The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
          * 
          * @return builder
          * 
@@ -253,8 +247,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param removeAssignedUsers This tells the provider to remove users added by this rule from the assigned
-         * group after destroying this resource. Default is `false`.
+         * @param removeAssignedUsers Remove users added by this rule from the assigned group after deleting this resource. Default is `false`
          * 
          * @return builder
          * 
@@ -265,8 +258,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param removeAssignedUsers This tells the provider to remove users added by this rule from the assigned
-         * group after destroying this resource. Default is `false`.
+         * @param removeAssignedUsers Remove users added by this rule from the assigned group after deleting this resource. Default is `false`
          * 
          * @return builder
          * 
@@ -276,7 +268,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the group rule.
+         * @param status Default to `ACTIVE`
          * 
          * @return builder
          * 
@@ -287,7 +279,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the group rule.
+         * @param status Default to `ACTIVE`
          * 
          * @return builder
          * 
@@ -297,7 +289,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed.
+         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed
          * 
          * @return builder
          * 
@@ -308,7 +300,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed.
+         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed
          * 
          * @return builder
          * 
@@ -318,7 +310,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed.
+         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed
          * 
          * @return builder
          * 

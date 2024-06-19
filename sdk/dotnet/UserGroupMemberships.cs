@@ -51,7 +51,7 @@ namespace Pulumi.Okta
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
         /// <summary>
-        /// Okta user ID.
+        /// ID of a Okta User
         /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Okta user ID.
+        /// ID of a Okta User
         /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Okta user ID.
+        /// ID of a Okta User
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }

@@ -17,9 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource to manage a set of admin roles for a specific user.
- * 
- * This resource allows you to manage admin roles for a single user, independent of the user schema itself.
+ * Resource to manage a set of administrator roles for a specific user. This resource allows you to manage admin roles for a single user, independent of the user schema itself.
  * 
  * ## Example Usage
  * 
@@ -68,8 +66,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Existing user admin roles can be imported via the Okta User ID.
- * 
  * ```sh
  * $ pulumi import okta:index/userAdminRoles:UserAdminRoles example &amp;#60;user id&amp;#62;
  * ```
@@ -78,44 +74,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/userAdminRoles:UserAdminRoles")
 public class UserAdminRoles extends com.pulumi.resources.CustomResource {
     /**
-     * The list of Okta user admin roles, e.g. `[&#34;APP_ADMIN&#34;, &#34;USER_ADMIN&#34;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     @Export(name="adminRoles", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> adminRoles;
 
     /**
-     * @return The list of Okta user admin roles, e.g. `[&#34;APP_ADMIN&#34;, &#34;USER_ADMIN&#34;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * @return The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     public Output<List<String>> adminRoles() {
         return this.adminRoles;
     }
     /**
-     * When this setting is enabled, the admins won&#39;t receive any of the default Okta
-     * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
+     * When this setting is enabled, the admins won&#39;t receive any of the default Okta administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
      * 
      */
     @Export(name="disableNotifications", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableNotifications;
 
     /**
-     * @return When this setting is enabled, the admins won&#39;t receive any of the default Okta
-     * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
+     * @return When this setting is enabled, the admins won&#39;t receive any of the default Okta administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
      * 
      */
     public Output<Optional<Boolean>> disableNotifications() {
         return Codegen.optional(this.disableNotifications);
     }
     /**
-     * Okta user ID.
+     * ID of a Okta User
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
-     * @return Okta user ID.
+     * @return ID of a Okta User
      * 
      */
     public Output<String> userId() {

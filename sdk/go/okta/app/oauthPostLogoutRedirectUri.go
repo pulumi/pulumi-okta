@@ -66,15 +66,13 @@ import (
 //
 // ## Import
 //
-// A post logout redirect URI can be imported via the Okta ID.
-//
 // ```sh
-// $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &#60;app id&#62;/&#60;uri&#62;
+// $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &#60;app id&#62;/&#60;uri&#62
 // ```
 type OAuthPostLogoutRedirectUri struct {
 	pulumi.CustomResourceState
 
-	// OAuth application ID. Note: `appId` can not be changed once set.
+	// OAuth application ID.
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// Post Logout Redirect URI to append to Okta OIDC application.
 	Uri pulumi.StringOutput `pulumi:"uri"`
@@ -116,14 +114,14 @@ func GetOAuthPostLogoutRedirectUri(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OAuthPostLogoutRedirectUri resources.
 type oauthPostLogoutRedirectUriState struct {
-	// OAuth application ID. Note: `appId` can not be changed once set.
+	// OAuth application ID.
 	AppId *string `pulumi:"appId"`
 	// Post Logout Redirect URI to append to Okta OIDC application.
 	Uri *string `pulumi:"uri"`
 }
 
 type OAuthPostLogoutRedirectUriState struct {
-	// OAuth application ID. Note: `appId` can not be changed once set.
+	// OAuth application ID.
 	AppId pulumi.StringPtrInput
 	// Post Logout Redirect URI to append to Okta OIDC application.
 	Uri pulumi.StringPtrInput
@@ -134,7 +132,7 @@ func (OAuthPostLogoutRedirectUriState) ElementType() reflect.Type {
 }
 
 type oauthPostLogoutRedirectUriArgs struct {
-	// OAuth application ID. Note: `appId` can not be changed once set.
+	// OAuth application ID.
 	AppId string `pulumi:"appId"`
 	// Post Logout Redirect URI to append to Okta OIDC application.
 	Uri string `pulumi:"uri"`
@@ -142,7 +140,7 @@ type oauthPostLogoutRedirectUriArgs struct {
 
 // The set of arguments for constructing a OAuthPostLogoutRedirectUri resource.
 type OAuthPostLogoutRedirectUriArgs struct {
-	// OAuth application ID. Note: `appId` can not be changed once set.
+	// OAuth application ID.
 	AppId pulumi.StringInput
 	// Post Logout Redirect URI to append to Okta OIDC application.
 	Uri pulumi.StringInput
@@ -235,7 +233,7 @@ func (o OAuthPostLogoutRedirectUriOutput) ToOAuthPostLogoutRedirectUriOutputWith
 	return o
 }
 
-// OAuth application ID. Note: `appId` can not be changed once set.
+// OAuth application ID.
 func (o OAuthPostLogoutRedirectUriOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuthPostLogoutRedirectUri) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }

@@ -14,9 +14,9 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **DEPRECATED** use `okta.EmailDomainVerification` instead.
- * 
  * Verifies the email sender. The resource won&#39;t be created if the email sender could not be verified.
+ * 
+ * &gt; **DEPRECATED** The api for this resource has been deprecated. Please use `okta.EmailDomainVerification` instead.
  * 
  * ## Example Usage
  * 
@@ -61,22 +61,18 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Import
- * 
- * This resource does not support importing.
- * 
  */
 @ResourceType(type="okta:index/emailSenderVerification:EmailSenderVerification")
 public class EmailSenderVerification extends com.pulumi.resources.CustomResource {
     /**
-     * Email sender ID.
+     * Email sender ID
      * 
      */
     @Export(name="senderId", refs={String.class}, tree="[0]")
     private Output<String> senderId;
 
     /**
-     * @return Email sender ID.
+     * @return Email sender ID
      * 
      */
     public Output<String> senderId() {

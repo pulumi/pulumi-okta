@@ -15,66 +15,14 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages assignment of an admin role to an OAuth application.
- * 
- * This resource allows you to assign an Okta admin role to a OAuth service application. This requires the Okta tenant feature flag for this function to be enabled.
- * 
- * ## Example Usage
- * 
- * Standard Role:
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.app.OAuth;
- * import com.pulumi.okta.app.OAuthArgs;
- * import com.pulumi.okta.app.OauthRoleAssignment;
- * import com.pulumi.okta.app.OauthRoleAssignmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new OAuth("test", OAuthArgs.builder()
- *             .label("test")
- *             .type("service")
- *             .responseTypes("token")
- *             .grantTypes("client_credentials")
- *             .jwksUri("https://example.com")
- *             .build());
- * 
- *         var testOauthRoleAssignment = new OauthRoleAssignment("testOauthRoleAssignment", OauthRoleAssignmentArgs.builder()
- *             .clientId(test.clientId())
- *             .type("HELP_DESK_ADMIN")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * Custom Role:
+ * Manages assignment of an admin role to an OAuth application
+ * 		This resource allows you to assign an Okta admin role to a OAuth
+ * 		service application. This requires the Okta tenant feature flag for this function to be enabled.
  * 
  * ## Import
  * 
- * OAuth Role assignment can be imported by passing the Client ID and Role Assignment ID for the specific client role.
- * 
  * ```sh
- * $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test &lt;clientID&gt;/&lt;roleAssignmentID&gt;`
+ * $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test &lt;clientID&gt;/&lt;roleAssignmentID&gt;
  * ```
  * 
  */

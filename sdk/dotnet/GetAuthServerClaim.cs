@@ -12,7 +12,7 @@ namespace Pulumi.Okta
     public static class GetAuthServerClaim
     {
         /// <summary>
-        /// Use this data source to retrieve authorization server claim from Okta.
+        /// Get authorization server claim from Okta.
         /// 
         /// ## Example Usage
         /// 
@@ -37,7 +37,7 @@ namespace Pulumi.Okta
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthServerClaimResult>("okta:index/getAuthServerClaim:getAuthServerClaim", args ?? new GetAuthServerClaimArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve authorization server claim from Okta.
+        /// Get authorization server claim from Okta.
         /// 
         /// ## Example Usage
         /// 
@@ -66,13 +66,13 @@ namespace Pulumi.Okta
     public sealed class GetAuthServerClaimArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Auth server ID.
+        /// Auth server ID
         /// </summary>
         [Input("authServerId", required: true)]
         public string AuthServerId { get; set; } = null!;
 
         /// <summary>
-        /// ID of the claim. Conflicts with `name`.
+        /// Name of the claim. Conflicts with `name`.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -92,13 +92,13 @@ namespace Pulumi.Okta
     public sealed class GetAuthServerClaimInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Auth server ID.
+        /// Auth server ID
         /// </summary>
         [Input("authServerId", required: true)]
         public Input<string> AuthServerId { get; set; } = null!;
 
         /// <summary>
-        /// ID of the claim. Conflicts with `name`.
+        /// Name of the claim. Conflicts with `name`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -123,21 +123,24 @@ namespace Pulumi.Okta
         /// Specifies whether to include Claims in the token.
         /// </summary>
         public readonly bool AlwaysIncludeInToken;
+        /// <summary>
+        /// Auth server ID
+        /// </summary>
         public readonly string AuthServerId;
         /// <summary>
-        /// Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+        /// Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`).
         /// </summary>
         public readonly string ClaimType;
         /// <summary>
-        /// ID of the claim.
+        /// Name of the claim. Conflicts with `name`.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Name of the claim.
+        /// Name of the claim. Conflicts with `id`.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Specifies the scopes for this Claim.
+        /// Auth server claim list of scopes
         /// </summary>
         public readonly ImmutableArray<string> Scopes;
         /// <summary>
@@ -145,11 +148,11 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Value of the claim
+        /// Value of the claim.
         /// </summary>
         public readonly string Value;
         /// <summary>
-        /// Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+        /// Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
         /// </summary>
         public readonly string ValueType;
 

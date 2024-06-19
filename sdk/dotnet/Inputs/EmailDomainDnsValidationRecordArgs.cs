@@ -19,20 +19,19 @@ namespace Pulumi.Okta.Inputs
         public Input<string>? Expiration { get; set; }
 
         /// <summary>
-        /// DNS record name.
+        /// DNS record name
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
 
         /// <summary>
-        /// Record type can be TXT or cname.
+        /// Record type can be TXT or cname
         /// </summary>
         [Input("recordType")]
         public Input<string>? RecordType { get; set; }
 
         /// <summary>
         /// DNS record value
-        /// - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

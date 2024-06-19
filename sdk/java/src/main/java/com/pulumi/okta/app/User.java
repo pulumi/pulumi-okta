@@ -56,8 +56,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An Application User can be imported via the Okta ID.
- * 
  * ```sh
  * $ pulumi import okta:app/user:User example &amp;#60;app id&amp;#62;/&amp;#60;user id&amp;#62;
  * ```
@@ -66,14 +64,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:app/user:User")
 public class User extends com.pulumi.resources.CustomResource {
     /**
-     * App to associate user with.
+     * App to associate user with
      * 
      */
     @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
-     * @return App to associate user with.
+     * @return App to associate user with
      * 
      */
     public Output<String> appId() {
@@ -114,44 +112,42 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.profile);
     }
     /**
-     * Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+     * Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      * 
      */
     @Export(name="retainAssignment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> retainAssignment;
 
     /**
-     * @return Retain the user association on destroy. If set to true, the resource will be removed from state but not from the Okta app.
+     * @return Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      * 
      */
     public Output<Optional<Boolean>> retainAssignment() {
         return Codegen.optional(this.retainAssignment);
     }
     /**
-     * User to associate the application with.
+     * User associated with the application
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
-     * @return User to associate the application with.
+     * @return User associated with the application
      * 
      */
     public Output<String> userId() {
         return this.userId;
     }
     /**
-     * The username to use for the app user. In case the user is assigned to the app with
-     * &#39;SHARED_USERNAME_AND_PASSWORD&#39; credentials scheme, this field will be computed and should not be set.
+     * The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
      * 
      */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**
-     * @return The username to use for the app user. In case the user is assigned to the app with
-     * &#39;SHARED_USERNAME_AND_PASSWORD&#39; credentials scheme, this field will be computed and should not be set.
+     * @return The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
      * 
      */
     public Output<Optional<String>> username() {

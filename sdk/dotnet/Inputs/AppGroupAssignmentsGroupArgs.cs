@@ -13,7 +13,7 @@ namespace Pulumi.Okta.Inputs
     public sealed class AppGroupAssignmentsGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the group to assign.
+        /// A group to associate with the application
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

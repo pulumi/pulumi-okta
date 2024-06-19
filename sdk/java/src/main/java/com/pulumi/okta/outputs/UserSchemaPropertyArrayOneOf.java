@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class UserSchemaPropertyArrayOneOf {
     /**
-     * @return value mapping to member of `enum`.
+     * @return Value mapping to member of `array_enum`
      * 
      */
     private String const_;
     /**
-     * @return display name for the enum value.
+     * @return Display name for the enum value.
      * 
      */
     private String title;
 
     private UserSchemaPropertyArrayOneOf() {}
     /**
-     * @return value mapping to member of `enum`.
+     * @return Value mapping to member of `array_enum`
      * 
      */
     public String const_() {
         return this.const_;
     }
     /**
-     * @return display name for the enum value.
+     * @return Display name for the enum value.
      * 
      */
     public String title() {

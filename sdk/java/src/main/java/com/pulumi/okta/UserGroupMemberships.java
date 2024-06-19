@@ -80,14 +80,14 @@ public class UserGroupMemberships extends com.pulumi.resources.CustomResource {
         return this.groups;
     }
     /**
-     * Okta user ID.
+     * ID of a Okta User
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
-     * @return Okta user ID.
+     * @return ID of a Okta User
      * 
      */
     public Output<String> userId() {

@@ -11,11 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to configure Security Notification Emails.
+// Manages Security Notification Emails
 //
-// > **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
-//
-// > **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+//	This resource allows you to configure Security Notification Emails.
+//	> **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
+//	> **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
 //
 // ## Example Usage
 //
@@ -48,8 +48,6 @@ import (
 // ```
 //
 // ## Import
-//
-// Security Notification Emails can be imported without any parameters.
 //
 // ```sh
 // $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _

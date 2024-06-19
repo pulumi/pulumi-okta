@@ -18,9 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates a Social Identity Provider.
- * 
- * This resource allows you to create and configure a Social Identity Provider.
+ * Creates a Social Identity Provider. This resource allows you to create and configure a Social Identity Provider.
  * 
  * ## Example Usage
  * 
@@ -67,8 +65,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A Social IdP can be imported via the Okta ID.
- * 
  * ```sh
  * $ pulumi import okta:idp/social:Social example &amp;#60;idp id&amp;#62;
  * ```
@@ -77,14 +73,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:idp/social:Social")
 public class Social extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the account linking action for an IdP user.
+     * Specifies the account linking action for an IdP user. Default: `AUTO`
      * 
      */
     @Export(name="accountLinkAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountLinkAction;
 
     /**
-     * @return Specifies the account linking action for an IdP user.
+     * @return Specifies the account linking action for an IdP user. Default: `AUTO`
      * 
      */
     public Output<Optional<String>> accountLinkAction() {
@@ -105,60 +101,56 @@ public class Social extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accountLinkGroupIncludes);
     }
     /**
-     * The Key ID that you obtained from Apple when you created the private key for the client.
+     * The Key ID that you obtained from Apple when you created the private key for the client
      * 
      */
     @Export(name="appleKid", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appleKid;
 
     /**
-     * @return The Key ID that you obtained from Apple when you created the private key for the client.
+     * @return The Key ID that you obtained from Apple when you created the private key for the client
      * 
      */
     public Output<Optional<String>> appleKid() {
         return Codegen.optional(this.appleKid);
     }
     /**
-     * The Key ID that you obtained from Apple when you created the private
-     * key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
-     * and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
+     * The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
      * 
      */
     @Export(name="applePrivateKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> applePrivateKey;
 
     /**
-     * @return The Key ID that you obtained from Apple when you created the private
-     * key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
-     * and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
+     * @return The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn&#39;t returned when importing this resource.
      * 
      */
     public Output<Optional<String>> applePrivateKey() {
         return Codegen.optional(this.applePrivateKey);
     }
     /**
-     * The Team ID associated with your Apple developer account.
+     * The Team ID associated with your Apple developer account
      * 
      */
     @Export(name="appleTeamId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appleTeamId;
 
     /**
-     * @return The Team ID associated with your Apple developer account.
+     * @return The Team ID associated with your Apple developer account
      * 
      */
     public Output<Optional<String>> appleTeamId() {
         return Codegen.optional(this.appleTeamId);
     }
     /**
-     * The method of making an authorization request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
      * 
      */
     @Export(name="authorizationBinding", refs={String.class}, tree="[0]")
     private Output<String> authorizationBinding;
 
     /**
-     * @return The method of making an authorization request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * @return The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
      * 
      */
     public Output<String> authorizationBinding() {
@@ -207,42 +199,42 @@ public class Social extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientSecret);
     }
     /**
-     * Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+     * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     @Export(name="deprovisionedAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deprovisionedAction;
 
     /**
-     * @return Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+     * @return Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     public Output<Optional<String>> deprovisionedAction() {
         return Codegen.optional(this.deprovisionedAction);
     }
     /**
-     * Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+     * Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      * 
      */
     @Export(name="groupsAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupsAction;
 
     /**
-     * @return Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+     * @return Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      * 
      */
     public Output<Optional<String>> groupsAction() {
         return Codegen.optional(this.groupsAction);
     }
     /**
-     * List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+     * List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
      * 
      */
     @Export(name="groupsAssignments", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupsAssignments;
 
     /**
-     * @return List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+     * @return List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
      * 
      */
     public Output<Optional<List<String>>> groupsAssignments() {
@@ -263,28 +255,28 @@ public class Social extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.groupsAttribute);
     }
     /**
-     * Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+     * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
      * 
      */
     @Export(name="groupsFilters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupsFilters;
 
     /**
-     * @return Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+     * @return Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
      * 
      */
     public Output<Optional<List<String>>> groupsFilters() {
         return Codegen.optional(this.groupsFilters);
     }
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
      * 
      */
     @Export(name="issuerMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerMode;
 
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
      * 
      */
     public Output<Optional<String>> issuerMode() {
@@ -305,14 +297,14 @@ public class Social extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxClockSkew);
     }
     /**
-     * The Application&#39;s display name.
+     * Name of the IdP
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The Application&#39;s display name.
+     * @return Name of the IdP
      * 
      */
     public Output<String> name() {
@@ -333,28 +325,28 @@ public class Social extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.profileMaster);
     }
     /**
-     * The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+     * The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
      * 
      */
     @Export(name="protocolType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protocolType;
 
     /**
-     * @return The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+     * @return The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
      * 
      */
     public Output<Optional<String>> protocolType() {
         return Codegen.optional(this.protocolType);
     }
     /**
-     * Provisioning action for an IdP user during authentication.
+     * Provisioning action for an IdP user during authentication. Default: `AUTO`
      * 
      */
     @Export(name="provisioningAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> provisioningAction;
 
     /**
-     * @return Provisioning action for an IdP user during authentication.
+     * @return Provisioning action for an IdP user during authentication. Default: `AUTO`
      * 
      */
     public Output<Optional<String>> provisioningAction() {
@@ -375,70 +367,70 @@ public class Social extends com.pulumi.resources.CustomResource {
         return this.scopes;
     }
     /**
-     * Status of the IdP.
+     * Default to `ACTIVE`
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Status of the IdP.
+     * @return Default to `ACTIVE`
      * 
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      * 
      */
     @Export(name="subjectMatchAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectMatchAttribute;
 
     /**
-     * @return Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * @return Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      * 
      */
     public Output<Optional<String>> subjectMatchAttribute() {
         return Codegen.optional(this.subjectMatchAttribute);
     }
     /**
-     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      * 
      */
     @Export(name="subjectMatchType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectMatchType;
 
     /**
-     * @return Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * @return Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      * 
      */
     public Output<Optional<String>> subjectMatchType() {
         return Codegen.optional(this.subjectMatchType);
     }
     /**
-     * Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+     * Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     @Export(name="suspendedAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> suspendedAction;
 
     /**
-     * @return Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+     * @return Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     public Output<Optional<String>> suspendedAction() {
         return Codegen.optional(this.suspendedAction);
     }
     /**
-     * The method of making a token request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
      * 
      */
     @Export(name="tokenBinding", refs={String.class}, tree="[0]")
     private Output<String> tokenBinding;
 
     /**
-     * @return The method of making a token request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * @return The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
      * 
      */
     public Output<String> tokenBinding() {
@@ -459,28 +451,98 @@ public class Social extends com.pulumi.resources.CustomResource {
         return this.tokenUrl;
     }
     /**
-     * The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+     * Trust audience for the Okta IdP instance.
+     * 
+     */
+    @Export(name="trustAudience", refs={String.class}, tree="[0]")
+    private Output<String> trustAudience;
+
+    /**
+     * @return Trust audience for the Okta IdP instance.
+     * 
+     */
+    public Output<String> trustAudience() {
+        return this.trustAudience;
+    }
+    /**
+     * Trust issuer for the Okta IdP instance.
+     * 
+     */
+    @Export(name="trustIssuer", refs={String.class}, tree="[0]")
+    private Output<String> trustIssuer;
+
+    /**
+     * @return Trust issuer for the Okta IdP instance.
+     * 
+     */
+    public Output<String> trustIssuer() {
+        return this.trustIssuer;
+    }
+    /**
+     * Trust kid for the Okta IdP instance.
+     * 
+     */
+    @Export(name="trustKid", refs={String.class}, tree="[0]")
+    private Output<String> trustKid;
+
+    /**
+     * @return Trust kid for the Okta IdP instance.
+     * 
+     */
+    public Output<String> trustKid() {
+        return this.trustKid;
+    }
+    /**
+     * Trust revocation for the Okta IdP instance.
+     * 
+     */
+    @Export(name="trustRevocation", refs={String.class}, tree="[0]")
+    private Output<String> trustRevocation;
+
+    /**
+     * @return Trust revocation for the Okta IdP instance.
+     * 
+     */
+    public Output<String> trustRevocation() {
+        return this.trustRevocation;
+    }
+    /**
+     * Trust revocation cache lifetime for the Okta IdP instance.
+     * 
+     */
+    @Export(name="trustRevocationCacheLifetime", refs={Integer.class}, tree="[0]")
+    private Output<Integer> trustRevocationCacheLifetime;
+
+    /**
+     * @return Trust revocation cache lifetime for the Okta IdP instance.
+     * 
+     */
+    public Output<Integer> trustRevocationCacheLifetime() {
+        return this.trustRevocationCacheLifetime;
+    }
+    /**
+     * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+     * @return Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * Okta EL Expression to generate or transform a unique username for the IdP user.
+     * Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      * 
      */
     @Export(name="usernameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> usernameTemplate;
 
     /**
-     * @return Okta EL Expression to generate or transform a unique username for the IdP user.
+     * @return Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      * 
      */
     public Output<Optional<String>> usernameTemplate() {

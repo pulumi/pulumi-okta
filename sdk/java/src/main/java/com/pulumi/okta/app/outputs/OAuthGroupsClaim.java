@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OAuthGroupsClaim {
     /**
-     * @return Groups claim filter. Can only be set if type is `&#34;FILTER&#34;`. Valid values: `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+     * @return Groups claim filter. Can only be set if type is FILTER.
      * 
      */
     private @Nullable String filterType;
     /**
-     * @return Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
+     * @return Issuer mode inherited from OAuth App
      * 
      */
     private @Nullable String issuerMode;
@@ -28,7 +28,7 @@ public final class OAuthGroupsClaim {
      */
     private String name;
     /**
-     * @return Groups claim type. Valid values: `&#34;FILTER&#34;`, `&#34;EXPRESSION&#34;`.
+     * @return Groups claim type.
      * 
      */
     private String type;
@@ -40,14 +40,14 @@ public final class OAuthGroupsClaim {
 
     private OAuthGroupsClaim() {}
     /**
-     * @return Groups claim filter. Can only be set if type is `&#34;FILTER&#34;`. Valid values: `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+     * @return Groups claim filter. Can only be set if type is FILTER.
      * 
      */
     public Optional<String> filterType() {
         return Optional.ofNullable(this.filterType);
     }
     /**
-     * @return Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
+     * @return Issuer mode inherited from OAuth App
      * 
      */
     public Optional<String> issuerMode() {
@@ -61,7 +61,7 @@ public final class OAuthGroupsClaim {
         return this.name;
     }
     /**
-     * @return Groups claim type. Valid values: `&#34;FILTER&#34;`, `&#34;EXPRESSION&#34;`.
+     * @return Groups claim type.
      * 
      */
     public String type() {

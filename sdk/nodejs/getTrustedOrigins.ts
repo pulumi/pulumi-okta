@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to retrieve a list of trusted origins from Okta.
+ * Get List of Trusted Origins using filters.
  *
  * ## Example Usage
  *
@@ -32,7 +32,7 @@ export function getTrustedOrigins(args?: GetTrustedOriginsArgs, opts?: pulumi.In
  */
 export interface GetTrustedOriginsArgs {
     /**
-     * Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
+     * Filter criteria. Filter value will be URL-encoded by the provider
      */
     filter?: string;
 }
@@ -41,6 +41,9 @@ export interface GetTrustedOriginsArgs {
  * A collection of values returned by getTrustedOrigins.
  */
 export interface GetTrustedOriginsResult {
+    /**
+     * Filter criteria. Filter value will be URL-encoded by the provider
+     */
     readonly filter?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -49,7 +52,7 @@ export interface GetTrustedOriginsResult {
     readonly trustedOrigins: outputs.GetTrustedOriginsTrustedOrigin[];
 }
 /**
- * This resource allows you to retrieve a list of trusted origins from Okta.
+ * Get List of Trusted Origins using filters.
  *
  * ## Example Usage
  *
@@ -69,7 +72,7 @@ export function getTrustedOriginsOutput(args?: GetTrustedOriginsOutputArgs, opts
  */
 export interface GetTrustedOriginsOutputArgs {
     /**
-     * Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
+     * Filter criteria. Filter value will be URL-encoded by the provider
      */
     filter?: pulumi.Input<string>;
 }

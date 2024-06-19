@@ -39,7 +39,7 @@ public final class GetRuleResult {
      */
     private @Nullable String name;
     /**
-     * @return The status of the group rule.
+     * @return Default to `ACTIVE`
      * 
      */
     private @Nullable String status;
@@ -86,7 +86,7 @@ public final class GetRuleResult {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The status of the group rule.
+     * @return Default to `ACTIVE`
      * 
      */
     public Optional<String> status() {

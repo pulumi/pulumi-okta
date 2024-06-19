@@ -49,7 +49,7 @@ class GetDomainResult:
     @pulumi.getter(name="certificateSourceType")
     def certificate_source_type(self) -> str:
         """
-        Certificate source type that indicates whether the certificate is provided by the user or Okta. Values: MANUAL, OKTA_MANAGED"
+        Certificate source type that indicates whether the certificate is provided by the user or Okta. Values: MANUAL, OKTA_MANAGED
         """
         return pulumi.get(self, "certificate_source_type")
 
@@ -57,7 +57,7 @@ class GetDomainResult:
     @pulumi.getter(name="dnsRecords")
     def dns_records(self) -> Sequence['outputs.GetDomainDnsRecordResult']:
         """
-        TXT and CNAME records to be registered for the Domain.
+        TXT and CNAME records to be registered for the Domain
         """
         return pulumi.get(self, "dns_records")
 
@@ -72,13 +72,16 @@ class GetDomainResult:
     @property
     @pulumi.getter(name="domainIdOrName")
     def domain_id_or_name(self) -> str:
+        """
+        Brand ID
+        """
         return pulumi.get(self, "domain_id_or_name")
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Domain ID
+        The ID of the Domain
         """
         return pulumi.get(self, "id")
 
@@ -94,7 +97,7 @@ class GetDomainResult:
     @pulumi.getter(name="validationStatus")
     def validation_status(self) -> str:
         """
-        Status of the domain. Values: `NOT_STARTED`, `IN_PROGRESS`, `VERIFIED`, `COMPLETED`
+        Status of the domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
         """
         return pulumi.get(self, "validation_status")
 
@@ -117,10 +120,7 @@ class AwaitableGetDomainResult(GetDomainResult):
 def get_domain(domain_id_or_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
-    Use this data source to retrieve a domain from Okta.
-
-    - https://developer.okta.com/docs/reference/api/domains/#get-domain
-    - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
+    Get a domain from Okta.
 
     ## Example Usage
 
@@ -134,7 +134,7 @@ def get_domain(domain_id_or_name: Optional[str] = None,
     ```
 
 
-    :param str domain_id_or_name: The Okta ID of the domain or the domain name itself.
+    :param str domain_id_or_name: Brand ID
     """
     __args__ = dict()
     __args__['domainIdOrName'] = domain_id_or_name
@@ -155,10 +155,7 @@ def get_domain(domain_id_or_name: Optional[str] = None,
 def get_domain_output(domain_id_or_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
-    Use this data source to retrieve a domain from Okta.
-
-    - https://developer.okta.com/docs/reference/api/domains/#get-domain
-    - https://developer.okta.com/docs/reference/api/domains/#domainresponse-object
+    Get a domain from Okta.
 
     ## Example Usage
 
@@ -172,6 +169,6 @@ def get_domain_output(domain_id_or_name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str domain_id_or_name: The Okta ID of the domain or the domain name itself.
+    :param str domain_id_or_name: Brand ID
     """
     ...

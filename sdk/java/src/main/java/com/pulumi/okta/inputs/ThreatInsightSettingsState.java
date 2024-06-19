@@ -17,20 +17,14 @@ public final class ThreatInsightSettingsState extends com.pulumi.resources.Resou
     public static final ThreatInsightSettingsState Empty = new ThreatInsightSettingsState();
 
     /**
-     * Specifies how Okta responds to authentication requests from suspicious IPs. Valid values
-     * are `&#34;none&#34;`, `&#34;audit&#34;`, or `&#34;block&#34;`. A value of `&#34;none&#34;` indicates that ThreatInsight is disabled. A value of `&#34;audit&#34;`
-     * indicates that Okta logs suspicious requests in the System Log. A value of `&#34;block&#34;` indicates that Okta logs suspicious
-     * requests in the System Log and blocks the requests.
+     * Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
      * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
 
     /**
-     * @return Specifies how Okta responds to authentication requests from suspicious IPs. Valid values
-     * are `&#34;none&#34;`, `&#34;audit&#34;`, or `&#34;block&#34;`. A value of `&#34;none&#34;` indicates that ThreatInsight is disabled. A value of `&#34;audit&#34;`
-     * indicates that Okta logs suspicious requests in the System Log. A value of `&#34;block&#34;` indicates that Okta logs suspicious
-     * requests in the System Log and blocks the requests.
+     * @return Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
      * 
      */
     public Optional<Output<String>> action() {
@@ -38,20 +32,14 @@ public final class ThreatInsightSettingsState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Accepts a list of Network Zone IDs. Can only accept zones of `&#34;IP&#34;` type.
-     * IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-     * This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone
-     * is not guarantee from the API sides
+     * Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
      * 
      */
     @Import(name="networkExcludes")
     private @Nullable Output<List<String>> networkExcludes;
 
     /**
-     * @return Accepts a list of Network Zone IDs. Can only accept zones of `&#34;IP&#34;` type.
-     * IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-     * This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone
-     * is not guarantee from the API sides
+     * @return Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
      * 
      */
     public Optional<Output<List<String>>> networkExcludes() {
@@ -84,10 +72,7 @@ public final class ThreatInsightSettingsState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param action Specifies how Okta responds to authentication requests from suspicious IPs. Valid values
-         * are `&#34;none&#34;`, `&#34;audit&#34;`, or `&#34;block&#34;`. A value of `&#34;none&#34;` indicates that ThreatInsight is disabled. A value of `&#34;audit&#34;`
-         * indicates that Okta logs suspicious requests in the System Log. A value of `&#34;block&#34;` indicates that Okta logs suspicious
-         * requests in the System Log and blocks the requests.
+         * @param action Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
          * 
          * @return builder
          * 
@@ -98,10 +83,7 @@ public final class ThreatInsightSettingsState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param action Specifies how Okta responds to authentication requests from suspicious IPs. Valid values
-         * are `&#34;none&#34;`, `&#34;audit&#34;`, or `&#34;block&#34;`. A value of `&#34;none&#34;` indicates that ThreatInsight is disabled. A value of `&#34;audit&#34;`
-         * indicates that Okta logs suspicious requests in the System Log. A value of `&#34;block&#34;` indicates that Okta logs suspicious
-         * requests in the System Log and blocks the requests.
+         * @param action Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
          * 
          * @return builder
          * 
@@ -111,10 +93,7 @@ public final class ThreatInsightSettingsState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param networkExcludes Accepts a list of Network Zone IDs. Can only accept zones of `&#34;IP&#34;` type.
-         * IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-         * This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone
-         * is not guarantee from the API sides
+         * @param networkExcludes Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
          * 
          * @return builder
          * 
@@ -125,10 +104,7 @@ public final class ThreatInsightSettingsState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param networkExcludes Accepts a list of Network Zone IDs. Can only accept zones of `&#34;IP&#34;` type.
-         * IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-         * This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone
-         * is not guarantee from the API sides
+         * @param networkExcludes Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
          * 
          * @return builder
          * 
@@ -138,10 +114,7 @@ public final class ThreatInsightSettingsState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param networkExcludes Accepts a list of Network Zone IDs. Can only accept zones of `&#34;IP&#34;` type.
-         * IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-         * This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone
-         * is not guarantee from the API sides
+         * @param networkExcludes Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
          * 
          * @return builder
          * 

@@ -22,7 +22,7 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Indicates if this property is required for enrollment. Default is `false`.
+        /// Indicates if this property is required for enrollment
         /// </summary>
         public readonly bool? Required;
 

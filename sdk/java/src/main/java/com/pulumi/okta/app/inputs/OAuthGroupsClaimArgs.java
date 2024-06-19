@@ -17,14 +17,14 @@ public final class OAuthGroupsClaimArgs extends com.pulumi.resources.ResourceArg
     public static final OAuthGroupsClaimArgs Empty = new OAuthGroupsClaimArgs();
 
     /**
-     * Groups claim filter. Can only be set if type is `&#34;FILTER&#34;`. Valid values: `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+     * Groups claim filter. Can only be set if type is FILTER.
      * 
      */
     @Import(name="filterType")
     private @Nullable Output<String> filterType;
 
     /**
-     * @return Groups claim filter. Can only be set if type is `&#34;FILTER&#34;`. Valid values: `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+     * @return Groups claim filter. Can only be set if type is FILTER.
      * 
      */
     public Optional<Output<String>> filterType() {
@@ -32,14 +32,14 @@ public final class OAuthGroupsClaimArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
+     * Issuer mode inherited from OAuth App
      * 
      */
     @Import(name="issuerMode")
     private @Nullable Output<String> issuerMode;
 
     /**
-     * @return Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
+     * @return Issuer mode inherited from OAuth App
      * 
      */
     public Optional<Output<String>> issuerMode() {
@@ -62,14 +62,14 @@ public final class OAuthGroupsClaimArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Groups claim type. Valid values: `&#34;FILTER&#34;`, `&#34;EXPRESSION&#34;`.
+     * Groups claim type.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Groups claim type. Valid values: `&#34;FILTER&#34;`, `&#34;EXPRESSION&#34;`.
+     * @return Groups claim type.
      * 
      */
     public Output<String> type() {
@@ -120,7 +120,7 @@ public final class OAuthGroupsClaimArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param filterType Groups claim filter. Can only be set if type is `&#34;FILTER&#34;`. Valid values: `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+         * @param filterType Groups claim filter. Can only be set if type is FILTER.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class OAuthGroupsClaimArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param filterType Groups claim filter. Can only be set if type is `&#34;FILTER&#34;`. Valid values: `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`, `&#34;REGEX&#34;`.
+         * @param filterType Groups claim filter. Can only be set if type is FILTER.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class OAuthGroupsClaimArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param issuerMode Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
+         * @param issuerMode Issuer mode inherited from OAuth App
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class OAuthGroupsClaimArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param issuerMode Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
+         * @param issuerMode Issuer mode inherited from OAuth App
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class OAuthGroupsClaimArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type Groups claim type. Valid values: `&#34;FILTER&#34;`, `&#34;EXPRESSION&#34;`.
+         * @param type Groups claim type.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class OAuthGroupsClaimArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type Groups claim type. Valid values: `&#34;FILTER&#34;`, `&#34;EXPRESSION&#34;`.
+         * @param type Groups claim type.
          * 
          * @return builder
          * 

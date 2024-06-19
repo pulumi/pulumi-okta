@@ -5,47 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Manages Org-Wide CAPTCHA settings
  * > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
- *
  * This resource allows you to configure which parts of the authentication flow requires users to pass the CAPTCHA logic.
- * CAPTCHA org-wide settings can be disabled by unsetting `captchaId` and `enabledFor`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.Captcha("example", {
- *     name: "My CAPTCHA",
- *     type: "HCAPTCHA",
- *     siteKey: "some_key",
- *     secretKey: "some_secret_key",
- * });
- * const exampleCaptchaOrgWideSettings = new okta.CaptchaOrgWideSettings("example", {
- *     captchaId: test.id,
- *     enabledFors: ["SSR"],
- * });
- * ```
- *
- * The following example disables org-wide CAPTCHA.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.Captcha("example", {
- *     name: "My CAPTCHA",
- *     type: "HCAPTCHA",
- *     siteKey: "some_key",
- *     secretKey: "some_secret_key",
- * });
- * const exampleCaptchaOrgWideSettings = new okta.CaptchaOrgWideSettings("example", {});
- * ```
+ * CAPTCHA org-wide settings can be disabled by unsetting 'captcha_id' and 'enabled_for'.
  *
  * ## Import
- *
- * Org-Wide CAPTCHA settings can be imported without any parameters.
  *
  * ```sh
  * $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
@@ -80,11 +45,11 @@ export class CaptchaOrgWideSettings extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the CAPTCHA.
+     * Array of pages that have CAPTCHA enabled. Valid values: `SSR`, `SSPR` and `SIGN_IN`.
      */
     public readonly captchaId!: pulumi.Output<string | undefined>;
     /**
-     * Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
+     * Set of pages that have CAPTCHA enabled
      */
     public readonly enabledFors!: pulumi.Output<string[] | undefined>;
 
@@ -118,11 +83,11 @@ export class CaptchaOrgWideSettings extends pulumi.CustomResource {
  */
 export interface CaptchaOrgWideSettingsState {
     /**
-     * The ID of the CAPTCHA.
+     * Array of pages that have CAPTCHA enabled. Valid values: `SSR`, `SSPR` and `SIGN_IN`.
      */
     captchaId?: pulumi.Input<string>;
     /**
-     * Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
+     * Set of pages that have CAPTCHA enabled
      */
     enabledFors?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -132,11 +97,11 @@ export interface CaptchaOrgWideSettingsState {
  */
 export interface CaptchaOrgWideSettingsArgs {
     /**
-     * The ID of the CAPTCHA.
+     * Array of pages that have CAPTCHA enabled. Valid values: `SSR`, `SSPR` and `SIGN_IN`.
      */
     captchaId?: pulumi.Input<string>;
     /**
-     * Array of pages that have CAPTCHA enabled. Valid values: `"SSR"`, `"SSPR"` and `"SIGN_IN"`.
+     * Set of pages that have CAPTCHA enabled
      */
     enabledFors?: pulumi.Input<pulumi.Input<string>[]>;
 }

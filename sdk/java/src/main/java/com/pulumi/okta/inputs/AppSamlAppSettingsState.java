@@ -31,14 +31,14 @@ public final class AppSamlAppSettingsState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Application settings in JSON format.
+     * Application settings in JSON format
      * 
      */
     @Import(name="settings")
     private @Nullable Output<String> settings;
 
     /**
-     * @return Application settings in JSON format.
+     * @return Application settings in JSON format
      * 
      */
     public Optional<Output<String>> settings() {
@@ -92,7 +92,7 @@ public final class AppSamlAppSettingsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param settings Application settings in JSON format.
+         * @param settings Application settings in JSON format
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AppSamlAppSettingsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param settings Application settings in JSON format.
+         * @param settings Application settings in JSON format
          * 
          * @return builder
          * 

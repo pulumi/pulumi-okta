@@ -12,9 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an Authorization Server.
-//
-// This resource allows you to create and configure an Authorization Server.
+// Creates an Authorization Server. This resource allows you to create and configure an Authorization Server.
 //
 // ## Example Usage
 //
@@ -50,33 +48,31 @@ import (
 //
 // ## Import
 //
-// Authorization Server can be imported via the Okta ID.
-//
 // ```sh
 // $ pulumi import okta:auth/server:Server example &#60;auth server id&#62;
 // ```
 type Server struct {
 	pulumi.CustomResourceState
 
-	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
 	Audiences pulumi.StringArrayOutput `pulumi:"audiences"`
 	// The timestamp when the authorization server started to use the `kid` for signing tokens.
 	CredentialsLastRotated pulumi.StringOutput `pulumi:"credentialsLastRotated"`
-	// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `"AUTO"`.
+	// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
 	CredentialsNextRotation pulumi.StringOutput `pulumi:"credentialsNextRotation"`
-	// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+	// The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `AUTO`
 	CredentialsRotationMode pulumi.StringPtrOutput `pulumi:"credentialsRotationMode"`
 	// The description of the authorization server.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
 	Issuer pulumi.StringOutput `pulumi:"issuer"`
-	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
+	// *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
 	Kid pulumi.StringOutput `pulumi:"kid"`
 	// The name of the authorization server.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The status of the auth server. It defaults to `"ACTIVE"`
+	// Default to `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
@@ -113,48 +109,48 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
-	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
 	Audiences []string `pulumi:"audiences"`
 	// The timestamp when the authorization server started to use the `kid` for signing tokens.
 	CredentialsLastRotated *string `pulumi:"credentialsLastRotated"`
-	// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `"AUTO"`.
+	// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
 	CredentialsNextRotation *string `pulumi:"credentialsNextRotation"`
-	// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+	// The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `AUTO`
 	CredentialsRotationMode *string `pulumi:"credentialsRotationMode"`
 	// The description of the authorization server.
 	Description *string `pulumi:"description"`
 	// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
 	Issuer *string `pulumi:"issuer"`
-	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
+	// *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
 	IssuerMode *string `pulumi:"issuerMode"`
 	// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
 	Kid *string `pulumi:"kid"`
 	// The name of the authorization server.
 	Name *string `pulumi:"name"`
-	// The status of the auth server. It defaults to `"ACTIVE"`
+	// Default to `ACTIVE`
 	Status *string `pulumi:"status"`
 }
 
 type ServerState struct {
-	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
 	Audiences pulumi.StringArrayInput
 	// The timestamp when the authorization server started to use the `kid` for signing tokens.
 	CredentialsLastRotated pulumi.StringPtrInput
-	// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `"AUTO"`.
+	// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
 	CredentialsNextRotation pulumi.StringPtrInput
-	// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+	// The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `AUTO`
 	CredentialsRotationMode pulumi.StringPtrInput
 	// The description of the authorization server.
 	Description pulumi.StringPtrInput
 	// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
 	Issuer pulumi.StringPtrInput
-	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
+	// *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
 	IssuerMode pulumi.StringPtrInput
 	// The ID of the JSON Web Key used for signing tokens issued by the authorization server.
 	Kid pulumi.StringPtrInput
 	// The name of the authorization server.
 	Name pulumi.StringPtrInput
-	// The status of the auth server. It defaults to `"ACTIVE"`
+	// Default to `ACTIVE`
 	Status pulumi.StringPtrInput
 }
 
@@ -163,33 +159,33 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
-	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
 	Audiences []string `pulumi:"audiences"`
-	// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+	// The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `AUTO`
 	CredentialsRotationMode *string `pulumi:"credentialsRotationMode"`
 	// The description of the authorization server.
 	Description *string `pulumi:"description"`
-	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
+	// *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
 	IssuerMode *string `pulumi:"issuerMode"`
 	// The name of the authorization server.
 	Name *string `pulumi:"name"`
-	// The status of the auth server. It defaults to `"ACTIVE"`
+	// Default to `ACTIVE`
 	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
-	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
 	Audiences pulumi.StringArrayInput
-	// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+	// The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `AUTO`
 	CredentialsRotationMode pulumi.StringPtrInput
 	// The description of the authorization server.
 	Description pulumi.StringPtrInput
-	// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
+	// *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
 	IssuerMode pulumi.StringPtrInput
 	// The name of the authorization server.
 	Name pulumi.StringPtrInput
-	// The status of the auth server. It defaults to `"ACTIVE"`
+	// Default to `ACTIVE`
 	Status pulumi.StringPtrInput
 }
 
@@ -280,7 +276,7 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
-// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
 func (o ServerOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.Audiences }).(pulumi.StringArrayOutput)
 }
@@ -290,12 +286,12 @@ func (o ServerOutput) CredentialsLastRotated() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.CredentialsLastRotated }).(pulumi.StringOutput)
 }
 
-// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `"AUTO"`.
+// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
 func (o ServerOutput) CredentialsNextRotation() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.CredentialsNextRotation }).(pulumi.StringOutput)
 }
 
-// The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+// The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `AUTO`
 func (o ServerOutput) CredentialsRotationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.CredentialsRotationMode }).(pulumi.StringPtrOutput)
 }
@@ -310,7 +306,7 @@ func (o ServerOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`,`"ORG_URL"` or `"DYNAMIC"`.
+// *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
 func (o ServerOutput) IssuerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
 }
@@ -325,7 +321,7 @@ func (o ServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The status of the auth server. It defaults to `"ACTIVE"`
+// Default to `ACTIVE`
 func (o ServerOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }

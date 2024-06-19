@@ -14,102 +14,10 @@ import (
 
 // ## Example Usage
 //
-// ```go
-// package main
+// ## Import
 //
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myAppPolicy, err := okta.NewAppSignonPolicy(ctx, "my_app_policy", &okta.AppSignonPolicyArgs{
-//				Name:        pulumi.String("My App Sign-On Policy"),
-//				Description: pulumi.String("Authentication Policy to be used on my app."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = app.NewOAuth(ctx, "my_app", &app.OAuthArgs{
-//				Label: pulumi.String("My App"),
-//				Type:  pulumi.String("web"),
-//				GrantTypes: pulumi.StringArray{
-//					pulumi.String("authorization_code"),
-//				},
-//				RedirectUris: pulumi.StringArray{
-//					pulumi.String("http://localhost:3000"),
-//				},
-//				PostLogoutRedirectUris: pulumi.StringArray{
-//					pulumi.String("http://localhost:3000"),
-//				},
-//				ResponseTypes: pulumi.StringArray{
-//					pulumi.String("code"),
-//				},
-//				AuthenticationPolicy: myAppPolicy.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// The created policy can be extended using `appSignonPolicyRules`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewAppSignonPolicy(ctx, "my_app_policy", &okta.AppSignonPolicyArgs{
-//				Name:        pulumi.String("My App Sign-On Policy"),
-//				Description: pulumi.String("Authentication Policy to be used on my app."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"knowledge": map[string]interface{}{
-//					"types": []string{
-//						"password",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = okta.NewAppSignonPolicyRule(ctx, "some_rule", &okta.AppSignonPolicyRuleArgs{
-//				PolicyId:                  pulumi.Any(oktaAppSignonPolicy.MyAppPolicy.Id),
-//				Name:                      pulumi.String("Some Rule"),
-//				FactorMode:                pulumi.String("1FA"),
-//				ReAuthenticationFrequency: pulumi.String("PT43800H"),
-//				Constraints: pulumi.StringArray{
-//					pulumi.String(json0),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// ```sh
+// $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example &#60;policy_id&#62;
 // ```
 type AppSignonPolicy struct {
 	pulumi.CustomResourceState

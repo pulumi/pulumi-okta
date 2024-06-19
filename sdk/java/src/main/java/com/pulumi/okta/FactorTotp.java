@@ -17,10 +17,10 @@ import javax.annotation.Nullable;
 
 /**
  * Allows you to manage the time-based one-time password (TOTP) factors. A time-based one-time password (TOTP) is a
- * temporary passcode that is generated for user authentication. Examples of TOTP include hardware authenticators and
- * mobile app authenticators.
+ * 		temporary passcode that is generated for user authentication. Examples of TOTP include hardware authenticators and
+ * 		mobile app authenticators.
  * 
- * Once saved, the settings cannot be changed (except for the `name` field). Any other change would force resource
+ * Once saved, the settings cannot be changed (except for the &#39;name&#39; field). Any other change would force resource
  * recreation.
  * 
  * ## Example Usage
@@ -67,32 +67,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/factorTotp:FactorTotp")
 public class FactorTotp extends com.pulumi.resources.CustomResource {
     /**
-     * Clock drift interval. This setting allows you to build in tolerance for any
-     * drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
+     * Clock drift interval. This setting allows you to build in tolerance for any drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
      * 
      */
     @Export(name="clockDriftInterval", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> clockDriftInterval;
 
     /**
-     * @return Clock drift interval. This setting allows you to build in tolerance for any
-     * drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
+     * @return Clock drift interval. This setting allows you to build in tolerance for any drift between the token&#39;s current time and the server&#39;s current time. Valid values: `3`, `5`, `10`. Default is `3`.
      * 
      */
     public Output<Optional<Integer>> clockDriftInterval() {
         return Codegen.optional(this.clockDriftInterval);
     }
     /**
-     * HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
-     * is `&#34;HMacSHA512&#34;`.
+     * HMAC Algorithm. Valid values: `HMacSHA1`, `HMacSHA256`, `HMacSHA512`. Default is `HMacSHA512`.
      * 
      */
     @Export(name="hmacAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hmacAlgorithm;
 
     /**
-     * @return HMAC Algorithm. Valid values: `&#34;HMacSHA1&#34;`, `&#34;HMacSHA256&#34;`, `&#34;HMacSHA512&#34;`. Default
-     * is `&#34;HMacSHA512&#34;`.
+     * @return HMAC Algorithm. Valid values: `HMacSHA1`, `HMacSHA256`, `HMacSHA512`. Default is `HMacSHA512`.
      * 
      */
     public Output<Optional<String>> hmacAlgorithm() {
@@ -127,16 +123,14 @@ public class FactorTotp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.otpLength);
     }
     /**
-     * Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
-     * Default is `&#34;base32&#34;`.
+     * Shared secret encoding. Valid values: `base32`, `base64`, `hexadecimal`. Default is `base32`.
      * 
      */
     @Export(name="sharedSecretEncoding", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedSecretEncoding;
 
     /**
-     * @return Shared secret encoding. Valid values: `&#34;base32&#34;`, `&#34;base64&#34;`, `&#34;hexadecimal&#34;`.
-     * Default is `&#34;base32&#34;`.
+     * @return Shared secret encoding. Valid values: `base32`, `base64`, `hexadecimal`. Default is `base32`.
      * 
      */
     public Output<Optional<String>> sharedSecretEncoding() {

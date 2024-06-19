@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve an auth server from Okta.
+ * Get an auth server from Okta.
  *
  * ## Example Usage
  *
@@ -41,23 +41,23 @@ export interface GetServerArgs {
  */
 export interface GetServerResult {
     /**
-     * array of audiences.
+     * Description of Authorization server.
      */
     readonly audiences: string[];
     /**
-     * last time credentials were rotated.
+     * Last time credentials were rotated.
      */
     readonly credentialsLastRotated: string;
     /**
-     * next time credentials will be rotated
+     * Next time credentials will be rotated
      */
     readonly credentialsNextRotation: string;
     /**
-     * mode of credential rotation, auto or manual.
+     * Mode of credential rotation, auto or manual.
      */
     readonly credentialsRotationMode: string;
     /**
-     * description of Authorization server.
+     * Description of Authorization server.
      */
     readonly description: string;
     /**
@@ -69,24 +69,24 @@ export interface GetServerResult {
      */
     readonly issuer: string;
     /**
-     * Can be set to `"CUSTOM_URL"` or `"ORG_URL"`
+     * Can be set to `CUSTOM_URL` or `ORG_URL`
      */
     readonly issuerMode: string;
     /**
-     * auth server key id.
+     * Auth server key id.
      */
     readonly kid: string;
     /**
-     * The name of the auth server.
+     * The name of the auth server to retrieve.
      */
     readonly name: string;
     /**
-     * the activation status of the authorization server.
+     * The activation status of the authorization server.
      */
     readonly status: string;
 }
 /**
- * Use this data source to retrieve an auth server from Okta.
+ * Get an auth server from Okta.
  *
  * ## Example Usage
  *

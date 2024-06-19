@@ -55,7 +55,7 @@ class AppGroupAssignmentsGroup(dict):
                  profile: str,
                  priority: Optional[int] = None):
         """
-        :param str id: ID of the group to assign.
+        :param str id: A group to associate with the application
         :param str profile: JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         :param int priority: Priority of group assignment
         """
@@ -68,7 +68,7 @@ class AppGroupAssignmentsGroup(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        ID of the group to assign.
+        A group to associate with the application
         """
         return pulumi.get(self, "id")
 
@@ -115,9 +115,7 @@ class AppSignonPolicyRulePlatformInclude(dict):
                  os_type: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param str os_expression: Only available and required when using `os_type = "OTHER"`
-        :param str os_type: One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
-        :param str type: One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
+        :param str os_expression: Only available with OTHER OS type
         """
         if os_expression is not None:
             pulumi.set(__self__, "os_expression", os_expression)
@@ -130,24 +128,18 @@ class AppSignonPolicyRulePlatformInclude(dict):
     @pulumi.getter(name="osExpression")
     def os_expression(self) -> Optional[str]:
         """
-        Only available and required when using `os_type = "OTHER"`
+        Only available with OTHER OS type
         """
         return pulumi.get(self, "os_expression")
 
     @property
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[str]:
-        """
-        One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
-        """
         return pulumi.get(self, "os_type")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
-        """
-        One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-        """
         return pulumi.get(self, "type")
 
 
@@ -157,8 +149,8 @@ class AppUserSchemaPropertyArrayOneOf(dict):
                  const: str,
                  title: str):
         """
-        :param str const: value mapping to member of `array_enum`.
-        :param str title: display name for the enum value.
+        :param str const: Value mapping to member of `array_enum`
+        :param str title: Display name for the enum value.
         """
         pulumi.set(__self__, "const", const)
         pulumi.set(__self__, "title", title)
@@ -167,7 +159,7 @@ class AppUserSchemaPropertyArrayOneOf(dict):
     @pulumi.getter
     def const(self) -> str:
         """
-        value mapping to member of `array_enum`.
+        Value mapping to member of `array_enum`
         """
         return pulumi.get(self, "const")
 
@@ -175,7 +167,7 @@ class AppUserSchemaPropertyArrayOneOf(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        display name for the enum value.
+        Display name for the enum value.
         """
         return pulumi.get(self, "title")
 
@@ -186,8 +178,8 @@ class AppUserSchemaPropertyOneOf(dict):
                  const: str,
                  title: str):
         """
-        :param str const: value mapping to member of `enum`.
-        :param str title: display name for the enum value.
+        :param str const: Enum value
+        :param str title: Enum title
         """
         pulumi.set(__self__, "const", const)
         pulumi.set(__self__, "title", title)
@@ -196,7 +188,7 @@ class AppUserSchemaPropertyOneOf(dict):
     @pulumi.getter
     def const(self) -> str:
         """
-        value mapping to member of `enum`.
+        Enum value
         """
         return pulumi.get(self, "const")
 
@@ -204,7 +196,7 @@ class AppUserSchemaPropertyOneOf(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        display name for the enum value.
+        Enum title
         """
         return pulumi.get(self, "title")
 
@@ -517,9 +509,9 @@ class DomainDnsRecord(dict):
                  record_type: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
         """
-        :param str expiration: TXT record expiration.
-        :param str fqdn: DNS record name.
-        :param str record_type: Record type can be TXT or CNAME.
+        :param str expiration: TXT record expiration
+        :param str fqdn: DNS record name
+        :param str record_type: Record type can be TXT or CNAME
         :param Sequence[str] values: DNS verification value
         """
         if expiration is not None:
@@ -535,7 +527,7 @@ class DomainDnsRecord(dict):
     @pulumi.getter
     def expiration(self) -> Optional[str]:
         """
-        TXT record expiration.
+        TXT record expiration
         """
         return pulumi.get(self, "expiration")
 
@@ -543,7 +535,7 @@ class DomainDnsRecord(dict):
     @pulumi.getter
     def fqdn(self) -> Optional[str]:
         """
-        DNS record name.
+        DNS record name
         """
         return pulumi.get(self, "fqdn")
 
@@ -551,7 +543,7 @@ class DomainDnsRecord(dict):
     @pulumi.getter(name="recordType")
     def record_type(self) -> Optional[str]:
         """
-        Record type can be TXT or CNAME.
+        Record type can be TXT or CNAME
         """
         return pulumi.get(self, "record_type")
 
@@ -590,10 +582,9 @@ class EmailDomainDnsValidationRecord(dict):
                  value: Optional[str] = None):
         """
         :param str expiration: DNS TXT record expiration
-        :param str fqdn: DNS record name.
-        :param str record_type: Record type can be TXT or cname.
+        :param str fqdn: DNS record name
+        :param str record_type: Record type can be TXT or cname
         :param str value: DNS record value
-               - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
         """
         if expiration is not None:
             pulumi.set(__self__, "expiration", expiration)
@@ -619,7 +610,7 @@ class EmailDomainDnsValidationRecord(dict):
     @pulumi.getter
     def fqdn(self) -> Optional[str]:
         """
-        DNS record name.
+        DNS record name
         """
         return pulumi.get(self, "fqdn")
 
@@ -627,7 +618,7 @@ class EmailDomainDnsValidationRecord(dict):
     @pulumi.getter(name="recordType")
     def record_type(self) -> Optional[str]:
         """
-        Record type can be TXT or cname.
+        Record type can be TXT or cname
         """
         return pulumi.get(self, "record_type")
 
@@ -636,7 +627,6 @@ class EmailDomainDnsValidationRecord(dict):
     def value(self) -> Optional[str]:
         """
         DNS record value
-        - `expiration ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
         """
         return pulumi.get(self, "value")
 
@@ -665,8 +655,8 @@ class EmailSenderDnsRecord(dict):
                  record_type: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str fqdn: DNS record name.
-        :param str record_type: Record type can be TXT or CNAME.
+        :param str fqdn: DNS record name
+        :param str record_type: Record type can be TXT or CNAME
         :param str value: DNS verification value
         """
         if fqdn is not None:
@@ -680,7 +670,7 @@ class EmailSenderDnsRecord(dict):
     @pulumi.getter
     def fqdn(self) -> Optional[str]:
         """
-        DNS record name.
+        DNS record name
         """
         return pulumi.get(self, "fqdn")
 
@@ -688,7 +678,7 @@ class EmailSenderDnsRecord(dict):
     @pulumi.getter(name="recordType")
     def record_type(self) -> Optional[str]:
         """
-        Record type can be TXT or CNAME.
+        Record type can be TXT or CNAME
         """
         return pulumi.get(self, "record_type")
 
@@ -728,8 +718,8 @@ class GroupSchemaPropertyArrayOneOf(dict):
                  const: str,
                  title: str):
         """
-        :param str const: value mapping to member of `enum`.
-        :param str title: display name for the enum value.
+        :param str const: Value mapping to member of `array_enum`
+        :param str title: Display name for the enum value.
         """
         pulumi.set(__self__, "const", const)
         pulumi.set(__self__, "title", title)
@@ -738,7 +728,7 @@ class GroupSchemaPropertyArrayOneOf(dict):
     @pulumi.getter
     def const(self) -> str:
         """
-        value mapping to member of `enum`.
+        Value mapping to member of `array_enum`
         """
         return pulumi.get(self, "const")
 
@@ -746,7 +736,7 @@ class GroupSchemaPropertyArrayOneOf(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        display name for the enum value.
+        Display name for the enum value.
         """
         return pulumi.get(self, "title")
 
@@ -756,10 +746,6 @@ class GroupSchemaPropertyMasterOverridePriority(dict):
     def __init__(__self__, *,
                  value: str,
                  type: Optional[str] = None):
-        """
-        :param str value: ID of profile source.
-        :param str type: Type of profile source.
-        """
         pulumi.set(__self__, "value", value)
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -767,17 +753,11 @@ class GroupSchemaPropertyMasterOverridePriority(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        ID of profile source.
-        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
-        """
-        Type of profile source.
-        """
         return pulumi.get(self, "type")
 
 
@@ -787,8 +767,8 @@ class GroupSchemaPropertyOneOf(dict):
                  const: str,
                  title: str):
         """
-        :param str const: value mapping to member of `enum`.
-        :param str title: display name for the enum value.
+        :param str const: Enum value
+        :param str title: Enum title
         """
         pulumi.set(__self__, "const", const)
         pulumi.set(__self__, "title", title)
@@ -797,7 +777,7 @@ class GroupSchemaPropertyOneOf(dict):
     @pulumi.getter
     def const(self) -> str:
         """
-        value mapping to member of `enum`.
+        Enum value
         """
         return pulumi.get(self, "const")
 
@@ -805,7 +785,7 @@ class GroupSchemaPropertyOneOf(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        display name for the enum value.
+        Enum title
         """
         return pulumi.get(self, "title")
 
@@ -839,12 +819,12 @@ class LogStreamSettings(dict):
                  region: Optional[str] = None,
                  token: Optional[str] = None):
         """
-        :param str account_id: AWS account ID.
-        :param str edition: Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
-        :param str event_source_name: An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
-        :param str host: The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
-        :param str region: The destination AWS region where event source is located.
-        :param str token: The HEC token for your Splunk Cloud HTTP Event Collector.
+        :param str account_id: AWS account ID. Required only for 'aws_eventbridge' type
+        :param str edition: Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
+        :param str event_source_name: An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
+        :param str host: The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
+        :param str region: The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
+        :param str token: The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -863,7 +843,7 @@ class LogStreamSettings(dict):
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[str]:
         """
-        AWS account ID.
+        AWS account ID. Required only for 'aws_eventbridge' type
         """
         return pulumi.get(self, "account_id")
 
@@ -871,7 +851,7 @@ class LogStreamSettings(dict):
     @pulumi.getter
     def edition(self) -> Optional[str]:
         """
-        Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'.
+        Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
         """
         return pulumi.get(self, "edition")
 
@@ -879,7 +859,7 @@ class LogStreamSettings(dict):
     @pulumi.getter(name="eventSourceName")
     def event_source_name(self) -> Optional[str]:
         """
-        An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+        An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
         """
         return pulumi.get(self, "event_source_name")
 
@@ -887,7 +867,7 @@ class LogStreamSettings(dict):
     @pulumi.getter
     def host(self) -> Optional[str]:
         """
-        The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'.
+        The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
         """
         return pulumi.get(self, "host")
 
@@ -895,7 +875,7 @@ class LogStreamSettings(dict):
     @pulumi.getter
     def region(self) -> Optional[str]:
         """
-        The destination AWS region where event source is located.
+        The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
         """
         return pulumi.get(self, "region")
 
@@ -903,7 +883,7 @@ class LogStreamSettings(dict):
     @pulumi.getter
     def token(self) -> Optional[str]:
         """
-        The HEC token for your Splunk Cloud HTTP Event Collector.
+        The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
         """
         return pulumi.get(self, "token")
 
@@ -917,7 +897,7 @@ class PolicyRuleProfileEnrollmentProfileAttribute(dict):
         """
         :param str label: A display-friendly label for this property
         :param str name: The name of a User Profile property
-        :param bool required: Indicates if this property is required for enrollment. Default is `false`.
+        :param bool required: Indicates if this property is required for enrollment
         """
         pulumi.set(__self__, "label", label)
         pulumi.set(__self__, "name", name)
@@ -944,7 +924,7 @@ class PolicyRuleProfileEnrollmentProfileAttribute(dict):
     @pulumi.getter
     def required(self) -> Optional[bool]:
         """
-        Indicates if this property is required for enrollment. Default is `false`.
+        Indicates if this property is required for enrollment
         """
         return pulumi.get(self, "required")
 
@@ -1267,8 +1247,8 @@ class UserSchemaPropertyArrayOneOf(dict):
                  const: str,
                  title: str):
         """
-        :param str const: value mapping to member of `enum`.
-        :param str title: display name for the enum value.
+        :param str const: Value mapping to member of `array_enum`
+        :param str title: Display name for the enum value.
         """
         pulumi.set(__self__, "const", const)
         pulumi.set(__self__, "title", title)
@@ -1277,7 +1257,7 @@ class UserSchemaPropertyArrayOneOf(dict):
     @pulumi.getter
     def const(self) -> str:
         """
-        value mapping to member of `enum`.
+        Value mapping to member of `array_enum`
         """
         return pulumi.get(self, "const")
 
@@ -1285,7 +1265,7 @@ class UserSchemaPropertyArrayOneOf(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        display name for the enum value.
+        Display name for the enum value.
         """
         return pulumi.get(self, "title")
 
@@ -1295,10 +1275,6 @@ class UserSchemaPropertyMasterOverridePriority(dict):
     def __init__(__self__, *,
                  value: str,
                  type: Optional[str] = None):
-        """
-        :param str value: ID of profile source.
-        :param str type: Type of profile source.
-        """
         pulumi.set(__self__, "value", value)
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -1306,17 +1282,11 @@ class UserSchemaPropertyMasterOverridePriority(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        ID of profile source.
-        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
-        """
-        Type of profile source.
-        """
         return pulumi.get(self, "type")
 
 
@@ -1326,8 +1296,8 @@ class UserSchemaPropertyOneOf(dict):
                  const: str,
                  title: str):
         """
-        :param str const: value mapping to member of `enum`.
-        :param str title: display name for the enum value.
+        :param str const: Enum value
+        :param str title: Enum title
         """
         pulumi.set(__self__, "const", const)
         pulumi.set(__self__, "title", title)
@@ -1336,7 +1306,7 @@ class UserSchemaPropertyOneOf(dict):
     @pulumi.getter
     def const(self) -> str:
         """
-        value mapping to member of `enum`.
+        Enum value
         """
         return pulumi.get(self, "const")
 
@@ -1344,7 +1314,7 @@ class UserSchemaPropertyOneOf(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        display name for the enum value.
+        Enum title
         """
         return pulumi.get(self, "title")
 
@@ -1362,13 +1332,13 @@ class GetAuthServerClaimsClaimResult(dict):
                  value_type: str):
         """
         :param bool always_include_in_token: Specifies whether to include Claims in the token.
-        :param str claim_type: Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+        :param str claim_type: Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`).
         :param str id: ID of the claim.
         :param str name: Name of the claim.
         :param Sequence[str] scopes: Specifies the scopes for this Claim.
         :param str status: Status of the claim.
-        :param str value: Value of the claim
-        :param str value_type: Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+        :param str value: Value of the claim.
+        :param str value_type: Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
         """
         pulumi.set(__self__, "always_include_in_token", always_include_in_token)
         pulumi.set(__self__, "claim_type", claim_type)
@@ -1391,7 +1361,7 @@ class GetAuthServerClaimsClaimResult(dict):
     @pulumi.getter(name="claimType")
     def claim_type(self) -> str:
         """
-        Specifies whether the Claim is for an access token (`"RESOURCE"`) or ID token (`"IDENTITY"`).
+        Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`).
         """
         return pulumi.get(self, "claim_type")
 
@@ -1431,7 +1401,7 @@ class GetAuthServerClaimsClaimResult(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        Value of the claim
+        Value of the claim.
         """
         return pulumi.get(self, "value")
 
@@ -1439,7 +1409,7 @@ class GetAuthServerClaimsClaimResult(dict):
     @pulumi.getter(name="valueType")
     def value_type(self) -> str:
         """
-        Specifies whether the Claim is an Okta EL expression (`"EXPRESSION"`), a set of groups (`"GROUPS"`), or a system claim (`"SYSTEM"`)
+        Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
         """
         return pulumi.get(self, "value_type")
 
@@ -1760,9 +1730,9 @@ class GetDomainDnsRecordResult(dict):
                  record_type: str,
                  values: Sequence[str]):
         """
-        :param str expiration: TXT record expiration.
-        :param str fqdn: DNS record name.
-        :param str record_type: Record type can be TXT or CNAME.
+        :param str expiration: TXT record expiration
+        :param str fqdn: DNS record name
+        :param str record_type: Record type can be TXT or CNAME
         :param Sequence[str] values: DNS verification value
         """
         pulumi.set(__self__, "expiration", expiration)
@@ -1774,7 +1744,7 @@ class GetDomainDnsRecordResult(dict):
     @pulumi.getter
     def expiration(self) -> str:
         """
-        TXT record expiration.
+        TXT record expiration
         """
         return pulumi.get(self, "expiration")
 
@@ -1782,7 +1752,7 @@ class GetDomainDnsRecordResult(dict):
     @pulumi.getter
     def fqdn(self) -> str:
         """
-        DNS record name.
+        DNS record name
         """
         return pulumi.get(self, "fqdn")
 
@@ -1790,7 +1760,7 @@ class GetDomainDnsRecordResult(dict):
     @pulumi.getter(name="recordType")
     def record_type(self) -> str:
         """
-        Record type can be TXT or CNAME.
+        Record type can be TXT or CNAME
         """
         return pulumi.get(self, "record_type")
 
@@ -1885,12 +1855,11 @@ class GetGroupsGroupResult(dict):
                  name: str,
                  type: str):
         """
-        :param str custom_profile_attributes: raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+        :param str custom_profile_attributes: Raw JSON containing all custom profile attributes. Likely only useful on groups of type
         :param str description: Group description.
         :param str id: Group ID.
         :param str name: Group name.
-        :param str type: type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-               (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+        :param str type: Group type.
         """
         pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
         pulumi.set(__self__, "description", description)
@@ -1902,7 +1871,7 @@ class GetGroupsGroupResult(dict):
     @pulumi.getter(name="customProfileAttributes")
     def custom_profile_attributes(self) -> str:
         """
-        raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+        Raw JSON containing all custom profile attributes. Likely only useful on groups of type
         """
         return pulumi.get(self, "custom_profile_attributes")
 
@@ -1934,8 +1903,7 @@ class GetGroupsGroupResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-        (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+        Group type.
         """
         return pulumi.get(self, "type")
 
@@ -1951,11 +1919,11 @@ class GetLogStreamSettingsResult(dict):
                  token: str):
         """
         :param str account_id: AWS account ID. Required only for 'aws_eventbridge' type
-        :param str edition: Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+        :param str edition: Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
         :param str event_source_name: An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
-        :param str host: The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+        :param str host: The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
         :param str region: The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
-        :param str token: The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+        :param str token: The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "edition", edition)
@@ -1976,7 +1944,7 @@ class GetLogStreamSettingsResult(dict):
     @pulumi.getter
     def edition(self) -> str:
         """
-        Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws_govcloud', 'gcp'. Required only for 'splunk_cloud_logstreaming' type
+        Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
         """
         return pulumi.get(self, "edition")
 
@@ -1992,7 +1960,7 @@ class GetLogStreamSettingsResult(dict):
     @pulumi.getter
     def host(self) -> str:
         """
-        The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk_cloud_logstreaming' type
+        The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
         """
         return pulumi.get(self, "host")
 
@@ -2008,7 +1976,7 @@ class GetLogStreamSettingsResult(dict):
     @pulumi.getter
     def token(self) -> str:
         """
-        The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk_cloud_logstreaming' type
+        The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
         """
         return pulumi.get(self, "token")
 
@@ -2263,10 +2231,10 @@ class GetTrustedOriginsTrustedOriginResult(dict):
                  scopes: Sequence[str]):
         """
         :param bool active: Whether the Trusted Origin is active or not - can only be issued post-creation
-        :param str id: The ID of the Trusted Origin.
-        :param str name: Unique name for this trusted origin.
-        :param str origin: Unique origin URL for this trusted origin.
-        :param Sequence[str] scopes: Scopes of the Trusted Origin
+        :param str id: Unique identifier
+        :param str name: Unique name for this trusted origin
+        :param str origin: Unique origin URL for this trusted origin
+        :param Sequence[str] scopes: Scopes of the Trusted Origin - can either be CORS or REDIRECT only
         """
         pulumi.set(__self__, "active", active)
         pulumi.set(__self__, "id", id)
@@ -2286,7 +2254,7 @@ class GetTrustedOriginsTrustedOriginResult(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        The ID of the Trusted Origin.
+        Unique identifier
         """
         return pulumi.get(self, "id")
 
@@ -2294,7 +2262,7 @@ class GetTrustedOriginsTrustedOriginResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Unique name for this trusted origin.
+        Unique name for this trusted origin
         """
         return pulumi.get(self, "name")
 
@@ -2302,7 +2270,7 @@ class GetTrustedOriginsTrustedOriginResult(dict):
     @pulumi.getter
     def origin(self) -> str:
         """
-        Unique origin URL for this trusted origin.
+        Unique origin URL for this trusted origin
         """
         return pulumi.get(self, "origin")
 
@@ -2310,7 +2278,7 @@ class GetTrustedOriginsTrustedOriginResult(dict):
     @pulumi.getter
     def scopes(self) -> Sequence[str]:
         """
-        Scopes of the Trusted Origin
+        Scopes of the Trusted Origin - can either be CORS or REDIRECT only
         """
         return pulumi.get(self, "scopes")
 
@@ -2320,27 +2288,17 @@ class GetUserSecurityQuestionsQuestionResult(dict):
     def __init__(__self__, *,
                  key: str,
                  text: str):
-        """
-        :param str key: Security question unique key.
-        :param str text: Display text for security question.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "text", text)
 
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        Security question unique key.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def text(self) -> str:
-        """
-        Display text for security question.
-        """
         return pulumi.get(self, "text")
 
 

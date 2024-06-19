@@ -19,14 +19,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     public static final SamlState Empty = new SamlState();
 
     /**
-     * Specifies the account linking action for an IdP user.
+     * Specifies the account linking action for an IdP user. Default: `AUTO`
      * 
      */
     @Import(name="accountLinkAction")
     private @Nullable Output<String> accountLinkAction;
 
     /**
-     * @return Specifies the account linking action for an IdP user.
+     * @return Specifies the account linking action for an IdP user. Default: `AUTO`
      * 
      */
     public Optional<Output<String>> accountLinkAction() {
@@ -56,44 +56,36 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of ACS. It can be `&#34;INSTANCE&#34;` or `&#34;ORG&#34;`.
+     * The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
      * 
      */
     @Import(name="acsType")
     private @Nullable Output<String> acsType;
 
     /**
-     * @return The type of ACS. It can be `&#34;INSTANCE&#34;` or `&#34;ORG&#34;`.
+     * @return The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
      * 
      */
     public Optional<Output<String>> acsType() {
         return Optional.ofNullable(this.acsType);
     }
 
-    /**
-     * The audience restriction for the IdP.
-     * 
-     */
     @Import(name="audience")
     private @Nullable Output<String> audience;
 
-    /**
-     * @return The audience restriction for the IdP.
-     * 
-     */
     public Optional<Output<String>> audience() {
         return Optional.ofNullable(this.audience);
     }
 
     /**
-     * Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+     * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     @Import(name="deprovisionedAction")
     private @Nullable Output<String> deprovisionedAction;
 
     /**
-     * @return Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+     * @return Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     public Optional<Output<String>> deprovisionedAction() {
@@ -101,14 +93,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+     * Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      * 
      */
     @Import(name="groupsAction")
     private @Nullable Output<String> groupsAction;
 
     /**
-     * @return Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+     * @return Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      * 
      */
     public Optional<Output<String>> groupsAction() {
@@ -116,14 +108,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+     * List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
      * 
      */
     @Import(name="groupsAssignments")
     private @Nullable Output<List<String>> groupsAssignments;
 
     /**
-     * @return List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+     * @return List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
      * 
      */
     public Optional<Output<List<String>>> groupsAssignments() {
@@ -146,14 +138,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+     * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
      * 
      */
     @Import(name="groupsFilters")
     private @Nullable Output<List<String>> groupsFilters;
 
     /**
-     * @return Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+     * @return Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
      * 
      */
     public Optional<Output<List<String>>> groupsFilters() {
@@ -176,14 +168,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+     * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
      * 
      */
     @Import(name="issuerMode")
     private @Nullable Output<String> issuerMode;
 
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+     * @return Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
      * 
      */
     public Optional<Output<String>> issuerMode() {
@@ -221,14 +213,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Application&#39;s display name.
+     * Name of the IdP
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The Application&#39;s display name.
+     * @return Name of the IdP
      * 
      */
     public Optional<Output<String>> name() {
@@ -236,14 +228,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name identifier format to use. By default `&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#34;`.
+     * The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
      * 
      */
     @Import(name="nameFormat")
     private @Nullable Output<String> nameFormat;
 
     /**
-     * @return The name identifier format to use. By default `&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#34;`.
+     * @return The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
      * 
      */
     public Optional<Output<String>> nameFormat() {
@@ -266,14 +258,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Provisioning action for an IdP user during authentication.
+     * Provisioning action for an IdP user during authentication. Default: `AUTO`
      * 
      */
     @Import(name="provisioningAction")
     private @Nullable Output<String> provisioningAction;
 
     /**
-     * @return Provisioning action for an IdP user during authentication.
+     * @return Provisioning action for an IdP user during authentication. Default: `AUTO`
      * 
      */
     public Optional<Output<String>> provisioningAction() {
@@ -281,14 +273,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The XML digital signature algorithm used when signing an AuthnRequest message. It can be `&#34;SHA-256&#34;` or `&#34;SHA-1&#34;`.
+     * The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
      * 
      */
     @Import(name="requestSignatureAlgorithm")
     private @Nullable Output<String> requestSignatureAlgorithm;
 
     /**
-     * @return The XML digital signature algorithm used when signing an AuthnRequest message. It can be `&#34;SHA-256&#34;` or `&#34;SHA-1&#34;`.
+     * @return The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
      * 
      */
     public Optional<Output<String>> requestSignatureAlgorithm() {
@@ -296,14 +288,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
      * 
      */
     @Import(name="requestSignatureScope")
     private @Nullable Output<String> requestSignatureScope;
 
     /**
-     * @return Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+     * @return Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
      * 
      */
     public Optional<Output<String>> requestSignatureScope() {
@@ -311,14 +303,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `&#34;SHA-256&#34;` or `&#34;SHA-1&#34;`.
+     * The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
      * 
      */
     @Import(name="responseSignatureAlgorithm")
     private @Nullable Output<String> responseSignatureAlgorithm;
 
     /**
-     * @return The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `&#34;SHA-256&#34;` or `&#34;SHA-1&#34;`.
+     * @return The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
      * 
      */
     public Optional<Output<String>> responseSignatureAlgorithm() {
@@ -326,14 +318,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `&#34;RESPONSE&#34;`, `&#34;ASSERTION&#34;`, or `&#34;ANY&#34;`.
+     * Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
      * 
      */
     @Import(name="responseSignatureScope")
     private @Nullable Output<String> responseSignatureScope;
 
     /**
-     * @return Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `&#34;RESPONSE&#34;`, `&#34;ASSERTION&#34;`, or `&#34;ANY&#34;`.
+     * @return Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
      * 
      */
     public Optional<Output<String>> responseSignatureScope() {
@@ -341,14 +333,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The method of making an SSO request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
      * 
      */
     @Import(name="ssoBinding")
     private @Nullable Output<String> ssoBinding;
 
     /**
-     * @return The method of making an SSO request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * @return The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
      * 
      */
     public Optional<Output<String>> ssoBinding() {
@@ -386,14 +378,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of the IdP.
+     * Default to `ACTIVE`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of the IdP.
+     * @return Default to `ACTIVE`
      * 
      */
     public Optional<Output<String>> status() {
@@ -416,14 +408,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name format. By default `&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#34;`.
+     * The name format.
      * 
      */
     @Import(name="subjectFormats")
     private @Nullable Output<List<String>> subjectFormats;
 
     /**
-     * @return The name format. By default `&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#34;`.
+     * @return The name format.
      * 
      */
     public Optional<Output<List<String>>> subjectFormats() {
@@ -431,14 +423,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      * 
      */
     @Import(name="subjectMatchAttribute")
     private @Nullable Output<String> subjectMatchAttribute;
 
     /**
-     * @return Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * @return Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      * 
      */
     public Optional<Output<String>> subjectMatchAttribute() {
@@ -446,14 +438,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      * 
      */
     @Import(name="subjectMatchType")
     private @Nullable Output<String> subjectMatchType;
 
     /**
-     * @return Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * @return Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      * 
      */
     public Optional<Output<String>> subjectMatchType() {
@@ -461,59 +453,43 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+     * Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     @Import(name="suspendedAction")
     private @Nullable Output<String> suspendedAction;
 
     /**
-     * @return Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+     * @return Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     public Optional<Output<String>> suspendedAction() {
         return Optional.ofNullable(this.suspendedAction);
     }
 
-    /**
-     * Type of the IdP.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Type of the IdP.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
-     * 
-     */
     @Import(name="userTypeId")
     private @Nullable Output<String> userTypeId;
 
-    /**
-     * @return User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
-     * 
-     */
     public Optional<Output<String>> userTypeId() {
         return Optional.ofNullable(this.userTypeId);
     }
 
     /**
-     * Okta EL Expression to generate or transform a unique username for the IdP user.
+     * Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      * 
      */
     @Import(name="usernameTemplate")
     private @Nullable Output<String> usernameTemplate;
 
     /**
-     * @return Okta EL Expression to generate or transform a unique username for the IdP user.
+     * @return Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      * 
      */
     public Optional<Output<String>> usernameTemplate() {
@@ -578,7 +554,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountLinkAction Specifies the account linking action for an IdP user.
+         * @param accountLinkAction Specifies the account linking action for an IdP user. Default: `AUTO`
          * 
          * @return builder
          * 
@@ -589,7 +565,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountLinkAction Specifies the account linking action for an IdP user.
+         * @param accountLinkAction Specifies the account linking action for an IdP user. Default: `AUTO`
          * 
          * @return builder
          * 
@@ -639,7 +615,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acsType The type of ACS. It can be `&#34;INSTANCE&#34;` or `&#34;ORG&#34;`.
+         * @param acsType The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
          * 
          * @return builder
          * 
@@ -650,7 +626,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acsType The type of ACS. It can be `&#34;INSTANCE&#34;` or `&#34;ORG&#34;`.
+         * @param acsType The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
          * 
          * @return builder
          * 
@@ -659,29 +635,17 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
             return acsType(Output.of(acsType));
         }
 
-        /**
-         * @param audience The audience restriction for the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audience(@Nullable Output<String> audience) {
             $.audience = audience;
             return this;
         }
 
-        /**
-         * @param audience The audience restriction for the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audience(String audience) {
             return audience(Output.of(audience));
         }
 
         /**
-         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -692,7 +656,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -702,7 +666,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -713,7 +677,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -723,7 +687,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
          * 
          * @return builder
          * 
@@ -734,7 +698,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
          * 
          * @return builder
          * 
@@ -744,7 +708,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
          * 
          * @return builder
          * 
@@ -775,7 +739,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
          * 
          * @return builder
          * 
@@ -786,7 +750,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
          * 
          * @return builder
          * 
@@ -796,7 +760,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
          * 
          * @return builder
          * 
@@ -827,7 +791,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
          * 
          * @return builder
          * 
@@ -838,7 +802,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `&#34;ORG_URL&#34;` or `&#34;CUSTOM_URL&#34;`.
+         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
          * 
          * @return builder
          * 
@@ -890,7 +854,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Application&#39;s display name.
+         * @param name Name of the IdP
          * 
          * @return builder
          * 
@@ -901,7 +865,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Application&#39;s display name.
+         * @param name Name of the IdP
          * 
          * @return builder
          * 
@@ -911,7 +875,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nameFormat The name identifier format to use. By default `&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#34;`.
+         * @param nameFormat The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
          * 
          * @return builder
          * 
@@ -922,7 +886,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nameFormat The name identifier format to use. By default `&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#34;`.
+         * @param nameFormat The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
          * 
          * @return builder
          * 
@@ -953,7 +917,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param provisioningAction Provisioning action for an IdP user during authentication.
+         * @param provisioningAction Provisioning action for an IdP user during authentication. Default: `AUTO`
          * 
          * @return builder
          * 
@@ -964,7 +928,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param provisioningAction Provisioning action for an IdP user during authentication.
+         * @param provisioningAction Provisioning action for an IdP user during authentication. Default: `AUTO`
          * 
          * @return builder
          * 
@@ -974,7 +938,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestSignatureAlgorithm The XML digital signature algorithm used when signing an AuthnRequest message. It can be `&#34;SHA-256&#34;` or `&#34;SHA-1&#34;`.
+         * @param requestSignatureAlgorithm The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
          * 
          * @return builder
          * 
@@ -985,7 +949,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestSignatureAlgorithm The XML digital signature algorithm used when signing an AuthnRequest message. It can be `&#34;SHA-256&#34;` or `&#34;SHA-1&#34;`.
+         * @param requestSignatureAlgorithm The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
          * 
          * @return builder
          * 
@@ -995,7 +959,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestSignatureScope Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+         * @param requestSignatureScope Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
          * 
          * @return builder
          * 
@@ -1006,7 +970,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestSignatureScope Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+         * @param requestSignatureScope Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
          * 
          * @return builder
          * 
@@ -1016,7 +980,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseSignatureAlgorithm The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `&#34;SHA-256&#34;` or `&#34;SHA-1&#34;`.
+         * @param responseSignatureAlgorithm The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
          * 
          * @return builder
          * 
@@ -1027,7 +991,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseSignatureAlgorithm The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `&#34;SHA-256&#34;` or `&#34;SHA-1&#34;`.
+         * @param responseSignatureAlgorithm The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
          * 
          * @return builder
          * 
@@ -1037,7 +1001,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseSignatureScope Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `&#34;RESPONSE&#34;`, `&#34;ASSERTION&#34;`, or `&#34;ANY&#34;`.
+         * @param responseSignatureScope Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
          * 
          * @return builder
          * 
@@ -1048,7 +1012,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseSignatureScope Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `&#34;RESPONSE&#34;`, `&#34;ASSERTION&#34;`, or `&#34;ANY&#34;`.
+         * @param responseSignatureScope Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
          * 
          * @return builder
          * 
@@ -1058,7 +1022,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ssoBinding The method of making an SSO request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+         * @param ssoBinding The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
          * 
          * @return builder
          * 
@@ -1069,7 +1033,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ssoBinding The method of making an SSO request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+         * @param ssoBinding The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
          * 
          * @return builder
          * 
@@ -1121,7 +1085,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the IdP.
+         * @param status Default to `ACTIVE`
          * 
          * @return builder
          * 
@@ -1132,7 +1096,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the IdP.
+         * @param status Default to `ACTIVE`
          * 
          * @return builder
          * 
@@ -1163,7 +1127,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectFormats The name format. By default `&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#34;`.
+         * @param subjectFormats The name format.
          * 
          * @return builder
          * 
@@ -1174,7 +1138,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectFormats The name format. By default `&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#34;`.
+         * @param subjectFormats The name format.
          * 
          * @return builder
          * 
@@ -1184,7 +1148,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectFormats The name format. By default `&#34;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#34;`.
+         * @param subjectFormats The name format.
          * 
          * @return builder
          * 
@@ -1194,7 +1158,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
          * 
          * @return builder
          * 
@@ -1205,7 +1169,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
          * 
          * @return builder
          * 
@@ -1215,7 +1179,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
          * 
          * @return builder
          * 
@@ -1226,7 +1190,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
          * 
          * @return builder
          * 
@@ -1236,7 +1200,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -1247,7 +1211,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -1256,50 +1220,26 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
             return suspendedAction(Output.of(suspendedAction));
         }
 
-        /**
-         * @param type Type of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param userTypeId User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userTypeId(@Nullable Output<String> userTypeId) {
             $.userTypeId = userTypeId;
             return this;
         }
 
-        /**
-         * @param userTypeId User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userTypeId(String userTypeId) {
             return userTypeId(Output.of(userTypeId));
         }
 
         /**
-         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user.
+         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
          * 
          * @return builder
          * 
@@ -1310,7 +1250,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user.
+         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
          * 
          * @return builder
          * 

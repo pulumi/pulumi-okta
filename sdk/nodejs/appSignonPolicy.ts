@@ -7,46 +7,10 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
+ * ## Import
  *
- * const myAppPolicy = new okta.AppSignonPolicy("my_app_policy", {
- *     name: "My App Sign-On Policy",
- *     description: "Authentication Policy to be used on my app.",
- * });
- * const myApp = new okta.app.OAuth("my_app", {
- *     label: "My App",
- *     type: "web",
- *     grantTypes: ["authorization_code"],
- *     redirectUris: ["http://localhost:3000"],
- *     postLogoutRedirectUris: ["http://localhost:3000"],
- *     responseTypes: ["code"],
- *     authenticationPolicy: myAppPolicy.id,
- * });
- * ```
- *
- * The created policy can be extended using `appSignonPolicyRules`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const myAppPolicy = new okta.AppSignonPolicy("my_app_policy", {
- *     name: "My App Sign-On Policy",
- *     description: "Authentication Policy to be used on my app.",
- * });
- * const someRule = new okta.AppSignonPolicyRule("some_rule", {
- *     policyId: oktaAppSignonPolicy.myAppPolicy.id,
- *     name: "Some Rule",
- *     factorMode: "1FA",
- *     reAuthenticationFrequency: "PT43800H",
- *     constraints: [JSON.stringify({
- *         knowledge: {
- *             types: ["password"],
- *         },
- *     })],
- * });
+ * ```sh
+ * $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example &#60;policy_id&#62;
  * ```
  */
 export class AppSignonPolicy extends pulumi.CustomResource {

@@ -22,12 +22,12 @@ class AuthServerDefaultArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AuthServerDefault resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
-        :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
+        :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `MANUAL`.Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
         :param pulumi.Input[str] description: The description of the authorization server.
-        :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
+        :param pulumi.Input[str] issuer_mode: *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
         :param pulumi.Input[str] name: The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
-        :param pulumi.Input[str] status: The status of the auth server.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         """
         if audiences is not None:
             pulumi.set(__self__, "audiences", audiences)
@@ -46,7 +46,7 @@ class AuthServerDefaultArgs:
     @pulumi.getter
     def audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
         """
         return pulumi.get(self, "audiences")
 
@@ -58,7 +58,7 @@ class AuthServerDefaultArgs:
     @pulumi.getter(name="credentialsRotationMode")
     def credentials_rotation_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `MANUAL`.Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
         """
         return pulumi.get(self, "credentials_rotation_mode")
 
@@ -82,7 +82,7 @@ class AuthServerDefaultArgs:
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
+        *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -106,7 +106,7 @@ class AuthServerDefaultArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The status of the auth server.
+        Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -130,16 +130,16 @@ class _AuthServerDefaultState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AuthServerDefault resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
         :param pulumi.Input[str] credentials_last_rotated: The timestamp when the authorization server started to use the `kid` for signing tokens.
-        :param pulumi.Input[str] credentials_next_rotation: The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `"AUTO"`.
-        :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        :param pulumi.Input[str] credentials_next_rotation: The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
+        :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `MANUAL`.Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
         :param pulumi.Input[str] description: The description of the authorization server.
         :param pulumi.Input[str] issuer: The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
-        :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
+        :param pulumi.Input[str] issuer_mode: *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
         :param pulumi.Input[str] kid: The ID of the JSON Web Key used for signing tokens issued by the authorization server.
         :param pulumi.Input[str] name: The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
-        :param pulumi.Input[str] status: The status of the auth server.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         """
         if audiences is not None:
             pulumi.set(__self__, "audiences", audiences)
@@ -166,7 +166,7 @@ class _AuthServerDefaultState:
     @pulumi.getter
     def audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
         """
         return pulumi.get(self, "audiences")
 
@@ -190,7 +190,7 @@ class _AuthServerDefaultState:
     @pulumi.getter(name="credentialsNextRotation")
     def credentials_next_rotation(self) -> Optional[pulumi.Input[str]]:
         """
-        The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `"AUTO"`.
+        The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
         """
         return pulumi.get(self, "credentials_next_rotation")
 
@@ -202,7 +202,7 @@ class _AuthServerDefaultState:
     @pulumi.getter(name="credentialsRotationMode")
     def credentials_rotation_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `MANUAL`.Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
         """
         return pulumi.get(self, "credentials_rotation_mode")
 
@@ -238,7 +238,7 @@ class _AuthServerDefaultState:
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
+        *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -274,7 +274,7 @@ class _AuthServerDefaultState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The status of the auth server.
+        Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -296,9 +296,7 @@ class AuthServerDefault(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Configures Default Authorization Server.
-
-        This resource allows you to configure Default Authorization Server.
+        Configures Default Authorization Server. This resource allows you to configure Default Authorization Server.
 
         ## Example Usage
 
@@ -313,20 +311,18 @@ class AuthServerDefault(pulumi.CustomResource):
 
         ## Import
 
-        Authorization Server can be imported via the Okta ID.
-
         ```sh
         $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;default&#62;
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
-        :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
+        :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `MANUAL`.Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
         :param pulumi.Input[str] description: The description of the authorization server.
-        :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
+        :param pulumi.Input[str] issuer_mode: *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
         :param pulumi.Input[str] name: The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
-        :param pulumi.Input[str] status: The status of the auth server.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         """
         ...
     @overload
@@ -335,9 +331,7 @@ class AuthServerDefault(pulumi.CustomResource):
                  args: Optional[AuthServerDefaultArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Configures Default Authorization Server.
-
-        This resource allows you to configure Default Authorization Server.
+        Configures Default Authorization Server. This resource allows you to configure Default Authorization Server.
 
         ## Example Usage
 
@@ -351,8 +345,6 @@ class AuthServerDefault(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Authorization Server can be imported via the Okta ID.
 
         ```sh
         $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;default&#62;
@@ -425,16 +417,16 @@ class AuthServerDefault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
         :param pulumi.Input[str] credentials_last_rotated: The timestamp when the authorization server started to use the `kid` for signing tokens.
-        :param pulumi.Input[str] credentials_next_rotation: The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `"AUTO"`.
-        :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        :param pulumi.Input[str] credentials_next_rotation: The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
+        :param pulumi.Input[str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `MANUAL`.Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
         :param pulumi.Input[str] description: The description of the authorization server.
         :param pulumi.Input[str] issuer: The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
-        :param pulumi.Input[str] issuer_mode: Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
+        :param pulumi.Input[str] issuer_mode: *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
         :param pulumi.Input[str] kid: The ID of the JSON Web Key used for signing tokens issued by the authorization server.
         :param pulumi.Input[str] name: The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
-        :param pulumi.Input[str] status: The status of the auth server.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -456,7 +448,7 @@ class AuthServerDefault(pulumi.CustomResource):
     @pulumi.getter
     def audiences(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.
+        The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
         """
         return pulumi.get(self, "audiences")
 
@@ -472,7 +464,7 @@ class AuthServerDefault(pulumi.CustomResource):
     @pulumi.getter(name="credentialsNextRotation")
     def credentials_next_rotation(self) -> pulumi.Output[str]:
         """
-        The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `"AUTO"`.
+        The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
         """
         return pulumi.get(self, "credentials_next_rotation")
 
@@ -480,7 +472,7 @@ class AuthServerDefault(pulumi.CustomResource):
     @pulumi.getter(name="credentialsRotationMode")
     def credentials_rotation_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The key rotation mode for the authorization server. Can be `"AUTO"` or `"MANUAL"`.
+        The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `MANUAL`.Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
         """
         return pulumi.get(self, "credentials_rotation_mode")
 
@@ -504,7 +496,7 @@ class AuthServerDefault(pulumi.CustomResource):
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        Allows you to use a custom issuer URL. It can be set to `"CUSTOM_URL"`, `"ORG_URL"`, or `"DYNAMIC"`.
+        *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -528,7 +520,7 @@ class AuthServerDefault(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        The status of the auth server.
+        Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to retrieve a list of trusted origins from Okta.
+// Get List of Trusted Origins using filters.
 //
 // ## Example Usage
 //
@@ -48,12 +48,13 @@ func GetTrustedOrigins(ctx *pulumi.Context, args *GetTrustedOriginsArgs, opts ..
 
 // A collection of arguments for invoking getTrustedOrigins.
 type GetTrustedOriginsArgs struct {
-	// Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
+	// Filter criteria. Filter value will be URL-encoded by the provider
 	Filter *string `pulumi:"filter"`
 }
 
 // A collection of values returned by getTrustedOrigins.
 type GetTrustedOriginsResult struct {
+	// Filter criteria. Filter value will be URL-encoded by the provider
 	Filter *string `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
 	Id             string                           `pulumi:"id"`
@@ -75,7 +76,7 @@ func GetTrustedOriginsOutput(ctx *pulumi.Context, args GetTrustedOriginsOutputAr
 
 // A collection of arguments for invoking getTrustedOrigins.
 type GetTrustedOriginsOutputArgs struct {
-	// Filter criteria (will be URL-encoded by the provider). See [Filtering](https://developer.okta.com/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
+	// Filter criteria. Filter value will be URL-encoded by the provider
 	Filter pulumi.StringPtrInput `pulumi:"filter"`
 }
 
@@ -98,6 +99,7 @@ func (o GetTrustedOriginsResultOutput) ToGetTrustedOriginsResultOutputWithContex
 	return o
 }
 
+// Filter criteria. Filter value will be URL-encoded by the provider
 func (o GetTrustedOriginsResultOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrustedOriginsResult) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }

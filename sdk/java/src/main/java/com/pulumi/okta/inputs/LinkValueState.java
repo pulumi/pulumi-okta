@@ -17,14 +17,14 @@ public final class LinkValueState extends com.pulumi.resources.ResourceArgs {
     public static final LinkValueState Empty = new LinkValueState();
 
     /**
-     * Set of User IDs or login values of the users to be assigned the &#39;associated&#39; relationship.
+     * Set of User IDs or login values of the users to be assigned the `associated` relationship.
      * 
      */
     @Import(name="associatedUserIds")
     private @Nullable Output<List<String>> associatedUserIds;
 
     /**
-     * @return Set of User IDs or login values of the users to be assigned the &#39;associated&#39; relationship.
+     * @return Set of User IDs or login values of the users to be assigned the `associated` relationship.
      * 
      */
     public Optional<Output<List<String>>> associatedUserIds() {
@@ -47,14 +47,14 @@ public final class LinkValueState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+     * User ID to be assigned to `primary` for the &#39;associated&#39; user in the specified relationship.
      * 
      */
     @Import(name="primaryUserId")
     private @Nullable Output<String> primaryUserId;
 
     /**
-     * @return User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+     * @return User ID to be assigned to `primary` for the &#39;associated&#39; user in the specified relationship.
      * 
      */
     public Optional<Output<String>> primaryUserId() {
@@ -88,7 +88,7 @@ public final class LinkValueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param associatedUserIds Set of User IDs or login values of the users to be assigned the &#39;associated&#39; relationship.
+         * @param associatedUserIds Set of User IDs or login values of the users to be assigned the `associated` relationship.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class LinkValueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param associatedUserIds Set of User IDs or login values of the users to be assigned the &#39;associated&#39; relationship.
+         * @param associatedUserIds Set of User IDs or login values of the users to be assigned the `associated` relationship.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class LinkValueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param associatedUserIds Set of User IDs or login values of the users to be assigned the &#39;associated&#39; relationship.
+         * @param associatedUserIds Set of User IDs or login values of the users to be assigned the `associated` relationship.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class LinkValueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryUserId User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+         * @param primaryUserId User ID to be assigned to `primary` for the &#39;associated&#39; user in the specified relationship.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class LinkValueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryUserId User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+         * @param primaryUserId User ID to be assigned to `primary` for the &#39;associated&#39; user in the specified relationship.
          * 
          * @return builder
          * 

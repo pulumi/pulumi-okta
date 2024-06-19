@@ -227,13 +227,11 @@ func (o UserPasswordHashPtrOutput) WorkFactor() pulumi.IntPtrOutput {
 }
 
 type GetUserSearch struct {
-	// Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
 	Comparison *string `pulumi:"comparison"`
-	// A raw search expression string. If present it will override name/comparison/value.
+	// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
 	Expression *string `pulumi:"expression"`
-	// Name of property to search against.
-	Name *string `pulumi:"name"`
-	// Value to compare with.
+	// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -249,13 +247,11 @@ type GetUserSearchInput interface {
 }
 
 type GetUserSearchArgs struct {
-	// Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
 	Comparison pulumi.StringPtrInput `pulumi:"comparison"`
-	// A raw search expression string. If present it will override name/comparison/value.
+	// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// Name of property to search against.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Value to compare with.
+	// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -310,22 +306,20 @@ func (o GetUserSearchOutput) ToGetUserSearchOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
 func (o GetUserSearchOutput) Comparison() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUserSearch) *string { return v.Comparison }).(pulumi.StringPtrOutput)
 }
 
-// A raw search expression string. If present it will override name/comparison/value.
+// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
 func (o GetUserSearchOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUserSearch) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// Name of property to search against.
+// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
 func (o GetUserSearchOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUserSearch) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Value to compare with.
 func (o GetUserSearchOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUserSearch) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -351,13 +345,11 @@ func (o GetUserSearchArrayOutput) Index(i pulumi.IntInput) GetUserSearchOutput {
 }
 
 type GetUsersSearch struct {
-	// Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
 	Comparison *string `pulumi:"comparison"`
-	// A raw search expression string. If present it will override name/comparison/value.
+	// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
 	Expression *string `pulumi:"expression"`
-	// Name of property to search against.
-	Name *string `pulumi:"name"`
-	// Value to compare with.
+	// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -373,13 +365,11 @@ type GetUsersSearchInput interface {
 }
 
 type GetUsersSearchArgs struct {
-	// Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
 	Comparison pulumi.StringPtrInput `pulumi:"comparison"`
-	// A raw search expression string. If present it will override name/comparison/value.
+	// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// Name of property to search against.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Value to compare with.
+	// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -434,22 +424,20 @@ func (o GetUsersSearchOutput) ToGetUsersSearchOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Comparison to use. Comparitors for strings: [`eq`, `ge`, `gt`, `le`, `lt`, `ne`, `pr`, `sw`](https://developer.okta.com/docs/reference/core-okta-api/#operators).
 func (o GetUsersSearchOutput) Comparison() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersSearch) *string { return v.Comparison }).(pulumi.StringPtrOutput)
 }
 
-// A raw search expression string. If present it will override name/comparison/value.
+// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
 func (o GetUsersSearchOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersSearch) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// Name of property to search against.
+// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
 func (o GetUsersSearchOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersSearch) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Value to compare with.
 func (o GetUsersSearchOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersSearch) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -475,78 +463,43 @@ func (o GetUsersSearchArrayOutput) Index(i pulumi.IntInput) GetUsersSearchOutput
 }
 
 type GetUsersUser struct {
-	// Administrator roles assigned to user.
-	AdminRoles []string `pulumi:"adminRoles"`
-	// City or locality component of user's address.
-	City string `pulumi:"city"`
-	// Name of a cost center assigned to user.
-	CostCenter string `pulumi:"costCenter"`
-	// Country name component of user's address.
-	CountryCode string `pulumi:"countryCode"`
-	// Raw JSON containing all custom profile attributes.
-	CustomProfileAttributes string `pulumi:"customProfileAttributes"`
-	// Name of user's department.
-	Department string `pulumi:"department"`
-	// Name of the user, suitable for display to end users.
-	DisplayName string `pulumi:"displayName"`
-	// Name of user's division.
-	Division string `pulumi:"division"`
-	// Primary email address of user.
-	Email string `pulumi:"email"`
-	// Organization or company assigned unique identifier for the user.
-	EmployeeNumber string `pulumi:"employeeNumber"`
-	// Given name of the user.
-	FirstName string `pulumi:"firstName"`
-	// Groups user belongs to.
-	GroupMemberships []string `pulumi:"groupMemberships"`
-	// Honorific prefix(es) of the user, or title in most Western languages.
-	HonorificPrefix string `pulumi:"honorificPrefix"`
-	// Honorific suffix(es) of the user.
-	HonorificSuffix string `pulumi:"honorificSuffix"`
-	Id              string `pulumi:"id"`
-	// Family name of the user.
-	LastName string `pulumi:"lastName"`
-	// User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
-	Locale string `pulumi:"locale"`
-	// Unique identifier for the user.
-	Login string `pulumi:"login"`
-	// Display name of the user's manager.
-	Manager string `pulumi:"manager"`
-	// `id` of a user's manager.
-	ManagerId string `pulumi:"managerId"`
-	// Middle name(s) of the user.
-	MiddleName string `pulumi:"middleName"`
-	// Mobile phone number of user.
-	MobilePhone string `pulumi:"mobilePhone"`
-	// Casual way to address the user in real life.
-	NickName string `pulumi:"nickName"`
-	// Name of user's organization.
-	Organization string `pulumi:"organization"`
-	// Mailing address component of user's address.
-	PostalAddress string `pulumi:"postalAddress"`
-	// User's preferred written or spoken languages.
-	PreferredLanguage string `pulumi:"preferredLanguage"`
-	// Primary phone number of user such as home number.
-	PrimaryPhone string `pulumi:"primaryPhone"`
-	// URL of user's online profile (e.g. a web page).
-	ProfileUrl string   `pulumi:"profileUrl"`
-	Roles      []string `pulumi:"roles"`
-	// Secondary email address of user typically used for account recovery.
-	SecondEmail string `pulumi:"secondEmail"`
-	// State or region component of user's address (region).
-	State string `pulumi:"state"`
-	// Current status of user.
-	Status string `pulumi:"status"`
-	// Full street address component of user's address.
-	StreetAddress string `pulumi:"streetAddress"`
-	// User's time zone.
-	Timezone string `pulumi:"timezone"`
-	// User's title, such as "Vice President".
-	Title string `pulumi:"title"`
-	// Used to describe the organization to user relationship such as "Employee" or "Contractor".
-	UserType string `pulumi:"userType"`
-	// Zipcode or postal code component of user's address (postalCode)
-	ZipCode string `pulumi:"zipCode"`
+	AdminRoles              []string `pulumi:"adminRoles"`
+	City                    string   `pulumi:"city"`
+	CostCenter              string   `pulumi:"costCenter"`
+	CountryCode             string   `pulumi:"countryCode"`
+	CustomProfileAttributes string   `pulumi:"customProfileAttributes"`
+	Department              string   `pulumi:"department"`
+	DisplayName             string   `pulumi:"displayName"`
+	Division                string   `pulumi:"division"`
+	Email                   string   `pulumi:"email"`
+	EmployeeNumber          string   `pulumi:"employeeNumber"`
+	FirstName               string   `pulumi:"firstName"`
+	GroupMemberships        []string `pulumi:"groupMemberships"`
+	HonorificPrefix         string   `pulumi:"honorificPrefix"`
+	HonorificSuffix         string   `pulumi:"honorificSuffix"`
+	Id                      string   `pulumi:"id"`
+	LastName                string   `pulumi:"lastName"`
+	Locale                  string   `pulumi:"locale"`
+	Login                   string   `pulumi:"login"`
+	Manager                 string   `pulumi:"manager"`
+	ManagerId               string   `pulumi:"managerId"`
+	MiddleName              string   `pulumi:"middleName"`
+	MobilePhone             string   `pulumi:"mobilePhone"`
+	NickName                string   `pulumi:"nickName"`
+	Organization            string   `pulumi:"organization"`
+	PostalAddress           string   `pulumi:"postalAddress"`
+	PreferredLanguage       string   `pulumi:"preferredLanguage"`
+	PrimaryPhone            string   `pulumi:"primaryPhone"`
+	ProfileUrl              string   `pulumi:"profileUrl"`
+	Roles                   []string `pulumi:"roles"`
+	SecondEmail             string   `pulumi:"secondEmail"`
+	State                   string   `pulumi:"state"`
+	Status                  string   `pulumi:"status"`
+	StreetAddress           string   `pulumi:"streetAddress"`
+	Timezone                string   `pulumi:"timezone"`
+	Title                   string   `pulumi:"title"`
+	UserType                string   `pulumi:"userType"`
+	ZipCode                 string   `pulumi:"zipCode"`
 }
 
 // GetUsersUserInput is an input type that accepts GetUsersUserArgs and GetUsersUserOutput values.
@@ -561,78 +514,43 @@ type GetUsersUserInput interface {
 }
 
 type GetUsersUserArgs struct {
-	// Administrator roles assigned to user.
-	AdminRoles pulumi.StringArrayInput `pulumi:"adminRoles"`
-	// City or locality component of user's address.
-	City pulumi.StringInput `pulumi:"city"`
-	// Name of a cost center assigned to user.
-	CostCenter pulumi.StringInput `pulumi:"costCenter"`
-	// Country name component of user's address.
-	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// Raw JSON containing all custom profile attributes.
-	CustomProfileAttributes pulumi.StringInput `pulumi:"customProfileAttributes"`
-	// Name of user's department.
-	Department pulumi.StringInput `pulumi:"department"`
-	// Name of the user, suitable for display to end users.
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// Name of user's division.
-	Division pulumi.StringInput `pulumi:"division"`
-	// Primary email address of user.
-	Email pulumi.StringInput `pulumi:"email"`
-	// Organization or company assigned unique identifier for the user.
-	EmployeeNumber pulumi.StringInput `pulumi:"employeeNumber"`
-	// Given name of the user.
-	FirstName pulumi.StringInput `pulumi:"firstName"`
-	// Groups user belongs to.
-	GroupMemberships pulumi.StringArrayInput `pulumi:"groupMemberships"`
-	// Honorific prefix(es) of the user, or title in most Western languages.
-	HonorificPrefix pulumi.StringInput `pulumi:"honorificPrefix"`
-	// Honorific suffix(es) of the user.
-	HonorificSuffix pulumi.StringInput `pulumi:"honorificSuffix"`
-	Id              pulumi.StringInput `pulumi:"id"`
-	// Family name of the user.
-	LastName pulumi.StringInput `pulumi:"lastName"`
-	// User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
-	Locale pulumi.StringInput `pulumi:"locale"`
-	// Unique identifier for the user.
-	Login pulumi.StringInput `pulumi:"login"`
-	// Display name of the user's manager.
-	Manager pulumi.StringInput `pulumi:"manager"`
-	// `id` of a user's manager.
-	ManagerId pulumi.StringInput `pulumi:"managerId"`
-	// Middle name(s) of the user.
-	MiddleName pulumi.StringInput `pulumi:"middleName"`
-	// Mobile phone number of user.
-	MobilePhone pulumi.StringInput `pulumi:"mobilePhone"`
-	// Casual way to address the user in real life.
-	NickName pulumi.StringInput `pulumi:"nickName"`
-	// Name of user's organization.
-	Organization pulumi.StringInput `pulumi:"organization"`
-	// Mailing address component of user's address.
-	PostalAddress pulumi.StringInput `pulumi:"postalAddress"`
-	// User's preferred written or spoken languages.
-	PreferredLanguage pulumi.StringInput `pulumi:"preferredLanguage"`
-	// Primary phone number of user such as home number.
-	PrimaryPhone pulumi.StringInput `pulumi:"primaryPhone"`
-	// URL of user's online profile (e.g. a web page).
-	ProfileUrl pulumi.StringInput      `pulumi:"profileUrl"`
-	Roles      pulumi.StringArrayInput `pulumi:"roles"`
-	// Secondary email address of user typically used for account recovery.
-	SecondEmail pulumi.StringInput `pulumi:"secondEmail"`
-	// State or region component of user's address (region).
-	State pulumi.StringInput `pulumi:"state"`
-	// Current status of user.
-	Status pulumi.StringInput `pulumi:"status"`
-	// Full street address component of user's address.
-	StreetAddress pulumi.StringInput `pulumi:"streetAddress"`
-	// User's time zone.
-	Timezone pulumi.StringInput `pulumi:"timezone"`
-	// User's title, such as "Vice President".
-	Title pulumi.StringInput `pulumi:"title"`
-	// Used to describe the organization to user relationship such as "Employee" or "Contractor".
-	UserType pulumi.StringInput `pulumi:"userType"`
-	// Zipcode or postal code component of user's address (postalCode)
-	ZipCode pulumi.StringInput `pulumi:"zipCode"`
+	AdminRoles              pulumi.StringArrayInput `pulumi:"adminRoles"`
+	City                    pulumi.StringInput      `pulumi:"city"`
+	CostCenter              pulumi.StringInput      `pulumi:"costCenter"`
+	CountryCode             pulumi.StringInput      `pulumi:"countryCode"`
+	CustomProfileAttributes pulumi.StringInput      `pulumi:"customProfileAttributes"`
+	Department              pulumi.StringInput      `pulumi:"department"`
+	DisplayName             pulumi.StringInput      `pulumi:"displayName"`
+	Division                pulumi.StringInput      `pulumi:"division"`
+	Email                   pulumi.StringInput      `pulumi:"email"`
+	EmployeeNumber          pulumi.StringInput      `pulumi:"employeeNumber"`
+	FirstName               pulumi.StringInput      `pulumi:"firstName"`
+	GroupMemberships        pulumi.StringArrayInput `pulumi:"groupMemberships"`
+	HonorificPrefix         pulumi.StringInput      `pulumi:"honorificPrefix"`
+	HonorificSuffix         pulumi.StringInput      `pulumi:"honorificSuffix"`
+	Id                      pulumi.StringInput      `pulumi:"id"`
+	LastName                pulumi.StringInput      `pulumi:"lastName"`
+	Locale                  pulumi.StringInput      `pulumi:"locale"`
+	Login                   pulumi.StringInput      `pulumi:"login"`
+	Manager                 pulumi.StringInput      `pulumi:"manager"`
+	ManagerId               pulumi.StringInput      `pulumi:"managerId"`
+	MiddleName              pulumi.StringInput      `pulumi:"middleName"`
+	MobilePhone             pulumi.StringInput      `pulumi:"mobilePhone"`
+	NickName                pulumi.StringInput      `pulumi:"nickName"`
+	Organization            pulumi.StringInput      `pulumi:"organization"`
+	PostalAddress           pulumi.StringInput      `pulumi:"postalAddress"`
+	PreferredLanguage       pulumi.StringInput      `pulumi:"preferredLanguage"`
+	PrimaryPhone            pulumi.StringInput      `pulumi:"primaryPhone"`
+	ProfileUrl              pulumi.StringInput      `pulumi:"profileUrl"`
+	Roles                   pulumi.StringArrayInput `pulumi:"roles"`
+	SecondEmail             pulumi.StringInput      `pulumi:"secondEmail"`
+	State                   pulumi.StringInput      `pulumi:"state"`
+	Status                  pulumi.StringInput      `pulumi:"status"`
+	StreetAddress           pulumi.StringInput      `pulumi:"streetAddress"`
+	Timezone                pulumi.StringInput      `pulumi:"timezone"`
+	Title                   pulumi.StringInput      `pulumi:"title"`
+	UserType                pulumi.StringInput      `pulumi:"userType"`
+	ZipCode                 pulumi.StringInput      `pulumi:"zipCode"`
 }
 
 func (GetUsersUserArgs) ElementType() reflect.Type {
@@ -686,72 +604,58 @@ func (o GetUsersUserOutput) ToGetUsersUserOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Administrator roles assigned to user.
 func (o GetUsersUserOutput) AdminRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUsersUser) []string { return v.AdminRoles }).(pulumi.StringArrayOutput)
 }
 
-// City or locality component of user's address.
 func (o GetUsersUserOutput) City() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.City }).(pulumi.StringOutput)
 }
 
-// Name of a cost center assigned to user.
 func (o GetUsersUserOutput) CostCenter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.CostCenter }).(pulumi.StringOutput)
 }
 
-// Country name component of user's address.
 func (o GetUsersUserOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// Raw JSON containing all custom profile attributes.
 func (o GetUsersUserOutput) CustomProfileAttributes() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.CustomProfileAttributes }).(pulumi.StringOutput)
 }
 
-// Name of user's department.
 func (o GetUsersUserOutput) Department() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Department }).(pulumi.StringOutput)
 }
 
-// Name of the user, suitable for display to end users.
 func (o GetUsersUserOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Name of user's division.
 func (o GetUsersUserOutput) Division() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Division }).(pulumi.StringOutput)
 }
 
-// Primary email address of user.
 func (o GetUsersUserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// Organization or company assigned unique identifier for the user.
 func (o GetUsersUserOutput) EmployeeNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.EmployeeNumber }).(pulumi.StringOutput)
 }
 
-// Given name of the user.
 func (o GetUsersUserOutput) FirstName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.FirstName }).(pulumi.StringOutput)
 }
 
-// Groups user belongs to.
 func (o GetUsersUserOutput) GroupMemberships() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUsersUser) []string { return v.GroupMemberships }).(pulumi.StringArrayOutput)
 }
 
-// Honorific prefix(es) of the user, or title in most Western languages.
 func (o GetUsersUserOutput) HonorificPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.HonorificPrefix }).(pulumi.StringOutput)
 }
 
-// Honorific suffix(es) of the user.
 func (o GetUsersUserOutput) HonorificSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.HonorificSuffix }).(pulumi.StringOutput)
 }
@@ -760,67 +664,54 @@ func (o GetUsersUserOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Family name of the user.
 func (o GetUsersUserOutput) LastName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.LastName }).(pulumi.StringOutput)
 }
 
-// User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.
 func (o GetUsersUserOutput) Locale() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Locale }).(pulumi.StringOutput)
 }
 
-// Unique identifier for the user.
 func (o GetUsersUserOutput) Login() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Login }).(pulumi.StringOutput)
 }
 
-// Display name of the user's manager.
 func (o GetUsersUserOutput) Manager() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Manager }).(pulumi.StringOutput)
 }
 
-// `id` of a user's manager.
 func (o GetUsersUserOutput) ManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.ManagerId }).(pulumi.StringOutput)
 }
 
-// Middle name(s) of the user.
 func (o GetUsersUserOutput) MiddleName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.MiddleName }).(pulumi.StringOutput)
 }
 
-// Mobile phone number of user.
 func (o GetUsersUserOutput) MobilePhone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.MobilePhone }).(pulumi.StringOutput)
 }
 
-// Casual way to address the user in real life.
 func (o GetUsersUserOutput) NickName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.NickName }).(pulumi.StringOutput)
 }
 
-// Name of user's organization.
 func (o GetUsersUserOutput) Organization() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Organization }).(pulumi.StringOutput)
 }
 
-// Mailing address component of user's address.
 func (o GetUsersUserOutput) PostalAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.PostalAddress }).(pulumi.StringOutput)
 }
 
-// User's preferred written or spoken languages.
 func (o GetUsersUserOutput) PreferredLanguage() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.PreferredLanguage }).(pulumi.StringOutput)
 }
 
-// Primary phone number of user such as home number.
 func (o GetUsersUserOutput) PrimaryPhone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.PrimaryPhone }).(pulumi.StringOutput)
 }
 
-// URL of user's online profile (e.g. a web page).
 func (o GetUsersUserOutput) ProfileUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.ProfileUrl }).(pulumi.StringOutput)
 }
@@ -829,42 +720,34 @@ func (o GetUsersUserOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUsersUser) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
-// Secondary email address of user typically used for account recovery.
 func (o GetUsersUserOutput) SecondEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.SecondEmail }).(pulumi.StringOutput)
 }
 
-// State or region component of user's address (region).
 func (o GetUsersUserOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.State }).(pulumi.StringOutput)
 }
 
-// Current status of user.
 func (o GetUsersUserOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Full street address component of user's address.
 func (o GetUsersUserOutput) StreetAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.StreetAddress }).(pulumi.StringOutput)
 }
 
-// User's time zone.
 func (o GetUsersUserOutput) Timezone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Timezone }).(pulumi.StringOutput)
 }
 
-// User's title, such as "Vice President".
 func (o GetUsersUserOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Title }).(pulumi.StringOutput)
 }
 
-// Used to describe the organization to user relationship such as "Employee" or "Contractor".
 func (o GetUsersUserOutput) UserType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.UserType }).(pulumi.StringOutput)
 }
 
-// Zipcode or postal code component of user's address (postalCode)
 func (o GetUsersUserOutput) ZipCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.ZipCode }).(pulumi.StringOutput)
 }

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve an OIDC application from Okta.
+// Get a OIDC application from Okta.
 //
 // ## Example Usage
 //
@@ -50,54 +50,67 @@ func GetOauth(ctx *pulumi.Context, args *GetOauthArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getOauth.
 type GetOauthArgs struct {
-	// tells the provider to query for only `ACTIVE` applications.
+	// Search only ACTIVE applications.
 	ActiveOnly *bool `pulumi:"activeOnly"`
-	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
+	// Id of application to retrieve, conflicts with label and label_prefix.
 	Id *string `pulumi:"id"`
 	// The label of the app to retrieve, conflicts with
-	// `labelPrefix` and `id`. Label uses the `?q=<label>` query parameter exposed by
-	// Okta's List Apps API. The API will search both `name` and `label` using that
-	// query. Therefore similarily named and labeled apps may be returned in the query
-	// and have the unitended result of associating the wrong app with this data
-	// source. See:
-	// https://developer.okta.com/docs/reference/api/apps/#list-applications
+	// 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+	// 			Okta's List Apps API. The API will search both name and label using that
+	// 			query. Therefore similarily named and labeled apps may be returned in the query
+	// 			and have the unitended result of associating the wrong app with this data
+	// 			source. See:
+	// 			https://developer.okta.com/docs/reference/api/apps/#list-applications
 	Label *string `pulumi:"label"`
-	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-	// provider to do a `starts with` query as opposed to an `equals` query.
+	// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+	// 			provider to do a starts with query as opposed to an equals query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	//
 	// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
 	SkipGroups *bool `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	//
 	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
 	SkipUsers *bool `pulumi:"skipUsers"`
 }
 
 // A collection of values returned by getOauth.
 type GetOauthResult struct {
+	// Search only ACTIVE applications.
 	ActiveOnly *bool `pulumi:"activeOnly"`
-	// Display auto submit toolbar.
+	// Display auto submit toolbar
 	AutoSubmitToolbar bool `pulumi:"autoSubmitToolbar"`
-	// OAuth client ID. If set during creation, app is created with this id.
+	// OAuth client ID
 	ClientId string `pulumi:"clientId"`
-	// The latest active client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+	// OAuth client secret
 	ClientSecret string `pulumi:"clientSecret"`
 	// URI to a web page providing information about the client.
 	ClientUri string `pulumi:"clientUri"`
-	// List of OAuth 2.0 grant types.
+	// List of OAuth 2.0 grant types
 	GrantTypes []string `pulumi:"grantTypes"`
-	// Do not display application icon on mobile app.
+	// Do not display application icon on mobile app
 	HideIos bool `pulumi:"hideIos"`
-	// Do not display application icon to users.
+	// Do not display application icon to users
 	HideWeb bool `pulumi:"hideWeb"`
-	// ID of application.
+	// Id of application to retrieve, conflicts with label and label_prefix.
 	Id *string `pulumi:"id"`
-	// Label of application.
-	Label       *string `pulumi:"label"`
+	// The label of the app to retrieve, conflicts with
+	// 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+	// 			Okta's List Apps API. The API will search both name and label using that
+	// 			query. Therefore similarily named and labeled apps may be returned in the query
+	// 			and have the unitended result of associating the wrong app with this data
+	// 			source. See:
+	// 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+	Label *string `pulumi:"label"`
+	// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+	// 			provider to do a starts with query as opposed to an equals query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
-	// generic JSON containing discoverable resources related to the app
+	// Discoverable resources related to the app
 	Links string `pulumi:"links"`
-	// The type of Idp-Initiated login that the client supports, if any.
+	// The type of Idp-Initiated login that the client supports, if any
 	LoginMode string `pulumi:"loginMode"`
-	// List of scopes to use for the request.
+	// List of scopes to use for the request when 'login_mode' == OKTA
 	LoginScopes []string `pulumi:"loginScopes"`
 	// URI that initiates login.
 	LoginUri string `pulumi:"loginUri"`
@@ -107,20 +120,25 @@ type GetOauthResult struct {
 	Name string `pulumi:"name"`
 	// URI to web page providing client policy document.
 	PolicyUri string `pulumi:"policyUri"`
-	// List of URIs for redirection after logout.
+	// List of URIs for redirection after logout
 	PostLogoutRedirectUris []string `pulumi:"postLogoutRedirectUris"`
 	// List of URIs for use in the redirect-based flow.
 	RedirectUris []string `pulumi:"redirectUris"`
 	// List of OAuth 2.0 response type strings.
 	ResponseTypes []string `pulumi:"responseTypes"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	//
 	// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
 	SkipGroups *bool `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	//
 	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
 	SkipUsers *bool `pulumi:"skipUsers"`
 	// Status of application.
 	Status string `pulumi:"status"`
 	// The type of OAuth application.
-	Type             string `pulumi:"type"`
+	Type string `pulumi:"type"`
+	// Indicates if the client is allowed to use wildcard matching of redirect_uris
 	WildcardRedirect string `pulumi:"wildcardRedirect"`
 }
 
@@ -139,23 +157,27 @@ func GetOauthOutput(ctx *pulumi.Context, args GetOauthOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getOauth.
 type GetOauthOutputArgs struct {
-	// tells the provider to query for only `ACTIVE` applications.
+	// Search only ACTIVE applications.
 	ActiveOnly pulumi.BoolPtrInput `pulumi:"activeOnly"`
-	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
+	// Id of application to retrieve, conflicts with label and label_prefix.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The label of the app to retrieve, conflicts with
-	// `labelPrefix` and `id`. Label uses the `?q=<label>` query parameter exposed by
-	// Okta's List Apps API. The API will search both `name` and `label` using that
-	// query. Therefore similarily named and labeled apps may be returned in the query
-	// and have the unitended result of associating the wrong app with this data
-	// source. See:
-	// https://developer.okta.com/docs/reference/api/apps/#list-applications
+	// 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+	// 			Okta's List Apps API. The API will search both name and label using that
+	// 			query. Therefore similarily named and labeled apps may be returned in the query
+	// 			and have the unitended result of associating the wrong app with this data
+	// 			source. See:
+	// 			https://developer.okta.com/docs/reference/api/apps/#list-applications
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-	// provider to do a `starts with` query as opposed to an `equals` query.
+	// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+	// 			provider to do a starts with query as opposed to an equals query.
 	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	//
 	// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
 	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	//
 	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
 	SkipUsers pulumi.BoolPtrInput `pulumi:"skipUsers"`
 }
@@ -179,21 +201,22 @@ func (o GetOauthResultOutput) ToGetOauthResultOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Search only ACTIVE applications.
 func (o GetOauthResultOutput) ActiveOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetOauthResult) *bool { return v.ActiveOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Display auto submit toolbar.
+// Display auto submit toolbar
 func (o GetOauthResultOutput) AutoSubmitToolbar() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetOauthResult) bool { return v.AutoSubmitToolbar }).(pulumi.BoolOutput)
 }
 
-// OAuth client ID. If set during creation, app is created with this id.
+// OAuth client ID
 func (o GetOauthResultOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthResult) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The latest active client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+// OAuth client secret
 func (o GetOauthResultOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthResult) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
@@ -203,46 +226,56 @@ func (o GetOauthResultOutput) ClientUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthResult) string { return v.ClientUri }).(pulumi.StringOutput)
 }
 
-// List of OAuth 2.0 grant types.
+// List of OAuth 2.0 grant types
 func (o GetOauthResultOutput) GrantTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOauthResult) []string { return v.GrantTypes }).(pulumi.StringArrayOutput)
 }
 
-// Do not display application icon on mobile app.
+// Do not display application icon on mobile app
 func (o GetOauthResultOutput) HideIos() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetOauthResult) bool { return v.HideIos }).(pulumi.BoolOutput)
 }
 
-// Do not display application icon to users.
+// Do not display application icon to users
 func (o GetOauthResultOutput) HideWeb() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetOauthResult) bool { return v.HideWeb }).(pulumi.BoolOutput)
 }
 
-// ID of application.
+// Id of application to retrieve, conflicts with label and label_prefix.
 func (o GetOauthResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetOauthResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Label of application.
+// The label of the app to retrieve, conflicts with
+//
+//	labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+//	Okta's List Apps API. The API will search both name and label using that
+//	query. Therefore similarily named and labeled apps may be returned in the query
+//	and have the unitended result of associating the wrong app with this data
+//	source. See:
+//	https://developer.okta.com/docs/reference/api/apps/#list-applications
 func (o GetOauthResultOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetOauthResult) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+//
+//	provider to do a starts with query as opposed to an equals query.
 func (o GetOauthResultOutput) LabelPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetOauthResult) *string { return v.LabelPrefix }).(pulumi.StringPtrOutput)
 }
 
-// generic JSON containing discoverable resources related to the app
+// Discoverable resources related to the app
 func (o GetOauthResultOutput) Links() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthResult) string { return v.Links }).(pulumi.StringOutput)
 }
 
-// The type of Idp-Initiated login that the client supports, if any.
+// The type of Idp-Initiated login that the client supports, if any
 func (o GetOauthResultOutput) LoginMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthResult) string { return v.LoginMode }).(pulumi.StringOutput)
 }
 
-// List of scopes to use for the request.
+// List of scopes to use for the request when 'login_mode' == OKTA
 func (o GetOauthResultOutput) LoginScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOauthResult) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
 }
@@ -267,7 +300,7 @@ func (o GetOauthResultOutput) PolicyUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthResult) string { return v.PolicyUri }).(pulumi.StringOutput)
 }
 
-// List of URIs for redirection after logout.
+// List of URIs for redirection after logout
 func (o GetOauthResultOutput) PostLogoutRedirectUris() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOauthResult) []string { return v.PostLogoutRedirectUris }).(pulumi.StringArrayOutput)
 }
@@ -282,11 +315,15 @@ func (o GetOauthResultOutput) ResponseTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOauthResult) []string { return v.ResponseTypes }).(pulumi.StringArrayOutput)
 }
 
+// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+//
 // Deprecated: Because groups has been removed, this attribute is a no op and will be removed
 func (o GetOauthResultOutput) SkipGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetOauthResult) *bool { return v.SkipGroups }).(pulumi.BoolPtrOutput)
 }
 
+// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+//
 // Deprecated: Because users has been removed, this attribute is a no op and will be removed
 func (o GetOauthResultOutput) SkipUsers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetOauthResult) *bool { return v.SkipUsers }).(pulumi.BoolPtrOutput)
@@ -302,6 +339,7 @@ func (o GetOauthResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Indicates if the client is allowed to use wildcard matching of redirect_uris
 func (o GetOauthResultOutput) WildcardRedirect() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthResult) string { return v.WildcardRedirect }).(pulumi.StringOutput)
 }

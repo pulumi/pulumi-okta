@@ -55,17 +55,15 @@ namespace Pulumi.Okta.App
     /// 
     /// ## Import
     /// 
-    /// A redirect URI can be imported via the Okta ID.
-    /// 
     /// ```sh
-    /// $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &amp;#60;app id&amp;#62;/&amp;#60;uri&amp;#62;
+    /// $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &amp;#60;app id&amp;#62;/&amp;#60;uri&amp;#62
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/oAuthRedirectUri:OAuthRedirectUri")]
     public partial class OAuthRedirectUri : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// OAuth application ID. Note: `app_id` can not be changed once set.
+        /// OAuth application ID.
         /// </summary>
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
@@ -123,7 +121,7 @@ namespace Pulumi.Okta.App
     public sealed class OAuthRedirectUriArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// OAuth application ID. Note: `app_id` can not be changed once set.
+        /// OAuth application ID.
         /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
@@ -143,7 +141,7 @@ namespace Pulumi.Okta.App
     public sealed class OAuthRedirectUriState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// OAuth application ID. Note: `app_id` can not be changed once set.
+        /// OAuth application ID.
         /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }

@@ -12,13 +12,13 @@ namespace Pulumi.Okta
     public static class GetBehaviour
     {
         /// <summary>
-        /// Use this data source to retrieve a behavior from Okta.
+        /// Get a behavior by name or ID.
         /// </summary>
         public static Task<GetBehaviourResult> InvokeAsync(GetBehaviourArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBehaviourResult>("okta:index/getBehaviour:getBehaviour", args ?? new GetBehaviourArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a behavior from Okta.
+        /// Get a behavior by name or ID.
         /// </summary>
         public static Output<GetBehaviourResult> Invoke(GetBehaviourInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBehaviourResult>("okta:index/getBehaviour:getBehaviour", args ?? new GetBehaviourInvokeArgs(), options.WithDefaults());
@@ -28,14 +28,13 @@ namespace Pulumi.Okta
     public sealed class GetBehaviourArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// `id` of behavior to retrieve, conflicts with `name`.
+        /// Behavior ID.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The name of the behavior to retrieve. Name uses the `?q=&lt;name&gt;` query parameter exposed by 
-        /// Okta's API.
+        /// Behavior name.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -49,14 +48,13 @@ namespace Pulumi.Okta
     public sealed class GetBehaviourInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// `id` of behavior to retrieve, conflicts with `name`.
+        /// Behavior ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the behavior to retrieve. Name uses the `?q=&lt;name&gt;` query parameter exposed by 
-        /// Okta's API.
+        /// Behavior name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

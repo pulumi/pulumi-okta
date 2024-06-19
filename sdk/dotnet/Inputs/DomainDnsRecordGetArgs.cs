@@ -13,19 +13,19 @@ namespace Pulumi.Okta.Inputs
     public sealed class DomainDnsRecordGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// TXT record expiration.
+        /// TXT record expiration
         /// </summary>
         [Input("expiration")]
         public Input<string>? Expiration { get; set; }
 
         /// <summary>
-        /// DNS record name.
+        /// DNS record name
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
 
         /// <summary>
-        /// Record type can be TXT or CNAME.
+        /// Record type can be TXT or CNAME
         /// </summary>
         [Input("recordType")]
         public Input<string>? RecordType { get; set; }

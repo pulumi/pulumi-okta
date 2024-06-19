@@ -22,10 +22,8 @@ class AuthServerClaimDefaultArgs:
         The set of arguments for constructing a AuthServerClaimDefault resource.
         :param pulumi.Input[str] auth_server_id: ID of the authorization server.
         :param pulumi.Input[bool] always_include_in_token: Specifies whether to include claims in token.
-        :param pulumi.Input[str] name: The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-               `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
-               `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
-        :param pulumi.Input[str] value: The value of the claim. Only required for `"sub"` claim.
+        :param pulumi.Input[str] name: The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
+        :param pulumi.Input[str] value: The value of the claim. Only required for `sub` claim.
         """
         pulumi.set(__self__, "auth_server_id", auth_server_id)
         if always_include_in_token is not None:
@@ -63,9 +61,7 @@ class AuthServerClaimDefaultArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-        `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
-        `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
+        The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
         """
         return pulumi.get(self, "name")
 
@@ -77,7 +73,7 @@ class AuthServerClaimDefaultArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        The value of the claim. Only required for `"sub"` claim.
+        The value of the claim. Only required for `sub` claim.
         """
         return pulumi.get(self, "value")
 
@@ -101,13 +97,11 @@ class _AuthServerClaimDefaultState:
         Input properties used for looking up and filtering AuthServerClaimDefault resources.
         :param pulumi.Input[bool] always_include_in_token: Specifies whether to include claims in token.
         :param pulumi.Input[str] auth_server_id: ID of the authorization server.
-        :param pulumi.Input[str] claim_type: Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
-        :param pulumi.Input[str] name: The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-               `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
-               `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of scopes the auth server claim is tied to.
+        :param pulumi.Input[str] claim_type: Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+        :param pulumi.Input[str] name: The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Auth server claim list of scopes
         :param pulumi.Input[str] status: The status of the application.
-        :param pulumi.Input[str] value: The value of the claim. Only required for `"sub"` claim.
+        :param pulumi.Input[str] value: The value of the claim. Only required for `sub` claim.
         :param pulumi.Input[str] value_type: The type of value of the claim.
         """
         if always_include_in_token is not None:
@@ -155,7 +149,7 @@ class _AuthServerClaimDefaultState:
     @pulumi.getter(name="claimType")
     def claim_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+        Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
         """
         return pulumi.get(self, "claim_type")
 
@@ -167,9 +161,7 @@ class _AuthServerClaimDefaultState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-        `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
-        `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
+        The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
         """
         return pulumi.get(self, "name")
 
@@ -181,7 +173,7 @@ class _AuthServerClaimDefaultState:
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The list of scopes the auth server claim is tied to.
+        Auth server claim list of scopes
         """
         return pulumi.get(self, "scopes")
 
@@ -205,7 +197,7 @@ class _AuthServerClaimDefaultState:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        The value of the claim. Only required for `"sub"` claim.
+        The value of the claim. Only required for `sub` claim.
         """
         return pulumi.get(self, "value")
 
@@ -238,7 +230,6 @@ class AuthServerClaimDefault(pulumi.CustomResource):
                  __props__=None):
         """
         Configures Default Authorization Server Claim.
-
         This resource allows you to configure Default Authorization Server Claims.
 
         ## Example Usage
@@ -254,14 +245,6 @@ class AuthServerClaimDefault(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Authorization Server Claim can be imported via the Auth Server ID and Claim ID or Claim Name.
-
-        ```sh
-        $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim id&#62;
-        ```
-
-        or
 
         ```sh
         $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim name&#62;
@@ -271,10 +254,8 @@ class AuthServerClaimDefault(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] always_include_in_token: Specifies whether to include claims in token.
         :param pulumi.Input[str] auth_server_id: ID of the authorization server.
-        :param pulumi.Input[str] name: The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-               `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
-               `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
-        :param pulumi.Input[str] value: The value of the claim. Only required for `"sub"` claim.
+        :param pulumi.Input[str] name: The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
+        :param pulumi.Input[str] value: The value of the claim. Only required for `sub` claim.
         """
         ...
     @overload
@@ -284,7 +265,6 @@ class AuthServerClaimDefault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures Default Authorization Server Claim.
-
         This resource allows you to configure Default Authorization Server Claims.
 
         ## Example Usage
@@ -300,14 +280,6 @@ class AuthServerClaimDefault(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Authorization Server Claim can be imported via the Auth Server ID and Claim ID or Claim Name.
-
-        ```sh
-        $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim id&#62;
-        ```
-
-        or
 
         ```sh
         $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim name&#62;
@@ -378,13 +350,11 @@ class AuthServerClaimDefault(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] always_include_in_token: Specifies whether to include claims in token.
         :param pulumi.Input[str] auth_server_id: ID of the authorization server.
-        :param pulumi.Input[str] claim_type: Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
-        :param pulumi.Input[str] name: The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-               `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
-               `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of scopes the auth server claim is tied to.
+        :param pulumi.Input[str] claim_type: Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
+        :param pulumi.Input[str] name: The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Auth server claim list of scopes
         :param pulumi.Input[str] status: The status of the application.
-        :param pulumi.Input[str] value: The value of the claim. Only required for `"sub"` claim.
+        :param pulumi.Input[str] value: The value of the claim. Only required for `sub` claim.
         :param pulumi.Input[str] value_type: The type of value of the claim.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -421,7 +391,7 @@ class AuthServerClaimDefault(pulumi.CustomResource):
     @pulumi.getter(name="claimType")
     def claim_type(self) -> pulumi.Output[str]:
         """
-        Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+        Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
         """
         return pulumi.get(self, "claim_type")
 
@@ -429,9 +399,7 @@ class AuthServerClaimDefault(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-        `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
-        `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
+        The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
         """
         return pulumi.get(self, "name")
 
@@ -439,7 +407,7 @@ class AuthServerClaimDefault(pulumi.CustomResource):
     @pulumi.getter
     def scopes(self) -> pulumi.Output[Sequence[str]]:
         """
-        The list of scopes the auth server claim is tied to.
+        Auth server claim list of scopes
         """
         return pulumi.get(self, "scopes")
 
@@ -455,7 +423,7 @@ class AuthServerClaimDefault(pulumi.CustomResource):
     @pulumi.getter
     def value(self) -> pulumi.Output[Optional[str]]:
         """
-        The value of the claim. Only required for `"sub"` claim.
+        The value of the claim. Only required for `sub` claim.
         """
         return pulumi.get(self, "value")
 

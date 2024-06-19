@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// Creates an Okta SMS Template.
-    /// 
-    /// This resource allows you to create and configure an Okta SMS Template.
+    /// Creates an Okta SMS Template. This resource allows you to create and configure an Okta SMS Template.
     /// 
     /// ## Example Usage
     /// 
@@ -48,8 +46,6 @@ namespace Pulumi.Okta
     /// 
     /// ## Import
     /// 
-    /// An Okta SMS Template can be imported via the template type.
-    /// 
     /// ```sh
     /// $ pulumi import okta:index/templateSms:TemplateSms example &amp;#60;template type&amp;#62;
     /// ```
@@ -58,7 +54,7 @@ namespace Pulumi.Okta
     public partial class TemplateSms : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Default SMS message
+        /// SMS default template
         /// </summary>
         [Output("template")]
         public Output<string> Template { get; private set; } = null!;
@@ -122,7 +118,7 @@ namespace Pulumi.Okta
     public sealed class TemplateSmsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Default SMS message
+        /// SMS default template
         /// </summary>
         [Input("template", required: true)]
         public Input<string> Template { get; set; } = null!;
@@ -154,7 +150,7 @@ namespace Pulumi.Okta
     public sealed class TemplateSmsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Default SMS message
+        /// SMS default template
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }

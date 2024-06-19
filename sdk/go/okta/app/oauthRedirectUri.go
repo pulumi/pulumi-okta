@@ -63,15 +63,13 @@ import (
 //
 // ## Import
 //
-// A redirect URI can be imported via the Okta ID.
-//
 // ```sh
-// $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62;
+// $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62
 // ```
 type OAuthRedirectUri struct {
 	pulumi.CustomResourceState
 
-	// OAuth application ID. Note: `appId` can not be changed once set.
+	// OAuth application ID.
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// Redirect URI to append to Okta OIDC application.
 	Uri pulumi.StringOutput `pulumi:"uri"`
@@ -113,14 +111,14 @@ func GetOAuthRedirectUri(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OAuthRedirectUri resources.
 type oauthRedirectUriState struct {
-	// OAuth application ID. Note: `appId` can not be changed once set.
+	// OAuth application ID.
 	AppId *string `pulumi:"appId"`
 	// Redirect URI to append to Okta OIDC application.
 	Uri *string `pulumi:"uri"`
 }
 
 type OAuthRedirectUriState struct {
-	// OAuth application ID. Note: `appId` can not be changed once set.
+	// OAuth application ID.
 	AppId pulumi.StringPtrInput
 	// Redirect URI to append to Okta OIDC application.
 	Uri pulumi.StringPtrInput
@@ -131,7 +129,7 @@ func (OAuthRedirectUriState) ElementType() reflect.Type {
 }
 
 type oauthRedirectUriArgs struct {
-	// OAuth application ID. Note: `appId` can not be changed once set.
+	// OAuth application ID.
 	AppId string `pulumi:"appId"`
 	// Redirect URI to append to Okta OIDC application.
 	Uri string `pulumi:"uri"`
@@ -139,7 +137,7 @@ type oauthRedirectUriArgs struct {
 
 // The set of arguments for constructing a OAuthRedirectUri resource.
 type OAuthRedirectUriArgs struct {
-	// OAuth application ID. Note: `appId` can not be changed once set.
+	// OAuth application ID.
 	AppId pulumi.StringInput
 	// Redirect URI to append to Okta OIDC application.
 	Uri pulumi.StringInput
@@ -232,7 +230,7 @@ func (o OAuthRedirectUriOutput) ToOAuthRedirectUriOutputWithContext(ctx context.
 	return o
 }
 
-// OAuth application ID. Note: `appId` can not be changed once set.
+// OAuth application ID.
 func (o OAuthRedirectUriOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuthRedirectUri) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }

@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// Assigns groups to an application.
+    /// Assigns groups to an application. This resource allows you to create multiple App Group assignments.
     /// 
-    /// This resource allows you to create multiple App Group assignments.
+    /// **Important**: Do not use in conjunction with for_each
     /// 
     /// ## Example Usage
     /// 
@@ -52,10 +52,8 @@ namespace Pulumi.Okta
     /// 
     /// ## Import
     /// 
-    /// An application's group assignments can be imported via `app_id`.
-    /// 
     /// ```sh
-    /// $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &amp;#60;app_id&amp;#62;
+    /// $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &amp;#60;app_id&amp;#62
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appGroupAssignments:AppGroupAssignments")]
@@ -68,7 +66,7 @@ namespace Pulumi.Okta
         public Output<string> AppId { get; private set; } = null!;
 
         /// <summary>
-        /// A group to assign the app to.
+        /// A group to assign to this application
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<Outputs.AppGroupAssignmentsGroup>> Groups { get; private set; } = null!;
@@ -129,7 +127,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.AppGroupAssignmentsGroupArgs>? _groups;
 
         /// <summary>
-        /// A group to assign the app to.
+        /// A group to assign to this application
         /// </summary>
         public InputList<Inputs.AppGroupAssignmentsGroupArgs> Groups
         {
@@ -155,7 +153,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.AppGroupAssignmentsGroupGetArgs>? _groups;
 
         /// <summary>
-        /// A group to assign the app to.
+        /// A group to assign to this application
         /// </summary>
         public InputList<Inputs.AppGroupAssignmentsGroupGetArgs> Groups
         {

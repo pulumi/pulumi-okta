@@ -19,14 +19,14 @@ public final class UserAdminRolesArgs extends com.pulumi.resources.ResourceArgs 
     public static final UserAdminRolesArgs Empty = new UserAdminRolesArgs();
 
     /**
-     * The list of Okta user admin roles, e.g. `[&#34;APP_ADMIN&#34;, &#34;USER_ADMIN&#34;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     @Import(name="adminRoles", required=true)
     private Output<List<String>> adminRoles;
 
     /**
-     * @return The list of Okta user admin roles, e.g. `[&#34;APP_ADMIN&#34;, &#34;USER_ADMIN&#34;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * @return The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
      * 
      */
     public Output<List<String>> adminRoles() {
@@ -34,16 +34,14 @@ public final class UserAdminRolesArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * When this setting is enabled, the admins won&#39;t receive any of the default Okta
-     * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
+     * When this setting is enabled, the admins won&#39;t receive any of the default Okta administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
      * 
      */
     @Import(name="disableNotifications")
     private @Nullable Output<Boolean> disableNotifications;
 
     /**
-     * @return When this setting is enabled, the admins won&#39;t receive any of the default Okta
-     * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
+     * @return When this setting is enabled, the admins won&#39;t receive any of the default Okta administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
      * 
      */
     public Optional<Output<Boolean>> disableNotifications() {
@@ -51,14 +49,14 @@ public final class UserAdminRolesArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Okta user ID.
+     * ID of a Okta User
      * 
      */
     @Import(name="userId", required=true)
     private Output<String> userId;
 
     /**
-     * @return Okta user ID.
+     * @return ID of a Okta User
      * 
      */
     public Output<String> userId() {
@@ -92,7 +90,7 @@ public final class UserAdminRolesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param adminRoles The list of Okta user admin roles, e.g. `[&#34;APP_ADMIN&#34;, &#34;USER_ADMIN&#34;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+         * @param adminRoles The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
          * 
          * @return builder
          * 
@@ -103,7 +101,7 @@ public final class UserAdminRolesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param adminRoles The list of Okta user admin roles, e.g. `[&#34;APP_ADMIN&#34;, &#34;USER_ADMIN&#34;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+         * @param adminRoles The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
          * 
          * @return builder
          * 
@@ -113,7 +111,7 @@ public final class UserAdminRolesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param adminRoles The list of Okta user admin roles, e.g. `[&#34;APP_ADMIN&#34;, &#34;USER_ADMIN&#34;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+         * @param adminRoles The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
          * 
          * @return builder
          * 
@@ -123,8 +121,7 @@ public final class UserAdminRolesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param disableNotifications When this setting is enabled, the admins won&#39;t receive any of the default Okta
-         * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
+         * @param disableNotifications When this setting is enabled, the admins won&#39;t receive any of the default Okta administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
          * 
          * @return builder
          * 
@@ -135,8 +132,7 @@ public final class UserAdminRolesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param disableNotifications When this setting is enabled, the admins won&#39;t receive any of the default Okta
-         * administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
+         * @param disableNotifications When this setting is enabled, the admins won&#39;t receive any of the default Okta administrator emails. These admins also won&#39;t have access to contact Okta Support and open support cases on behalf of your org.
          * 
          * @return builder
          * 
@@ -146,7 +142,7 @@ public final class UserAdminRolesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userId Okta user ID.
+         * @param userId ID of a Okta User
          * 
          * @return builder
          * 
@@ -157,7 +153,7 @@ public final class UserAdminRolesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userId Okta user ID.
+         * @param userId ID of a Okta User
          * 
          * @return builder
          * 

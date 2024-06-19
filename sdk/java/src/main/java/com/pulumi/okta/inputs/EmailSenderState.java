@@ -18,14 +18,14 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
     public static final EmailSenderState Empty = new EmailSenderState();
 
     /**
-     * TXT and CNAME records to be registered for the domain.
+     * TXT and CNAME records to be registered for the Domain
      * 
      */
     @Import(name="dnsRecords")
     private @Nullable Output<List<EmailSenderDnsRecordArgs>> dnsRecords;
 
     /**
-     * @return TXT and CNAME records to be registered for the domain.
+     * @return TXT and CNAME records to be registered for the Domain
      * 
      */
     public Optional<Output<List<EmailSenderDnsRecordArgs>>> dnsRecords() {
@@ -33,14 +33,14 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Email address to send from.
+     * Email address to send from
      * 
      */
     @Import(name="fromAddress")
     private @Nullable Output<String> fromAddress;
 
     /**
-     * @return Email address to send from.
+     * @return Email address to send from
      * 
      */
     public Optional<Output<String>> fromAddress() {
@@ -48,14 +48,14 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of sender.
+     * Name of sender
      * 
      */
     @Import(name="fromName")
     private @Nullable Output<String> fromName;
 
     /**
-     * @return Name of sender.
+     * @return Name of sender
      * 
      */
     public Optional<Output<String>> fromName() {
@@ -63,14 +63,14 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of the sender (shows whether the sender is verified).
+     * Verification status
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of the sender (shows whether the sender is verified).
+     * @return Verification status
      * 
      */
     public Optional<Output<String>> status() {
@@ -78,14 +78,14 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Mail domain to send from.
+     * Mail domain to send from
      * 
      */
     @Import(name="subdomain")
     private @Nullable Output<String> subdomain;
 
     /**
-     * @return Mail domain to send from.
+     * @return Mail domain to send from
      * 
      */
     public Optional<Output<String>> subdomain() {
@@ -121,7 +121,7 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsRecords TXT and CNAME records to be registered for the domain.
+         * @param dnsRecords TXT and CNAME records to be registered for the Domain
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsRecords TXT and CNAME records to be registered for the domain.
+         * @param dnsRecords TXT and CNAME records to be registered for the Domain
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsRecords TXT and CNAME records to be registered for the domain.
+         * @param dnsRecords TXT and CNAME records to be registered for the Domain
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromAddress Email address to send from.
+         * @param fromAddress Email address to send from
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromAddress Email address to send from.
+         * @param fromAddress Email address to send from
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromName Name of sender.
+         * @param fromName Name of sender
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromName Name of sender.
+         * @param fromName Name of sender
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the sender (shows whether the sender is verified).
+         * @param status Verification status
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the sender (shows whether the sender is verified).
+         * @param status Verification status
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subdomain Mail domain to send from.
+         * @param subdomain Mail domain to send from
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class EmailSenderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subdomain Mail domain to send from.
+         * @param subdomain Mail domain to send from
          * 
          * @return builder
          * 

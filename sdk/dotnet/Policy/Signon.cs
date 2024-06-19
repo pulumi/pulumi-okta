@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Policy
 {
     /// <summary>
-    /// Creates a Sign On Policy.
-    /// 
-    /// This resource allows you to create and configure a Sign On Policy.
+    /// Creates a Sign On Policy. This resource allows you to create and configure a Sign On Policy.
     /// 
     /// ## Example Usage
     /// 
@@ -40,8 +38,6 @@ namespace Pulumi.Okta.Policy
     /// 
     /// ## Import
     /// 
-    /// A Sign On Policy can be imported via the Okta ID.
-    /// 
     /// ```sh
     /// $ pulumi import okta:policy/signon:Signon example &amp;#60;policy id&amp;#62;
     /// ```
@@ -50,31 +46,31 @@ namespace Pulumi.Okta.Policy
     public partial class Signon : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Policy Description.
+        /// Policy Description
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// List of Group IDs to Include.
+        /// List of Group IDs to Include
         /// </summary>
         [Output("groupsIncludeds")]
         public Output<ImmutableArray<string>> GroupsIncludeds { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Name.
+        /// Policy Name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Priority of the policy.
+        /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        /// Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -126,7 +122,7 @@ namespace Pulumi.Okta.Policy
     public sealed class SignonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Policy Description.
+        /// Policy Description
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -135,7 +131,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _groupsIncludeds;
 
         /// <summary>
-        /// List of Group IDs to Include.
+        /// List of Group IDs to Include
         /// </summary>
         public InputList<string> GroupsIncludeds
         {
@@ -144,19 +140,19 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Policy Name.
+        /// Policy Name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Priority of the policy.
+        /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        /// Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -170,7 +166,7 @@ namespace Pulumi.Okta.Policy
     public sealed class SignonState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Policy Description.
+        /// Policy Description
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -179,7 +175,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _groupsIncludeds;
 
         /// <summary>
-        /// List of Group IDs to Include.
+        /// List of Group IDs to Include
         /// </summary>
         public InputList<string> GroupsIncludeds
         {
@@ -188,19 +184,19 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Policy Name.
+        /// Policy Name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Priority of the policy.
+        /// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Policy Status: `"ACTIVE"` or `"INACTIVE"`.
+        /// Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

@@ -11,7 +11,6 @@ namespace Pulumi.Okta
 {
     /// <summary>
     /// Configures Default Authorization Server Claim.
-    /// 
     /// This resource allows you to configure Default Authorization Server Claims.
     /// 
     /// ## Example Usage
@@ -36,14 +35,6 @@ namespace Pulumi.Okta
     /// 
     /// ## Import
     /// 
-    /// Authorization Server Claim can be imported via the Auth Server ID and Claim ID or Claim Name.
-    /// 
-    /// ```sh
-    /// $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim id&amp;#62;
-    /// ```
-    /// 
-    /// or
-    /// 
     /// ```sh
     /// $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim name&amp;#62;
     /// ```
@@ -64,21 +55,19 @@ namespace Pulumi.Okta
         public Output<string> AuthServerId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+        /// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
         /// </summary>
         [Output("claimType")]
         public Output<string> ClaimType { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-        /// `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
-        /// `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
+        /// The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The list of scopes the auth server claim is tied to.
+        /// Auth server claim list of scopes
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
@@ -90,7 +79,7 @@ namespace Pulumi.Okta
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the claim. Only required for `"sub"` claim.
+        /// The value of the claim. Only required for `sub` claim.
         /// </summary>
         [Output("value")]
         public Output<string?> Value { get; private set; } = null!;
@@ -160,15 +149,13 @@ namespace Pulumi.Okta
         public Input<string> AuthServerId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-        /// `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
-        /// `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
+        /// The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The value of the claim. Only required for `"sub"` claim.
+        /// The value of the claim. Only required for `sub` claim.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
@@ -194,15 +181,13 @@ namespace Pulumi.Okta
         public Input<string>? AuthServerId { get; set; }
 
         /// <summary>
-        /// Specifies whether the claim is for an access token `"RESOURCE"` or ID token `"IDENTITY"`.
+        /// Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
         /// </summary>
         [Input("claimType")]
         public Input<string>? ClaimType { get; set; }
 
         /// <summary>
-        /// The name of the claim. Can be set to `"sub"`, `"address"`, `"birthdate"`, `"email"`,
-        /// `"email_verified"`, `"family_name"`, `"gender"`, `"given_name"`, `"locale"`, `"middle_name"`, `"name"`, `"nickname"`,
-        /// `"phone_number"`, `"picture"`, `"preferred_username"`, `"profile"`, `"updated_at"`, `"website"`, `"zoneinfo"`.
+        /// The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -211,7 +196,7 @@ namespace Pulumi.Okta
         private InputList<string>? _scopes;
 
         /// <summary>
-        /// The list of scopes the auth server claim is tied to.
+        /// Auth server claim list of scopes
         /// </summary>
         public InputList<string> Scopes
         {
@@ -226,7 +211,7 @@ namespace Pulumi.Okta
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The value of the claim. Only required for `"sub"` claim.
+        /// The value of the claim. Only required for `sub` claim.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

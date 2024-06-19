@@ -84,8 +84,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Behavior can be imported via the Okta ID.
- * 
  * ```sh
  * $ pulumi import okta:index/behaviour:Behaviour example &amp;#60;behavior id&amp;#62;
  * ```
@@ -94,110 +92,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/behaviour:Behaviour")
 public class Behaviour extends com.pulumi.resources.CustomResource {
     /**
-     * Determines the method and level of detail used to evaluate the behavior.
-     * Required for `&#34;ANOMALOUS_LOCATION&#34;` behavior type. Can be set to `&#34;LAT_LONG&#34;`, `&#34;CITY&#34;`, `&#34;COUNTRY&#34;`
-     * or `&#34;SUBDIVISION&#34;`.
+     * Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
      * 
      */
     @Export(name="locationGranularityType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> locationGranularityType;
 
     /**
-     * @return Determines the method and level of detail used to evaluate the behavior.
-     * Required for `&#34;ANOMALOUS_LOCATION&#34;` behavior type. Can be set to `&#34;LAT_LONG&#34;`, `&#34;CITY&#34;`, `&#34;COUNTRY&#34;`
-     * or `&#34;SUBDIVISION&#34;`.
+     * @return Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
      * 
      */
     public Output<Optional<String>> locationGranularityType() {
         return Codegen.optional(this.locationGranularityType);
     }
     /**
-     * Name of the behavior.
+     * Name of the behavior
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the behavior.
+     * @return Name of the behavior
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The number of recent authentications used to evaluate the behavior. Required
-     * for `&#34;ANOMALOUS_LOCATION&#34;`, `&#34;ANOMALOUS_DEVICE&#34;` and `&#34;ANOMALOUS_IP&#34;` behavior types.
+     * The number of recent authentications used to evaluate the behavior. Required for `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE` and `ANOMALOUS_IP` behavior types.
      * 
      */
     @Export(name="numberOfAuthentications", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> numberOfAuthentications;
 
     /**
-     * @return The number of recent authentications used to evaluate the behavior. Required
-     * for `&#34;ANOMALOUS_LOCATION&#34;`, `&#34;ANOMALOUS_DEVICE&#34;` and `&#34;ANOMALOUS_IP&#34;` behavior types.
+     * @return The number of recent authentications used to evaluate the behavior. Required for `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE` and `ANOMALOUS_IP` behavior types.
      * 
      */
     public Output<Optional<Integer>> numberOfAuthentications() {
         return Codegen.optional(this.numberOfAuthentications);
     }
     /**
-     * Radius from location (in kilometers). Should be at least 5. Required
-     * when `location_granularity_type` is set to `&#34;LAT_LONG&#34;`.
+     * Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
      * 
      */
     @Export(name="radiusFromLocation", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> radiusFromLocation;
 
     /**
-     * @return Radius from location (in kilometers). Should be at least 5. Required
-     * when `location_granularity_type` is set to `&#34;LAT_LONG&#34;`.
+     * @return Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
      * 
      */
     public Output<Optional<Integer>> radiusFromLocation() {
         return Codegen.optional(this.radiusFromLocation);
     }
     /**
-     * The status of the behavior. By default, it is`&#34;ACTIVE&#34;`.
+     * Behavior status: ACTIVE or INACTIVE. Default: `ACTIVE`
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return The status of the behavior. By default, it is`&#34;ACTIVE&#34;`.
+     * @return Behavior status: ACTIVE or INACTIVE. Default: `ACTIVE`
      * 
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * Type of the behavior. Can be set to `&#34;ANOMALOUS_LOCATION&#34;`, `&#34;ANOMALOUS_DEVICE&#34;`, `&#34;ANOMALOUS_IP&#34;`
-     * or `&#34;VELOCITY&#34;`. Resource will be recreated when the type changes.
+     * Type of the behavior. Can be set to `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE`, `ANOMALOUS_IP` or `VELOCITY`. Resource will be recreated when the type changes.e
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of the behavior. Can be set to `&#34;ANOMALOUS_LOCATION&#34;`, `&#34;ANOMALOUS_DEVICE&#34;`, `&#34;ANOMALOUS_IP&#34;`
-     * or `&#34;VELOCITY&#34;`. Resource will be recreated when the type changes.
+     * @return Type of the behavior. Can be set to `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE`, `ANOMALOUS_IP` or `VELOCITY`. Resource will be recreated when the type changes.e
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * Velocity (in kilometers per hour). Should be at least 1. Required for `&#34;VELOCITY&#34;` behavior
-     * type.
+     * Velocity (in kilometers per hour). Should be at least 1. Required for `VELOCITY` behavior
      * 
      */
     @Export(name="velocity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> velocity;
 
     /**
-     * @return Velocity (in kilometers per hour). Should be at least 1. Required for `&#34;VELOCITY&#34;` behavior
-     * type.
+     * @return Velocity (in kilometers per hour). Should be at least 1. Required for `VELOCITY` behavior
      * 
      */
     public Output<Optional<Integer>> velocity() {

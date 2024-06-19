@@ -12,9 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates security question factor for a user.
-//
-// This resource allows you to create and configure security question factor for a user.
+// Creates security question factor for a user. This resource allows you to create and configure security question factor for a user.
 //
 // ## Example Usage
 //
@@ -70,8 +68,6 @@ import (
 // ```
 //
 // ## Import
-//
-// Security question factor for a user can be imported via the `user_id` and the `factor_id`.
 //
 // ```sh
 // $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;

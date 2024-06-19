@@ -5,11 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Manages rate limiting.
  * This resource allows you to configure the client-based rate limit and rate limiting communications settings.
- *
  * > **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
- *
- * > **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+ * **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
  *
  * ## Example Usage
  *
@@ -25,8 +24,6 @@ import * as utilities from "./utilities";
  * ```
  *
  * ## Import
- *
- * Rate limit settings can be imported without any parameters.
  *
  * ```sh
  * $ pulumi import okta:index/rateLimiting:RateLimiting example .
@@ -61,8 +58,7 @@ export class RateLimiting extends pulumi.CustomResource {
     }
 
     /**
-     * Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
-     * log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+     * Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      */
     public readonly authorize!: pulumi.Output<string>;
     /**
@@ -70,8 +66,7 @@ export class RateLimiting extends pulumi.CustomResource {
      */
     public readonly communicationsEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
-     * log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+     * Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      */
     public readonly login!: pulumi.Output<string>;
 
@@ -113,8 +108,7 @@ export class RateLimiting extends pulumi.CustomResource {
  */
 export interface RateLimitingState {
     /**
-     * Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
-     * log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+     * Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      */
     authorize?: pulumi.Input<string>;
     /**
@@ -122,8 +116,7 @@ export interface RateLimitingState {
      */
     communicationsEnabled?: pulumi.Input<boolean>;
     /**
-     * Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
-     * log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+     * Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      */
     login?: pulumi.Input<string>;
 }
@@ -133,8 +126,7 @@ export interface RateLimitingState {
  */
 export interface RateLimitingArgs {
     /**
-     * Called during authentication. Valid values: `"ENFORCE"` _(Enforce limit and
-     * log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+     * Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      */
     authorize: pulumi.Input<string>;
     /**
@@ -142,8 +134,7 @@ export interface RateLimitingArgs {
      */
     communicationsEnabled?: pulumi.Input<boolean>;
     /**
-     * Called when accessing the Okta hosted login page. Valid values: `"ENFORCE"` _(Enforce limit and 
-     * log per client (recommended))_, `"DISABLE"` _(Do nothing (not recommended))_, `"PREVIEW"` _(Log per client)_.
+     * Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      */
     login: pulumi.Input<string>;
 }

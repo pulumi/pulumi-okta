@@ -11,9 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve the base user Profile Mapping source or target from Okta.
+// Get the base user Profile Mapping source or target from Okta.
 //
-// > **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
+// > **NOTE:** If using this resource with OAuth2 scopes, this resource
+// requires `okta.profileMappings.read` scope.
 //
 // ## Example Usage
 //
@@ -50,11 +51,11 @@ func GetUserProfileMappingSource(ctx *pulumi.Context, opts ...pulumi.InvokeOptio
 
 // A collection of values returned by getUserProfileMappingSource.
 type GetUserProfileMappingSourceResult struct {
-	// id of the source.
+	// ID of the source
 	Id string `pulumi:"id"`
-	// name of source.
+	// Name of source.
 	Name string `pulumi:"name"`
-	// type of source.
+	// Type of source.
 	Type string `pulumi:"type"`
 }
 
@@ -84,17 +85,17 @@ func (o GetUserProfileMappingSourceResultOutput) ToGetUserProfileMappingSourceRe
 	return o
 }
 
-// id of the source.
+// ID of the source
 func (o GetUserProfileMappingSourceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserProfileMappingSourceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// name of source.
+// Name of source.
 func (o GetUserProfileMappingSourceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserProfileMappingSourceResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// type of source.
+// Type of source.
 func (o GetUserProfileMappingSourceResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserProfileMappingSourceResult) string { return v.Type }).(pulumi.StringOutput)
 }

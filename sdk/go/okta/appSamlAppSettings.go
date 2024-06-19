@@ -12,8 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages app settings of the SAML application.
 // This resource allows you to manage app settings of the SAML Application . It's basically the same as
-// `appSettingsJson` field in `app.Saml` resource and can be used in cases where settings require to be managed separately.
+// appSettingsJson field in app.Saml resource and can be used in cases where settings require to be managed separately.
 //
 // ## Example Usage
 //
@@ -69,17 +70,15 @@ import (
 //
 // ## Import
 //
-// A settings for the SAML App can be imported via the Okta ID.
-//
 // ```sh
-// $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62;
+// $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62
 // ```
 type AppSamlAppSettings struct {
 	pulumi.CustomResourceState
 
 	// ID of the application.
 	AppId pulumi.StringOutput `pulumi:"appId"`
-	// Application settings in JSON format.
+	// Application settings in JSON format
 	Settings pulumi.StringOutput `pulumi:"settings"`
 }
 
@@ -121,14 +120,14 @@ func GetAppSamlAppSettings(ctx *pulumi.Context,
 type appSamlAppSettingsState struct {
 	// ID of the application.
 	AppId *string `pulumi:"appId"`
-	// Application settings in JSON format.
+	// Application settings in JSON format
 	Settings *string `pulumi:"settings"`
 }
 
 type AppSamlAppSettingsState struct {
 	// ID of the application.
 	AppId pulumi.StringPtrInput
-	// Application settings in JSON format.
+	// Application settings in JSON format
 	Settings pulumi.StringPtrInput
 }
 
@@ -139,7 +138,7 @@ func (AppSamlAppSettingsState) ElementType() reflect.Type {
 type appSamlAppSettingsArgs struct {
 	// ID of the application.
 	AppId string `pulumi:"appId"`
-	// Application settings in JSON format.
+	// Application settings in JSON format
 	Settings string `pulumi:"settings"`
 }
 
@@ -147,7 +146,7 @@ type appSamlAppSettingsArgs struct {
 type AppSamlAppSettingsArgs struct {
 	// ID of the application.
 	AppId pulumi.StringInput
-	// Application settings in JSON format.
+	// Application settings in JSON format
 	Settings pulumi.StringInput
 }
 
@@ -243,7 +242,7 @@ func (o AppSamlAppSettingsOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppSamlAppSettings) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }
 
-// Application settings in JSON format.
+// Application settings in JSON format
 func (o AppSamlAppSettingsOutput) Settings() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppSamlAppSettings) pulumi.StringOutput { return v.Settings }).(pulumi.StringOutput)
 }

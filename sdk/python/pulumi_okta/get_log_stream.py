@@ -44,7 +44,7 @@ class GetLogStreamResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        ID of the log stream.
+        ID of the log stream to retrieve, conflicts with `name`.
         """
         return pulumi.get(self, "id")
 
@@ -52,23 +52,20 @@ class GetLogStreamResult:
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the log stream.
+        Unique name for the Log Stream object, conflicts with `id`.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def settings(self) -> Optional['outputs.GetLogStreamSettingsResult']:
-        """
-        Provider specific configuration.
-        """
         return pulumi.get(self, "settings")
 
     @property
     @pulumi.getter
     def status(self) -> str:
         """
-        Log Stream Status - can either be ACTIVE or INACTIVE only.
+        Log Stream Status - can either be ACTIVE or INACTIVE only
         """
         return pulumi.get(self, "status")
 
@@ -76,7 +73,7 @@ class GetLogStreamResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the Log Stream.
+        Streaming provider used - aws*eventbridge or splunk*cloud_logstreaming
         """
         return pulumi.get(self, "type")
 
@@ -99,21 +96,11 @@ def get_log_stream(id: Optional[str] = None,
                    settings: Optional[pulumi.InputType['GetLogStreamSettingsArgs']] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogStreamResult:
     """
-    Use this data source to retrieve a log stream from Okta.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.get_log_stream(name="Example Stream")
-    ```
+    Log Streams
 
 
     :param str id: ID of the log stream to retrieve, conflicts with `name`.
-    :param str name: Name of the log stream to retrieve, conflicts with `id`.
-    :param pulumi.InputType['GetLogStreamSettingsArgs'] settings: Provider specific configuration.
+    :param str name: Unique name for the Log Stream object, conflicts with `id`.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -136,20 +123,10 @@ def get_log_stream_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                           settings: Optional[pulumi.Input[Optional[pulumi.InputType['GetLogStreamSettingsArgs']]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogStreamResult]:
     """
-    Use this data source to retrieve a log stream from Okta.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_okta as okta
-
-    example = okta.get_log_stream(name="Example Stream")
-    ```
+    Log Streams
 
 
     :param str id: ID of the log stream to retrieve, conflicts with `name`.
-    :param str name: Name of the log stream to retrieve, conflicts with `id`.
-    :param pulumi.InputType['GetLogStreamSettingsArgs'] settings: Provider specific configuration.
+    :param str name: Unique name for the Log Stream object, conflicts with `id`.
     """
     ...

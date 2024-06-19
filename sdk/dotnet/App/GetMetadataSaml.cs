@@ -12,7 +12,7 @@ namespace Pulumi.Okta.App
     public static class GetMetadataSaml
     {
         /// <summary>
-        /// Use this data source to retrieve the metadata for SAML application from Okta.
+        /// Get a SAML application's metadata from Okta.
         /// 
         /// ## Example Usage
         /// 
@@ -37,7 +37,7 @@ namespace Pulumi.Okta.App
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSamlResult>("okta:app/getMetadataSaml:getMetadataSaml", args ?? new GetMetadataSamlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve the metadata for SAML application from Okta.
+        /// Get a SAML application's metadata from Okta.
         /// 
         /// ## Example Usage
         /// 
@@ -107,13 +107,16 @@ namespace Pulumi.Okta.App
     [OutputType]
     public sealed class GetMetadataSamlResult
     {
+        /// <summary>
+        /// The application ID.
+        /// </summary>
         public readonly string AppId;
         /// <summary>
-        /// public certificate from application metadata.
+        /// Public certificate from application metadata.
         /// </summary>
         public readonly string Certificate;
         /// <summary>
-        /// Entity URL for instance `https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf`.
+        /// Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
         /// </summary>
         public readonly string EntityId;
         /// <summary>
@@ -128,9 +131,12 @@ namespace Pulumi.Okta.App
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Certificate Key ID.
+        /// </summary>
         public readonly string? KeyId;
         /// <summary>
-        /// raw metadata of application.
+        /// Raw metadata of application.
         /// </summary>
         public readonly string Metadata;
         /// <summary>

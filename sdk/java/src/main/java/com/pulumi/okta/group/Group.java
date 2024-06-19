@@ -16,91 +16,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates an Okta Group.
- * 
- * This resource allows you to create and configure an Okta Group.
- * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.group.Group;
- * import com.pulumi.okta.group.GroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Group("example", GroupArgs.builder()
- *             .name("Example")
- *             .description("My Example Group")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * Custom profile attributes
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.group.Group;
- * import com.pulumi.okta.group.GroupArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Group("example", GroupArgs.builder()
- *             .name("Example")
- *             .description("My Example Group")
- *             .customProfileAttributes(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("example1", "testing1234"),
- *                     jsonProperty("example2", true),
- *                     jsonProperty("example3", 54321)
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
+ * Creates an Okta Group. This resource allows you to create and configure an Okta Group.
  * 
  * ## Import
- * 
- * An Okta Group can be imported via the Okta ID.
  * 
  * ```sh
  * $ pulumi import okta:group/group:Group example &amp;#60;group id&amp;#62;
@@ -110,14 +28,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:group/group:Group")
 public class Group extends com.pulumi.resources.CustomResource {
     /**
-     * raw JSON containing all custom profile attributes.
+     * JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
      * 
      */
     @Export(name="customProfileAttributes", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customProfileAttributes;
 
     /**
-     * @return raw JSON containing all custom profile attributes.
+     * @return JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
      * 
      */
     public Output<Optional<String>> customProfileAttributes() {

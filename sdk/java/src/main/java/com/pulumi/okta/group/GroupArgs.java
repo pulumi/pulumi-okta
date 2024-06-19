@@ -17,14 +17,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     public static final GroupArgs Empty = new GroupArgs();
 
     /**
-     * raw JSON containing all custom profile attributes.
+     * JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
      * 
      */
     @Import(name="customProfileAttributes")
     private @Nullable Output<String> customProfileAttributes;
 
     /**
-     * @return raw JSON containing all custom profile attributes.
+     * @return JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
      * 
      */
     public Optional<Output<String>> customProfileAttributes() {
@@ -112,7 +112,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customProfileAttributes raw JSON containing all custom profile attributes.
+         * @param customProfileAttributes JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customProfileAttributes raw JSON containing all custom profile attributes.
+         * @param customProfileAttributes JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
          * 
          * @return builder
          * 

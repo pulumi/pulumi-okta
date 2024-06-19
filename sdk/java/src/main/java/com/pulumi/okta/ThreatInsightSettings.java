@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to configure Threat Insight Settings.
+ * Manages Okta Threat Insight Settings. This resource allows you to configure Threat Insight Settings.
  * 
  * ## Example Usage
  * 
@@ -69,8 +69,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Threat Insight Settings can be imported without any parameters.
- * 
  * ```sh
  * $ pulumi import okta:index/threatInsightSettings:ThreatInsightSettings example _
  * ```
@@ -79,40 +77,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/threatInsightSettings:ThreatInsightSettings")
 public class ThreatInsightSettings extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies how Okta responds to authentication requests from suspicious IPs. Valid values
-     * are `&#34;none&#34;`, `&#34;audit&#34;`, or `&#34;block&#34;`. A value of `&#34;none&#34;` indicates that ThreatInsight is disabled. A value of `&#34;audit&#34;`
-     * indicates that Okta logs suspicious requests in the System Log. A value of `&#34;block&#34;` indicates that Okta logs suspicious
-     * requests in the System Log and blocks the requests.
+     * Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
      * 
      */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
-     * @return Specifies how Okta responds to authentication requests from suspicious IPs. Valid values
-     * are `&#34;none&#34;`, `&#34;audit&#34;`, or `&#34;block&#34;`. A value of `&#34;none&#34;` indicates that ThreatInsight is disabled. A value of `&#34;audit&#34;`
-     * indicates that Okta logs suspicious requests in the System Log. A value of `&#34;block&#34;` indicates that Okta logs suspicious
-     * requests in the System Log and blocks the requests.
+     * @return Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
      * 
      */
     public Output<String> action() {
         return this.action;
     }
     /**
-     * Accepts a list of Network Zone IDs. Can only accept zones of `&#34;IP&#34;` type.
-     * IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-     * This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone
-     * is not guarantee from the API sides
+     * Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
      * 
      */
     @Export(name="networkExcludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkExcludes;
 
     /**
-     * @return Accepts a list of Network Zone IDs. Can only accept zones of `&#34;IP&#34;` type.
-     * IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation.
-     * This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone
-     * is not guarantee from the API sides
+     * @return Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
      * 
      */
     public Output<Optional<List<String>>> networkExcludes() {

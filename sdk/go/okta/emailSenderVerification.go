@@ -12,9 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **DEPRECATED** use `EmailDomainVerification` instead.
-//
 // Verifies the email sender. The resource won't be created if the email sender could not be verified.
+//
+// > **DEPRECATED** The api for this resource has been deprecated. Please use `EmailDomainVerification` instead.
 //
 // ## Example Usage
 //
@@ -49,14 +49,10 @@ import (
 //	}
 //
 // ```
-//
-// ## Import
-//
-// This resource does not support importing.
 type EmailSenderVerification struct {
 	pulumi.CustomResourceState
 
-	// Email sender ID.
+	// Email sender ID
 	SenderId pulumi.StringOutput `pulumi:"senderId"`
 }
 
@@ -93,12 +89,12 @@ func GetEmailSenderVerification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailSenderVerification resources.
 type emailSenderVerificationState struct {
-	// Email sender ID.
+	// Email sender ID
 	SenderId *string `pulumi:"senderId"`
 }
 
 type EmailSenderVerificationState struct {
-	// Email sender ID.
+	// Email sender ID
 	SenderId pulumi.StringPtrInput
 }
 
@@ -107,13 +103,13 @@ func (EmailSenderVerificationState) ElementType() reflect.Type {
 }
 
 type emailSenderVerificationArgs struct {
-	// Email sender ID.
+	// Email sender ID
 	SenderId string `pulumi:"senderId"`
 }
 
 // The set of arguments for constructing a EmailSenderVerification resource.
 type EmailSenderVerificationArgs struct {
-	// Email sender ID.
+	// Email sender ID
 	SenderId pulumi.StringInput
 }
 
@@ -204,7 +200,7 @@ func (o EmailSenderVerificationOutput) ToEmailSenderVerificationOutputWithContex
 	return o
 }
 
-// Email sender ID.
+// Email sender ID
 func (o EmailSenderVerificationOutput) SenderId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailSenderVerification) pulumi.StringOutput { return v.SenderId }).(pulumi.StringOutput)
 }

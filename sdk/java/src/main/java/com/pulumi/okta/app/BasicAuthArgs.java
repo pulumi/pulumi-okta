@@ -18,14 +18,14 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
     public static final BasicAuthArgs Empty = new BasicAuthArgs();
 
     /**
-     * Custom error page URL.
+     * Custom error page URL
      * 
      */
     @Import(name="accessibilityErrorRedirectUrl")
     private @Nullable Output<String> accessibilityErrorRedirectUrl;
 
     /**
-     * @return Custom error page URL.
+     * @return Custom error page URL
      * 
      */
     public Optional<Output<String>> accessibilityErrorRedirectUrl() {
@@ -33,14 +33,14 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      * 
      */
     @Import(name="accessibilityLoginRedirectUrl")
     private @Nullable Output<String> accessibilityLoginRedirectUrl;
 
     /**
-     * @return Custom login page for this application.
+     * @return Custom login page URL
      * 
      */
     public Optional<Output<String>> accessibilityLoginRedirectUrl() {
@@ -48,14 +48,14 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service. Default is `false`
      * 
      */
     @Import(name="accessibilitySelfService")
     private @Nullable Output<Boolean> accessibilitySelfService;
 
     /**
-     * @return Enable self-service. By default, it is `false`.
+     * @return Enable self service. Default is `false`
      * 
      */
     public Optional<Output<Boolean>> accessibilitySelfService() {
@@ -108,14 +108,14 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      * 
      */
     @Import(name="autoSubmitToolbar")
     private @Nullable Output<Boolean> autoSubmitToolbar;
 
     /**
-     * @return Display auto submit toolbar.
+     * @return Display auto submit toolbar
      * 
      */
     public Optional<Output<Boolean>> autoSubmitToolbar() {
@@ -138,14 +138,14 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      * 
      */
     @Import(name="hideIos")
     private @Nullable Output<Boolean> hideIos;
 
     /**
-     * @return Do not display application icon on mobile app.
+     * @return Do not display application icon on mobile app
      * 
      */
     public Optional<Output<Boolean>> hideIos() {
@@ -153,14 +153,14 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      * 
      */
     @Import(name="hideWeb")
     private @Nullable Output<Boolean> hideWeb;
 
     /**
-     * @return Do not display application icon to users.
+     * @return Do not display application icon to users
      * 
      */
     public Optional<Output<Boolean>> hideWeb() {
@@ -183,14 +183,14 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     @Import(name="logo")
     private @Nullable Output<String> logo;
 
     /**
-     * @return Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * @return Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      * 
      */
     public Optional<Output<String>> logo() {
@@ -198,14 +198,14 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of application. (`&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`).
+     * Status of application. By default, it is `ACTIVE`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of application. (`&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`).
+     * @return Status of application. By default, it is `ACTIVE`
      * 
      */
     public Optional<Output<String>> status() {
@@ -265,7 +265,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL.
+         * @param accessibilityErrorRedirectUrl Custom error page URL
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL.
+         * @param accessibilityErrorRedirectUrl Custom error page URL
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page for this application.
+         * @param accessibilityLoginRedirectUrl Custom login page URL
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page for this application.
+         * @param accessibilityLoginRedirectUrl Custom login page URL
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
+         * @param accessibilitySelfService Enable self service. Default is `false`
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
+         * @param accessibilitySelfService Enable self service. Default is `false`
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar.
+         * @param autoSubmitToolbar Display auto submit toolbar
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar.
+         * @param autoSubmitToolbar Display auto submit toolbar
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app.
+         * @param hideIos Do not display application icon on mobile app
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app.
+         * @param hideIos Do not display application icon on mobile app
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideWeb Do not display application icon to users.
+         * @param hideWeb Do not display application icon to users
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideWeb Do not display application icon to users.
+         * @param hideWeb Do not display application icon to users
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logo Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+         * @param logo Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logo Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+         * @param logo Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of application. (`&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`).
+         * @param status Status of application. By default, it is `ACTIVE`
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of application. (`&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`).
+         * @param status Status of application. By default, it is `ACTIVE`
          * 
          * @return builder
          * 

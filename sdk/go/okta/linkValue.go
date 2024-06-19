@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Link value operations allow you to create relationships between primary and associated users.
+// Manages users relationships. Link value operations allow you to create relationships between primary and associated users.
 //
 // ## Example Usage
 //
@@ -88,19 +88,17 @@ import (
 //
 // ## Import
 //
-// Okta Link Value can be imported via Primary Name and Primary User ID.
-//
 // ```sh
 // $ pulumi import okta:index/linkValue:LinkValue example &#60;primary_name&#62;/&#60;primary_user_id&#62;
 // ```
 type LinkValue struct {
 	pulumi.CustomResourceState
 
-	// Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+	// Set of User IDs or login values of the users to be assigned the `associated` relationship.
 	AssociatedUserIds pulumi.StringArrayOutput `pulumi:"associatedUserIds"`
 	// Name of the `primary` relationship being assigned.
 	PrimaryName pulumi.StringOutput `pulumi:"primaryName"`
-	// User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+	// User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
 	PrimaryUserId pulumi.StringOutput `pulumi:"primaryUserId"`
 }
 
@@ -140,20 +138,20 @@ func GetLinkValue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkValue resources.
 type linkValueState struct {
-	// Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+	// Set of User IDs or login values of the users to be assigned the `associated` relationship.
 	AssociatedUserIds []string `pulumi:"associatedUserIds"`
 	// Name of the `primary` relationship being assigned.
 	PrimaryName *string `pulumi:"primaryName"`
-	// User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+	// User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
 	PrimaryUserId *string `pulumi:"primaryUserId"`
 }
 
 type LinkValueState struct {
-	// Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+	// Set of User IDs or login values of the users to be assigned the `associated` relationship.
 	AssociatedUserIds pulumi.StringArrayInput
 	// Name of the `primary` relationship being assigned.
 	PrimaryName pulumi.StringPtrInput
-	// User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+	// User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
 	PrimaryUserId pulumi.StringPtrInput
 }
 
@@ -162,21 +160,21 @@ func (LinkValueState) ElementType() reflect.Type {
 }
 
 type linkValueArgs struct {
-	// Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+	// Set of User IDs or login values of the users to be assigned the `associated` relationship.
 	AssociatedUserIds []string `pulumi:"associatedUserIds"`
 	// Name of the `primary` relationship being assigned.
 	PrimaryName string `pulumi:"primaryName"`
-	// User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+	// User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
 	PrimaryUserId string `pulumi:"primaryUserId"`
 }
 
 // The set of arguments for constructing a LinkValue resource.
 type LinkValueArgs struct {
-	// Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+	// Set of User IDs or login values of the users to be assigned the `associated` relationship.
 	AssociatedUserIds pulumi.StringArrayInput
 	// Name of the `primary` relationship being assigned.
 	PrimaryName pulumi.StringInput
-	// User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+	// User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
 	PrimaryUserId pulumi.StringInput
 }
 
@@ -267,7 +265,7 @@ func (o LinkValueOutput) ToLinkValueOutputWithContext(ctx context.Context) LinkV
 	return o
 }
 
-// Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+// Set of User IDs or login values of the users to be assigned the `associated` relationship.
 func (o LinkValueOutput) AssociatedUserIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinkValue) pulumi.StringArrayOutput { return v.AssociatedUserIds }).(pulumi.StringArrayOutput)
 }
@@ -277,7 +275,7 @@ func (o LinkValueOutput) PrimaryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkValue) pulumi.StringOutput { return v.PrimaryName }).(pulumi.StringOutput)
 }
 
-// User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+// User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
 func (o LinkValueOutput) PrimaryUserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkValue) pulumi.StringOutput { return v.PrimaryUserId }).(pulumi.StringOutput)
 }

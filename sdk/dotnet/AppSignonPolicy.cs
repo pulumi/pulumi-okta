@@ -12,85 +12,10 @@ namespace Pulumi.Okta
     /// <summary>
     /// ## Example Usage
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
+    /// ## Import
     /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myAppPolicy = new Okta.AppSignonPolicy("my_app_policy", new()
-    ///     {
-    ///         Name = "My App Sign-On Policy",
-    ///         Description = "Authentication Policy to be used on my app.",
-    ///     });
-    /// 
-    ///     var myApp = new Okta.App.OAuth("my_app", new()
-    ///     {
-    ///         Label = "My App",
-    ///         Type = "web",
-    ///         GrantTypes = new[]
-    ///         {
-    ///             "authorization_code",
-    ///         },
-    ///         RedirectUris = new[]
-    ///         {
-    ///             "http://localhost:3000",
-    ///         },
-    ///         PostLogoutRedirectUris = new[]
-    ///         {
-    ///             "http://localhost:3000",
-    ///         },
-    ///         ResponseTypes = new[]
-    ///         {
-    ///             "code",
-    ///         },
-    ///         AuthenticationPolicy = myAppPolicy.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// The created policy can be extended using `app_signon_policy_rules`.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myAppPolicy = new Okta.AppSignonPolicy("my_app_policy", new()
-    ///     {
-    ///         Name = "My App Sign-On Policy",
-    ///         Description = "Authentication Policy to be used on my app.",
-    ///     });
-    /// 
-    ///     var someRule = new Okta.AppSignonPolicyRule("some_rule", new()
-    ///     {
-    ///         PolicyId = oktaAppSignonPolicy.MyAppPolicy.Id,
-    ///         Name = "Some Rule",
-    ///         FactorMode = "1FA",
-    ///         ReAuthenticationFrequency = "PT43800H",
-    ///         Constraints = new[]
-    ///         {
-    ///             JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["knowledge"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["types"] = new[]
-    ///                     {
-    ///                         "password",
-    ///                     },
-    ///                 },
-    ///             }),
-    ///         },
-    ///     });
-    /// 
-    /// });
+    /// ```sh
+    /// $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example &amp;#60;policy_id&amp;#62;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appSignonPolicy:AppSignonPolicy")]

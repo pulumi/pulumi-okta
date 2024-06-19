@@ -13,20 +13,14 @@ namespace Pulumi.Okta.Inputs
     public sealed class AppSignonPolicyRulePlatformIncludeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Only available and required when using `os_type = "OTHER"`
+        /// Only available with OTHER OS type
         /// </summary>
         [Input("osExpression")]
         public Input<string>? OsExpression { get; set; }
 
-        /// <summary>
-        /// One of: `"ANY"`, `"IOS"`, `"WINDOWS"`, `"ANDROID"`, `"OTHER"`, `"OSX"`, `"MACOS"`, `"CHROMEOS"`
-        /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
 
-        /// <summary>
-        /// One of: `"ANY"`, `"MOBILE"`, `"DESKTOP"`
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

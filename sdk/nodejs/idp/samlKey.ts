@@ -29,8 +29,6 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * A SAML IdP Signing Key can be imported via the key id.
- *
  * ```sh
  * $ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
  * ```
@@ -84,7 +82,7 @@ export class SamlKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly use!: pulumi.Output<string>;
     /**
-     * base64-encoded X.509 certificate chain with DER encoding.
+     * base64-encoded X.509 certificate chain with DER encoding
      */
     public readonly x5cs!: pulumi.Output<string[]>;
     /**
@@ -155,7 +153,7 @@ export interface SamlKeyState {
      */
     use?: pulumi.Input<string>;
     /**
-     * base64-encoded X.509 certificate chain with DER encoding.
+     * base64-encoded X.509 certificate chain with DER encoding
      */
     x5cs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -169,7 +167,7 @@ export interface SamlKeyState {
  */
 export interface SamlKeyArgs {
     /**
-     * base64-encoded X.509 certificate chain with DER encoding.
+     * base64-encoded X.509 certificate chain with DER encoding
      */
     x5cs: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -12,76 +12,68 @@ import java.util.Objects;
 @CustomType
 public final class GetSamlAttributeStatement {
     /**
-     * @return Type of group attribute filter.
+     * @return Type of group attribute filter
      * 
      */
     private String filterType;
     /**
-     * @return Filter value to use.
+     * @return Filter value to use
      * 
      */
     private String filterValue;
     /**
-     * @return name of application.
+     * @return The reference name of the attribute statement
      * 
      */
     private String name;
     /**
-     * @return The attribute namespace.
+     * @return The name format of the attribute
      * 
      */
     private String namespace;
     /**
-     * @return The type of attribute statement value.
+     * @return The type of attribute statements object
      * 
      */
     private String type;
-    /**
-     * @return Array of values to use.
-     * 
-     */
     private List<String> values;
 
     private GetSamlAttributeStatement() {}
     /**
-     * @return Type of group attribute filter.
+     * @return Type of group attribute filter
      * 
      */
     public String filterType() {
         return this.filterType;
     }
     /**
-     * @return Filter value to use.
+     * @return Filter value to use
      * 
      */
     public String filterValue() {
         return this.filterValue;
     }
     /**
-     * @return name of application.
+     * @return The reference name of the attribute statement
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The attribute namespace.
+     * @return The name format of the attribute
      * 
      */
     public String namespace() {
         return this.namespace;
     }
     /**
-     * @return The type of attribute statement value.
+     * @return The type of attribute statements object
      * 
      */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Array of values to use.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

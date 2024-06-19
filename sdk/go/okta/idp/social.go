@@ -12,9 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a Social Identity Provider.
-//
-// This resource allows you to create and configure a Social Identity Provider.
+// Creates a Social Identity Provider. This resource allows you to create and configure a Social Identity Provider.
 //
 // ## Example Usage
 //
@@ -53,27 +51,23 @@ import (
 //
 // ## Import
 //
-// A Social IdP can be imported via the Okta ID.
-//
 // ```sh
 // $ pulumi import okta:idp/social:Social example &#60;idp id&#62;
 // ```
 type Social struct {
 	pulumi.CustomResourceState
 
-	// Specifies the account linking action for an IdP user.
+	// Specifies the account linking action for an IdP user. Default: `AUTO`
 	AccountLinkAction pulumi.StringPtrOutput `pulumi:"accountLinkAction"`
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes pulumi.StringArrayOutput `pulumi:"accountLinkGroupIncludes"`
-	// The Key ID that you obtained from Apple when you created the private key for the client.
+	// The Key ID that you obtained from Apple when you created the private key for the client
 	AppleKid pulumi.StringPtrOutput `pulumi:"appleKid"`
-	// The Key ID that you obtained from Apple when you created the private
-	// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
-	// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+	// The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
 	ApplePrivateKey pulumi.StringPtrOutput `pulumi:"applePrivateKey"`
-	// The Team ID associated with your Apple developer account.
+	// The Team ID associated with your Apple developer account
 	AppleTeamId pulumi.StringPtrOutput `pulumi:"appleTeamId"`
-	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+	// The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
 	AuthorizationBinding pulumi.StringOutput `pulumi:"authorizationBinding"`
 	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
 	AuthorizationUrl pulumi.StringOutput `pulumi:"authorizationUrl"`
@@ -81,45 +75,55 @@ type Social struct {
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
 	// Client secret issued by AS for the Okta IdP instance.
 	ClientSecret pulumi.StringPtrOutput `pulumi:"clientSecret"`
-	// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+	// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	DeprovisionedAction pulumi.StringPtrOutput `pulumi:"deprovisionedAction"`
-	// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+	// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
 	GroupsAction pulumi.StringPtrOutput `pulumi:"groupsAction"`
-	// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
+	// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
 	GroupsAssignments pulumi.StringArrayOutput `pulumi:"groupsAssignments"`
 	// IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
 	GroupsAttribute pulumi.StringPtrOutput `pulumi:"groupsAttribute"`
-	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
+	// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 	GroupsFilters pulumi.StringArrayOutput `pulumi:"groupsFilters"`
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew pulumi.IntPtrOutput `pulumi:"maxClockSkew"`
-	// The Application's display name.
+	// Name of the IdP
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster pulumi.BoolPtrOutput `pulumi:"profileMaster"`
-	// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+	// The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
 	ProtocolType pulumi.StringPtrOutput `pulumi:"protocolType"`
-	// Provisioning action for an IdP user during authentication.
+	// Provisioning action for an IdP user during authentication. Default: `AUTO`
 	ProvisioningAction pulumi.StringPtrOutput `pulumi:"provisioningAction"`
 	// The scopes of the IdP.
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
-	// Status of the IdP.
+	// Default to `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+	// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
 	SubjectMatchAttribute pulumi.StringPtrOutput `pulumi:"subjectMatchAttribute"`
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
 	SubjectMatchType pulumi.StringPtrOutput `pulumi:"subjectMatchType"`
-	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+	// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	SuspendedAction pulumi.StringPtrOutput `pulumi:"suspendedAction"`
-	// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+	// The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
 	TokenBinding pulumi.StringOutput `pulumi:"tokenBinding"`
 	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
 	TokenUrl pulumi.StringOutput `pulumi:"tokenUrl"`
-	// The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+	// Trust audience for the Okta IdP instance.
+	TrustAudience pulumi.StringOutput `pulumi:"trustAudience"`
+	// Trust issuer for the Okta IdP instance.
+	TrustIssuer pulumi.StringOutput `pulumi:"trustIssuer"`
+	// Trust kid for the Okta IdP instance.
+	TrustKid pulumi.StringOutput `pulumi:"trustKid"`
+	// Trust revocation for the Okta IdP instance.
+	TrustRevocation pulumi.StringOutput `pulumi:"trustRevocation"`
+	// Trust revocation cache lifetime for the Okta IdP instance.
+	TrustRevocationCacheLifetime pulumi.IntOutput `pulumi:"trustRevocationCacheLifetime"`
+	// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Okta EL Expression to generate or transform a unique username for the IdP user.
+	// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 	UsernameTemplate pulumi.StringPtrOutput `pulumi:"usernameTemplate"`
 }
 
@@ -170,19 +174,17 @@ func GetSocial(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Social resources.
 type socialState struct {
-	// Specifies the account linking action for an IdP user.
+	// Specifies the account linking action for an IdP user. Default: `AUTO`
 	AccountLinkAction *string `pulumi:"accountLinkAction"`
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	// The Key ID that you obtained from Apple when you created the private key for the client.
+	// The Key ID that you obtained from Apple when you created the private key for the client
 	AppleKid *string `pulumi:"appleKid"`
-	// The Key ID that you obtained from Apple when you created the private
-	// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
-	// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+	// The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
 	ApplePrivateKey *string `pulumi:"applePrivateKey"`
-	// The Team ID associated with your Apple developer account.
+	// The Team ID associated with your Apple developer account
 	AppleTeamId *string `pulumi:"appleTeamId"`
-	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+	// The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
 	AuthorizationBinding *string `pulumi:"authorizationBinding"`
 	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
 	AuthorizationUrl *string `pulumi:"authorizationUrl"`
@@ -190,62 +192,70 @@ type socialState struct {
 	ClientId *string `pulumi:"clientId"`
 	// Client secret issued by AS for the Okta IdP instance.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+	// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	DeprovisionedAction *string `pulumi:"deprovisionedAction"`
-	// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+	// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
 	GroupsAction *string `pulumi:"groupsAction"`
-	// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
+	// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
 	GroupsAssignments []string `pulumi:"groupsAssignments"`
 	// IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
 	GroupsAttribute *string `pulumi:"groupsAttribute"`
-	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
+	// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 	GroupsFilters []string `pulumi:"groupsFilters"`
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
 	IssuerMode *string `pulumi:"issuerMode"`
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew *int `pulumi:"maxClockSkew"`
-	// The Application's display name.
+	// Name of the IdP
 	Name *string `pulumi:"name"`
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster *bool `pulumi:"profileMaster"`
-	// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+	// The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
 	ProtocolType *string `pulumi:"protocolType"`
-	// Provisioning action for an IdP user during authentication.
+	// Provisioning action for an IdP user during authentication. Default: `AUTO`
 	ProvisioningAction *string `pulumi:"provisioningAction"`
 	// The scopes of the IdP.
 	Scopes []string `pulumi:"scopes"`
-	// Status of the IdP.
+	// Default to `ACTIVE`
 	Status *string `pulumi:"status"`
-	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+	// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
 	SubjectMatchAttribute *string `pulumi:"subjectMatchAttribute"`
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
 	SubjectMatchType *string `pulumi:"subjectMatchType"`
-	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+	// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	SuspendedAction *string `pulumi:"suspendedAction"`
-	// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+	// The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
 	TokenBinding *string `pulumi:"tokenBinding"`
 	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
 	TokenUrl *string `pulumi:"tokenUrl"`
-	// The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+	// Trust audience for the Okta IdP instance.
+	TrustAudience *string `pulumi:"trustAudience"`
+	// Trust issuer for the Okta IdP instance.
+	TrustIssuer *string `pulumi:"trustIssuer"`
+	// Trust kid for the Okta IdP instance.
+	TrustKid *string `pulumi:"trustKid"`
+	// Trust revocation for the Okta IdP instance.
+	TrustRevocation *string `pulumi:"trustRevocation"`
+	// Trust revocation cache lifetime for the Okta IdP instance.
+	TrustRevocationCacheLifetime *int `pulumi:"trustRevocationCacheLifetime"`
+	// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
 	Type *string `pulumi:"type"`
-	// Okta EL Expression to generate or transform a unique username for the IdP user.
+	// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 	UsernameTemplate *string `pulumi:"usernameTemplate"`
 }
 
 type SocialState struct {
-	// Specifies the account linking action for an IdP user.
+	// Specifies the account linking action for an IdP user. Default: `AUTO`
 	AccountLinkAction pulumi.StringPtrInput
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	// The Key ID that you obtained from Apple when you created the private key for the client.
+	// The Key ID that you obtained from Apple when you created the private key for the client
 	AppleKid pulumi.StringPtrInput
-	// The Key ID that you obtained from Apple when you created the private
-	// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
-	// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+	// The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
 	ApplePrivateKey pulumi.StringPtrInput
-	// The Team ID associated with your Apple developer account.
+	// The Team ID associated with your Apple developer account
 	AppleTeamId pulumi.StringPtrInput
-	// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+	// The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
 	AuthorizationBinding pulumi.StringPtrInput
 	// IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
 	AuthorizationUrl pulumi.StringPtrInput
@@ -253,45 +263,55 @@ type SocialState struct {
 	ClientId pulumi.StringPtrInput
 	// Client secret issued by AS for the Okta IdP instance.
 	ClientSecret pulumi.StringPtrInput
-	// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+	// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	DeprovisionedAction pulumi.StringPtrInput
-	// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+	// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
 	GroupsAction pulumi.StringPtrInput
-	// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
+	// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
 	GroupsAssignments pulumi.StringArrayInput
 	// IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
 	GroupsAttribute pulumi.StringPtrInput
-	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
+	// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 	GroupsFilters pulumi.StringArrayInput
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
 	IssuerMode pulumi.StringPtrInput
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew pulumi.IntPtrInput
-	// The Application's display name.
+	// Name of the IdP
 	Name pulumi.StringPtrInput
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster pulumi.BoolPtrInput
-	// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+	// The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
 	ProtocolType pulumi.StringPtrInput
-	// Provisioning action for an IdP user during authentication.
+	// Provisioning action for an IdP user during authentication. Default: `AUTO`
 	ProvisioningAction pulumi.StringPtrInput
 	// The scopes of the IdP.
 	Scopes pulumi.StringArrayInput
-	// Status of the IdP.
+	// Default to `ACTIVE`
 	Status pulumi.StringPtrInput
-	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+	// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
 	SubjectMatchAttribute pulumi.StringPtrInput
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
 	SubjectMatchType pulumi.StringPtrInput
-	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+	// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	SuspendedAction pulumi.StringPtrInput
-	// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+	// The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
 	TokenBinding pulumi.StringPtrInput
 	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
 	TokenUrl pulumi.StringPtrInput
-	// The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+	// Trust audience for the Okta IdP instance.
+	TrustAudience pulumi.StringPtrInput
+	// Trust issuer for the Okta IdP instance.
+	TrustIssuer pulumi.StringPtrInput
+	// Trust kid for the Okta IdP instance.
+	TrustKid pulumi.StringPtrInput
+	// Trust revocation for the Okta IdP instance.
+	TrustRevocation pulumi.StringPtrInput
+	// Trust revocation cache lifetime for the Okta IdP instance.
+	TrustRevocationCacheLifetime pulumi.IntPtrInput
+	// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
 	Type pulumi.StringPtrInput
-	// Okta EL Expression to generate or transform a unique username for the IdP user.
+	// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 	UsernameTemplate pulumi.StringPtrInput
 }
 
@@ -300,113 +320,109 @@ func (SocialState) ElementType() reflect.Type {
 }
 
 type socialArgs struct {
-	// Specifies the account linking action for an IdP user.
+	// Specifies the account linking action for an IdP user. Default: `AUTO`
 	AccountLinkAction *string `pulumi:"accountLinkAction"`
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes []string `pulumi:"accountLinkGroupIncludes"`
-	// The Key ID that you obtained from Apple when you created the private key for the client.
+	// The Key ID that you obtained from Apple when you created the private key for the client
 	AppleKid *string `pulumi:"appleKid"`
-	// The Key ID that you obtained from Apple when you created the private
-	// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
-	// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+	// The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
 	ApplePrivateKey *string `pulumi:"applePrivateKey"`
-	// The Team ID associated with your Apple developer account.
+	// The Team ID associated with your Apple developer account
 	AppleTeamId *string `pulumi:"appleTeamId"`
 	// Unique identifier issued by AS for the Okta IdP instance.
 	ClientId *string `pulumi:"clientId"`
 	// Client secret issued by AS for the Okta IdP instance.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+	// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	DeprovisionedAction *string `pulumi:"deprovisionedAction"`
-	// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+	// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
 	GroupsAction *string `pulumi:"groupsAction"`
-	// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
+	// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
 	GroupsAssignments []string `pulumi:"groupsAssignments"`
 	// IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
 	GroupsAttribute *string `pulumi:"groupsAttribute"`
-	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
+	// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 	GroupsFilters []string `pulumi:"groupsFilters"`
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
 	IssuerMode *string `pulumi:"issuerMode"`
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew *int `pulumi:"maxClockSkew"`
-	// The Application's display name.
+	// Name of the IdP
 	Name *string `pulumi:"name"`
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster *bool `pulumi:"profileMaster"`
-	// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+	// The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
 	ProtocolType *string `pulumi:"protocolType"`
-	// Provisioning action for an IdP user during authentication.
+	// Provisioning action for an IdP user during authentication. Default: `AUTO`
 	ProvisioningAction *string `pulumi:"provisioningAction"`
 	// The scopes of the IdP.
 	Scopes []string `pulumi:"scopes"`
-	// Status of the IdP.
+	// Default to `ACTIVE`
 	Status *string `pulumi:"status"`
-	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+	// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
 	SubjectMatchAttribute *string `pulumi:"subjectMatchAttribute"`
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
 	SubjectMatchType *string `pulumi:"subjectMatchType"`
-	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+	// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	SuspendedAction *string `pulumi:"suspendedAction"`
-	// The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+	// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
 	Type string `pulumi:"type"`
-	// Okta EL Expression to generate or transform a unique username for the IdP user.
+	// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 	UsernameTemplate *string `pulumi:"usernameTemplate"`
 }
 
 // The set of arguments for constructing a Social resource.
 type SocialArgs struct {
-	// Specifies the account linking action for an IdP user.
+	// Specifies the account linking action for an IdP user. Default: `AUTO`
 	AccountLinkAction pulumi.StringPtrInput
 	// Group memberships to determine link candidates.
 	AccountLinkGroupIncludes pulumi.StringArrayInput
-	// The Key ID that you obtained from Apple when you created the private key for the client.
+	// The Key ID that you obtained from Apple when you created the private key for the client
 	AppleKid pulumi.StringPtrInput
-	// The Key ID that you obtained from Apple when you created the private
-	// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
-	// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+	// The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
 	ApplePrivateKey pulumi.StringPtrInput
-	// The Team ID associated with your Apple developer account.
+	// The Team ID associated with your Apple developer account
 	AppleTeamId pulumi.StringPtrInput
 	// Unique identifier issued by AS for the Okta IdP instance.
 	ClientId pulumi.StringPtrInput
 	// Client secret issued by AS for the Okta IdP instance.
 	ClientSecret pulumi.StringPtrInput
-	// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+	// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	DeprovisionedAction pulumi.StringPtrInput
-	// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+	// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
 	GroupsAction pulumi.StringPtrInput
-	// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
+	// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
 	GroupsAssignments pulumi.StringArrayInput
 	// IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
 	GroupsAttribute pulumi.StringPtrInput
-	// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
+	// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 	GroupsFilters pulumi.StringArrayInput
-	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
 	IssuerMode pulumi.StringPtrInput
 	// Maximum allowable clock-skew when processing messages from the IdP.
 	MaxClockSkew pulumi.IntPtrInput
-	// The Application's display name.
+	// Name of the IdP
 	Name pulumi.StringPtrInput
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster pulumi.BoolPtrInput
-	// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+	// The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
 	ProtocolType pulumi.StringPtrInput
-	// Provisioning action for an IdP user during authentication.
+	// Provisioning action for an IdP user during authentication. Default: `AUTO`
 	ProvisioningAction pulumi.StringPtrInput
 	// The scopes of the IdP.
 	Scopes pulumi.StringArrayInput
-	// Status of the IdP.
+	// Default to `ACTIVE`
 	Status pulumi.StringPtrInput
-	// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+	// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
 	SubjectMatchAttribute pulumi.StringPtrInput
-	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+	// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
 	SubjectMatchType pulumi.StringPtrInput
-	// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+	// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	SuspendedAction pulumi.StringPtrInput
-	// The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+	// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
 	Type pulumi.StringInput
-	// Okta EL Expression to generate or transform a unique username for the IdP user.
+	// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 	UsernameTemplate pulumi.StringPtrInput
 }
 
@@ -497,7 +513,7 @@ func (o SocialOutput) ToSocialOutputWithContext(ctx context.Context) SocialOutpu
 	return o
 }
 
-// Specifies the account linking action for an IdP user.
+// Specifies the account linking action for an IdP user. Default: `AUTO`
 func (o SocialOutput) AccountLinkAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.AccountLinkAction }).(pulumi.StringPtrOutput)
 }
@@ -507,24 +523,22 @@ func (o SocialOutput) AccountLinkGroupIncludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringArrayOutput { return v.AccountLinkGroupIncludes }).(pulumi.StringArrayOutput)
 }
 
-// The Key ID that you obtained from Apple when you created the private key for the client.
+// The Key ID that you obtained from Apple when you created the private key for the client
 func (o SocialOutput) AppleKid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.AppleKid }).(pulumi.StringPtrOutput)
 }
 
-// The Key ID that you obtained from Apple when you created the private
-// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
-// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+// The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
 func (o SocialOutput) ApplePrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ApplePrivateKey }).(pulumi.StringPtrOutput)
 }
 
-// The Team ID associated with your Apple developer account.
+// The Team ID associated with your Apple developer account
 func (o SocialOutput) AppleTeamId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.AppleTeamId }).(pulumi.StringPtrOutput)
 }
 
-// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+// The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
 func (o SocialOutput) AuthorizationBinding() pulumi.StringOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.AuthorizationBinding }).(pulumi.StringOutput)
 }
@@ -544,17 +558,17 @@ func (o SocialOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
-// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 func (o SocialOutput) DeprovisionedAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.DeprovisionedAction }).(pulumi.StringPtrOutput)
 }
 
-// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
 func (o SocialOutput) GroupsAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.GroupsAction }).(pulumi.StringPtrOutput)
 }
 
-// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groupsAction`.
+// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
 func (o SocialOutput) GroupsAssignments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringArrayOutput { return v.GroupsAssignments }).(pulumi.StringArrayOutput)
 }
@@ -564,12 +578,12 @@ func (o SocialOutput) GroupsAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.GroupsAttribute }).(pulumi.StringPtrOutput)
 }
 
-// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groupsAction`.
+// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 func (o SocialOutput) GroupsFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringArrayOutput { return v.GroupsFilters }).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
 func (o SocialOutput) IssuerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
 }
@@ -579,7 +593,7 @@ func (o SocialOutput) MaxClockSkew() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.IntPtrOutput { return v.MaxClockSkew }).(pulumi.IntPtrOutput)
 }
 
-// The Application's display name.
+// Name of the IdP
 func (o SocialOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -589,12 +603,12 @@ func (o SocialOutput) ProfileMaster() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.BoolPtrOutput { return v.ProfileMaster }).(pulumi.BoolPtrOutput)
 }
 
-// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+// The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
 func (o SocialOutput) ProtocolType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ProtocolType }).(pulumi.StringPtrOutput)
 }
 
-// Provisioning action for an IdP user during authentication.
+// Provisioning action for an IdP user during authentication. Default: `AUTO`
 func (o SocialOutput) ProvisioningAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
 }
@@ -604,27 +618,27 @@ func (o SocialOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
 }
 
-// Status of the IdP.
+// Default to `ACTIVE`
 func (o SocialOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
 func (o SocialOutput) SubjectMatchAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.SubjectMatchAttribute }).(pulumi.StringPtrOutput)
 }
 
-// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
 func (o SocialOutput) SubjectMatchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.SubjectMatchType }).(pulumi.StringPtrOutput)
 }
 
-// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 func (o SocialOutput) SuspendedAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.SuspendedAction }).(pulumi.StringPtrOutput)
 }
 
-// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+// The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
 func (o SocialOutput) TokenBinding() pulumi.StringOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.TokenBinding }).(pulumi.StringOutput)
 }
@@ -634,12 +648,37 @@ func (o SocialOutput) TokenUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.TokenUrl }).(pulumi.StringOutput)
 }
 
-// The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+// Trust audience for the Okta IdP instance.
+func (o SocialOutput) TrustAudience() pulumi.StringOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.TrustAudience }).(pulumi.StringOutput)
+}
+
+// Trust issuer for the Okta IdP instance.
+func (o SocialOutput) TrustIssuer() pulumi.StringOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.TrustIssuer }).(pulumi.StringOutput)
+}
+
+// Trust kid for the Okta IdP instance.
+func (o SocialOutput) TrustKid() pulumi.StringOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.TrustKid }).(pulumi.StringOutput)
+}
+
+// Trust revocation for the Okta IdP instance.
+func (o SocialOutput) TrustRevocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.TrustRevocation }).(pulumi.StringOutput)
+}
+
+// Trust revocation cache lifetime for the Okta IdP instance.
+func (o SocialOutput) TrustRevocationCacheLifetime() pulumi.IntOutput {
+	return o.ApplyT(func(v *Social) pulumi.IntOutput { return v.TrustRevocationCacheLifetime }).(pulumi.IntOutput)
+}
+
+// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
 func (o SocialOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Okta EL Expression to generate or transform a unique username for the IdP user.
+// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 func (o SocialOutput) UsernameTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.UsernameTemplate }).(pulumi.StringPtrOutput)
 }

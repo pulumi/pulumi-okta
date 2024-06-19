@@ -12,6 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages assignment of Access Policy to an Application.
+//
+// **Warning**: do not use as this will update okta_app_*.authentication_policy and vice versa
+//
 // Assigns an access policy (colloquially known as a sign-on policy and/or an
 // authentication policy) to an application. This resource does not perform true
 // delete as it will not delete an application and the app's access policy can't be
@@ -25,9 +29,48 @@ import (
 // policy_, in the public API the policy is of type
 // [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
 //
-// ## Import
+// ## Example Usage
 //
-// An Okta App's Access Policy Assignment can be imported via its associated Application ID.
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			access, err := policy.GetPolicy(ctx, &policy.GetPolicyArgs{
+//				Name: "Any two factors",
+//				Type: "ACCESS_POLICY",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := app.GetApp(ctx, &app.GetAppArgs{
+//				Label: pulumi.StringRef("Example App"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = app.NewAccessPolicyAssignment(ctx, "assignment", &app.AccessPolicyAssignmentArgs{
+//				AppId:    pulumi.String(example.Id),
+//				PolicyId: pulumi.String(access.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
 //
 // ```sh
 // $ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example &#60;app id&#62;

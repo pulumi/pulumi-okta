@@ -101,43 +101,10 @@ class AppSignonPolicy(pulumi.CustomResource):
         """
         ## Example Usage
 
-        ```python
-        import pulumi
-        import pulumi_okta as okta
+        ## Import
 
-        my_app_policy = okta.AppSignonPolicy("my_app_policy",
-            name="My App Sign-On Policy",
-            description="Authentication Policy to be used on my app.")
-        my_app = okta.app.OAuth("my_app",
-            label="My App",
-            type="web",
-            grant_types=["authorization_code"],
-            redirect_uris=["http://localhost:3000"],
-            post_logout_redirect_uris=["http://localhost:3000"],
-            response_types=["code"],
-            authentication_policy=my_app_policy.id)
-        ```
-
-        The created policy can be extended using `app_signon_policy_rules`.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_okta as okta
-
-        my_app_policy = okta.AppSignonPolicy("my_app_policy",
-            name="My App Sign-On Policy",
-            description="Authentication Policy to be used on my app.")
-        some_rule = okta.AppSignonPolicyRule("some_rule",
-            policy_id=okta_app_signon_policy["myAppPolicy"]["id"],
-            name="Some Rule",
-            factor_mode="1FA",
-            re_authentication_frequency="PT43800H",
-            constraints=[json.dumps({
-                "knowledge": {
-                    "types": ["password"],
-                },
-            })])
+        ```sh
+        $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example &#60;policy_id&#62;
         ```
 
         :param str resource_name: The name of the resource.
@@ -154,43 +121,10 @@ class AppSignonPolicy(pulumi.CustomResource):
         """
         ## Example Usage
 
-        ```python
-        import pulumi
-        import pulumi_okta as okta
+        ## Import
 
-        my_app_policy = okta.AppSignonPolicy("my_app_policy",
-            name="My App Sign-On Policy",
-            description="Authentication Policy to be used on my app.")
-        my_app = okta.app.OAuth("my_app",
-            label="My App",
-            type="web",
-            grant_types=["authorization_code"],
-            redirect_uris=["http://localhost:3000"],
-            post_logout_redirect_uris=["http://localhost:3000"],
-            response_types=["code"],
-            authentication_policy=my_app_policy.id)
-        ```
-
-        The created policy can be extended using `app_signon_policy_rules`.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_okta as okta
-
-        my_app_policy = okta.AppSignonPolicy("my_app_policy",
-            name="My App Sign-On Policy",
-            description="Authentication Policy to be used on my app.")
-        some_rule = okta.AppSignonPolicyRule("some_rule",
-            policy_id=okta_app_signon_policy["myAppPolicy"]["id"],
-            name="Some Rule",
-            factor_mode="1FA",
-            re_authentication_frequency="PT43800H",
-            constraints=[json.dumps({
-                "knowledge": {
-                    "types": ["password"],
-                },
-            })])
+        ```sh
+        $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example &#60;policy_id&#62;
         ```
 
         :param str resource_name: The name of the resource.

@@ -17,9 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates an Okta SMS Template.
- * 
- * This resource allows you to create and configure an Okta SMS Template.
+ * Creates an Okta SMS Template. This resource allows you to create and configure an Okta SMS Template.
  * 
  * ## Example Usage
  * 
@@ -69,8 +67,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An Okta SMS Template can be imported via the template type.
- * 
  * ```sh
  * $ pulumi import okta:index/templateSms:TemplateSms example &amp;#60;template type&amp;#62;
  * ```
@@ -79,14 +75,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/templateSms:TemplateSms")
 public class TemplateSms extends com.pulumi.resources.CustomResource {
     /**
-     * Default SMS message
+     * SMS default template
      * 
      */
     @Export(name="template", refs={String.class}, tree="[0]")
     private Output<String> template;
 
     /**
-     * @return Default SMS message
+     * @return SMS default template
      * 
      */
     public Output<String> template() {

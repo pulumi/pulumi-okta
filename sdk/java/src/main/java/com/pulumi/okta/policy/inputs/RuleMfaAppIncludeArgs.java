@@ -16,47 +16,23 @@ public final class RuleMfaAppIncludeArgs extends com.pulumi.resources.ResourceAr
 
     public static final RuleMfaAppIncludeArgs Empty = new RuleMfaAppIncludeArgs();
 
-    /**
-     * Use if `type` is `&#34;APP&#34;` to indicate the application id to include.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Use if `type` is `&#34;APP&#34;` to indicate the application id to include.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * One of: `&#34;APP&#34;`, `&#34;APP_TYPE&#34;`
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return One of: `&#34;APP&#34;`, `&#34;APP_TYPE&#34;`
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -87,65 +63,29 @@ public final class RuleMfaAppIncludeArgs extends com.pulumi.resources.ResourceAr
             $ = new RuleMfaAppIncludeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Use if `type` is `&#34;APP&#34;` to indicate the application id to include.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Use if `type` is `&#34;APP&#34;` to indicate the application id to include.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param name Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Use if the `type` is `&#34;APP_TYPE&#34;` to indicate the type of application(s) to include in instances where an entire group (i.e. `yahoo_mail`) of applications should be included.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param type One of: `&#34;APP&#34;`, `&#34;APP_TYPE&#34;`
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type One of: `&#34;APP&#34;`, `&#34;APP_TYPE&#34;`
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

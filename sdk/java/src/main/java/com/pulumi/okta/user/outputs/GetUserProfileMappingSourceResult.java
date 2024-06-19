@@ -11,38 +11,38 @@ import java.util.Objects;
 @CustomType
 public final class GetUserProfileMappingSourceResult {
     /**
-     * @return id of the source.
+     * @return ID of the source
      * 
      */
     private String id;
     /**
-     * @return name of source.
+     * @return Name of source.
      * 
      */
     private String name;
     /**
-     * @return type of source.
+     * @return Type of source.
      * 
      */
     private String type;
 
     private GetUserProfileMappingSourceResult() {}
     /**
-     * @return id of the source.
+     * @return ID of the source
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return name of source.
+     * @return Name of source.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return type of source.
+     * @return Type of source.
      * 
      */
     public String type() {

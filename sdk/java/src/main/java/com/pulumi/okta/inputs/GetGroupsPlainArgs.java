@@ -15,14 +15,14 @@ public final class GetGroupsPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetGroupsPlainArgs Empty = new GetGroupsPlainArgs();
 
     /**
-     * Searches the name property of groups for matching value.
+     * Searches the name property of groups for matching value
      * 
      */
     @Import(name="q")
     private @Nullable String q;
 
     /**
-     * @return Searches the name property of groups for matching value.
+     * @return Searches the name property of groups for matching value
      * 
      */
     public Optional<String> q() {
@@ -30,39 +30,23 @@ public final class GetGroupsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Searches for groups with a
-     * supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
-     * all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
-     * except for `&#34;_embedded&#34;`, `&#34;_links&#34;`, and `&#34;objectClass&#34;`
+     * Searches for groups with a supported filtering expression for all attributes except for &#39;*embedded&#39;, &#39;*links&#39;, and &#39;objectClass&#39;
      * 
      */
     @Import(name="search")
     private @Nullable String search;
 
     /**
-     * @return Searches for groups with a
-     * supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
-     * all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
-     * except for `&#34;_embedded&#34;`, `&#34;_links&#34;`, and `&#34;objectClass&#34;`
+     * @return Searches for groups with a supported filtering expression for all attributes except for &#39;*embedded&#39;, &#39;*links&#39;, and &#39;objectClass&#39;
      * 
      */
     public Optional<String> search() {
         return Optional.ofNullable(this.search);
     }
 
-    /**
-     * type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-     * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
-     * 
-     */
     @Import(name="type")
     private @Nullable String type;
 
-    /**
-     * @return type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-     * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
@@ -94,7 +78,7 @@ public final class GetGroupsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param q Searches the name property of groups for matching value.
+         * @param q Searches the name property of groups for matching value
          * 
          * @return builder
          * 
@@ -105,10 +89,7 @@ public final class GetGroupsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param search Searches for groups with a
-         * supported [filtering](https://developer.okta.com/docs/reference/api-overview/#filtering) expression for
-         * all [attributes](https://developer.okta.com/docs/reference/api/groups/#group-attributes)
-         * except for `&#34;_embedded&#34;`, `&#34;_links&#34;`, and `&#34;objectClass&#34;`
+         * @param search Searches for groups with a supported filtering expression for all attributes except for &#39;*embedded&#39;, &#39;*links&#39;, and &#39;objectClass&#39;
          * 
          * @return builder
          * 
@@ -118,13 +99,6 @@ public final class GetGroupsPlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
-        /**
-         * @param type type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-         * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable String type) {
             $.type = type;
             return this;

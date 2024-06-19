@@ -10,54 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
-    /// Manages assignment of an admin role to an OAuth application.
-    /// 
-    /// This resource allows you to assign an Okta admin role to a OAuth service application. This requires the Okta tenant feature flag for this function to be enabled.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Standard Role:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Okta.App.OAuth("test", new()
-    ///     {
-    ///         Label = "test",
-    ///         Type = "service",
-    ///         ResponseTypes = new[]
-    ///         {
-    ///             "token",
-    ///         },
-    ///         GrantTypes = new[]
-    ///         {
-    ///             "client_credentials",
-    ///         },
-    ///         JwksUri = "https://example.com",
-    ///     });
-    /// 
-    ///     var testOauthRoleAssignment = new Okta.App.OauthRoleAssignment("test", new()
-    ///     {
-    ///         ClientId = test.ClientId,
-    ///         Type = "HELP_DESK_ADMIN",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// Custom Role:
+    /// Manages assignment of an admin role to an OAuth application
+    /// 		This resource allows you to assign an Okta admin role to a OAuth
+    /// 		service application. This requires the Okta tenant feature flag for this function to be enabled.
     /// 
     /// ## Import
     /// 
-    /// OAuth Role assignment can be imported by passing the Client ID and Role Assignment ID for the specific client role.
-    /// 
     /// ```sh
-    /// $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test &lt;clientID&gt;/&lt;roleAssignmentID&gt;`
+    /// $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test &lt;clientID&gt;/&lt;roleAssignmentID&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/oauthRoleAssignment:OauthRoleAssignment")]

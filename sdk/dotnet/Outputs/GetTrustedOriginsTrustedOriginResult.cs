@@ -18,19 +18,19 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly bool Active;
         /// <summary>
-        /// The ID of the Trusted Origin.
+        /// Unique identifier
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Unique name for this trusted origin.
+        /// Unique name for this trusted origin
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Unique origin URL for this trusted origin.
+        /// Unique origin URL for this trusted origin
         /// </summary>
         public readonly string Origin;
         /// <summary>
-        /// Scopes of the Trusted Origin
+        /// Scopes of the Trusted Origin - can either be CORS or REDIRECT only
         /// </summary>
         public readonly ImmutableArray<string> Scopes;
 

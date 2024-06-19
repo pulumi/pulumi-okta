@@ -16,13 +16,17 @@ public final class GetPolicyResult {
      */
     private String id;
     /**
-     * @return name of policy.
+     * @return Name of the policy
      * 
      */
     private String name;
+    /**
+     * @return Status of the policy
+     * 
+     */
     private String status;
     /**
-     * @return type of policy.
+     * @return Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
      * 
      */
     private String type;
@@ -36,17 +40,21 @@ public final class GetPolicyResult {
         return this.id;
     }
     /**
-     * @return name of policy.
+     * @return Name of the policy
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Status of the policy
+     * 
+     */
     public String status() {
         return this.status;
     }
     /**
-     * @return type of policy.
+     * @return Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
      * 
      */
     public String type() {

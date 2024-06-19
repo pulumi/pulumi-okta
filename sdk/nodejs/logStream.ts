@@ -7,19 +7,33 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Creates an Okta Log Stream.
- *
- * This resource allows you to create and configure an Okta Log Stream.
+ * Manages log streams
  *
  * ## Example Usage
  *
- * ## Import
+ * ### AWS EventBridge
+ * resource "okta.LogStream" "example" {
+ *   name   = "EventBridge Log Stream"
+ *   type   = "awsEventbridge"
+ *   status = "ACTIVE"
+ *   settings {
+ *     accountId        = "123456789012"
+ *     region            = "us-north-1"
+ *     eventSourceName = "okta.LogStream"
+ *   }
+ * }
  *
- * Okta Log Stream can be imported via the Okta ID.
- *
- * ```sh
- * $ pulumi import okta:index/logStream:LogStream example &#60;strema id&#62;
- * ```
+ * ### Splunk Event Collector
+ * resource "okta.LogStream" "example" {
+ *   name   = "Splunk log Stream"
+ *   type   = "splunkCloudLogstreaming"
+ *   status = "ACTIVE"
+ *   settings {
+ *     host    = "acme.splunkcloud.com"
+ *     edition = "gcp"
+ *     token   = "YOUR_HEC_TOKEN"
+ *   }
+ * }
  */
 export class LogStream extends pulumi.CustomResource {
     /**
@@ -50,19 +64,16 @@ export class LogStream extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the Log Stream Resource.
+     * Unique name for the Log Stream object
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Stream provider specific configuration.
-     */
     public readonly settings!: pulumi.Output<outputs.LogStreamSettings | undefined>;
     /**
-     * Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+     * Stream status
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Type of the Log Stream - can either be `"awsEventbridge"` or `"splunkCloudLogstreaming"` only.
+     * Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -103,19 +114,16 @@ export class LogStream extends pulumi.CustomResource {
  */
 export interface LogStreamState {
     /**
-     * Name of the Log Stream Resource.
+     * Unique name for the Log Stream object
      */
     name?: pulumi.Input<string>;
-    /**
-     * Stream provider specific configuration.
-     */
     settings?: pulumi.Input<inputs.LogStreamSettings>;
     /**
-     * Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+     * Stream status
      */
     status?: pulumi.Input<string>;
     /**
-     * Type of the Log Stream - can either be `"awsEventbridge"` or `"splunkCloudLogstreaming"` only.
+     * Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
      */
     type?: pulumi.Input<string>;
 }
@@ -125,19 +133,16 @@ export interface LogStreamState {
  */
 export interface LogStreamArgs {
     /**
-     * Name of the Log Stream Resource.
+     * Unique name for the Log Stream object
      */
     name?: pulumi.Input<string>;
-    /**
-     * Stream provider specific configuration.
-     */
     settings?: pulumi.Input<inputs.LogStreamSettings>;
     /**
-     * Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+     * Stream status
      */
     status?: pulumi.Input<string>;
     /**
-     * Type of the Log Stream - can either be `"awsEventbridge"` or `"splunkCloudLogstreaming"` only.
+     * Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
      */
     type: pulumi.Input<string>;
 }

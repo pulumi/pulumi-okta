@@ -12,9 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAuthServerClaimsResult {
+    /**
+     * @return Auth server ID
+     * 
+     */
     private String authServerId;
     /**
-     * @return collection of authorization server claims retrieved from Okta with the following properties.
+     * @return Collection of authorization server claims retrieved from Okta with the following properties.
      * 
      */
     private List<GetAuthServerClaimsClaim> claims;
@@ -25,11 +29,15 @@ public final class GetAuthServerClaimsResult {
     private String id;
 
     private GetAuthServerClaimsResult() {}
+    /**
+     * @return Auth server ID
+     * 
+     */
     public String authServerId() {
         return this.authServerId;
     }
     /**
-     * @return collection of authorization server claims retrieved from Okta with the following properties.
+     * @return Collection of authorization server claims retrieved from Okta with the following properties.
      * 
      */
     public List<GetAuthServerClaimsClaim> claims() {

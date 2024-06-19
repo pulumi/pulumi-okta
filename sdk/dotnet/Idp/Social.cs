@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Idp
 {
     /// <summary>
-    /// Creates a Social Identity Provider.
-    /// 
-    /// This resource allows you to create and configure a Social Identity Provider.
+    /// Creates a Social Identity Provider. This resource allows you to create and configure a Social Identity Provider.
     /// 
     /// ## Example Usage
     /// 
@@ -44,8 +42,6 @@ namespace Pulumi.Okta.Idp
     /// 
     /// ## Import
     /// 
-    /// A Social IdP can be imported via the Okta ID.
-    /// 
     /// ```sh
     /// $ pulumi import okta:idp/social:Social example &amp;#60;idp id&amp;#62;
     /// ```
@@ -54,7 +50,7 @@ namespace Pulumi.Okta.Idp
     public partial class Social : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the account linking action for an IdP user.
+        /// Specifies the account linking action for an IdP user. Default: `AUTO`
         /// </summary>
         [Output("accountLinkAction")]
         public Output<string?> AccountLinkAction { get; private set; } = null!;
@@ -66,27 +62,25 @@ namespace Pulumi.Okta.Idp
         public Output<ImmutableArray<string>> AccountLinkGroupIncludes { get; private set; } = null!;
 
         /// <summary>
-        /// The Key ID that you obtained from Apple when you created the private key for the client.
+        /// The Key ID that you obtained from Apple when you created the private key for the client
         /// </summary>
         [Output("appleKid")]
         public Output<string?> AppleKid { get; private set; } = null!;
 
         /// <summary>
-        /// The Key ID that you obtained from Apple when you created the private 
-        /// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
-        /// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+        /// The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
         /// </summary>
         [Output("applePrivateKey")]
         public Output<string?> ApplePrivateKey { get; private set; } = null!;
 
         /// <summary>
-        /// The Team ID associated with your Apple developer account.
+        /// The Team ID associated with your Apple developer account
         /// </summary>
         [Output("appleTeamId")]
         public Output<string?> AppleTeamId { get; private set; } = null!;
 
         /// <summary>
-        /// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        /// The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
         /// </summary>
         [Output("authorizationBinding")]
         public Output<string> AuthorizationBinding { get; private set; } = null!;
@@ -110,19 +104,19 @@ namespace Pulumi.Okta.Idp
         public Output<string?> ClientSecret { get; private set; } = null!;
 
         /// <summary>
-        /// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        /// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         /// </summary>
         [Output("deprovisionedAction")]
         public Output<string?> DeprovisionedAction { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        /// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         /// </summary>
         [Output("groupsAction")]
         public Output<string?> GroupsAction { get; private set; } = null!;
 
         /// <summary>
-        /// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        /// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         /// </summary>
         [Output("groupsAssignments")]
         public Output<ImmutableArray<string>> GroupsAssignments { get; private set; } = null!;
@@ -134,13 +128,13 @@ namespace Pulumi.Okta.Idp
         public Output<string?> GroupsAttribute { get; private set; } = null!;
 
         /// <summary>
-        /// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        /// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         /// </summary>
         [Output("groupsFilters")]
         public Output<ImmutableArray<string>> GroupsFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
         /// </summary>
         [Output("issuerMode")]
         public Output<string?> IssuerMode { get; private set; } = null!;
@@ -152,7 +146,7 @@ namespace Pulumi.Okta.Idp
         public Output<int?> MaxClockSkew { get; private set; } = null!;
 
         /// <summary>
-        /// The Application's display name.
+        /// Name of the IdP
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -164,13 +158,13 @@ namespace Pulumi.Okta.Idp
         public Output<bool?> ProfileMaster { get; private set; } = null!;
 
         /// <summary>
-        /// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+        /// The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
         /// </summary>
         [Output("protocolType")]
         public Output<string?> ProtocolType { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning action for an IdP user during authentication.
+        /// Provisioning action for an IdP user during authentication. Default: `AUTO`
         /// </summary>
         [Output("provisioningAction")]
         public Output<string?> ProvisioningAction { get; private set; } = null!;
@@ -182,31 +176,31 @@ namespace Pulumi.Okta.Idp
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the IdP.
+        /// Default to `ACTIVE`
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        /// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         /// </summary>
         [Output("subjectMatchAttribute")]
         public Output<string?> SubjectMatchAttribute { get; private set; } = null!;
 
         /// <summary>
-        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
         /// </summary>
         [Output("subjectMatchType")]
         public Output<string?> SubjectMatchType { get; private set; } = null!;
 
         /// <summary>
-        /// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        /// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         /// </summary>
         [Output("suspendedAction")]
         public Output<string?> SuspendedAction { get; private set; } = null!;
 
         /// <summary>
-        /// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        /// The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
         /// </summary>
         [Output("tokenBinding")]
         public Output<string> TokenBinding { get; private set; } = null!;
@@ -218,13 +212,43 @@ namespace Pulumi.Okta.Idp
         public Output<string> TokenUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+        /// Trust audience for the Okta IdP instance.
+        /// </summary>
+        [Output("trustAudience")]
+        public Output<string> TrustAudience { get; private set; } = null!;
+
+        /// <summary>
+        /// Trust issuer for the Okta IdP instance.
+        /// </summary>
+        [Output("trustIssuer")]
+        public Output<string> TrustIssuer { get; private set; } = null!;
+
+        /// <summary>
+        /// Trust kid for the Okta IdP instance.
+        /// </summary>
+        [Output("trustKid")]
+        public Output<string> TrustKid { get; private set; } = null!;
+
+        /// <summary>
+        /// Trust revocation for the Okta IdP instance.
+        /// </summary>
+        [Output("trustRevocation")]
+        public Output<string> TrustRevocation { get; private set; } = null!;
+
+        /// <summary>
+        /// Trust revocation cache lifetime for the Okta IdP instance.
+        /// </summary>
+        [Output("trustRevocationCacheLifetime")]
+        public Output<int> TrustRevocationCacheLifetime { get; private set; } = null!;
+
+        /// <summary>
+        /// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Okta EL Expression to generate or transform a unique username for the IdP user.
+        /// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         /// </summary>
         [Output("usernameTemplate")]
         public Output<string?> UsernameTemplate { get; private set; } = null!;
@@ -281,7 +305,7 @@ namespace Pulumi.Okta.Idp
     public sealed class SocialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the account linking action for an IdP user.
+        /// Specifies the account linking action for an IdP user. Default: `AUTO`
         /// </summary>
         [Input("accountLinkAction")]
         public Input<string>? AccountLinkAction { get; set; }
@@ -299,7 +323,7 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// The Key ID that you obtained from Apple when you created the private key for the client.
+        /// The Key ID that you obtained from Apple when you created the private key for the client
         /// </summary>
         [Input("appleKid")]
         public Input<string>? AppleKid { get; set; }
@@ -308,9 +332,7 @@ namespace Pulumi.Okta.Idp
         private Input<string>? _applePrivateKey;
 
         /// <summary>
-        /// The Key ID that you obtained from Apple when you created the private 
-        /// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
-        /// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+        /// The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
         /// </summary>
         public Input<string>? ApplePrivateKey
         {
@@ -323,7 +345,7 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// The Team ID associated with your Apple developer account.
+        /// The Team ID associated with your Apple developer account
         /// </summary>
         [Input("appleTeamId")]
         public Input<string>? AppleTeamId { get; set; }
@@ -351,13 +373,13 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        /// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         /// </summary>
         [Input("deprovisionedAction")]
         public Input<string>? DeprovisionedAction { get; set; }
 
         /// <summary>
-        /// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        /// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         /// </summary>
         [Input("groupsAction")]
         public Input<string>? GroupsAction { get; set; }
@@ -366,7 +388,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _groupsAssignments;
 
         /// <summary>
-        /// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        /// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         /// </summary>
         public InputList<string> GroupsAssignments
         {
@@ -384,7 +406,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _groupsFilters;
 
         /// <summary>
-        /// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        /// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         /// </summary>
         public InputList<string> GroupsFilters
         {
@@ -393,7 +415,7 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
@@ -405,7 +427,7 @@ namespace Pulumi.Okta.Idp
         public Input<int>? MaxClockSkew { get; set; }
 
         /// <summary>
-        /// The Application's display name.
+        /// Name of the IdP
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -417,13 +439,13 @@ namespace Pulumi.Okta.Idp
         public Input<bool>? ProfileMaster { get; set; }
 
         /// <summary>
-        /// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+        /// The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
         /// </summary>
         [Input("protocolType")]
         public Input<string>? ProtocolType { get; set; }
 
         /// <summary>
-        /// Provisioning action for an IdP user during authentication.
+        /// Provisioning action for an IdP user during authentication. Default: `AUTO`
         /// </summary>
         [Input("provisioningAction")]
         public Input<string>? ProvisioningAction { get; set; }
@@ -441,37 +463,37 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// Status of the IdP.
+        /// Default to `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        /// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         /// </summary>
         [Input("subjectMatchAttribute")]
         public Input<string>? SubjectMatchAttribute { get; set; }
 
         /// <summary>
-        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
         /// </summary>
         [Input("subjectMatchType")]
         public Input<string>? SubjectMatchType { get; set; }
 
         /// <summary>
-        /// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        /// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         /// </summary>
         [Input("suspendedAction")]
         public Input<string>? SuspendedAction { get; set; }
 
         /// <summary>
-        /// The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+        /// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Okta EL Expression to generate or transform a unique username for the IdP user.
+        /// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         /// </summary>
         [Input("usernameTemplate")]
         public Input<string>? UsernameTemplate { get; set; }
@@ -485,7 +507,7 @@ namespace Pulumi.Okta.Idp
     public sealed class SocialState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the account linking action for an IdP user.
+        /// Specifies the account linking action for an IdP user. Default: `AUTO`
         /// </summary>
         [Input("accountLinkAction")]
         public Input<string>? AccountLinkAction { get; set; }
@@ -503,7 +525,7 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// The Key ID that you obtained from Apple when you created the private key for the client.
+        /// The Key ID that you obtained from Apple when you created the private key for the client
         /// </summary>
         [Input("appleKid")]
         public Input<string>? AppleKid { get; set; }
@@ -512,9 +534,7 @@ namespace Pulumi.Okta.Idp
         private Input<string>? _applePrivateKey;
 
         /// <summary>
-        /// The Key ID that you obtained from Apple when you created the private 
-        /// key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted
-        /// and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
+        /// The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
         /// </summary>
         public Input<string>? ApplePrivateKey
         {
@@ -527,13 +547,13 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// The Team ID associated with your Apple developer account.
+        /// The Team ID associated with your Apple developer account
         /// </summary>
         [Input("appleTeamId")]
         public Input<string>? AppleTeamId { get; set; }
 
         /// <summary>
-        /// The method of making an authorization request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        /// The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
         /// </summary>
         [Input("authorizationBinding")]
         public Input<string>? AuthorizationBinding { get; set; }
@@ -567,13 +587,13 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        /// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         /// </summary>
         [Input("deprovisionedAction")]
         public Input<string>? DeprovisionedAction { get; set; }
 
         /// <summary>
-        /// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        /// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         /// </summary>
         [Input("groupsAction")]
         public Input<string>? GroupsAction { get; set; }
@@ -582,7 +602,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _groupsAssignments;
 
         /// <summary>
-        /// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        /// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         /// </summary>
         public InputList<string> GroupsAssignments
         {
@@ -600,7 +620,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _groupsFilters;
 
         /// <summary>
-        /// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        /// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         /// </summary>
         public InputList<string> GroupsFilters
         {
@@ -609,7 +629,7 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
@@ -621,7 +641,7 @@ namespace Pulumi.Okta.Idp
         public Input<int>? MaxClockSkew { get; set; }
 
         /// <summary>
-        /// The Application's display name.
+        /// Name of the IdP
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -633,13 +653,13 @@ namespace Pulumi.Okta.Idp
         public Input<bool>? ProfileMaster { get; set; }
 
         /// <summary>
-        /// The type of protocol to use. It can be `"OIDC"` or `"OAUTH2"`.
+        /// The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
         /// </summary>
         [Input("protocolType")]
         public Input<string>? ProtocolType { get; set; }
 
         /// <summary>
-        /// Provisioning action for an IdP user during authentication.
+        /// Provisioning action for an IdP user during authentication. Default: `AUTO`
         /// </summary>
         [Input("provisioningAction")]
         public Input<string>? ProvisioningAction { get; set; }
@@ -657,31 +677,31 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// Status of the IdP.
+        /// Default to `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        /// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         /// </summary>
         [Input("subjectMatchAttribute")]
         public Input<string>? SubjectMatchAttribute { get; set; }
 
         /// <summary>
-        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
         /// </summary>
         [Input("subjectMatchType")]
         public Input<string>? SubjectMatchType { get; set; }
 
         /// <summary>
-        /// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        /// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         /// </summary>
         [Input("suspendedAction")]
         public Input<string>? SuspendedAction { get; set; }
 
         /// <summary>
-        /// The method of making a token request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        /// The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
         /// </summary>
         [Input("tokenBinding")]
         public Input<string>? TokenBinding { get; set; }
@@ -693,13 +713,43 @@ namespace Pulumi.Okta.Idp
         public Input<string>? TokenUrl { get; set; }
 
         /// <summary>
-        /// The type of Social IdP. See API docs [Identity Provider Type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
+        /// Trust audience for the Okta IdP instance.
+        /// </summary>
+        [Input("trustAudience")]
+        public Input<string>? TrustAudience { get; set; }
+
+        /// <summary>
+        /// Trust issuer for the Okta IdP instance.
+        /// </summary>
+        [Input("trustIssuer")]
+        public Input<string>? TrustIssuer { get; set; }
+
+        /// <summary>
+        /// Trust kid for the Okta IdP instance.
+        /// </summary>
+        [Input("trustKid")]
+        public Input<string>? TrustKid { get; set; }
+
+        /// <summary>
+        /// Trust revocation for the Okta IdP instance.
+        /// </summary>
+        [Input("trustRevocation")]
+        public Input<string>? TrustRevocation { get; set; }
+
+        /// <summary>
+        /// Trust revocation cache lifetime for the Okta IdP instance.
+        /// </summary>
+        [Input("trustRevocationCacheLifetime")]
+        public Input<int>? TrustRevocationCacheLifetime { get; set; }
+
+        /// <summary>
+        /// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Okta EL Expression to generate or transform a unique username for the IdP user.
+        /// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         /// </summary>
         [Input("usernameTemplate")]
         public Input<string>? UsernameTemplate { get; set; }

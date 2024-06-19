@@ -32,8 +32,6 @@ namespace Pulumi.Okta
     /// 
     /// ## Import
     /// 
-    /// Okta Admin Role Targets can be imported via the Okta ID.
-    /// 
     /// ```sh
     /// $ pulumi import okta:index/domain:Domain example &amp;#60;domain_id&amp;#62;
     /// ```
@@ -42,33 +40,31 @@ namespace Pulumi.Okta
     public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Brand ID of the domain
+        /// Brand id of the domain
         /// </summary>
         [Output("brandId")]
         public Output<string?> BrandId { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
-        /// 
-        /// &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
+        /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
         /// </summary>
         [Output("certificateSourceType")]
         public Output<string?> CertificateSourceType { get; private set; } = null!;
 
         /// <summary>
-        /// TXT and CNAME records to be registered for the Domain.
+        /// TXT and CNAME records to be registered for the Domain
         /// </summary>
         [Output("dnsRecords")]
         public Output<ImmutableArray<Outputs.DomainDnsRecord>> DnsRecords { get; private set; } = null!;
 
         /// <summary>
-        /// Custom Domain name.
+        /// Custom Domain name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the domain.
+        /// Status of the domain
         /// </summary>
         [Output("validationStatus")]
         public Output<string> ValidationStatus { get; private set; } = null!;
@@ -120,21 +116,19 @@ namespace Pulumi.Okta
     public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Brand ID of the domain
+        /// Brand id of the domain
         /// </summary>
         [Input("brandId")]
         public Input<string>? BrandId { get; set; }
 
         /// <summary>
-        /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
-        /// 
-        /// &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
+        /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
         /// </summary>
         [Input("certificateSourceType")]
         public Input<string>? CertificateSourceType { get; set; }
 
         /// <summary>
-        /// Custom Domain name.
+        /// Custom Domain name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -148,15 +142,13 @@ namespace Pulumi.Okta
     public sealed class DomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Brand ID of the domain
+        /// Brand id of the domain
         /// </summary>
         [Input("brandId")]
         public Input<string>? BrandId { get; set; }
 
         /// <summary>
-        /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
-        /// 
-        /// &gt; **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
+        /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
         /// </summary>
         [Input("certificateSourceType")]
         public Input<string>? CertificateSourceType { get; set; }
@@ -165,7 +157,7 @@ namespace Pulumi.Okta
         private InputList<Inputs.DomainDnsRecordGetArgs>? _dnsRecords;
 
         /// <summary>
-        /// TXT and CNAME records to be registered for the Domain.
+        /// TXT and CNAME records to be registered for the Domain
         /// </summary>
         public InputList<Inputs.DomainDnsRecordGetArgs> DnsRecords
         {
@@ -174,13 +166,13 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Custom Domain name.
+        /// Custom Domain name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Status of the domain.
+        /// Status of the domain
         /// </summary>
         [Input("validationStatus")]
         public Input<string>? ValidationStatus { get; set; }

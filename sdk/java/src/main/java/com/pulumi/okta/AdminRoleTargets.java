@@ -62,8 +62,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Okta Admin Role Targets can be imported via the Okta ID.
- * 
  * ```sh
  * $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &amp;#60;user id&amp;#62;/&amp;#60;role type&amp;#62;
  * ```
@@ -72,70 +70,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/adminRoleTargets:AdminRoleTargets")
 public class AdminRoleTargets extends com.pulumi.resources.CustomResource {
     /**
-     * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;).
+     * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;)
      * 
      */
     @Export(name="apps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> apps;
 
     /**
-     * @return List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;).
+     * @return List of app names (name represents set of app instances) or a combination of app name and app instance ID (like &#39;salesforce&#39; or &#39;facebook.0oapsqQ6dv19pqyEo0g3&#39;)
      * 
      */
     public Output<Optional<List<String>>> apps() {
         return Codegen.optional(this.apps);
     }
     /**
-     * List of group IDs. Conflicts with `apps`.
+     * List of group IDs. Conflicts with apps
      * 
      */
     @Export(name="groups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groups;
 
     /**
-     * @return List of group IDs. Conflicts with `apps`.
+     * @return List of group IDs. Conflicts with apps
      * 
      */
     public Output<Optional<List<String>>> groups() {
         return Codegen.optional(this.groups);
     }
     /**
-     * Role ID.
+     * ID of a role
      * 
      */
     @Export(name="roleId", refs={String.class}, tree="[0]")
     private Output<String> roleId;
 
     /**
-     * @return Role ID.
+     * @return ID of a role
      * 
      */
     public Output<String> roleId() {
         return this.roleId;
     }
     /**
-     * Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
      * 
      */
     @Export(name="roleType", refs={String.class}, tree="[0]")
     private Output<String> roleType;
 
     /**
-     * @return Name of the role associated with the user. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * @return Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
      * 
      */
     public Output<String> roleType() {
         return this.roleType;
     }
     /**
-     * ID of the user.
+     * User associated with the role
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
-     * @return ID of the user.
+     * @return User associated with the role
      * 
      */
     public Output<String> userId() {

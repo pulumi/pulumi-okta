@@ -17,7 +17,7 @@ class DomainVerificationArgs:
                  domain_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a DomainVerification resource.
-        :param pulumi.Input[str] domain_id: Domain ID.
+        :param pulumi.Input[str] domain_id: Domain's ID
         """
         pulumi.set(__self__, "domain_id", domain_id)
 
@@ -25,7 +25,7 @@ class DomainVerificationArgs:
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Input[str]:
         """
-        Domain ID.
+        Domain's ID
         """
         return pulumi.get(self, "domain_id")
 
@@ -40,7 +40,7 @@ class _DomainVerificationState:
                  domain_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DomainVerification resources.
-        :param pulumi.Input[str] domain_id: Domain ID.
+        :param pulumi.Input[str] domain_id: Domain's ID
         """
         if domain_id is not None:
             pulumi.set(__self__, "domain_id", domain_id)
@@ -49,7 +49,7 @@ class _DomainVerificationState:
     @pulumi.getter(name="domainId")
     def domain_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Domain ID.
+        Domain's ID
         """
         return pulumi.get(self, "domain_id")
 
@@ -66,9 +66,7 @@ class DomainVerification(pulumi.CustomResource):
                  domain_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Verifies the Domain. This is replacement for the `verify` field from the `Domain` resource. The resource won't be
-        created if the domain could not be verified. The provider will make several requests to verify the domain until
-        the API returns `VERIFIED` verification status.
+        Verifies the Domain. This is replacement for the `verify` field from the `Domain` resource. The resource won't be created if the domain could not be verified. The provider will make several requests to verify the domain until the API returns `VERIFIED` verification status.
 
         ## Example Usage
 
@@ -80,13 +78,9 @@ class DomainVerification(pulumi.CustomResource):
         example_domain_verification = okta.DomainVerification("example", domain_id=test["id"])
         ```
 
-        ## Import
-
-        This resource does not support importing.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] domain_id: Domain ID.
+        :param pulumi.Input[str] domain_id: Domain's ID
         """
         ...
     @overload
@@ -95,9 +89,7 @@ class DomainVerification(pulumi.CustomResource):
                  args: DomainVerificationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Verifies the Domain. This is replacement for the `verify` field from the `Domain` resource. The resource won't be
-        created if the domain could not be verified. The provider will make several requests to verify the domain until
-        the API returns `VERIFIED` verification status.
+        Verifies the Domain. This is replacement for the `verify` field from the `Domain` resource. The resource won't be created if the domain could not be verified. The provider will make several requests to verify the domain until the API returns `VERIFIED` verification status.
 
         ## Example Usage
 
@@ -108,10 +100,6 @@ class DomainVerification(pulumi.CustomResource):
         example = okta.Domain("example", name="www.example.com")
         example_domain_verification = okta.DomainVerification("example", domain_id=test["id"])
         ```
-
-        ## Import
-
-        This resource does not support importing.
 
         :param str resource_name: The name of the resource.
         :param DomainVerificationArgs args: The arguments to use to populate this resource's properties.
@@ -159,7 +147,7 @@ class DomainVerification(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] domain_id: Domain ID.
+        :param pulumi.Input[str] domain_id: Domain's ID
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -172,7 +160,7 @@ class DomainVerification(pulumi.CustomResource):
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Output[str]:
         """
-        Domain ID.
+        Domain's ID
         """
         return pulumi.get(self, "domain_id")
 

@@ -16,10 +16,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Creates a SWA shared credentials app.
  * This resource allows you to create and configure SWA shared credentials app.
- * 
- * &gt; During an apply if there is change in `status` the app will first be
- * activated or deactivated in accordance with the `status` change. Then, all
+ * &gt; During an apply if there is change in &#39;status&#39; the app will first be
+ * activated or deactivated in accordance with the &#39;status&#39; change. Then, all
  * other arguments that changed will be applied.
  * 
  * ## Example Usage
@@ -76,52 +76,50 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Okta SWA Shared Credentials App can be imported via the Okta ID.
- * 
  * ```sh
- * $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &amp;#60;app id&amp;#62;
+ * $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &amp;#60;app id&amp;#62
  * ```
  * 
  */
 @ResourceType(type="okta:index/appSharedCredentials:AppSharedCredentials")
 public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
     /**
-     * Custom error page URL.
+     * Custom error page URL
      * 
      */
     @Export(name="accessibilityErrorRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityErrorRedirectUrl;
 
     /**
-     * @return Custom error page URL.
+     * @return Custom error page URL
      * 
      */
     public Output<Optional<String>> accessibilityErrorRedirectUrl() {
         return Codegen.optional(this.accessibilityErrorRedirectUrl);
     }
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      * 
      */
     @Export(name="accessibilityLoginRedirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessibilityLoginRedirectUrl;
 
     /**
-     * @return Custom login page for this application.
+     * @return Custom login page URL
      * 
      */
     public Output<Optional<String>> accessibilityLoginRedirectUrl() {
         return Codegen.optional(this.accessibilityLoginRedirectUrl);
     }
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service. Default is `false`
      * 
      */
     @Export(name="accessibilitySelfService", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessibilitySelfService;
 
     /**
-     * @return Enable self-service. By default, it is `false`.
+     * @return Enable self service. Default is `false`
      * 
      */
     public Output<Optional<Boolean>> accessibilitySelfService() {
@@ -156,42 +154,42 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appLinksJson);
     }
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      * 
      */
     @Export(name="autoSubmitToolbar", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoSubmitToolbar;
 
     /**
-     * @return Display auto submit toolbar.
+     * @return Display auto submit toolbar
      * 
      */
     public Output<Optional<Boolean>> autoSubmitToolbar() {
         return Codegen.optional(this.autoSubmitToolbar);
     }
     /**
-     * CSS selector for the Sign-In button in the sign-in form.
+     * Login button field
      * 
      */
     @Export(name="buttonField", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> buttonField;
 
     /**
-     * @return CSS selector for the Sign-In button in the sign-in form.
+     * @return Login button field
      * 
      */
     public Output<Optional<String>> buttonField() {
         return Codegen.optional(this.buttonField);
     }
     /**
-     * CSS selector for the checkbox.
+     * CSS selector for the checkbox
      * 
      */
     @Export(name="checkbox", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> checkbox;
 
     /**
-     * @return CSS selector for the checkbox.
+     * @return CSS selector for the checkbox
      * 
      */
     public Output<Optional<String>> checkbox() {
@@ -212,28 +210,28 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enduserNote);
     }
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      * 
      */
     @Export(name="hideIos", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideIos;
 
     /**
-     * @return Do not display application icon on mobile app.
+     * @return Do not display application icon on mobile app
      * 
      */
     public Output<Optional<Boolean>> hideIos() {
         return Codegen.optional(this.hideIos);
     }
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      * 
      */
     @Export(name="hideWeb", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hideWeb;
 
     /**
-     * @return Do not display application icon to users.
+     * @return Do not display application icon to users
      * 
      */
     public Output<Optional<Boolean>> hideWeb() {
@@ -268,70 +266,70 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logo);
     }
     /**
-     * Direct link of application logo.
+     * URL of the application&#39;s logo
      * 
      */
     @Export(name="logoUrl", refs={String.class}, tree="[0]")
     private Output<String> logoUrl;
 
     /**
-     * @return Direct link of application logo.
+     * @return URL of the application&#39;s logo
      * 
      */
     public Output<String> logoUrl() {
         return this.logoUrl;
     }
     /**
-     * Name assigned to the application by Okta.
+     * Name of the app.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name assigned to the application by Okta.
+     * @return Name of the app.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * CSS selector for the Password field in the sign-in form.
+     * Login password field
      * 
      */
     @Export(name="passwordField", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> passwordField;
 
     /**
-     * @return CSS selector for the Password field in the sign-in form.
+     * @return Login password field
      * 
      */
     public Output<Optional<String>> passwordField() {
         return Codegen.optional(this.passwordField);
     }
     /**
-     * name of application from the Okta Integration Network, if not included a custom app will be created.
+     * Name of application from the Okta Integration Network, if not included a custom app will be created.
      * 
      */
     @Export(name="preconfiguredApp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> preconfiguredApp;
 
     /**
-     * @return name of application from the Okta Integration Network, if not included a custom app will be created.
+     * @return Name of application from the Okta Integration Network, if not included a custom app will be created.
      * 
      */
     public Output<Optional<String>> preconfiguredApp() {
         return Codegen.optional(this.preconfiguredApp);
     }
     /**
-     * Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+     * Secondary URL of the sign-in page for this app
      * 
      */
     @Export(name="redirectUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> redirectUrl;
 
     /**
-     * @return Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+     * @return Secondary URL of the sign-in page for this app
      * 
      */
     public Output<Optional<String>> redirectUrl() {
@@ -366,28 +364,28 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sharedUsername);
     }
     /**
-     * Authentication mode of app.
+     * Sign on mode of application.
      * 
      */
     @Export(name="signOnMode", refs={String.class}, tree="[0]")
     private Output<String> signOnMode;
 
     /**
-     * @return Authentication mode of app.
+     * @return Sign on mode of application.
      * 
      */
     public Output<String> signOnMode() {
         return this.signOnMode;
     }
     /**
-     * The status of the application, by default, it is `&#34;ACTIVE&#34;`.
+     * Status of application. By default, it is `ACTIVE`
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return The status of the application, by default, it is `&#34;ACTIVE&#34;`.
+     * @return Status of application. By default, it is `ACTIVE`
      * 
      */
     public Output<Optional<String>> status() {
@@ -422,70 +420,70 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.urlRegex);
     }
     /**
-     * Username template. Default: `&#34;${source.login}&#34;`
+     * Username template. Default: `${source.login}`
      * 
      */
     @Export(name="userNameTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplate;
 
     /**
-     * @return Username template. Default: `&#34;${source.login}&#34;`
+     * @return Username template. Default: `${source.login}`
      * 
      */
     public Output<Optional<String>> userNameTemplate() {
         return Codegen.optional(this.userNameTemplate);
     }
     /**
-     * Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+     * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      * 
      */
     @Export(name="userNameTemplatePushStatus", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplatePushStatus;
 
     /**
-     * @return Push username on update. Valid values: `&#34;PUSH&#34;` and `&#34;DONT_PUSH&#34;`.
+     * @return Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      * 
      */
     public Output<Optional<String>> userNameTemplatePushStatus() {
         return Codegen.optional(this.userNameTemplatePushStatus);
     }
     /**
-     * Username template suffix.
+     * Username template suffix
      * 
      */
     @Export(name="userNameTemplateSuffix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateSuffix;
 
     /**
-     * @return Username template suffix.
+     * @return Username template suffix
      * 
      */
     public Output<Optional<String>> userNameTemplateSuffix() {
         return Codegen.optional(this.userNameTemplateSuffix);
     }
     /**
-     * Username template type. Default: `&#34;BUILT_IN&#34;`.
+     * Username template type. Default: `BUILT_IN`
      * 
      */
     @Export(name="userNameTemplateType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userNameTemplateType;
 
     /**
-     * @return Username template type. Default: `&#34;BUILT_IN&#34;`.
+     * @return Username template type. Default: `BUILT_IN`
      * 
      */
     public Output<Optional<String>> userNameTemplateType() {
         return Codegen.optional(this.userNameTemplateType);
     }
     /**
-     * CSS selector for the username field.
+     * Login username field
      * 
      */
     @Export(name="usernameField", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> usernameField;
 
     /**
-     * @return CSS selector for the username field.
+     * @return Login username field
      * 
      */
     public Output<Optional<String>> usernameField() {

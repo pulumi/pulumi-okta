@@ -12,7 +12,7 @@ namespace Pulumi.Okta
     public static class GetBehaviours
     {
         /// <summary>
-        /// Use this data source to retrieve a behaviors from Okta.
+        /// Get a behaviors by search criteria.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Okta
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBehavioursResult>("okta:index/getBehaviours:getBehaviours", args ?? new GetBehavioursArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a behaviors from Okta.
+        /// Get a behaviors by search criteria.
         /// 
         /// ## Example Usage
         /// 
@@ -64,7 +64,7 @@ namespace Pulumi.Okta
     public sealed class GetBehavioursArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Searches query to look up behaviors.
+        /// Searches the name property of behaviors for matching value
         /// </summary>
         [Input("q")]
         public string? Q { get; set; }
@@ -78,7 +78,7 @@ namespace Pulumi.Okta
     public sealed class GetBehavioursInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Searches query to look up behaviors.
+        /// Searches the name property of behaviors for matching value
         /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
@@ -93,14 +93,14 @@ namespace Pulumi.Okta
     [OutputType]
     public sealed class GetBehavioursResult
     {
-        /// <summary>
-        /// List of behaviors.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetBehavioursBehaviorResult> Behaviors;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Searches the name property of behaviors for matching value
+        /// </summary>
         public readonly string? Q;
 
         [OutputConstructor]

@@ -36,6 +36,9 @@ class GetServerScopesResult:
     @property
     @pulumi.getter(name="authServerId")
     def auth_server_id(self) -> str:
+        """
+        Auth server ID
+        """
         return pulumi.get(self, "auth_server_id")
 
     @property
@@ -50,7 +53,7 @@ class GetServerScopesResult:
     @pulumi.getter
     def scopes(self) -> Sequence['outputs.GetServerScopesScopeResult']:
         """
-        collection of authorization server scopes retrieved from Okta with the following properties.
+        Collection of authorization server scopes retrieved from Okta with the following properties.
         """
         return pulumi.get(self, "scopes")
 
@@ -69,7 +72,7 @@ class AwaitableGetServerScopesResult(GetServerScopesResult):
 def get_server_scopes(auth_server_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerScopesResult:
     """
-    Use this data source to retrieve a list of authorization server scopes from Okta.
+    Get a list of authorization server scopes from Okta.
 
     ## Example Usage
 
@@ -81,7 +84,7 @@ def get_server_scopes(auth_server_id: Optional[str] = None,
     ```
 
 
-    :param str auth_server_id: Auth server ID.
+    :param str auth_server_id: Auth server ID
     """
     __args__ = dict()
     __args__['authServerId'] = auth_server_id
@@ -98,7 +101,7 @@ def get_server_scopes(auth_server_id: Optional[str] = None,
 def get_server_scopes_output(auth_server_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerScopesResult]:
     """
-    Use this data source to retrieve a list of authorization server scopes from Okta.
+    Get a list of authorization server scopes from Okta.
 
     ## Example Usage
 
@@ -110,6 +113,6 @@ def get_server_scopes_output(auth_server_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str auth_server_id: Auth server ID.
+    :param str auth_server_id: Auth server ID
     """
     ...

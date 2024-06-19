@@ -13,13 +13,13 @@ namespace Pulumi.Okta.Inputs
     public sealed class UserSchemaPropertyArrayOneOfArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// value mapping to member of `enum`.
+        /// Value mapping to member of `array_enum`
         /// </summary>
         [Input("const", required: true)]
         public Input<string> Const { get; set; } = null!;
 
         /// <summary>
-        /// display name for the enum value.
+        /// Display name for the enum value.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;

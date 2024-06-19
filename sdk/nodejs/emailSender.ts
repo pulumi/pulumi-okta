@@ -7,9 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * > **DEPRECATED** use `okta.EmailDomain` instead.
+ * Creates custom email sender. This resource allows you to create and configure a custom email sender.
  *
- * This resource allows you to create and configure a custom email sender.
+ * > **DEPRECATED** The api for this resource has been deprecated. Please use `okta.EmailDomain` instead.
  *
  * ## Example Usage
  *
@@ -25,8 +25,6 @@ import * as utilities from "./utilities";
  * ```
  *
  * ## Import
- *
- * Custom email sender can be imported via the Okta ID.
  *
  * ```sh
  * $ pulumi import okta:index/emailSender:EmailSender example &#60;sender id&#62;
@@ -61,23 +59,23 @@ export class EmailSender extends pulumi.CustomResource {
     }
 
     /**
-     * TXT and CNAME records to be registered for the domain.
+     * TXT and CNAME records to be registered for the Domain
      */
     public /*out*/ readonly dnsRecords!: pulumi.Output<outputs.EmailSenderDnsRecord[]>;
     /**
-     * Email address to send from.
+     * Email address to send from
      */
     public readonly fromAddress!: pulumi.Output<string>;
     /**
-     * Name of sender.
+     * Name of sender
      */
     public readonly fromName!: pulumi.Output<string>;
     /**
-     * Status of the sender (shows whether the sender is verified).
+     * Verification status
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Mail domain to send from.
+     * Mail domain to send from
      */
     public readonly subdomain!: pulumi.Output<string>;
 
@@ -126,23 +124,23 @@ export class EmailSender extends pulumi.CustomResource {
  */
 export interface EmailSenderState {
     /**
-     * TXT and CNAME records to be registered for the domain.
+     * TXT and CNAME records to be registered for the Domain
      */
     dnsRecords?: pulumi.Input<pulumi.Input<inputs.EmailSenderDnsRecord>[]>;
     /**
-     * Email address to send from.
+     * Email address to send from
      */
     fromAddress?: pulumi.Input<string>;
     /**
-     * Name of sender.
+     * Name of sender
      */
     fromName?: pulumi.Input<string>;
     /**
-     * Status of the sender (shows whether the sender is verified).
+     * Verification status
      */
     status?: pulumi.Input<string>;
     /**
-     * Mail domain to send from.
+     * Mail domain to send from
      */
     subdomain?: pulumi.Input<string>;
 }
@@ -152,15 +150,15 @@ export interface EmailSenderState {
  */
 export interface EmailSenderArgs {
     /**
-     * Email address to send from.
+     * Email address to send from
      */
     fromAddress: pulumi.Input<string>;
     /**
-     * Name of sender.
+     * Name of sender
      */
     fromName: pulumi.Input<string>;
     /**
-     * Mail domain to send from.
+     * Mail domain to send from
      */
     subdomain: pulumi.Input<string>;
 }

@@ -12,40 +12,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppSignonPolicyRulePlatformInclude {
     /**
-     * @return Only available and required when using `os_type = &#34;OTHER&#34;`
+     * @return Only available with OTHER OS type
      * 
      */
     private @Nullable String osExpression;
-    /**
-     * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`, `&#34;CHROMEOS&#34;`
-     * 
-     */
     private @Nullable String osType;
-    /**
-     * @return One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
-     * 
-     */
     private @Nullable String type;
 
     private AppSignonPolicyRulePlatformInclude() {}
     /**
-     * @return Only available and required when using `os_type = &#34;OTHER&#34;`
+     * @return Only available with OTHER OS type
      * 
      */
     public Optional<String> osExpression() {
         return Optional.ofNullable(this.osExpression);
     }
-    /**
-     * @return One of: `&#34;ANY&#34;`, `&#34;IOS&#34;`, `&#34;WINDOWS&#34;`, `&#34;ANDROID&#34;`, `&#34;OTHER&#34;`, `&#34;OSX&#34;`, `&#34;MACOS&#34;`, `&#34;CHROMEOS&#34;`
-     * 
-     */
     public Optional<String> osType() {
         return Optional.ofNullable(this.osType);
     }
-    /**
-     * @return One of: `&#34;ANY&#34;`, `&#34;MOBILE&#34;`, `&#34;DESKTOP&#34;`
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

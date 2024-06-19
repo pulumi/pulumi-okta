@@ -7,8 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `riscLevel`
- * to an empty string, since this feature is not enabled.
+ * Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `riscLevel` to an empty string, since this feature is not enabled.
  *
  * ## Example Usage
  *
@@ -94,8 +93,6 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * A Policy Rule can be imported via the Policy and Rule ID.
- *
  * ```sh
  * $ pulumi import okta:policy/ruleSignon:RuleSignon example &#60;policy id&#62;/&#60;rule id&#62;
  * ```
@@ -129,79 +126,82 @@ export class RuleSignon extends pulumi.CustomResource {
     }
 
     /**
-     * Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
+     * Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
      */
     public readonly access!: pulumi.Output<string | undefined>;
     /**
-     * Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
+     * Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
      */
     public readonly authtype!: pulumi.Output<string | undefined>;
     /**
-     * List of behavior IDs.
+     * List of behavior IDs
      */
     public readonly behaviors!: pulumi.Output<string[] | undefined>;
     /**
-     * Auth factor sequences. Should be set if `access = "CHALLENGE"`.
+     * Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
+     * provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
+     * 'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
+     * authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
      */
     public readonly factorSequences!: pulumi.Output<outputs.policy.RuleSignonFactorSequence[] | undefined>;
     /**
-     * Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
-     *
-     * > **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
+     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of
+     * `identityProvider` requires a feature flag to be enabled.
      */
     public readonly identityProvider!: pulumi.Output<string | undefined>;
     /**
-     * When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+     * When identityProvider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
      */
     public readonly identityProviderIds!: pulumi.Output<string[] | undefined>;
     /**
-     * Elapsed time before the next MFA challenge.
+     * Elapsed time before the next MFA challenge
      */
     public readonly mfaLifetime!: pulumi.Output<number | undefined>;
     /**
-     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
+     * or`ALWAYS`.
      */
     public readonly mfaPrompt!: pulumi.Output<string | undefined>;
     /**
-     * Remember MFA device. The default `false`.
+     * Remember MFA device. Default: `false`
      */
     public readonly mfaRememberDevice!: pulumi.Output<boolean | undefined>;
     /**
-     * Require MFA. By default is `false`.
+     * Require MFA. Default: `false`
      */
     public readonly mfaRequired!: pulumi.Output<boolean | undefined>;
     /**
-     * Policy Rule Name.
+     * Policy Rule Name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+     * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      */
     public readonly networkConnection!: pulumi.Output<string | undefined>;
     /**
-     * The network zones to exclude. Conflicts with `networkIncludes`.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      */
     public readonly networkExcludes!: pulumi.Output<string[] | undefined>;
     /**
-     * The network zones to include. Conflicts with `networkExcludes`.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      */
     public readonly networkIncludes!: pulumi.Output<string[] | undefined>;
     /**
-     * Policy ID.
+     * Policy ID of the Rule
      */
     public readonly policyId!: pulumi.Output<string | undefined>;
     /**
-     * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
-     * `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+     * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
+     * `PASSWORD_IDP`.
      */
     public readonly primaryFactor!: pulumi.Output<string>;
     /**
-     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
-     * Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
-     * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+     * Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
      *
      * @deprecated Attribute typo, switch to riskLevel instead. Default: `ANY`
      */
@@ -211,23 +211,24 @@ export class RuleSignon extends pulumi.CustomResource {
      */
     public readonly riskLevel!: pulumi.Output<string | undefined>;
     /**
-     * Max minutes a session can be idle.,
+     * Max minutes a session can be idle. Default: `120`
      */
     public readonly sessionIdle!: pulumi.Output<number | undefined>;
     /**
-     * Max minutes a session is active: Disable = 0.
+     * Max minutes a session is active: Disable = 0. Default: `120`
      */
     public readonly sessionLifetime!: pulumi.Output<number | undefined>;
     /**
-     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
+     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
+     * cookies. Default: `false`
      */
     public readonly sessionPersistent!: pulumi.Output<boolean | undefined>;
     /**
-     * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+     * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * The list of user IDs that would be excluded when rules are processed.
+     * Set of User IDs to Exclude
      */
     public readonly usersExcludeds!: pulumi.Output<string[] | undefined>;
 
@@ -305,79 +306,82 @@ export class RuleSignon extends pulumi.CustomResource {
  */
 export interface RuleSignonState {
     /**
-     * Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
+     * Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
      */
     access?: pulumi.Input<string>;
     /**
-     * Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
+     * Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
      */
     authtype?: pulumi.Input<string>;
     /**
-     * List of behavior IDs.
+     * List of behavior IDs
      */
     behaviors?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Auth factor sequences. Should be set if `access = "CHALLENGE"`.
+     * Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
+     * provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
+     * 'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
+     * authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
      */
     factorSequences?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequence>[]>;
     /**
-     * Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
-     *
-     * > **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
+     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of
+     * `identityProvider` requires a feature flag to be enabled.
      */
     identityProvider?: pulumi.Input<string>;
     /**
-     * When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+     * When identityProvider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
      */
     identityProviderIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Elapsed time before the next MFA challenge.
+     * Elapsed time before the next MFA challenge
      */
     mfaLifetime?: pulumi.Input<number>;
     /**
-     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
+     * or`ALWAYS`.
      */
     mfaPrompt?: pulumi.Input<string>;
     /**
-     * Remember MFA device. The default `false`.
+     * Remember MFA device. Default: `false`
      */
     mfaRememberDevice?: pulumi.Input<boolean>;
     /**
-     * Require MFA. By default is `false`.
+     * Require MFA. Default: `false`
      */
     mfaRequired?: pulumi.Input<boolean>;
     /**
-     * Policy Rule Name.
+     * Policy Rule Name
      */
     name?: pulumi.Input<string>;
     /**
-     * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+     * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      */
     networkConnection?: pulumi.Input<string>;
     /**
-     * The network zones to exclude. Conflicts with `networkIncludes`.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      */
     networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The network zones to include. Conflicts with `networkExcludes`.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Policy ID.
+     * Policy ID of the Rule
      */
     policyId?: pulumi.Input<string>;
     /**
-     * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
-     * `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+     * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
+     * `PASSWORD_IDP`.
      */
     primaryFactor?: pulumi.Input<string>;
     /**
-     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
     priority?: pulumi.Input<number>;
     /**
-     * Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
-     * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+     * Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
      *
      * @deprecated Attribute typo, switch to riskLevel instead. Default: `ANY`
      */
@@ -387,23 +391,24 @@ export interface RuleSignonState {
      */
     riskLevel?: pulumi.Input<string>;
     /**
-     * Max minutes a session can be idle.,
+     * Max minutes a session can be idle. Default: `120`
      */
     sessionIdle?: pulumi.Input<number>;
     /**
-     * Max minutes a session is active: Disable = 0.
+     * Max minutes a session is active: Disable = 0. Default: `120`
      */
     sessionLifetime?: pulumi.Input<number>;
     /**
-     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
+     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
+     * cookies. Default: `false`
      */
     sessionPersistent?: pulumi.Input<boolean>;
     /**
-     * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+     * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     status?: pulumi.Input<string>;
     /**
-     * The list of user IDs that would be excluded when rules are processed.
+     * Set of User IDs to Exclude
      */
     usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -413,79 +418,82 @@ export interface RuleSignonState {
  */
 export interface RuleSignonArgs {
     /**
-     * Allow or deny access based on the rule conditions: `"ALLOW"`, `"DENY"` or `"CHALLENGE"`. The default is `"ALLOW"`.
+     * Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
      */
     access?: pulumi.Input<string>;
     /**
-     * Authentication entrypoint: `"ANY"`, `"LDAP_INTERFACE"` or `"RADIUS"`.
+     * Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
      */
     authtype?: pulumi.Input<string>;
     /**
-     * List of behavior IDs.
+     * List of behavior IDs
      */
     behaviors?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Auth factor sequences. Should be set if `access = "CHALLENGE"`.
+     * Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
+     * provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
+     * 'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
+     * authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
      */
     factorSequences?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequence>[]>;
     /**
-     * Defines the identity provider for this rule. Valid values are `"ANY"`, `"OKTA"`, and `"SPECIFIC_IDP"`.
-     *
-     * > **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
+     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of
+     * `identityProvider` requires a feature flag to be enabled.
      */
     identityProvider?: pulumi.Input<string>;
     /**
-     * When identityProvider is `"SPECIFIC_IDP"` then this is the list of IdP IDs to apply the rule on.
+     * When identityProvider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
      */
     identityProviderIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Elapsed time before the next MFA challenge.
+     * Elapsed time before the next MFA challenge
      */
     mfaLifetime?: pulumi.Input<number>;
     /**
-     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `"DEVICE"`, `"SESSION"` or `"ALWAYS"`.
+     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
+     * or`ALWAYS`.
      */
     mfaPrompt?: pulumi.Input<string>;
     /**
-     * Remember MFA device. The default `false`.
+     * Remember MFA device. Default: `false`
      */
     mfaRememberDevice?: pulumi.Input<boolean>;
     /**
-     * Require MFA. By default is `false`.
+     * Require MFA. Default: `false`
      */
     mfaRequired?: pulumi.Input<boolean>;
     /**
-     * Policy Rule Name.
+     * Policy Rule Name
      */
     name?: pulumi.Input<string>;
     /**
-     * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+     * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      */
     networkConnection?: pulumi.Input<string>;
     /**
-     * The network zones to exclude. Conflicts with `networkIncludes`.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      */
     networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The network zones to include. Conflicts with `networkExcludes`.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Policy ID.
+     * Policy ID of the Rule
      */
     policyId?: pulumi.Input<string>;
     /**
-     * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: 
-     * `"PASSWORD_IDP_ANY_FACTOR"`, `"PASSWORD_IDP"`.
+     * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
+     * `PASSWORD_IDP`.
      */
     primaryFactor?: pulumi.Input<string>;
     /**
-     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
     priority?: pulumi.Input<number>;
     /**
-     * Risc level: `"ANY"`, `"LOW"`, `"MEDIUM"` or `"HIGH"`. Default is `"ANY"`. It can be also 
-     * set to an empty string in case `RISC_SCORING` org feature flag is disabled.
+     * Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
      *
      * @deprecated Attribute typo, switch to riskLevel instead. Default: `ANY`
      */
@@ -495,23 +503,24 @@ export interface RuleSignonArgs {
      */
     riskLevel?: pulumi.Input<string>;
     /**
-     * Max minutes a session can be idle.,
+     * Max minutes a session can be idle. Default: `120`
      */
     sessionIdle?: pulumi.Input<number>;
     /**
-     * Max minutes a session is active: Disable = 0.
+     * Max minutes a session is active: Disable = 0. Default: `120`
      */
     sessionLifetime?: pulumi.Input<number>;
     /**
-     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies.
+     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
+     * cookies. Default: `false`
      */
     sessionPersistent?: pulumi.Input<boolean>;
     /**
-     * Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+     * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     status?: pulumi.Input<string>;
     /**
-     * The list of user IDs that would be excluded when rules are processed.
+     * Set of User IDs to Exclude
      */
     usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }

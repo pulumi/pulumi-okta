@@ -5,10 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * This resource allows you to create and configure a Basic Auth Application.
- *
- * > During an apply if there is change in `status` the app will first be
- * activated or deactivated in accordance with the `status` change. Then, all
+ * This resource allows you to create and configure an Auto Login Okta Application.
+ * > During an apply if there is change in status the app will first be
+ * activated or deactivated in accordance with the status change. Then, all
  * other arguments that changed will be applied.
  *
  * ## Example Usage
@@ -26,10 +25,8 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * A Basic Auth App can be imported via the Okta ID.
- *
  * ```sh
- * $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62;
+ * $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62
  * ```
  */
 export class BasicAuth extends pulumi.CustomResource {
@@ -61,15 +58,15 @@ export class BasicAuth extends pulumi.CustomResource {
     }
 
     /**
-     * Custom error page URL.
+     * Custom error page URL
      */
     public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      */
     public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service. Default is `false`
      */
     public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
     /**
@@ -85,7 +82,7 @@ export class BasicAuth extends pulumi.CustomResource {
      */
     public readonly authUrl!: pulumi.Output<string>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
     /**
@@ -93,11 +90,11 @@ export class BasicAuth extends pulumi.CustomResource {
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     public readonly hideIos!: pulumi.Output<boolean | undefined>;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     public readonly hideWeb!: pulumi.Output<boolean | undefined>;
     /**
@@ -105,11 +102,11 @@ export class BasicAuth extends pulumi.CustomResource {
      */
     public readonly label!: pulumi.Output<string>;
     /**
-     * Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     public readonly logo!: pulumi.Output<string | undefined>;
     /**
-     * Direct link of application logo.
+     * URL of the application's logo
      */
     public /*out*/ readonly logoUrl!: pulumi.Output<string>;
     /**
@@ -121,7 +118,7 @@ export class BasicAuth extends pulumi.CustomResource {
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
     /**
-     * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+     * Status of application. By default, it is `ACTIVE`
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
@@ -198,15 +195,15 @@ export class BasicAuth extends pulumi.CustomResource {
  */
 export interface BasicAuthState {
     /**
-     * Custom error page URL.
+     * Custom error page URL
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service. Default is `false`
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -222,7 +219,7 @@ export interface BasicAuthState {
      */
     authUrl?: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
@@ -230,11 +227,11 @@ export interface BasicAuthState {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
@@ -242,11 +239,11 @@ export interface BasicAuthState {
      */
     label?: pulumi.Input<string>;
     /**
-     * Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     logo?: pulumi.Input<string>;
     /**
-     * Direct link of application logo.
+     * URL of the application's logo
      */
     logoUrl?: pulumi.Input<string>;
     /**
@@ -258,7 +255,7 @@ export interface BasicAuthState {
      */
     signOnMode?: pulumi.Input<string>;
     /**
-     * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+     * Status of application. By default, it is `ACTIVE`
      */
     status?: pulumi.Input<string>;
     /**
@@ -272,15 +269,15 @@ export interface BasicAuthState {
  */
 export interface BasicAuthArgs {
     /**
-     * Custom error page URL.
+     * Custom error page URL
      */
     accessibilityErrorRedirectUrl?: pulumi.Input<string>;
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      */
     accessibilityLoginRedirectUrl?: pulumi.Input<string>;
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service. Default is `false`
      */
     accessibilitySelfService?: pulumi.Input<boolean>;
     /**
@@ -296,7 +293,7 @@ export interface BasicAuthArgs {
      */
     authUrl: pulumi.Input<string>;
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
@@ -304,11 +301,11 @@ export interface BasicAuthArgs {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      */
     hideIos?: pulumi.Input<boolean>;
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      */
     hideWeb?: pulumi.Input<boolean>;
     /**
@@ -316,11 +313,11 @@ export interface BasicAuthArgs {
      */
     label: pulumi.Input<string>;
     /**
-     * Local path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+     * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
     logo?: pulumi.Input<string>;
     /**
-     * Status of application. (`"ACTIVE"` or `"INACTIVE"`).
+     * Status of application. By default, it is `ACTIVE`
      */
     status?: pulumi.Input<string>;
     /**

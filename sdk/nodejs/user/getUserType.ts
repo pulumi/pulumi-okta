@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve a user type from Okta.
+ * Get a user type from Okta.
  *
  * ## Example Usage
  *
@@ -31,7 +31,7 @@ export function getUserType(args: GetUserTypeArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetUserTypeArgs {
     /**
-     * name of user type to retrieve.
+     * Name of user type to retrieve.
      */
     name: string;
 }
@@ -41,11 +41,11 @@ export interface GetUserTypeArgs {
  */
 export interface GetUserTypeResult {
     /**
-     * description of user type.
+     * Description of user type.
      */
     readonly description: string;
     /**
-     * display name of user type.
+     * Display name of user type.
      */
     readonly displayName: string;
     /**
@@ -53,12 +53,12 @@ export interface GetUserTypeResult {
      */
     readonly id: string;
     /**
-     * name of user type.
+     * Name of user type to retrieve.
      */
     readonly name: string;
 }
 /**
- * Use this data source to retrieve a user type from Okta.
+ * Get a user type from Okta.
  *
  * ## Example Usage
  *
@@ -80,7 +80,7 @@ export function getUserTypeOutput(args: GetUserTypeOutputArgs, opts?: pulumi.Inv
  */
 export interface GetUserTypeOutputArgs {
     /**
-     * name of user type to retrieve.
+     * Name of user type to retrieve.
      */
     name: pulumi.Input<string>;
 }

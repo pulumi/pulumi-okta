@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve a policy from Okta.
+// Get a policy from Okta.
 //
 // ## Example Usage
 //
@@ -51,18 +51,9 @@ func GetPolicy(ctx *pulumi.Context, args *GetPolicyArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getPolicy.
 type GetPolicyArgs struct {
-	// Name of policy to retrieve.
+	// Name of the policy
 	Name string `pulumi:"name"`
-	// Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
-	// - All:
-	// - `OKTA_SIGN_ON`
-	// - `PASSWORD`
-	// - `MFA_ENROLL`
-	// - `OAUTH_AUTHORIZATION_POLICY`
-	// - `IDP_DISCOVERY`
-	// - OIE Only:
-	// - `ACCESS_POLICY`
-	// - `PROFILE_ENROLLMENT`
+	// Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
 	Type string `pulumi:"type"`
 }
 
@@ -70,10 +61,11 @@ type GetPolicyArgs struct {
 type GetPolicyResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// name of policy.
-	Name   string `pulumi:"name"`
+	// Name of the policy
+	Name string `pulumi:"name"`
+	// Status of the policy
 	Status string `pulumi:"status"`
-	// type of policy.
+	// Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
 	Type string `pulumi:"type"`
 }
 
@@ -92,18 +84,9 @@ func GetPolicyOutput(ctx *pulumi.Context, args GetPolicyOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getPolicy.
 type GetPolicyOutputArgs struct {
-	// Name of policy to retrieve.
+	// Name of the policy
 	Name pulumi.StringInput `pulumi:"name"`
-	// Type of policy to retrieve. See https://developer.okta.com/docs/reference/api/policy/#policy-object for valid values. Currently:
-	// - All:
-	// - `OKTA_SIGN_ON`
-	// - `PASSWORD`
-	// - `MFA_ENROLL`
-	// - `OAUTH_AUTHORIZATION_POLICY`
-	// - `IDP_DISCOVERY`
-	// - OIE Only:
-	// - `ACCESS_POLICY`
-	// - `PROFILE_ENROLLMENT`
+	// Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -131,16 +114,17 @@ func (o GetPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// name of policy.
+// Name of the policy
 func (o GetPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Status of the policy
 func (o GetPolicyResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// type of policy.
+// Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
 func (o GetPolicyResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyResult) string { return v.Type }).(pulumi.StringOutput)
 }

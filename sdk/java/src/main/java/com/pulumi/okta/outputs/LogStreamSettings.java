@@ -12,74 +12,74 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LogStreamSettings {
     /**
-     * @return AWS account ID.
+     * @return AWS account ID. Required only for &#39;aws_eventbridge&#39; type
      * 
      */
     private @Nullable String accountId;
     /**
-     * @return Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws_govcloud&#39;, &#39;gcp&#39;.
+     * @return Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws*govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk*cloud_logstreaming&#39; type
      * 
      */
     private @Nullable String edition;
     /**
-     * @return An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+     * @return An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for &#39;aws_eventbridge&#39; type
      * 
      */
     private @Nullable String eventSourceName;
     /**
-     * @return The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;.
+     * @return The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     private @Nullable String host;
     /**
-     * @return The destination AWS region where event source is located.
+     * @return The destination AWS region where event source is located. Required only for &#39;aws_eventbridge&#39; type
      * 
      */
     private @Nullable String region;
     /**
-     * @return The HEC token for your Splunk Cloud HTTP Event Collector.
+     * @return The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     private @Nullable String token;
 
     private LogStreamSettings() {}
     /**
-     * @return AWS account ID.
+     * @return AWS account ID. Required only for &#39;aws_eventbridge&#39; type
      * 
      */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
     /**
-     * @return Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws_govcloud&#39;, &#39;gcp&#39;.
+     * @return Edition of the Splunk Cloud instance. Could be one of: &#39;aws&#39;, &#39;aws*govcloud&#39;, &#39;gcp&#39;. Required only for &#39;splunk*cloud_logstreaming&#39; type
      * 
      */
     public Optional<String> edition() {
         return Optional.ofNullable(this.edition);
     }
     /**
-     * @return An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.`.
+     * @return An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for &#39;aws_eventbridge&#39; type
      * 
      */
     public Optional<String> eventSourceName() {
         return Optional.ofNullable(this.eventSourceName);
     }
     /**
-     * @return The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;.
+     * @return The domain name for Splunk Cloud instance. Don&#39;t include http or https in the string. For example: &#39;acme.splunkcloud.com&#39;. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     public Optional<String> host() {
         return Optional.ofNullable(this.host);
     }
     /**
-     * @return The destination AWS region where event source is located.
+     * @return The destination AWS region where event source is located. Required only for &#39;aws_eventbridge&#39; type
      * 
      */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
     /**
-     * @return The HEC token for your Splunk Cloud HTTP Event Collector.
+     * @return The HEC token for your Splunk Cloud HTTP Event Collector. Required only for &#39;splunk*cloud*logstreaming&#39; type
      * 
      */
     public Optional<String> token() {

@@ -13,13 +13,13 @@ namespace Pulumi.Okta.App.Inputs
     public sealed class OAuthGroupsClaimArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Groups claim filter. Can only be set if type is `"FILTER"`. Valid values: `"EQUALS"`, `"STARTS_WITH"`, `"CONTAINS"`, `"REGEX"`.
+        /// Groups claim filter. Can only be set if type is FILTER.
         /// </summary>
         [Input("filterType")]
         public Input<string>? FilterType { get; set; }
 
         /// <summary>
-        /// Issuer Mode is inherited from the Issuer Mode on the OAuth app itself.
+        /// Issuer mode inherited from OAuth App
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Okta.App.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Groups claim type. Valid values: `"FILTER"`, `"EXPRESSION"`.
+        /// Groups claim type.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

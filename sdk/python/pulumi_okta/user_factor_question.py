@@ -162,9 +162,7 @@ class UserFactorQuestion(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates security question factor for a user.
-
-        This resource allows you to create and configure security question factor for a user.
+        Creates security question factor for a user. This resource allows you to create and configure security question factor for a user.
 
         ## Example Usage
 
@@ -189,8 +187,6 @@ class UserFactorQuestion(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Security question factor for a user can be imported via the `user_id` and the `factor_id`.
 
         ```sh
         $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;
@@ -209,9 +205,7 @@ class UserFactorQuestion(pulumi.CustomResource):
                  args: UserFactorQuestionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates security question factor for a user.
-
-        This resource allows you to create and configure security question factor for a user.
+        Creates security question factor for a user. This resource allows you to create and configure security question factor for a user.
 
         ## Example Usage
 
@@ -236,8 +230,6 @@ class UserFactorQuestion(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Security question factor for a user can be imported via the `user_id` and the `factor_id`.
 
         ```sh
         $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;

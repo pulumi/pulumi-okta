@@ -14,62 +14,54 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetLogStreamResult {
     /**
-     * @return ID of the log stream.
+     * @return ID of the log stream to retrieve, conflicts with `name`.
      * 
      */
     private @Nullable String id;
     /**
-     * @return Name of the log stream.
+     * @return Unique name for the Log Stream object, conflicts with `id`.
      * 
      */
     private @Nullable String name;
-    /**
-     * @return Provider specific configuration.
-     * 
-     */
     private @Nullable GetLogStreamSettings settings;
     /**
-     * @return Log Stream Status - can either be ACTIVE or INACTIVE only.
+     * @return Log Stream Status - can either be ACTIVE or INACTIVE only
      * 
      */
     private String status;
     /**
-     * @return Type of the Log Stream.
+     * @return Streaming provider used - aws*eventbridge or splunk*cloud_logstreaming
      * 
      */
     private String type;
 
     private GetLogStreamResult() {}
     /**
-     * @return ID of the log stream.
+     * @return ID of the log stream to retrieve, conflicts with `name`.
      * 
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Name of the log stream.
+     * @return Unique name for the Log Stream object, conflicts with `id`.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Provider specific configuration.
-     * 
-     */
     public Optional<GetLogStreamSettings> settings() {
         return Optional.ofNullable(this.settings);
     }
     /**
-     * @return Log Stream Status - can either be ACTIVE or INACTIVE only.
+     * @return Log Stream Status - can either be ACTIVE or INACTIVE only
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return Type of the Log Stream.
+     * @return Streaming provider used - aws*eventbridge or splunk*cloud_logstreaming
      * 
      */
     public String type() {

@@ -38,8 +38,7 @@ class OrgConfigurationArgs:
         :param pulumi.Input[str] city: City of org
         :param pulumi.Input[str] country: Country of org
         :param pulumi.Input[str] end_user_support_help_url: Support link of org
-        :param pulumi.Input[str] logo: Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-               orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+        :param pulumi.Input[str] logo: Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         :param pulumi.Input[bool] opt_out_communication_emails: Indicates whether the org's users receive Okta Communication emails
         :param pulumi.Input[str] phone_number: Support help phone of org
         :param pulumi.Input[str] postal_code: Postal code of org
@@ -166,8 +165,7 @@ class OrgConfigurationArgs:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-        orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+        Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         """
         return pulumi.get(self, "logo")
 
@@ -290,8 +288,7 @@ class _OrgConfigurationState:
         :param pulumi.Input[str] country: Country of org
         :param pulumi.Input[str] end_user_support_help_url: Support link of org
         :param pulumi.Input[str] expires_at: Expiration of org
-        :param pulumi.Input[str] logo: Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-               orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+        :param pulumi.Input[str] logo: Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         :param pulumi.Input[bool] opt_out_communication_emails: Indicates whether the org's users receive Okta Communication emails
         :param pulumi.Input[str] phone_number: Support help phone of org
         :param pulumi.Input[str] postal_code: Postal code of org
@@ -436,8 +433,7 @@ class _OrgConfigurationState:
     @pulumi.getter
     def logo(self) -> Optional[pulumi.Input[str]]:
         """
-        Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-        orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+        Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         """
         return pulumi.get(self, "logo")
 
@@ -564,7 +560,7 @@ class OrgConfiguration(pulumi.CustomResource):
                  website: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource allows you manage org settings, logo, support and communication options.
+        Manages org settings, logo, support and communication.
 
         > **IMPORTANT:** You must specify all Org Setting properties when you update an org's profile. Any property not specified in the script will be deleted.
 
@@ -581,8 +577,6 @@ class OrgConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Okta Org Configuration can be imported even without specifying the Org ID.
-
         ```sh
         $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
         ```
@@ -596,8 +590,7 @@ class OrgConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] company_name: Name of org
         :param pulumi.Input[str] country: Country of org
         :param pulumi.Input[str] end_user_support_help_url: Support link of org
-        :param pulumi.Input[str] logo: Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-               orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+        :param pulumi.Input[str] logo: Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         :param pulumi.Input[bool] opt_out_communication_emails: Indicates whether the org's users receive Okta Communication emails
         :param pulumi.Input[str] phone_number: Support help phone of org
         :param pulumi.Input[str] postal_code: Postal code of org
@@ -613,7 +606,7 @@ class OrgConfiguration(pulumi.CustomResource):
                  args: OrgConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you manage org settings, logo, support and communication options.
+        Manages org settings, logo, support and communication.
 
         > **IMPORTANT:** You must specify all Org Setting properties when you update an org's profile. Any property not specified in the script will be deleted.
 
@@ -629,8 +622,6 @@ class OrgConfiguration(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Okta Org Configuration can be imported even without specifying the Org ID.
 
         ```sh
         $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
@@ -736,8 +727,7 @@ class OrgConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] country: Country of org
         :param pulumi.Input[str] end_user_support_help_url: Support link of org
         :param pulumi.Input[str] expires_at: Expiration of org
-        :param pulumi.Input[str] logo: Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-               orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+        :param pulumi.Input[str] logo: Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         :param pulumi.Input[bool] opt_out_communication_emails: Indicates whether the org's users receive Okta Communication emails
         :param pulumi.Input[str] phone_number: Support help phone of org
         :param pulumi.Input[str] postal_code: Postal code of org
@@ -838,8 +828,7 @@ class OrgConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def logo(self) -> pulumi.Output[Optional[str]]:
         """
-        Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-        orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+        Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         """
         return pulumi.get(self, "logo")
 

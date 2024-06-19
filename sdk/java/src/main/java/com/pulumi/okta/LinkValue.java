@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Link value operations allow you to create relationships between primary and associated users.
+ * Manages users relationships. Link value operations allow you to create relationships between primary and associated users.
  * 
  * ## Example Usage
  * 
@@ -93,8 +93,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Okta Link Value can be imported via Primary Name and Primary User ID.
- * 
  * ```sh
  * $ pulumi import okta:index/linkValue:LinkValue example &amp;#60;primary_name&amp;#62;/&amp;#60;primary_user_id&amp;#62;
  * ```
@@ -103,14 +101,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/linkValue:LinkValue")
 public class LinkValue extends com.pulumi.resources.CustomResource {
     /**
-     * Set of User IDs or login values of the users to be assigned the &#39;associated&#39; relationship.
+     * Set of User IDs or login values of the users to be assigned the `associated` relationship.
      * 
      */
     @Export(name="associatedUserIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> associatedUserIds;
 
     /**
-     * @return Set of User IDs or login values of the users to be assigned the &#39;associated&#39; relationship.
+     * @return Set of User IDs or login values of the users to be assigned the `associated` relationship.
      * 
      */
     public Output<Optional<List<String>>> associatedUserIds() {
@@ -131,14 +129,14 @@ public class LinkValue extends com.pulumi.resources.CustomResource {
         return this.primaryName;
     }
     /**
-     * User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+     * User ID to be assigned to `primary` for the &#39;associated&#39; user in the specified relationship.
      * 
      */
     @Export(name="primaryUserId", refs={String.class}, tree="[0]")
     private Output<String> primaryUserId;
 
     /**
-     * @return User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+     * @return User ID to be assigned to `primary` for the &#39;associated&#39; user in the specified relationship.
      * 
      */
     public Output<String> primaryUserId() {

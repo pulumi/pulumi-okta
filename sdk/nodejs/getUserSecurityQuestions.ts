@@ -7,8 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to retrieve a list of user's security questions.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -39,7 +37,7 @@ export function getUserSecurityQuestions(args: GetUserSecurityQuestionsArgs, opt
  */
 export interface GetUserSecurityQuestionsArgs {
     /**
-     * User ID.
+     * ID of a Okta User
      */
     userId: string;
 }
@@ -52,15 +50,13 @@ export interface GetUserSecurityQuestionsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * collection of user's security question retrieved from Okta with the following properties:
-     */
     readonly questions: outputs.GetUserSecurityQuestionsQuestion[];
+    /**
+     * ID of a Okta User
+     */
     readonly userId: string;
 }
 /**
- * Use this data source to retrieve a list of user's security questions.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -87,7 +83,7 @@ export function getUserSecurityQuestionsOutput(args: GetUserSecurityQuestionsOut
  */
 export interface GetUserSecurityQuestionsOutputArgs {
     /**
-     * User ID.
+     * ID of a Okta User
      */
     userId: pulumi.Input<string>;
 }

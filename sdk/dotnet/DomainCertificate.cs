@@ -11,16 +11,13 @@ namespace Pulumi.Okta
 {
     /// <summary>
     /// Manages certificate for the domain.
-    /// 
-    /// This resource's `certificate`, `private_key`, and `certificate_chain` attributes
+    /// This resource's 'certificate', 'private_key', and 'certificate_chain' attributes
     /// hold actual PEM values and can be referred to by other configs requiring
     /// certificate and private key inputs. This is inline with TF's best
     /// practices
     /// of not encrypting state.
-    /// 
     /// See Let's Encrypt Certbot notes at the end of this
-    /// documentation for notes on how to generate a domain certificate with Let's
-    /// Encrypt Certbot
+    /// documentation for notes on how to generate a domain certificate with Let's Encrypt Certbot
     /// 
     /// ## Example Usage
     /// 
@@ -78,40 +75,36 @@ namespace Pulumi.Okta
     /// `certificate`       | `cert.pem`
     /// `certificate_chain` | `chain.pem`
     /// `private_key`       | `privkey.pem`
-    /// 
-    /// ## Import
-    /// 
-    /// This resource does not support importing.
     /// </summary>
     [OktaResourceType("okta:index/domainCertificate:DomainCertificate")]
     public partial class DomainCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Certificate content.
+        /// Certificate content
         /// </summary>
         [Output("certificate")]
         public Output<string> Certificate { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate certificate chain.
+        /// Certificate chain
         /// </summary>
         [Output("certificateChain")]
         public Output<string> CertificateChain { get; private set; } = null!;
 
         /// <summary>
-        /// Domain ID.
+        /// Domain's ID
         /// </summary>
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate private key.
+        /// Certificate private key
         /// </summary>
         [Output("privateKey")]
         public Output<string> PrivateKey { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate type. Valid value is `"PEM"`.
+        /// Certificate type. Valid value is `PEM`
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -163,31 +156,31 @@ namespace Pulumi.Okta
     public sealed class DomainCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Certificate content.
+        /// Certificate content
         /// </summary>
         [Input("certificate", required: true)]
         public Input<string> Certificate { get; set; } = null!;
 
         /// <summary>
-        /// Certificate certificate chain.
+        /// Certificate chain
         /// </summary>
         [Input("certificateChain", required: true)]
         public Input<string> CertificateChain { get; set; } = null!;
 
         /// <summary>
-        /// Domain ID.
+        /// Domain's ID
         /// </summary>
         [Input("domainId", required: true)]
         public Input<string> DomainId { get; set; } = null!;
 
         /// <summary>
-        /// Certificate private key.
+        /// Certificate private key
         /// </summary>
         [Input("privateKey", required: true)]
         public Input<string> PrivateKey { get; set; } = null!;
 
         /// <summary>
-        /// Certificate type. Valid value is `"PEM"`.
+        /// Certificate type. Valid value is `PEM`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -201,31 +194,31 @@ namespace Pulumi.Okta
     public sealed class DomainCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Certificate content.
+        /// Certificate content
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
         /// <summary>
-        /// Certificate certificate chain.
+        /// Certificate chain
         /// </summary>
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
 
         /// <summary>
-        /// Domain ID.
+        /// Domain's ID
         /// </summary>
         [Input("domainId")]
         public Input<string>? DomainId { get; set; }
 
         /// <summary>
-        /// Certificate private key.
+        /// Certificate private key
         /// </summary>
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
 
         /// <summary>
-        /// Certificate type. Valid value is `"PEM"`.
+        /// Certificate type. Valid value is `PEM`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

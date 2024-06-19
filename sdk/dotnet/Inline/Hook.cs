@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Inline
 {
     /// <summary>
-    /// Creates an inline hook.
-    /// 
-    /// This resource allows you to create and configure an inline hook.
+    /// Creates an inline hook. This resource allows you to create and configure an inline hook.
     /// 
     /// ## Example Usage
     /// 
@@ -48,8 +46,6 @@ namespace Pulumi.Okta.Inline
     /// 
     /// ## Import
     /// 
-    /// An inline hook can be imported via the Okta ID.
-    /// 
     /// ```sh
     /// $ pulumi import okta:inline/hook:Hook example &amp;#60;hook id&amp;#62;
     /// ```
@@ -57,15 +53,9 @@ namespace Pulumi.Okta.Inline
     [OktaResourceType("okta:inline/hook:Hook")]
     public partial class Hook : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Authentication required for inline hook request.
-        /// </summary>
         [Output("auth")]
         public Output<ImmutableDictionary<string, string>?> Auth { get; private set; } = null!;
 
-        /// <summary>
-        /// Details of the endpoint the inline hook will hit.
-        /// </summary>
         [Output("channel")]
         public Output<ImmutableDictionary<string, string>> Channel { get; private set; } = null!;
 
@@ -94,7 +84,7 @@ namespace Pulumi.Okta.Inline
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the hook. The currently-supported version is `"1.0.0"`.
+        /// The version of the hook. The currently-supported version is `1.0.0`.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -147,10 +137,6 @@ namespace Pulumi.Okta.Inline
     {
         [Input("auth")]
         private InputMap<string>? _auth;
-
-        /// <summary>
-        /// Authentication required for inline hook request.
-        /// </summary>
         public InputMap<string> Auth
         {
             get => _auth ?? (_auth = new InputMap<string>());
@@ -159,10 +145,6 @@ namespace Pulumi.Okta.Inline
 
         [Input("channel", required: true)]
         private InputMap<string>? _channel;
-
-        /// <summary>
-        /// Details of the endpoint the inline hook will hit.
-        /// </summary>
         public InputMap<string> Channel
         {
             get => _channel ?? (_channel = new InputMap<string>());
@@ -200,7 +182,7 @@ namespace Pulumi.Okta.Inline
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The version of the hook. The currently-supported version is `"1.0.0"`.
+        /// The version of the hook. The currently-supported version is `1.0.0`.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -215,10 +197,6 @@ namespace Pulumi.Okta.Inline
     {
         [Input("auth")]
         private InputMap<string>? _auth;
-
-        /// <summary>
-        /// Authentication required for inline hook request.
-        /// </summary>
         public InputMap<string> Auth
         {
             get => _auth ?? (_auth = new InputMap<string>());
@@ -227,10 +205,6 @@ namespace Pulumi.Okta.Inline
 
         [Input("channel")]
         private InputMap<string>? _channel;
-
-        /// <summary>
-        /// Details of the endpoint the inline hook will hit.
-        /// </summary>
         public InputMap<string> Channel
         {
             get => _channel ?? (_channel = new InputMap<string>());
@@ -268,7 +242,7 @@ namespace Pulumi.Okta.Inline
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The version of the hook. The currently-supported version is `"1.0.0"`.
+        /// The version of the hook. The currently-supported version is `1.0.0`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

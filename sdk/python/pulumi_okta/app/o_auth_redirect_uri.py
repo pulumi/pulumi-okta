@@ -18,7 +18,7 @@ class OAuthRedirectUriArgs:
                  uri: pulumi.Input[str]):
         """
         The set of arguments for constructing a OAuthRedirectUri resource.
-        :param pulumi.Input[str] app_id: OAuth application ID. Note: `app_id` can not be changed once set.
+        :param pulumi.Input[str] app_id: OAuth application ID.
         :param pulumi.Input[str] uri: Redirect URI to append to Okta OIDC application.
         """
         pulumi.set(__self__, "app_id", app_id)
@@ -28,7 +28,7 @@ class OAuthRedirectUriArgs:
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Input[str]:
         """
-        OAuth application ID. Note: `app_id` can not be changed once set.
+        OAuth application ID.
         """
         return pulumi.get(self, "app_id")
 
@@ -56,7 +56,7 @@ class _OAuthRedirectUriState:
                  uri: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OAuthRedirectUri resources.
-        :param pulumi.Input[str] app_id: OAuth application ID. Note: `app_id` can not be changed once set.
+        :param pulumi.Input[str] app_id: OAuth application ID.
         :param pulumi.Input[str] uri: Redirect URI to append to Okta OIDC application.
         """
         if app_id is not None:
@@ -68,7 +68,7 @@ class _OAuthRedirectUriState:
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[pulumi.Input[str]]:
         """
-        OAuth application ID. Note: `app_id` can not be changed once set.
+        OAuth application ID.
         """
         return pulumi.get(self, "app_id")
 
@@ -123,15 +123,13 @@ class OAuthRedirectUri(pulumi.CustomResource):
 
         ## Import
 
-        A redirect URI can be imported via the Okta ID.
-
         ```sh
-        $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62;
+        $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: OAuth application ID. Note: `app_id` can not be changed once set.
+        :param pulumi.Input[str] app_id: OAuth application ID.
         :param pulumi.Input[str] uri: Redirect URI to append to Okta OIDC application.
         """
         ...
@@ -166,10 +164,8 @@ class OAuthRedirectUri(pulumi.CustomResource):
 
         ## Import
 
-        A redirect URI can be imported via the Okta ID.
-
         ```sh
-        $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62;
+        $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62
         ```
 
         :param str resource_name: The name of the resource.
@@ -223,7 +219,7 @@ class OAuthRedirectUri(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: OAuth application ID. Note: `app_id` can not be changed once set.
+        :param pulumi.Input[str] app_id: OAuth application ID.
         :param pulumi.Input[str] uri: Redirect URI to append to Okta OIDC application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -238,7 +234,7 @@ class OAuthRedirectUri(pulumi.CustomResource):
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[str]:
         """
-        OAuth application ID. Note: `app_id` can not be changed once set.
+        OAuth application ID.
         """
         return pulumi.get(self, "app_id")
 

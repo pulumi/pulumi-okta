@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve a group from Okta.
+ * Get a group from Okta.
  *
  * ## Example Usage
  *
@@ -40,23 +40,17 @@ export interface GetGroupArgs {
      */
     delayReadSeconds?: string;
     /**
-     * ID of the group. Conflicts with `"name"` and `"type"`.
+     * ID of group.
      */
     id?: string;
     /**
-     * whether to retrieve all member ids.
+     * Fetch group users, having default off cuts down on API calls.
      */
     includeUsers?: boolean;
     /**
-     * name of group to retrieve. 
-     *
-     * > Okta API treats `name` as a starts with query. Therefore a name argument "My" will match any group starting with "My" such as "My Group" and "My Office"
+     * Name of group.
      */
     name?: string;
-    /**
-     * type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-     * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
-     */
     type?: string;
 }
 
@@ -64,31 +58,34 @@ export interface GetGroupArgs {
  * A collection of values returned by getGroup.
  */
 export interface GetGroupResult {
+    /**
+     * Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
+     */
     readonly delayReadSeconds?: string;
     /**
-     * description of group.
+     * Description of group.
      */
     readonly description: string;
     /**
      * ID of group.
      */
     readonly id: string;
+    /**
+     * Fetch group users, having default off cuts down on API calls.
+     */
     readonly includeUsers?: boolean;
     /**
-     * name of group.
+     * Name of group.
      */
     readonly name: string;
-    /**
-     * type of group.
-     */
     readonly type?: string;
     /**
-     * user ids that are members of this group, only included if `includeUsers` is set to `true`.
+     * Users associated with the group. This can also be done per user.
      */
     readonly users: string[];
 }
 /**
- * Use this data source to retrieve a group from Okta.
+ * Get a group from Okta.
  *
  * ## Example Usage
  *
@@ -114,22 +111,16 @@ export interface GetGroupOutputArgs {
      */
     delayReadSeconds?: pulumi.Input<string>;
     /**
-     * ID of the group. Conflicts with `"name"` and `"type"`.
+     * ID of group.
      */
     id?: pulumi.Input<string>;
     /**
-     * whether to retrieve all member ids.
+     * Fetch group users, having default off cuts down on API calls.
      */
     includeUsers?: pulumi.Input<boolean>;
     /**
-     * name of group to retrieve. 
-     *
-     * > Okta API treats `name` as a starts with query. Therefore a name argument "My" will match any group starting with "My" such as "My Group" and "My Office"
+     * Name of group.
      */
     name?: pulumi.Input<string>;
-    /**
-     * type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-     * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
-     */
     type?: pulumi.Input<string>;
 }

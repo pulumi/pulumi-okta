@@ -18,9 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates an inline hook.
- * 
- * This resource allows you to create and configure an inline hook.
+ * Creates an inline hook. This resource allows you to create and configure an inline hook.
  * 
  * ## Example Usage
  * 
@@ -71,8 +69,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An inline hook can be imported via the Okta ID.
- * 
  * ```sh
  * $ pulumi import okta:inline/hook:Hook example &amp;#60;hook id&amp;#62;
  * ```
@@ -80,31 +76,15 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="okta:inline/hook:Hook")
 public class Hook extends com.pulumi.resources.CustomResource {
-    /**
-     * Authentication required for inline hook request.
-     * 
-     */
     @Export(name="auth", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> auth;
 
-    /**
-     * @return Authentication required for inline hook request.
-     * 
-     */
     public Output<Optional<Map<String,String>>> auth() {
         return Codegen.optional(this.auth);
     }
-    /**
-     * Details of the endpoint the inline hook will hit.
-     * 
-     */
     @Export(name="channel", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> channel;
 
-    /**
-     * @return Details of the endpoint the inline hook will hit.
-     * 
-     */
     public Output<Map<String,String>> channel() {
         return this.channel;
     }
@@ -165,14 +145,14 @@ public class Hook extends com.pulumi.resources.CustomResource {
         return this.type;
     }
     /**
-     * The version of the hook. The currently-supported version is `&#34;1.0.0&#34;`.
+     * The version of the hook. The currently-supported version is `1.0.0`.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
-     * @return The version of the hook. The currently-supported version is `&#34;1.0.0&#34;`.
+     * @return The version of the hook. The currently-supported version is `1.0.0`.
      * 
      */
     public Output<String> version() {

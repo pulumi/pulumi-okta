@@ -39,7 +39,7 @@ class GetUserTypeResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        description of user type.
+        Description of user type.
         """
         return pulumi.get(self, "description")
 
@@ -47,7 +47,7 @@ class GetUserTypeResult:
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
         """
-        display name of user type.
+        Display name of user type.
         """
         return pulumi.get(self, "display_name")
 
@@ -63,7 +63,7 @@ class GetUserTypeResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        name of user type.
+        Name of user type to retrieve.
         """
         return pulumi.get(self, "name")
 
@@ -83,7 +83,7 @@ class AwaitableGetUserTypeResult(GetUserTypeResult):
 def get_user_type(name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserTypeResult:
     """
-    Use this data source to retrieve a user type from Okta.
+    Get a user type from Okta.
 
     ## Example Usage
 
@@ -95,7 +95,7 @@ def get_user_type(name: Optional[str] = None,
     ```
 
 
-    :param str name: name of user type to retrieve.
+    :param str name: Name of user type to retrieve.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -113,7 +113,7 @@ def get_user_type(name: Optional[str] = None,
 def get_user_type_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserTypeResult]:
     """
-    Use this data source to retrieve a user type from Okta.
+    Get a user type from Okta.
 
     ## Example Usage
 
@@ -125,6 +125,6 @@ def get_user_type_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: name of user type to retrieve.
+    :param str name: Name of user type to retrieve.
     """
     ...

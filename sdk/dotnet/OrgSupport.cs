@@ -10,6 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
+    /// Manages Okta Support access your org
     /// This resource allows you to temporarily allow Okta Support to access your org as an administrator. By default,
     /// access will be granted for eight hours. Removing this resource will revoke Okta Support access to your org.
     /// 
@@ -30,10 +31,6 @@ namespace Pulumi.Okta
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// This resource does not support importing.
     /// </summary>
     [OktaResourceType("okta:index/orgSupport:OrgSupport")]
     public partial class OrgSupport : global::Pulumi.CustomResource
@@ -45,7 +42,7 @@ namespace Pulumi.Okta
         public Output<string> Expiration { get; private set; } = null!;
 
         /// <summary>
-        /// Number of days the support should be extended by in addition to the standard eight hours.
+        /// Number of days the support should be extended by
         /// </summary>
         [Output("extendBy")]
         public Output<int?> ExtendBy { get; private set; } = null!;
@@ -103,7 +100,7 @@ namespace Pulumi.Okta
     public sealed class OrgSupportArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Number of days the support should be extended by in addition to the standard eight hours.
+        /// Number of days the support should be extended by
         /// </summary>
         [Input("extendBy")]
         public Input<int>? ExtendBy { get; set; }
@@ -123,7 +120,7 @@ namespace Pulumi.Okta
         public Input<string>? Expiration { get; set; }
 
         /// <summary>
-        /// Number of days the support should be extended by in addition to the standard eight hours.
+        /// Number of days the support should be extended by
         /// </summary>
         [Input("extendBy")]
         public Input<int>? ExtendBy { get; set; }

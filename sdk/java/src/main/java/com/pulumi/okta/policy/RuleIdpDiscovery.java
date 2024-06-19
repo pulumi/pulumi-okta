@@ -21,100 +21,62 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and configure an IdP Discovery Policy Rule.
+ * Creates an IdP Discovery Policy Rule.
  * 
- * &gt; If you receive the error `You do not have permission to access the feature
- * you are requesting` contact support and
- * request feature flag `ADVANCED_SSO` be applied to your org.
+ * This resource allows you to create and configure an IdP Discovery Policy Rule.
+ * &gt; If you receive the error &#39;You do not have permission to access the feature
+ * you are requesting&#39; contact support and
+ * request feature flag &#39;ADVANCED_SSO&#39; be applied to your org.
  * 
  * ## Example Usage
  * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.policy.PolicyFunctions;
- * import com.pulumi.okta.policy.inputs.GetPolicyArgs;
- * import com.pulumi.okta.policy.RuleIdpDiscovery;
- * import com.pulumi.okta.policy.RuleIdpDiscoveryArgs;
- * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppExcludeArgs;
- * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppIncludeArgs;
- * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryPlatformIncludeArgs;
- * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryUserIdentifierPatternArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // All Okta orgs contain only one IdP Discovery Policy
- *         final var idpDiscoveryPolicy = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
- *             .name("Idp Discovery Policy")
- *             .type("IDP_DISCOVERY")
- *             .build());
- * 
- *         var example = new RuleIdpDiscovery("example", RuleIdpDiscoveryArgs.builder()
- *             .policyId(idpDiscoveryPolicy.applyValue(getPolicyResult -> getPolicyResult.id()))
- *             .name("example")
- *             .idpId("<idp id>")
- *             .idpType("OIDC")
- *             .networkConnection("ANYWHERE")
- *             .priority(1)
- *             .status("ACTIVE")
- *             .userIdentifierType("ATTRIBUTE")
- *             .userIdentifierAttribute("company")
- *             .appExcludes(            
- *                 RuleIdpDiscoveryAppExcludeArgs.builder()
- *                     .id("<app id>")
- *                     .type("APP")
- *                     .build(),
- *                 RuleIdpDiscoveryAppExcludeArgs.builder()
- *                     .name("yahoo_mail")
- *                     .type("APP_TYPE")
- *                     .build())
- *             .appIncludes(            
- *                 RuleIdpDiscoveryAppIncludeArgs.builder()
- *                     .id("<app id>")
- *                     .type("APP")
- *                     .build(),
- *                 RuleIdpDiscoveryAppIncludeArgs.builder()
- *                     .name("<app type name>")
- *                     .type("APP_TYPE")
- *                     .build())
- *             .platformIncludes(RuleIdpDiscoveryPlatformIncludeArgs.builder()
- *                 .type("MOBILE")
- *                 .osType("OSX")
- *                 .build())
- *             .userIdentifierPatterns(RuleIdpDiscoveryUserIdentifierPatternArgs.builder()
- *                 .matchType("EQUALS")
- *                 .value("Articulate")
- *                 .build())
- *             .build());
- * 
- *     }
+ * ### All Okta orgs contain only one IdP Discovery Policy
+ * data &#34;okta.policy.getPolicy&#34; &#34;idp_discovery_policy&#34; {
+ *   name = &#34;Idp Discovery Policy&#34;
+ *   type = &#34;IDP_DISCOVERY&#34;
  * }
+ * 
+ * resource &#34;okta.policy.RuleIdpDiscovery&#34; &#34;example&#34; {
+ *   policy_id                 = data.okta_policy.idp_discovery_policy.id
+ *   name                      = &#34;example&#34;
+ *   idp_id                    = &#34;&lt;idp id&gt;&#34;
+ *   idp_type                  = &#34;OIDC&#34;
+ *   network_connection        = &#34;ANYWHERE&#34;
+ *   priority                  = 1
+ *   status                    = &#34;ACTIVE&#34;
+ *   user_identifier_type      = &#34;ATTRIBUTE&#34;
+ *   user_identifier_attribute = &#34;company&#34;
+ * 
+ *   app_exclude {
+ *     id   = &#34;&lt;app id&gt;&#34;
+ *     type = &#34;APP&#34;
+ *   }
+ * 
+ *   app_exclude {
+ *     name = &#34;yahoo_mail&#34;
+ *     type = &#34;APP_TYPE&#34;
+ *   }
+ * 
+ *   app_include {
+ *     id   = &#34;&lt;app id&gt;&#34;
+ *     type = &#34;APP&#34;
+ *   }
+ * 
+ *   app_include {
+ *     name = &#34;&lt;app type name&gt;&#34;
+ *     type = &#34;APP_TYPE&#34;
+ *   }
+ * 
+ *   platform_include {
+ *     type    = &#34;MOBILE&#34;
+ *     os_type = &#34;OSX&#34;
+ *   }
+ * 
+ *   user_identifier_patterns {
+ *     match_type = &#34;EQUALS&#34;
+ *     value      = &#34;Articulate&#34;
+ *   }
  * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ## Import
- * 
- * A Policy Rule can be imported via the Policy and Rule ID.
- * 
- * ```sh
- * $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
- * ```
  * 
  */
 @ResourceType(type="okta:policy/ruleIdpDiscovery:RuleIdpDiscovery")
@@ -134,14 +96,20 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appExcludes);
     }
     /**
-     * Applications to include in discovery rule.
+     * Applications to include in discovery rule. - &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to
+     * include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in
+     * instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included. - &#39;type&#39; - (Required) One of:
+     * &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     @Export(name="appIncludes", refs={List.class,RuleIdpDiscoveryAppInclude.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleIdpDiscoveryAppInclude>> appIncludes;
 
     /**
-     * @return Applications to include in discovery rule.
+     * @return Applications to include in discovery rule. - &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to
+     * include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in
+     * instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included. - &#39;type&#39; - (Required) One of:
+     * &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     public Output<Optional<List<RuleIdpDiscoveryAppInclude>>> appIncludes() {
@@ -162,70 +130,72 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.idpId);
     }
     /**
-     * Type of Idp. One of: `&#34;SAML2&#34;`, `&#34;IWA&#34;`, `&#34;AgentlessDSSO&#34;`, `&#34;X509&#34;`, `&#34;FACEBOOK&#34;`, `&#34;GOOGLE&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;OIDC&#34;`
+     * Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
+     * Default: `OKTA`
      * 
      */
     @Export(name="idpType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> idpType;
 
     /**
-     * @return Type of Idp. One of: `&#34;SAML2&#34;`, `&#34;IWA&#34;`, `&#34;AgentlessDSSO&#34;`, `&#34;X509&#34;`, `&#34;FACEBOOK&#34;`, `&#34;GOOGLE&#34;`, `&#34;LINKEDIN&#34;`, `&#34;MICROSOFT&#34;`, `&#34;OIDC&#34;`
+     * @return Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
+     * Default: `OKTA`
      * 
      */
     public Output<Optional<String>> idpType() {
         return Codegen.optional(this.idpType);
     }
     /**
-     * Policy rule name.
+     * Policy Rule Name
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Policy rule name.
+     * @return Policy Rule Name
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The network selection mode. One of `&#34;ANYWEHRE&#34;` or `&#34;ZONE&#34;`.
+     * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      * 
      */
     @Export(name="networkConnection", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkConnection;
 
     /**
-     * @return The network selection mode. One of `&#34;ANYWEHRE&#34;` or `&#34;ZONE&#34;`.
+     * @return Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      * 
      */
     public Output<Optional<String>> networkConnection() {
         return Codegen.optional(this.networkConnection);
     }
     /**
-     * Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to exclude.
+     * Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     @Export(name="networkExcludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkExcludes;
 
     /**
-     * @return Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to exclude.
+     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     public Output<Optional<List<String>>> networkExcludes() {
         return Codegen.optional(this.networkExcludes);
     }
     /**
-     * Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to include.
+     * Required if `network_connection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     @Export(name="networkIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkIncludes;
 
     /**
-     * @return Required if `network_connection` = `&#34;ZONE&#34;`. Indicates the network zones to include.
+     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     public Output<Optional<List<String>>> networkIncludes() {
@@ -250,84 +220,94 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.platformIncludes);
     }
     /**
-     * Policy ID.
+     * Policy ID of the Rule
      * 
      */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyId;
 
     /**
-     * @return Policy ID.
+     * @return Policy ID of the Rule
      * 
      */
     public Output<Optional<String>> policyId() {
         return Codegen.optional(this.policyId);
     }
     /**
-     * Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> priority;
 
     /**
-     * @return Idp rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * @return Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     public Output<Optional<Integer>> priority() {
         return Codegen.optional(this.priority);
     }
     /**
-     * Idp rule status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. By default, it is `&#34;ACTIVE&#34;`.
+     * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Idp rule status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. By default, it is `&#34;ACTIVE&#34;`.
+     * @return Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+     * Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
+     * This is the attribute or identifier that the `user_identifier_patterns` are checked against.
      * 
      */
     @Export(name="userIdentifierAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userIdentifierAttribute;
 
     /**
-     * @return Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+     * @return Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
+     * This is the attribute or identifier that the `user_identifier_patterns` are checked against.
      * 
      */
     public Output<Optional<String>> userIdentifierAttribute() {
         return Codegen.optional(this.userIdentifierAttribute);
     }
     /**
-     * Specifies a User Identifier pattern condition to match against. If `match_type` of `&#34;EXPRESSION&#34;` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+     * Specifies a User Identifier pattern condition to match against. If &#39;match_type&#39; of &#39;EXPRESSION&#39; is used, only a *single*
+     * element can be set, otherwise multiple elements of matching patterns may be provided. - &#39;match_type&#39; - (Optional) The
+     * kind of pattern. For regex, use &#39;EXPRESSION&#39;. For simple string matches, use one of the following: &#39;SUFFIX&#39;, &#39;EQUALS&#39;,
+     * &#39;STARTS_WITH&#39;, &#39;CONTAINS&#39; - &#39;value&#39; - (Optional) The regex or simple match string to match against.
      * 
      */
     @Export(name="userIdentifierPatterns", refs={List.class,RuleIdpDiscoveryUserIdentifierPattern.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleIdpDiscoveryUserIdentifierPattern>> userIdentifierPatterns;
 
     /**
-     * @return Specifies a User Identifier pattern condition to match against. If `match_type` of `&#34;EXPRESSION&#34;` is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+     * @return Specifies a User Identifier pattern condition to match against. If &#39;match_type&#39; of &#39;EXPRESSION&#39; is used, only a *single*
+     * element can be set, otherwise multiple elements of matching patterns may be provided. - &#39;match_type&#39; - (Optional) The
+     * kind of pattern. For regex, use &#39;EXPRESSION&#39;. For simple string matches, use one of the following: &#39;SUFFIX&#39;, &#39;EQUALS&#39;,
+     * &#39;STARTS_WITH&#39;, &#39;CONTAINS&#39; - &#39;value&#39; - (Optional) The regex or simple match string to match against.
      * 
      */
     public Output<Optional<List<RuleIdpDiscoveryUserIdentifierPattern>>> userIdentifierPatterns() {
         return Codegen.optional(this.userIdentifierPatterns);
     }
     /**
-     * One of: `&#34;IDENTIFIER&#34;`, `&#34;ATTRIBUTE&#34;`
+     * One of: `IDENTIFIER`, `ATTRIBUTE`
      * 
      */
     @Export(name="userIdentifierType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userIdentifierType;
 
     /**
-     * @return One of: `&#34;IDENTIFIER&#34;`, `&#34;ATTRIBUTE&#34;`
+     * @return One of: `IDENTIFIER`, `ATTRIBUTE`
      * 
      */
     public Output<Optional<String>> userIdentifierType() {

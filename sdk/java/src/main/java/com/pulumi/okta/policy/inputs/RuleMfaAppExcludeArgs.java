@@ -16,32 +16,16 @@ public final class RuleMfaAppExcludeArgs extends com.pulumi.resources.ResourceAr
 
     public static final RuleMfaAppExcludeArgs Empty = new RuleMfaAppExcludeArgs();
 
-    /**
-     * ID of the Rule.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return ID of the Rule.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Policy Rule Name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Policy Rule Name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -79,44 +63,20 @@ public final class RuleMfaAppExcludeArgs extends com.pulumi.resources.ResourceAr
             $ = new RuleMfaAppExcludeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id ID of the Rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id ID of the Rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param name Policy Rule Name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Policy Rule Name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

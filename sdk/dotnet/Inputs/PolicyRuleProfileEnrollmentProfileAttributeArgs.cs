@@ -25,7 +25,7 @@ namespace Pulumi.Okta.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Indicates if this property is required for enrollment. Default is `false`.
+        /// Indicates if this property is required for enrollment
         /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }

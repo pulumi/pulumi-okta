@@ -13,8 +13,8 @@ import (
 )
 
 // Manages API scopes for OAuth applications.
-//
 // This resource allows you to grant or revoke API scopes for OAuth2 applications within your organization.
+// Note: you have to create an application before using this resource.
 //
 // ## Example Usage
 //
@@ -49,10 +49,8 @@ import (
 //
 // ## Import
 //
-// OAuth API scopes can be imported via the Okta Application ID.
-//
 // ```sh
-// $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62;
+// $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62
 // ```
 type AppOauthApiScope struct {
 	pulumi.CustomResourceState
@@ -61,7 +59,7 @@ type AppOauthApiScope struct {
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// The issuer of your Org Authorization Server, your Org URL.
 	Issuer pulumi.StringOutput `pulumi:"issuer"`
-	// List of scopes for which consent is granted.
+	// Scopes of the application for which consent is granted.
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 }
 
@@ -108,7 +106,7 @@ type appOauthApiScopeState struct {
 	AppId *string `pulumi:"appId"`
 	// The issuer of your Org Authorization Server, your Org URL.
 	Issuer *string `pulumi:"issuer"`
-	// List of scopes for which consent is granted.
+	// Scopes of the application for which consent is granted.
 	Scopes []string `pulumi:"scopes"`
 }
 
@@ -117,7 +115,7 @@ type AppOauthApiScopeState struct {
 	AppId pulumi.StringPtrInput
 	// The issuer of your Org Authorization Server, your Org URL.
 	Issuer pulumi.StringPtrInput
-	// List of scopes for which consent is granted.
+	// Scopes of the application for which consent is granted.
 	Scopes pulumi.StringArrayInput
 }
 
@@ -130,7 +128,7 @@ type appOauthApiScopeArgs struct {
 	AppId string `pulumi:"appId"`
 	// The issuer of your Org Authorization Server, your Org URL.
 	Issuer string `pulumi:"issuer"`
-	// List of scopes for which consent is granted.
+	// Scopes of the application for which consent is granted.
 	Scopes []string `pulumi:"scopes"`
 }
 
@@ -140,7 +138,7 @@ type AppOauthApiScopeArgs struct {
 	AppId pulumi.StringInput
 	// The issuer of your Org Authorization Server, your Org URL.
 	Issuer pulumi.StringInput
-	// List of scopes for which consent is granted.
+	// Scopes of the application for which consent is granted.
 	Scopes pulumi.StringArrayInput
 }
 
@@ -241,7 +239,7 @@ func (o AppOauthApiScopeOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppOauthApiScope) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// List of scopes for which consent is granted.
+// Scopes of the application for which consent is granted.
 func (o AppOauthApiScopeOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppOauthApiScope) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
 }

@@ -7,9 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Assigns groups to an application.
+ * Assigns groups to an application. This resource allows you to create multiple App Group assignments.
  *
- * This resource allows you to create multiple App Group assignments.
+ * **Important**: Do not use in conjunction with forEach
  *
  * ## Example Usage
  *
@@ -37,10 +37,8 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * An application's group assignments can be imported via `app_id`.
- *
  * ```sh
- * $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
+ * $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62
  * ```
  */
 export class AppGroupAssignments extends pulumi.CustomResource {
@@ -76,7 +74,7 @@ export class AppGroupAssignments extends pulumi.CustomResource {
      */
     public readonly appId!: pulumi.Output<string>;
     /**
-     * A group to assign the app to.
+     * A group to assign to this application
      */
     public readonly groups!: pulumi.Output<outputs.AppGroupAssignmentsGroup[]>;
 
@@ -120,7 +118,7 @@ export interface AppGroupAssignmentsState {
      */
     appId?: pulumi.Input<string>;
     /**
-     * A group to assign the app to.
+     * A group to assign to this application
      */
     groups?: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[]>;
 }
@@ -134,7 +132,7 @@ export interface AppGroupAssignmentsArgs {
      */
     appId: pulumi.Input<string>;
     /**
-     * A group to assign the app to.
+     * A group to assign to this application
      */
     groups: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[]>;
 }

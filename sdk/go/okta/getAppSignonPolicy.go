@@ -11,9 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+// Get a sign-on policy for the application.
 //
-// Use this data source to retrieve a sign-on policy for the application.
+// > **WARNING:** This feature is only available as a part of the
+// Identity Engine. Contact support
+// for further information.
 //
 // > Inside the product a sign-on policy is referenced as an _authentication
 // policy_, in the public API the policy is of type
@@ -56,15 +58,17 @@ func LookupAppSignonPolicy(ctx *pulumi.Context, args *LookupAppSignonPolicyArgs,
 
 // A collection of arguments for invoking getAppSignonPolicy.
 type LookupAppSignonPolicyArgs struct {
-	// The application ID.
+	// App ID
 	AppId string `pulumi:"appId"`
 }
 
 // A collection of values returned by getAppSignonPolicy.
 type LookupAppSignonPolicyResult struct {
+	// App ID
 	AppId string `pulumi:"appId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Policy name
 	Name string `pulumi:"name"`
 }
 
@@ -83,7 +87,7 @@ func LookupAppSignonPolicyOutput(ctx *pulumi.Context, args LookupAppSignonPolicy
 
 // A collection of arguments for invoking getAppSignonPolicy.
 type LookupAppSignonPolicyOutputArgs struct {
-	// The application ID.
+	// App ID
 	AppId pulumi.StringInput `pulumi:"appId"`
 }
 
@@ -106,6 +110,7 @@ func (o LookupAppSignonPolicyResultOutput) ToLookupAppSignonPolicyResultOutputWi
 	return o
 }
 
+// App ID
 func (o LookupAppSignonPolicyResultOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppSignonPolicyResult) string { return v.AppId }).(pulumi.StringOutput)
 }
@@ -115,6 +120,7 @@ func (o LookupAppSignonPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppSignonPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Policy name
 func (o LookupAppSignonPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppSignonPolicyResult) string { return v.Name }).(pulumi.StringOutput)
 }

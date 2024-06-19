@@ -16,14 +16,14 @@ public final class PolicyProfileEnrollmentState extends com.pulumi.resources.Res
     public static final PolicyProfileEnrollmentState Empty = new PolicyProfileEnrollmentState();
 
     /**
-     * Policy Name.
+     * Name of the policy
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Policy Name.
+     * @return Name of the policy
      * 
      */
     public Optional<Output<String>> name() {
@@ -31,14 +31,14 @@ public final class PolicyProfileEnrollmentState extends com.pulumi.resources.Res
     }
 
     /**
-     * Status of the policy.
+     * Status of the policy
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of the policy.
+     * @return Status of the policy
      * 
      */
     public Optional<Output<String>> status() {
@@ -71,7 +71,7 @@ public final class PolicyProfileEnrollmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Policy Name.
+         * @param name Name of the policy
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class PolicyProfileEnrollmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Policy Name.
+         * @param name Name of the policy
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class PolicyProfileEnrollmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param status Status of the policy.
+         * @param status Status of the policy
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PolicyProfileEnrollmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param status Status of the policy.
+         * @param status Status of the policy
          * 
          * @return builder
          * 

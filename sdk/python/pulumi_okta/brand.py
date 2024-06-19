@@ -25,16 +25,15 @@ class BrandArgs:
                  remove_powered_by_okta: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Brand resource.
-        :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
-        :param pulumi.Input[str] brand_id: (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
-               - `DEPRECATED`: Please stop using this field as it has become noop.
+        :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
+        :param pulumi.Input[str] brand_id: Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
         :param pulumi.Input[str] custom_privacy_policy_url: Custom privacy policy URL
         :param pulumi.Input[str] default_app_app_instance_id: Default app app instance id
         :param pulumi.Input[str] default_app_app_link_name: Default app app link name
         :param pulumi.Input[str] default_app_classic_application_uri: Default app classic application uri
         :param pulumi.Input[str] locale: The language specified as an IETF BCP 47 language tag
         :param pulumi.Input[str] name: Name of the brand
-        :param pulumi.Input[bool] remove_powered_by_okta: Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        :param pulumi.Input[bool] remove_powered_by_okta: Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
         if agree_to_custom_privacy_policy is not None:
             pulumi.set(__self__, "agree_to_custom_privacy_policy", agree_to_custom_privacy_policy)
@@ -62,7 +61,7 @@ class BrandArgs:
     @pulumi.getter(name="agreeToCustomPrivacyPolicy")
     def agree_to_custom_privacy_policy(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
+        Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
         """
         return pulumi.get(self, "agree_to_custom_privacy_policy")
 
@@ -74,8 +73,7 @@ class BrandArgs:
     @pulumi.getter(name="brandId")
     def brand_id(self) -> Optional[pulumi.Input[str]]:
         """
-        (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
-        - `DEPRECATED`: Please stop using this field as it has become noop.
+        Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
         """
         warnings.warn("""Okta has fully support brand creation, this attribute is a no op and will be removed""", DeprecationWarning)
         pulumi.log.warn("""brand_id is deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed""")
@@ -162,7 +160,7 @@ class BrandArgs:
     @pulumi.getter(name="removePoweredByOkta")
     def remove_powered_by_okta(self) -> Optional[pulumi.Input[bool]]:
         """
-        Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
         return pulumi.get(self, "remove_powered_by_okta")
 
@@ -188,19 +186,18 @@ class _BrandState:
                  remove_powered_by_okta: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Brand resources.
-        :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
-        :param pulumi.Input[str] brand_id: (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
-               - `DEPRECATED`: Please stop using this field as it has become noop.
+        :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
+        :param pulumi.Input[str] brand_id: Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
         :param pulumi.Input[str] custom_privacy_policy_url: Custom privacy policy URL
         :param pulumi.Input[str] default_app_app_instance_id: Default app app instance id
         :param pulumi.Input[str] default_app_app_link_name: Default app app link name
         :param pulumi.Input[str] default_app_classic_application_uri: Default app classic application uri
-        :param pulumi.Input[str] email_domain_id: (Read-only) Email Domain ID tied to this brand
-        :param pulumi.Input[bool] is_default: (Read-only) Is this the default brand
-        :param pulumi.Input[str] links: (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+        :param pulumi.Input[str] email_domain_id: Email Domain ID tied to this brand
+        :param pulumi.Input[bool] is_default: Is this the default brand
+        :param pulumi.Input[str] links: Link relations for this object - JSON HAL - Discoverable resources related to the brand
         :param pulumi.Input[str] locale: The language specified as an IETF BCP 47 language tag
         :param pulumi.Input[str] name: Name of the brand
-        :param pulumi.Input[bool] remove_powered_by_okta: Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        :param pulumi.Input[bool] remove_powered_by_okta: Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
         if agree_to_custom_privacy_policy is not None:
             pulumi.set(__self__, "agree_to_custom_privacy_policy", agree_to_custom_privacy_policy)
@@ -234,7 +231,7 @@ class _BrandState:
     @pulumi.getter(name="agreeToCustomPrivacyPolicy")
     def agree_to_custom_privacy_policy(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
+        Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
         """
         return pulumi.get(self, "agree_to_custom_privacy_policy")
 
@@ -246,8 +243,7 @@ class _BrandState:
     @pulumi.getter(name="brandId")
     def brand_id(self) -> Optional[pulumi.Input[str]]:
         """
-        (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
-        - `DEPRECATED`: Please stop using this field as it has become noop.
+        Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
         """
         warnings.warn("""Okta has fully support brand creation, this attribute is a no op and will be removed""", DeprecationWarning)
         pulumi.log.warn("""brand_id is deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed""")
@@ -310,7 +306,7 @@ class _BrandState:
     @pulumi.getter(name="emailDomainId")
     def email_domain_id(self) -> Optional[pulumi.Input[str]]:
         """
-        (Read-only) Email Domain ID tied to this brand
+        Email Domain ID tied to this brand
         """
         return pulumi.get(self, "email_domain_id")
 
@@ -322,7 +318,7 @@ class _BrandState:
     @pulumi.getter(name="isDefault")
     def is_default(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Read-only) Is this the default brand
+        Is this the default brand
         """
         return pulumi.get(self, "is_default")
 
@@ -334,7 +330,7 @@ class _BrandState:
     @pulumi.getter
     def links(self) -> Optional[pulumi.Input[str]]:
         """
-        (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+        Link relations for this object - JSON HAL - Discoverable resources related to the brand
         """
         return pulumi.get(self, "links")
 
@@ -370,7 +366,7 @@ class _BrandState:
     @pulumi.getter(name="removePoweredByOkta")
     def remove_powered_by_okta(self) -> Optional[pulumi.Input[bool]]:
         """
-        Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
         return pulumi.get(self, "remove_powered_by_okta")
 
@@ -395,12 +391,16 @@ class Brand(pulumi.CustomResource):
                  remove_powered_by_okta: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        This resource allows you to create and configure an Okta
-        [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.Brand("example", name="example")
+        ```
 
         ## Import
-
-        An Okta Brand can be imported via the ID.
 
         ```sh
         $ pulumi import okta:index/brand:Brand example &#60;brand id&#62;
@@ -408,16 +408,15 @@ class Brand(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
-        :param pulumi.Input[str] brand_id: (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
-               - `DEPRECATED`: Please stop using this field as it has become noop.
+        :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
+        :param pulumi.Input[str] brand_id: Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
         :param pulumi.Input[str] custom_privacy_policy_url: Custom privacy policy URL
         :param pulumi.Input[str] default_app_app_instance_id: Default app app instance id
         :param pulumi.Input[str] default_app_app_link_name: Default app app link name
         :param pulumi.Input[str] default_app_classic_application_uri: Default app classic application uri
         :param pulumi.Input[str] locale: The language specified as an IETF BCP 47 language tag
         :param pulumi.Input[str] name: Name of the brand
-        :param pulumi.Input[bool] remove_powered_by_okta: Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        :param pulumi.Input[bool] remove_powered_by_okta: Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
         ...
     @overload
@@ -426,12 +425,16 @@ class Brand(pulumi.CustomResource):
                  args: Optional[BrandArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and configure an Okta
-        [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.Brand("example", name="example")
+        ```
 
         ## Import
-
-        An Okta Brand can be imported via the ID.
 
         ```sh
         $ pulumi import okta:index/brand:Brand example &#60;brand id&#62;
@@ -511,19 +514,18 @@ class Brand(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
-        :param pulumi.Input[str] brand_id: (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
-               - `DEPRECATED`: Please stop using this field as it has become noop.
+        :param pulumi.Input[bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
+        :param pulumi.Input[str] brand_id: Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
         :param pulumi.Input[str] custom_privacy_policy_url: Custom privacy policy URL
         :param pulumi.Input[str] default_app_app_instance_id: Default app app instance id
         :param pulumi.Input[str] default_app_app_link_name: Default app app link name
         :param pulumi.Input[str] default_app_classic_application_uri: Default app classic application uri
-        :param pulumi.Input[str] email_domain_id: (Read-only) Email Domain ID tied to this brand
-        :param pulumi.Input[bool] is_default: (Read-only) Is this the default brand
-        :param pulumi.Input[str] links: (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+        :param pulumi.Input[str] email_domain_id: Email Domain ID tied to this brand
+        :param pulumi.Input[bool] is_default: Is this the default brand
+        :param pulumi.Input[str] links: Link relations for this object - JSON HAL - Discoverable resources related to the brand
         :param pulumi.Input[str] locale: The language specified as an IETF BCP 47 language tag
         :param pulumi.Input[str] name: Name of the brand
-        :param pulumi.Input[bool] remove_powered_by_okta: Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        :param pulumi.Input[bool] remove_powered_by_okta: Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -547,7 +549,7 @@ class Brand(pulumi.CustomResource):
     @pulumi.getter(name="agreeToCustomPrivacyPolicy")
     def agree_to_custom_privacy_policy(self) -> pulumi.Output[bool]:
         """
-        Is a required input flag with when changing custom_privacy_url, shouldn't be considered as a readable property
+        Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
         """
         return pulumi.get(self, "agree_to_custom_privacy_policy")
 
@@ -555,8 +557,7 @@ class Brand(pulumi.CustomResource):
     @pulumi.getter(name="brandId")
     def brand_id(self) -> pulumi.Output[str]:
         """
-        (Read-only) Brand ID, used for read (faux-create). Setting `brand_id` to `default` is equivalent to importing the default brand by its ID.
-        - `DEPRECATED`: Please stop using this field as it has become noop.
+        Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
         """
         warnings.warn("""Okta has fully support brand creation, this attribute is a no op and will be removed""", DeprecationWarning)
         pulumi.log.warn("""brand_id is deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed""")
@@ -599,7 +600,7 @@ class Brand(pulumi.CustomResource):
     @pulumi.getter(name="emailDomainId")
     def email_domain_id(self) -> pulumi.Output[str]:
         """
-        (Read-only) Email Domain ID tied to this brand
+        Email Domain ID tied to this brand
         """
         return pulumi.get(self, "email_domain_id")
 
@@ -607,7 +608,7 @@ class Brand(pulumi.CustomResource):
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Output[bool]:
         """
-        (Read-only) Is this the default brand
+        Is this the default brand
         """
         return pulumi.get(self, "is_default")
 
@@ -615,7 +616,7 @@ class Brand(pulumi.CustomResource):
     @pulumi.getter
     def links(self) -> pulumi.Output[str]:
         """
-        (Read-only) Link relations for this object - JSON HAL - Discoverable resources related to the brand
+        Link relations for this object - JSON HAL - Discoverable resources related to the brand
         """
         return pulumi.get(self, "links")
 
@@ -639,7 +640,7 @@ class Brand(pulumi.CustomResource):
     @pulumi.getter(name="removePoweredByOkta")
     def remove_powered_by_okta(self) -> pulumi.Output[bool]:
         """
-        Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard
+        Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
         return pulumi.get(self, "remove_powered_by_okta")
 

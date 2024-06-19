@@ -51,14 +51,16 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Display name and value an enum array can be set to.
+     * Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
+     * - (Required) display name for the enum value.
      * 
      */
     @Import(name="arrayOneOfs")
     private @Nullable Output<List<AppUserSchemaPropertyArrayOneOfArgs>> arrayOneOfs;
 
     /**
-     * @return Display name and value an enum array can be set to.
+     * @return Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
+     * - (Required) display name for the enum value.
      * 
      */
     public Optional<Output<List<AppUserSchemaPropertyArrayOneOfArgs>>> arrayOneOfs() {
@@ -66,14 +68,14 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The type of the array elements if `type` is set to `&#34;array&#34;`.
+     * The type of the array elements if `type` is set to `array`
      * 
      */
     @Import(name="arrayType")
     private @Nullable Output<String> arrayType;
 
     /**
-     * @return The type of the array elements if `type` is set to `&#34;array&#34;`.
+     * @return The type of the array elements if `type` is set to `array`
      * 
      */
     public Optional<Output<String>> arrayType() {
@@ -141,14 +143,14 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The property name.
+     * Subschema unique string identifier
      * 
      */
     @Import(name="index")
     private @Nullable Output<String> index;
 
     /**
-     * @return The property name.
+     * @return Subschema unique string identifier
      * 
      */
     public Optional<Output<String>> index() {
@@ -156,14 +158,14 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;` or `&#34;OKTA&#34;`.
+     * Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
      * 
      */
     @Import(name="master")
     private @Nullable Output<String> master;
 
     /**
-     * @return Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;` or `&#34;OKTA&#34;`.
+     * @return Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
      * 
      */
     public Optional<Output<String>> master() {
@@ -171,14 +173,14 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The maximum length of the user property value. Only applies to type `&#34;string&#34;`.
+     * The maximum length of the user property value. Only applies to type `string`
      * 
      */
     @Import(name="maxLength")
     private @Nullable Output<Integer> maxLength;
 
     /**
-     * @return The maximum length of the user property value. Only applies to type `&#34;string&#34;`.
+     * @return The maximum length of the user property value. Only applies to type `string`
      * 
      */
     public Optional<Output<Integer>> maxLength() {
@@ -186,14 +188,14 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The minimum length of the user property value. Only applies to type `&#34;string&#34;`.
+     * The minimum length of the user property value. Only applies to type `string`
      * 
      */
     @Import(name="minLength")
     private @Nullable Output<Integer> minLength;
 
     /**
-     * @return The minimum length of the user property value. Only applies to type `&#34;string&#34;`.
+     * @return The minimum length of the user property value. Only applies to type `string`
      * 
      */
     public Optional<Output<Integer>> minLength() {
@@ -201,14 +203,16 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Array of maps containing a mapping for display name to enum value.
+     * Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
+     * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     @Import(name="oneOfs")
     private @Nullable Output<List<AppUserSchemaPropertyOneOfArgs>> oneOfs;
 
     /**
-     * @return Array of maps containing a mapping for display name to enum value.
+     * @return Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
+     * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     public Optional<Output<List<AppUserSchemaPropertyOneOfArgs>>> oneOfs() {
@@ -216,14 +220,14 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+     * Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<String> permissions;
 
     /**
-     * @return Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+     * @return Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
      * 
      */
     public Optional<Output<String>> permissions() {
@@ -231,14 +235,14 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Whether the property is required for this application&#39;s users.
+     * Whether the subschema is required
      * 
      */
     @Import(name="required")
     private @Nullable Output<Boolean> required;
 
     /**
-     * @return Whether the property is required for this application&#39;s users.
+     * @return Whether the subschema is required
      * 
      */
     public Optional<Output<Boolean>> required() {
@@ -246,14 +250,16 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * determines whether an app user attribute can be set at the Personal `&#34;SELF&#34;` or Group `&#34;NONE&#34;` level. Default value is `&#34;NONE&#34;`.
+     * determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
+     * `NONE`.
      * 
      */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
     /**
-     * @return determines whether an app user attribute can be set at the Personal `&#34;SELF&#34;` or Group `&#34;NONE&#34;` level. Default value is `&#34;NONE&#34;`.
+     * @return determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
+     * `NONE`.
      * 
      */
     public Optional<Output<String>> scope() {
@@ -261,14 +267,14 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The display name.
+     * Subschema title (display name)
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return The display name.
+     * @return Subschema title (display name)
      * 
      */
     public Optional<Output<String>> title() {
@@ -276,14 +282,14 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
+     * The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
+     * @return The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
      * 
      */
     public Optional<Output<String>> type() {
@@ -291,14 +297,16 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * If `type` is set to `&#34;array&#34;`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `&#34;SELF&#34;`.
+     * If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
+     * values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
      * 
      */
     @Import(name="union")
     private @Nullable Output<Boolean> union;
 
     /**
-     * @return If `type` is set to `&#34;array&#34;`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `&#34;SELF&#34;`.
+     * @return If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
+     * values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
      * 
      */
     public Optional<Output<Boolean>> union() {
@@ -432,7 +440,8 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arrayOneOfs Display name and value an enum array can be set to.
+         * @param arrayOneOfs Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
+         * - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -443,7 +452,8 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arrayOneOfs Display name and value an enum array can be set to.
+         * @param arrayOneOfs Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
+         * - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -453,7 +463,8 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arrayOneOfs Display name and value an enum array can be set to.
+         * @param arrayOneOfs Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
+         * - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -463,7 +474,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arrayType The type of the array elements if `type` is set to `&#34;array&#34;`.
+         * @param arrayType The type of the array elements if `type` is set to `array`
          * 
          * @return builder
          * 
@@ -474,7 +485,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arrayType The type of the array elements if `type` is set to `&#34;array&#34;`.
+         * @param arrayType The type of the array elements if `type` is set to `array`
          * 
          * @return builder
          * 
@@ -578,7 +589,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param index The property name.
+         * @param index Subschema unique string identifier
          * 
          * @return builder
          * 
@@ -589,7 +600,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param index The property name.
+         * @param index Subschema unique string identifier
          * 
          * @return builder
          * 
@@ -599,7 +610,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param master Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;` or `&#34;OKTA&#34;`.
+         * @param master Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
          * 
          * @return builder
          * 
@@ -610,7 +621,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param master Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;` or `&#34;OKTA&#34;`.
+         * @param master Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
          * 
          * @return builder
          * 
@@ -620,7 +631,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param maxLength The maximum length of the user property value. Only applies to type `&#34;string&#34;`.
+         * @param maxLength The maximum length of the user property value. Only applies to type `string`
          * 
          * @return builder
          * 
@@ -631,7 +642,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param maxLength The maximum length of the user property value. Only applies to type `&#34;string&#34;`.
+         * @param maxLength The maximum length of the user property value. Only applies to type `string`
          * 
          * @return builder
          * 
@@ -641,7 +652,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param minLength The minimum length of the user property value. Only applies to type `&#34;string&#34;`.
+         * @param minLength The minimum length of the user property value. Only applies to type `string`
          * 
          * @return builder
          * 
@@ -652,7 +663,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param minLength The minimum length of the user property value. Only applies to type `&#34;string&#34;`.
+         * @param minLength The minimum length of the user property value. Only applies to type `string`
          * 
          * @return builder
          * 
@@ -662,7 +673,8 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param oneOfs Array of maps containing a mapping for display name to enum value.
+         * @param oneOfs Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
+         * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -673,7 +685,8 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param oneOfs Array of maps containing a mapping for display name to enum value.
+         * @param oneOfs Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
+         * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -683,7 +696,8 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param oneOfs Array of maps containing a mapping for display name to enum value.
+         * @param oneOfs Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
+         * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -693,7 +707,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param permissions Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+         * @param permissions Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
          * 
          * @return builder
          * 
@@ -704,7 +718,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param permissions Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+         * @param permissions Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
          * 
          * @return builder
          * 
@@ -714,7 +728,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param required Whether the property is required for this application&#39;s users.
+         * @param required Whether the subschema is required
          * 
          * @return builder
          * 
@@ -725,7 +739,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param required Whether the property is required for this application&#39;s users.
+         * @param required Whether the subschema is required
          * 
          * @return builder
          * 
@@ -735,7 +749,8 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param scope determines whether an app user attribute can be set at the Personal `&#34;SELF&#34;` or Group `&#34;NONE&#34;` level. Default value is `&#34;NONE&#34;`.
+         * @param scope determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
+         * `NONE`.
          * 
          * @return builder
          * 
@@ -746,7 +761,8 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param scope determines whether an app user attribute can be set at the Personal `&#34;SELF&#34;` or Group `&#34;NONE&#34;` level. Default value is `&#34;NONE&#34;`.
+         * @param scope determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
+         * `NONE`.
          * 
          * @return builder
          * 
@@ -756,7 +772,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param title The display name.
+         * @param title Subschema title (display name)
          * 
          * @return builder
          * 
@@ -767,7 +783,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param title The display name.
+         * @param title Subschema title (display name)
          * 
          * @return builder
          * 
@@ -777,7 +793,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
+         * @param type The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
          * 
          * @return builder
          * 
@@ -788,7 +804,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
+         * @param type The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
          * 
          * @return builder
          * 
@@ -798,7 +814,8 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param union If `type` is set to `&#34;array&#34;`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `&#34;SELF&#34;`.
+         * @param union If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
+         * values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
          * 
          * @return builder
          * 
@@ -809,7 +826,8 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param union If `type` is set to `&#34;array&#34;`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `&#34;SELF&#34;`.
+         * @param union If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
+         * values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
          * 
          * @return builder
          * 

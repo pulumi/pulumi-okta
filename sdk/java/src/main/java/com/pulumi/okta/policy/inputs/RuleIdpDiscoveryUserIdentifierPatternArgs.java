@@ -15,32 +15,16 @@ public final class RuleIdpDiscoveryUserIdentifierPatternArgs extends com.pulumi.
 
     public static final RuleIdpDiscoveryUserIdentifierPatternArgs Empty = new RuleIdpDiscoveryUserIdentifierPatternArgs();
 
-    /**
-     * The kind of pattern. For regex, use `&#34;EXPRESSION&#34;`. For simple string matches, use one of the following: `&#34;SUFFIX&#34;`, `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`
-     * 
-     */
     @Import(name="matchType")
     private @Nullable Output<String> matchType;
 
-    /**
-     * @return The kind of pattern. For regex, use `&#34;EXPRESSION&#34;`. For simple string matches, use one of the following: `&#34;SUFFIX&#34;`, `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`
-     * 
-     */
     public Optional<Output<String>> matchType() {
         return Optional.ofNullable(this.matchType);
     }
 
-    /**
-     * The regex or simple match string to match against.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
-    /**
-     * @return The regex or simple match string to match against.
-     * 
-     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -70,44 +54,20 @@ public final class RuleIdpDiscoveryUserIdentifierPatternArgs extends com.pulumi.
             $ = new RuleIdpDiscoveryUserIdentifierPatternArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param matchType The kind of pattern. For regex, use `&#34;EXPRESSION&#34;`. For simple string matches, use one of the following: `&#34;SUFFIX&#34;`, `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchType(@Nullable Output<String> matchType) {
             $.matchType = matchType;
             return this;
         }
 
-        /**
-         * @param matchType The kind of pattern. For regex, use `&#34;EXPRESSION&#34;`. For simple string matches, use one of the following: `&#34;SUFFIX&#34;`, `&#34;EQUALS&#34;`, `&#34;STARTS_WITH&#34;`, `&#34;CONTAINS&#34;`
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchType(String matchType) {
             return matchType(Output.of(matchType));
         }
 
-        /**
-         * @param value The regex or simple match string to match against.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The regex or simple match string to match against.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

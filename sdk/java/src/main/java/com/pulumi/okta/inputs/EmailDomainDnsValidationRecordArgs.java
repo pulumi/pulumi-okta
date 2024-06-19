@@ -39,14 +39,14 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
     }
 
     /**
-     * DNS record name.
+     * DNS record name
      * 
      */
     @Import(name="fqdn")
     private @Nullable Output<String> fqdn;
 
     /**
-     * @return DNS record name.
+     * @return DNS record name
      * 
      */
     public Optional<Output<String>> fqdn() {
@@ -54,14 +54,14 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
     }
 
     /**
-     * Record type can be TXT or cname.
+     * Record type can be TXT or cname
      * 
      */
     @Import(name="recordType")
     private @Nullable Output<String> recordType;
 
     /**
-     * @return Record type can be TXT or cname.
+     * @return Record type can be TXT or cname
      * 
      */
     public Optional<Output<String>> recordType() {
@@ -70,7 +70,6 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
 
     /**
      * DNS record value
-     * - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
      * 
      */
     @Import(name="value")
@@ -78,7 +77,6 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
 
     /**
      * @return DNS record value
-     * - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
      * 
      */
     public Optional<Output<String>> value() {
@@ -142,7 +140,7 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param fqdn DNS record name.
+         * @param fqdn DNS record name
          * 
          * @return builder
          * 
@@ -153,7 +151,7 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param fqdn DNS record name.
+         * @param fqdn DNS record name
          * 
          * @return builder
          * 
@@ -163,7 +161,7 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param recordType Record type can be TXT or cname.
+         * @param recordType Record type can be TXT or cname
          * 
          * @return builder
          * 
@@ -174,7 +172,7 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param recordType Record type can be TXT or cname.
+         * @param recordType Record type can be TXT or cname
          * 
          * @return builder
          * 
@@ -185,7 +183,6 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
 
         /**
          * @param value DNS record value
-         * - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
          * 
          * @return builder
          * 
@@ -197,7 +194,6 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
 
         /**
          * @param value DNS record value
-         * - ` expiration  ` - (Deprecated) This field has been removed in the newest go sdk version and has become noop
          * 
          * @return builder
          * 

@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Idp
 {
     /// <summary>
-    /// Creates a SAML Identity Provider.
-    /// 
-    /// This resource allows you to create and configure a SAML Identity Provider.
+    /// Creates a SAML Identity Provider. This resource allows you to create and configure a SAML Identity Provider.
     /// 
     /// ## Example Usage
     /// 
@@ -43,8 +41,6 @@ namespace Pulumi.Okta.Idp
     /// 
     /// ## Import
     /// 
-    /// An SAML IdP can be imported via the Okta ID.
-    /// 
     /// ```sh
     /// $ pulumi import okta:idp/saml:Saml example &amp;#60;idp id&amp;#62;
     /// ```
@@ -53,7 +49,7 @@ namespace Pulumi.Okta.Idp
     public partial class Saml : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the account linking action for an IdP user.
+        /// Specifies the account linking action for an IdP user. Default: `AUTO`
         /// </summary>
         [Output("accountLinkAction")]
         public Output<string?> AccountLinkAction { get; private set; } = null!;
@@ -68,31 +64,28 @@ namespace Pulumi.Okta.Idp
         public Output<string> AcsBinding { get; private set; } = null!;
 
         /// <summary>
-        /// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
+        /// The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
         /// </summary>
         [Output("acsType")]
         public Output<string?> AcsType { get; private set; } = null!;
 
-        /// <summary>
-        /// The audience restriction for the IdP.
-        /// </summary>
         [Output("audience")]
         public Output<string> Audience { get; private set; } = null!;
 
         /// <summary>
-        /// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        /// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         /// </summary>
         [Output("deprovisionedAction")]
         public Output<string?> DeprovisionedAction { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        /// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         /// </summary>
         [Output("groupsAction")]
         public Output<string?> GroupsAction { get; private set; } = null!;
 
         /// <summary>
-        /// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        /// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         /// </summary>
         [Output("groupsAssignments")]
         public Output<ImmutableArray<string>> GroupsAssignments { get; private set; } = null!;
@@ -104,7 +97,7 @@ namespace Pulumi.Okta.Idp
         public Output<string?> GroupsAttribute { get; private set; } = null!;
 
         /// <summary>
-        /// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        /// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         /// </summary>
         [Output("groupsFilters")]
         public Output<ImmutableArray<string>> GroupsFilters { get; private set; } = null!;
@@ -116,7 +109,7 @@ namespace Pulumi.Okta.Idp
         public Output<string> Issuer { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         /// </summary>
         [Output("issuerMode")]
         public Output<string?> IssuerMode { get; private set; } = null!;
@@ -134,13 +127,13 @@ namespace Pulumi.Okta.Idp
         public Output<int?> MaxClockSkew { get; private set; } = null!;
 
         /// <summary>
-        /// The Application's display name.
+        /// Name of the IdP
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        /// The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
         /// </summary>
         [Output("nameFormat")]
         public Output<string?> NameFormat { get; private set; } = null!;
@@ -152,37 +145,37 @@ namespace Pulumi.Okta.Idp
         public Output<bool?> ProfileMaster { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning action for an IdP user during authentication.
+        /// Provisioning action for an IdP user during authentication. Default: `AUTO`
         /// </summary>
         [Output("provisioningAction")]
         public Output<string?> ProvisioningAction { get; private set; } = null!;
 
         /// <summary>
-        /// The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
+        /// The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         /// </summary>
         [Output("requestSignatureAlgorithm")]
         public Output<string?> RequestSignatureAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
         /// </summary>
         [Output("requestSignatureScope")]
         public Output<string?> RequestSignatureScope { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
+        /// The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         /// </summary>
         [Output("responseSignatureAlgorithm")]
         public Output<string?> ResponseSignatureAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
+        /// Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
         /// </summary>
         [Output("responseSignatureScope")]
         public Output<string?> ResponseSignatureScope { get; private set; } = null!;
 
         /// <summary>
-        /// The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        /// The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
         /// </summary>
         [Output("ssoBinding")]
         public Output<string?> SsoBinding { get; private set; } = null!;
@@ -200,7 +193,7 @@ namespace Pulumi.Okta.Idp
         public Output<string> SsoUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the IdP.
+        /// Default to `ACTIVE`
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -212,43 +205,37 @@ namespace Pulumi.Okta.Idp
         public Output<string?> SubjectFilter { get; private set; } = null!;
 
         /// <summary>
-        /// The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        /// The name format.
         /// </summary>
         [Output("subjectFormats")]
         public Output<ImmutableArray<string>> SubjectFormats { get; private set; } = null!;
 
         /// <summary>
-        /// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        /// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         /// </summary>
         [Output("subjectMatchAttribute")]
         public Output<string?> SubjectMatchAttribute { get; private set; } = null!;
 
         /// <summary>
-        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
         /// </summary>
         [Output("subjectMatchType")]
         public Output<string?> SubjectMatchType { get; private set; } = null!;
 
         /// <summary>
-        /// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        /// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         /// </summary>
         [Output("suspendedAction")]
         public Output<string?> SuspendedAction { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of the IdP.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
-        /// </summary>
         [Output("userTypeId")]
         public Output<string> UserTypeId { get; private set; } = null!;
 
         /// <summary>
-        /// Okta EL Expression to generate or transform a unique username for the IdP user.
+        /// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         /// </summary>
         [Output("usernameTemplate")]
         public Output<string?> UsernameTemplate { get; private set; } = null!;
@@ -300,7 +287,7 @@ namespace Pulumi.Okta.Idp
     public sealed class SamlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the account linking action for an IdP user.
+        /// Specifies the account linking action for an IdP user. Default: `AUTO`
         /// </summary>
         [Input("accountLinkAction")]
         public Input<string>? AccountLinkAction { get; set; }
@@ -318,19 +305,19 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
+        /// The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
         /// </summary>
         [Input("acsType")]
         public Input<string>? AcsType { get; set; }
 
         /// <summary>
-        /// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        /// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         /// </summary>
         [Input("deprovisionedAction")]
         public Input<string>? DeprovisionedAction { get; set; }
 
         /// <summary>
-        /// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        /// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         /// </summary>
         [Input("groupsAction")]
         public Input<string>? GroupsAction { get; set; }
@@ -339,7 +326,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _groupsAssignments;
 
         /// <summary>
-        /// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        /// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         /// </summary>
         public InputList<string> GroupsAssignments
         {
@@ -357,7 +344,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _groupsFilters;
 
         /// <summary>
-        /// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        /// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         /// </summary>
         public InputList<string> GroupsFilters
         {
@@ -372,7 +359,7 @@ namespace Pulumi.Okta.Idp
         public Input<string> Issuer { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
@@ -390,13 +377,13 @@ namespace Pulumi.Okta.Idp
         public Input<int>? MaxClockSkew { get; set; }
 
         /// <summary>
-        /// The Application's display name.
+        /// Name of the IdP
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        /// The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
         /// </summary>
         [Input("nameFormat")]
         public Input<string>? NameFormat { get; set; }
@@ -408,37 +395,37 @@ namespace Pulumi.Okta.Idp
         public Input<bool>? ProfileMaster { get; set; }
 
         /// <summary>
-        /// Provisioning action for an IdP user during authentication.
+        /// Provisioning action for an IdP user during authentication. Default: `AUTO`
         /// </summary>
         [Input("provisioningAction")]
         public Input<string>? ProvisioningAction { get; set; }
 
         /// <summary>
-        /// The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
+        /// The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         /// </summary>
         [Input("requestSignatureAlgorithm")]
         public Input<string>? RequestSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
         /// </summary>
         [Input("requestSignatureScope")]
         public Input<string>? RequestSignatureScope { get; set; }
 
         /// <summary>
-        /// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
+        /// The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         /// </summary>
         [Input("responseSignatureAlgorithm")]
         public Input<string>? ResponseSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
+        /// Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
         /// </summary>
         [Input("responseSignatureScope")]
         public Input<string>? ResponseSignatureScope { get; set; }
 
         /// <summary>
-        /// The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        /// The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
         /// </summary>
         [Input("ssoBinding")]
         public Input<string>? SsoBinding { get; set; }
@@ -456,7 +443,7 @@ namespace Pulumi.Okta.Idp
         public Input<string> SsoUrl { get; set; } = null!;
 
         /// <summary>
-        /// Status of the IdP.
+        /// Default to `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -471,7 +458,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _subjectFormats;
 
         /// <summary>
-        /// The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        /// The name format.
         /// </summary>
         public InputList<string> SubjectFormats
         {
@@ -480,25 +467,25 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        /// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         /// </summary>
         [Input("subjectMatchAttribute")]
         public Input<string>? SubjectMatchAttribute { get; set; }
 
         /// <summary>
-        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
         /// </summary>
         [Input("subjectMatchType")]
         public Input<string>? SubjectMatchType { get; set; }
 
         /// <summary>
-        /// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        /// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         /// </summary>
         [Input("suspendedAction")]
         public Input<string>? SuspendedAction { get; set; }
 
         /// <summary>
-        /// Okta EL Expression to generate or transform a unique username for the IdP user.
+        /// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         /// </summary>
         [Input("usernameTemplate")]
         public Input<string>? UsernameTemplate { get; set; }
@@ -512,7 +499,7 @@ namespace Pulumi.Okta.Idp
     public sealed class SamlState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the account linking action for an IdP user.
+        /// Specifies the account linking action for an IdP user. Default: `AUTO`
         /// </summary>
         [Input("accountLinkAction")]
         public Input<string>? AccountLinkAction { get; set; }
@@ -533,25 +520,22 @@ namespace Pulumi.Okta.Idp
         public Input<string>? AcsBinding { get; set; }
 
         /// <summary>
-        /// The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
+        /// The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
         /// </summary>
         [Input("acsType")]
         public Input<string>? AcsType { get; set; }
 
-        /// <summary>
-        /// The audience restriction for the IdP.
-        /// </summary>
         [Input("audience")]
         public Input<string>? Audience { get; set; }
 
         /// <summary>
-        /// Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        /// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         /// </summary>
         [Input("deprovisionedAction")]
         public Input<string>? DeprovisionedAction { get; set; }
 
         /// <summary>
-        /// Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        /// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         /// </summary>
         [Input("groupsAction")]
         public Input<string>? GroupsAction { get; set; }
@@ -560,7 +544,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _groupsAssignments;
 
         /// <summary>
-        /// List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        /// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         /// </summary>
         public InputList<string> GroupsAssignments
         {
@@ -578,7 +562,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _groupsFilters;
 
         /// <summary>
-        /// Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        /// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         /// </summary>
         public InputList<string> GroupsFilters
         {
@@ -593,7 +577,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? Issuer { get; set; }
 
         /// <summary>
-        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        /// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         /// </summary>
         [Input("issuerMode")]
         public Input<string>? IssuerMode { get; set; }
@@ -611,13 +595,13 @@ namespace Pulumi.Okta.Idp
         public Input<int>? MaxClockSkew { get; set; }
 
         /// <summary>
-        /// The Application's display name.
+        /// Name of the IdP
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        /// The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
         /// </summary>
         [Input("nameFormat")]
         public Input<string>? NameFormat { get; set; }
@@ -629,37 +613,37 @@ namespace Pulumi.Okta.Idp
         public Input<bool>? ProfileMaster { get; set; }
 
         /// <summary>
-        /// Provisioning action for an IdP user during authentication.
+        /// Provisioning action for an IdP user during authentication. Default: `AUTO`
         /// </summary>
         [Input("provisioningAction")]
         public Input<string>? ProvisioningAction { get; set; }
 
         /// <summary>
-        /// The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
+        /// The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         /// </summary>
         [Input("requestSignatureAlgorithm")]
         public Input<string>? RequestSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+        /// Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
         /// </summary>
         [Input("requestSignatureScope")]
         public Input<string>? RequestSignatureScope { get; set; }
 
         /// <summary>
-        /// The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
+        /// The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         /// </summary>
         [Input("responseSignatureAlgorithm")]
         public Input<string>? ResponseSignatureAlgorithm { get; set; }
 
         /// <summary>
-        /// Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
+        /// Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
         /// </summary>
         [Input("responseSignatureScope")]
         public Input<string>? ResponseSignatureScope { get; set; }
 
         /// <summary>
-        /// The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        /// The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
         /// </summary>
         [Input("ssoBinding")]
         public Input<string>? SsoBinding { get; set; }
@@ -677,7 +661,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? SsoUrl { get; set; }
 
         /// <summary>
-        /// Status of the IdP.
+        /// Default to `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -692,7 +676,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _subjectFormats;
 
         /// <summary>
-        /// The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        /// The name format.
         /// </summary>
         public InputList<string> SubjectFormats
         {
@@ -701,37 +685,31 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        /// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         /// </summary>
         [Input("subjectMatchAttribute")]
         public Input<string>? SubjectMatchAttribute { get; set; }
 
         /// <summary>
-        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        /// Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
         /// </summary>
         [Input("subjectMatchType")]
         public Input<string>? SubjectMatchType { get; set; }
 
         /// <summary>
-        /// Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        /// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         /// </summary>
         [Input("suspendedAction")]
         public Input<string>? SuspendedAction { get; set; }
 
-        /// <summary>
-        /// Type of the IdP.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
-        /// </summary>
         [Input("userTypeId")]
         public Input<string>? UserTypeId { get; set; }
 
         /// <summary>
-        /// Okta EL Expression to generate or transform a unique username for the IdP user.
+        /// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         /// </summary>
         [Input("usernameTemplate")]
         public Input<string>? UsernameTemplate { get; set; }

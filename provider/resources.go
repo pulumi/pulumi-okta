@@ -336,6 +336,7 @@ func Provider() tfbridge.ProviderInfo {
 		"okta_policy_device_assurance_macos",
 		"okta_policy_device_assurance_windows",
 		"okta_preview_signin_page",
+		"okta_auth_server_policy_rule_legacy",
 	} {
 		prov.Resources[r].Docs = &tfbridge.DocInfo{AllowMissing: true}
 	}

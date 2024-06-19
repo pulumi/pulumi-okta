@@ -18,8 +18,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+ * Creates a Profile Enrollment Policy Rule.
  * 
+ * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
  * A [profile enrollment
  * policy](https://developer.okta.com/docs/reference/api/policy/#profile-enrollment-policy)
  * is limited to one default rule. This resource does not create a rule for an
@@ -112,8 +113,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A Policy Rule can be imported via the Policy and Rule ID.
- * 
  * ```sh
  * $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
  * ```
@@ -122,126 +121,134 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment")
 public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomResource {
     /**
-     * Allow or deny access based on the rule conditions. Valid values are: `&#34;ALLOW&#34;`, `&#34;DENY&#34;`. Default is `&#34;ALLOW&#34;`.
+     * Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
      * 
      */
     @Export(name="access", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> access;
 
     /**
-     * @return Allow or deny access based on the rule conditions. Valid values are: `&#34;ALLOW&#34;`, `&#34;DENY&#34;`. Default is `&#34;ALLOW&#34;`.
+     * @return Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
      * 
      */
     public Output<Optional<String>> access() {
         return Codegen.optional(this.access);
     }
     /**
-     * Indicates whether email verification should occur before access is granted. Default is `true`.
+     * Indicates whether email verification should occur before access is granted. Default: `true`.
      * 
      */
     @Export(name="emailVerification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> emailVerification;
 
     /**
-     * @return Indicates whether email verification should occur before access is granted. Default is `true`.
+     * @return Indicates whether email verification should occur before access is granted. Default: `true`.
      * 
      */
     public Output<Optional<Boolean>> emailVerification() {
         return Codegen.optional(this.emailVerification);
     }
     /**
-     * ID of a Registration Inline Hook.
+     * ID of a Registration Inline Hook
      * 
      */
     @Export(name="inlineHookId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inlineHookId;
 
     /**
-     * @return ID of a Registration Inline Hook.
+     * @return ID of a Registration Inline Hook
      * 
      */
     public Output<Optional<String>> inlineHookId() {
         return Codegen.optional(this.inlineHookId);
     }
     /**
-     * Name of the Rule.
+     * Name of the rule
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the Rule.
+     * @return Name of the rule
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Policy ID.
+     * ID of the policy
      * 
      */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**
-     * @return Policy ID.
+     * @return ID of the policy
      * 
      */
     public Output<String> policyId() {
         return this.policyId;
     }
     /**
-     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
+     * these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to
+     * the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
+     * supported. - &#39;label&#39; - (Required) A display-friendly label for this property - &#39;name&#39; - (Required) The name of a User
+     * Profile property - &#39;required&#39; - (Required) Indicates if this property is required for enrollment. Default is &#39;false&#39;.
      * 
      */
     @Export(name="profileAttributes", refs={List.class,PolicyRuleProfileEnrollmentProfileAttribute.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PolicyRuleProfileEnrollmentProfileAttribute>> profileAttributes;
 
     /**
-     * @return A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+     * @return A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
+     * these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to
+     * the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
+     * supported. - &#39;label&#39; - (Required) A display-friendly label for this property - &#39;name&#39; - (Required) The name of a User
+     * Profile property - &#39;required&#39; - (Required) Indicates if this property is required for enrollment. Default is &#39;false&#39;.
      * 
      */
     public Output<Optional<List<PolicyRuleProfileEnrollmentProfileAttribute>>> profileAttributes() {
         return Codegen.optional(this.profileAttributes);
     }
     /**
-     * Enabled or disabled progressive profiling action rule conditions. Valid values are: `&#34;ENABLED&#34;`, `&#34;DISABLED&#34;`. Default is `&#34;DISABLED&#34;`.
+     * Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
      * 
      */
     @Export(name="progressiveProfilingAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> progressiveProfilingAction;
 
     /**
-     * @return Enabled or disabled progressive profiling action rule conditions. Valid values are: `&#34;ENABLED&#34;`, `&#34;DISABLED&#34;`. Default is `&#34;DISABLED&#34;`.
+     * @return Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
      * 
      */
     public Output<Optional<String>> progressiveProfilingAction() {
         return Codegen.optional(this.progressiveProfilingAction);
     }
     /**
-     * Status of the Rule.
+     * Status of the rule
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return Status of the Rule.
+     * @return Status of the rule
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * The ID of a Group that this User should be added to.
+     * The ID of a Group that this User should be added to
      * 
      */
     @Export(name="targetGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetGroupId;
 
     /**
-     * @return The ID of a Group that this User should be added to.
+     * @return The ID of a Group that this User should be added to
      * 
      */
     public Output<Optional<String>> targetGroupId() {
@@ -262,14 +269,14 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.uiSchemaId);
     }
     /**
-     * Which action should be taken if this User is new. Valid values are: `&#34;DENY&#34;`, `&#34;REGISTER&#34;`.
+     * Which action should be taken if this User is new. Valid values are: `DENY`, `REGISTER`
      * 
      */
     @Export(name="unknownUserAction", refs={String.class}, tree="[0]")
     private Output<String> unknownUserAction;
 
     /**
-     * @return Which action should be taken if this User is new. Valid values are: `&#34;DENY&#34;`, `&#34;REGISTER&#34;`.
+     * @return Which action should be taken if this User is new. Valid values are: `DENY`, `REGISTER`
      * 
      */
     public Output<String> unknownUserAction() {

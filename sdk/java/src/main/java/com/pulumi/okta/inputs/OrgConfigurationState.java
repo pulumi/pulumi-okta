@@ -137,16 +137,14 @@ public final class OrgConfigurationState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-     * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+     * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      * 
      */
     @Import(name="logo")
     private @Nullable Output<String> logo;
 
     /**
-     * @return Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-     * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+     * @return Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      * 
      */
     public Optional<Output<String>> logo() {
@@ -482,8 +480,7 @@ public final class OrgConfigurationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param logo Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-         * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+         * @param logo Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
          * 
          * @return builder
          * 
@@ -494,8 +491,7 @@ public final class OrgConfigurationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param logo Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-         * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+         * @param logo Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
          * 
          * @return builder
          * 

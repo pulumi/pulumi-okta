@@ -7,287 +7,10 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
- *
- * This resource allows you to create and configure a sign-on policy rule for the application.
- *
- * A default or `Catch-all Rule` sign-on policy rule can be imported and managed as a custom rule.
- * The only difference is that these fields are immutable and can not be managed: `networkConnection`, `networkExcludes`,
- * `networkIncludes`, `platformInclude`, `customExpression`, `deviceIsRegistered`, `deviceIsManaged`, `usersExcluded`,
- * `usersIncluded`, `groupsExcluded`, `groupsIncluded`, `userTypesExcluded` and `userTypesIncluded`.
- *
- * ## Example Usage
- *
- * ### Simple usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const testSaml = new okta.app.Saml("test", {
- *     label: "My App",
- *     ssoUrl: "https://google.com",
- *     recipient: "https://here.com",
- *     destination: "https://its-about-the-journey.com",
- *     audience: "https://audience.com",
- *     status: "ACTIVE",
- *     subjectNameIdTemplate: "${user.userName}",
- *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
- *     signatureAlgorithm: "RSA_SHA256",
- *     responseSigned: true,
- *     digestAlgorithm: "SHA256",
- *     honorForceAuthn: false,
- *     authnContextClassRef: "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
- * });
- * const test = okta.getAppSignonPolicyOutput({
- *     appId: testSaml.id,
- * });
- * const testAppSignonPolicyRule = new okta.AppSignonPolicyRule("test", {
- *     policyId: test.apply(test => test.id),
- *     name: "testAcc_replace_with_uuid",
- * });
- * ```
- *
- * This will create an app sign-on policy rule with the following `THEN` block:
- *
- * ### Rule with Constraints
- *
- * ### Example 1:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = new okta.AppSignonPolicyRule("test", {
- *     policyId: testOktaAppSignonPolicy.id,
- *     name: "testAcc_replace_with_uuid",
- *     constraints: [JSON.stringify({
- *         knowledge: {
- *             types: ["password"],
- *         },
- *     })],
- * });
- * ```
- *
- * This will create an app sign-on policy rule with the following `THEN` block:
- *
- * ### Example 2:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = new okta.AppSignonPolicyRule("test", {
- *     policyId: testOktaAppSignonPolicy.id,
- *     name: "testAcc_replace_with_uuid",
- *     constraints: [JSON.stringify({
- *         knowledge: {
- *             reauthenticateIn: "PT2H",
- *             types: ["password"],
- *         },
- *         possession: {
- *             deviceBound: "REQUIRED",
- *             hardwareProtection: "REQUIRED",
- *         },
- *     })],
- * });
- * ```
- *
- * This will create an app sign-on policy rule with the following `THEN` block:
- *
- * More examples can be
- * found [here](https://developer.okta.com/docs/reference/api/policy/#verification-method-json-examples).
- *
- * ### Complex example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const testSaml = new okta.app.Saml("test", {
- *     label: "testAcc_replace_with_uuid",
- *     ssoUrl: "https://google.com",
- *     recipient: "https://here.com",
- *     destination: "https://its-about-the-journey.com",
- *     audience: "https://audience.com",
- *     subjectNameIdTemplate: "${user.userName}",
- *     subjectNameIdFormat: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
- *     responseSigned: true,
- *     signatureAlgorithm: "RSA_SHA256",
- *     digestAlgorithm: "SHA256",
- *     honorForceAuthn: false,
- *     authnContextClassRef: "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
- *     singleLogoutIssuer: "https://dunshire.okta.com",
- *     singleLogoutUrl: "https://dunshire.okta.com/logout",
- *     singleLogoutCertificate: `MIIFnDCCA4QCCQDBSLbiON2T1zANBgkqhkiG9w0BAQsFADCBjzELMAkGA1UEBhMCVVMxDjAMBgNV\x0d
- * BAgMBU1haW5lMRAwDgYDVQQHDAdDYXJpYm91MRcwFQYDVQQKDA5Tbm93bWFrZXJzIEluYzEUMBIG\x0d
- * A1UECwwLRW5naW5lZXJpbmcxDTALBgNVBAMMBFNub3cxIDAeBgkqhkiG9w0BCQEWEWVtYWlsQGV4\x0d
- * YW1wbGUuY29tMB4XDTIwMTIwMzIyNDY0M1oXDTMwMTIwMTIyNDY0M1owgY8xCzAJBgNVBAYTAlVT\x0d
- * MQ4wDAYDVQQIDAVNYWluZTEQMA4GA1UEBwwHQ2FyaWJvdTEXMBUGA1UECgwOU25vd21ha2VycyBJ\x0d
- * bmMxFDASBgNVBAsMC0VuZ2luZWVyaW5nMQ0wCwYDVQQDDARTbm93MSAwHgYJKoZIhvcNAQkBFhFl\x0d
- * bWFpbEBleGFtcGxlLmNvbTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBANMmWDjXPdoa\x0d
- * PyzIENqeY9njLan2FqCbQPSestWUUcb6NhDsJVGSQ7XR+ozQA5TaJzbP7cAJUj8vCcbqMZsgOQAu\x0d
- * O/pzYyQEKptLmrGvPn7xkJ1A1xLkp2NY18cpDTeUPueJUoidZ9EJwEuyUZIktzxNNU1pA1lGijiu\x0d
- * 2XNxs9d9JR/hm3tCu9Im8qLVB4JtX80YUa6QtlRjWR/H8a373AYCOASdoB3c57fIPD8ATDNy2w/c\x0d
- * fCVGiyKDMFB+GA/WTsZpOP3iohRp8ltAncSuzypcztb2iE+jijtTsiC9kUA2abAJqqpoCJubNShi\x0d
- * Vff4822czpziS44MV2guC9wANi8u3Uyl5MKsU95j01jzadKRP5S+2f0K+n8n4UoV9fnqZFyuGAKd\x0d
- * CJi9K6NlSAP+TgPe/JP9FOSuxQOHWJfmdLHdJD+evoKi9E55sr5lRFK0xU1Fj5Ld7zjC0pXPhtJf\x0d
- * sgjEZzD433AsHnRzvRT1KSNCPkLYomznZo5n9rWYgCQ8HcytlQDTesmKE+s05E/VSWNtH84XdDrt\x0d
- * ieXwfwhHfaABSu+WjZYxi9CXdFCSvXhsgufUcK4FbYAHl/ga/cJxZc52yFC7Pcq0u9O2BSCjYPdQ\x0d
- * DAHs9dhT1RhwVLM8RmoAzgxyyzau0gxnAlgSBD9FMW6dXqIHIp8yAAg9cRXhYRTNAgMBAAEwDQYJ\x0d
- * KoZIhvcNAQELBQADggIBADofEC1SvG8qa7pmKCjB/E9Sxhk3mvUO9Gq43xzwVb721Ng3VYf4vGU3\x0d
- * wLUwJeLt0wggnj26NJweN5T3q9T8UMxZhHSWvttEU3+S1nArRB0beti716HSlOCDx4wTmBu/D1MG\x0d
- * t/kZYFJw+zuzvAcbYct2pK69AQhD8xAIbQvqADJI7cCK3yRry+aWtppc58P81KYabUlCfFXfhJ9E\x0d
- * P72ffN4jVHpX3lxxYh7FKAdiKbY2FYzjsc7RdgKI1R3iAAZUCGBTvezNzaetGzTUjjl/g1tcVYij\x0d
- * ltH9ZOQBPlUMI88lxUxqgRTerpPmAJH00CACx4JFiZrweLM1trZyy06wNDQgLrqHr3EOagBF/O2h\x0d
- * hfTehNdVr6iq3YhKWBo4/+RL0RCzHMh4u86VbDDnDn4Y6HzLuyIAtBFoikoKM6UHTOa0Pqv2bBr5\x0d
- * wbkRkVUxl9yJJw/HmTCdfnsM9dTOJUKzEglnGF2184Gg+qJDZB6fSf0EAO1F6sTqiSswl+uHQZiy\x0d
- * DaZzyU7Gg5seKOZ20zTRaX3Ihj9Zij/ORnrARE7eM/usKMECp+7syUwAUKxDCZkGiUdskmOhhBGL\x0d
- * JtbyK3F2UvoJoLsm3pIcvMak9KwMjSTGJB47ABUP1+w+zGcNk0D5Co3IJ6QekiLfWJyQ+kKsWLKt\x0d
- * zOYQQatrnBagM7MI2/T4\x0d
- * `,
- *     attributeStatements: [{
- *         type: "GROUP",
- *         name: "groups",
- *         filterType: "REGEX",
- *         filterValue: ".*",
- *     }],
- * });
- * const test = okta.getAppSignonPolicyOutput({
- *     appId: testSaml.id,
- * });
- * const testUser: okta.user.User[] = [];
- * for (const range = {value: 0}; range.value < 5; range.value++) {
- *     testUser.push(new okta.user.User(`test-${range.value}`, {
- *         firstName: "TestAcc",
- *         lastName: "Smith",
- *         login: `testAcc_${range.value}@example.com`,
- *         email: `testAcc_${range.value}@example.com`,
- *     }));
- * }
- * const _this: okta.group.Group[] = [];
- * for (const range = {value: 0}; range.value < 5; range.value++) {
- *     _this.push(new okta.group.Group(`this-${range.value}`, {
- *         name: `testAcc_${range.value}`,
- *         description: `testAcc_${range.value}`,
- *     }));
- * }
- * const testUserType = new okta.user.UserType("test", {
- *     name: "testAcc_replace_with_uuid",
- *     displayName: "Terraform Acceptance Test User Type Updated",
- *     description: "Terraform Acceptance Test User Type Updated",
- * });
- * const testZone = new okta.network.Zone("test", {
- *     name: "testAcc_replace_with_uuid",
- *     type: "IP",
- *     gateways: [
- *         "1.2.3.4/24",
- *         "2.3.4.5-2.3.4.15",
- *     ],
- *     proxies: [
- *         "2.2.3.4/24",
- *         "3.3.4.5-3.3.4.15",
- *     ],
- * });
- * const default = okta.user.getUserType({
- *     name: "user",
- * });
- * const testDeviceAssuranceAndroid = new okta.policy.DeviceAssuranceAndroid("test", {
- *     name: "test",
- *     osVersion: "12",
- *     jailbreak: false,
- * });
- * const testAppSignonPolicyRule = new okta.AppSignonPolicyRule("test", {
- *     name: "testAcc_replace_with_uuid",
- *     policyId: test.apply(test => test.id),
- *     access: "ALLOW",
- *     customExpression: "user.status == \"ACTIVE\"",
- *     deviceIsManaged: false,
- *     deviceIsRegistered: true,
- *     factorMode: "2FA",
- *     groupsExcludeds: [
- *         _this[2].id,
- *         _this[3].id,
- *         _this[4].id,
- *     ],
- *     groupsIncludeds: [
- *         _this[0].id,
- *         _this[1].id,
- *     ],
- *     deviceAssurancesIncludeds: [testDeviceAssuranceAndroid.id],
- *     networkConnection: "ZONE",
- *     networkIncludes: [testZone.id],
- *     platformIncludes: [
- *         {
- *             osType: "ANDROID",
- *             type: "MOBILE",
- *         },
- *         {
- *             osType: "IOS",
- *             type: "MOBILE",
- *         },
- *         {
- *             osType: "MACOS",
- *             type: "DESKTOP",
- *         },
- *         {
- *             osType: "OTHER",
- *             type: "DESKTOP",
- *         },
- *         {
- *             osType: "OTHER",
- *             type: "MOBILE",
- *         },
- *         {
- *             osType: "WINDOWS",
- *             type: "DESKTOP",
- *         },
- *         {
- *             osType: "CHROMEOS",
- *             type: "DESKTOP",
- *         },
- *     ],
- *     priority: 98,
- *     reAuthenticationFrequency: "PT43800H",
- *     type: "ASSURANCE",
- *     userTypesExcludeds: [testUserType.id],
- *     userTypesIncludeds: [_default.then(_default => _default.id)],
- *     usersExcludeds: [
- *         testUser[2].id,
- *         testUser[3].id,
- *         testUser[4].id,
- *     ],
- *     usersIncludeds: [
- *         testUser[0].id,
- *         testUser[1].id,
- *     ],
- *     constraints: [
- *         JSON.stringify({
- *             knowledge: {
- *                 reauthenticateIn: "PT2H",
- *                 types: ["password"],
- *             },
- *             possession: {
- *                 deviceBound: "REQUIRED",
- *             },
- *         }),
- *         JSON.stringify({
- *             possession: {
- *                 deviceBound: "REQUIRED",
- *                 hardwareProtection: "REQUIRED",
- *                 userPresence: "OPTIONAL",
- *             },
- *         }),
- *     ],
- * });
- * ```
- *
  * ## Import
  *
- * Okta app sign-on policy rule can be imported via the Okta ID.
- *
  * ```sh
- * $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62;
+ * $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62
  * ```
  */
 export class AppSignonPolicyRule extends pulumi.CustomResource {
@@ -319,69 +42,64 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
     }
 
     /**
-     * Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
+     * Allow or deny access based on the rule conditions: ALLOW or DENY
      */
     public readonly access!: pulumi.Output<string | undefined>;
     /**
-     * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+     * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
      */
     public readonly constraints!: pulumi.Output<string[] | undefined>;
     /**
-     * This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+     * This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
      */
     public readonly customExpression!: pulumi.Output<string | undefined>;
     /**
-     * List of device assurances IDs to be included.
+     * List of device assurance IDs to include
      */
     public readonly deviceAssurancesIncludeds!: pulumi.Output<string[] | undefined>;
     /**
-     * If the device is managed. A device is managed if it's managed by a device management
-     * system. When managed is passed, `deviceIsRegistered` must also be included and must be set to `true`.
+     * If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
      */
     public readonly deviceIsManaged!: pulumi.Output<boolean | undefined>;
     /**
-     * If the device is registered. A device is registered if the User enrolls with Okta
-     * Verify that is installed on the device. Can only be set to `true`.
+     * If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
      */
     public readonly deviceIsRegistered!: pulumi.Output<boolean | undefined>;
     /**
-     * The number of factors required to satisfy this assurance level. It can be set to `"1FA"` or `"2FA"`. Default is `"2FA"`.
+     * The number of factors required to satisfy this assurance level
      */
     public readonly factorMode!: pulumi.Output<string | undefined>;
     /**
-     * List of groups IDs to be excluded.
+     * List of group IDs to exclude
      */
     public readonly groupsExcludeds!: pulumi.Output<string[] | undefined>;
     /**
-     * List of groups IDs to be included.
+     * List of group IDs to include
      */
     public readonly groupsIncludeds!: pulumi.Output<string[] | undefined>;
     /**
-     * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+     * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
      */
     public readonly inactivityPeriod!: pulumi.Output<string | undefined>;
     /**
-     * Name of the policy rule.
+     * Policy Rule Name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+     * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
      */
     public readonly networkConnection!: pulumi.Output<string | undefined>;
     /**
-     * List of network zones IDs to exclude. Conflicts with `networkIncludes`.
+     * The zones to exclude
      */
     public readonly networkExcludes!: pulumi.Output<string[] | undefined>;
     /**
-     * List of network zones IDs to include. Conflicts with `networkExcludes`.
+     * The zones to include
      */
     public readonly networkIncludes!: pulumi.Output<string[] | undefined>;
-    /**
-     * List of particular platforms or devices to match on.
-     */
     public readonly platformIncludes!: pulumi.Output<outputs.AppSignonPolicyRulePlatformInclude[] | undefined>;
     /**
-     * ID of the app sign-on policy.
+     * ID of the policy
      */
     public readonly policyId!: pulumi.Output<string>;
     /**
@@ -389,11 +107,11 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
-     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `"PT0S"` - every sign-in attempt, `"PT43800H"` - once per session. Default is `"PT2H"`.
+     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
      */
     public readonly reAuthenticationFrequency!: pulumi.Output<string | undefined>;
     /**
-     * The risk score specifies a particular level of risk to match on. Valid values are: `"ANY"`, `"LOW"`, `"MEDIUM"`, `"HIGH"`. Default is `"ANY"`.
+     * The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      */
     public readonly riskScore!: pulumi.Output<string>;
     /**
@@ -401,27 +119,27 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy.
+     * Often the `Catch-all Rule` this rule is the system (default) rule for its associated policy
      */
     public /*out*/ readonly system!: pulumi.Output<boolean>;
     /**
-     * The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+     * The Verification Method type
      */
     public readonly type!: pulumi.Output<string | undefined>;
     /**
-     * List of user types IDs to be excluded.
+     * Set of User Type IDs to exclude
      */
     public readonly userTypesExcludeds!: pulumi.Output<string[] | undefined>;
     /**
-     * List of user types IDs to be included.
+     * Set of User Type IDs to include
      */
     public readonly userTypesIncludeds!: pulumi.Output<string[] | undefined>;
     /**
-     * List of users IDs to be excluded.
+     * Set of User IDs to exclude
      */
     public readonly usersExcludeds!: pulumi.Output<string[] | undefined>;
     /**
-     * List of users IDs to be included.
+     * Set of User IDs to include
      */
     public readonly usersIncludeds!: pulumi.Output<string[] | undefined>;
 
@@ -506,69 +224,64 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
  */
 export interface AppSignonPolicyRuleState {
     /**
-     * Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
+     * Allow or deny access based on the rule conditions: ALLOW or DENY
      */
     access?: pulumi.Input<string>;
     /**
-     * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+     * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
      */
     constraints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+     * This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
      */
     customExpression?: pulumi.Input<string>;
     /**
-     * List of device assurances IDs to be included.
+     * List of device assurance IDs to include
      */
     deviceAssurancesIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If the device is managed. A device is managed if it's managed by a device management
-     * system. When managed is passed, `deviceIsRegistered` must also be included and must be set to `true`.
+     * If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
      */
     deviceIsManaged?: pulumi.Input<boolean>;
     /**
-     * If the device is registered. A device is registered if the User enrolls with Okta
-     * Verify that is installed on the device. Can only be set to `true`.
+     * If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
      */
     deviceIsRegistered?: pulumi.Input<boolean>;
     /**
-     * The number of factors required to satisfy this assurance level. It can be set to `"1FA"` or `"2FA"`. Default is `"2FA"`.
+     * The number of factors required to satisfy this assurance level
      */
     factorMode?: pulumi.Input<string>;
     /**
-     * List of groups IDs to be excluded.
+     * List of group IDs to exclude
      */
     groupsExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of groups IDs to be included.
+     * List of group IDs to include
      */
     groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+     * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
      */
     inactivityPeriod?: pulumi.Input<string>;
     /**
-     * Name of the policy rule.
+     * Policy Rule Name
      */
     name?: pulumi.Input<string>;
     /**
-     * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+     * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
      */
     networkConnection?: pulumi.Input<string>;
     /**
-     * List of network zones IDs to exclude. Conflicts with `networkIncludes`.
+     * The zones to exclude
      */
     networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of network zones IDs to include. Conflicts with `networkExcludes`.
+     * The zones to include
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of particular platforms or devices to match on.
-     */
     platformIncludes?: pulumi.Input<pulumi.Input<inputs.AppSignonPolicyRulePlatformInclude>[]>;
     /**
-     * ID of the app sign-on policy.
+     * ID of the policy
      */
     policyId?: pulumi.Input<string>;
     /**
@@ -576,11 +289,11 @@ export interface AppSignonPolicyRuleState {
      */
     priority?: pulumi.Input<number>;
     /**
-     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `"PT0S"` - every sign-in attempt, `"PT43800H"` - once per session. Default is `"PT2H"`.
+     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
      */
     reAuthenticationFrequency?: pulumi.Input<string>;
     /**
-     * The risk score specifies a particular level of risk to match on. Valid values are: `"ANY"`, `"LOW"`, `"MEDIUM"`, `"HIGH"`. Default is `"ANY"`.
+     * The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      */
     riskScore?: pulumi.Input<string>;
     /**
@@ -588,27 +301,27 @@ export interface AppSignonPolicyRuleState {
      */
     status?: pulumi.Input<string>;
     /**
-     * Often the "Catch-all Rule" this rule is the system (default) rule for its associated policy.
+     * Often the `Catch-all Rule` this rule is the system (default) rule for its associated policy
      */
     system?: pulumi.Input<boolean>;
     /**
-     * The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+     * The Verification Method type
      */
     type?: pulumi.Input<string>;
     /**
-     * List of user types IDs to be excluded.
+     * Set of User Type IDs to exclude
      */
     userTypesExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of user types IDs to be included.
+     * Set of User Type IDs to include
      */
     userTypesIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of users IDs to be excluded.
+     * Set of User IDs to exclude
      */
     usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of users IDs to be included.
+     * Set of User IDs to include
      */
     usersIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -618,69 +331,64 @@ export interface AppSignonPolicyRuleState {
  */
 export interface AppSignonPolicyRuleArgs {
     /**
-     * Allow or deny access based on the rule conditions. It can be set to `"ALLOW"` or `"DENY"`. Default is `"ALLOW"`.
+     * Allow or deny access based on the rule conditions: ALLOW or DENY
      */
     access?: pulumi.Input<string>;
     /**
-     * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class. Each element should be in JSON format.
+     * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
      */
     constraints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This is an advanced optional setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
+     * This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
      */
     customExpression?: pulumi.Input<string>;
     /**
-     * List of device assurances IDs to be included.
+     * List of device assurance IDs to include
      */
     deviceAssurancesIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If the device is managed. A device is managed if it's managed by a device management
-     * system. When managed is passed, `deviceIsRegistered` must also be included and must be set to `true`.
+     * If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
      */
     deviceIsManaged?: pulumi.Input<boolean>;
     /**
-     * If the device is registered. A device is registered if the User enrolls with Okta
-     * Verify that is installed on the device. Can only be set to `true`.
+     * If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
      */
     deviceIsRegistered?: pulumi.Input<boolean>;
     /**
-     * The number of factors required to satisfy this assurance level. It can be set to `"1FA"` or `"2FA"`. Default is `"2FA"`.
+     * The number of factors required to satisfy this assurance level
      */
     factorMode?: pulumi.Input<string>;
     /**
-     * List of groups IDs to be excluded.
+     * List of group IDs to exclude
      */
     groupsExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of groups IDs to be included.
+     * List of group IDs to include
      */
     groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals. Default is `"PT1H"`.
+     * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
      */
     inactivityPeriod?: pulumi.Input<string>;
     /**
-     * Name of the policy rule.
+     * Policy Rule Name
      */
     name?: pulumi.Input<string>;
     /**
-     * Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+     * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
      */
     networkConnection?: pulumi.Input<string>;
     /**
-     * List of network zones IDs to exclude. Conflicts with `networkIncludes`.
+     * The zones to exclude
      */
     networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of network zones IDs to include. Conflicts with `networkExcludes`.
+     * The zones to include
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of particular platforms or devices to match on.
-     */
     platformIncludes?: pulumi.Input<pulumi.Input<inputs.AppSignonPolicyRulePlatformInclude>[]>;
     /**
-     * ID of the app sign-on policy.
+     * ID of the policy
      */
     policyId: pulumi.Input<string>;
     /**
@@ -688,11 +396,11 @@ export interface AppSignonPolicyRuleArgs {
      */
     priority?: pulumi.Input<number>;
     /**
-     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. `"PT0S"` - every sign-in attempt, `"PT43800H"` - once per session. Default is `"PT2H"`.
+     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
      */
     reAuthenticationFrequency?: pulumi.Input<string>;
     /**
-     * The risk score specifies a particular level of risk to match on. Valid values are: `"ANY"`, `"LOW"`, `"MEDIUM"`, `"HIGH"`. Default is `"ANY"`.
+     * The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      */
     riskScore?: pulumi.Input<string>;
     /**
@@ -700,23 +408,23 @@ export interface AppSignonPolicyRuleArgs {
      */
     status?: pulumi.Input<string>;
     /**
-     * The Verification Method type. It can be set to `"ASSURANCE"`. Default is `"ASSURANCE"`.
+     * The Verification Method type
      */
     type?: pulumi.Input<string>;
     /**
-     * List of user types IDs to be excluded.
+     * Set of User Type IDs to exclude
      */
     userTypesExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of user types IDs to be included.
+     * Set of User Type IDs to include
      */
     userTypesIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of users IDs to be excluded.
+     * Set of User IDs to exclude
      */
     usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of users IDs to be included.
+     * Set of User IDs to include
      */
     usersIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }

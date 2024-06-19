@@ -68,24 +68,22 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A redirect URI can be imported via the Okta ID.
- * 
  * ```sh
- * $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &amp;#60;app id&amp;#62;/&amp;#60;uri&amp;#62;
+ * $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &amp;#60;app id&amp;#62;/&amp;#60;uri&amp;#62
  * ```
  * 
  */
 @ResourceType(type="okta:app/oAuthRedirectUri:OAuthRedirectUri")
 public class OAuthRedirectUri extends com.pulumi.resources.CustomResource {
     /**
-     * OAuth application ID. Note: `app_id` can not be changed once set.
+     * OAuth application ID.
      * 
      */
     @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
-     * @return OAuth application ID. Note: `app_id` can not be changed once set.
+     * @return OAuth application ID.
      * 
      */
     public Output<String> appId() {

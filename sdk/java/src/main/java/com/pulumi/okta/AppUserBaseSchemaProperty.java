@@ -16,9 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an Application User Base Schema property.
- * 
- * This resource allows you to configure a base app user schema property.
+ * Manages an Application User Base Schema property. This resource allows you to configure a base app user schema property.
  * 
  * ## Example Usage
  * 
@@ -61,8 +59,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * App user base schema property can be imported via the property index and app id.
- * 
  * ```sh
  * $ pulumi import okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty example &amp;#60;app id&amp;#62;/&amp;#60;property name&amp;#62;
  * ```
@@ -85,112 +81,112 @@ public class AppUserBaseSchemaProperty extends com.pulumi.resources.CustomResour
         return this.appId;
     }
     /**
-     * The property name.
+     * Subschema unique string identifier
      * 
      */
     @Export(name="index", refs={String.class}, tree="[0]")
     private Output<String> index;
 
     /**
-     * @return The property name.
+     * @return Subschema unique string identifier
      * 
      */
     public Output<String> index() {
         return this.index;
     }
     /**
-     * Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;` or `&#34;OKTA&#34;`.
+     * Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`. Default: `PROFILE_MASTER`
      * 
      */
     @Export(name="master", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> master;
 
     /**
-     * @return Master priority for the user schema property. It can be set to `&#34;PROFILE_MASTER&#34;` or `&#34;OKTA&#34;`.
+     * @return Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`. Default: `PROFILE_MASTER`
      * 
      */
     public Output<Optional<String>> master() {
         return Codegen.optional(this.master);
     }
     /**
-     * The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[&lt;pattern&gt;]+`.
+     * The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[\n\n]+&#39; if present.&#39;
      * 
      */
     @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pattern;
 
     /**
-     * @return The validation pattern to use for the subschema, only available for `login` property. Must be in form of `.+`, or `[&lt;pattern&gt;]+`.
+     * @return The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[\n\n]+&#39; if present.&#39;
      * 
      */
     public Output<Optional<String>> pattern() {
         return Codegen.optional(this.pattern);
     }
     /**
-     * Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+     * Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
      * 
      */
     @Export(name="permissions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> permissions;
 
     /**
-     * @return Access control permissions for the property. It can be set to `&#34;READ_WRITE&#34;`, `&#34;READ_ONLY&#34;`, `&#34;HIDE&#34;`.
+     * @return Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
      * 
      */
     public Output<Optional<String>> permissions() {
         return Codegen.optional(this.permissions);
     }
     /**
-     * Whether the property is required for this application&#39;s users.
+     * Whether the subschema is required
      * 
      */
     @Export(name="required", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> required;
 
     /**
-     * @return Whether the property is required for this application&#39;s users.
+     * @return Whether the subschema is required
      * 
      */
     public Output<Optional<Boolean>> required() {
         return Codegen.optional(this.required);
     }
     /**
-     * The property display name.
+     * Subschema title (display name)
      * 
      */
     @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**
-     * @return The property display name.
+     * @return Subschema title (display name)
      * 
      */
     public Output<String> title() {
         return this.title;
     }
     /**
-     * The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
+     * The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of the schema property. It can be `&#34;string&#34;`, `&#34;boolean&#34;`, `&#34;number&#34;`, `&#34;integer&#34;`, `&#34;array&#34;`, or `&#34;object&#34;`.
+     * @return The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * User type ID. By default, it is `&#34;default&#34;`.
+     * User type ID. By default, it is `default`
      * 
      */
     @Export(name="userType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userType;
 
     /**
-     * @return User type ID. By default, it is `&#34;default&#34;`.
+     * @return User type ID. By default, it is `default`
      * 
      */
     public Output<Optional<String>> userType() {

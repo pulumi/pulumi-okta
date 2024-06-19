@@ -17,11 +17,11 @@ public final class GetUserSecurityQuestionsResult {
      * 
      */
     private String id;
+    private List<GetUserSecurityQuestionsQuestion> questions;
     /**
-     * @return collection of user&#39;s security question retrieved from Okta with the following properties:
+     * @return ID of a Okta User
      * 
      */
-    private List<GetUserSecurityQuestionsQuestion> questions;
     private String userId;
 
     private GetUserSecurityQuestionsResult() {}
@@ -32,13 +32,13 @@ public final class GetUserSecurityQuestionsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return collection of user&#39;s security question retrieved from Okta with the following properties:
-     * 
-     */
     public List<GetUserSecurityQuestionsQuestion> questions() {
         return this.questions;
     }
+    /**
+     * @return ID of a Okta User
+     * 
+     */
     public String userId() {
         return this.userId;
     }

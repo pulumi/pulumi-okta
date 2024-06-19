@@ -13,43 +13,43 @@ namespace Pulumi.Okta.App.Inputs
     public sealed class SamlKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date created.
+        /// Created date
         /// </summary>
         [Input("created")]
         public Input<string>? Created { get; set; }
 
         /// <summary>
-        /// RSA exponent.
+        /// RSA exponent
         /// </summary>
         [Input("e")]
         public Input<string>? E { get; set; }
 
         /// <summary>
-        /// Date the key expires.
+        /// Expiration date
         /// </summary>
         [Input("expiresAt")]
         public Input<string>? ExpiresAt { get; set; }
 
         /// <summary>
-        /// Key ID.
+        /// Key ID
         /// </summary>
         [Input("kid")]
         public Input<string>? Kid { get; set; }
 
         /// <summary>
-        /// Identifies the cryptographic algorithm family used with the key.
+        /// Key type. Identifies the cryptographic algorithm family used with the key.
         /// </summary>
         [Input("kty")]
         public Input<string>? Kty { get; set; }
 
         /// <summary>
-        /// Date the key was last updated.
+        /// Last updated date
         /// </summary>
         [Input("lastUpdated")]
         public Input<string>? LastUpdated { get; set; }
 
         /// <summary>
-        /// RSA modulus.
+        /// RSA modulus
         /// </summary>
         [Input("n")]
         public Input<string>? N { get; set; }
@@ -64,7 +64,7 @@ namespace Pulumi.Okta.App.Inputs
         private InputList<string>? _x5cs;
 
         /// <summary>
-        /// X.509 certificate chain.
+        /// X.509 Certificate Chain
         /// </summary>
         public InputList<string> X5cs
         {
@@ -73,7 +73,7 @@ namespace Pulumi.Okta.App.Inputs
         }
 
         /// <summary>
-        /// X.509 certificate SHA-256 thumbprint.
+        /// X.509 certificate SHA-256 thumbprint
         /// </summary>
         [Input("x5tS256")]
         public Input<string>? X5tS256 { get; set; }

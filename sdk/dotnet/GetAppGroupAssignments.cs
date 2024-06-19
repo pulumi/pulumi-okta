@@ -12,7 +12,7 @@ namespace Pulumi.Okta
     public static class GetAppGroupAssignments
     {
         /// <summary>
-        /// Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
+        /// Get a set of groups assigned to an Okta application.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Okta
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppGroupAssignmentsResult>("okta:index/getAppGroupAssignments:getAppGroupAssignments", args ?? new GetAppGroupAssignmentsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve the list of groups assigned to the given Okta application (by ID).
+        /// Get a set of groups assigned to an Okta application.
         /// 
         /// ## Example Usage
         /// 
@@ -64,7 +64,7 @@ namespace Pulumi.Okta
     public sealed class GetAppGroupAssignmentsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Okta application you want to retrieve the groups for.
+        /// ID of the Okta App being queried for groups
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.Okta
     public sealed class GetAppGroupAssignmentsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Okta application you want to retrieve the groups for.
+        /// ID of the Okta App being queried for groups
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -94,11 +94,11 @@ namespace Pulumi.Okta
     public sealed class GetAppGroupAssignmentsResult
     {
         /// <summary>
-        /// List of groups IDs assigned to the application.
+        /// List of groups IDs assigned to the app
         /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
-        /// ID of application.
+        /// ID of the Okta App being queried for groups
         /// </summary>
         public readonly string Id;
 

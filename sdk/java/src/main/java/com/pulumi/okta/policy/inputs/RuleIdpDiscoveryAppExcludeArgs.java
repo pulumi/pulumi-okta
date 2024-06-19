@@ -16,32 +16,16 @@ public final class RuleIdpDiscoveryAppExcludeArgs extends com.pulumi.resources.R
 
     public static final RuleIdpDiscoveryAppExcludeArgs Empty = new RuleIdpDiscoveryAppExcludeArgs();
 
-    /**
-     * ID of the Rule.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return ID of the Rule.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Policy rule name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Policy rule name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -79,44 +63,20 @@ public final class RuleIdpDiscoveryAppExcludeArgs extends com.pulumi.resources.R
             $ = new RuleIdpDiscoveryAppExcludeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id ID of the Rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id ID of the Rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param name Policy rule name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Policy rule name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -7,9 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Creates an event hook.
- *
- * This resource allows you to create and configure an event hook.
+ * Creates an event hook. This resource allows you to create and configure an event hook.
  *
  * ## Example Usage
  *
@@ -37,8 +35,6 @@ import * as utilities from "./utilities";
  * ```
  *
  * ## Import
- *
- * An event hook can be imported via the Okta ID.
  *
  * ```sh
  * $ pulumi import okta:index/eventHook:EventHook example &#60;hook id&#62;
@@ -73,7 +69,9 @@ export class EventHook extends pulumi.CustomResource {
     }
 
     /**
-     * Authentication required for event hook request.
+     * Details of the endpoint the event hook will hit. - 'version' - (Required) The version of the channel. The
+     * currently-supported version is '1.0.0'. - 'uri' - (Required) The URI the hook will hit. - 'type' - (Optional) The type
+     * of hook to trigger. Currently, the only supported type is 'HTTP'.
      */
     public readonly auth!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -81,7 +79,8 @@ export class EventHook extends pulumi.CustomResource {
      */
     public readonly channel!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+     * The events that will be delivered to this hook. [See here for a list of supported
+     * events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
      */
     public readonly events!: pulumi.Output<string[]>;
     /**
@@ -141,7 +140,9 @@ export class EventHook extends pulumi.CustomResource {
  */
 export interface EventHookState {
     /**
-     * Authentication required for event hook request.
+     * Details of the endpoint the event hook will hit. - 'version' - (Required) The version of the channel. The
+     * currently-supported version is '1.0.0'. - 'uri' - (Required) The URI the hook will hit. - 'type' - (Optional) The type
+     * of hook to trigger. Currently, the only supported type is 'HTTP'.
      */
     auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -149,7 +150,8 @@ export interface EventHookState {
      */
     channel?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+     * The events that will be delivered to this hook. [See here for a list of supported
+     * events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
      */
     events?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -171,7 +173,9 @@ export interface EventHookState {
  */
 export interface EventHookArgs {
     /**
-     * Authentication required for event hook request.
+     * Details of the endpoint the event hook will hit. - 'version' - (Required) The version of the channel. The
+     * currently-supported version is '1.0.0'. - 'uri' - (Required) The URI the hook will hit. - 'type' - (Optional) The type
+     * of hook to trigger. Currently, the only supported type is 'HTTP'.
      */
     auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -179,7 +183,8 @@ export interface EventHookArgs {
      */
     channel: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+     * The events that will be delivered to this hook. [See here for a list of supported
+     * events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
      */
     events: pulumi.Input<pulumi.Input<string>[]>;
     /**

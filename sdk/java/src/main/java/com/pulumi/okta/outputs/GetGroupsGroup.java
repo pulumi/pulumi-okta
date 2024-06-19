@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetGroupsGroup {
     /**
-     * @return raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+     * @return Raw JSON containing all custom profile attributes. Likely only useful on groups of type
      * 
      */
     private String customProfileAttributes;
@@ -31,15 +31,14 @@ public final class GetGroupsGroup {
      */
     private String name;
     /**
-     * @return type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-     * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+     * @return Group type.
      * 
      */
     private String type;
 
     private GetGroupsGroup() {}
     /**
-     * @return raw JSON containing all custom profile attributes. Likely only useful on groups of type `APP_GROUP`.
+     * @return Raw JSON containing all custom profile attributes. Likely only useful on groups of type
      * 
      */
     public String customProfileAttributes() {
@@ -67,8 +66,7 @@ public final class GetGroupsGroup {
         return this.name;
     }
     /**
-     * @return type of the group to retrieve. Can only be one of `OKTA_GROUP` (Native Okta Groups), `APP_GROUP`
-     * (Imported App Groups), or `BUILT_IN` (Okta System Groups).
+     * @return Group type.
      * 
      */
     public String type() {

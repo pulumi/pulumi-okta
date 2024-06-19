@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Manages Okta Support access your org
  * This resource allows you to temporarily allow Okta Support to access your org as an administrator. By default,
  * access will be granted for eight hours. Removing this resource will revoke Okta Support access to your org.
  *
@@ -16,10 +17,6 @@ import * as utilities from "./utilities";
  *
  * const example = new okta.OrgSupport("example", {extendBy: 1});
  * ```
- *
- * ## Import
- *
- * This resource does not support importing.
  */
 export class OrgSupport extends pulumi.CustomResource {
     /**
@@ -54,7 +51,7 @@ export class OrgSupport extends pulumi.CustomResource {
      */
     public /*out*/ readonly expiration!: pulumi.Output<string>;
     /**
-     * Number of days the support should be extended by in addition to the standard eight hours.
+     * Number of days the support should be extended by
      */
     public readonly extendBy!: pulumi.Output<number | undefined>;
     /**
@@ -98,7 +95,7 @@ export interface OrgSupportState {
      */
     expiration?: pulumi.Input<string>;
     /**
-     * Number of days the support should be extended by in addition to the standard eight hours.
+     * Number of days the support should be extended by
      */
     extendBy?: pulumi.Input<number>;
     /**
@@ -112,7 +109,7 @@ export interface OrgSupportState {
  */
 export interface OrgSupportArgs {
     /**
-     * Number of days the support should be extended by in addition to the standard eight hours.
+     * Number of days the support should be extended by
      */
     extendBy?: pulumi.Input<number>;
 }

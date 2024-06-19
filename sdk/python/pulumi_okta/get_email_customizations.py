@@ -39,13 +39,16 @@ class GetEmailCustomizationsResult:
     @property
     @pulumi.getter(name="brandId")
     def brand_id(self) -> str:
+        """
+        Brand ID
+        """
         return pulumi.get(self, "brand_id")
 
     @property
     @pulumi.getter(name="emailCustomizations")
     def email_customizations(self) -> Sequence['outputs.GetEmailCustomizationsEmailCustomizationResult']:
         """
-        List of `EmailCustomization` belonging to the named email template of the brand
+        List of `EmailCustomization` belonging to the named email template of the brand in the organization
         """
         return pulumi.get(self, "email_customizations")
 
@@ -60,6 +63,9 @@ class GetEmailCustomizationsResult:
     @property
     @pulumi.getter(name="templateName")
     def template_name(self) -> str:
+        """
+        Template Name
+        """
         return pulumi.get(self, "template_name")
 
 
@@ -79,13 +85,11 @@ def get_email_customizations(brand_id: Optional[str] = None,
                              template_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailCustomizationsResult:
     """
-    Use this data source to retrieve the [email
-    customizations](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations)
-    of an email template belonging to a brand in an Okta organization.
+    Get the email customizations of an email template belonging to a brand in an Okta organization.
 
 
     :param str brand_id: Brand ID
-    :param str template_name: Name of an Email Template
+    :param str template_name: Template Name
     """
     __args__ = dict()
     __args__['brandId'] = brand_id
@@ -105,12 +109,10 @@ def get_email_customizations_output(brand_id: Optional[pulumi.Input[str]] = None
                                     template_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailCustomizationsResult]:
     """
-    Use this data source to retrieve the [email
-    customizations](https://developer.okta.com/docs/reference/api/brands/#list-email-customizations)
-    of an email template belonging to a brand in an Okta organization.
+    Get the email customizations of an email template belonging to a brand in an Okta organization.
 
 
     :param str brand_id: Brand ID
-    :param str template_name: Name of an Email Template
+    :param str template_name: Template Name
     """
     ...

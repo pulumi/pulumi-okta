@@ -15,16 +15,13 @@ import javax.annotation.Nullable;
 
 /**
  * Manages certificate for the domain.
- * 
- * This resource&#39;s `certificate`, `private_key`, and `certificate_chain` attributes
+ * This resource&#39;s &#39;certificate&#39;, &#39;private_key&#39;, and &#39;certificate_chain&#39; attributes
  * hold actual PEM values and can be referred to by other configs requiring
  * certificate and private key inputs. This is inline with TF&#39;s best
  * practices
  * of not encrypting state.
- * 
  * See Let&#39;s Encrypt Certbot notes at the end of this
- * documentation for notes on how to generate a domain certificate with Let&#39;s
- * Encrypt Certbot
+ * documentation for notes on how to generate a domain certificate with Let&#39;s Encrypt Certbot
  * 
  * ## Example Usage
  * 
@@ -104,78 +101,74 @@ import javax.annotation.Nullable;
  * `certificate_chain` | `chain.pem`
  * `private_key`       | `privkey.pem`
  * 
- * ## Import
- * 
- * This resource does not support importing.
- * 
  */
 @ResourceType(type="okta:index/domainCertificate:DomainCertificate")
 public class DomainCertificate extends com.pulumi.resources.CustomResource {
     /**
-     * Certificate content.
+     * Certificate content
      * 
      */
     @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
     /**
-     * @return Certificate content.
+     * @return Certificate content
      * 
      */
     public Output<String> certificate() {
         return this.certificate;
     }
     /**
-     * Certificate certificate chain.
+     * Certificate chain
      * 
      */
     @Export(name="certificateChain", refs={String.class}, tree="[0]")
     private Output<String> certificateChain;
 
     /**
-     * @return Certificate certificate chain.
+     * @return Certificate chain
      * 
      */
     public Output<String> certificateChain() {
         return this.certificateChain;
     }
     /**
-     * Domain ID.
+     * Domain&#39;s ID
      * 
      */
     @Export(name="domainId", refs={String.class}, tree="[0]")
     private Output<String> domainId;
 
     /**
-     * @return Domain ID.
+     * @return Domain&#39;s ID
      * 
      */
     public Output<String> domainId() {
         return this.domainId;
     }
     /**
-     * Certificate private key.
+     * Certificate private key
      * 
      */
     @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output<String> privateKey;
 
     /**
-     * @return Certificate private key.
+     * @return Certificate private key
      * 
      */
     public Output<String> privateKey() {
         return this.privateKey;
     }
     /**
-     * Certificate type. Valid value is `&#34;PEM&#34;`.
+     * Certificate type. Valid value is `PEM`
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Certificate type. Valid value is `&#34;PEM&#34;`.
+     * @return Certificate type. Valid value is `PEM`
      * 
      */
     public Output<String> type() {

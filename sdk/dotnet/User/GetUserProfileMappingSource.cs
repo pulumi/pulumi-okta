@@ -12,9 +12,10 @@ namespace Pulumi.Okta.User
     public static class GetUserProfileMappingSource
     {
         /// <summary>
-        /// Use this data source to retrieve the base user Profile Mapping source or target from Okta.
+        /// Get the base user Profile Mapping source or target from Okta.
         /// 
-        /// &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
+        /// &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource 
+        /// requires `okta.profileMappings.read` scope.
         /// 
         /// ## Example Usage
         /// 
@@ -35,9 +36,10 @@ namespace Pulumi.Okta.User
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserProfileMappingSourceResult>("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve the base user Profile Mapping source or target from Okta.
+        /// Get the base user Profile Mapping source or target from Okta.
         /// 
-        /// &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.read` scope.
+        /// &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource 
+        /// requires `okta.profileMappings.read` scope.
         /// 
         /// ## Example Usage
         /// 
@@ -63,15 +65,15 @@ namespace Pulumi.Okta.User
     public sealed class GetUserProfileMappingSourceResult
     {
         /// <summary>
-        /// id of the source.
+        /// ID of the source
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// name of source.
+        /// Name of source.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// type of source.
+        /// Type of source.
         /// </summary>
         public readonly string Type;
 

@@ -17,9 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates a Sign On Policy.
- * 
- * This resource allows you to create and configure a Sign On Policy.
+ * Creates a Sign On Policy. This resource allows you to create and configure a Sign On Policy.
  * 
  * ## Example Usage
  * 
@@ -61,8 +59,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A Sign On Policy can be imported via the Okta ID.
- * 
  * ```sh
  * $ pulumi import okta:policy/signon:Signon example &amp;#60;policy id&amp;#62;
  * ```
@@ -71,70 +67,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:policy/signon:Signon")
 public class Signon extends com.pulumi.resources.CustomResource {
     /**
-     * Policy Description.
+     * Policy Description
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Policy Description.
+     * @return Policy Description
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * List of Group IDs to Include.
+     * List of Group IDs to Include
      * 
      */
     @Export(name="groupsIncludeds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupsIncludeds;
 
     /**
-     * @return List of Group IDs to Include.
+     * @return List of Group IDs to Include
      * 
      */
     public Output<Optional<List<String>>> groupsIncludeds() {
         return Codegen.optional(this.groupsIncludeds);
     }
     /**
-     * Policy Name.
+     * Policy Name
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Policy Name.
+     * @return Policy Name
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Priority of the policy.
+     * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> priority;
 
     /**
-     * @return Priority of the policy.
+     * @return Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      * 
      */
     public Output<Optional<Integer>> priority() {
         return Codegen.optional(this.priority);
     }
     /**
-     * Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Policy Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`.
+     * @return Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     public Output<Optional<String>> status() {

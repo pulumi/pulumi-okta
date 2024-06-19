@@ -5,7 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data
+ * Use this data source to retrieve the `Everyone` group from Okta. The
+ * same can be achieved with the `okta.group.Group` data
  * source with `name = "Everyone"`. This is simply a shortcut.
  *
  * ## Example Usage
@@ -31,7 +32,7 @@ export function getEveryoneGroup(args?: GetEveryoneGroupArgs, opts?: pulumi.Invo
  */
 export interface GetEveryoneGroupArgs {
     /**
-     * whether to retrieve all member ids.
+     * Fetch group users, having default off cuts down on API calls.
      */
     includeUsers?: boolean;
 }
@@ -41,17 +42,21 @@ export interface GetEveryoneGroupArgs {
  */
 export interface GetEveryoneGroupResult {
     /**
-     * description of group.
+     * Description of group.
      */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Fetch group users, having default off cuts down on API calls.
+     */
     readonly includeUsers?: boolean;
 }
 /**
- * Use this data source to retrieve the `Everyone` group from Okta. The same can be achieved with the `okta.group.Group` data
+ * Use this data source to retrieve the `Everyone` group from Okta. The
+ * same can be achieved with the `okta.group.Group` data
  * source with `name = "Everyone"`. This is simply a shortcut.
  *
  * ## Example Usage
@@ -72,7 +77,7 @@ export function getEveryoneGroupOutput(args?: GetEveryoneGroupOutputArgs, opts?:
  */
 export interface GetEveryoneGroupOutputArgs {
     /**
-     * whether to retrieve all member ids.
+     * Fetch group users, having default off cuts down on API calls.
      */
     includeUsers?: pulumi.Input<boolean>;
 }

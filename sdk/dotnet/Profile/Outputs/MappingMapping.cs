@@ -13,17 +13,11 @@ namespace Pulumi.Okta.Profile.Outputs
     [OutputType]
     public sealed class MappingMapping
     {
-        /// <summary>
-        /// Combination or single source properties that will be mapped to the target property.
-        /// </summary>
         public readonly string Expression;
         /// <summary>
-        /// Key of mapping.
+        /// The mapping property key.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Whether to update target properties on user create &amp; update or just on create.
-        /// </summary>
         public readonly string? PushStatus;
 
         [OutputConstructor]

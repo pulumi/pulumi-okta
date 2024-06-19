@@ -12,9 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Assigns groups to an application.
+// Assigns groups to an application. This resource allows you to create multiple App Group assignments.
 //
-// This resource allows you to create multiple App Group assignments.
+// **Important**: Do not use in conjunction with forEach
 //
 // ## Example Usage
 //
@@ -64,17 +64,15 @@ import (
 //
 // ## Import
 //
-// An application's group assignments can be imported via `app_id`.
-//
 // ```sh
-// $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62;
+// $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62
 // ```
 type AppGroupAssignments struct {
 	pulumi.CustomResourceState
 
 	// The ID of the application to assign a group to.
 	AppId pulumi.StringOutput `pulumi:"appId"`
-	// A group to assign the app to.
+	// A group to assign to this application
 	Groups AppGroupAssignmentsGroupArrayOutput `pulumi:"groups"`
 }
 
@@ -116,14 +114,14 @@ func GetAppGroupAssignments(ctx *pulumi.Context,
 type appGroupAssignmentsState struct {
 	// The ID of the application to assign a group to.
 	AppId *string `pulumi:"appId"`
-	// A group to assign the app to.
+	// A group to assign to this application
 	Groups []AppGroupAssignmentsGroup `pulumi:"groups"`
 }
 
 type AppGroupAssignmentsState struct {
 	// The ID of the application to assign a group to.
 	AppId pulumi.StringPtrInput
-	// A group to assign the app to.
+	// A group to assign to this application
 	Groups AppGroupAssignmentsGroupArrayInput
 }
 
@@ -134,7 +132,7 @@ func (AppGroupAssignmentsState) ElementType() reflect.Type {
 type appGroupAssignmentsArgs struct {
 	// The ID of the application to assign a group to.
 	AppId string `pulumi:"appId"`
-	// A group to assign the app to.
+	// A group to assign to this application
 	Groups []AppGroupAssignmentsGroup `pulumi:"groups"`
 }
 
@@ -142,7 +140,7 @@ type appGroupAssignmentsArgs struct {
 type AppGroupAssignmentsArgs struct {
 	// The ID of the application to assign a group to.
 	AppId pulumi.StringInput
-	// A group to assign the app to.
+	// A group to assign to this application
 	Groups AppGroupAssignmentsGroupArrayInput
 }
 
@@ -238,7 +236,7 @@ func (o AppGroupAssignmentsOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppGroupAssignments) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }
 
-// A group to assign the app to.
+// A group to assign to this application
 func (o AppGroupAssignmentsOutput) Groups() AppGroupAssignmentsGroupArrayOutput {
 	return o.ApplyT(func(v *AppGroupAssignments) AppGroupAssignmentsGroupArrayOutput { return v.Groups }).(AppGroupAssignmentsGroupArrayOutput)
 }

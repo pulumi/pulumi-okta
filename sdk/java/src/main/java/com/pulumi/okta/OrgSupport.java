@@ -16,6 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages Okta Support access your org
  * This resource allows you to temporarily allow Okta Support to access your org as an administrator. By default,
  * access will be granted for eight hours. Removing this resource will revoke Okta Support access to your org.
  * 
@@ -54,10 +55,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Import
- * 
- * This resource does not support importing.
- * 
  */
 @ResourceType(type="okta:index/orgSupport:OrgSupport")
 public class OrgSupport extends com.pulumi.resources.CustomResource {
@@ -76,14 +73,14 @@ public class OrgSupport extends com.pulumi.resources.CustomResource {
         return this.expiration;
     }
     /**
-     * Number of days the support should be extended by in addition to the standard eight hours.
+     * Number of days the support should be extended by
      * 
      */
     @Export(name="extendBy", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> extendBy;
 
     /**
-     * @return Number of days the support should be extended by in addition to the standard eight hours.
+     * @return Number of days the support should be extended by
      * 
      */
     public Output<Optional<Integer>> extendBy() {

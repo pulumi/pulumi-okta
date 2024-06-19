@@ -18,14 +18,14 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
     public static final RulePasswordState Empty = new RulePasswordState();
 
     /**
-     * Policy Rule Name. Type `&#34;string&#34;`
+     * Policy Rule Name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Policy Rule Name. Type `&#34;string&#34;`
+     * @return Policy Rule Name
      * 
      */
     public Optional<Output<String>> name() {
@@ -33,14 +33,14 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`. Type `&#34;string&#34;`
+     * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      * 
      */
     @Import(name="networkConnection")
     private @Nullable Output<String> networkConnection;
 
     /**
-     * @return Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`. Type `&#34;string&#34;`
+     * @return Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      * 
      */
     public Optional<Output<String>> networkConnection() {
@@ -48,14 +48,14 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The network zones to exclude. Conflicts with `network_includes`. Type `&#34;list(string)&#34;`
+     * Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     @Import(name="networkExcludes")
     private @Nullable Output<List<String>> networkExcludes;
 
     /**
-     * @return The network zones to exclude. Conflicts with `network_includes`. Type `&#34;list(string)&#34;`
+     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     public Optional<Output<List<String>>> networkExcludes() {
@@ -63,14 +63,14 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The network zones to include. Conflicts with `network_excludes`. Type `&#34;list(string)&#34;`
+     * Required if `network_connection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     @Import(name="networkIncludes")
     private @Nullable Output<List<String>> networkIncludes;
 
     /**
-     * @return The network zones to include. Conflicts with `network_excludes`. Type `&#34;list(string)&#34;`
+     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     public Optional<Output<List<String>>> networkIncludes() {
@@ -78,14 +78,14 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow or deny a user to change their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
+     * Allow or deny a user to change their password: `ALLOW` or `DENY`. Default: `ALLOW`
      * 
      */
     @Import(name="passwordChange")
     private @Nullable Output<String> passwordChange;
 
     /**
-     * @return Allow or deny a user to change their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
+     * @return Allow or deny a user to change their password: `ALLOW` or `DENY`. Default: `ALLOW`
      * 
      */
     public Optional<Output<String>> passwordChange() {
@@ -93,14 +93,14 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow or deny a user to reset their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
+     * Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
      * 
      */
     @Import(name="passwordReset")
     private @Nullable Output<String> passwordReset;
 
     /**
-     * @return Allow or deny a user to reset their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
+     * @return Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
      * 
      */
     public Optional<Output<String>> passwordReset() {
@@ -108,14 +108,14 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow or deny a user to unlock: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;DENY&#34;`, Type `&#34;string&#34;`
+     * Allow or deny a user to unlock. Default: `DENY`
      * 
      */
     @Import(name="passwordUnlock")
     private @Nullable Output<String> passwordUnlock;
 
     /**
-     * @return Allow or deny a user to unlock: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;DENY&#34;`, Type `&#34;string&#34;`
+     * @return Allow or deny a user to unlock. Default: `DENY`
      * 
      */
     public Optional<Output<String>> passwordUnlock() {
@@ -123,14 +123,14 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy ID.
+     * Policy ID of the Rule
      * 
      */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
     /**
-     * @return Policy ID.
+     * @return Policy ID of the Rule
      * 
      */
     public Optional<Output<String>> policyId() {
@@ -138,14 +138,14 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `&#34;number&#34;`
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `&#34;number&#34;`
+     * @return Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -153,14 +153,14 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
+     * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
+     * @return Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
     public Optional<Output<String>> status() {
@@ -168,14 +168,14 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The users to exclude. Type `&#34;set(string)&#34;`
+     * Set of User IDs to Exclude
      * 
      */
     @Import(name="usersExcludeds")
     private @Nullable Output<List<String>> usersExcludeds;
 
     /**
-     * @return The users to exclude. Type `&#34;set(string)&#34;`
+     * @return Set of User IDs to Exclude
      * 
      */
     public Optional<Output<List<String>>> usersExcludeds() {
@@ -217,7 +217,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Policy Rule Name. Type `&#34;string&#34;`
+         * @param name Policy Rule Name
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Policy Rule Name. Type `&#34;string&#34;`
+         * @param name Policy Rule Name
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConnection Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`. Type `&#34;string&#34;`
+         * @param networkConnection Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConnection Network selection mode: `&#34;ANYWHERE&#34;`, `&#34;ZONE&#34;`, `&#34;ON_NETWORK&#34;`, or `&#34;OFF_NETWORK&#34;`. Type `&#34;string&#34;`
+         * @param networkConnection Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`. Type `&#34;list(string)&#34;`
+         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`. Type `&#34;list(string)&#34;`
+         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes The network zones to exclude. Conflicts with `network_includes`. Type `&#34;list(string)&#34;`
+         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`. Type `&#34;list(string)&#34;`
+         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`. Type `&#34;list(string)&#34;`
+         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes The network zones to include. Conflicts with `network_excludes`. Type `&#34;list(string)&#34;`
+         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordChange Allow or deny a user to change their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
+         * @param passwordChange Allow or deny a user to change their password: `ALLOW` or `DENY`. Default: `ALLOW`
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordChange Allow or deny a user to change their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
+         * @param passwordChange Allow or deny a user to change their password: `ALLOW` or `DENY`. Default: `ALLOW`
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordReset Allow or deny a user to reset their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
+         * @param passwordReset Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordReset Allow or deny a user to reset their password: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;ALLOW&#34;`. Type `&#34;string&#34;`
+         * @param passwordReset Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordUnlock Allow or deny a user to unlock: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;DENY&#34;`, Type `&#34;string&#34;`
+         * @param passwordUnlock Allow or deny a user to unlock. Default: `DENY`
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordUnlock Allow or deny a user to unlock: `&#34;ALLOW&#34;` or `&#34;DENY&#34;`. By default, it is `&#34;DENY&#34;`, Type `&#34;string&#34;`
+         * @param passwordUnlock Allow or deny a user to unlock. Default: `DENY`
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId Policy ID.
+         * @param policyId Policy ID of the Rule
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId Policy ID.
+         * @param policyId Policy ID of the Rule
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `&#34;number&#34;`
+         * @param priority Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there. Type `&#34;number&#34;`
+         * @param priority Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
+         * @param status Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Policy Rule Status: `&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`. Type `&#34;string&#34;`
+         * @param status Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds The users to exclude. Type `&#34;set(string)&#34;`
+         * @param usersExcludeds Set of User IDs to Exclude
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds The users to exclude. Type `&#34;set(string)&#34;`
+         * @param usersExcludeds Set of User IDs to Exclude
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds The users to exclude. Type `&#34;set(string)&#34;`
+         * @param usersExcludeds Set of User IDs to Exclude
          * 
          * @return builder
          * 

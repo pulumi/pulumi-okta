@@ -10,57 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Group
 {
     /// <summary>
-    /// Creates an Okta Group.
-    /// 
-    /// This resource allows you to create and configure an Okta Group.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Group.Group("example", new()
-    ///     {
-    ///         Name = "Example",
-    ///         Description = "My Example Group",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// Custom profile attributes
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Group.Group("example", new()
-    ///     {
-    ///         Name = "Example",
-    ///         Description = "My Example Group",
-    ///         CustomProfileAttributes = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["example1"] = "testing1234",
-    ///             ["example2"] = true,
-    ///             ["example3"] = 54321,
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
+    /// Creates an Okta Group. This resource allows you to create and configure an Okta Group.
     /// 
     /// ## Import
-    /// 
-    /// An Okta Group can be imported via the Okta ID.
     /// 
     /// ```sh
     /// $ pulumi import okta:group/group:Group example &amp;#60;group id&amp;#62;
@@ -70,7 +22,7 @@ namespace Pulumi.Okta.Group
     public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// raw JSON containing all custom profile attributes.
+        /// JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
         /// </summary>
         [Output("customProfileAttributes")]
         public Output<string?> CustomProfileAttributes { get; private set; } = null!;
@@ -140,7 +92,7 @@ namespace Pulumi.Okta.Group
     public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// raw JSON containing all custom profile attributes.
+        /// JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
         /// </summary>
         [Input("customProfileAttributes")]
         public Input<string>? CustomProfileAttributes { get; set; }
@@ -172,7 +124,7 @@ namespace Pulumi.Okta.Group
     public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// raw JSON containing all custom profile attributes.
+        /// JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
         /// </summary>
         [Input("customProfileAttributes")]
         public Input<string>? CustomProfileAttributes { get; set; }

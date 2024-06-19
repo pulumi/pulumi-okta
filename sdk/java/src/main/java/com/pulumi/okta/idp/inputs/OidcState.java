@@ -19,14 +19,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     public static final OidcState Empty = new OidcState();
 
     /**
-     * Specifies the account linking action for an IdP user.
+     * Specifies the account linking action for an IdP user. Default: `AUTO`
      * 
      */
     @Import(name="accountLinkAction")
     private @Nullable Output<String> accountLinkAction;
 
     /**
-     * @return Specifies the account linking action for an IdP user.
+     * @return Specifies the account linking action for an IdP user. Default: `AUTO`
      * 
      */
     public Optional<Output<String>> accountLinkAction() {
@@ -49,14 +49,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The method of making an authorization request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
      * 
      */
     @Import(name="authorizationBinding")
     private @Nullable Output<String> authorizationBinding;
 
     /**
-     * @return The method of making an authorization request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * @return The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
      * 
      */
     public Optional<Output<String>> authorizationBinding() {
@@ -109,14 +109,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+     * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     @Import(name="deprovisionedAction")
     private @Nullable Output<String> deprovisionedAction;
 
     /**
-     * @return Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+     * @return Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     public Optional<Output<String>> deprovisionedAction() {
@@ -124,14 +124,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+     * Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      * 
      */
     @Import(name="groupsAction")
     private @Nullable Output<String> groupsAction;
 
     /**
-     * @return Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+     * @return Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      * 
      */
     public Optional<Output<String>> groupsAction() {
@@ -139,14 +139,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+     * List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
      * 
      */
     @Import(name="groupsAssignments")
     private @Nullable Output<List<String>> groupsAssignments;
 
     /**
-     * @return List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+     * @return List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
      * 
      */
     public Optional<Output<List<String>>> groupsAssignments() {
@@ -169,14 +169,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+     * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
      * 
      */
     @Import(name="groupsFilters")
     private @Nullable Output<List<String>> groupsFilters;
 
     /**
-     * @return Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+     * @return Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
      * 
      */
     public Optional<Output<List<String>>> groupsFilters() {
@@ -184,14 +184,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `&#34;ORG_URL&#34;`, `&#34;CUSTOM_URL&#34;`, or `&#34;DYNAMIC&#34;`.
+     * Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `ORG_URL`, `CUSTOM_URL`, or `DYNAMIC`. Default: `ORG_URL`
      * 
      */
     @Import(name="issuerMode")
     private @Nullable Output<String> issuerMode;
 
     /**
-     * @return Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `&#34;ORG_URL&#34;`, `&#34;CUSTOM_URL&#34;`, or `&#34;DYNAMIC&#34;`.
+     * @return Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `ORG_URL`, `CUSTOM_URL`, or `DYNAMIC`. Default: `ORG_URL`
      * 
      */
     public Optional<Output<String>> issuerMode() {
@@ -214,14 +214,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The method of making a request for the OIDC JWKS. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * The method of making a request for the OIDC JWKS. It can be set to `HTTP-POST` or `HTTP-REDIRECT`
      * 
      */
     @Import(name="jwksBinding")
     private @Nullable Output<String> jwksBinding;
 
     /**
-     * @return The method of making a request for the OIDC JWKS. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * @return The method of making a request for the OIDC JWKS. It can be set to `HTTP-POST` or `HTTP-REDIRECT`
      * 
      */
     public Optional<Output<String>> jwksBinding() {
@@ -259,18 +259,33 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Application&#39;s display name.
+     * Name of the IdP
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The Application&#39;s display name.
+     * @return Name of the IdP
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+     * 
+     */
+    @Import(name="pkceRequired")
+    private @Nullable Output<Boolean> pkceRequired;
+
+    /**
+     * @return Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+     * 
+     */
+    public Optional<Output<Boolean>> pkceRequired() {
+        return Optional.ofNullable(this.pkceRequired);
     }
 
     /**
@@ -289,14 +304,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+     * The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OIDC`
      * 
      */
     @Import(name="protocolType")
     private @Nullable Output<String> protocolType;
 
     /**
-     * @return The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+     * @return The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OIDC`
      * 
      */
     public Optional<Output<String>> protocolType() {
@@ -304,14 +319,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Provisioning action for an IdP user during authentication.
+     * Provisioning action for an IdP user during authentication. Default: `AUTO`
      * 
      */
     @Import(name="provisioningAction")
     private @Nullable Output<String> provisioningAction;
 
     /**
-     * @return Provisioning action for an IdP user during authentication.
+     * @return Provisioning action for an IdP user during authentication. Default: `AUTO`
      * 
      */
     public Optional<Output<String>> provisioningAction() {
@@ -319,14 +334,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+     * The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
      * 
      */
     @Import(name="requestSignatureAlgorithm")
     private @Nullable Output<String> requestSignatureAlgorithm;
 
     /**
-     * @return The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+     * @return The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
      * 
      */
     public Optional<Output<String>> requestSignatureAlgorithm() {
@@ -334,14 +349,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+     * Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
      * 
      */
     @Import(name="requestSignatureScope")
     private @Nullable Output<String> requestSignatureScope;
 
     /**
-     * @return Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+     * @return Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
      * 
      */
     public Optional<Output<String>> requestSignatureScope() {
@@ -364,14 +379,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of the IdP.
+     * Default to `ACTIVE`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of the IdP.
+     * @return Default to `ACTIVE`
      * 
      */
     public Optional<Output<String>> status() {
@@ -379,14 +394,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      * 
      */
     @Import(name="subjectMatchAttribute")
     private @Nullable Output<String> subjectMatchAttribute;
 
     /**
-     * @return Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * @return Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      * 
      */
     public Optional<Output<String>> subjectMatchAttribute() {
@@ -394,14 +409,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      * 
      */
     @Import(name="subjectMatchType")
     private @Nullable Output<String> subjectMatchType;
 
     /**
-     * @return Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+     * @return Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      * 
      */
     public Optional<Output<String>> subjectMatchType() {
@@ -409,14 +424,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+     * Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     @Import(name="suspendedAction")
     private @Nullable Output<String> suspendedAction;
 
     /**
-     * @return Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+     * @return Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      * 
      */
     public Optional<Output<String>> suspendedAction() {
@@ -424,14 +439,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The method of making a token request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
      * 
      */
     @Import(name="tokenBinding")
     private @Nullable Output<String> tokenBinding;
 
     /**
-     * @return The method of making a token request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+     * @return The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
      * 
      */
     public Optional<Output<String>> tokenBinding() {
@@ -506,14 +521,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Okta EL Expression to generate or transform a unique username for the IdP user.
+     * Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      * 
      */
     @Import(name="usernameTemplate")
     private @Nullable Output<String> usernameTemplate;
 
     /**
-     * @return Okta EL Expression to generate or transform a unique username for the IdP user.
+     * @return Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      * 
      */
     public Optional<Output<String>> usernameTemplate() {
@@ -540,6 +555,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         this.jwksUrl = $.jwksUrl;
         this.maxClockSkew = $.maxClockSkew;
         this.name = $.name;
+        this.pkceRequired = $.pkceRequired;
         this.profileMaster = $.profileMaster;
         this.protocolType = $.protocolType;
         this.provisioningAction = $.provisioningAction;
@@ -578,7 +594,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountLinkAction Specifies the account linking action for an IdP user.
+         * @param accountLinkAction Specifies the account linking action for an IdP user. Default: `AUTO`
          * 
          * @return builder
          * 
@@ -589,7 +605,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountLinkAction Specifies the account linking action for an IdP user.
+         * @param accountLinkAction Specifies the account linking action for an IdP user. Default: `AUTO`
          * 
          * @return builder
          * 
@@ -630,7 +646,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizationBinding The method of making an authorization request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+         * @param authorizationBinding The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
          * 
          * @return builder
          * 
@@ -641,7 +657,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizationBinding The method of making an authorization request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+         * @param authorizationBinding The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
          * 
          * @return builder
          * 
@@ -714,7 +730,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -725,7 +741,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `&#34;NONE&#34;` or `&#34;REACTIVATE&#34;`.
+         * @param deprovisionedAction Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -735,7 +751,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -746,7 +762,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `&#34;NONE&#34;`, `&#34;SYNC&#34;`, `&#34;APPEND&#34;`, or `&#34;ASSIGN&#34;`.
+         * @param groupsAction Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -756,7 +772,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
          * 
          * @return builder
          * 
@@ -767,7 +783,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
          * 
          * @return builder
          * 
@@ -777,7 +793,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `&#34;ASSIGN&#34;` `groups_action`.
+         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
          * 
          * @return builder
          * 
@@ -808,7 +824,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
          * 
          * @return builder
          * 
@@ -819,7 +835,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
          * 
          * @return builder
          * 
@@ -829,7 +845,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `&#34;APPEND&#34;` or `&#34;SYNC&#34;` `groups_action`.
+         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
          * 
          * @return builder
          * 
@@ -839,7 +855,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `&#34;ORG_URL&#34;`, `&#34;CUSTOM_URL&#34;`, or `&#34;DYNAMIC&#34;`.
+         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `ORG_URL`, `CUSTOM_URL`, or `DYNAMIC`. Default: `ORG_URL`
          * 
          * @return builder
          * 
@@ -850,7 +866,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `&#34;ORG_URL&#34;`, `&#34;CUSTOM_URL&#34;`, or `&#34;DYNAMIC&#34;`.
+         * @param issuerMode Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `ORG_URL`, `CUSTOM_URL`, or `DYNAMIC`. Default: `ORG_URL`
          * 
          * @return builder
          * 
@@ -881,7 +897,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jwksBinding The method of making a request for the OIDC JWKS. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+         * @param jwksBinding The method of making a request for the OIDC JWKS. It can be set to `HTTP-POST` or `HTTP-REDIRECT`
          * 
          * @return builder
          * 
@@ -892,7 +908,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jwksBinding The method of making a request for the OIDC JWKS. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+         * @param jwksBinding The method of making a request for the OIDC JWKS. It can be set to `HTTP-POST` or `HTTP-REDIRECT`
          * 
          * @return builder
          * 
@@ -944,7 +960,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Application&#39;s display name.
+         * @param name Name of the IdP
          * 
          * @return builder
          * 
@@ -955,13 +971,34 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Application&#39;s display name.
+         * @param name Name of the IdP
          * 
          * @return builder
          * 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pkceRequired(@Nullable Output<Boolean> pkceRequired) {
+            $.pkceRequired = pkceRequired;
+            return this;
+        }
+
+        /**
+         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pkceRequired(Boolean pkceRequired) {
+            return pkceRequired(Output.of(pkceRequired));
         }
 
         /**
@@ -986,7 +1023,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolType The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+         * @param protocolType The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OIDC`
          * 
          * @return builder
          * 
@@ -997,7 +1034,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolType The type of protocol to use. It can be `&#34;OIDC&#34;` or `&#34;OAUTH2&#34;`.
+         * @param protocolType The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OIDC`
          * 
          * @return builder
          * 
@@ -1007,7 +1044,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param provisioningAction Provisioning action for an IdP user during authentication.
+         * @param provisioningAction Provisioning action for an IdP user during authentication. Default: `AUTO`
          * 
          * @return builder
          * 
@@ -1018,7 +1055,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param provisioningAction Provisioning action for an IdP user during authentication.
+         * @param provisioningAction Provisioning action for an IdP user during authentication. Default: `AUTO`
          * 
          * @return builder
          * 
@@ -1028,7 +1065,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestSignatureAlgorithm The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+         * @param requestSignatureAlgorithm The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
          * 
          * @return builder
          * 
@@ -1039,7 +1076,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestSignatureAlgorithm The HMAC Signature Algorithm used when signing an authorization request. Defaults to `&#34;HS256&#34;`. It can be `&#34;HS256&#34;`, `&#34;HS384&#34;`, `&#34;HS512&#34;`, `&#34;SHA-256&#34;`. `&#34;RS256&#34;`, `&#34;RS384&#34;`, or `&#34;RS512&#34;`. NOTE: `&#34;SHA-256&#34;` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+         * @param requestSignatureAlgorithm The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
          * 
          * @return builder
          * 
@@ -1049,7 +1086,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestSignatureScope Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+         * @param requestSignatureScope Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
          * 
          * @return builder
          * 
@@ -1060,7 +1097,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestSignatureScope Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `&#34;REQUEST&#34;`. It can be `&#34;REQUEST&#34;` or `&#34;NONE&#34;`.
+         * @param requestSignatureScope Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
          * 
          * @return builder
          * 
@@ -1101,7 +1138,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the IdP.
+         * @param status Default to `ACTIVE`
          * 
          * @return builder
          * 
@@ -1112,7 +1149,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the IdP.
+         * @param status Default to `ACTIVE`
          * 
          * @return builder
          * 
@@ -1122,7 +1159,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
          * 
          * @return builder
          * 
@@ -1133,7 +1170,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * @param subjectMatchAttribute Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
          * 
          * @return builder
          * 
@@ -1143,7 +1180,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
          * 
          * @return builder
          * 
@@ -1154,7 +1191,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `&#34;USERNAME&#34;`. It can be set to `&#34;USERNAME&#34;`, `&#34;EMAIL&#34;`, `&#34;USERNAME_OR_EMAIL&#34;` or `&#34;CUSTOM_ATTRIBUTE&#34;`.
+         * @param subjectMatchType Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
          * 
          * @return builder
          * 
@@ -1164,7 +1201,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -1175,7 +1212,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be set to `&#34;NONE&#34;` or `&#34;UNSUSPEND&#34;`
+         * @param suspendedAction Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
          * 
          * @return builder
          * 
@@ -1185,7 +1222,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenBinding The method of making a token request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+         * @param tokenBinding The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
          * 
          * @return builder
          * 
@@ -1196,7 +1233,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenBinding The method of making a token request. It can be set to `&#34;HTTP-POST&#34;` or `&#34;HTTP-REDIRECT&#34;`.
+         * @param tokenBinding The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
          * 
          * @return builder
          * 
@@ -1299,7 +1336,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user.
+         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
          * 
          * @return builder
          * 
@@ -1310,7 +1347,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user.
+         * @param usernameTemplate Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
          * 
          * @return builder
          * 

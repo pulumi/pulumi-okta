@@ -14,8 +14,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAppResult {
+    /**
+     * @return Search only ACTIVE applications.
+     * 
+     */
     private @Nullable Boolean activeOnly;
     /**
+     * @return Groups associated with the application
+     * 
      * @deprecated
      * The `groups` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.AppGroupAssignments`
      * 
@@ -23,27 +29,40 @@ public final class GetAppResult {
     @Deprecated /* The `groups` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.AppGroupAssignments` */
     private List<String> groups;
     /**
-     * @return Application ID.
+     * @return Id of application to retrieve, conflicts with label and label_prefix.
      * 
      */
     private @Nullable String id;
     /**
-     * @return Application label.
+     * @return The label of the app to retrieve, conflicts with
+     * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * 			Okta&#39;s List Apps API. The API will search both name and label using that
+     * 			query. Therefore similarily named and labeled apps may be returned in the query
+     * 			and have the unitended result of associating the wrong app with this data
+     * 			source. See:
+     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
      * 
      */
     private @Nullable String label;
+    /**
+     * @return Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+     * 			provider to do a starts with query as opposed to an equals query.
+     * 
+     */
     private @Nullable String labelPrefix;
     /**
-     * @return Generic JSON containing discoverable resources related to the app.
+     * @return Discoverable resources related to the app
      * 
      */
     private String links;
     /**
-     * @return Application name.
+     * @return Name of application.
      * 
      */
     private String name;
     /**
+     * @return Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because groups has been removed, this attribute is a no op and will be removed
      * 
@@ -51,6 +70,8 @@ public final class GetAppResult {
     @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
     private @Nullable Boolean skipGroups;
     /**
+     * @return Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because users has been removed, this attribute is a no op and will be removed
      * 
@@ -58,11 +79,13 @@ public final class GetAppResult {
     @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
     private @Nullable Boolean skipUsers;
     /**
-     * @return Application status.
+     * @return Status of application.
      * 
      */
     private String status;
     /**
+     * @return Users associated with the application
+     * 
      * @deprecated
      * The `users` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.getAppUserAssignments`
      * 
@@ -71,10 +94,16 @@ public final class GetAppResult {
     private List<String> users;
 
     private GetAppResult() {}
+    /**
+     * @return Search only ACTIVE applications.
+     * 
+     */
     public Optional<Boolean> activeOnly() {
         return Optional.ofNullable(this.activeOnly);
     }
     /**
+     * @return Groups associated with the application
+     * 
      * @deprecated
      * The `groups` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.AppGroupAssignments`
      * 
@@ -84,37 +113,50 @@ public final class GetAppResult {
         return this.groups;
     }
     /**
-     * @return Application ID.
+     * @return Id of application to retrieve, conflicts with label and label_prefix.
      * 
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Application label.
+     * @return The label of the app to retrieve, conflicts with
+     * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * 			Okta&#39;s List Apps API. The API will search both name and label using that
+     * 			query. Therefore similarily named and labeled apps may be returned in the query
+     * 			and have the unitended result of associating the wrong app with this data
+     * 			source. See:
+     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
      * 
      */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
+    /**
+     * @return Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+     * 			provider to do a starts with query as opposed to an equals query.
+     * 
+     */
     public Optional<String> labelPrefix() {
         return Optional.ofNullable(this.labelPrefix);
     }
     /**
-     * @return Generic JSON containing discoverable resources related to the app.
+     * @return Discoverable resources related to the app
      * 
      */
     public String links() {
         return this.links;
     }
     /**
-     * @return Application name.
+     * @return Name of application.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
+     * @return Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because groups has been removed, this attribute is a no op and will be removed
      * 
@@ -124,6 +166,8 @@ public final class GetAppResult {
         return Optional.ofNullable(this.skipGroups);
     }
     /**
+     * @return Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because users has been removed, this attribute is a no op and will be removed
      * 
@@ -133,13 +177,15 @@ public final class GetAppResult {
         return Optional.ofNullable(this.skipUsers);
     }
     /**
-     * @return Application status.
+     * @return Status of application.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
+     * @return Users associated with the application
+     * 
      * @deprecated
      * The `users` field is now deprecated for the data source `okta.app.getApp`, please replace all uses of this with: `okta.getAppUserAssignments`
      * 

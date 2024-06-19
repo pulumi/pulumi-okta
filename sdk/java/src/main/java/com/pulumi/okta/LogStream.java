@@ -16,158 +16,80 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates an Okta Log Stream.
- * 
- * This resource allows you to create and configure an Okta Log Stream.
+ * Manages log streams
  * 
  * ## Example Usage
  * 
  * ### AWS EventBridge
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.LogStream;
- * import com.pulumi.okta.LogStreamArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LogStream("example", LogStreamArgs.builder()
- *             .name("EventBridge Log Stream")
- *             .type("aws_eventbridge")
- *             .status("ACTIVE")
- *             .settings(LogStreamSettingsArgs.builder()
- *                 .accountId("123456789012")
- *                 .region("us-north-1")
- *                 .eventSourceName("okta_log_stream")
- *                 .build())
- *             .build());
- * 
- *     }
+ * resource &#34;okta.LogStream&#34; &#34;example&#34; {
+ *   name   = &#34;EventBridge Log Stream&#34;
+ *   type   = &#34;aws_eventbridge&#34;
+ *   status = &#34;ACTIVE&#34;
+ *   settings {
+ *     account_id        = &#34;123456789012&#34;
+ *     region            = &#34;us-north-1&#34;
+ *     event_source_name = &#34;okta.LogStream&#34;
+ *   }
  * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Splunk Event Collector
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.LogStream;
- * import com.pulumi.okta.LogStreamArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LogStream("example", LogStreamArgs.builder()
- *             .name("Splunk log Stream")
- *             .type("splunk_cloud_logstreaming")
- *             .status("ACTIVE")
- *             .settings(LogStreamSettingsArgs.builder()
- *                 .host("acme.splunkcloud.com")
- *                 .edition("gcp")
- *                 .token("YOUR_HEC_TOKEN")
- *                 .build())
- *             .build());
- * 
- *     }
+ * resource &#34;okta.LogStream&#34; &#34;example&#34; {
+ *   name   = &#34;Splunk log Stream&#34;
+ *   type   = &#34;splunk_cloud_logstreaming&#34;
+ *   status = &#34;ACTIVE&#34;
+ *   settings {
+ *     host    = &#34;acme.splunkcloud.com&#34;
+ *     edition = &#34;gcp&#34;
+ *     token   = &#34;YOUR_HEC_TOKEN&#34;
+ *   }
  * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ## Import
- * 
- * Okta Log Stream can be imported via the Okta ID.
- * 
- * ```sh
- * $ pulumi import okta:index/logStream:LogStream example &amp;#60;strema id&amp;#62;
- * ```
  * 
  */
 @ResourceType(type="okta:index/logStream:LogStream")
 public class LogStream extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the Log Stream Resource.
+     * Unique name for the Log Stream object
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the Log Stream Resource.
+     * @return Unique name for the Log Stream object
      * 
      */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Stream provider specific configuration.
-     * 
-     */
     @Export(name="settings", refs={LogStreamSettings.class}, tree="[0]")
     private Output</* @Nullable */ LogStreamSettings> settings;
 
-    /**
-     * @return Stream provider specific configuration.
-     * 
-     */
     public Output<Optional<LogStreamSettings>> settings() {
         return Codegen.optional(this.settings);
     }
     /**
-     * Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+     * Stream status
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Log Stream Status - can either be ACTIVE or INACTIVE only. Default is ACTIVE.
+     * @return Stream status
      * 
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * Type of the Log Stream - can either be `&#34;aws_eventbridge&#34;` or `&#34;splunk_cloud_logstreaming&#34;` only.
+     * Streaming provider used - &#39;aws*eventbridge&#39; or &#39;splunk*cloud_logstreaming&#39;
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of the Log Stream - can either be `&#34;aws_eventbridge&#34;` or `&#34;splunk_cloud_logstreaming&#34;` only.
+     * @return Streaming provider used - &#39;aws*eventbridge&#39; or &#39;splunk*cloud_logstreaming&#39;
      * 
      */
     public Output<String> type() {

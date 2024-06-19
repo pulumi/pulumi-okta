@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you manage org settings, logo, support and communication options.
+ * Manages org settings, logo, support and communication.
  * 
  * &gt; **IMPORTANT:** You must specify all Org Setting properties when you update an org&#39;s profile. Any property not specified in the script will be deleted.
  * 
@@ -57,8 +57,6 @@ import javax.annotation.Nullable;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
- * 
- * Okta Org Configuration can be imported even without specifying the Org ID.
  * 
  * ```sh
  * $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
@@ -180,16 +178,14 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
         return this.expiresAt;
     }
     /**
-     * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-     * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+     * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      * 
      */
     @Export(name="logo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logo;
 
     /**
-     * @return Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape
-     * orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+     * @return Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      * 
      */
     public Output<Optional<String>> logo() {

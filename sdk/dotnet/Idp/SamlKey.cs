@@ -53,8 +53,6 @@ namespace Pulumi.Okta.Idp
     /// 
     /// ## Import
     /// 
-    /// A SAML IdP Signing Key can be imported via the key id.
-    /// 
     /// ```sh
     /// $ pulumi import okta:idp/samlKey:SamlKey example &amp;#60;key id&amp;#62;
     /// ```
@@ -93,7 +91,7 @@ namespace Pulumi.Okta.Idp
         public Output<string> Use { get; private set; } = null!;
 
         /// <summary>
-        /// base64-encoded X.509 certificate chain with DER encoding.
+        /// base64-encoded X.509 certificate chain with DER encoding
         /// </summary>
         [Output("x5cs")]
         public Output<ImmutableArray<string>> X5cs { get; private set; } = null!;
@@ -154,7 +152,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _x5cs;
 
         /// <summary>
-        /// base64-encoded X.509 certificate chain with DER encoding.
+        /// base64-encoded X.509 certificate chain with DER encoding
         /// </summary>
         public InputList<string> X5cs
         {
@@ -204,7 +202,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _x5cs;
 
         /// <summary>
-        /// base64-encoded X.509 certificate chain with DER encoding.
+        /// base64-encoded X.509 certificate chain with DER encoding
         /// </summary>
         public InputList<string> X5cs
         {

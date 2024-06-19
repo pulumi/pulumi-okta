@@ -18,6 +18,10 @@ public final class GetAuthenticatorResult {
      * 
      */
     private @Nullable String id;
+    /**
+     * @return A human-readable string that identifies the authenticator.
+     * 
+     */
     private @Nullable String key;
     /**
      * @return Name of the authenticator.
@@ -25,12 +29,12 @@ public final class GetAuthenticatorResult {
      */
     private @Nullable String name;
     /**
-     * @return (Specific to `security_key`) The provider server port (for example 1812).
+     * @return The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured
      * 
      */
     private Integer providerAuthPort;
     /**
-     * @return (Specific to `security_key`) Server host name or IP address.
+     * @return Server host name or IP address
      * 
      */
     private String providerHostname;
@@ -39,6 +43,10 @@ public final class GetAuthenticatorResult {
      * 
      */
     private String providerInstanceId;
+    /**
+     * @return Authenticator Provider in JSON format
+     * 
+     */
     private String providerJson;
     /**
      * @return Provider type.
@@ -51,7 +59,7 @@ public final class GetAuthenticatorResult {
      */
     private String providerUserNameTemplate;
     /**
-     * @return Settings for the authenticator (expressed in JSON).
+     * @return Authenticator settings in JSON format
      * 
      */
     private String settings;
@@ -61,7 +69,7 @@ public final class GetAuthenticatorResult {
      */
     private String status;
     /**
-     * @return The type of Authenticator.
+     * @return Type of the authenticator
      * 
      */
     private String type;
@@ -74,6 +82,10 @@ public final class GetAuthenticatorResult {
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
+    /**
+     * @return A human-readable string that identifies the authenticator.
+     * 
+     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
@@ -85,14 +97,14 @@ public final class GetAuthenticatorResult {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return (Specific to `security_key`) The provider server port (for example 1812).
+     * @return The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured
      * 
      */
     public Integer providerAuthPort() {
         return this.providerAuthPort;
     }
     /**
-     * @return (Specific to `security_key`) Server host name or IP address.
+     * @return Server host name or IP address
      * 
      */
     public String providerHostname() {
@@ -105,6 +117,10 @@ public final class GetAuthenticatorResult {
     public String providerInstanceId() {
         return this.providerInstanceId;
     }
+    /**
+     * @return Authenticator Provider in JSON format
+     * 
+     */
     public String providerJson() {
         return this.providerJson;
     }
@@ -123,7 +139,7 @@ public final class GetAuthenticatorResult {
         return this.providerUserNameTemplate;
     }
     /**
-     * @return Settings for the authenticator (expressed in JSON).
+     * @return Authenticator settings in JSON format
      * 
      */
     public String settings() {
@@ -137,7 +153,7 @@ public final class GetAuthenticatorResult {
         return this.status;
     }
     /**
-     * @return The type of Authenticator.
+     * @return Type of the authenticator
      * 
      */
     public String type() {

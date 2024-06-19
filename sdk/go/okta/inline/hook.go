@@ -12,9 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an inline hook.
-//
-// This resource allows you to create and configure an inline hook.
+// Creates an inline hook. This resource allows you to create and configure an inline hook.
 //
 // ## Example Usage
 //
@@ -56,17 +54,13 @@ import (
 //
 // ## Import
 //
-// An inline hook can be imported via the Okta ID.
-//
 // ```sh
 // $ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
 // ```
 type Hook struct {
 	pulumi.CustomResourceState
 
-	// Authentication required for inline hook request.
-	Auth pulumi.StringMapOutput `pulumi:"auth"`
-	// Details of the endpoint the inline hook will hit.
+	Auth    pulumi.StringMapOutput `pulumi:"auth"`
 	Channel pulumi.StringMapOutput `pulumi:"channel"`
 	// Map of headers to send along in inline hook request.
 	Headers HookHeaderArrayOutput `pulumi:"headers"`
@@ -76,7 +70,7 @@ type Hook struct {
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The version of the hook. The currently-supported version is `"1.0.0"`.
+	// The version of the hook. The currently-supported version is `1.0.0`.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -119,9 +113,7 @@ func GetHook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Hook resources.
 type hookState struct {
-	// Authentication required for inline hook request.
-	Auth map[string]string `pulumi:"auth"`
-	// Details of the endpoint the inline hook will hit.
+	Auth    map[string]string `pulumi:"auth"`
 	Channel map[string]string `pulumi:"channel"`
 	// Map of headers to send along in inline hook request.
 	Headers []HookHeader `pulumi:"headers"`
@@ -131,14 +123,12 @@ type hookState struct {
 	Status *string `pulumi:"status"`
 	// The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
 	Type *string `pulumi:"type"`
-	// The version of the hook. The currently-supported version is `"1.0.0"`.
+	// The version of the hook. The currently-supported version is `1.0.0`.
 	Version *string `pulumi:"version"`
 }
 
 type HookState struct {
-	// Authentication required for inline hook request.
-	Auth pulumi.StringMapInput
-	// Details of the endpoint the inline hook will hit.
+	Auth    pulumi.StringMapInput
 	Channel pulumi.StringMapInput
 	// Map of headers to send along in inline hook request.
 	Headers HookHeaderArrayInput
@@ -148,7 +138,7 @@ type HookState struct {
 	Status pulumi.StringPtrInput
 	// The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
 	Type pulumi.StringPtrInput
-	// The version of the hook. The currently-supported version is `"1.0.0"`.
+	// The version of the hook. The currently-supported version is `1.0.0`.
 	Version pulumi.StringPtrInput
 }
 
@@ -157,9 +147,7 @@ func (HookState) ElementType() reflect.Type {
 }
 
 type hookArgs struct {
-	// Authentication required for inline hook request.
-	Auth map[string]string `pulumi:"auth"`
-	// Details of the endpoint the inline hook will hit.
+	Auth    map[string]string `pulumi:"auth"`
 	Channel map[string]string `pulumi:"channel"`
 	// Map of headers to send along in inline hook request.
 	Headers []HookHeader `pulumi:"headers"`
@@ -169,15 +157,13 @@ type hookArgs struct {
 	Status *string `pulumi:"status"`
 	// The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
 	Type string `pulumi:"type"`
-	// The version of the hook. The currently-supported version is `"1.0.0"`.
+	// The version of the hook. The currently-supported version is `1.0.0`.
 	Version string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Hook resource.
 type HookArgs struct {
-	// Authentication required for inline hook request.
-	Auth pulumi.StringMapInput
-	// Details of the endpoint the inline hook will hit.
+	Auth    pulumi.StringMapInput
 	Channel pulumi.StringMapInput
 	// Map of headers to send along in inline hook request.
 	Headers HookHeaderArrayInput
@@ -187,7 +173,7 @@ type HookArgs struct {
 	Status pulumi.StringPtrInput
 	// The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
 	Type pulumi.StringInput
-	// The version of the hook. The currently-supported version is `"1.0.0"`.
+	// The version of the hook. The currently-supported version is `1.0.0`.
 	Version pulumi.StringInput
 }
 
@@ -278,12 +264,10 @@ func (o HookOutput) ToHookOutputWithContext(ctx context.Context) HookOutput {
 	return o
 }
 
-// Authentication required for inline hook request.
 func (o HookOutput) Auth() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringMapOutput { return v.Auth }).(pulumi.StringMapOutput)
 }
 
-// Details of the endpoint the inline hook will hit.
 func (o HookOutput) Channel() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringMapOutput { return v.Channel }).(pulumi.StringMapOutput)
 }
@@ -308,7 +292,7 @@ func (o HookOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// The version of the hook. The currently-supported version is `"1.0.0"`.
+// The version of the hook. The currently-supported version is `1.0.0`.
 func (o HookOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

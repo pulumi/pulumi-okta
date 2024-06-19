@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve an application from Okta.
+// Get an application of any kind from Okta.
 //
 // ## Example Usage
 //
@@ -50,45 +50,68 @@ func GetApp(ctx *pulumi.Context, args *GetAppArgs, opts ...pulumi.InvokeOption) 
 
 // A collection of arguments for invoking getApp.
 type GetAppArgs struct {
-	// tells the provider to query for only `ACTIVE` applications.
+	// Search only ACTIVE applications.
 	ActiveOnly *bool `pulumi:"activeOnly"`
-	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
+	// Id of application to retrieve, conflicts with label and label_prefix.
 	Id *string `pulumi:"id"`
-	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
-	// the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time the API searches both `name`
-	// and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
-	// may result in multiple apps being returned for the query. The data source further inspects the lables looking for
-	// an exact match.
+	// The label of the app to retrieve, conflicts with
+	// 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+	// 			Okta's List Apps API. The API will search both name and label using that
+	// 			query. Therefore similarily named and labeled apps may be returned in the query
+	// 			and have the unitended result of associating the wrong app with this data
+	// 			source. See:
+	// 			https://developer.okta.com/docs/reference/api/apps/#list-applications
 	Label *string `pulumi:"label"`
-	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-	// provider to do a `starts with` query as opposed to an `equals` query.
+	// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+	// 			provider to do a starts with query as opposed to an equals query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	//
 	// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
 	SkipGroups *bool `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	//
 	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
 	SkipUsers *bool `pulumi:"skipUsers"`
 }
 
 // A collection of values returned by getApp.
 type GetAppResult struct {
+	// Search only ACTIVE applications.
 	ActiveOnly *bool `pulumi:"activeOnly"`
+	// Groups associated with the application
+	//
 	// Deprecated: The `groups` field is now deprecated for the data source `app.getApp`, please replace all uses of this with: `AppGroupAssignments`
 	Groups []string `pulumi:"groups"`
-	// Application ID.
+	// Id of application to retrieve, conflicts with label and label_prefix.
 	Id *string `pulumi:"id"`
-	// Application label.
-	Label       *string `pulumi:"label"`
+	// The label of the app to retrieve, conflicts with
+	// 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+	// 			Okta's List Apps API. The API will search both name and label using that
+	// 			query. Therefore similarily named and labeled apps may be returned in the query
+	// 			and have the unitended result of associating the wrong app with this data
+	// 			source. See:
+	// 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+	Label *string `pulumi:"label"`
+	// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+	// 			provider to do a starts with query as opposed to an equals query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
-	// Generic JSON containing discoverable resources related to the app.
+	// Discoverable resources related to the app
 	Links string `pulumi:"links"`
-	// Application name.
+	// Name of application.
 	Name string `pulumi:"name"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	//
 	// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
 	SkipGroups *bool `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	//
 	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
 	SkipUsers *bool `pulumi:"skipUsers"`
-	// Application status.
+	// Status of application.
 	Status string `pulumi:"status"`
+	// Users associated with the application
+	//
 	// Deprecated: The `users` field is now deprecated for the data source `app.getApp`, please replace all uses of this with: `getAppUserAssignments`
 	Users []string `pulumi:"users"`
 }
@@ -108,21 +131,27 @@ func GetAppOutput(ctx *pulumi.Context, args GetAppOutputArgs, opts ...pulumi.Inv
 
 // A collection of arguments for invoking getApp.
 type GetAppOutputArgs struct {
-	// tells the provider to query for only `ACTIVE` applications.
+	// Search only ACTIVE applications.
 	ActiveOnly pulumi.BoolPtrInput `pulumi:"activeOnly"`
-	// `id` of application to retrieve, conflicts with `label` and `labelPrefix`.
+	// Id of application to retrieve, conflicts with label and label_prefix.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The label of the app to retrieve, conflicts with `labelPrefix` and `id`. Label uses
-	// the `?q=<label>` query parameter exposed by Okta's API. It should be noted that at this time the API searches both `name`
-	// and `label` with a [starts with query](https://developer.okta.com/docs/reference/api/apps/#list-applications) which
-	// may result in multiple apps being returned for the query. The data source further inspects the lables looking for
-	// an exact match.
+	// The label of the app to retrieve, conflicts with
+	// 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+	// 			Okta's List Apps API. The API will search both name and label using that
+	// 			query. Therefore similarily named and labeled apps may be returned in the query
+	// 			and have the unitended result of associating the wrong app with this data
+	// 			source. See:
+	// 			https://developer.okta.com/docs/reference/api/apps/#list-applications
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Label prefix of the app to retrieve, conflicts with `label` and `id`. This will tell the
-	// provider to do a `starts with` query as opposed to an `equals` query.
+	// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+	// 			provider to do a starts with query as opposed to an equals query.
 	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
+	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+	//
 	// Deprecated: Because groups has been removed, this attribute is a no op and will be removed
 	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
+	// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+	//
 	// Deprecated: Because users has been removed, this attribute is a no op and will be removed
 	SkipUsers pulumi.BoolPtrInput `pulumi:"skipUsers"`
 }
@@ -146,54 +175,73 @@ func (o GetAppResultOutput) ToGetAppResultOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Search only ACTIVE applications.
 func (o GetAppResultOutput) ActiveOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetAppResult) *bool { return v.ActiveOnly }).(pulumi.BoolPtrOutput)
 }
 
+// Groups associated with the application
+//
 // Deprecated: The `groups` field is now deprecated for the data source `app.getApp`, please replace all uses of this with: `AppGroupAssignments`
 func (o GetAppResultOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAppResult) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// Application ID.
+// Id of application to retrieve, conflicts with label and label_prefix.
 func (o GetAppResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAppResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Application label.
+// The label of the app to retrieve, conflicts with
+//
+//	labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+//	Okta's List Apps API. The API will search both name and label using that
+//	query. Therefore similarily named and labeled apps may be returned in the query
+//	and have the unitended result of associating the wrong app with this data
+//	source. See:
+//	https://developer.okta.com/docs/reference/api/apps/#list-applications
 func (o GetAppResultOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAppResult) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+//
+//	provider to do a starts with query as opposed to an equals query.
 func (o GetAppResultOutput) LabelPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAppResult) *string { return v.LabelPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Generic JSON containing discoverable resources related to the app.
+// Discoverable resources related to the app
 func (o GetAppResultOutput) Links() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppResult) string { return v.Links }).(pulumi.StringOutput)
 }
 
-// Application name.
+// Name of application.
 func (o GetAppResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
+//
 // Deprecated: Because groups has been removed, this attribute is a no op and will be removed
 func (o GetAppResultOutput) SkipGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetAppResult) *bool { return v.SkipGroups }).(pulumi.BoolPtrOutput)
 }
 
+// Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
+//
 // Deprecated: Because users has been removed, this attribute is a no op and will be removed
 func (o GetAppResultOutput) SkipUsers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetAppResult) *bool { return v.SkipUsers }).(pulumi.BoolPtrOutput)
 }
 
-// Application status.
+// Status of application.
 func (o GetAppResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Users associated with the application
+//
 // Deprecated: The `users` field is now deprecated for the data source `app.getApp`, please replace all uses of this with: `getAppUserAssignments`
 func (o GetAppResultOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAppResult) []string { return v.Users }).(pulumi.StringArrayOutput)

@@ -14,11 +14,11 @@ namespace Pulumi.Okta.Outputs
     public sealed class AppUserSchemaPropertyArrayOneOf
     {
         /// <summary>
-        /// value mapping to member of `array_enum`.
+        /// Value mapping to member of `array_enum`
         /// </summary>
         public readonly string Const;
         /// <summary>
-        /// display name for the enum value.
+        /// Display name for the enum value.
         /// </summary>
         public readonly string Title;
 

@@ -32,10 +32,8 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * A redirect URI can be imported via the Okta ID.
- *
  * ```sh
- * $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62;
+ * $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62
  * ```
  */
 export class OAuthRedirectUri extends pulumi.CustomResource {
@@ -67,7 +65,7 @@ export class OAuthRedirectUri extends pulumi.CustomResource {
     }
 
     /**
-     * OAuth application ID. Note: `appId` can not be changed once set.
+     * OAuth application ID.
      */
     public readonly appId!: pulumi.Output<string>;
     /**
@@ -111,7 +109,7 @@ export class OAuthRedirectUri extends pulumi.CustomResource {
  */
 export interface OAuthRedirectUriState {
     /**
-     * OAuth application ID. Note: `appId` can not be changed once set.
+     * OAuth application ID.
      */
     appId?: pulumi.Input<string>;
     /**
@@ -125,7 +123,7 @@ export interface OAuthRedirectUriState {
  */
 export interface OAuthRedirectUriArgs {
     /**
-     * OAuth application ID. Note: `appId` can not be changed once set.
+     * OAuth application ID.
      */
     appId: pulumi.Input<string>;
     /**

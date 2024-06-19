@@ -10,11 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Policy
 {
     /// <summary>
-    /// This resource allows you to create and configure an MFA Policy Rule.
+    /// Creates an MFA Policy Rule. This resource allows you to create and configure an MFA Policy Rule.
     /// 
     /// ## Import
-    /// 
-    /// A Policy Rule can be imported via the Policy and Rule ID.
     /// 
     /// ```sh
     /// $ pulumi import okta:policy/ruleMfa:RuleMfa example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
@@ -33,55 +31,59 @@ namespace Pulumi.Okta.Policy
         public Output<ImmutableArray<Outputs.RuleMfaAppExclude>> AppExcludes { get; private set; } = null!;
 
         /// <summary>
-        /// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+        /// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+        /// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+        /// is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+        /// of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         /// </summary>
         [Output("appIncludes")]
         public Output<ImmutableArray<Outputs.RuleMfaAppInclude>> AppIncludes { get; private set; } = null!;
 
         /// <summary>
-        /// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
+        /// When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
         /// </summary>
         [Output("enroll")]
         public Output<string?> Enroll { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Name.
+        /// Policy Rule Name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+        /// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         /// </summary>
         [Output("networkConnection")]
         public Output<string?> NetworkConnection { get; private set; } = null!;
 
         /// <summary>
-        /// The network zones to exclude. Conflicts with `network_includes`.
+        /// Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         /// </summary>
         [Output("networkExcludes")]
         public Output<ImmutableArray<string>> NetworkExcludes { get; private set; } = null!;
 
         /// <summary>
-        /// The network zones to include. Conflicts with `network_excludes`.
+        /// Required if `network_connection` = `ZONE`. Indicates the network zones to include.
         /// </summary>
         [Output("networkIncludes")]
         public Output<ImmutableArray<string>> NetworkIncludes { get; private set; } = null!;
 
         /// <summary>
-        /// Policy ID.
+        /// Policy ID of the Rule
         /// </summary>
         [Output("policyId")]
         public Output<string?> PolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        /// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+        /// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+        /// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -157,7 +159,10 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleMfaAppIncludeArgs>? _appIncludes;
 
         /// <summary>
-        /// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+        /// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+        /// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+        /// is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+        /// of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         /// </summary>
         public InputList<Inputs.RuleMfaAppIncludeArgs> AppIncludes
         {
@@ -166,19 +171,19 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
+        /// When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
         /// </summary>
         [Input("enroll")]
         public Input<string>? Enroll { get; set; }
 
         /// <summary>
-        /// Policy Rule Name.
+        /// Policy Rule Name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+        /// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         /// </summary>
         [Input("networkConnection")]
         public Input<string>? NetworkConnection { get; set; }
@@ -187,7 +192,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// The network zones to exclude. Conflicts with `network_includes`.
+        /// Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -199,7 +204,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// The network zones to include. Conflicts with `network_excludes`.
+        /// Required if `network_connection` = `ZONE`. Indicates the network zones to include.
         /// </summary>
         public InputList<string> NetworkIncludes
         {
@@ -208,19 +213,20 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Policy ID.
+        /// Policy ID of the Rule
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        /// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+        /// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+        /// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -264,7 +270,10 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleMfaAppIncludeGetArgs>? _appIncludes;
 
         /// <summary>
-        /// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+        /// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+        /// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
+        /// is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
+        /// of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         /// </summary>
         public InputList<Inputs.RuleMfaAppIncludeGetArgs> AppIncludes
         {
@@ -273,19 +282,19 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// When a user should be prompted for MFA. It can be `"CHALLENGE"`, `"LOGIN"`, or `"NEVER"`.
+        /// When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
         /// </summary>
         [Input("enroll")]
         public Input<string>? Enroll { get; set; }
 
         /// <summary>
-        /// Policy Rule Name.
+        /// Policy Rule Name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network selection mode: `"ANYWHERE"`, `"ZONE"`, `"ON_NETWORK"`, or `"OFF_NETWORK"`.
+        /// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         /// </summary>
         [Input("networkConnection")]
         public Input<string>? NetworkConnection { get; set; }
@@ -294,7 +303,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// The network zones to exclude. Conflicts with `network_includes`.
+        /// Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -306,7 +315,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// The network zones to include. Conflicts with `network_excludes`.
+        /// Required if `network_connection` = `ZONE`. Indicates the network zones to include.
         /// </summary>
         public InputList<string> NetworkIncludes
         {
@@ -315,19 +324,20 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Policy ID.
+        /// Policy ID of the Rule
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// Policy Rule Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
+        /// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
+        /// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Policy Rule Status: `"ACTIVE"` or `"INACTIVE"`.
+        /// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

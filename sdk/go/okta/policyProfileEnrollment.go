@@ -11,8 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+// Creates a Profile Enrollment Policy
 //
+// > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
 // This resource allows you to create and configure a Profile Enrollment Policy.
 //
 // ## Example Usage
@@ -44,17 +45,15 @@ import (
 //
 // ## Import
 //
-// A Profile Enrollment Policy can be imported via the Okta ID.
-//
 // ```sh
 // $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &#60;policy id&#62;
 // ```
 type PolicyProfileEnrollment struct {
 	pulumi.CustomResourceState
 
-	// Policy Name.
+	// Name of the policy
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Status of the policy.
+	// Status of the policy
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
@@ -88,16 +87,16 @@ func GetPolicyProfileEnrollment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyProfileEnrollment resources.
 type policyProfileEnrollmentState struct {
-	// Policy Name.
+	// Name of the policy
 	Name *string `pulumi:"name"`
-	// Status of the policy.
+	// Status of the policy
 	Status *string `pulumi:"status"`
 }
 
 type PolicyProfileEnrollmentState struct {
-	// Policy Name.
+	// Name of the policy
 	Name pulumi.StringPtrInput
-	// Status of the policy.
+	// Status of the policy
 	Status pulumi.StringPtrInput
 }
 
@@ -106,17 +105,17 @@ func (PolicyProfileEnrollmentState) ElementType() reflect.Type {
 }
 
 type policyProfileEnrollmentArgs struct {
-	// Policy Name.
+	// Name of the policy
 	Name *string `pulumi:"name"`
-	// Status of the policy.
+	// Status of the policy
 	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a PolicyProfileEnrollment resource.
 type PolicyProfileEnrollmentArgs struct {
-	// Policy Name.
+	// Name of the policy
 	Name pulumi.StringPtrInput
-	// Status of the policy.
+	// Status of the policy
 	Status pulumi.StringPtrInput
 }
 
@@ -207,12 +206,12 @@ func (o PolicyProfileEnrollmentOutput) ToPolicyProfileEnrollmentOutputWithContex
 	return o
 }
 
-// Policy Name.
+// Name of the policy
 func (o PolicyProfileEnrollmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyProfileEnrollment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Status of the policy.
+// Status of the policy
 func (o PolicyProfileEnrollmentOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyProfileEnrollment) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }

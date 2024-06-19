@@ -17,14 +17,14 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
     public static final BookmarkState Empty = new BookmarkState();
 
     /**
-     * Custom error page URL.
+     * Custom error page URL
      * 
      */
     @Import(name="accessibilityErrorRedirectUrl")
     private @Nullable Output<String> accessibilityErrorRedirectUrl;
 
     /**
-     * @return Custom error page URL.
+     * @return Custom error page URL
      * 
      */
     public Optional<Output<String>> accessibilityErrorRedirectUrl() {
@@ -32,14 +32,14 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Custom login page for this application.
+     * Custom login page URL
      * 
      */
     @Import(name="accessibilityLoginRedirectUrl")
     private @Nullable Output<String> accessibilityLoginRedirectUrl;
 
     /**
-     * @return Custom login page for this application.
+     * @return Custom login page URL
      * 
      */
     public Optional<Output<String>> accessibilityLoginRedirectUrl() {
@@ -47,14 +47,14 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable self-service. By default, it is `false`.
+     * Enable self service. Default is `false`
      * 
      */
     @Import(name="accessibilitySelfService")
     private @Nullable Output<Boolean> accessibilitySelfService;
 
     /**
-     * @return Enable self-service. By default, it is `false`.
+     * @return Enable self service. Default is `false`
      * 
      */
     public Optional<Output<Boolean>> accessibilitySelfService() {
@@ -92,14 +92,14 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
      * 
      */
     @Import(name="authenticationPolicy")
     private @Nullable Output<String> authenticationPolicy;
 
     /**
-     * @return The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+     * @return The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
      * 
      */
     public Optional<Output<String>> authenticationPolicy() {
@@ -107,14 +107,14 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Display auto submit toolbar.
+     * Display auto submit toolbar
      * 
      */
     @Import(name="autoSubmitToolbar")
     private @Nullable Output<Boolean> autoSubmitToolbar;
 
     /**
-     * @return Display auto submit toolbar.
+     * @return Display auto submit toolbar
      * 
      */
     public Optional<Output<Boolean>> autoSubmitToolbar() {
@@ -137,14 +137,14 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Do not display application icon on mobile app.
+     * Do not display application icon on mobile app
      * 
      */
     @Import(name="hideIos")
     private @Nullable Output<Boolean> hideIos;
 
     /**
-     * @return Do not display application icon on mobile app.
+     * @return Do not display application icon on mobile app
      * 
      */
     public Optional<Output<Boolean>> hideIos() {
@@ -152,14 +152,14 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Do not display application icon to users.
+     * Do not display application icon to users
      * 
      */
     @Import(name="hideWeb")
     private @Nullable Output<Boolean> hideWeb;
 
     /**
-     * @return Do not display application icon to users.
+     * @return Do not display application icon to users
      * 
      */
     public Optional<Output<Boolean>> hideWeb() {
@@ -197,14 +197,14 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Direct link of application logo.
+     * URL of the application&#39;s logo
      * 
      */
     @Import(name="logoUrl")
     private @Nullable Output<String> logoUrl;
 
     /**
-     * @return Direct link of application logo.
+     * @return URL of the application&#39;s logo
      * 
      */
     public Optional<Output<String>> logoUrl() {
@@ -257,14 +257,14 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of application. (`&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`).
+     * Status of application. By default, it is `ACTIVE`
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of application. (`&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`).
+     * @return Status of application. By default, it is `ACTIVE`
      * 
      */
     public Optional<Output<String>> status() {
@@ -328,7 +328,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL.
+         * @param accessibilityErrorRedirectUrl Custom error page URL
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityErrorRedirectUrl Custom error page URL.
+         * @param accessibilityErrorRedirectUrl Custom error page URL
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page for this application.
+         * @param accessibilityLoginRedirectUrl Custom login page URL
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilityLoginRedirectUrl Custom login page for this application.
+         * @param accessibilityLoginRedirectUrl Custom login page URL
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
+         * @param accessibilitySelfService Enable self service. Default is `false`
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessibilitySelfService Enable self-service. By default, it is `false`.
+         * @param accessibilitySelfService Enable self service. Default is `false`
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationPolicy The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+         * @param authenticationPolicy The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationPolicy The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.
+         * @param authenticationPolicy The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar.
+         * @param autoSubmitToolbar Display auto submit toolbar
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSubmitToolbar Display auto submit toolbar.
+         * @param autoSubmitToolbar Display auto submit toolbar
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app.
+         * @param hideIos Do not display application icon on mobile app
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideIos Do not display application icon on mobile app.
+         * @param hideIos Do not display application icon on mobile app
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideWeb Do not display application icon to users.
+         * @param hideWeb Do not display application icon to users
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hideWeb Do not display application icon to users.
+         * @param hideWeb Do not display application icon to users
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logoUrl Direct link of application logo.
+         * @param logoUrl URL of the application&#39;s logo
          * 
          * @return builder
          * 
@@ -591,7 +591,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logoUrl Direct link of application logo.
+         * @param logoUrl URL of the application&#39;s logo
          * 
          * @return builder
          * 
@@ -664,7 +664,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of application. (`&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`).
+         * @param status Status of application. By default, it is `ACTIVE`
          * 
          * @return builder
          * 
@@ -675,7 +675,7 @@ public final class BookmarkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of application. (`&#34;ACTIVE&#34;` or `&#34;INACTIVE&#34;`).
+         * @param status Status of application. By default, it is `ACTIVE`
          * 
          * @return builder
          * 

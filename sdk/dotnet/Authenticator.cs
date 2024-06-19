@@ -15,11 +15,16 @@ namespace Pulumi.Okta
     /// This resource allows you to configure different authenticators.
     /// 
     /// &gt; **Create:** The Okta API has an odd notion of create for authenticators. If
-    /// the authenticator doesn't exist then a one time `POST /api/v1/authenticators` to
+    /// the authenticator doesn't exist then a one time 'POST /api/v1/authenticators' to
     /// create the authenticator (hard create) will be performed. Thereafter, that
     /// authenticator is never deleted, it is only deactivated (soft delete). Therefore,
     /// if the authenticator already exists create is just a soft import of an existing
-    /// authenticator.
+    /// authenticator. This does not apply to custom_otp authenticator. There can be
+    /// multiple custom_otp authenticator. To create new custom_otp authenticator, a new
+    /// name and key = custom_otp is required. If an old name is used, it will simply
+    /// reactivate the old custom_otp authenticator
+    /// 
+    /// &gt; **Update:** custom_otp authenticator cannot be updated
     /// 
     /// &gt; **Delete:** Authenticators can not be truly deleted therefore delete is soft.
     /// Delete will attempt to deativate the authenticator. An authenticator can only be
@@ -46,19 +51,7 @@ namespace Pulumi.Okta
     ///         }),
     ///     });
     /// 
-    /// });
-    /// ```
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Okta.Authenticator("test", new()
+    ///     var otp = new Okta.Authenticator("otp", new()
     ///     {
     ///         Name = "Custom OTP",
     ///         Key = "custom_otp",
@@ -72,14 +65,13 @@ namespace Pulumi.Okta
     ///             ["algorithm"] = "HMacSHA256",
     ///             ["passCodeLength"] = 6,
     ///         }),
+    ///         LegacyIgnoreName = false,
     ///     });
     /// 
     /// });
     /// ```
     /// 
     /// ## Import
-    /// 
-    /// Okta authenticator can be imported via the Okta ID.
     /// 
     /// ```sh
     /// $ pulumi import okta:index/authenticator:Authenticator example &amp;#60;authenticator_id&amp;#62;
@@ -89,31 +81,37 @@ namespace Pulumi.Okta
     public partial class Authenticator : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`, `custom_otp`
+        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the authenticator.
+        /// Name does not trigger change detection (legacy behavior)
+        /// </summary>
+        [Output("legacyIgnoreName")]
+        public Output<bool?> LegacyIgnoreName { get; private set; } = null!;
+
+        /// <summary>
+        /// Display name of the Authenticator
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        /// The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
         /// </summary>
         [Output("providerAuthPort")]
         public Output<int?> ProviderAuthPort { get; private set; } = null!;
 
         /// <summary>
-        /// (DUO specific) - The Duo Security API hostname". Conflicts with `provider_json` argument.
+        /// (DUO specific) - The Duo Security API hostname. Conflicts with `provider_json` argument.
         /// </summary>
         [Output("providerHost")]
         public Output<string?> ProviderHost { get; private set; } = null!;
 
         /// <summary>
-        /// Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        /// Server host name or IP address. Default is `localhost`. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
         /// </summary>
         [Output("providerHostname")]
         public Output<string?> ProviderHostname { get; private set; } = null!;
@@ -131,13 +129,7 @@ namespace Pulumi.Okta
         public Output<string?> ProviderIntegrationKey { get; private set; } = null!;
 
         /// <summary>
-        /// Provider JSON allows for expressive provider
-        /// values. This argument conflicts with the other `provider_xxx` arguments.  The
-        /// [Create
-        /// Provider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request)
-        /// illustrates detailed provider values for a Duo authenticator.  [Provider
-        /// values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)
-        /// are listed in Okta API.
+        /// Provider JSON allows for expressive providervalues. This argument conflicts with the other 'provider_xxx' arguments. The [CreateProvider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request) illustrates detailed provider values for a Duo authenticator. [Provider values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)are listed in Okta API.
         /// </summary>
         [Output("providerJson")]
         public Output<string?> ProviderJson { get; private set; } = null!;
@@ -149,7 +141,7 @@ namespace Pulumi.Okta
         public Output<string?> ProviderSecretKey { get; private set; } = null!;
 
         /// <summary>
-        /// An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        /// An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
         /// </summary>
         [Output("providerSharedSecret")]
         public Output<string?> ProviderSharedSecret { get; private set; } = null!;
@@ -161,25 +153,25 @@ namespace Pulumi.Okta
         public Output<string> ProviderType { get; private set; } = null!;
 
         /// <summary>
-        /// Username template expected by the provider. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        /// Username template expected by the provider. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
         /// </summary>
         [Output("providerUserNameTemplate")]
         public Output<string?> ProviderUserNameTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
+        /// Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `security_key`
         /// </summary>
         [Output("settings")]
         public Output<string?> Settings { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the authenticator. Default is `ACTIVE`.
+        /// Authenticator status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The type of Authenticator. Values include: `"password"`, `"security_question"`, `"phone"`, `"email"`, `"app"`, `"federated"`, and `"security_key"`.
+        /// he type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, `app`, `federated`, and `security_key`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -235,31 +227,37 @@ namespace Pulumi.Okta
     public sealed class AuthenticatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`, `custom_otp`
+        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// Name of the authenticator.
+        /// Name does not trigger change detection (legacy behavior)
+        /// </summary>
+        [Input("legacyIgnoreName")]
+        public Input<bool>? LegacyIgnoreName { get; set; }
+
+        /// <summary>
+        /// Display name of the Authenticator
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        /// The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
         /// </summary>
         [Input("providerAuthPort")]
         public Input<int>? ProviderAuthPort { get; set; }
 
         /// <summary>
-        /// (DUO specific) - The Duo Security API hostname". Conflicts with `provider_json` argument.
+        /// (DUO specific) - The Duo Security API hostname. Conflicts with `provider_json` argument.
         /// </summary>
         [Input("providerHost")]
         public Input<string>? ProviderHost { get; set; }
 
         /// <summary>
-        /// Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        /// Server host name or IP address. Default is `localhost`. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
         /// </summary>
         [Input("providerHostname")]
         public Input<string>? ProviderHostname { get; set; }
@@ -271,13 +269,7 @@ namespace Pulumi.Okta
         public Input<string>? ProviderIntegrationKey { get; set; }
 
         /// <summary>
-        /// Provider JSON allows for expressive provider
-        /// values. This argument conflicts with the other `provider_xxx` arguments.  The
-        /// [Create
-        /// Provider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request)
-        /// illustrates detailed provider values for a Duo authenticator.  [Provider
-        /// values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)
-        /// are listed in Okta API.
+        /// Provider JSON allows for expressive providervalues. This argument conflicts with the other 'provider_xxx' arguments. The [CreateProvider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request) illustrates detailed provider values for a Duo authenticator. [Provider values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)are listed in Okta API.
         /// </summary>
         [Input("providerJson")]
         public Input<string>? ProviderJson { get; set; }
@@ -292,7 +284,7 @@ namespace Pulumi.Okta
         private Input<string>? _providerSharedSecret;
 
         /// <summary>
-        /// An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        /// An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
         /// </summary>
         public Input<string>? ProviderSharedSecret
         {
@@ -305,19 +297,19 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Username template expected by the provider. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        /// Username template expected by the provider. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
         /// </summary>
         [Input("providerUserNameTemplate")]
         public Input<string>? ProviderUserNameTemplate { get; set; }
 
         /// <summary>
-        /// Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
+        /// Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `security_key`
         /// </summary>
         [Input("settings")]
         public Input<string>? Settings { get; set; }
 
         /// <summary>
-        /// Status of the authenticator. Default is `ACTIVE`.
+        /// Authenticator status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -331,31 +323,37 @@ namespace Pulumi.Okta
     public sealed class AuthenticatorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`, `custom_otp`
+        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// Name of the authenticator.
+        /// Name does not trigger change detection (legacy behavior)
+        /// </summary>
+        [Input("legacyIgnoreName")]
+        public Input<bool>? LegacyIgnoreName { get; set; }
+
+        /// <summary>
+        /// Display name of the Authenticator
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        /// The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
         /// </summary>
         [Input("providerAuthPort")]
         public Input<int>? ProviderAuthPort { get; set; }
 
         /// <summary>
-        /// (DUO specific) - The Duo Security API hostname". Conflicts with `provider_json` argument.
+        /// (DUO specific) - The Duo Security API hostname. Conflicts with `provider_json` argument.
         /// </summary>
         [Input("providerHost")]
         public Input<string>? ProviderHost { get; set; }
 
         /// <summary>
-        /// Server host name or IP address. Default is `"localhost"`. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        /// Server host name or IP address. Default is `localhost`. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
         /// </summary>
         [Input("providerHostname")]
         public Input<string>? ProviderHostname { get; set; }
@@ -373,13 +371,7 @@ namespace Pulumi.Okta
         public Input<string>? ProviderIntegrationKey { get; set; }
 
         /// <summary>
-        /// Provider JSON allows for expressive provider
-        /// values. This argument conflicts with the other `provider_xxx` arguments.  The
-        /// [Create
-        /// Provider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request)
-        /// illustrates detailed provider values for a Duo authenticator.  [Provider
-        /// values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)
-        /// are listed in Okta API.
+        /// Provider JSON allows for expressive providervalues. This argument conflicts with the other 'provider_xxx' arguments. The [CreateProvider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request) illustrates detailed provider values for a Duo authenticator. [Provider values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)are listed in Okta API.
         /// </summary>
         [Input("providerJson")]
         public Input<string>? ProviderJson { get; set; }
@@ -394,7 +386,7 @@ namespace Pulumi.Okta
         private Input<string>? _providerSharedSecret;
 
         /// <summary>
-        /// An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        /// An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
         /// </summary>
         public Input<string>? ProviderSharedSecret
         {
@@ -413,25 +405,25 @@ namespace Pulumi.Okta
         public Input<string>? ProviderType { get; set; }
 
         /// <summary>
-        /// Username template expected by the provider. Used only for authenticators with type `"security_key"`.  Conflicts with `provider_json` argument.
+        /// Username template expected by the provider. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
         /// </summary>
         [Input("providerUserNameTemplate")]
         public Input<string>? ProviderUserNameTemplate { get; set; }
 
         /// <summary>
-        /// Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `"security_key"`.
+        /// Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `security_key`
         /// </summary>
         [Input("settings")]
         public Input<string>? Settings { get; set; }
 
         /// <summary>
-        /// Status of the authenticator. Default is `ACTIVE`.
+        /// Authenticator status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The type of Authenticator. Values include: `"password"`, `"security_question"`, `"phone"`, `"email"`, `"app"`, `"federated"`, and `"security_key"`.
+        /// he type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, `app`, `federated`, and `security_key`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

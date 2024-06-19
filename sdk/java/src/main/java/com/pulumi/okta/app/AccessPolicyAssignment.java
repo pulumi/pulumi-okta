@@ -14,6 +14,10 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Manages assignment of Access Policy to an Application.
+ * 
+ * **Warning**: do not use as this will update okta_app_*.authentication_policy and vice versa
+ * 
  * Assigns an access policy (colloquially known as a sign-on policy and/or an
  * authentication policy) to an application. This resource does not perform true
  * delete as it will not delete an application and the app&#39;s access policy can&#39;t be
@@ -27,9 +31,56 @@ import javax.annotation.Nullable;
  * policy_, in the public API the policy is of type
  * [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
  * 
- * ## Import
+ * ## Example Usage
  * 
- * An Okta App&#39;s Access Policy Assignment can be imported via its associated Application ID.
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.policy.PolicyFunctions;
+ * import com.pulumi.okta.policy.inputs.GetPolicyArgs;
+ * import com.pulumi.okta.app.AppFunctions;
+ * import com.pulumi.okta.app.inputs.GetAppArgs;
+ * import com.pulumi.okta.app.AccessPolicyAssignment;
+ * import com.pulumi.okta.app.AccessPolicyAssignmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var access = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
+ *             .name("Any two factors")
+ *             .type("ACCESS_POLICY")
+ *             .build());
+ * 
+ *         final var example = AppFunctions.getApp(GetAppArgs.builder()
+ *             .label("Example App")
+ *             .build());
+ * 
+ *         var assignment = new AccessPolicyAssignment("assignment", AccessPolicyAssignmentArgs.builder()
+ *             .appId(example.applyValue(getAppResult -> getAppResult.id()))
+ *             .policyId(access.applyValue(getPolicyResult -> getPolicyResult.id()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
  * 
  * ```sh
  * $ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example &amp;#60;app id&amp;#62;

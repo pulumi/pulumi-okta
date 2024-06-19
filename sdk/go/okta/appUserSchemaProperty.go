@@ -46,8 +46,6 @@ import (
 //
 // ## Import
 //
-// App user schema property can be imported via the property index and app id.
-//
 // ```sh
 // $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example &#60;app id&#62;/&#60;property name&#62;
 // ```
@@ -58,9 +56,10 @@ type AppUserSchemaProperty struct {
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// Array of values that an array property's items can be set to.
 	ArrayEnums pulumi.StringArrayOutput `pulumi:"arrayEnums"`
-	// Display name and value an enum array can be set to.
+	// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+	// - (Required) display name for the enum value.
 	ArrayOneOfs AppUserSchemaPropertyArrayOneOfArrayOutput `pulumi:"arrayOneOfs"`
-	// The type of the array elements if `type` is set to `"array"`.
+	// The type of the array elements if `type` is set to `array`
 	ArrayType pulumi.StringPtrOutput `pulumi:"arrayType"`
 	// The description of the user schema property.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -70,27 +69,30 @@ type AppUserSchemaProperty struct {
 	ExternalName pulumi.StringPtrOutput `pulumi:"externalName"`
 	// External namespace of the user schema property.
 	ExternalNamespace pulumi.StringPtrOutput `pulumi:"externalNamespace"`
-	// The property name.
+	// Subschema unique string identifier
 	Index pulumi.StringOutput `pulumi:"index"`
-	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+	// Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
 	Master pulumi.StringPtrOutput `pulumi:"master"`
-	// The maximum length of the user property value. Only applies to type `"string"`.
+	// The maximum length of the user property value. Only applies to type `string`
 	MaxLength pulumi.IntPtrOutput `pulumi:"maxLength"`
-	// The minimum length of the user property value. Only applies to type `"string"`.
+	// The minimum length of the user property value. Only applies to type `string`
 	MinLength pulumi.IntPtrOutput `pulumi:"minLength"`
-	// Array of maps containing a mapping for display name to enum value.
+	// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+	// 'enum'. - 'title' - (Required) display name for the enum value.
 	OneOfs AppUserSchemaPropertyOneOfArrayOutput `pulumi:"oneOfs"`
-	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+	// Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
 	Permissions pulumi.StringPtrOutput `pulumi:"permissions"`
-	// Whether the property is required for this application's users.
+	// Whether the subschema is required
 	Required pulumi.BoolPtrOutput `pulumi:"required"`
-	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
+	// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
+	// `NONE`.
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
-	// The display name.
+	// Subschema title (display name)
 	Title pulumi.StringOutput `pulumi:"title"`
-	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+	// The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
 	Type pulumi.StringOutput `pulumi:"type"`
-	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
+	// If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
+	// values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
 	Union pulumi.BoolPtrOutput `pulumi:"union"`
 	// Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
 	Unique pulumi.StringPtrOutput `pulumi:"unique"`
@@ -144,9 +146,10 @@ type appUserSchemaPropertyState struct {
 	AppId *string `pulumi:"appId"`
 	// Array of values that an array property's items can be set to.
 	ArrayEnums []string `pulumi:"arrayEnums"`
-	// Display name and value an enum array can be set to.
+	// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+	// - (Required) display name for the enum value.
 	ArrayOneOfs []AppUserSchemaPropertyArrayOneOf `pulumi:"arrayOneOfs"`
-	// The type of the array elements if `type` is set to `"array"`.
+	// The type of the array elements if `type` is set to `array`
 	ArrayType *string `pulumi:"arrayType"`
 	// The description of the user schema property.
 	Description *string `pulumi:"description"`
@@ -156,27 +159,30 @@ type appUserSchemaPropertyState struct {
 	ExternalName *string `pulumi:"externalName"`
 	// External namespace of the user schema property.
 	ExternalNamespace *string `pulumi:"externalNamespace"`
-	// The property name.
+	// Subschema unique string identifier
 	Index *string `pulumi:"index"`
-	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+	// Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
 	Master *string `pulumi:"master"`
-	// The maximum length of the user property value. Only applies to type `"string"`.
+	// The maximum length of the user property value. Only applies to type `string`
 	MaxLength *int `pulumi:"maxLength"`
-	// The minimum length of the user property value. Only applies to type `"string"`.
+	// The minimum length of the user property value. Only applies to type `string`
 	MinLength *int `pulumi:"minLength"`
-	// Array of maps containing a mapping for display name to enum value.
+	// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+	// 'enum'. - 'title' - (Required) display name for the enum value.
 	OneOfs []AppUserSchemaPropertyOneOf `pulumi:"oneOfs"`
-	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+	// Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
 	Permissions *string `pulumi:"permissions"`
-	// Whether the property is required for this application's users.
+	// Whether the subschema is required
 	Required *bool `pulumi:"required"`
-	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
+	// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
+	// `NONE`.
 	Scope *string `pulumi:"scope"`
-	// The display name.
+	// Subschema title (display name)
 	Title *string `pulumi:"title"`
-	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+	// The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
 	Type *string `pulumi:"type"`
-	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
+	// If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
+	// values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
 	Union *bool `pulumi:"union"`
 	// Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
 	Unique *string `pulumi:"unique"`
@@ -189,9 +195,10 @@ type AppUserSchemaPropertyState struct {
 	AppId pulumi.StringPtrInput
 	// Array of values that an array property's items can be set to.
 	ArrayEnums pulumi.StringArrayInput
-	// Display name and value an enum array can be set to.
+	// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+	// - (Required) display name for the enum value.
 	ArrayOneOfs AppUserSchemaPropertyArrayOneOfArrayInput
-	// The type of the array elements if `type` is set to `"array"`.
+	// The type of the array elements if `type` is set to `array`
 	ArrayType pulumi.StringPtrInput
 	// The description of the user schema property.
 	Description pulumi.StringPtrInput
@@ -201,27 +208,30 @@ type AppUserSchemaPropertyState struct {
 	ExternalName pulumi.StringPtrInput
 	// External namespace of the user schema property.
 	ExternalNamespace pulumi.StringPtrInput
-	// The property name.
+	// Subschema unique string identifier
 	Index pulumi.StringPtrInput
-	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+	// Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
 	Master pulumi.StringPtrInput
-	// The maximum length of the user property value. Only applies to type `"string"`.
+	// The maximum length of the user property value. Only applies to type `string`
 	MaxLength pulumi.IntPtrInput
-	// The minimum length of the user property value. Only applies to type `"string"`.
+	// The minimum length of the user property value. Only applies to type `string`
 	MinLength pulumi.IntPtrInput
-	// Array of maps containing a mapping for display name to enum value.
+	// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+	// 'enum'. - 'title' - (Required) display name for the enum value.
 	OneOfs AppUserSchemaPropertyOneOfArrayInput
-	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+	// Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
 	Permissions pulumi.StringPtrInput
-	// Whether the property is required for this application's users.
+	// Whether the subschema is required
 	Required pulumi.BoolPtrInput
-	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
+	// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
+	// `NONE`.
 	Scope pulumi.StringPtrInput
-	// The display name.
+	// Subschema title (display name)
 	Title pulumi.StringPtrInput
-	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+	// The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
 	Type pulumi.StringPtrInput
-	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
+	// If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
+	// values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
 	Union pulumi.BoolPtrInput
 	// Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
 	Unique pulumi.StringPtrInput
@@ -238,9 +248,10 @@ type appUserSchemaPropertyArgs struct {
 	AppId string `pulumi:"appId"`
 	// Array of values that an array property's items can be set to.
 	ArrayEnums []string `pulumi:"arrayEnums"`
-	// Display name and value an enum array can be set to.
+	// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+	// - (Required) display name for the enum value.
 	ArrayOneOfs []AppUserSchemaPropertyArrayOneOf `pulumi:"arrayOneOfs"`
-	// The type of the array elements if `type` is set to `"array"`.
+	// The type of the array elements if `type` is set to `array`
 	ArrayType *string `pulumi:"arrayType"`
 	// The description of the user schema property.
 	Description *string `pulumi:"description"`
@@ -250,27 +261,30 @@ type appUserSchemaPropertyArgs struct {
 	ExternalName *string `pulumi:"externalName"`
 	// External namespace of the user schema property.
 	ExternalNamespace *string `pulumi:"externalNamespace"`
-	// The property name.
+	// Subschema unique string identifier
 	Index string `pulumi:"index"`
-	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+	// Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
 	Master *string `pulumi:"master"`
-	// The maximum length of the user property value. Only applies to type `"string"`.
+	// The maximum length of the user property value. Only applies to type `string`
 	MaxLength *int `pulumi:"maxLength"`
-	// The minimum length of the user property value. Only applies to type `"string"`.
+	// The minimum length of the user property value. Only applies to type `string`
 	MinLength *int `pulumi:"minLength"`
-	// Array of maps containing a mapping for display name to enum value.
+	// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+	// 'enum'. - 'title' - (Required) display name for the enum value.
 	OneOfs []AppUserSchemaPropertyOneOf `pulumi:"oneOfs"`
-	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+	// Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
 	Permissions *string `pulumi:"permissions"`
-	// Whether the property is required for this application's users.
+	// Whether the subschema is required
 	Required *bool `pulumi:"required"`
-	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
+	// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
+	// `NONE`.
 	Scope *string `pulumi:"scope"`
-	// The display name.
+	// Subschema title (display name)
 	Title string `pulumi:"title"`
-	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+	// The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
 	Type string `pulumi:"type"`
-	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
+	// If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
+	// values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
 	Union *bool `pulumi:"union"`
 	// Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
 	Unique *string `pulumi:"unique"`
@@ -284,9 +298,10 @@ type AppUserSchemaPropertyArgs struct {
 	AppId pulumi.StringInput
 	// Array of values that an array property's items can be set to.
 	ArrayEnums pulumi.StringArrayInput
-	// Display name and value an enum array can be set to.
+	// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+	// - (Required) display name for the enum value.
 	ArrayOneOfs AppUserSchemaPropertyArrayOneOfArrayInput
-	// The type of the array elements if `type` is set to `"array"`.
+	// The type of the array elements if `type` is set to `array`
 	ArrayType pulumi.StringPtrInput
 	// The description of the user schema property.
 	Description pulumi.StringPtrInput
@@ -296,27 +311,30 @@ type AppUserSchemaPropertyArgs struct {
 	ExternalName pulumi.StringPtrInput
 	// External namespace of the user schema property.
 	ExternalNamespace pulumi.StringPtrInput
-	// The property name.
+	// Subschema unique string identifier
 	Index pulumi.StringInput
-	// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+	// Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
 	Master pulumi.StringPtrInput
-	// The maximum length of the user property value. Only applies to type `"string"`.
+	// The maximum length of the user property value. Only applies to type `string`
 	MaxLength pulumi.IntPtrInput
-	// The minimum length of the user property value. Only applies to type `"string"`.
+	// The minimum length of the user property value. Only applies to type `string`
 	MinLength pulumi.IntPtrInput
-	// Array of maps containing a mapping for display name to enum value.
+	// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+	// 'enum'. - 'title' - (Required) display name for the enum value.
 	OneOfs AppUserSchemaPropertyOneOfArrayInput
-	// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+	// Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
 	Permissions pulumi.StringPtrInput
-	// Whether the property is required for this application's users.
+	// Whether the subschema is required
 	Required pulumi.BoolPtrInput
-	// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
+	// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
+	// `NONE`.
 	Scope pulumi.StringPtrInput
-	// The display name.
+	// Subschema title (display name)
 	Title pulumi.StringInput
-	// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+	// The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
 	Type pulumi.StringInput
-	// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
+	// If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
+	// values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
 	Union pulumi.BoolPtrInput
 	// Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
 	Unique pulumi.StringPtrInput
@@ -421,12 +439,13 @@ func (o AppUserSchemaPropertyOutput) ArrayEnums() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringArrayOutput { return v.ArrayEnums }).(pulumi.StringArrayOutput)
 }
 
-// Display name and value an enum array can be set to.
+// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+// - (Required) display name for the enum value.
 func (o AppUserSchemaPropertyOutput) ArrayOneOfs() AppUserSchemaPropertyArrayOneOfArrayOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) AppUserSchemaPropertyArrayOneOfArrayOutput { return v.ArrayOneOfs }).(AppUserSchemaPropertyArrayOneOfArrayOutput)
 }
 
-// The type of the array elements if `type` is set to `"array"`.
+// The type of the array elements if `type` is set to `array`
 func (o AppUserSchemaPropertyOutput) ArrayType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.ArrayType }).(pulumi.StringPtrOutput)
 }
@@ -451,57 +470,60 @@ func (o AppUserSchemaPropertyOutput) ExternalNamespace() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.ExternalNamespace }).(pulumi.StringPtrOutput)
 }
 
-// The property name.
+// Subschema unique string identifier
 func (o AppUserSchemaPropertyOutput) Index() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringOutput { return v.Index }).(pulumi.StringOutput)
 }
 
-// Master priority for the user schema property. It can be set to `"PROFILE_MASTER"` or `"OKTA"`.
+// Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
 func (o AppUserSchemaPropertyOutput) Master() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.Master }).(pulumi.StringPtrOutput)
 }
 
-// The maximum length of the user property value. Only applies to type `"string"`.
+// The maximum length of the user property value. Only applies to type `string`
 func (o AppUserSchemaPropertyOutput) MaxLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.IntPtrOutput { return v.MaxLength }).(pulumi.IntPtrOutput)
 }
 
-// The minimum length of the user property value. Only applies to type `"string"`.
+// The minimum length of the user property value. Only applies to type `string`
 func (o AppUserSchemaPropertyOutput) MinLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.IntPtrOutput { return v.MinLength }).(pulumi.IntPtrOutput)
 }
 
-// Array of maps containing a mapping for display name to enum value.
+// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+// 'enum'. - 'title' - (Required) display name for the enum value.
 func (o AppUserSchemaPropertyOutput) OneOfs() AppUserSchemaPropertyOneOfArrayOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) AppUserSchemaPropertyOneOfArrayOutput { return v.OneOfs }).(AppUserSchemaPropertyOneOfArrayOutput)
 }
 
-// Access control permissions for the property. It can be set to `"READ_WRITE"`, `"READ_ONLY"`, `"HIDE"`.
+// Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
 func (o AppUserSchemaPropertyOutput) Permissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.Permissions }).(pulumi.StringPtrOutput)
 }
 
-// Whether the property is required for this application's users.
+// Whether the subschema is required
 func (o AppUserSchemaPropertyOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.BoolPtrOutput { return v.Required }).(pulumi.BoolPtrOutput)
 }
 
-// determines whether an app user attribute can be set at the Personal `"SELF"` or Group `"NONE"` level. Default value is `"NONE"`.
+// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
+// `NONE`.
 func (o AppUserSchemaPropertyOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-// The display name.
+// Subschema title (display name)
 func (o AppUserSchemaPropertyOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }
 
-// The type of the schema property. It can be `"string"`, `"boolean"`, `"number"`, `"integer"`, `"array"`, or `"object"`.
+// The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
 func (o AppUserSchemaPropertyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// If `type` is set to `"array"`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `"SELF"`.
+// If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
+// values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
 func (o AppUserSchemaPropertyOutput) Union() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppUserSchemaProperty) pulumi.BoolPtrOutput { return v.Union }).(pulumi.BoolPtrOutput)
 }

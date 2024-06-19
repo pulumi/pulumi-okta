@@ -49,33 +49,33 @@ class SamlArgs:
         :param pulumi.Input[str] issuer: URI that identifies the issuer.
         :param pulumi.Input[str] kid: The ID of the signing key.
         :param pulumi.Input[str] sso_url: URL of binding-specific endpoint to send an AuthnRequest message to IdP.
-        :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
+        :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user. Default: `AUTO`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
-        :param pulumi.Input[str] acs_type: The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
-        :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
-        :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        :param pulumi.Input[str] acs_type: The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
+        :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
+        :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         :param pulumi.Input[str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
-        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
+        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
-        :param pulumi.Input[str] name: The Application's display name.
-        :param pulumi.Input[str] name_format: The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        :param pulumi.Input[str] name: Name of the IdP
+        :param pulumi.Input[str] name_format: The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
-        :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
-        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
-        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
-        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-        :param pulumi.Input[str] sso_binding: The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication. Default: `AUTO`
+        :param pulumi.Input[str] request_signature_algorithm: The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
+        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
+        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
+        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
+        :param pulumi.Input[str] sso_binding: The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
         :param pulumi.Input[str] sso_destination: URI reference indicating the address to which the AuthnRequest message is sent.
-        :param pulumi.Input[str] status: Status of the IdP.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         :param pulumi.Input[str] subject_filter: Optional regular expression pattern used to filter untrusted IdP usernames.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_formats: The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
-        :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
-        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
-        :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
-        :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_formats: The name format.
+        :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
+        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
+        :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
+        :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         """
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "kid", kid)
@@ -175,7 +175,7 @@ class SamlArgs:
     @pulumi.getter(name="accountLinkAction")
     def account_link_action(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the account linking action for an IdP user.
+        Specifies the account linking action for an IdP user. Default: `AUTO`
         """
         return pulumi.get(self, "account_link_action")
 
@@ -199,7 +199,7 @@ class SamlArgs:
     @pulumi.getter(name="acsType")
     def acs_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
+        The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
         """
         return pulumi.get(self, "acs_type")
 
@@ -211,7 +211,7 @@ class SamlArgs:
     @pulumi.getter(name="deprovisionedAction")
     def deprovisioned_action(self) -> Optional[pulumi.Input[str]]:
         """
-        Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         """
         return pulumi.get(self, "deprovisioned_action")
 
@@ -223,7 +223,7 @@ class SamlArgs:
     @pulumi.getter(name="groupsAction")
     def groups_action(self) -> Optional[pulumi.Input[str]]:
         """
-        Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         """
         return pulumi.get(self, "groups_action")
 
@@ -235,7 +235,7 @@ class SamlArgs:
     @pulumi.getter(name="groupsAssignments")
     def groups_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         """
         return pulumi.get(self, "groups_assignments")
 
@@ -259,7 +259,7 @@ class SamlArgs:
     @pulumi.getter(name="groupsFilters")
     def groups_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         """
         return pulumi.get(self, "groups_filters")
 
@@ -271,7 +271,7 @@ class SamlArgs:
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -295,7 +295,7 @@ class SamlArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Application's display name.
+        Name of the IdP
         """
         return pulumi.get(self, "name")
 
@@ -307,7 +307,7 @@ class SamlArgs:
     @pulumi.getter(name="nameFormat")
     def name_format(self) -> Optional[pulumi.Input[str]]:
         """
-        The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
         """
         return pulumi.get(self, "name_format")
 
@@ -331,7 +331,7 @@ class SamlArgs:
     @pulumi.getter(name="provisioningAction")
     def provisioning_action(self) -> Optional[pulumi.Input[str]]:
         """
-        Provisioning action for an IdP user during authentication.
+        Provisioning action for an IdP user during authentication. Default: `AUTO`
         """
         return pulumi.get(self, "provisioning_action")
 
@@ -343,7 +343,7 @@ class SamlArgs:
     @pulumi.getter(name="requestSignatureAlgorithm")
     def request_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
+        The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         """
         return pulumi.get(self, "request_signature_algorithm")
 
@@ -355,7 +355,7 @@ class SamlArgs:
     @pulumi.getter(name="requestSignatureScope")
     def request_signature_scope(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+        Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
         """
         return pulumi.get(self, "request_signature_scope")
 
@@ -367,7 +367,7 @@ class SamlArgs:
     @pulumi.getter(name="responseSignatureAlgorithm")
     def response_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
+        The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         """
         return pulumi.get(self, "response_signature_algorithm")
 
@@ -379,7 +379,7 @@ class SamlArgs:
     @pulumi.getter(name="responseSignatureScope")
     def response_signature_scope(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
+        Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
         """
         return pulumi.get(self, "response_signature_scope")
 
@@ -391,7 +391,7 @@ class SamlArgs:
     @pulumi.getter(name="ssoBinding")
     def sso_binding(self) -> Optional[pulumi.Input[str]]:
         """
-        The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
         """
         return pulumi.get(self, "sso_binding")
 
@@ -415,7 +415,7 @@ class SamlArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of the IdP.
+        Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -439,7 +439,7 @@ class SamlArgs:
     @pulumi.getter(name="subjectFormats")
     def subject_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        The name format.
         """
         return pulumi.get(self, "subject_formats")
 
@@ -451,7 +451,7 @@ class SamlArgs:
     @pulumi.getter(name="subjectMatchAttribute")
     def subject_match_attribute(self) -> Optional[pulumi.Input[str]]:
         """
-        Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         """
         return pulumi.get(self, "subject_match_attribute")
 
@@ -463,7 +463,7 @@ class SamlArgs:
     @pulumi.getter(name="subjectMatchType")
     def subject_match_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
         """
         return pulumi.get(self, "subject_match_type")
 
@@ -475,7 +475,7 @@ class SamlArgs:
     @pulumi.getter(name="suspendedAction")
     def suspended_action(self) -> Optional[pulumi.Input[str]]:
         """
-        Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         """
         return pulumi.get(self, "suspended_action")
 
@@ -487,7 +487,7 @@ class SamlArgs:
     @pulumi.getter(name="usernameTemplate")
     def username_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Okta EL Expression to generate or transform a unique username for the IdP user.
+        Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         """
         return pulumi.get(self, "username_template")
 
@@ -535,39 +535,36 @@ class _SamlState:
                  username_template: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Saml resources.
-        :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
+        :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user. Default: `AUTO`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
-        :param pulumi.Input[str] acs_type: The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
-        :param pulumi.Input[str] audience: The audience restriction for the IdP.
-        :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
-        :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        :param pulumi.Input[str] acs_type: The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
+        :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
+        :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         :param pulumi.Input[str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         :param pulumi.Input[str] issuer: URI that identifies the issuer.
-        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] kid: The ID of the signing key.
         :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
-        :param pulumi.Input[str] name: The Application's display name.
-        :param pulumi.Input[str] name_format: The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        :param pulumi.Input[str] name: Name of the IdP
+        :param pulumi.Input[str] name_format: The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
-        :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
-        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
-        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
-        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-        :param pulumi.Input[str] sso_binding: The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication. Default: `AUTO`
+        :param pulumi.Input[str] request_signature_algorithm: The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
+        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
+        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
+        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
+        :param pulumi.Input[str] sso_binding: The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
         :param pulumi.Input[str] sso_destination: URI reference indicating the address to which the AuthnRequest message is sent.
         :param pulumi.Input[str] sso_url: URL of binding-specific endpoint to send an AuthnRequest message to IdP.
-        :param pulumi.Input[str] status: Status of the IdP.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         :param pulumi.Input[str] subject_filter: Optional regular expression pattern used to filter untrusted IdP usernames.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_formats: The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
-        :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
-        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
-        :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
-        :param pulumi.Input[str] type: Type of the IdP.
-        :param pulumi.Input[str] user_type_id: User type ID. Can be used as `target_id` in the `profile.Mapping` resource.
-        :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_formats: The name format.
+        :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
+        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
+        :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
+        :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         """
         if account_link_action is not None:
             pulumi.set(__self__, "account_link_action", account_link_action)
@@ -642,7 +639,7 @@ class _SamlState:
     @pulumi.getter(name="accountLinkAction")
     def account_link_action(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the account linking action for an IdP user.
+        Specifies the account linking action for an IdP user. Default: `AUTO`
         """
         return pulumi.get(self, "account_link_action")
 
@@ -675,7 +672,7 @@ class _SamlState:
     @pulumi.getter(name="acsType")
     def acs_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
+        The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
         """
         return pulumi.get(self, "acs_type")
 
@@ -686,9 +683,6 @@ class _SamlState:
     @property
     @pulumi.getter
     def audience(self) -> Optional[pulumi.Input[str]]:
-        """
-        The audience restriction for the IdP.
-        """
         return pulumi.get(self, "audience")
 
     @audience.setter
@@ -699,7 +693,7 @@ class _SamlState:
     @pulumi.getter(name="deprovisionedAction")
     def deprovisioned_action(self) -> Optional[pulumi.Input[str]]:
         """
-        Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         """
         return pulumi.get(self, "deprovisioned_action")
 
@@ -711,7 +705,7 @@ class _SamlState:
     @pulumi.getter(name="groupsAction")
     def groups_action(self) -> Optional[pulumi.Input[str]]:
         """
-        Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         """
         return pulumi.get(self, "groups_action")
 
@@ -723,7 +717,7 @@ class _SamlState:
     @pulumi.getter(name="groupsAssignments")
     def groups_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         """
         return pulumi.get(self, "groups_assignments")
 
@@ -747,7 +741,7 @@ class _SamlState:
     @pulumi.getter(name="groupsFilters")
     def groups_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         """
         return pulumi.get(self, "groups_filters")
 
@@ -771,7 +765,7 @@ class _SamlState:
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -807,7 +801,7 @@ class _SamlState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Application's display name.
+        Name of the IdP
         """
         return pulumi.get(self, "name")
 
@@ -819,7 +813,7 @@ class _SamlState:
     @pulumi.getter(name="nameFormat")
     def name_format(self) -> Optional[pulumi.Input[str]]:
         """
-        The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
         """
         return pulumi.get(self, "name_format")
 
@@ -843,7 +837,7 @@ class _SamlState:
     @pulumi.getter(name="provisioningAction")
     def provisioning_action(self) -> Optional[pulumi.Input[str]]:
         """
-        Provisioning action for an IdP user during authentication.
+        Provisioning action for an IdP user during authentication. Default: `AUTO`
         """
         return pulumi.get(self, "provisioning_action")
 
@@ -855,7 +849,7 @@ class _SamlState:
     @pulumi.getter(name="requestSignatureAlgorithm")
     def request_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
+        The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         """
         return pulumi.get(self, "request_signature_algorithm")
 
@@ -867,7 +861,7 @@ class _SamlState:
     @pulumi.getter(name="requestSignatureScope")
     def request_signature_scope(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+        Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
         """
         return pulumi.get(self, "request_signature_scope")
 
@@ -879,7 +873,7 @@ class _SamlState:
     @pulumi.getter(name="responseSignatureAlgorithm")
     def response_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
+        The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         """
         return pulumi.get(self, "response_signature_algorithm")
 
@@ -891,7 +885,7 @@ class _SamlState:
     @pulumi.getter(name="responseSignatureScope")
     def response_signature_scope(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
+        Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
         """
         return pulumi.get(self, "response_signature_scope")
 
@@ -903,7 +897,7 @@ class _SamlState:
     @pulumi.getter(name="ssoBinding")
     def sso_binding(self) -> Optional[pulumi.Input[str]]:
         """
-        The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
         """
         return pulumi.get(self, "sso_binding")
 
@@ -939,7 +933,7 @@ class _SamlState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of the IdP.
+        Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -963,7 +957,7 @@ class _SamlState:
     @pulumi.getter(name="subjectFormats")
     def subject_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        The name format.
         """
         return pulumi.get(self, "subject_formats")
 
@@ -975,7 +969,7 @@ class _SamlState:
     @pulumi.getter(name="subjectMatchAttribute")
     def subject_match_attribute(self) -> Optional[pulumi.Input[str]]:
         """
-        Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         """
         return pulumi.get(self, "subject_match_attribute")
 
@@ -987,7 +981,7 @@ class _SamlState:
     @pulumi.getter(name="subjectMatchType")
     def subject_match_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
         """
         return pulumi.get(self, "subject_match_type")
 
@@ -999,7 +993,7 @@ class _SamlState:
     @pulumi.getter(name="suspendedAction")
     def suspended_action(self) -> Optional[pulumi.Input[str]]:
         """
-        Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         """
         return pulumi.get(self, "suspended_action")
 
@@ -1010,9 +1004,6 @@ class _SamlState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of the IdP.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1022,9 +1013,6 @@ class _SamlState:
     @property
     @pulumi.getter(name="userTypeId")
     def user_type_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        User type ID. Can be used as `target_id` in the `profile.Mapping` resource.
-        """
         return pulumi.get(self, "user_type_id")
 
     @user_type_id.setter
@@ -1035,7 +1023,7 @@ class _SamlState:
     @pulumi.getter(name="usernameTemplate")
     def username_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Okta EL Expression to generate or transform a unique username for the IdP user.
+        Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         """
         return pulumi.get(self, "username_template")
 
@@ -1081,9 +1069,7 @@ class Saml(pulumi.CustomResource):
                  username_template: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates a SAML Identity Provider.
-
-        This resource allows you to create and configure a SAML Identity Provider.
+        Creates a SAML Identity Provider. This resource allows you to create and configure a SAML Identity Provider.
 
         ## Example Usage
 
@@ -1106,44 +1092,42 @@ class Saml(pulumi.CustomResource):
 
         ## Import
 
-        An SAML IdP can be imported via the Okta ID.
-
         ```sh
         $ pulumi import okta:idp/saml:Saml example &#60;idp id&#62;
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
+        :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user. Default: `AUTO`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
-        :param pulumi.Input[str] acs_type: The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
-        :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
-        :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        :param pulumi.Input[str] acs_type: The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
+        :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
+        :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         :param pulumi.Input[str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         :param pulumi.Input[str] issuer: URI that identifies the issuer.
-        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] kid: The ID of the signing key.
         :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
-        :param pulumi.Input[str] name: The Application's display name.
-        :param pulumi.Input[str] name_format: The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        :param pulumi.Input[str] name: Name of the IdP
+        :param pulumi.Input[str] name_format: The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
-        :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
-        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
-        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
-        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-        :param pulumi.Input[str] sso_binding: The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication. Default: `AUTO`
+        :param pulumi.Input[str] request_signature_algorithm: The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
+        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
+        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
+        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
+        :param pulumi.Input[str] sso_binding: The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
         :param pulumi.Input[str] sso_destination: URI reference indicating the address to which the AuthnRequest message is sent.
         :param pulumi.Input[str] sso_url: URL of binding-specific endpoint to send an AuthnRequest message to IdP.
-        :param pulumi.Input[str] status: Status of the IdP.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         :param pulumi.Input[str] subject_filter: Optional regular expression pattern used to filter untrusted IdP usernames.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_formats: The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
-        :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
-        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
-        :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
-        :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_formats: The name format.
+        :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
+        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
+        :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
+        :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         """
         ...
     @overload
@@ -1152,9 +1136,7 @@ class Saml(pulumi.CustomResource):
                  args: SamlArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a SAML Identity Provider.
-
-        This resource allows you to create and configure a SAML Identity Provider.
+        Creates a SAML Identity Provider. This resource allows you to create and configure a SAML Identity Provider.
 
         ## Example Usage
 
@@ -1176,8 +1158,6 @@ class Saml(pulumi.CustomResource):
         ```
 
         ## Import
-
-        An SAML IdP can be imported via the Okta ID.
 
         ```sh
         $ pulumi import okta:idp/saml:Saml example &#60;idp id&#62;
@@ -1328,39 +1308,36 @@ class Saml(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user.
+        :param pulumi.Input[str] account_link_action: Specifies the account linking action for an IdP user. Default: `AUTO`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_link_group_includes: Group memberships to determine link candidates.
-        :param pulumi.Input[str] acs_type: The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
-        :param pulumi.Input[str] audience: The audience restriction for the IdP.
-        :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
-        :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        :param pulumi.Input[str] acs_type: The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
+        :param pulumi.Input[str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
+        :param pulumi.Input[str] groups_action: Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         :param pulumi.Input[str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         :param pulumi.Input[str] issuer: URI that identifies the issuer.
-        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[str] kid: The ID of the signing key.
         :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
-        :param pulumi.Input[str] name: The Application's display name.
-        :param pulumi.Input[str] name_format: The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        :param pulumi.Input[str] name: Name of the IdP
+        :param pulumi.Input[str] name_format: The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
-        :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication.
-        :param pulumi.Input[str] request_signature_algorithm: The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
-        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
-        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
-        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
-        :param pulumi.Input[str] sso_binding: The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication. Default: `AUTO`
+        :param pulumi.Input[str] request_signature_algorithm: The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
+        :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
+        :param pulumi.Input[str] response_signature_algorithm: The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
+        :param pulumi.Input[str] response_signature_scope: Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
+        :param pulumi.Input[str] sso_binding: The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
         :param pulumi.Input[str] sso_destination: URI reference indicating the address to which the AuthnRequest message is sent.
         :param pulumi.Input[str] sso_url: URL of binding-specific endpoint to send an AuthnRequest message to IdP.
-        :param pulumi.Input[str] status: Status of the IdP.
+        :param pulumi.Input[str] status: Default to `ACTIVE`
         :param pulumi.Input[str] subject_filter: Optional regular expression pattern used to filter untrusted IdP usernames.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_formats: The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
-        :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
-        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
-        :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
-        :param pulumi.Input[str] type: Type of the IdP.
-        :param pulumi.Input[str] user_type_id: User type ID. Can be used as `target_id` in the `profile.Mapping` resource.
-        :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_formats: The name format.
+        :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
+        :param pulumi.Input[str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
+        :param pulumi.Input[str] suspended_action: Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
+        :param pulumi.Input[str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1406,7 +1383,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="accountLinkAction")
     def account_link_action(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the account linking action for an IdP user.
+        Specifies the account linking action for an IdP user. Default: `AUTO`
         """
         return pulumi.get(self, "account_link_action")
 
@@ -1427,23 +1404,20 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="acsType")
     def acs_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of ACS. It can be `"INSTANCE"` or `"ORG"`.
+        The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
         """
         return pulumi.get(self, "acs_type")
 
     @property
     @pulumi.getter
     def audience(self) -> pulumi.Output[str]:
-        """
-        The audience restriction for the IdP.
-        """
         return pulumi.get(self, "audience")
 
     @property
     @pulumi.getter(name="deprovisionedAction")
     def deprovisioned_action(self) -> pulumi.Output[Optional[str]]:
         """
-        Action for a previously deprovisioned IdP user during authentication. Can be `"NONE"` or `"REACTIVATE"`.
+        Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         """
         return pulumi.get(self, "deprovisioned_action")
 
@@ -1451,7 +1425,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="groupsAction")
     def groups_action(self) -> pulumi.Output[Optional[str]]:
         """
-        Provisioning action for IdP user's group memberships. It can be `"NONE"`, `"SYNC"`, `"APPEND"`, or `"ASSIGN"`.
+        Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         """
         return pulumi.get(self, "groups_action")
 
@@ -1459,7 +1433,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="groupsAssignments")
     def groups_assignments(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of Okta Group IDs to add an IdP user as a member with the `"ASSIGN"` `groups_action`.
+        List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         """
         return pulumi.get(self, "groups_assignments")
 
@@ -1475,7 +1449,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="groupsFilters")
     def groups_filters(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Whitelist of Okta Group identifiers that are allowed for the `"APPEND"` or `"SYNC"` `groups_action`.
+        Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         """
         return pulumi.get(self, "groups_filters")
 
@@ -1491,7 +1465,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="issuerMode")
     def issuer_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `"ORG_URL"` or `"CUSTOM_URL"`.
+        Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         """
         return pulumi.get(self, "issuer_mode")
 
@@ -1515,7 +1489,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The Application's display name.
+        Name of the IdP
         """
         return pulumi.get(self, "name")
 
@@ -1523,7 +1497,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="nameFormat")
     def name_format(self) -> pulumi.Output[Optional[str]]:
         """
-        The name identifier format to use. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
         """
         return pulumi.get(self, "name_format")
 
@@ -1539,7 +1513,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="provisioningAction")
     def provisioning_action(self) -> pulumi.Output[Optional[str]]:
         """
-        Provisioning action for an IdP user during authentication.
+        Provisioning action for an IdP user during authentication. Default: `AUTO`
         """
         return pulumi.get(self, "provisioning_action")
 
@@ -1547,7 +1521,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="requestSignatureAlgorithm")
     def request_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
-        The XML digital signature algorithm used when signing an AuthnRequest message. It can be `"SHA-256"` or `"SHA-1"`.
+        The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         """
         return pulumi.get(self, "request_signature_algorithm")
 
@@ -1555,7 +1529,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="requestSignatureScope")
     def request_signature_scope(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `"REQUEST"` or `"NONE"`.
+        Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
         """
         return pulumi.get(self, "request_signature_scope")
 
@@ -1563,7 +1537,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="responseSignatureAlgorithm")
     def response_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
-        The minimum XML digital signature algorithm allowed when verifying a SAMLResponse message or Assertion element. It can be `"SHA-256"` or `"SHA-1"`.
+        The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         """
         return pulumi.get(self, "response_signature_algorithm")
 
@@ -1571,7 +1545,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="responseSignatureScope")
     def response_signature_scope(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies whether to verify a SAMLResponse message or Assertion element XML digital signature. It can be `"RESPONSE"`, `"ASSERTION"`, or `"ANY"`.
+        Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
         """
         return pulumi.get(self, "response_signature_scope")
 
@@ -1579,7 +1553,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="ssoBinding")
     def sso_binding(self) -> pulumi.Output[Optional[str]]:
         """
-        The method of making an SSO request. It can be set to `"HTTP-POST"` or `"HTTP-REDIRECT"`.
+        The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
         """
         return pulumi.get(self, "sso_binding")
 
@@ -1603,7 +1577,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        Status of the IdP.
+        Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
@@ -1619,7 +1593,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="subjectFormats")
     def subject_formats(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The name format. By default `"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`.
+        The name format.
         """
         return pulumi.get(self, "subject_formats")
 
@@ -1627,7 +1601,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="subjectMatchAttribute")
     def subject_match_attribute(self) -> pulumi.Output[Optional[str]]:
         """
-        Okta user profile attribute for matching transformed IdP username. Only for matchType `"CUSTOM_ATTRIBUTE"`.
+        Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         """
         return pulumi.get(self, "subject_match_attribute")
 
@@ -1635,7 +1609,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="subjectMatchType")
     def subject_match_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `"USERNAME"`. It can be set to `"USERNAME"`, `"EMAIL"`, `"USERNAME_OR_EMAIL"` or `"CUSTOM_ATTRIBUTE"`.
+        Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
         """
         return pulumi.get(self, "subject_match_type")
 
@@ -1643,31 +1617,25 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="suspendedAction")
     def suspended_action(self) -> pulumi.Output[Optional[str]]:
         """
-        Action for a previously suspended IdP user during authentication. Can be set to `"NONE"` or `"UNSUSPEND"`
+        Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         """
         return pulumi.get(self, "suspended_action")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
-        """
-        Type of the IdP.
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="userTypeId")
     def user_type_id(self) -> pulumi.Output[str]:
-        """
-        User type ID. Can be used as `target_id` in the `profile.Mapping` resource.
-        """
         return pulumi.get(self, "user_type_id")
 
     @property
     @pulumi.getter(name="usernameTemplate")
     def username_template(self) -> pulumi.Output[Optional[str]]:
         """
-        Okta EL Expression to generate or transform a unique username for the IdP user.
+        Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         """
         return pulumi.get(self, "username_template")
 

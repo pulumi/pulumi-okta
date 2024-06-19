@@ -12,30 +12,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleIdpDiscoveryAppExclude {
-    /**
-     * @return ID of the Rule.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return Policy rule name.
-     * 
-     */
     private @Nullable String name;
     private String type;
 
     private RuleIdpDiscoveryAppExclude() {}
-    /**
-     * @return ID of the Rule.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Policy rule name.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

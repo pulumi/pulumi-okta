@@ -12,7 +12,7 @@ namespace Pulumi.Okta
     public static class GetRoleSubscription
     {
         /// <summary>
-        /// Use this data source to retrieve role subscription with a specific type.
+        /// Get subscriptions of a Role with a specific type
         /// 
         /// ## Example Usage
         /// 
@@ -37,7 +37,7 @@ namespace Pulumi.Okta
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleSubscriptionResult>("okta:index/getRoleSubscription:getRoleSubscription", args ?? new GetRoleSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve role subscription with a specific type.
+        /// Get subscriptions of a Role with a specific type
         /// 
         /// ## Example Usage
         /// 
@@ -66,27 +66,13 @@ namespace Pulumi.Okta
     public sealed class GetRoleSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`, 
-        /// `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
-        /// `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
+        /// Type of the notification
         /// </summary>
         [Input("notificationType", required: true)]
         public string NotificationType { get; set; } = null!;
 
         /// <summary>
-        /// Type of the role. Valid values:
-        /// `"API_ACCESS_MANAGEMENT_ADMIN"`,
-        /// `"APP_ADMIN"`,
-        /// `"CUSTOM"`,
-        /// `"GROUP_MEMBERSHIP_ADMIN"`,
-        /// `"HELP_DESK_ADMIN"`,
-        /// `"MOBILE_ADMIN"`,
-        /// `"ORG_ADMIN"`,
-        /// `"READ_ONLY_ADMIN"`,
-        /// `"REPORT_ADMIN"`,
-        /// `"SUPER_ADMIN"`,
-        /// `"USER_ADMIN"`
-        /// .
+        /// Type of the role
         /// </summary>
         [Input("roleType", required: true)]
         public string RoleType { get; set; } = null!;
@@ -100,27 +86,13 @@ namespace Pulumi.Okta
     public sealed class GetRoleSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Type of the notification. Valid values: `"CONNECTOR_AGENT"`, `"USER_LOCKED_OUT"`, 
-        /// `"APP_IMPORT"`, `"LDAP_AGENT"`, `"AD_AGENT"`, `"OKTA_ANNOUNCEMENT"`, `"OKTA_ISSUE"`, `"OKTA_UPDATE"`, `"IWA_AGENT"`,
-        /// `"USER_DEPROVISION"`, `"REPORT_SUSPICIOUS_ACTIVITY"`, `"RATELIMIT_NOTIFICATION"`.
+        /// Type of the notification
         /// </summary>
         [Input("notificationType", required: true)]
         public Input<string> NotificationType { get; set; } = null!;
 
         /// <summary>
-        /// Type of the role. Valid values:
-        /// `"API_ACCESS_MANAGEMENT_ADMIN"`,
-        /// `"APP_ADMIN"`,
-        /// `"CUSTOM"`,
-        /// `"GROUP_MEMBERSHIP_ADMIN"`,
-        /// `"HELP_DESK_ADMIN"`,
-        /// `"MOBILE_ADMIN"`,
-        /// `"ORG_ADMIN"`,
-        /// `"READ_ONLY_ADMIN"`,
-        /// `"REPORT_ADMIN"`,
-        /// `"SUPER_ADMIN"`,
-        /// `"USER_ADMIN"`
-        /// .
+        /// Type of the role
         /// </summary>
         [Input("roleType", required: true)]
         public Input<string> RoleType { get; set; } = null!;
@@ -139,10 +111,16 @@ namespace Pulumi.Okta
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Type of the notification
+        /// </summary>
         public readonly string NotificationType;
+        /// <summary>
+        /// Type of the role
+        /// </summary>
         public readonly string RoleType;
         /// <summary>
-        /// Subscription status.
+        /// Status of subscription
         /// </summary>
         public readonly string Status;
 

@@ -48,7 +48,7 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template&#34;,
+     * Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of &#39;create&#39; or &#39;destroy&#39; or both `create,destroy&#39;.
      * 
      * @deprecated
      * force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
@@ -59,7 +59,7 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
     private @Nullable Output<String> forceIsDefault;
 
     /**
-     * @return `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template&#34;,
+     * @return Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of &#39;create&#39; or &#39;destroy&#39; or both `create,destroy&#39;.
      * 
      * @deprecated
      * force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
@@ -86,70 +86,14 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The language supported by the customization
-     * - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
-     *   `&#34;cs&#34;`,
-     *   `&#34;da&#34;`,
-     *   `&#34;de&#34;`,
-     *   `&#34;el&#34;`,
-     *   `&#34;en&#34;`,
-     *   `&#34;es&#34;`,
-     *   `&#34;fi&#34;`,
-     *   `&#34;fr&#34;`,
-     *   `&#34;hu&#34;`,
-     *   `&#34;id&#34;`,
-     *   `&#34;it&#34;`,
-     *   `&#34;ja&#34;`,
-     *   `&#34;ko&#34;`,
-     *   `&#34;ms&#34;`,
-     *   `&#34;nb&#34;`,
-     *   `&#34;nl-NL&#34;`,
-     *   `&#34;pl&#34;`,
-     *   `&#34;pt-BR&#34;`,
-     *   `&#34;ro&#34;`,
-     *   `&#34;ru&#34;`,
-     *   `&#34;sv&#34;`,
-     *   `&#34;th&#34;`,
-     *   `&#34;tr&#34;`,
-     *   `&#34;uk&#34;`,
-     *   `&#34;vi&#34;`,
-     *   `&#34;zh-CN&#34;`,
-     *   `&#34;zh-TW&#34;`
+     * The language supported by the customization - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages)
      * 
      */
     @Import(name="language")
     private @Nullable Output<String> language;
 
     /**
-     * @return The language supported by the customization
-     * - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
-     *   `&#34;cs&#34;`,
-     *   `&#34;da&#34;`,
-     *   `&#34;de&#34;`,
-     *   `&#34;el&#34;`,
-     *   `&#34;en&#34;`,
-     *   `&#34;es&#34;`,
-     *   `&#34;fi&#34;`,
-     *   `&#34;fr&#34;`,
-     *   `&#34;hu&#34;`,
-     *   `&#34;id&#34;`,
-     *   `&#34;it&#34;`,
-     *   `&#34;ja&#34;`,
-     *   `&#34;ko&#34;`,
-     *   `&#34;ms&#34;`,
-     *   `&#34;nb&#34;`,
-     *   `&#34;nl-NL&#34;`,
-     *   `&#34;pl&#34;`,
-     *   `&#34;pt-BR&#34;`,
-     *   `&#34;ro&#34;`,
-     *   `&#34;ru&#34;`,
-     *   `&#34;sv&#34;`,
-     *   `&#34;th&#34;`,
-     *   `&#34;tr&#34;`,
-     *   `&#34;uk&#34;`,
-     *   `&#34;vi&#34;`,
-     *   `&#34;zh-CN&#34;`,
-     *   `&#34;zh-TW&#34;`
+     * @return The language supported by the customization - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages)
      * 
      */
     public Optional<Output<String>> language() {
@@ -172,78 +116,14 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Template Name
-     * - Example values: `&#34;AccountLockout&#34;`,
-     *   `&#34;ADForgotPassword&#34;`,
-     *   `&#34;ADForgotPasswordDenied&#34;`,
-     *   `&#34;ADSelfServiceUnlock&#34;`,
-     *   `&#34;ADUserActivation&#34;`,
-     *   `&#34;AuthenticatorEnrolled&#34;`,
-     *   `&#34;AuthenticatorReset&#34;`,
-     *   `&#34;ChangeEmailConfirmation&#34;`,
-     *   `&#34;EmailChallenge&#34;`,
-     *   `&#34;EmailChangeConfirmation&#34;`,
-     *   `&#34;EmailFactorVerification&#34;`,
-     *   `&#34;ForgotPassword&#34;`,
-     *   `&#34;ForgotPasswordDenied&#34;`,
-     *   `&#34;IGAReviewerEndNotification&#34;`,
-     *   `&#34;IGAReviewerNotification&#34;`,
-     *   `&#34;IGAReviewerPendingNotification&#34;`,
-     *   `&#34;IGAReviewerReassigned&#34;`,
-     *   `&#34;LDAPForgotPassword&#34;`,
-     *   `&#34;LDAPForgotPasswordDenied&#34;`,
-     *   `&#34;LDAPSelfServiceUnlock&#34;`,
-     *   `&#34;LDAPUserActivation&#34;`,
-     *   `&#34;MyAccountChangeConfirmation&#34;`,
-     *   `&#34;NewSignOnNotification&#34;`,
-     *   `&#34;OktaVerifyActivation&#34;`,
-     *   `&#34;PasswordChanged&#34;`,
-     *   `&#34;PasswordResetByAdmin&#34;`,
-     *   `&#34;PendingEmailChange&#34;`,
-     *   `&#34;RegistrationActivation&#34;`,
-     *   `&#34;RegistrationEmailVerification&#34;`,
-     *   `&#34;SelfServiceUnlock&#34;`,
-     *   `&#34;SelfServiceUnlockOnUnlockedAccount&#34;`,
-     *   `&#34;UserActivation&#34;`
+     * Template Name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`
      * 
      */
     @Import(name="templateName", required=true)
     private Output<String> templateName;
 
     /**
-     * @return Template Name
-     * - Example values: `&#34;AccountLockout&#34;`,
-     *   `&#34;ADForgotPassword&#34;`,
-     *   `&#34;ADForgotPasswordDenied&#34;`,
-     *   `&#34;ADSelfServiceUnlock&#34;`,
-     *   `&#34;ADUserActivation&#34;`,
-     *   `&#34;AuthenticatorEnrolled&#34;`,
-     *   `&#34;AuthenticatorReset&#34;`,
-     *   `&#34;ChangeEmailConfirmation&#34;`,
-     *   `&#34;EmailChallenge&#34;`,
-     *   `&#34;EmailChangeConfirmation&#34;`,
-     *   `&#34;EmailFactorVerification&#34;`,
-     *   `&#34;ForgotPassword&#34;`,
-     *   `&#34;ForgotPasswordDenied&#34;`,
-     *   `&#34;IGAReviewerEndNotification&#34;`,
-     *   `&#34;IGAReviewerNotification&#34;`,
-     *   `&#34;IGAReviewerPendingNotification&#34;`,
-     *   `&#34;IGAReviewerReassigned&#34;`,
-     *   `&#34;LDAPForgotPassword&#34;`,
-     *   `&#34;LDAPForgotPasswordDenied&#34;`,
-     *   `&#34;LDAPSelfServiceUnlock&#34;`,
-     *   `&#34;LDAPUserActivation&#34;`,
-     *   `&#34;MyAccountChangeConfirmation&#34;`,
-     *   `&#34;NewSignOnNotification&#34;`,
-     *   `&#34;OktaVerifyActivation&#34;`,
-     *   `&#34;PasswordChanged&#34;`,
-     *   `&#34;PasswordResetByAdmin&#34;`,
-     *   `&#34;PendingEmailChange&#34;`,
-     *   `&#34;RegistrationActivation&#34;`,
-     *   `&#34;RegistrationEmailVerification&#34;`,
-     *   `&#34;SelfServiceUnlock&#34;`,
-     *   `&#34;SelfServiceUnlockOnUnlockedAccount&#34;`,
-     *   `&#34;UserActivation&#34;`
+     * @return Template Name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`
      * 
      */
     public Output<String> templateName() {
@@ -323,7 +203,7 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param forceIsDefault `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template&#34;,
+         * @param forceIsDefault Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of &#39;create&#39; or &#39;destroy&#39; or both `create,destroy&#39;.
          * 
          * @return builder
          * 
@@ -338,7 +218,7 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param forceIsDefault `force_is_default` is deprecated and now is a no-op in behavior. Rely upon the `depends_on` meta argument to force dependency of secondary templates to the default template&#34;,
+         * @param forceIsDefault Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of &#39;create&#39; or &#39;destroy&#39; or both `create,destroy&#39;.
          * 
          * @return builder
          * 
@@ -373,35 +253,7 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param language The language supported by the customization
-         * - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
-         *   `&#34;cs&#34;`,
-         *   `&#34;da&#34;`,
-         *   `&#34;de&#34;`,
-         *   `&#34;el&#34;`,
-         *   `&#34;en&#34;`,
-         *   `&#34;es&#34;`,
-         *   `&#34;fi&#34;`,
-         *   `&#34;fr&#34;`,
-         *   `&#34;hu&#34;`,
-         *   `&#34;id&#34;`,
-         *   `&#34;it&#34;`,
-         *   `&#34;ja&#34;`,
-         *   `&#34;ko&#34;`,
-         *   `&#34;ms&#34;`,
-         *   `&#34;nb&#34;`,
-         *   `&#34;nl-NL&#34;`,
-         *   `&#34;pl&#34;`,
-         *   `&#34;pt-BR&#34;`,
-         *   `&#34;ro&#34;`,
-         *   `&#34;ru&#34;`,
-         *   `&#34;sv&#34;`,
-         *   `&#34;th&#34;`,
-         *   `&#34;tr&#34;`,
-         *   `&#34;uk&#34;`,
-         *   `&#34;vi&#34;`,
-         *   `&#34;zh-CN&#34;`,
-         *   `&#34;zh-TW&#34;`
+         * @param language The language supported by the customization - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages)
          * 
          * @return builder
          * 
@@ -412,35 +264,7 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param language The language supported by the customization
-         * - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages):
-         *   `&#34;cs&#34;`,
-         *   `&#34;da&#34;`,
-         *   `&#34;de&#34;`,
-         *   `&#34;el&#34;`,
-         *   `&#34;en&#34;`,
-         *   `&#34;es&#34;`,
-         *   `&#34;fi&#34;`,
-         *   `&#34;fr&#34;`,
-         *   `&#34;hu&#34;`,
-         *   `&#34;id&#34;`,
-         *   `&#34;it&#34;`,
-         *   `&#34;ja&#34;`,
-         *   `&#34;ko&#34;`,
-         *   `&#34;ms&#34;`,
-         *   `&#34;nb&#34;`,
-         *   `&#34;nl-NL&#34;`,
-         *   `&#34;pl&#34;`,
-         *   `&#34;pt-BR&#34;`,
-         *   `&#34;ro&#34;`,
-         *   `&#34;ru&#34;`,
-         *   `&#34;sv&#34;`,
-         *   `&#34;th&#34;`,
-         *   `&#34;tr&#34;`,
-         *   `&#34;uk&#34;`,
-         *   `&#34;vi&#34;`,
-         *   `&#34;zh-CN&#34;`,
-         *   `&#34;zh-TW&#34;`
+         * @param language The language supported by the customization - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages)
          * 
          * @return builder
          * 
@@ -471,39 +295,7 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param templateName Template Name
-         * - Example values: `&#34;AccountLockout&#34;`,
-         *   `&#34;ADForgotPassword&#34;`,
-         *   `&#34;ADForgotPasswordDenied&#34;`,
-         *   `&#34;ADSelfServiceUnlock&#34;`,
-         *   `&#34;ADUserActivation&#34;`,
-         *   `&#34;AuthenticatorEnrolled&#34;`,
-         *   `&#34;AuthenticatorReset&#34;`,
-         *   `&#34;ChangeEmailConfirmation&#34;`,
-         *   `&#34;EmailChallenge&#34;`,
-         *   `&#34;EmailChangeConfirmation&#34;`,
-         *   `&#34;EmailFactorVerification&#34;`,
-         *   `&#34;ForgotPassword&#34;`,
-         *   `&#34;ForgotPasswordDenied&#34;`,
-         *   `&#34;IGAReviewerEndNotification&#34;`,
-         *   `&#34;IGAReviewerNotification&#34;`,
-         *   `&#34;IGAReviewerPendingNotification&#34;`,
-         *   `&#34;IGAReviewerReassigned&#34;`,
-         *   `&#34;LDAPForgotPassword&#34;`,
-         *   `&#34;LDAPForgotPasswordDenied&#34;`,
-         *   `&#34;LDAPSelfServiceUnlock&#34;`,
-         *   `&#34;LDAPUserActivation&#34;`,
-         *   `&#34;MyAccountChangeConfirmation&#34;`,
-         *   `&#34;NewSignOnNotification&#34;`,
-         *   `&#34;OktaVerifyActivation&#34;`,
-         *   `&#34;PasswordChanged&#34;`,
-         *   `&#34;PasswordResetByAdmin&#34;`,
-         *   `&#34;PendingEmailChange&#34;`,
-         *   `&#34;RegistrationActivation&#34;`,
-         *   `&#34;RegistrationEmailVerification&#34;`,
-         *   `&#34;SelfServiceUnlock&#34;`,
-         *   `&#34;SelfServiceUnlockOnUnlockedAccount&#34;`,
-         *   `&#34;UserActivation&#34;`
+         * @param templateName Template Name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`
          * 
          * @return builder
          * 
@@ -514,39 +306,7 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param templateName Template Name
-         * - Example values: `&#34;AccountLockout&#34;`,
-         *   `&#34;ADForgotPassword&#34;`,
-         *   `&#34;ADForgotPasswordDenied&#34;`,
-         *   `&#34;ADSelfServiceUnlock&#34;`,
-         *   `&#34;ADUserActivation&#34;`,
-         *   `&#34;AuthenticatorEnrolled&#34;`,
-         *   `&#34;AuthenticatorReset&#34;`,
-         *   `&#34;ChangeEmailConfirmation&#34;`,
-         *   `&#34;EmailChallenge&#34;`,
-         *   `&#34;EmailChangeConfirmation&#34;`,
-         *   `&#34;EmailFactorVerification&#34;`,
-         *   `&#34;ForgotPassword&#34;`,
-         *   `&#34;ForgotPasswordDenied&#34;`,
-         *   `&#34;IGAReviewerEndNotification&#34;`,
-         *   `&#34;IGAReviewerNotification&#34;`,
-         *   `&#34;IGAReviewerPendingNotification&#34;`,
-         *   `&#34;IGAReviewerReassigned&#34;`,
-         *   `&#34;LDAPForgotPassword&#34;`,
-         *   `&#34;LDAPForgotPasswordDenied&#34;`,
-         *   `&#34;LDAPSelfServiceUnlock&#34;`,
-         *   `&#34;LDAPUserActivation&#34;`,
-         *   `&#34;MyAccountChangeConfirmation&#34;`,
-         *   `&#34;NewSignOnNotification&#34;`,
-         *   `&#34;OktaVerifyActivation&#34;`,
-         *   `&#34;PasswordChanged&#34;`,
-         *   `&#34;PasswordResetByAdmin&#34;`,
-         *   `&#34;PendingEmailChange&#34;`,
-         *   `&#34;RegistrationActivation&#34;`,
-         *   `&#34;RegistrationEmailVerification&#34;`,
-         *   `&#34;SelfServiceUnlock&#34;`,
-         *   `&#34;SelfServiceUnlockOnUnlockedAccount&#34;`,
-         *   `&#34;UserActivation&#34;`
+         * @param templateName Template Name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`
          * 
          * @return builder
          * 

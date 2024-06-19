@@ -14,19 +14,23 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOauthResult {
+    /**
+     * @return Search only ACTIVE applications.
+     * 
+     */
     private @Nullable Boolean activeOnly;
     /**
-     * @return Display auto submit toolbar.
+     * @return Display auto submit toolbar
      * 
      */
     private Boolean autoSubmitToolbar;
     /**
-     * @return OAuth client ID. If set during creation, app is created with this id.
+     * @return OAuth client ID
      * 
      */
     private String clientId;
     /**
-     * @return The latest active client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * @return OAuth client secret
      * 
      */
     private String clientSecret;
@@ -36,43 +40,54 @@ public final class GetOauthResult {
      */
     private String clientUri;
     /**
-     * @return List of OAuth 2.0 grant types.
+     * @return List of OAuth 2.0 grant types
      * 
      */
     private List<String> grantTypes;
     /**
-     * @return Do not display application icon on mobile app.
+     * @return Do not display application icon on mobile app
      * 
      */
     private Boolean hideIos;
     /**
-     * @return Do not display application icon to users.
+     * @return Do not display application icon to users
      * 
      */
     private Boolean hideWeb;
     /**
-     * @return ID of application.
+     * @return Id of application to retrieve, conflicts with label and label_prefix.
      * 
      */
     private @Nullable String id;
     /**
-     * @return Label of application.
+     * @return The label of the app to retrieve, conflicts with
+     * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * 			Okta&#39;s List Apps API. The API will search both name and label using that
+     * 			query. Therefore similarily named and labeled apps may be returned in the query
+     * 			and have the unitended result of associating the wrong app with this data
+     * 			source. See:
+     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
      * 
      */
     private @Nullable String label;
+    /**
+     * @return Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+     * 			provider to do a starts with query as opposed to an equals query.
+     * 
+     */
     private @Nullable String labelPrefix;
     /**
-     * @return generic JSON containing discoverable resources related to the app
+     * @return Discoverable resources related to the app
      * 
      */
     private String links;
     /**
-     * @return The type of Idp-Initiated login that the client supports, if any.
+     * @return The type of Idp-Initiated login that the client supports, if any
      * 
      */
     private String loginMode;
     /**
-     * @return List of scopes to use for the request.
+     * @return List of scopes to use for the request when &#39;login_mode&#39; == OKTA
      * 
      */
     private List<String> loginScopes;
@@ -97,7 +112,7 @@ public final class GetOauthResult {
      */
     private String policyUri;
     /**
-     * @return List of URIs for redirection after logout.
+     * @return List of URIs for redirection after logout
      * 
      */
     private List<String> postLogoutRedirectUris;
@@ -112,6 +127,8 @@ public final class GetOauthResult {
      */
     private List<String> responseTypes;
     /**
+     * @return Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because groups has been removed, this attribute is a no op and will be removed
      * 
@@ -119,6 +136,8 @@ public final class GetOauthResult {
     @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
     private @Nullable Boolean skipGroups;
     /**
+     * @return Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because users has been removed, this attribute is a no op and will be removed
      * 
@@ -135,28 +154,36 @@ public final class GetOauthResult {
      * 
      */
     private String type;
+    /**
+     * @return Indicates if the client is allowed to use wildcard matching of redirect_uris
+     * 
+     */
     private String wildcardRedirect;
 
     private GetOauthResult() {}
+    /**
+     * @return Search only ACTIVE applications.
+     * 
+     */
     public Optional<Boolean> activeOnly() {
         return Optional.ofNullable(this.activeOnly);
     }
     /**
-     * @return Display auto submit toolbar.
+     * @return Display auto submit toolbar
      * 
      */
     public Boolean autoSubmitToolbar() {
         return this.autoSubmitToolbar;
     }
     /**
-     * @return OAuth client ID. If set during creation, app is created with this id.
+     * @return OAuth client ID
      * 
      */
     public String clientId() {
         return this.clientId;
     }
     /**
-     * @return The latest active client secret of the application. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * @return OAuth client secret
      * 
      */
     public String clientSecret() {
@@ -170,59 +197,70 @@ public final class GetOauthResult {
         return this.clientUri;
     }
     /**
-     * @return List of OAuth 2.0 grant types.
+     * @return List of OAuth 2.0 grant types
      * 
      */
     public List<String> grantTypes() {
         return this.grantTypes;
     }
     /**
-     * @return Do not display application icon on mobile app.
+     * @return Do not display application icon on mobile app
      * 
      */
     public Boolean hideIos() {
         return this.hideIos;
     }
     /**
-     * @return Do not display application icon to users.
+     * @return Do not display application icon to users
      * 
      */
     public Boolean hideWeb() {
         return this.hideWeb;
     }
     /**
-     * @return ID of application.
+     * @return Id of application to retrieve, conflicts with label and label_prefix.
      * 
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Label of application.
+     * @return The label of the app to retrieve, conflicts with
+     * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * 			Okta&#39;s List Apps API. The API will search both name and label using that
+     * 			query. Therefore similarily named and labeled apps may be returned in the query
+     * 			and have the unitended result of associating the wrong app with this data
+     * 			source. See:
+     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
      * 
      */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
+    /**
+     * @return Label prefix of the app to retrieve, conflicts with label and id. This will tell the
+     * 			provider to do a starts with query as opposed to an equals query.
+     * 
+     */
     public Optional<String> labelPrefix() {
         return Optional.ofNullable(this.labelPrefix);
     }
     /**
-     * @return generic JSON containing discoverable resources related to the app
+     * @return Discoverable resources related to the app
      * 
      */
     public String links() {
         return this.links;
     }
     /**
-     * @return The type of Idp-Initiated login that the client supports, if any.
+     * @return The type of Idp-Initiated login that the client supports, if any
      * 
      */
     public String loginMode() {
         return this.loginMode;
     }
     /**
-     * @return List of scopes to use for the request.
+     * @return List of scopes to use for the request when &#39;login_mode&#39; == OKTA
      * 
      */
     public List<String> loginScopes() {
@@ -257,7 +295,7 @@ public final class GetOauthResult {
         return this.policyUri;
     }
     /**
-     * @return List of URIs for redirection after logout.
+     * @return List of URIs for redirection after logout
      * 
      */
     public List<String> postLogoutRedirectUris() {
@@ -278,6 +316,8 @@ public final class GetOauthResult {
         return this.responseTypes;
     }
     /**
+     * @return Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because groups has been removed, this attribute is a no op and will be removed
      * 
@@ -287,6 +327,8 @@ public final class GetOauthResult {
         return Optional.ofNullable(this.skipGroups);
     }
     /**
+     * @return Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
+     * 
      * @deprecated
      * Because users has been removed, this attribute is a no op and will be removed
      * 
@@ -309,6 +351,10 @@ public final class GetOauthResult {
     public String type() {
         return this.type;
     }
+    /**
+     * @return Indicates if the client is allowed to use wildcard matching of redirect_uris
+     * 
+     */
     public String wildcardRedirect() {
         return this.wildcardRedirect;
     }

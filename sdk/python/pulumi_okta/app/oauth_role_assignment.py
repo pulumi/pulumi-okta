@@ -196,37 +196,14 @@ class OauthRoleAssignment(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages assignment of an admin role to an OAuth application.
-
-        This resource allows you to assign an Okta admin role to a OAuth service application. This requires the Okta tenant feature flag for this function to be enabled.
-
-        ## Example Usage
-
-        Standard Role:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        test = okta.app.OAuth("test",
-            label="test",
-            type="service",
-            response_types=["token"],
-            grant_types=["client_credentials"],
-            jwks_uri="https://example.com")
-        test_oauth_role_assignment = okta.app.OauthRoleAssignment("test",
-            client_id=test.client_id,
-            type="HELP_DESK_ADMIN")
-        ```
-
-        Custom Role:
+        Manages assignment of an admin role to an OAuth application
+        		This resource allows you to assign an Okta admin role to a OAuth
+        		service application. This requires the Okta tenant feature flag for this function to be enabled.
 
         ## Import
 
-        OAuth Role assignment can be imported by passing the Client ID and Role Assignment ID for the specific client role.
-
         ```sh
-        $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test <clientID>/<roleAssignmentID>`
+        $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test <clientID>/<roleAssignmentID>
         ```
 
         :param str resource_name: The name of the resource.
@@ -243,37 +220,14 @@ class OauthRoleAssignment(pulumi.CustomResource):
                  args: OauthRoleAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages assignment of an admin role to an OAuth application.
-
-        This resource allows you to assign an Okta admin role to a OAuth service application. This requires the Okta tenant feature flag for this function to be enabled.
-
-        ## Example Usage
-
-        Standard Role:
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        test = okta.app.OAuth("test",
-            label="test",
-            type="service",
-            response_types=["token"],
-            grant_types=["client_credentials"],
-            jwks_uri="https://example.com")
-        test_oauth_role_assignment = okta.app.OauthRoleAssignment("test",
-            client_id=test.client_id,
-            type="HELP_DESK_ADMIN")
-        ```
-
-        Custom Role:
+        Manages assignment of an admin role to an OAuth application
+        		This resource allows you to assign an Okta admin role to a OAuth
+        		service application. This requires the Okta tenant feature flag for this function to be enabled.
 
         ## Import
 
-        OAuth Role assignment can be imported by passing the Client ID and Role Assignment ID for the specific client role.
-
         ```sh
-        $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test <clientID>/<roleAssignmentID>`
+        $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test <clientID>/<roleAssignmentID>
         ```
 
         :param str resource_name: The name of the resource.

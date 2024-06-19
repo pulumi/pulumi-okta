@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// Link value operations allow you to create relationships between primary and associated users.
+    /// Manages users relationships. Link value operations allow you to create relationships between primary and associated users.
     /// 
     /// ## Example Usage
     /// 
@@ -71,8 +71,6 @@ namespace Pulumi.Okta
     /// 
     /// ## Import
     /// 
-    /// Okta Link Value can be imported via Primary Name and Primary User ID.
-    /// 
     /// ```sh
     /// $ pulumi import okta:index/linkValue:LinkValue example &amp;#60;primary_name&amp;#62;/&amp;#60;primary_user_id&amp;#62;
     /// ```
@@ -81,7 +79,7 @@ namespace Pulumi.Okta
     public partial class LinkValue : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+        /// Set of User IDs or login values of the users to be assigned the `associated` relationship.
         /// </summary>
         [Output("associatedUserIds")]
         public Output<ImmutableArray<string>> AssociatedUserIds { get; private set; } = null!;
@@ -93,7 +91,7 @@ namespace Pulumi.Okta
         public Output<string> PrimaryName { get; private set; } = null!;
 
         /// <summary>
-        /// User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+        /// User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
         /// </summary>
         [Output("primaryUserId")]
         public Output<string> PrimaryUserId { get; private set; } = null!;
@@ -148,7 +146,7 @@ namespace Pulumi.Okta
         private InputList<string>? _associatedUserIds;
 
         /// <summary>
-        /// Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+        /// Set of User IDs or login values of the users to be assigned the `associated` relationship.
         /// </summary>
         public InputList<string> AssociatedUserIds
         {
@@ -163,7 +161,7 @@ namespace Pulumi.Okta
         public Input<string> PrimaryName { get; set; } = null!;
 
         /// <summary>
-        /// User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+        /// User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
         /// </summary>
         [Input("primaryUserId", required: true)]
         public Input<string> PrimaryUserId { get; set; } = null!;
@@ -180,7 +178,7 @@ namespace Pulumi.Okta
         private InputList<string>? _associatedUserIds;
 
         /// <summary>
-        /// Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+        /// Set of User IDs or login values of the users to be assigned the `associated` relationship.
         /// </summary>
         public InputList<string> AssociatedUserIds
         {
@@ -195,7 +193,7 @@ namespace Pulumi.Okta
         public Input<string>? PrimaryName { get; set; }
 
         /// <summary>
-        /// User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+        /// User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
         /// </summary>
         [Input("primaryUserId")]
         public Input<string>? PrimaryUserId { get; set; }

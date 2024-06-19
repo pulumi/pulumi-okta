@@ -41,25 +41,21 @@ import (
 //
 // ## Import
 //
-// Okta Admin Role Targets can be imported via the Okta ID.
-//
 // ```sh
 // $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
 // ```
 type Domain struct {
 	pulumi.CustomResourceState
 
-	// The Brand ID of the domain
+	// Brand id of the domain
 	BrandId pulumi.StringPtrOutput `pulumi:"brandId"`
-	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
-	//
-	// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
+	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
 	CertificateSourceType pulumi.StringPtrOutput `pulumi:"certificateSourceType"`
-	// TXT and CNAME records to be registered for the Domain.
+	// TXT and CNAME records to be registered for the Domain
 	DnsRecords DomainDnsRecordArrayOutput `pulumi:"dnsRecords"`
-	// Custom Domain name.
+	// Custom Domain name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Status of the domain.
+	// Status of the domain
 	ValidationStatus pulumi.StringOutput `pulumi:"validationStatus"`
 }
 
@@ -93,32 +89,28 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
-	// The Brand ID of the domain
+	// Brand id of the domain
 	BrandId *string `pulumi:"brandId"`
-	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
-	//
-	// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
+	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
 	CertificateSourceType *string `pulumi:"certificateSourceType"`
-	// TXT and CNAME records to be registered for the Domain.
+	// TXT and CNAME records to be registered for the Domain
 	DnsRecords []DomainDnsRecord `pulumi:"dnsRecords"`
-	// Custom Domain name.
+	// Custom Domain name
 	Name *string `pulumi:"name"`
-	// Status of the domain.
+	// Status of the domain
 	ValidationStatus *string `pulumi:"validationStatus"`
 }
 
 type DomainState struct {
-	// The Brand ID of the domain
+	// Brand id of the domain
 	BrandId pulumi.StringPtrInput
-	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
-	//
-	// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
+	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
 	CertificateSourceType pulumi.StringPtrInput
-	// TXT and CNAME records to be registered for the Domain.
+	// TXT and CNAME records to be registered for the Domain
 	DnsRecords DomainDnsRecordArrayInput
-	// Custom Domain name.
+	// Custom Domain name
 	Name pulumi.StringPtrInput
-	// Status of the domain.
+	// Status of the domain
 	ValidationStatus pulumi.StringPtrInput
 }
 
@@ -127,25 +119,21 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	// The Brand ID of the domain
+	// Brand id of the domain
 	BrandId *string `pulumi:"brandId"`
-	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
-	//
-	// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
+	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
 	CertificateSourceType *string `pulumi:"certificateSourceType"`
-	// Custom Domain name.
+	// Custom Domain name
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
-	// The Brand ID of the domain
+	// Brand id of the domain
 	BrandId pulumi.StringPtrInput
-	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
-	//
-	// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
+	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
 	CertificateSourceType pulumi.StringPtrInput
-	// Custom Domain name.
+	// Custom Domain name
 	Name pulumi.StringPtrInput
 }
 
@@ -236,29 +224,27 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
-// The Brand ID of the domain
+// Brand id of the domain
 func (o DomainOutput) BrandId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.BrandId }).(pulumi.StringPtrOutput)
 }
 
-// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Default value = `MANUAL`
-//
-// > **WARNING**: Use of `OKTA_MANAGED` requires a feature flag to be enabled.
+// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
 func (o DomainOutput) CertificateSourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.CertificateSourceType }).(pulumi.StringPtrOutput)
 }
 
-// TXT and CNAME records to be registered for the Domain.
+// TXT and CNAME records to be registered for the Domain
 func (o DomainOutput) DnsRecords() DomainDnsRecordArrayOutput {
 	return o.ApplyT(func(v *Domain) DomainDnsRecordArrayOutput { return v.DnsRecords }).(DomainDnsRecordArrayOutput)
 }
 
-// Custom Domain name.
+// Custom Domain name
 func (o DomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Status of the domain.
+// Status of the domain
 func (o DomainOutput) ValidationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.ValidationStatus }).(pulumi.StringOutput)
 }

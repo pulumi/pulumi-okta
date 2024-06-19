@@ -7,9 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Creates an Okta SMS Template.
- *
- * This resource allows you to create and configure an Okta SMS Template.
+ * Creates an Okta SMS Template. This resource allows you to create and configure an Okta SMS Template.
  *
  * ## Example Usage
  *
@@ -34,8 +32,6 @@ import * as utilities from "./utilities";
  * ```
  *
  * ## Import
- *
- * An Okta SMS Template can be imported via the template type.
  *
  * ```sh
  * $ pulumi import okta:index/templateSms:TemplateSms example &#60;template type&#62;
@@ -70,7 +66,7 @@ export class TemplateSms extends pulumi.CustomResource {
     }
 
     /**
-     * Default SMS message
+     * SMS default template
      */
     public readonly template!: pulumi.Output<string>;
     /**
@@ -120,7 +116,7 @@ export class TemplateSms extends pulumi.CustomResource {
  */
 export interface TemplateSmsState {
     /**
-     * Default SMS message
+     * SMS default template
      */
     template?: pulumi.Input<string>;
     /**
@@ -138,7 +134,7 @@ export interface TemplateSmsState {
  */
 export interface TemplateSmsArgs {
     /**
-     * Default SMS message
+     * SMS default template
      */
     template: pulumi.Input<string>;
     /**

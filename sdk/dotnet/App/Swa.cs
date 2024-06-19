@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
-    /// This resource allows you to create and configure a SWA Application.
+    /// Creates a SWA Application.
     /// 
-    /// &gt; During an apply if there is change in `status` the app will first be
-    /// activated or deactivated in accordance with the `status` change. Then, all
+    /// This resource allows you to create and configure a SWA Application.
+    /// &gt; During an apply if there is change in 'status' the app will first be
+    /// activated or deactivated in accordance with the 'status' change. Then, all
     /// other arguments that changed will be applied.
     /// 
     /// ## Example Usage
@@ -40,8 +41,6 @@ namespace Pulumi.Okta.App
     /// 
     /// ## Import
     /// 
-    /// Okta SWA App can be imported via the Okta ID.
-    /// 
     /// ```sh
     /// $ pulumi import okta:app/swa:Swa example &amp;#60;app id&amp;#62;
     /// ```
@@ -50,19 +49,19 @@ namespace Pulumi.Okta.App
     public partial class Swa : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Custom error page URL.
+        /// Custom error page URL
         /// </summary>
         [Output("accessibilityErrorRedirectUrl")]
         public Output<string?> AccessibilityErrorRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Custom login page for this application.
+        /// Custom login page URL
         /// </summary>
         [Output("accessibilityLoginRedirectUrl")]
         public Output<string?> AccessibilityLoginRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Enable self-service. By default, it is `false`.
+        /// Enable self service. Default is `false`
         /// </summary>
         [Output("accessibilitySelfService")]
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
@@ -80,19 +79,19 @@ namespace Pulumi.Okta.App
         public Output<string?> AppLinksJson { get; private set; } = null!;
 
         /// <summary>
-        /// Display auto submit toolbar.
+        /// Display auto submit toolbar
         /// </summary>
         [Output("autoSubmitToolbar")]
         public Output<bool?> AutoSubmitToolbar { get; private set; } = null!;
 
         /// <summary>
-        /// Login button field.
+        /// Login button field
         /// </summary>
         [Output("buttonField")]
         public Output<string?> ButtonField { get; private set; } = null!;
 
         /// <summary>
-        /// CSS selector for the checkbox.
+        /// CSS selector for the checkbox
         /// </summary>
         [Output("checkbox")]
         public Output<string?> Checkbox { get; private set; } = null!;
@@ -104,19 +103,19 @@ namespace Pulumi.Okta.App
         public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon on mobile app.
+        /// Do not display application icon on mobile app
         /// </summary>
         [Output("hideIos")]
         public Output<bool?> HideIos { get; private set; } = null!;
 
         /// <summary>
-        /// Do not display application icon to users.
+        /// Do not display application icon to users
         /// </summary>
         [Output("hideWeb")]
         public Output<bool?> HideWeb { get; private set; } = null!;
 
         /// <summary>
-        /// The display name of the Application.
+        /// The Application's display name.
         /// </summary>
         [Output("label")]
         public Output<string> Label { get; private set; } = null!;
@@ -128,85 +127,85 @@ namespace Pulumi.Okta.App
         public Output<string?> Logo { get; private set; } = null!;
 
         /// <summary>
-        /// Direct link of application logo.
+        /// URL of the application's logo
         /// </summary>
         [Output("logoUrl")]
         public Output<string> LogoUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Name assigned to the application by Okta.
+        /// Name of the app.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Login password field.
+        /// Login password field
         /// </summary>
         [Output("passwordField")]
         public Output<string?> PasswordField { get; private set; } = null!;
 
         /// <summary>
-        /// name of application from the Okta Integration Network, if not included a custom app will be created.
+        /// Preconfigured app name
         /// </summary>
         [Output("preconfiguredApp")]
         public Output<string?> PreconfiguredApp { get; private set; } = null!;
 
         /// <summary>
-        /// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+        /// If going to the login page URL redirects to another page, then enter that URL here
         /// </summary>
         [Output("redirectUrl")]
         public Output<string?> RedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Sign-on mode of application.
+        /// Sign on mode of application.
         /// </summary>
         [Output("signOnMode")]
         public Output<string> SignOnMode { get; private set; } = null!;
 
         /// <summary>
-        /// Status of application. By default, it is `"ACTIVE"`.
+        /// Status of application. By default, it is `ACTIVE`
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of the sign-in page for this app.
+        /// Login URL
         /// </summary>
         [Output("url")]
         public Output<string?> Url { get; private set; } = null!;
 
         /// <summary>
-        /// A regular expression that further restricts url to the specified regular expression.
+        /// A regex that further restricts URL to the specified regex
         /// </summary>
         [Output("urlRegex")]
         public Output<string?> UrlRegex { get; private set; } = null!;
 
         /// <summary>
-        /// Username template. Default: `"${source.login}"`
+        /// Username template. Default: `${source.login}`
         /// </summary>
         [Output("userNameTemplate")]
         public Output<string?> UserNameTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// Push username on update. Valid values: `PUSH` and `DONT_PUSH`
         /// </summary>
         [Output("userNameTemplatePushStatus")]
         public Output<string?> UserNameTemplatePushStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Username template suffix.
+        /// Username template suffix
         /// </summary>
         [Output("userNameTemplateSuffix")]
         public Output<string?> UserNameTemplateSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// Username template type. Default: `"BUILT_IN"`.
+        /// Username template type. Default: `BUILT_IN`
         /// </summary>
         [Output("userNameTemplateType")]
         public Output<string?> UserNameTemplateType { get; private set; } = null!;
 
         /// <summary>
-        /// Login username field.
+        /// Login username field
         /// </summary>
         [Output("usernameField")]
         public Output<string?> UsernameField { get; private set; } = null!;
@@ -258,19 +257,19 @@ namespace Pulumi.Okta.App
     public sealed class SwaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom error page URL.
+        /// Custom error page URL
         /// </summary>
         [Input("accessibilityErrorRedirectUrl")]
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
-        /// Custom login page for this application.
+        /// Custom login page URL
         /// </summary>
         [Input("accessibilityLoginRedirectUrl")]
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self-service. By default, it is `false`.
+        /// Enable self service. Default is `false`
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -288,19 +287,19 @@ namespace Pulumi.Okta.App
         public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
-        /// Display auto submit toolbar.
+        /// Display auto submit toolbar
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
 
         /// <summary>
-        /// Login button field.
+        /// Login button field
         /// </summary>
         [Input("buttonField")]
         public Input<string>? ButtonField { get; set; }
 
         /// <summary>
-        /// CSS selector for the checkbox.
+        /// CSS selector for the checkbox
         /// </summary>
         [Input("checkbox")]
         public Input<string>? Checkbox { get; set; }
@@ -312,19 +311,19 @@ namespace Pulumi.Okta.App
         public Input<string>? EnduserNote { get; set; }
 
         /// <summary>
-        /// Do not display application icon on mobile app.
+        /// Do not display application icon on mobile app
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users.
+        /// Do not display application icon to users
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// The display name of the Application.
+        /// The Application's display name.
         /// </summary>
         [Input("label", required: true)]
         public Input<string> Label { get; set; } = null!;
@@ -336,67 +335,67 @@ namespace Pulumi.Okta.App
         public Input<string>? Logo { get; set; }
 
         /// <summary>
-        /// Login password field.
+        /// Login password field
         /// </summary>
         [Input("passwordField")]
         public Input<string>? PasswordField { get; set; }
 
         /// <summary>
-        /// name of application from the Okta Integration Network, if not included a custom app will be created.
+        /// Preconfigured app name
         /// </summary>
         [Input("preconfiguredApp")]
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
-        /// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+        /// If going to the login page URL redirects to another page, then enter that URL here
         /// </summary>
         [Input("redirectUrl")]
         public Input<string>? RedirectUrl { get; set; }
 
         /// <summary>
-        /// Status of application. By default, it is `"ACTIVE"`.
+        /// Status of application. By default, it is `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The URL of the sign-in page for this app.
+        /// Login URL
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// A regular expression that further restricts url to the specified regular expression.
+        /// A regex that further restricts URL to the specified regex
         /// </summary>
         [Input("urlRegex")]
         public Input<string>? UrlRegex { get; set; }
 
         /// <summary>
-        /// Username template. Default: `"${source.login}"`
+        /// Username template. Default: `${source.login}`
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
-        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// Push username on update. Valid values: `PUSH` and `DONT_PUSH`
         /// </summary>
         [Input("userNameTemplatePushStatus")]
         public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
-        /// Username template suffix.
+        /// Username template suffix
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type. Default: `"BUILT_IN"`.
+        /// Username template type. Default: `BUILT_IN`
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
 
         /// <summary>
-        /// Login username field.
+        /// Login username field
         /// </summary>
         [Input("usernameField")]
         public Input<string>? UsernameField { get; set; }
@@ -410,19 +409,19 @@ namespace Pulumi.Okta.App
     public sealed class SwaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom error page URL.
+        /// Custom error page URL
         /// </summary>
         [Input("accessibilityErrorRedirectUrl")]
         public Input<string>? AccessibilityErrorRedirectUrl { get; set; }
 
         /// <summary>
-        /// Custom login page for this application.
+        /// Custom login page URL
         /// </summary>
         [Input("accessibilityLoginRedirectUrl")]
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self-service. By default, it is `false`.
+        /// Enable self service. Default is `false`
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -440,19 +439,19 @@ namespace Pulumi.Okta.App
         public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
-        /// Display auto submit toolbar.
+        /// Display auto submit toolbar
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
 
         /// <summary>
-        /// Login button field.
+        /// Login button field
         /// </summary>
         [Input("buttonField")]
         public Input<string>? ButtonField { get; set; }
 
         /// <summary>
-        /// CSS selector for the checkbox.
+        /// CSS selector for the checkbox
         /// </summary>
         [Input("checkbox")]
         public Input<string>? Checkbox { get; set; }
@@ -464,19 +463,19 @@ namespace Pulumi.Okta.App
         public Input<string>? EnduserNote { get; set; }
 
         /// <summary>
-        /// Do not display application icon on mobile app.
+        /// Do not display application icon on mobile app
         /// </summary>
         [Input("hideIos")]
         public Input<bool>? HideIos { get; set; }
 
         /// <summary>
-        /// Do not display application icon to users.
+        /// Do not display application icon to users
         /// </summary>
         [Input("hideWeb")]
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// The display name of the Application.
+        /// The Application's display name.
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
@@ -488,85 +487,85 @@ namespace Pulumi.Okta.App
         public Input<string>? Logo { get; set; }
 
         /// <summary>
-        /// Direct link of application logo.
+        /// URL of the application's logo
         /// </summary>
         [Input("logoUrl")]
         public Input<string>? LogoUrl { get; set; }
 
         /// <summary>
-        /// Name assigned to the application by Okta.
+        /// Name of the app.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Login password field.
+        /// Login password field
         /// </summary>
         [Input("passwordField")]
         public Input<string>? PasswordField { get; set; }
 
         /// <summary>
-        /// name of application from the Okta Integration Network, if not included a custom app will be created.
+        /// Preconfigured app name
         /// </summary>
         [Input("preconfiguredApp")]
         public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
-        /// Redirect URL. If going to the login page URL redirects to another page, then enter that URL here.
+        /// If going to the login page URL redirects to another page, then enter that URL here
         /// </summary>
         [Input("redirectUrl")]
         public Input<string>? RedirectUrl { get; set; }
 
         /// <summary>
-        /// Sign-on mode of application.
+        /// Sign on mode of application.
         /// </summary>
         [Input("signOnMode")]
         public Input<string>? SignOnMode { get; set; }
 
         /// <summary>
-        /// Status of application. By default, it is `"ACTIVE"`.
+        /// Status of application. By default, it is `ACTIVE`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The URL of the sign-in page for this app.
+        /// Login URL
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// A regular expression that further restricts url to the specified regular expression.
+        /// A regex that further restricts URL to the specified regex
         /// </summary>
         [Input("urlRegex")]
         public Input<string>? UrlRegex { get; set; }
 
         /// <summary>
-        /// Username template. Default: `"${source.login}"`
+        /// Username template. Default: `${source.login}`
         /// </summary>
         [Input("userNameTemplate")]
         public Input<string>? UserNameTemplate { get; set; }
 
         /// <summary>
-        /// Push username on update. Valid values: `"PUSH"` and `"DONT_PUSH"`.
+        /// Push username on update. Valid values: `PUSH` and `DONT_PUSH`
         /// </summary>
         [Input("userNameTemplatePushStatus")]
         public Input<string>? UserNameTemplatePushStatus { get; set; }
 
         /// <summary>
-        /// Username template suffix.
+        /// Username template suffix
         /// </summary>
         [Input("userNameTemplateSuffix")]
         public Input<string>? UserNameTemplateSuffix { get; set; }
 
         /// <summary>
-        /// Username template type. Default: `"BUILT_IN"`.
+        /// Username template type. Default: `BUILT_IN`
         /// </summary>
         [Input("userNameTemplateType")]
         public Input<string>? UserNameTemplateType { get; set; }
 
         /// <summary>
-        /// Login username field.
+        /// Login username field
         /// </summary>
         [Input("usernameField")]
         public Input<string>? UsernameField { get; set; }

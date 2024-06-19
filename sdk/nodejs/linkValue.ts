@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Link value operations allow you to create relationships between primary and associated users.
+ * Manages users relationships. Link value operations allow you to create relationships between primary and associated users.
  *
  * ## Example Usage
  *
@@ -51,8 +51,6 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Okta Link Value can be imported via Primary Name and Primary User ID.
- *
  * ```sh
  * $ pulumi import okta:index/linkValue:LinkValue example &#60;primary_name&#62;/&#60;primary_user_id&#62;
  * ```
@@ -86,7 +84,7 @@ export class LinkValue extends pulumi.CustomResource {
     }
 
     /**
-     * Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+     * Set of User IDs or login values of the users to be assigned the `associated` relationship.
      */
     public readonly associatedUserIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -94,7 +92,7 @@ export class LinkValue extends pulumi.CustomResource {
      */
     public readonly primaryName!: pulumi.Output<string>;
     /**
-     * User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+     * User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
      */
     public readonly primaryUserId!: pulumi.Output<string>;
 
@@ -136,7 +134,7 @@ export class LinkValue extends pulumi.CustomResource {
  */
 export interface LinkValueState {
     /**
-     * Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+     * Set of User IDs or login values of the users to be assigned the `associated` relationship.
      */
     associatedUserIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -144,7 +142,7 @@ export interface LinkValueState {
      */
     primaryName?: pulumi.Input<string>;
     /**
-     * User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+     * User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
      */
     primaryUserId?: pulumi.Input<string>;
 }
@@ -154,7 +152,7 @@ export interface LinkValueState {
  */
 export interface LinkValueArgs {
     /**
-     * Set of User IDs or login values of the users to be assigned the 'associated' relationship.
+     * Set of User IDs or login values of the users to be assigned the `associated` relationship.
      */
     associatedUserIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -162,7 +160,7 @@ export interface LinkValueArgs {
      */
     primaryName: pulumi.Input<string>;
     /**
-     * User ID to be assigned to `primary` for the `associated` user in the specified relationship.
+     * User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
      */
     primaryUserId: pulumi.Input<string>;
 }

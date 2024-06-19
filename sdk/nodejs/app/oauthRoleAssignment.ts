@@ -5,39 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages assignment of an admin role to an OAuth application.
- *
- * This resource allows you to assign an Okta admin role to a OAuth service application. This requires the Okta tenant feature flag for this function to be enabled.
- *
- * ## Example Usage
- *
- * Standard Role:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const test = new okta.app.OAuth("test", {
- *     label: "test",
- *     type: "service",
- *     responseTypes: ["token"],
- *     grantTypes: ["client_credentials"],
- *     jwksUri: "https://example.com",
- * });
- * const testOauthRoleAssignment = new okta.app.OauthRoleAssignment("test", {
- *     clientId: test.clientId,
- *     type: "HELP_DESK_ADMIN",
- * });
- * ```
- *
- * Custom Role:
+ * Manages assignment of an admin role to an OAuth application
+ * 		This resource allows you to assign an Okta admin role to a OAuth
+ * 		service application. This requires the Okta tenant feature flag for this function to be enabled.
  *
  * ## Import
  *
- * OAuth Role assignment can be imported by passing the Client ID and Role Assignment ID for the specific client role.
- *
  * ```sh
- * $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test <clientID>/<roleAssignmentID>`
+ * $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test <clientID>/<roleAssignmentID>
  * ```
  */
 export class OauthRoleAssignment extends pulumi.CustomResource {
