@@ -405,8 +405,8 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            __props__.__dict__["access_token"] = access_token
-            __props__.__dict__["api_token"] = api_token
+            __props__.__dict__["access_token"] = None if access_token is None else pulumi.Output.secret(access_token)
+            __props__.__dict__["api_token"] = None if api_token is None else pulumi.Output.secret(api_token)
             __props__.__dict__["backoff"] = pulumi.Output.from_input(backoff).apply(pulumi.runtime.to_json) if backoff is not None else None
             __props__.__dict__["base_url"] = base_url
             __props__.__dict__["client_id"] = client_id
@@ -418,10 +418,12 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["min_wait_seconds"] = pulumi.Output.from_input(min_wait_seconds).apply(pulumi.runtime.to_json) if min_wait_seconds is not None else None
             __props__.__dict__["org_name"] = org_name
             __props__.__dict__["parallelism"] = pulumi.Output.from_input(parallelism).apply(pulumi.runtime.to_json) if parallelism is not None else None
-            __props__.__dict__["private_key"] = private_key
+            __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
             __props__.__dict__["private_key_id"] = private_key_id
             __props__.__dict__["request_timeout"] = pulumi.Output.from_input(request_timeout).apply(pulumi.runtime.to_json) if request_timeout is not None else None
             __props__.__dict__["scopes"] = pulumi.Output.from_input(scopes).apply(pulumi.runtime.to_json) if scopes is not None else None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "apiToken", "privateKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'okta',
             resource_name,
