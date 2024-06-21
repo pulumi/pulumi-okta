@@ -71,11 +71,13 @@
         "variables": {
             "accessToken": {
                 "type": "string",
-                "description": "Bearer token granting privileges to Okta API.\n"
+                "description": "Bearer token granting privileges to Okta API.\n",
+                "secret": true
             },
             "apiToken": {
                 "type": "string",
-                "description": "API Token granting privileges to Okta API.\n"
+                "description": "API Token granting privileges to Okta API.\n",
+                "secret": true
             },
             "backoff": {
                 "type": "boolean",
@@ -123,7 +125,8 @@
             },
             "privateKey": {
                 "type": "string",
-                "description": "API Token granting privileges to Okta API.\n"
+                "description": "API Token granting privileges to Okta API.\n",
+                "secret": true
             },
             "privateKeyId": {
                 "type": "string",
@@ -1972,11 +1975,13 @@
         "properties": {
             "accessToken": {
                 "type": "string",
-                "description": "Bearer token granting privileges to Okta API.\n"
+                "description": "Bearer token granting privileges to Okta API.\n",
+                "secret": true
             },
             "apiToken": {
                 "type": "string",
-                "description": "API Token granting privileges to Okta API.\n"
+                "description": "API Token granting privileges to Okta API.\n",
+                "secret": true
             },
             "backoff": {
                 "type": "boolean",
@@ -2024,7 +2029,8 @@
             },
             "privateKey": {
                 "type": "string",
-                "description": "API Token granting privileges to Okta API.\n"
+                "description": "API Token granting privileges to Okta API.\n",
+                "secret": true
             },
             "privateKeyId": {
                 "type": "string",
@@ -2045,11 +2051,13 @@
         "inputProperties": {
             "accessToken": {
                 "type": "string",
-                "description": "Bearer token granting privileges to Okta API.\n"
+                "description": "Bearer token granting privileges to Okta API.\n",
+                "secret": true
             },
             "apiToken": {
                 "type": "string",
-                "description": "API Token granting privileges to Okta API.\n"
+                "description": "API Token granting privileges to Okta API.\n",
+                "secret": true
             },
             "backoff": {
                 "type": "boolean",
@@ -2097,7 +2105,8 @@
             },
             "privateKey": {
                 "type": "string",
-                "description": "API Token granting privileges to Okta API.\n"
+                "description": "API Token granting privileges to Okta API.\n",
+                "secret": true
             },
             "privateKeyId": {
                 "type": "string",

@@ -69,8 +69,8 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["accessToken"] = args ? args.accessToken : undefined;
-            resourceInputs["apiToken"] = args ? args.apiToken : undefined;
+            resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
+            resourceInputs["apiToken"] = args?.apiToken ? pulumi.secret(args.apiToken) : undefined;
             resourceInputs["backoff"] = pulumi.output(args ? args.backoff : undefined).apply(JSON.stringify);
             resourceInputs["baseUrl"] = args ? args.baseUrl : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
@@ -82,12 +82,14 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["minWaitSeconds"] = pulumi.output(args ? args.minWaitSeconds : undefined).apply(JSON.stringify);
             resourceInputs["orgName"] = args ? args.orgName : undefined;
             resourceInputs["parallelism"] = pulumi.output(args ? args.parallelism : undefined).apply(JSON.stringify);
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["privateKeyId"] = args ? args.privateKeyId : undefined;
             resourceInputs["requestTimeout"] = pulumi.output(args ? args.requestTimeout : undefined).apply(JSON.stringify);
             resourceInputs["scopes"] = pulumi.output(args ? args.scopes : undefined).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["accessToken", "apiToken", "privateKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
