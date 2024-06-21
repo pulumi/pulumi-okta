@@ -91,15 +91,25 @@ func Provider() tfbridge.ProviderInfo {
 		okta.NewFrameworkProvider(okta.OktaTerraformProviderVersion),
 	)
 	prov := tfbridge.ProviderInfo{
-		P:                 p,
-		Name:              "okta",
-		Description:       "A Pulumi package for creating and managing okta resources.",
-		Keywords:          []string{"pulumi", "okta"},
-		License:           "Apache-2.0",
-		Homepage:          "https://pulumi.io",
-		GitHubOrg:         "okta",
-		Repository:        "https://github.com/pulumi/pulumi-okta",
-		Config:            map[string]*tfbridge.SchemaInfo{},
+		P:           p,
+		Name:        "okta",
+		Description: "A Pulumi package for creating and managing okta resources.",
+		Keywords:    []string{"pulumi", "okta"},
+		License:     "Apache-2.0",
+		Homepage:    "https://pulumi.io",
+		GitHubOrg:   "okta",
+		Repository:  "https://github.com/pulumi/pulumi-okta",
+		Config: map[string]*tfbridge.SchemaInfo{
+			"api_token": {
+				Secret: tfbridge.True(),
+			},
+			"access_token": {
+				Secret: tfbridge.True(),
+			},
+			"private_key": {
+				Secret: tfbridge.True(),
+			},
+		},
 		UpstreamRepoPath:  "./upstream",
 		Version:           version.Version,
 		TFProviderVersion: okta.OktaTerraformProviderVersion,
