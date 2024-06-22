@@ -340,13 +340,11 @@ class RuleSignonArgs:
 
     @property
     @pulumi.getter(name="riscLevel")
+    @_utilities.deprecated("""Attribute typo, switch to risk_level instead. Default: `ANY`""")
     def risc_level(self) -> Optional[pulumi.Input[str]]:
         """
         Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         """
-        warnings.warn("""Attribute typo, switch to risk_level instead. Default: `ANY`""", DeprecationWarning)
-        pulumi.log.warn("""risc_level is deprecated: Attribute typo, switch to risk_level instead. Default: `ANY`""")
-
         return pulumi.get(self, "risc_level")
 
     @risc_level.setter
@@ -754,13 +752,11 @@ class _RuleSignonState:
 
     @property
     @pulumi.getter(name="riscLevel")
+    @_utilities.deprecated("""Attribute typo, switch to risk_level instead. Default: `ANY`""")
     def risc_level(self) -> Optional[pulumi.Input[str]]:
         """
         Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         """
-        warnings.warn("""Attribute typo, switch to risk_level instead. Default: `ANY`""", DeprecationWarning)
-        pulumi.log.warn("""risc_level is deprecated: Attribute typo, switch to risk_level instead. Default: `ANY`""")
-
         return pulumi.get(self, "risc_level")
 
     @risc_level.setter
@@ -1407,13 +1403,11 @@ class RuleSignon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="riscLevel")
+    @_utilities.deprecated("""Attribute typo, switch to risk_level instead. Default: `ANY`""")
     def risc_level(self) -> pulumi.Output[Optional[str]]:
         """
         Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         """
-        warnings.warn("""Attribute typo, switch to risk_level instead. Default: `ANY`""", DeprecationWarning)
-        pulumi.log.warn("""risc_level is deprecated: Attribute typo, switch to risk_level instead. Default: `ANY`""")
-
         return pulumi.get(self, "risc_level")
 
     @property
