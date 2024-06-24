@@ -71,13 +71,11 @@ class BrandArgs:
 
     @property
     @pulumi.getter(name="brandId")
+    @_utilities.deprecated("""Okta has fully support brand creation, this attribute is a no op and will be removed""")
     def brand_id(self) -> Optional[pulumi.Input[str]]:
         """
         Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
         """
-        warnings.warn("""Okta has fully support brand creation, this attribute is a no op and will be removed""", DeprecationWarning)
-        pulumi.log.warn("""brand_id is deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed""")
-
         return pulumi.get(self, "brand_id")
 
     @brand_id.setter
@@ -241,13 +239,11 @@ class _BrandState:
 
     @property
     @pulumi.getter(name="brandId")
+    @_utilities.deprecated("""Okta has fully support brand creation, this attribute is a no op and will be removed""")
     def brand_id(self) -> Optional[pulumi.Input[str]]:
         """
         Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
         """
-        warnings.warn("""Okta has fully support brand creation, this attribute is a no op and will be removed""", DeprecationWarning)
-        pulumi.log.warn("""brand_id is deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed""")
-
         return pulumi.get(self, "brand_id")
 
     @brand_id.setter
@@ -555,13 +551,11 @@ class Brand(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="brandId")
+    @_utilities.deprecated("""Okta has fully support brand creation, this attribute is a no op and will be removed""")
     def brand_id(self) -> pulumi.Output[str]:
         """
         Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
         """
-        warnings.warn("""Okta has fully support brand creation, this attribute is a no op and will be removed""", DeprecationWarning)
-        pulumi.log.warn("""brand_id is deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed""")
-
         return pulumi.get(self, "brand_id")
 
     @property

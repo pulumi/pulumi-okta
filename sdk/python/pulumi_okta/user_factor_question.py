@@ -183,7 +183,7 @@ class UserFactorQuestion(pulumi.CustomResource):
             user_id=example_user.id,
             key=example.questions[0].key,
             answer="meatball",
-            opts=pulumi.ResourceOptions(depends_on=[example_factor]))
+            opts = pulumi.ResourceOptions(depends_on=[example_factor]))
         ```
 
         ## Import
@@ -226,7 +226,7 @@ class UserFactorQuestion(pulumi.CustomResource):
             user_id=example_user.id,
             key=example.questions[0].key,
             answer="meatball",
-            opts=pulumi.ResourceOptions(depends_on=[example_factor]))
+            opts = pulumi.ResourceOptions(depends_on=[example_factor]))
         ```
 
         ## Import

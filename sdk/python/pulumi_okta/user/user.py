@@ -593,13 +593,11 @@ class UserArgs:
 
     @property
     @pulumi.getter(name="skipRoles")
+    @_utilities.deprecated("""Because admin_roles has been removed, this attribute is a no op and will be removed""")
     def skip_roles(self) -> Optional[pulumi.Input[bool]]:
         """
         Do not populate user roles information (prevents additional API call)
         """
-        warnings.warn("""Because admin_roles has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
-        pulumi.log.warn("""skip_roles is deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed""")
-
         return pulumi.get(self, "skip_roles")
 
     @skip_roles.setter
@@ -1291,13 +1289,11 @@ class _UserState:
 
     @property
     @pulumi.getter(name="skipRoles")
+    @_utilities.deprecated("""Because admin_roles has been removed, this attribute is a no op and will be removed""")
     def skip_roles(self) -> Optional[pulumi.Input[bool]]:
         """
         Do not populate user roles information (prevents additional API call)
         """
-        warnings.warn("""Because admin_roles has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
-        pulumi.log.warn("""skip_roles is deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed""")
-
         return pulumi.get(self, "skip_roles")
 
     @skip_roles.setter
@@ -2135,13 +2131,11 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skipRoles")
+    @_utilities.deprecated("""Because admin_roles has been removed, this attribute is a no op and will be removed""")
     def skip_roles(self) -> pulumi.Output[Optional[bool]]:
         """
         Do not populate user roles information (prevents additional API call)
         """
-        warnings.warn("""Because admin_roles has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
-        pulumi.log.warn("""skip_roles is deprecated: Because admin_roles has been removed, this attribute is a no op and will be removed""")
-
         return pulumi.get(self, "skip_roles")
 
     @property

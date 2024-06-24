@@ -85,13 +85,11 @@ class EmailCustomizationArgs:
 
     @property
     @pulumi.getter(name="forceIsDefault")
+    @_utilities.deprecated("""force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""")
     def force_is_default(self) -> Optional[pulumi.Input[str]]:
         """
         Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
         """
-        warnings.warn("""force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""", DeprecationWarning)
-        pulumi.log.warn("""force_is_default is deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""")
-
         return pulumi.get(self, "force_is_default")
 
     @force_is_default.setter
@@ -203,13 +201,11 @@ class _EmailCustomizationState:
 
     @property
     @pulumi.getter(name="forceIsDefault")
+    @_utilities.deprecated("""force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""")
     def force_is_default(self) -> Optional[pulumi.Input[str]]:
         """
         Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
         """
-        warnings.warn("""force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""", DeprecationWarning)
-        pulumi.log.warn("""force_is_default is deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""")
-
         return pulumi.get(self, "force_is_default")
 
     @force_is_default.setter
@@ -489,13 +485,11 @@ class EmailCustomization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceIsDefault")
+    @_utilities.deprecated("""force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""")
     def force_is_default(self) -> pulumi.Output[Optional[str]]:
         """
         Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
         """
-        warnings.warn("""force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""", DeprecationWarning)
-        pulumi.log.warn("""force_is_default is deprecated: force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template""")
-
         return pulumi.get(self, "force_is_default")
 
     @property

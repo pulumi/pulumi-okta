@@ -75,13 +75,11 @@ class GroupArgs:
 
     @property
     @pulumi.getter(name="skipUsers")
+    @_utilities.deprecated("""Because users has been removed, this attribute is a no op and will be removed""")
     def skip_users(self) -> Optional[pulumi.Input[bool]]:
         """
         Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
-        warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
-        pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
-
         return pulumi.get(self, "skip_users")
 
     @skip_users.setter
@@ -153,13 +151,11 @@ class _GroupState:
 
     @property
     @pulumi.getter(name="skipUsers")
+    @_utilities.deprecated("""Because users has been removed, this attribute is a no op and will be removed""")
     def skip_users(self) -> Optional[pulumi.Input[bool]]:
         """
         Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
-        warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
-        pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
-
         return pulumi.get(self, "skip_users")
 
     @skip_users.setter
@@ -302,12 +298,10 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skipUsers")
+    @_utilities.deprecated("""Because users has been removed, this attribute is a no op and will be removed""")
     def skip_users(self) -> pulumi.Output[Optional[bool]]:
         """
         Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
-        warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
-        pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
-
         return pulumi.get(self, "skip_users")
 

@@ -597,13 +597,11 @@ class EmailDomainDnsValidationRecord(dict):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This field has been removed in the newest go sdk version and has become noop""")
     def expiration(self) -> Optional[str]:
         """
         DNS TXT record expiration
         """
-        warnings.warn("""This field has been removed in the newest go sdk version and has become noop""", DeprecationWarning)
-        pulumi.log.warn("""expiration is deprecated: This field has been removed in the newest go sdk version and has become noop""")
-
         return pulumi.get(self, "expiration")
 
     @property
