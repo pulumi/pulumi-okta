@@ -278,24 +278,20 @@ class GetOauthResult:
 
     @property
     @pulumi.getter(name="skipGroups")
+    @_utilities.deprecated("""Because groups has been removed, this attribute is a no op and will be removed""")
     def skip_groups(self) -> Optional[bool]:
         """
         Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
         """
-        warnings.warn("""Because groups has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
-        pulumi.log.warn("""skip_groups is deprecated: Because groups has been removed, this attribute is a no op and will be removed""")
-
         return pulumi.get(self, "skip_groups")
 
     @property
     @pulumi.getter(name="skipUsers")
+    @_utilities.deprecated("""Because users has been removed, this attribute is a no op and will be removed""")
     def skip_users(self) -> Optional[bool]:
         """
         Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
-        warnings.warn("""Because users has been removed, this attribute is a no op and will be removed""", DeprecationWarning)
-        pulumi.log.warn("""skip_users is deprecated: Because users has been removed, this attribute is a no op and will be removed""")
-
         return pulumi.get(self, "skip_users")
 
     @property
