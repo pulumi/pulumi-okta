@@ -5,6 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.auth.ServerPolicyRule("example", {
+ *     authServerId: "<auth server id>",
+ *     policyId: "<auth server policy id>",
+ *     status: "ACTIVE",
+ *     name: "example",
+ *     priority: 1,
+ *     groupWhitelists: ["<group ids>"],
+ *     grantTypeWhitelists: ["implicit"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example &#60;auth server id&#62;/&#60;policy id&#62;/&#60;policy rule id&#62;
+ * ```
+ *
  * @deprecated okta.auth/serverpolicyclaim.ServerPolicyClaim has been deprecated in favor of okta.auth/serverpolicyrule.ServerPolicyRule
  */
 export class ServerPolicyClaim extends pulumi.CustomResource {
@@ -45,11 +68,7 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
      */
     public readonly authServerId!: pulumi.Output<string>;
     /**
-     * Accepted grant type values, `authorizationCode`, `implicit`, `password`, `clientCredentials`,
-     * `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*),
-     * `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access
-     * Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interactionCode` (*OIE only*). For
-     * `implicit` value either `userWhitelist` or `groupWhitelist` should be set.
+     * Accepted grant type values, `authorizationCode`, `implicit`, `password`, `clientCredentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interactionCode` (*OIE only*). For `implicit` value either `userWhitelist` or `groupWhitelist` should be set.
      */
     public readonly grantTypeWhitelists!: pulumi.Output<string[]>;
     /**
@@ -81,13 +100,11 @@ export class ServerPolicyClaim extends pulumi.CustomResource {
      */
     public readonly refreshTokenLifetimeMinutes!: pulumi.Output<number | undefined>;
     /**
-     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
-     * `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and
-     * `refreshTokenLifetimeMinutes`.
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and `refreshTokenLifetimeMinutes`.
      */
     public readonly refreshTokenWindowMinutes!: pulumi.Output<number | undefined>;
     /**
-     * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `
+     * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
      */
     public readonly scopeWhitelists!: pulumi.Output<string[] | undefined>;
     /**
@@ -194,11 +211,7 @@ export interface ServerPolicyClaimState {
      */
     authServerId?: pulumi.Input<string>;
     /**
-     * Accepted grant type values, `authorizationCode`, `implicit`, `password`, `clientCredentials`,
-     * `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*),
-     * `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access
-     * Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interactionCode` (*OIE only*). For
-     * `implicit` value either `userWhitelist` or `groupWhitelist` should be set.
+     * Accepted grant type values, `authorizationCode`, `implicit`, `password`, `clientCredentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interactionCode` (*OIE only*). For `implicit` value either `userWhitelist` or `groupWhitelist` should be set.
      */
     grantTypeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -230,13 +243,11 @@ export interface ServerPolicyClaimState {
      */
     refreshTokenLifetimeMinutes?: pulumi.Input<number>;
     /**
-     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
-     * `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and
-     * `refreshTokenLifetimeMinutes`.
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and `refreshTokenLifetimeMinutes`.
      */
     refreshTokenWindowMinutes?: pulumi.Input<number>;
     /**
-     * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `
+     * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
      */
     scopeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -274,11 +285,7 @@ export interface ServerPolicyClaimArgs {
      */
     authServerId: pulumi.Input<string>;
     /**
-     * Accepted grant type values, `authorizationCode`, `implicit`, `password`, `clientCredentials`,
-     * `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*),
-     * `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access
-     * Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interactionCode` (*OIE only*). For
-     * `implicit` value either `userWhitelist` or `groupWhitelist` should be set.
+     * Accepted grant type values, `authorizationCode`, `implicit`, `password`, `clientCredentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interactionCode` (*OIE only*). For `implicit` value either `userWhitelist` or `groupWhitelist` should be set.
      */
     grantTypeWhitelists: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -310,13 +317,11 @@ export interface ServerPolicyClaimArgs {
      */
     refreshTokenLifetimeMinutes?: pulumi.Input<number>;
     /**
-     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is
-     * `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and
-     * `refreshTokenLifetimeMinutes`.
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and `refreshTokenLifetimeMinutes`.
      */
     refreshTokenWindowMinutes?: pulumi.Input<number>;
     /**
-     * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with ` * `
+     * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
      */
     scopeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
