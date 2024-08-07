@@ -97,14 +97,14 @@ public class Brand extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="customPrivacyPolicyUrl", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> customPrivacyPolicyUrl;
+    private Output<String> customPrivacyPolicyUrl;
 
     /**
      * @return Custom privacy policy URL
      * 
      */
-    public Output<Optional<String>> customPrivacyPolicyUrl() {
-        return Codegen.optional(this.customPrivacyPolicyUrl);
+    public Output<String> customPrivacyPolicyUrl() {
+        return this.customPrivacyPolicyUrl;
     }
     /**
      * Default app app instance id
@@ -255,11 +255,18 @@ public class Brand extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Brand(String name, @Nullable BrandArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/brand:Brand", name, args == null ? BrandArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/brand:Brand", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Brand(String name, Output<String> id, @Nullable BrandState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/brand:Brand", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BrandArgs makeArgs(@Nullable BrandArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BrandArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

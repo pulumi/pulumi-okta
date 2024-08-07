@@ -116,11 +116,18 @@ public class UserGroupMemberships extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UserGroupMemberships(String name, UserGroupMembershipsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/userGroupMemberships:UserGroupMemberships", name, args == null ? UserGroupMembershipsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/userGroupMemberships:UserGroupMemberships", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserGroupMemberships(String name, Output<String> id, @Nullable UserGroupMembershipsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/userGroupMemberships:UserGroupMemberships", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserGroupMembershipsArgs makeArgs(UserGroupMembershipsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserGroupMembershipsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

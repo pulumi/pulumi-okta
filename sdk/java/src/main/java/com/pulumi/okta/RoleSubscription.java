@@ -148,11 +148,18 @@ public class RoleSubscription extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RoleSubscription(String name, RoleSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/roleSubscription:RoleSubscription", name, args == null ? RoleSubscriptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/roleSubscription:RoleSubscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RoleSubscription(String name, Output<String> id, @Nullable RoleSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/roleSubscription:RoleSubscription", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RoleSubscriptionArgs makeArgs(RoleSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RoleSubscriptionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

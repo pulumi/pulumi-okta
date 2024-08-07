@@ -387,11 +387,18 @@ public class DeviceAssuranceMacos extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DeviceAssuranceMacos(String name, @Nullable DeviceAssuranceMacosArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos", name, args == null ? DeviceAssuranceMacosArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DeviceAssuranceMacos(String name, Output<String> id, @Nullable DeviceAssuranceMacosState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DeviceAssuranceMacosArgs makeArgs(@Nullable DeviceAssuranceMacosArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DeviceAssuranceMacosArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

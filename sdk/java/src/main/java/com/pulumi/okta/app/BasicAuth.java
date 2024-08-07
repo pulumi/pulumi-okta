@@ -328,11 +328,18 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public BasicAuth(String name, BasicAuthArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/basicAuth:BasicAuth", name, args == null ? BasicAuthArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:app/basicAuth:BasicAuth", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BasicAuth(String name, Output<String> id, @Nullable BasicAuthState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:app/basicAuth:BasicAuth", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BasicAuthArgs makeArgs(BasicAuthArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BasicAuthArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

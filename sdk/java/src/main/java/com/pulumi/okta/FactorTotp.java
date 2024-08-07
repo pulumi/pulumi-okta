@@ -173,11 +173,18 @@ public class FactorTotp extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FactorTotp(String name, @Nullable FactorTotpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/factorTotp:FactorTotp", name, args == null ? FactorTotpArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/factorTotp:FactorTotp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FactorTotp(String name, Output<String> id, @Nullable FactorTotpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/factorTotp:FactorTotp", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FactorTotpArgs makeArgs(@Nullable FactorTotpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FactorTotpArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

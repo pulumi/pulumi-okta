@@ -81,6 +81,9 @@ namespace Pulumi.Okta
         [Output("externalIdp")]
         public Output<ImmutableDictionary<string, string>?> ExternalIdp { get; private set; } = null!;
 
+        [Output("externalIdps")]
+        public Output<ImmutableArray<ImmutableDictionary<string, string>>> ExternalIdps { get; private set; } = null!;
+
         [Output("fidoU2f")]
         public Output<ImmutableDictionary<string, string>?> FidoU2f { get; private set; } = null!;
 
@@ -218,10 +221,19 @@ namespace Pulumi.Okta
 
         [Input("externalIdp")]
         private InputMap<string>? _externalIdp;
+        [Obsolete(@"Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead")]
         public InputMap<string> ExternalIdp
         {
             get => _externalIdp ?? (_externalIdp = new InputMap<string>());
             set => _externalIdp = value;
+        }
+
+        [Input("externalIdps")]
+        private InputList<ImmutableDictionary<string, string>>? _externalIdps;
+        public InputList<ImmutableDictionary<string, string>> ExternalIdps
+        {
+            get => _externalIdps ?? (_externalIdps = new InputList<ImmutableDictionary<string, string>>());
+            set => _externalIdps = value;
         }
 
         [Input("fidoU2f")]
@@ -412,10 +424,19 @@ namespace Pulumi.Okta
 
         [Input("externalIdp")]
         private InputMap<string>? _externalIdp;
+        [Obsolete(@"Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead")]
         public InputMap<string> ExternalIdp
         {
             get => _externalIdp ?? (_externalIdp = new InputMap<string>());
             set => _externalIdp = value;
+        }
+
+        [Input("externalIdps")]
+        private InputList<ImmutableDictionary<string, string>>? _externalIdps;
+        public InputList<ImmutableDictionary<string, string>> ExternalIdps
+        {
+            get => _externalIdps ?? (_externalIdps = new InputList<ImmutableDictionary<string, string>>());
+            set => _externalIdps = value;
         }
 
         [Input("fidoU2f")]

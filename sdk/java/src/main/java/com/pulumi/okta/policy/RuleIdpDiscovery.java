@@ -336,11 +336,18 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RuleIdpDiscovery(String name, @Nullable RuleIdpDiscoveryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery", name, args == null ? RuleIdpDiscoveryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RuleIdpDiscovery(String name, Output<String> id, @Nullable RuleIdpDiscoveryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RuleIdpDiscoveryArgs makeArgs(@Nullable RuleIdpDiscoveryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RuleIdpDiscoveryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

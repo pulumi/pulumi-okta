@@ -121,6 +121,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Theme{}
 	case "okta:index/threatInsightSettings:ThreatInsightSettings":
 		r = &ThreatInsightSettings{}
+	case "okta:index/trustedServer:TrustedServer":
+		r = &TrustedServer{}
 	case "okta:index/userAdminRoles:UserAdminRoles":
 		r = &UserAdminRoles{}
 	case "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty":
@@ -410,6 +412,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/threatInsightSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/trustedServer",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

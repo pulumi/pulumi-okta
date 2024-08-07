@@ -471,11 +471,18 @@ public class DeviceAssuranceWindows extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public DeviceAssuranceWindows(String name, @Nullable DeviceAssuranceWindowsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows", name, args == null ? DeviceAssuranceWindowsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DeviceAssuranceWindows(String name, Output<String> id, @Nullable DeviceAssuranceWindowsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DeviceAssuranceWindowsArgs makeArgs(@Nullable DeviceAssuranceWindowsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DeviceAssuranceWindowsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

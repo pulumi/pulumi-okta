@@ -97,11 +97,18 @@ public class DomainVerification extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DomainVerification(String name, DomainVerificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/domainVerification:DomainVerification", name, args == null ? DomainVerificationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/domainVerification:DomainVerification", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DomainVerification(String name, Output<String> id, @Nullable DomainVerificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/domainVerification:DomainVerification", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DomainVerificationArgs makeArgs(DomainVerificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DomainVerificationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

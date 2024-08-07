@@ -71,13 +71,15 @@ type PolicyMfaDefault struct {
 	// Default group ID (always included)
 	DefaultIncludedGroupId pulumi.StringOutput `pulumi:"defaultIncludedGroupId"`
 	// Default policy description
-	Description  pulumi.StringOutput    `pulumi:"description"`
-	Duo          pulumi.StringMapOutput `pulumi:"duo"`
-	ExternalIdp  pulumi.StringMapOutput `pulumi:"externalIdp"`
-	FidoU2f      pulumi.StringMapOutput `pulumi:"fidoU2f"`
-	FidoWebauthn pulumi.StringMapOutput `pulumi:"fidoWebauthn"`
-	GoogleOtp    pulumi.StringMapOutput `pulumi:"googleOtp"`
-	Hotp         pulumi.StringMapOutput `pulumi:"hotp"`
+	Description pulumi.StringOutput    `pulumi:"description"`
+	Duo         pulumi.StringMapOutput `pulumi:"duo"`
+	// Deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
+	ExternalIdp  pulumi.StringMapOutput      `pulumi:"externalIdp"`
+	ExternalIdps pulumi.StringMapArrayOutput `pulumi:"externalIdps"`
+	FidoU2f      pulumi.StringMapOutput      `pulumi:"fidoU2f"`
+	FidoWebauthn pulumi.StringMapOutput      `pulumi:"fidoWebauthn"`
+	GoogleOtp    pulumi.StringMapOutput      `pulumi:"googleOtp"`
+	Hotp         pulumi.StringMapOutput      `pulumi:"hotp"`
 	// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
 	IsOie pulumi.BoolPtrOutput `pulumi:"isOie"`
 	// Default policy name
@@ -136,13 +138,15 @@ type policyMfaDefaultState struct {
 	// Default group ID (always included)
 	DefaultIncludedGroupId *string `pulumi:"defaultIncludedGroupId"`
 	// Default policy description
-	Description  *string           `pulumi:"description"`
-	Duo          map[string]string `pulumi:"duo"`
-	ExternalIdp  map[string]string `pulumi:"externalIdp"`
-	FidoU2f      map[string]string `pulumi:"fidoU2f"`
-	FidoWebauthn map[string]string `pulumi:"fidoWebauthn"`
-	GoogleOtp    map[string]string `pulumi:"googleOtp"`
-	Hotp         map[string]string `pulumi:"hotp"`
+	Description *string           `pulumi:"description"`
+	Duo         map[string]string `pulumi:"duo"`
+	// Deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
+	ExternalIdp  map[string]string   `pulumi:"externalIdp"`
+	ExternalIdps []map[string]string `pulumi:"externalIdps"`
+	FidoU2f      map[string]string   `pulumi:"fidoU2f"`
+	FidoWebauthn map[string]string   `pulumi:"fidoWebauthn"`
+	GoogleOtp    map[string]string   `pulumi:"googleOtp"`
+	Hotp         map[string]string   `pulumi:"hotp"`
 	// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
 	IsOie *bool `pulumi:"isOie"`
 	// Default policy name
@@ -172,9 +176,11 @@ type PolicyMfaDefaultState struct {
 	// Default group ID (always included)
 	DefaultIncludedGroupId pulumi.StringPtrInput
 	// Default policy description
-	Description  pulumi.StringPtrInput
-	Duo          pulumi.StringMapInput
+	Description pulumi.StringPtrInput
+	Duo         pulumi.StringMapInput
+	// Deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
 	ExternalIdp  pulumi.StringMapInput
+	ExternalIdps pulumi.StringMapArrayInput
 	FidoU2f      pulumi.StringMapInput
 	FidoWebauthn pulumi.StringMapInput
 	GoogleOtp    pulumi.StringMapInput
@@ -209,12 +215,14 @@ func (PolicyMfaDefaultState) ElementType() reflect.Type {
 }
 
 type policyMfaDefaultArgs struct {
-	Duo          map[string]string `pulumi:"duo"`
-	ExternalIdp  map[string]string `pulumi:"externalIdp"`
-	FidoU2f      map[string]string `pulumi:"fidoU2f"`
-	FidoWebauthn map[string]string `pulumi:"fidoWebauthn"`
-	GoogleOtp    map[string]string `pulumi:"googleOtp"`
-	Hotp         map[string]string `pulumi:"hotp"`
+	Duo map[string]string `pulumi:"duo"`
+	// Deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
+	ExternalIdp  map[string]string   `pulumi:"externalIdp"`
+	ExternalIdps []map[string]string `pulumi:"externalIdps"`
+	FidoU2f      map[string]string   `pulumi:"fidoU2f"`
+	FidoWebauthn map[string]string   `pulumi:"fidoWebauthn"`
+	GoogleOtp    map[string]string   `pulumi:"googleOtp"`
+	Hotp         map[string]string   `pulumi:"hotp"`
 	// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
 	IsOie            *bool             `pulumi:"isOie"`
 	OktaCall         map[string]string `pulumi:"oktaCall"`
@@ -236,8 +244,10 @@ type policyMfaDefaultArgs struct {
 
 // The set of arguments for constructing a PolicyMfaDefault resource.
 type PolicyMfaDefaultArgs struct {
-	Duo          pulumi.StringMapInput
+	Duo pulumi.StringMapInput
+	// Deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
 	ExternalIdp  pulumi.StringMapInput
+	ExternalIdps pulumi.StringMapArrayInput
 	FidoU2f      pulumi.StringMapInput
 	FidoWebauthn pulumi.StringMapInput
 	GoogleOtp    pulumi.StringMapInput
@@ -362,8 +372,13 @@ func (o PolicyMfaDefaultOutput) Duo() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.Duo }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
 func (o PolicyMfaDefaultOutput) ExternalIdp() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.ExternalIdp }).(pulumi.StringMapOutput)
+}
+
+func (o PolicyMfaDefaultOutput) ExternalIdps() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapArrayOutput { return v.ExternalIdps }).(pulumi.StringMapArrayOutput)
 }
 
 func (o PolicyMfaDefaultOutput) FidoU2f() pulumi.StringMapOutput {

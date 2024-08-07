@@ -159,11 +159,18 @@ public class Signon extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Signon(String name, @Nullable SignonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/signon:Signon", name, args == null ? SignonArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:policy/signon:Signon", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Signon(String name, Output<String> id, @Nullable SignonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:policy/signon:Signon", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SignonArgs makeArgs(@Nullable SignonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SignonArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

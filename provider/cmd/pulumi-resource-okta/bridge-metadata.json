@@ -582,7 +582,16 @@
                     "dynamic_locations": {
                         "maxItemsOne": false
                     },
+                    "dynamic_locations_exclude": {
+                        "maxItemsOne": false
+                    },
                     "gateways": {
+                        "maxItemsOne": false
+                    },
+                    "ip_service_categories_exclude": {
+                        "maxItemsOne": false
+                    },
+                    "ip_service_categories_include": {
                         "maxItemsOne": false
                     },
                     "proxies": {
@@ -651,6 +660,9 @@
                 "current": "okta:policy/mfa:Mfa",
                 "majorVersion": 4,
                 "fields": {
+                    "external_idps": {
+                        "maxItemsOne": false
+                    },
                     "groups_included": {
                         "maxItemsOne": false
                     }
@@ -658,7 +670,12 @@
             },
             "okta_policy_mfa_default": {
                 "current": "okta:index/policyMfaDefault:PolicyMfaDefault",
-                "majorVersion": 4
+                "majorVersion": 4,
+                "fields": {
+                    "external_idps": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_policy_password": {
                 "current": "okta:policy/password:Password",
@@ -873,6 +890,15 @@
                 "majorVersion": 4,
                 "fields": {
                     "scopes": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "okta_trusted_server": {
+                "current": "okta:index/trustedServer:TrustedServer",
+                "majorVersion": 4,
+                "fields": {
+                    "trusted": {
                         "maxItemsOne": false
                     }
                 }
@@ -1258,7 +1284,16 @@
                     "dynamic_locations": {
                         "maxItemsOne": false
                     },
+                    "dynamic_locations_exclude": {
+                        "maxItemsOne": false
+                    },
                     "gateways": {
+                        "maxItemsOne": false
+                    },
+                    "ip_service_categories_exclude": {
+                        "maxItemsOne": false
+                    },
+                    "ip_service_categories_include": {
                         "maxItemsOne": false
                     },
                     "proxies": {
@@ -1458,6 +1493,7 @@
             "okta:index/templateSms:TemplateSms": 0,
             "okta:index/theme:Theme": 0,
             "okta:index/threatInsightSettings:ThreatInsightSettings": 0,
+            "okta:index/trustedServer:TrustedServer": 1,
             "okta:index/userAdminRoles:UserAdminRoles": 0,
             "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty": 0,
             "okta:index/userFactorQuestion:UserFactorQuestion": 0,

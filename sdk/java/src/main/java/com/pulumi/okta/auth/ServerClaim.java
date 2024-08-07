@@ -216,11 +216,18 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServerClaim(String name, ServerClaimArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:auth/serverClaim:ServerClaim", name, args == null ? ServerClaimArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:auth/serverClaim:ServerClaim", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServerClaim(String name, Output<String> id, @Nullable ServerClaimState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:auth/serverClaim:ServerClaim", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServerClaimArgs makeArgs(ServerClaimArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerClaimArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

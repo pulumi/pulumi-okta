@@ -395,11 +395,18 @@ public class AppUserSchemaProperty extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AppUserSchemaProperty(String name, AppUserSchemaPropertyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/appUserSchemaProperty:AppUserSchemaProperty", name, args == null ? AppUserSchemaPropertyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/appUserSchemaProperty:AppUserSchemaProperty", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AppUserSchemaProperty(String name, Output<String> id, @Nullable AppUserSchemaPropertyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/appUserSchemaProperty:AppUserSchemaProperty", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AppUserSchemaPropertyArgs makeArgs(AppUserSchemaPropertyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppUserSchemaPropertyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

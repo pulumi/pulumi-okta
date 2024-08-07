@@ -144,11 +144,18 @@ public class Origin extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Origin(String name, OriginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:trustedorigin/origin:Origin", name, args == null ? OriginArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:trustedorigin/origin:Origin", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Origin(String name, Output<String> id, @Nullable OriginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:trustedorigin/origin:Origin", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OriginArgs makeArgs(OriginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OriginArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

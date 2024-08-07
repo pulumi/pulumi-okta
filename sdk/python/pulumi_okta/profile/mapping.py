@@ -296,12 +296,6 @@ class Mapping(pulumi.CustomResource):
             ])
         ```
 
-        ## Import
-
-        ```sh
-        $ pulumi import okta:profile/mapping:Mapping example &#60;id&#62;
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
@@ -349,12 +343,6 @@ class Mapping(pulumi.CustomResource):
                     expression="appuser.email",
                 ),
             ])
-        ```
-
-        ## Import
-
-        ```sh
-        $ pulumi import okta:profile/mapping:Mapping example &#60;id&#62;
         ```
 
         :param str resource_name: The name of the resource.

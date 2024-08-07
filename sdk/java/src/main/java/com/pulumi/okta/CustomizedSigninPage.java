@@ -211,11 +211,18 @@ public class CustomizedSigninPage extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CustomizedSigninPage(String name, CustomizedSigninPageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/customizedSigninPage:CustomizedSigninPage", name, args == null ? CustomizedSigninPageArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/customizedSigninPage:CustomizedSigninPage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CustomizedSigninPage(String name, Output<String> id, @Nullable CustomizedSigninPageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/customizedSigninPage:CustomizedSigninPage", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CustomizedSigninPageArgs makeArgs(CustomizedSigninPageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CustomizedSigninPageArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

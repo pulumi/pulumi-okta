@@ -127,11 +127,18 @@ public class ThreatInsightSettings extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ThreatInsightSettings(String name, ThreatInsightSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/threatInsightSettings:ThreatInsightSettings", name, args == null ? ThreatInsightSettingsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/threatInsightSettings:ThreatInsightSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ThreatInsightSettings(String name, Output<String> id, @Nullable ThreatInsightSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/threatInsightSettings:ThreatInsightSettings", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ThreatInsightSettingsArgs makeArgs(ThreatInsightSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ThreatInsightSettingsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

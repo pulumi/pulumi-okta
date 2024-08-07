@@ -205,11 +205,18 @@ public class DeviceAssuranceAndroid extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public DeviceAssuranceAndroid(String name, @Nullable DeviceAssuranceAndroidArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid", name, args == null ? DeviceAssuranceAndroidArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DeviceAssuranceAndroid(String name, Output<String> id, @Nullable DeviceAssuranceAndroidState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DeviceAssuranceAndroidArgs makeArgs(@Nullable DeviceAssuranceAndroidArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DeviceAssuranceAndroidArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

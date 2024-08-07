@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.9.1",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.10.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "dependencies": {
                 "@pulumi/pulumi": "^3.0.0"
@@ -11053,6 +11053,7 @@
             "required": [
                 "agreeToCustomPrivacyPolicy",
                 "brandId",
+                "customPrivacyPolicyUrl",
                 "emailDomainId",
                 "isDefault",
                 "links",
@@ -13086,6 +13087,16 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
+                    },
+                    "deprecationMessage": "Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead"
+                },
+                "externalIdps": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     }
                 },
                 "fidoU2f": {
@@ -13237,6 +13248,16 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
+                    },
+                    "deprecationMessage": "Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead"
+                },
+                "externalIdps": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     }
                 },
                 "fidoU2f": {
@@ -13379,6 +13400,16 @@
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
+                        },
+                        "deprecationMessage": "Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead"
+                    },
+                    "externalIdps": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
                         }
                     },
                     "fidoU2f": {
@@ -14805,6 +14836,60 @@
                 "type": "object"
             }
         },
+        "okta:index/trustedServer:TrustedServer": {
+            "description": "Associated (Trusted) authorization servers allow you to designate a trusted authorization server that you associate with another authorization server.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test1 = new okta.auth.Server(\"test1\", {\n    audiences: [\"whatever.rise.zone\"],\n    credentialsRotationMode: \"AUTO\",\n    description: \"The best way to find out if you can trust somebody is to trust them.\",\n    name: \"testAcc-replace_with_uuid\",\n});\nconst test2 = new okta.auth.Server(\"test2\", {\n    audiences: [\"whatever.rise.zone\"],\n    credentialsRotationMode: \"AUTO\",\n    description: \"The best way to find out if you can trust somebody is to trust them.\",\n    name: \"testAcc-replace_with_uuid\",\n});\nconst test3 = new okta.auth.Server(\"test3\", {\n    audiences: [\"whatever.rise.zone\"],\n    credentialsRotationMode: \"AUTO\",\n    description: \"The best way to find out if you can trust somebody is to trust them.\",\n    name: \"testAcc-replace_with_uuid\",\n});\nconst example = new okta.TrustedServer(\"example\", {\n    authServerId: oktaAuthServer.test1.id,\n    trusteds: [\n        oktaAuthServer.test2.id,\n        oktaAuthServer.test3.id,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest1 = okta.auth.Server(\"test1\",\n    audiences=[\"whatever.rise.zone\"],\n    credentials_rotation_mode=\"AUTO\",\n    description=\"The best way to find out if you can trust somebody is to trust them.\",\n    name=\"testAcc-replace_with_uuid\")\ntest2 = okta.auth.Server(\"test2\",\n    audiences=[\"whatever.rise.zone\"],\n    credentials_rotation_mode=\"AUTO\",\n    description=\"The best way to find out if you can trust somebody is to trust them.\",\n    name=\"testAcc-replace_with_uuid\")\ntest3 = okta.auth.Server(\"test3\",\n    audiences=[\"whatever.rise.zone\"],\n    credentials_rotation_mode=\"AUTO\",\n    description=\"The best way to find out if you can trust somebody is to trust them.\",\n    name=\"testAcc-replace_with_uuid\")\nexample = okta.TrustedServer(\"example\",\n    auth_server_id=okta_auth_server[\"test1\"][\"id\"],\n    trusteds=[\n        okta_auth_server[\"test2\"][\"id\"],\n        okta_auth_server[\"test3\"][\"id\"],\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test1 = new Okta.Auth.Server(\"test1\", new()\n    {\n        Audiences = new[]\n        {\n            \"whatever.rise.zone\",\n        },\n        CredentialsRotationMode = \"AUTO\",\n        Description = \"The best way to find out if you can trust somebody is to trust them.\",\n        Name = \"testAcc-replace_with_uuid\",\n    });\n\n    var test2 = new Okta.Auth.Server(\"test2\", new()\n    {\n        Audiences = new[]\n        {\n            \"whatever.rise.zone\",\n        },\n        CredentialsRotationMode = \"AUTO\",\n        Description = \"The best way to find out if you can trust somebody is to trust them.\",\n        Name = \"testAcc-replace_with_uuid\",\n    });\n\n    var test3 = new Okta.Auth.Server(\"test3\", new()\n    {\n        Audiences = new[]\n        {\n            \"whatever.rise.zone\",\n        },\n        CredentialsRotationMode = \"AUTO\",\n        Description = \"The best way to find out if you can trust somebody is to trust them.\",\n        Name = \"testAcc-replace_with_uuid\",\n    });\n\n    var example = new Okta.TrustedServer(\"example\", new()\n    {\n        AuthServerId = oktaAuthServer.Test1.Id,\n        Trusteds = new[]\n        {\n            oktaAuthServer.Test2.Id,\n            oktaAuthServer.Test3.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/auth\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := auth.NewServer(ctx, \"test1\", \u0026auth.ServerArgs{\n\t\t\tAudiences: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"whatever.rise.zone\"),\n\t\t\t},\n\t\t\tCredentialsRotationMode: pulumi.String(\"AUTO\"),\n\t\t\tDescription:             pulumi.String(\"The best way to find out if you can trust somebody is to trust them.\"),\n\t\t\tName:                    pulumi.String(\"testAcc-replace_with_uuid\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = auth.NewServer(ctx, \"test2\", \u0026auth.ServerArgs{\n\t\t\tAudiences: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"whatever.rise.zone\"),\n\t\t\t},\n\t\t\tCredentialsRotationMode: pulumi.String(\"AUTO\"),\n\t\t\tDescription:             pulumi.String(\"The best way to find out if you can trust somebody is to trust them.\"),\n\t\t\tName:                    pulumi.String(\"testAcc-replace_with_uuid\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = auth.NewServer(ctx, \"test3\", \u0026auth.ServerArgs{\n\t\t\tAudiences: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"whatever.rise.zone\"),\n\t\t\t},\n\t\t\tCredentialsRotationMode: pulumi.String(\"AUTO\"),\n\t\t\tDescription:             pulumi.String(\"The best way to find out if you can trust somebody is to trust them.\"),\n\t\t\tName:                    pulumi.String(\"testAcc-replace_with_uuid\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewTrustedServer(ctx, \"example\", \u0026okta.TrustedServerArgs{\n\t\t\tAuthServerId: pulumi.Any(oktaAuthServer.Test1.Id),\n\t\t\tTrusteds: pulumi.StringArray{\n\t\t\t\toktaAuthServer.Test2.Id,\n\t\t\t\toktaAuthServer.Test3.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.auth.Server;\nimport com.pulumi.okta.auth.ServerArgs;\nimport com.pulumi.okta.TrustedServer;\nimport com.pulumi.okta.TrustedServerArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test1 = new Server(\"test1\", ServerArgs.builder()\n            .audiences(\"whatever.rise.zone\")\n            .credentialsRotationMode(\"AUTO\")\n            .description(\"The best way to find out if you can trust somebody is to trust them.\")\n            .name(\"testAcc-replace_with_uuid\")\n            .build());\n\n        var test2 = new Server(\"test2\", ServerArgs.builder()\n            .audiences(\"whatever.rise.zone\")\n            .credentialsRotationMode(\"AUTO\")\n            .description(\"The best way to find out if you can trust somebody is to trust them.\")\n            .name(\"testAcc-replace_with_uuid\")\n            .build());\n\n        var test3 = new Server(\"test3\", ServerArgs.builder()\n            .audiences(\"whatever.rise.zone\")\n            .credentialsRotationMode(\"AUTO\")\n            .description(\"The best way to find out if you can trust somebody is to trust them.\")\n            .name(\"testAcc-replace_with_uuid\")\n            .build());\n\n        var example = new TrustedServer(\"example\", TrustedServerArgs.builder()\n            .authServerId(oktaAuthServer.test1().id())\n            .trusteds(            \n                oktaAuthServer.test2().id(),\n                oktaAuthServer.test3().id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test1:\n    type: okta:auth:Server\n    properties:\n      audiences:\n        - whatever.rise.zone\n      credentialsRotationMode: AUTO\n      description: The best way to find out if you can trust somebody is to trust them.\n      name: testAcc-replace_with_uuid\n  test2:\n    type: okta:auth:Server\n    properties:\n      audiences:\n        - whatever.rise.zone\n      credentialsRotationMode: AUTO\n      description: The best way to find out if you can trust somebody is to trust them.\n      name: testAcc-replace_with_uuid\n  test3:\n    type: okta:auth:Server\n    properties:\n      audiences:\n        - whatever.rise.zone\n      credentialsRotationMode: AUTO\n      description: The best way to find out if you can trust somebody is to trust them.\n      name: testAcc-replace_with_uuid\n  example:\n    type: okta:TrustedServer\n    properties:\n      authServerId: ${oktaAuthServer.test1.id}\n      trusteds:\n        - ${oktaAuthServer.test2.id}\n        - ${oktaAuthServer.test3.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "properties": {
+                "authServerId": {
+                    "type": "string",
+                    "description": "Authorization server ID\n"
+                },
+                "trusteds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of the authorization server IDs user want to trust\n"
+                }
+            },
+            "required": [
+                "authServerId",
+                "trusteds"
+            ],
+            "inputProperties": {
+                "authServerId": {
+                    "type": "string",
+                    "description": "Authorization server ID\n"
+                },
+                "trusteds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of the authorization server IDs user want to trust\n"
+                }
+            },
+            "requiredInputs": [
+                "authServerId",
+                "trusteds"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TrustedServer resources.\n",
+                "properties": {
+                    "authServerId": {
+                        "type": "string",
+                        "description": "Authorization server ID\n"
+                    },
+                    "trusteds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of the authorization server IDs user want to trust\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:index/userAdminRoles:UserAdminRoles": {
             "description": "Resource to manage a set of administrator roles for a specific user. This resource allows you to manage admin roles for a single user, independent of the user schema itself.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = new okta.user.User(\"test\", {\n    firstName: \"TestAcc\",\n    lastName: \"Smith\",\n    login: \"testAcc-replace_with_uuid@example.com\",\n    email: \"testAcc-replace_with_uuid@example.com\",\n});\nconst testUserAdminRoles = new okta.UserAdminRoles(\"test\", {\n    userId: test.id,\n    adminRoles: [\"APP_ADMIN\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.user.User(\"test\",\n    first_name=\"TestAcc\",\n    last_name=\"Smith\",\n    login=\"testAcc-replace_with_uuid@example.com\",\n    email=\"testAcc-replace_with_uuid@example.com\")\ntest_user_admin_roles = okta.UserAdminRoles(\"test\",\n    user_id=test.id,\n    admin_roles=[\"APP_ADMIN\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Okta.User.User(\"test\", new()\n    {\n        FirstName = \"TestAcc\",\n        LastName = \"Smith\",\n        Login = \"testAcc-replace_with_uuid@example.com\",\n        Email = \"testAcc-replace_with_uuid@example.com\",\n    });\n\n    var testUserAdminRoles = new Okta.UserAdminRoles(\"test\", new()\n    {\n        UserId = test.Id,\n        AdminRoles = new[]\n        {\n            \"APP_ADMIN\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttest, err := user.NewUser(ctx, \"test\", \u0026user.UserArgs{\n\t\t\tFirstName: pulumi.String(\"TestAcc\"),\n\t\t\tLastName:  pulumi.String(\"Smith\"),\n\t\t\tLogin:     pulumi.String(\"testAcc-replace_with_uuid@example.com\"),\n\t\t\tEmail:     pulumi.String(\"testAcc-replace_with_uuid@example.com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewUserAdminRoles(ctx, \"test\", \u0026okta.UserAdminRolesArgs{\n\t\t\tUserId: test.ID(),\n\t\t\tAdminRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"APP_ADMIN\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.user.User;\nimport com.pulumi.okta.user.UserArgs;\nimport com.pulumi.okta.UserAdminRoles;\nimport com.pulumi.okta.UserAdminRolesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new User(\"test\", UserArgs.builder()\n            .firstName(\"TestAcc\")\n            .lastName(\"Smith\")\n            .login(\"testAcc-replace_with_uuid@example.com\")\n            .email(\"testAcc-replace_with_uuid@example.com\")\n            .build());\n\n        var testUserAdminRoles = new UserAdminRoles(\"testUserAdminRoles\", UserAdminRolesArgs.builder()\n            .userId(test.id())\n            .adminRoles(\"APP_ADMIN\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: okta:user:User\n    properties:\n      firstName: TestAcc\n      lastName: Smith\n      login: testAcc-replace_with_uuid@example.com\n      email: testAcc-replace_with_uuid@example.com\n  testUserAdminRoles:\n    type: okta:UserAdminRoles\n    name: test\n    properties:\n      userId: ${test.id}\n      adminRoles:\n        - APP_ADMIN\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/userAdminRoles:UserAdminRoles example \u0026#60;user id\u0026#62;\n```\n\n",
             "properties": {
@@ -15605,25 +15690,46 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Format of each array value: a string representation of an ASN numeric value\n"
+                    "description": "List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`\n"
                 },
                 "dynamicLocations": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode\n"
+                    "description": "Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`\n"
+                },
+                "dynamicLocationsExcludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`\n"
                 },
                 "dynamicProxyType": {
                     "type": "string",
-                    "description": "Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.\n"
+                    "description": "Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`\n"
                 },
                 "gateways": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples\n"
+                    "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`\n"
+                },
+                "ipServiceCategoriesExcludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of ip service excluded. Use with type `DYNAMIC_V2`\n"
+                },
+                "ipServiceCategoriesIncludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of ip service included. Use with type `DYNAMIC_V2`\n"
                 },
                 "name": {
                     "type": "string",
@@ -15634,7 +15740,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`\n"
+                    "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`\n"
                 },
                 "status": {
                     "type": "string",
@@ -15642,7 +15748,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of the Network Zone - can either be `IP` or `DYNAMIC` only\n"
+                    "description": "Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only\n"
                 },
                 "usage": {
                     "type": "string",
@@ -15659,25 +15765,46 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Format of each array value: a string representation of an ASN numeric value\n"
+                    "description": "List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`\n"
                 },
                 "dynamicLocations": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode\n"
+                    "description": "Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`\n"
+                },
+                "dynamicLocationsExcludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`\n"
                 },
                 "dynamicProxyType": {
                     "type": "string",
-                    "description": "Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.\n"
+                    "description": "Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`\n"
                 },
                 "gateways": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples\n"
+                    "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`\n"
+                },
+                "ipServiceCategoriesExcludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of ip service excluded. Use with type `DYNAMIC_V2`\n"
+                },
+                "ipServiceCategoriesIncludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of ip service included. Use with type `DYNAMIC_V2`\n"
                 },
                 "name": {
                     "type": "string",
@@ -15688,7 +15815,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`\n"
+                    "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`\n"
                 },
                 "status": {
                     "type": "string",
@@ -15696,7 +15823,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of the Network Zone - can either be `IP` or `DYNAMIC` only\n"
+                    "description": "Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only\n"
                 },
                 "usage": {
                     "type": "string",
@@ -15714,25 +15841,46 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Format of each array value: a string representation of an ASN numeric value\n"
+                        "description": "List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`\n"
                     },
                     "dynamicLocations": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode\n"
+                        "description": "Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`\n"
+                    },
+                    "dynamicLocationsExcludes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`\n"
                     },
                     "dynamicProxyType": {
                         "type": "string",
-                        "description": "Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.\n"
+                        "description": "Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`\n"
                     },
                     "gateways": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples\n"
+                        "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`\n"
+                    },
+                    "ipServiceCategoriesExcludes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of ip service excluded. Use with type `DYNAMIC_V2`\n"
+                    },
+                    "ipServiceCategoriesIncludes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of ip service included. Use with type `DYNAMIC_V2`\n"
                     },
                     "name": {
                         "type": "string",
@@ -15743,7 +15891,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`\n"
+                        "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`\n"
                     },
                     "status": {
                         "type": "string",
@@ -15751,7 +15899,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "Type of the Network Zone - can either be `IP` or `DYNAMIC` only\n"
+                        "description": "Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only\n"
                     },
                     "usage": {
                         "type": "string",
@@ -16958,7 +17106,7 @@
             }
         },
         "okta:policy/mfa:Mfa": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst classicExample = new okta.policy.Mfa(\"classic_example\", {\n    name: \"MFA Policy Classic\",\n    status: \"ACTIVE\",\n    description: \"Example MFA policy using Okta Classic engine with factors.\",\n    isOie: false,\n    oktaPassword: {\n        enroll: \"REQUIRED\",\n    },\n    oktaOtp: {\n        enroll: \"REQUIRED\",\n    },\n    groupsIncludeds: [everyone.id],\n});\nconst oieExample = new okta.policy.Mfa(\"oie_example\", {\n    name: \"MFA Policy OIE\",\n    status: \"ACTIVE\",\n    description: \"Example MFA policy that uses Okta Identity Engine (OIE) with authenticators\",\n    isOie: true,\n    oktaPassword: {\n        enroll: \"REQUIRED\",\n    },\n    oktaVerify: {\n        enroll: \"REQUIRED\",\n    },\n    groupsIncludeds: [everyone.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nclassic_example = okta.policy.Mfa(\"classic_example\",\n    name=\"MFA Policy Classic\",\n    status=\"ACTIVE\",\n    description=\"Example MFA policy using Okta Classic engine with factors.\",\n    is_oie=False,\n    okta_password={\n        \"enroll\": \"REQUIRED\",\n    },\n    okta_otp={\n        \"enroll\": \"REQUIRED\",\n    },\n    groups_includeds=[everyone[\"id\"]])\noie_example = okta.policy.Mfa(\"oie_example\",\n    name=\"MFA Policy OIE\",\n    status=\"ACTIVE\",\n    description=\"Example MFA policy that uses Okta Identity Engine (OIE) with authenticators\",\n    is_oie=True,\n    okta_password={\n        \"enroll\": \"REQUIRED\",\n    },\n    okta_verify={\n        \"enroll\": \"REQUIRED\",\n    },\n    groups_includeds=[everyone[\"id\"]])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var classicExample = new Okta.Policy.Mfa(\"classic_example\", new()\n    {\n        Name = \"MFA Policy Classic\",\n        Status = \"ACTIVE\",\n        Description = \"Example MFA policy using Okta Classic engine with factors.\",\n        IsOie = false,\n        OktaPassword = \n        {\n            { \"enroll\", \"REQUIRED\" },\n        },\n        OktaOtp = \n        {\n            { \"enroll\", \"REQUIRED\" },\n        },\n        GroupsIncludeds = new[]\n        {\n            everyone.Id,\n        },\n    });\n\n    var oieExample = new Okta.Policy.Mfa(\"oie_example\", new()\n    {\n        Name = \"MFA Policy OIE\",\n        Status = \"ACTIVE\",\n        Description = \"Example MFA policy that uses Okta Identity Engine (OIE) with authenticators\",\n        IsOie = true,\n        OktaPassword = \n        {\n            { \"enroll\", \"REQUIRED\" },\n        },\n        OktaVerify = \n        {\n            { \"enroll\", \"REQUIRED\" },\n        },\n        GroupsIncludeds = new[]\n        {\n            everyone.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewMfa(ctx, \"classic_example\", \u0026policy.MfaArgs{\n\t\t\tName:        pulumi.String(\"MFA Policy Classic\"),\n\t\t\tStatus:      pulumi.String(\"ACTIVE\"),\n\t\t\tDescription: pulumi.String(\"Example MFA policy using Okta Classic engine with factors.\"),\n\t\t\tIsOie:       pulumi.Bool(false),\n\t\t\tOktaPassword: pulumi.StringMap{\n\t\t\t\t\"enroll\": pulumi.String(\"REQUIRED\"),\n\t\t\t},\n\t\t\tOktaOtp: pulumi.StringMap{\n\t\t\t\t\"enroll\": pulumi.String(\"REQUIRED\"),\n\t\t\t},\n\t\t\tGroupsIncludeds: pulumi.StringArray{\n\t\t\t\teveryone.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = policy.NewMfa(ctx, \"oie_example\", \u0026policy.MfaArgs{\n\t\t\tName:        pulumi.String(\"MFA Policy OIE\"),\n\t\t\tStatus:      pulumi.String(\"ACTIVE\"),\n\t\t\tDescription: pulumi.String(\"Example MFA policy that uses Okta Identity Engine (OIE) with authenticators\"),\n\t\t\tIsOie:       pulumi.Bool(true),\n\t\t\tOktaPassword: pulumi.StringMap{\n\t\t\t\t\"enroll\": pulumi.String(\"REQUIRED\"),\n\t\t\t},\n\t\t\tOktaVerify: pulumi.StringMap{\n\t\t\t\t\"enroll\": pulumi.String(\"REQUIRED\"),\n\t\t\t},\n\t\t\tGroupsIncludeds: pulumi.StringArray{\n\t\t\t\teveryone.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.Mfa;\nimport com.pulumi.okta.policy.MfaArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var classicExample = new Mfa(\"classicExample\", MfaArgs.builder()\n            .name(\"MFA Policy Classic\")\n            .status(\"ACTIVE\")\n            .description(\"Example MFA policy using Okta Classic engine with factors.\")\n            .isOie(false)\n            .oktaPassword(Map.of(\"enroll\", \"REQUIRED\"))\n            .oktaOtp(Map.of(\"enroll\", \"REQUIRED\"))\n            .groupsIncludeds(everyone.id())\n            .build());\n\n        var oieExample = new Mfa(\"oieExample\", MfaArgs.builder()\n            .name(\"MFA Policy OIE\")\n            .status(\"ACTIVE\")\n            .description(\"Example MFA policy that uses Okta Identity Engine (OIE) with authenticators\")\n            .isOie(true)\n            .oktaPassword(Map.of(\"enroll\", \"REQUIRED\"))\n            .oktaVerify(Map.of(\"enroll\", \"REQUIRED\"))\n            .groupsIncludeds(everyone.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  classicExample:\n    type: okta:policy:Mfa\n    name: classic_example\n    properties:\n      name: MFA Policy Classic\n      status: ACTIVE\n      description: Example MFA policy using Okta Classic engine with factors.\n      isOie: false\n      oktaPassword:\n        enroll: REQUIRED\n      oktaOtp:\n        enroll: REQUIRED\n      groupsIncludeds:\n        - ${everyone.id}\n  oieExample:\n    type: okta:policy:Mfa\n    name: oie_example\n    properties:\n      name: MFA Policy OIE\n      status: ACTIVE\n      description: Example MFA policy that uses Okta Identity Engine (OIE) with authenticators\n      isOie: true\n      oktaPassword:\n        enroll: REQUIRED\n      oktaVerify:\n        enroll: REQUIRED\n      groupsIncludeds:\n        - ${everyone.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:policy/mfa:Mfa example \u0026#60;policy id\u0026#62;\n```\n\n",
+            "description": "## Example Usage\n\n## Import\n\n```sh\n$ pulumi import okta:policy/mfa:Mfa example \u0026#60;policy id\u0026#62;\n```\n\n",
             "properties": {
                 "description": {
                     "type": "string",
@@ -16974,6 +17122,16 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
+                    },
+                    "deprecationMessage": "Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead"
+                },
+                "externalIdps": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     }
                 },
                 "fidoU2f": {
@@ -17132,6 +17290,16 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
+                    },
+                    "deprecationMessage": "Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead"
+                },
+                "externalIdps": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     }
                 },
                 "fidoU2f": {
@@ -17289,6 +17457,16 @@
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
+                        },
+                        "deprecationMessage": "Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead"
+                    },
+                    "externalIdps": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
                         }
                     },
                     "fidoU2f": {
@@ -18908,7 +19086,7 @@
             }
         },
         "okta:profile/mapping:Mapping": {
-            "description": "Manages a profile mapping. This resource allows you to manage a profile mapping by source and target IDs. \u003e **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.manage` scope.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst user = okta.user.getUserProfileMappingSource({});\nconst example = new okta.profile.Mapping(\"example\", {\n    sourceId: \"\u003csource id\u003e\",\n    targetId: user.then(user =\u003e user.id),\n    deleteWhenAbsent: true,\n    mappings: [\n        {\n            id: \"firstName\",\n            expression: \"appuser.firstName\",\n        },\n        {\n            id: \"lastName\",\n            expression: \"appuser.lastName\",\n        },\n        {\n            id: \"email\",\n            expression: \"appuser.email\",\n        },\n        {\n            id: \"login\",\n            expression: \"appuser.email\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nuser = okta.user.get_user_profile_mapping_source()\nexample = okta.profile.Mapping(\"example\",\n    source_id=\"\u003csource id\u003e\",\n    target_id=user.id,\n    delete_when_absent=True,\n    mappings=[\n        okta.profile.MappingMappingArgs(\n            id=\"firstName\",\n            expression=\"appuser.firstName\",\n        ),\n        okta.profile.MappingMappingArgs(\n            id=\"lastName\",\n            expression=\"appuser.lastName\",\n        ),\n        okta.profile.MappingMappingArgs(\n            id=\"email\",\n            expression=\"appuser.email\",\n        ),\n        okta.profile.MappingMappingArgs(\n            id=\"login\",\n            expression=\"appuser.email\",\n        ),\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var user = Okta.User.GetUserProfileMappingSource.Invoke();\n\n    var example = new Okta.Profile.Mapping(\"example\", new()\n    {\n        SourceId = \"\u003csource id\u003e\",\n        TargetId = user.Apply(getUserProfileMappingSourceResult =\u003e getUserProfileMappingSourceResult.Id),\n        DeleteWhenAbsent = true,\n        Mappings = new[]\n        {\n            new Okta.Profile.Inputs.MappingMappingArgs\n            {\n                Id = \"firstName\",\n                Expression = \"appuser.firstName\",\n            },\n            new Okta.Profile.Inputs.MappingMappingArgs\n            {\n                Id = \"lastName\",\n                Expression = \"appuser.lastName\",\n            },\n            new Okta.Profile.Inputs.MappingMappingArgs\n            {\n                Id = \"email\",\n                Expression = \"appuser.email\",\n            },\n            new Okta.Profile.Inputs.MappingMappingArgs\n            {\n                Id = \"login\",\n                Expression = \"appuser.email\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/profile\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tuser, err := user.GetUserProfileMappingSource(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = profile.NewMapping(ctx, \"example\", \u0026profile.MappingArgs{\n\t\t\tSourceId:         pulumi.String(\"\u003csource id\u003e\"),\n\t\t\tTargetId:         pulumi.String(user.Id),\n\t\t\tDeleteWhenAbsent: pulumi.Bool(true),\n\t\t\tMappings: profile.MappingMappingArray{\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tId:         pulumi.String(\"firstName\"),\n\t\t\t\t\tExpression: pulumi.String(\"appuser.firstName\"),\n\t\t\t\t},\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tId:         pulumi.String(\"lastName\"),\n\t\t\t\t\tExpression: pulumi.String(\"appuser.lastName\"),\n\t\t\t\t},\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tId:         pulumi.String(\"email\"),\n\t\t\t\t\tExpression: pulumi.String(\"appuser.email\"),\n\t\t\t\t},\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tId:         pulumi.String(\"login\"),\n\t\t\t\t\tExpression: pulumi.String(\"appuser.email\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.user.UserFunctions;\nimport com.pulumi.okta.profile.Mapping;\nimport com.pulumi.okta.profile.MappingArgs;\nimport com.pulumi.okta.profile.inputs.MappingMappingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var user = UserFunctions.getUserProfileMappingSource();\n\n        var example = new Mapping(\"example\", MappingArgs.builder()\n            .sourceId(\"\u003csource id\u003e\")\n            .targetId(user.applyValue(getUserProfileMappingSourceResult -\u003e getUserProfileMappingSourceResult.id()))\n            .deleteWhenAbsent(true)\n            .mappings(            \n                MappingMappingArgs.builder()\n                    .id(\"firstName\")\n                    .expression(\"appuser.firstName\")\n                    .build(),\n                MappingMappingArgs.builder()\n                    .id(\"lastName\")\n                    .expression(\"appuser.lastName\")\n                    .build(),\n                MappingMappingArgs.builder()\n                    .id(\"email\")\n                    .expression(\"appuser.email\")\n                    .build(),\n                MappingMappingArgs.builder()\n                    .id(\"login\")\n                    .expression(\"appuser.email\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:profile:Mapping\n    properties:\n      sourceId: \u003csource id\u003e\n      targetId: ${user.id}\n      deleteWhenAbsent: true\n      mappings:\n        - id: firstName\n          expression: appuser.firstName\n        - id: lastName\n          expression: appuser.lastName\n        - id: email\n          expression: appuser.email\n        - id: login\n          expression: appuser.email\nvariables:\n  user:\n    fn::invoke:\n      Function: okta:user:getUserProfileMappingSource\n      Arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:profile/mapping:Mapping example \u0026#60;id\u0026#62;\n```\n\n",
+            "description": "Manages a profile mapping. This resource allows you to manage a profile mapping by source and target IDs. \u003e **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.manage` scope.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst user = okta.user.getUserProfileMappingSource({});\nconst example = new okta.profile.Mapping(\"example\", {\n    sourceId: \"\u003csource id\u003e\",\n    targetId: user.then(user =\u003e user.id),\n    deleteWhenAbsent: true,\n    mappings: [\n        {\n            id: \"firstName\",\n            expression: \"appuser.firstName\",\n        },\n        {\n            id: \"lastName\",\n            expression: \"appuser.lastName\",\n        },\n        {\n            id: \"email\",\n            expression: \"appuser.email\",\n        },\n        {\n            id: \"login\",\n            expression: \"appuser.email\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nuser = okta.user.get_user_profile_mapping_source()\nexample = okta.profile.Mapping(\"example\",\n    source_id=\"\u003csource id\u003e\",\n    target_id=user.id,\n    delete_when_absent=True,\n    mappings=[\n        okta.profile.MappingMappingArgs(\n            id=\"firstName\",\n            expression=\"appuser.firstName\",\n        ),\n        okta.profile.MappingMappingArgs(\n            id=\"lastName\",\n            expression=\"appuser.lastName\",\n        ),\n        okta.profile.MappingMappingArgs(\n            id=\"email\",\n            expression=\"appuser.email\",\n        ),\n        okta.profile.MappingMappingArgs(\n            id=\"login\",\n            expression=\"appuser.email\",\n        ),\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var user = Okta.User.GetUserProfileMappingSource.Invoke();\n\n    var example = new Okta.Profile.Mapping(\"example\", new()\n    {\n        SourceId = \"\u003csource id\u003e\",\n        TargetId = user.Apply(getUserProfileMappingSourceResult =\u003e getUserProfileMappingSourceResult.Id),\n        DeleteWhenAbsent = true,\n        Mappings = new[]\n        {\n            new Okta.Profile.Inputs.MappingMappingArgs\n            {\n                Id = \"firstName\",\n                Expression = \"appuser.firstName\",\n            },\n            new Okta.Profile.Inputs.MappingMappingArgs\n            {\n                Id = \"lastName\",\n                Expression = \"appuser.lastName\",\n            },\n            new Okta.Profile.Inputs.MappingMappingArgs\n            {\n                Id = \"email\",\n                Expression = \"appuser.email\",\n            },\n            new Okta.Profile.Inputs.MappingMappingArgs\n            {\n                Id = \"login\",\n                Expression = \"appuser.email\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/profile\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tuser, err := user.GetUserProfileMappingSource(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = profile.NewMapping(ctx, \"example\", \u0026profile.MappingArgs{\n\t\t\tSourceId:         pulumi.String(\"\u003csource id\u003e\"),\n\t\t\tTargetId:         pulumi.String(user.Id),\n\t\t\tDeleteWhenAbsent: pulumi.Bool(true),\n\t\t\tMappings: profile.MappingMappingArray{\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tId:         pulumi.String(\"firstName\"),\n\t\t\t\t\tExpression: pulumi.String(\"appuser.firstName\"),\n\t\t\t\t},\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tId:         pulumi.String(\"lastName\"),\n\t\t\t\t\tExpression: pulumi.String(\"appuser.lastName\"),\n\t\t\t\t},\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tId:         pulumi.String(\"email\"),\n\t\t\t\t\tExpression: pulumi.String(\"appuser.email\"),\n\t\t\t\t},\n\t\t\t\t\u0026profile.MappingMappingArgs{\n\t\t\t\t\tId:         pulumi.String(\"login\"),\n\t\t\t\t\tExpression: pulumi.String(\"appuser.email\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.user.UserFunctions;\nimport com.pulumi.okta.profile.Mapping;\nimport com.pulumi.okta.profile.MappingArgs;\nimport com.pulumi.okta.profile.inputs.MappingMappingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var user = UserFunctions.getUserProfileMappingSource();\n\n        var example = new Mapping(\"example\", MappingArgs.builder()\n            .sourceId(\"\u003csource id\u003e\")\n            .targetId(user.applyValue(getUserProfileMappingSourceResult -\u003e getUserProfileMappingSourceResult.id()))\n            .deleteWhenAbsent(true)\n            .mappings(            \n                MappingMappingArgs.builder()\n                    .id(\"firstName\")\n                    .expression(\"appuser.firstName\")\n                    .build(),\n                MappingMappingArgs.builder()\n                    .id(\"lastName\")\n                    .expression(\"appuser.lastName\")\n                    .build(),\n                MappingMappingArgs.builder()\n                    .id(\"email\")\n                    .expression(\"appuser.email\")\n                    .build(),\n                MappingMappingArgs.builder()\n                    .id(\"login\")\n                    .expression(\"appuser.email\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:profile:Mapping\n    properties:\n      sourceId: \u003csource id\u003e\n      targetId: ${user.id}\n      deleteWhenAbsent: true\n      mappings:\n        - id: firstName\n          expression: appuser.firstName\n        - id: lastName\n          expression: appuser.lastName\n        - id: email\n          expression: appuser.email\n        - id: login\n          expression: appuser.email\nvariables:\n  user:\n    fn::invoke:\n      Function: okta:user:getUserProfileMappingSource\n      Arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
                 "alwaysApply": {
                     "type": "boolean",
@@ -22049,9 +22227,30 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getNetworkZone.\n",
                 "properties": {
+                    "dynamicLocationsExcludes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`\n"
+                    },
                     "id": {
                         "type": "string",
                         "description": "ID of the network zone to retrieve, conflicts with `name`.\n"
+                    },
+                    "ipServiceCategoriesExcludes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of ip service excluded. Use with type `DYNAMIC_V2`\n"
+                    },
+                    "ipServiceCategoriesIncludes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of ip service included. Use with type `DYNAMIC_V2`\n"
                     },
                     "name": {
                         "type": "string",
@@ -22064,25 +22263,32 @@
                 "description": "A collection of values returned by getNetworkZone.\n",
                 "properties": {
                     "asns": {
-                        "description": "Format of each array value: a string representation of an ASN numeric value\n",
+                        "description": "List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`\n",
                         "items": {
                             "type": "string"
                         },
                         "type": "array"
                     },
                     "dynamicLocations": {
-                        "description": "Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode\n",
+                        "description": "Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "dynamicLocationsExcludes": {
+                        "description": "Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`\n",
                         "items": {
                             "type": "string"
                         },
                         "type": "array"
                     },
                     "dynamicProxyType": {
-                        "description": "Type of proxy being controlled by this network zone\n",
+                        "description": "Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`\n",
                         "type": "string"
                     },
                     "gateways": {
-                        "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples\n",
+                        "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`\n",
                         "items": {
                             "type": "string"
                         },
@@ -22092,12 +22298,26 @@
                         "description": "ID of the network zone to retrieve, conflicts with `name`.\n",
                         "type": "string"
                     },
+                    "ipServiceCategoriesExcludes": {
+                        "description": "List of ip service excluded. Use with type `DYNAMIC_V2`\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "ipServiceCategoriesIncludes": {
+                        "description": "List of ip service included. Use with type `DYNAMIC_V2`\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
                     "name": {
                         "description": "Name of the network zone to retrieve, conflicts with `id`.\n",
                         "type": "string"
                     },
                     "proxies": {
-                        "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples\n",
+                        "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`\n",
                         "items": {
                             "type": "string"
                         },
@@ -22108,7 +22328,7 @@
                         "type": "string"
                     },
                     "type": {
-                        "description": "Type of the Network Zone - can either be IP or DYNAMIC only\n",
+                        "description": "Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only\n",
                         "type": "string"
                     },
                     "usage": {

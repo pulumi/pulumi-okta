@@ -42,27 +42,39 @@ export class Zone extends pulumi.CustomResource {
     }
 
     /**
-     * Format of each array value: a string representation of an ASN numeric value
+     * List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
      */
     public readonly asns!: pulumi.Output<string[] | undefined>;
     /**
-     * Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+     * Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
      */
     public readonly dynamicLocations!: pulumi.Output<string[] | undefined>;
     /**
-     * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+     * Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+     */
+    public readonly dynamicLocationsExcludes!: pulumi.Output<string[] | undefined>;
+    /**
+     * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
      */
     public readonly dynamicProxyType!: pulumi.Output<string | undefined>;
     /**
-     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
      */
     public readonly gateways!: pulumi.Output<string[] | undefined>;
+    /**
+     * List of ip service excluded. Use with type `DYNAMIC_V2`
+     */
+    public readonly ipServiceCategoriesExcludes!: pulumi.Output<string[] | undefined>;
+    /**
+     * List of ip service included. Use with type `DYNAMIC_V2`
+     */
+    public readonly ipServiceCategoriesIncludes!: pulumi.Output<string[] | undefined>;
     /**
      * Name of the Network Zone Resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
      */
     public readonly proxies!: pulumi.Output<string[] | undefined>;
     /**
@@ -70,7 +82,7 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+     * Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -93,8 +105,11 @@ export class Zone extends pulumi.CustomResource {
             const state = argsOrState as ZoneState | undefined;
             resourceInputs["asns"] = state ? state.asns : undefined;
             resourceInputs["dynamicLocations"] = state ? state.dynamicLocations : undefined;
+            resourceInputs["dynamicLocationsExcludes"] = state ? state.dynamicLocationsExcludes : undefined;
             resourceInputs["dynamicProxyType"] = state ? state.dynamicProxyType : undefined;
             resourceInputs["gateways"] = state ? state.gateways : undefined;
+            resourceInputs["ipServiceCategoriesExcludes"] = state ? state.ipServiceCategoriesExcludes : undefined;
+            resourceInputs["ipServiceCategoriesIncludes"] = state ? state.ipServiceCategoriesIncludes : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["proxies"] = state ? state.proxies : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -107,8 +122,11 @@ export class Zone extends pulumi.CustomResource {
             }
             resourceInputs["asns"] = args ? args.asns : undefined;
             resourceInputs["dynamicLocations"] = args ? args.dynamicLocations : undefined;
+            resourceInputs["dynamicLocationsExcludes"] = args ? args.dynamicLocationsExcludes : undefined;
             resourceInputs["dynamicProxyType"] = args ? args.dynamicProxyType : undefined;
             resourceInputs["gateways"] = args ? args.gateways : undefined;
+            resourceInputs["ipServiceCategoriesExcludes"] = args ? args.ipServiceCategoriesExcludes : undefined;
+            resourceInputs["ipServiceCategoriesIncludes"] = args ? args.ipServiceCategoriesIncludes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["proxies"] = args ? args.proxies : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
@@ -125,27 +143,39 @@ export class Zone extends pulumi.CustomResource {
  */
 export interface ZoneState {
     /**
-     * Format of each array value: a string representation of an ASN numeric value
+     * List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
      */
     asns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+     * Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
      */
     dynamicLocations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+     * Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+     */
+    dynamicLocationsExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
      */
     dynamicProxyType?: pulumi.Input<string>;
     /**
-     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
      */
     gateways?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of ip service excluded. Use with type `DYNAMIC_V2`
+     */
+    ipServiceCategoriesExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of ip service included. Use with type `DYNAMIC_V2`
+     */
+    ipServiceCategoriesIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the Network Zone Resource
      */
     name?: pulumi.Input<string>;
     /**
-     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
      */
     proxies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -153,7 +183,7 @@ export interface ZoneState {
      */
     status?: pulumi.Input<string>;
     /**
-     * Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+     * Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      */
     type?: pulumi.Input<string>;
     /**
@@ -167,27 +197,39 @@ export interface ZoneState {
  */
 export interface ZoneArgs {
     /**
-     * Format of each array value: a string representation of an ASN numeric value
+     * List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
      */
     asns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+     * Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
      */
     dynamicLocations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+     * Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+     */
+    dynamicLocationsExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
      */
     dynamicProxyType?: pulumi.Input<string>;
     /**
-     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
      */
     gateways?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of ip service excluded. Use with type `DYNAMIC_V2`
+     */
+    ipServiceCategoriesExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of ip service included. Use with type `DYNAMIC_V2`
+     */
+    ipServiceCategoriesIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the Network Zone Resource
      */
     name?: pulumi.Input<string>;
     /**
-     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
      */
     proxies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -195,7 +237,7 @@ export interface ZoneArgs {
      */
     status?: pulumi.Input<string>;
     /**
-     * Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+     * Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      */
     type: pulumi.Input<string>;
     /**

@@ -181,11 +181,18 @@ public class Hook extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Hook(String name, HookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:inline/hook:Hook", name, args == null ? HookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:inline/hook:Hook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Hook(String name, Output<String> id, @Nullable HookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:inline/hook:Hook", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HookArgs makeArgs(HookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HookArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

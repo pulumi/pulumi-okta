@@ -13,60 +13,6 @@ import (
 
 // ## Example Usage
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/policy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := policy.NewMfa(ctx, "classic_example", &policy.MfaArgs{
-//				Name:        pulumi.String("MFA Policy Classic"),
-//				Status:      pulumi.String("ACTIVE"),
-//				Description: pulumi.String("Example MFA policy using Okta Classic engine with factors."),
-//				IsOie:       pulumi.Bool(false),
-//				OktaPassword: pulumi.StringMap{
-//					"enroll": pulumi.String("REQUIRED"),
-//				},
-//				OktaOtp: pulumi.StringMap{
-//					"enroll": pulumi.String("REQUIRED"),
-//				},
-//				GroupsIncludeds: pulumi.StringArray{
-//					everyone.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = policy.NewMfa(ctx, "oie_example", &policy.MfaArgs{
-//				Name:        pulumi.String("MFA Policy OIE"),
-//				Status:      pulumi.String("ACTIVE"),
-//				Description: pulumi.String("Example MFA policy that uses Okta Identity Engine (OIE) with authenticators"),
-//				IsOie:       pulumi.Bool(true),
-//				OktaPassword: pulumi.StringMap{
-//					"enroll": pulumi.String("REQUIRED"),
-//				},
-//				OktaVerify: pulumi.StringMap{
-//					"enroll": pulumi.String("REQUIRED"),
-//				},
-//				GroupsIncludeds: pulumi.StringArray{
-//					everyone.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -76,12 +22,14 @@ type Mfa struct {
 	pulumi.CustomResourceState
 
 	// Policy Description
-	Description  pulumi.StringPtrOutput `pulumi:"description"`
-	Duo          pulumi.StringMapOutput `pulumi:"duo"`
-	ExternalIdp  pulumi.StringMapOutput `pulumi:"externalIdp"`
-	FidoU2f      pulumi.StringMapOutput `pulumi:"fidoU2f"`
-	FidoWebauthn pulumi.StringMapOutput `pulumi:"fidoWebauthn"`
-	GoogleOtp    pulumi.StringMapOutput `pulumi:"googleOtp"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Duo         pulumi.StringMapOutput `pulumi:"duo"`
+	// Deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
+	ExternalIdp  pulumi.StringMapOutput      `pulumi:"externalIdp"`
+	ExternalIdps pulumi.StringMapArrayOutput `pulumi:"externalIdps"`
+	FidoU2f      pulumi.StringMapOutput      `pulumi:"fidoU2f"`
+	FidoWebauthn pulumi.StringMapOutput      `pulumi:"fidoWebauthn"`
+	GoogleOtp    pulumi.StringMapOutput      `pulumi:"googleOtp"`
 	// List of Group IDs to Include
 	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
 	Hotp            pulumi.StringMapOutput   `pulumi:"hotp"`
@@ -141,12 +89,14 @@ func GetMfa(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Mfa resources.
 type mfaState struct {
 	// Policy Description
-	Description  *string           `pulumi:"description"`
-	Duo          map[string]string `pulumi:"duo"`
-	ExternalIdp  map[string]string `pulumi:"externalIdp"`
-	FidoU2f      map[string]string `pulumi:"fidoU2f"`
-	FidoWebauthn map[string]string `pulumi:"fidoWebauthn"`
-	GoogleOtp    map[string]string `pulumi:"googleOtp"`
+	Description *string           `pulumi:"description"`
+	Duo         map[string]string `pulumi:"duo"`
+	// Deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
+	ExternalIdp  map[string]string   `pulumi:"externalIdp"`
+	ExternalIdps []map[string]string `pulumi:"externalIdps"`
+	FidoU2f      map[string]string   `pulumi:"fidoU2f"`
+	FidoWebauthn map[string]string   `pulumi:"fidoWebauthn"`
+	GoogleOtp    map[string]string   `pulumi:"googleOtp"`
 	// List of Group IDs to Include
 	GroupsIncludeds []string          `pulumi:"groupsIncludeds"`
 	Hotp            map[string]string `pulumi:"hotp"`
@@ -177,9 +127,11 @@ type mfaState struct {
 
 type MfaState struct {
 	// Policy Description
-	Description  pulumi.StringPtrInput
-	Duo          pulumi.StringMapInput
+	Description pulumi.StringPtrInput
+	Duo         pulumi.StringMapInput
+	// Deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
 	ExternalIdp  pulumi.StringMapInput
+	ExternalIdps pulumi.StringMapArrayInput
 	FidoU2f      pulumi.StringMapInput
 	FidoWebauthn pulumi.StringMapInput
 	GoogleOtp    pulumi.StringMapInput
@@ -217,12 +169,14 @@ func (MfaState) ElementType() reflect.Type {
 
 type mfaArgs struct {
 	// Policy Description
-	Description  *string           `pulumi:"description"`
-	Duo          map[string]string `pulumi:"duo"`
-	ExternalIdp  map[string]string `pulumi:"externalIdp"`
-	FidoU2f      map[string]string `pulumi:"fidoU2f"`
-	FidoWebauthn map[string]string `pulumi:"fidoWebauthn"`
-	GoogleOtp    map[string]string `pulumi:"googleOtp"`
+	Description *string           `pulumi:"description"`
+	Duo         map[string]string `pulumi:"duo"`
+	// Deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
+	ExternalIdp  map[string]string   `pulumi:"externalIdp"`
+	ExternalIdps []map[string]string `pulumi:"externalIdps"`
+	FidoU2f      map[string]string   `pulumi:"fidoU2f"`
+	FidoWebauthn map[string]string   `pulumi:"fidoWebauthn"`
+	GoogleOtp    map[string]string   `pulumi:"googleOtp"`
 	// List of Group IDs to Include
 	GroupsIncludeds []string          `pulumi:"groupsIncludeds"`
 	Hotp            map[string]string `pulumi:"hotp"`
@@ -254,9 +208,11 @@ type mfaArgs struct {
 // The set of arguments for constructing a Mfa resource.
 type MfaArgs struct {
 	// Policy Description
-	Description  pulumi.StringPtrInput
-	Duo          pulumi.StringMapInput
+	Description pulumi.StringPtrInput
+	Duo         pulumi.StringMapInput
+	// Deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
 	ExternalIdp  pulumi.StringMapInput
+	ExternalIdps pulumi.StringMapArrayInput
 	FidoU2f      pulumi.StringMapInput
 	FidoWebauthn pulumi.StringMapInput
 	GoogleOtp    pulumi.StringMapInput
@@ -384,8 +340,13 @@ func (o MfaOutput) Duo() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Mfa) pulumi.StringMapOutput { return v.Duo }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
 func (o MfaOutput) ExternalIdp() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Mfa) pulumi.StringMapOutput { return v.ExternalIdp }).(pulumi.StringMapOutput)
+}
+
+func (o MfaOutput) ExternalIdps() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v *Mfa) pulumi.StringMapArrayOutput { return v.ExternalIdps }).(pulumi.StringMapArrayOutput)
 }
 
 func (o MfaOutput) FidoU2f() pulumi.StringMapOutput {

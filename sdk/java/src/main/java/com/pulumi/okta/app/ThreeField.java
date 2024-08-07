@@ -479,11 +479,18 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ThreeField(String name, ThreeFieldArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/threeField:ThreeField", name, args == null ? ThreeFieldArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:app/threeField:ThreeField", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ThreeField(String name, Output<String> id, @Nullable ThreeFieldState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:app/threeField:ThreeField", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ThreeFieldArgs makeArgs(ThreeFieldArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ThreeFieldArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

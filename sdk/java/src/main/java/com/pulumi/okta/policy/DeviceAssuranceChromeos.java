@@ -379,11 +379,18 @@ public class DeviceAssuranceChromeos extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public DeviceAssuranceChromeos(String name, @Nullable DeviceAssuranceChromeosArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos", name, args == null ? DeviceAssuranceChromeosArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DeviceAssuranceChromeos(String name, Output<String> id, @Nullable DeviceAssuranceChromeosState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DeviceAssuranceChromeosArgs makeArgs(@Nullable DeviceAssuranceChromeosArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DeviceAssuranceChromeosArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

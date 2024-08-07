@@ -385,6 +385,11 @@ export type ThreatInsightSettings = import("./threatInsightSettings").ThreatInsi
 export const ThreatInsightSettings: typeof import("./threatInsightSettings").ThreatInsightSettings = null as any;
 utilities.lazyLoad(exports, ["ThreatInsightSettings"], () => require("./threatInsightSettings"));
 
+export { TrustedServerArgs, TrustedServerState } from "./trustedServer";
+export type TrustedServer = import("./trustedServer").TrustedServer;
+export const TrustedServer: typeof import("./trustedServer").TrustedServer = null as any;
+utilities.lazyLoad(exports, ["TrustedServer"], () => require("./trustedServer"));
+
 export { UserAdminRolesArgs, UserAdminRolesState } from "./userAdminRoles";
 export type UserAdminRoles = import("./userAdminRoles").UserAdminRoles;
 export const UserAdminRoles: typeof import("./userAdminRoles").UserAdminRoles = null as any;
@@ -546,6 +551,8 @@ const _module = {
                 return new Theme(name, <any>undefined, { urn })
             case "okta:index/threatInsightSettings:ThreatInsightSettings":
                 return new ThreatInsightSettings(name, <any>undefined, { urn })
+            case "okta:index/trustedServer:TrustedServer":
+                return new TrustedServer(name, <any>undefined, { urn })
             case "okta:index/userAdminRoles:UserAdminRoles":
                 return new UserAdminRoles(name, <any>undefined, { urn })
             case "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty":
@@ -611,6 +618,7 @@ pulumi.runtime.registerResourceModule("okta", "index/securityNotificationEmails"
 pulumi.runtime.registerResourceModule("okta", "index/templateSms", _module)
 pulumi.runtime.registerResourceModule("okta", "index/theme", _module)
 pulumi.runtime.registerResourceModule("okta", "index/threatInsightSettings", _module)
+pulumi.runtime.registerResourceModule("okta", "index/trustedServer", _module)
 pulumi.runtime.registerResourceModule("okta", "index/userAdminRoles", _module)
 pulumi.runtime.registerResourceModule("okta", "index/userBaseSchemaProperty", _module)
 pulumi.runtime.registerResourceModule("okta", "index/userFactorQuestion", _module)

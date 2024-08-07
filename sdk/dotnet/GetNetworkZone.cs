@@ -63,11 +63,47 @@ namespace Pulumi.Okta
 
     public sealed class GetNetworkZoneArgs : global::Pulumi.InvokeArgs
     {
+        [Input("dynamicLocationsExcludes")]
+        private List<string>? _dynamicLocationsExcludes;
+
+        /// <summary>
+        /// Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+        /// </summary>
+        public List<string> DynamicLocationsExcludes
+        {
+            get => _dynamicLocationsExcludes ?? (_dynamicLocationsExcludes = new List<string>());
+            set => _dynamicLocationsExcludes = value;
+        }
+
         /// <summary>
         /// ID of the network zone to retrieve, conflicts with `name`.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
+
+        [Input("ipServiceCategoriesExcludes")]
+        private List<string>? _ipServiceCategoriesExcludes;
+
+        /// <summary>
+        /// List of ip service excluded. Use with type `DYNAMIC_V2`
+        /// </summary>
+        public List<string> IpServiceCategoriesExcludes
+        {
+            get => _ipServiceCategoriesExcludes ?? (_ipServiceCategoriesExcludes = new List<string>());
+            set => _ipServiceCategoriesExcludes = value;
+        }
+
+        [Input("ipServiceCategoriesIncludes")]
+        private List<string>? _ipServiceCategoriesIncludes;
+
+        /// <summary>
+        /// List of ip service included. Use with type `DYNAMIC_V2`
+        /// </summary>
+        public List<string> IpServiceCategoriesIncludes
+        {
+            get => _ipServiceCategoriesIncludes ?? (_ipServiceCategoriesIncludes = new List<string>());
+            set => _ipServiceCategoriesIncludes = value;
+        }
 
         /// <summary>
         /// Name of the network zone to retrieve, conflicts with `id`.
@@ -83,11 +119,47 @@ namespace Pulumi.Okta
 
     public sealed class GetNetworkZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("dynamicLocationsExcludes")]
+        private InputList<string>? _dynamicLocationsExcludes;
+
+        /// <summary>
+        /// Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+        /// </summary>
+        public InputList<string> DynamicLocationsExcludes
+        {
+            get => _dynamicLocationsExcludes ?? (_dynamicLocationsExcludes = new InputList<string>());
+            set => _dynamicLocationsExcludes = value;
+        }
+
         /// <summary>
         /// ID of the network zone to retrieve, conflicts with `name`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("ipServiceCategoriesExcludes")]
+        private InputList<string>? _ipServiceCategoriesExcludes;
+
+        /// <summary>
+        /// List of ip service excluded. Use with type `DYNAMIC_V2`
+        /// </summary>
+        public InputList<string> IpServiceCategoriesExcludes
+        {
+            get => _ipServiceCategoriesExcludes ?? (_ipServiceCategoriesExcludes = new InputList<string>());
+            set => _ipServiceCategoriesExcludes = value;
+        }
+
+        [Input("ipServiceCategoriesIncludes")]
+        private InputList<string>? _ipServiceCategoriesIncludes;
+
+        /// <summary>
+        /// List of ip service included. Use with type `DYNAMIC_V2`
+        /// </summary>
+        public InputList<string> IpServiceCategoriesIncludes
+        {
+            get => _ipServiceCategoriesIncludes ?? (_ipServiceCategoriesIncludes = new InputList<string>());
+            set => _ipServiceCategoriesIncludes = value;
+        }
 
         /// <summary>
         /// Name of the network zone to retrieve, conflicts with `id`.
@@ -106,19 +178,23 @@ namespace Pulumi.Okta
     public sealed class GetNetworkZoneResult
     {
         /// <summary>
-        /// Format of each array value: a string representation of an ASN numeric value
+        /// List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
         /// </summary>
         public readonly ImmutableArray<string> Asns;
         /// <summary>
-        /// Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+        /// Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
         /// </summary>
         public readonly ImmutableArray<string> DynamicLocations;
         /// <summary>
-        /// Type of proxy being controlled by this network zone
+        /// Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+        /// </summary>
+        public readonly ImmutableArray<string> DynamicLocationsExcludes;
+        /// <summary>
+        /// Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
         /// </summary>
         public readonly string DynamicProxyType;
         /// <summary>
-        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
         /// </summary>
         public readonly ImmutableArray<string> Gateways;
         /// <summary>
@@ -126,11 +202,19 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// List of ip service excluded. Use with type `DYNAMIC_V2`
+        /// </summary>
+        public readonly ImmutableArray<string> IpServiceCategoriesExcludes;
+        /// <summary>
+        /// List of ip service included. Use with type `DYNAMIC_V2`
+        /// </summary>
+        public readonly ImmutableArray<string> IpServiceCategoriesIncludes;
+        /// <summary>
         /// Name of the network zone to retrieve, conflicts with `id`.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
         /// </summary>
         public readonly ImmutableArray<string> Proxies;
         /// <summary>
@@ -138,7 +222,7 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Type of the Network Zone - can either be IP or DYNAMIC only
+        /// Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -152,11 +236,17 @@ namespace Pulumi.Okta
 
             ImmutableArray<string> dynamicLocations,
 
+            ImmutableArray<string> dynamicLocationsExcludes,
+
             string dynamicProxyType,
 
             ImmutableArray<string> gateways,
 
             string? id,
+
+            ImmutableArray<string> ipServiceCategoriesExcludes,
+
+            ImmutableArray<string> ipServiceCategoriesIncludes,
 
             string? name,
 
@@ -170,9 +260,12 @@ namespace Pulumi.Okta
         {
             Asns = asns;
             DynamicLocations = dynamicLocations;
+            DynamicLocationsExcludes = dynamicLocationsExcludes;
             DynamicProxyType = dynamicProxyType;
             Gateways = gateways;
             Id = id;
+            IpServiceCategoriesExcludes = ipServiceCategoriesExcludes;
+            IpServiceCategoriesIncludes = ipServiceCategoriesIncludes;
             Name = name;
             Proxies = proxies;
             Status = status;

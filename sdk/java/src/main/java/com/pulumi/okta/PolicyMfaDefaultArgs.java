@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -24,11 +25,30 @@ public final class PolicyMfaDefaultArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.duo);
     }
 
+    /**
+     * @deprecated
+     * Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead
+     * 
+     */
+    @Deprecated /* Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead */
     @Import(name="externalIdp")
     private @Nullable Output<Map<String,String>> externalIdp;
 
+    /**
+     * @deprecated
+     * Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead
+     * 
+     */
+    @Deprecated /* Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead */
     public Optional<Output<Map<String,String>>> externalIdp() {
         return Optional.ofNullable(this.externalIdp);
+    }
+
+    @Import(name="externalIdps")
+    private @Nullable Output<List<Map<String,String>>> externalIdps;
+
+    public Optional<Output<List<Map<String,String>>>> externalIdps() {
+        return Optional.ofNullable(this.externalIdps);
     }
 
     @Import(name="fidoU2f")
@@ -184,6 +204,7 @@ public final class PolicyMfaDefaultArgs extends com.pulumi.resources.ResourceArg
     private PolicyMfaDefaultArgs(PolicyMfaDefaultArgs $) {
         this.duo = $.duo;
         this.externalIdp = $.externalIdp;
+        this.externalIdps = $.externalIdps;
         this.fidoU2f = $.fidoU2f;
         this.fidoWebauthn = $.fidoWebauthn;
         this.googleOtp = $.googleOtp;
@@ -233,13 +254,42 @@ public final class PolicyMfaDefaultArgs extends com.pulumi.resources.ResourceArg
             return duo(Output.of(duo));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead
+         * 
+         */
+        @Deprecated /* Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead */
         public Builder externalIdp(@Nullable Output<Map<String,String>> externalIdp) {
             $.externalIdp = externalIdp;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead
+         * 
+         */
+        @Deprecated /* Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead */
         public Builder externalIdp(Map<String,String> externalIdp) {
             return externalIdp(Output.of(externalIdp));
+        }
+
+        public Builder externalIdps(@Nullable Output<List<Map<String,String>>> externalIdps) {
+            $.externalIdps = externalIdps;
+            return this;
+        }
+
+        public Builder externalIdps(List<Map<String,String>> externalIdps) {
+            return externalIdps(Output.of(externalIdps));
+        }
+
+        public Builder externalIdps(Map<String,String>... externalIdps) {
+            return externalIdps(List.of(externalIdps));
         }
 
         public Builder fidoU2f(@Nullable Output<Map<String,String>> fidoU2f) {

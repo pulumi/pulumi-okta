@@ -95,11 +95,18 @@ public class AdminRoleCustomAssignments extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public AdminRoleCustomAssignments(String name, AdminRoleCustomAssignmentsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments", name, args == null ? AdminRoleCustomAssignmentsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AdminRoleCustomAssignments(String name, Output<String> id, @Nullable AdminRoleCustomAssignmentsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AdminRoleCustomAssignmentsArgs makeArgs(AdminRoleCustomAssignmentsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AdminRoleCustomAssignmentsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

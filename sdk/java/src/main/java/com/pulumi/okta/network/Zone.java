@@ -28,60 +28,102 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:network/zone:Zone")
 public class Zone extends com.pulumi.resources.CustomResource {
     /**
-     * Format of each array value: a string representation of an ASN numeric value
+     * List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
      * 
      */
     @Export(name="asns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> asns;
 
     /**
-     * @return Format of each array value: a string representation of an ASN numeric value
+     * @return List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
      * 
      */
     public Output<Optional<List<String>>> asns() {
         return Codegen.optional(this.asns);
     }
     /**
-     * Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+     * Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
      * 
      */
     @Export(name="dynamicLocations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dynamicLocations;
 
     /**
-     * @return Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+     * @return Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
      * 
      */
     public Output<Optional<List<String>>> dynamicLocations() {
         return Codegen.optional(this.dynamicLocations);
     }
     /**
-     * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+     * Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+     * 
+     */
+    @Export(name="dynamicLocationsExcludes", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> dynamicLocationsExcludes;
+
+    /**
+     * @return Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+     * 
+     */
+    public Output<Optional<List<String>>> dynamicLocationsExcludes() {
+        return Codegen.optional(this.dynamicLocationsExcludes);
+    }
+    /**
+     * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
      * 
      */
     @Export(name="dynamicProxyType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dynamicProxyType;
 
     /**
-     * @return Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+     * @return Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
      * 
      */
     public Output<Optional<String>> dynamicProxyType() {
         return Codegen.optional(this.dynamicProxyType);
     }
     /**
-     * Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+     * Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
      * 
      */
     @Export(name="gateways", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> gateways;
 
     /**
-     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
      * 
      */
     public Output<Optional<List<String>>> gateways() {
         return Codegen.optional(this.gateways);
+    }
+    /**
+     * List of ip service excluded. Use with type `DYNAMIC_V2`
+     * 
+     */
+    @Export(name="ipServiceCategoriesExcludes", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> ipServiceCategoriesExcludes;
+
+    /**
+     * @return List of ip service excluded. Use with type `DYNAMIC_V2`
+     * 
+     */
+    public Output<Optional<List<String>>> ipServiceCategoriesExcludes() {
+        return Codegen.optional(this.ipServiceCategoriesExcludes);
+    }
+    /**
+     * List of ip service included. Use with type `DYNAMIC_V2`
+     * 
+     */
+    @Export(name="ipServiceCategoriesIncludes", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> ipServiceCategoriesIncludes;
+
+    /**
+     * @return List of ip service included. Use with type `DYNAMIC_V2`
+     * 
+     */
+    public Output<Optional<List<String>>> ipServiceCategoriesIncludes() {
+        return Codegen.optional(this.ipServiceCategoriesIncludes);
     }
     /**
      * Name of the Network Zone Resource
@@ -98,14 +140,14 @@ public class Zone extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+     * Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
      * 
      */
     @Export(name="proxies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> proxies;
 
     /**
-     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
      * 
      */
     public Output<Optional<List<String>>> proxies() {
@@ -126,14 +168,14 @@ public class Zone extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.status);
     }
     /**
-     * Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+     * Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+     * @return Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      * 
      */
     public Output<String> type() {
@@ -176,11 +218,18 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Zone(String name, ZoneArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:network/zone:Zone", name, args == null ? ZoneArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:network/zone:Zone", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Zone(String name, Output<String> id, @Nullable ZoneState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:network/zone:Zone", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ZoneArgs makeArgs(ZoneArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ZoneArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -64,12 +64,6 @@ import (
 //	}
 //
 // ```
-//
-// ## Import
-//
-// ```sh
-// $ pulumi import okta:profile/mapping:Mapping example &#60;id&#62;
-// ```
 type Mapping struct {
 	pulumi.CustomResourceState
 

@@ -330,11 +330,18 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServerPolicyRule(String name, ServerPolicyRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:auth/serverPolicyRule:ServerPolicyRule", name, args == null ? ServerPolicyRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:auth/serverPolicyRule:ServerPolicyRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServerPolicyRule(String name, Output<String> id, @Nullable ServerPolicyRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:auth/serverPolicyRule:ServerPolicyRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServerPolicyRuleArgs makeArgs(ServerPolicyRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerPolicyRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

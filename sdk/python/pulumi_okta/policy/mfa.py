@@ -17,6 +17,7 @@ class MfaArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  external_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 external_idps: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]] = None,
                  fido_u2f: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -55,7 +56,12 @@ class MfaArgs:
         if duo is not None:
             pulumi.set(__self__, "duo", duo)
         if external_idp is not None:
+            warnings.warn("""Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead""", DeprecationWarning)
+            pulumi.log.warn("""external_idp is deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead""")
+        if external_idp is not None:
             pulumi.set(__self__, "external_idp", external_idp)
+        if external_idps is not None:
+            pulumi.set(__self__, "external_idps", external_idps)
         if fido_u2f is not None:
             pulumi.set(__self__, "fido_u2f", fido_u2f)
         if fido_webauthn is not None:
@@ -128,12 +134,22 @@ class MfaArgs:
 
     @property
     @pulumi.getter(name="externalIdp")
+    @_utilities.deprecated("""Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead""")
     def external_idp(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "external_idp")
 
     @external_idp.setter
     def external_idp(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "external_idp", value)
+
+    @property
+    @pulumi.getter(name="externalIdps")
+    def external_idps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]]:
+        return pulumi.get(self, "external_idps")
+
+    @external_idps.setter
+    def external_idps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]]):
+        pulumi.set(self, "external_idps", value)
 
     @property
     @pulumi.getter(name="fidoU2f")
@@ -373,6 +389,7 @@ class _MfaState:
                  description: Optional[pulumi.Input[str]] = None,
                  duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  external_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 external_idps: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]] = None,
                  fido_u2f: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -411,7 +428,12 @@ class _MfaState:
         if duo is not None:
             pulumi.set(__self__, "duo", duo)
         if external_idp is not None:
+            warnings.warn("""Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead""", DeprecationWarning)
+            pulumi.log.warn("""external_idp is deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead""")
+        if external_idp is not None:
             pulumi.set(__self__, "external_idp", external_idp)
+        if external_idps is not None:
+            pulumi.set(__self__, "external_idps", external_idps)
         if fido_u2f is not None:
             pulumi.set(__self__, "fido_u2f", fido_u2f)
         if fido_webauthn is not None:
@@ -484,12 +506,22 @@ class _MfaState:
 
     @property
     @pulumi.getter(name="externalIdp")
+    @_utilities.deprecated("""Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead""")
     def external_idp(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "external_idp")
 
     @external_idp.setter
     def external_idp(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "external_idp", value)
+
+    @property
+    @pulumi.getter(name="externalIdps")
+    def external_idps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]]:
+        return pulumi.get(self, "external_idps")
+
+    @external_idps.setter
+    def external_idps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]]):
+        pulumi.set(self, "external_idps", value)
 
     @property
     @pulumi.getter(name="fidoU2f")
@@ -731,6 +763,7 @@ class Mfa(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  external_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 external_idps: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]] = None,
                  fido_u2f: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -759,36 +792,6 @@ class Mfa(pulumi.CustomResource):
         """
         ## Example Usage
 
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        classic_example = okta.policy.Mfa("classic_example",
-            name="MFA Policy Classic",
-            status="ACTIVE",
-            description="Example MFA policy using Okta Classic engine with factors.",
-            is_oie=False,
-            okta_password={
-                "enroll": "REQUIRED",
-            },
-            okta_otp={
-                "enroll": "REQUIRED",
-            },
-            groups_includeds=[everyone["id"]])
-        oie_example = okta.policy.Mfa("oie_example",
-            name="MFA Policy OIE",
-            status="ACTIVE",
-            description="Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
-            is_oie=True,
-            okta_password={
-                "enroll": "REQUIRED",
-            },
-            okta_verify={
-                "enroll": "REQUIRED",
-            },
-            groups_includeds=[everyone["id"]])
-        ```
-
         ## Import
 
         ```sh
@@ -812,36 +815,6 @@ class Mfa(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        classic_example = okta.policy.Mfa("classic_example",
-            name="MFA Policy Classic",
-            status="ACTIVE",
-            description="Example MFA policy using Okta Classic engine with factors.",
-            is_oie=False,
-            okta_password={
-                "enroll": "REQUIRED",
-            },
-            okta_otp={
-                "enroll": "REQUIRED",
-            },
-            groups_includeds=[everyone["id"]])
-        oie_example = okta.policy.Mfa("oie_example",
-            name="MFA Policy OIE",
-            status="ACTIVE",
-            description="Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
-            is_oie=True,
-            okta_password={
-                "enroll": "REQUIRED",
-            },
-            okta_verify={
-                "enroll": "REQUIRED",
-            },
-            groups_includeds=[everyone["id"]])
-        ```
 
         ## Import
 
@@ -867,6 +840,7 @@ class Mfa(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  external_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 external_idps: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]] = None,
                  fido_u2f: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -903,6 +877,7 @@ class Mfa(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["duo"] = duo
             __props__.__dict__["external_idp"] = external_idp
+            __props__.__dict__["external_idps"] = external_idps
             __props__.__dict__["fido_u2f"] = fido_u2f
             __props__.__dict__["fido_webauthn"] = fido_webauthn
             __props__.__dict__["google_otp"] = google_otp
@@ -940,6 +915,7 @@ class Mfa(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             external_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            external_idps: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]] = None,
             fido_u2f: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             fido_webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             google_otp: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -985,6 +961,7 @@ class Mfa(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["duo"] = duo
         __props__.__dict__["external_idp"] = external_idp
+        __props__.__dict__["external_idps"] = external_idps
         __props__.__dict__["fido_u2f"] = fido_u2f
         __props__.__dict__["fido_webauthn"] = fido_webauthn
         __props__.__dict__["google_otp"] = google_otp
@@ -1026,8 +1003,14 @@ class Mfa(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalIdp")
+    @_utilities.deprecated("""Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead""")
     def external_idp(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "external_idp")
+
+    @property
+    @pulumi.getter(name="externalIdps")
+    def external_idps(self) -> pulumi.Output[Optional[Sequence[Mapping[str, str]]]]:
+        return pulumi.get(self, "external_idps")
 
     @property
     @pulumi.getter(name="fidoU2f")

@@ -162,11 +162,18 @@ public class AdminRoleTargets extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AdminRoleTargets(String name, AdminRoleTargetsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/adminRoleTargets:AdminRoleTargets", name, args == null ? AdminRoleTargetsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/adminRoleTargets:AdminRoleTargets", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AdminRoleTargets(String name, Output<String> id, @Nullable AdminRoleTargetsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/adminRoleTargets:AdminRoleTargets", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AdminRoleTargetsArgs makeArgs(AdminRoleTargetsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AdminRoleTargetsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

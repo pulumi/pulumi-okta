@@ -81,6 +81,7 @@ from .security_notification_emails import *
 from .template_sms import *
 from .theme import *
 from .threat_insight_settings import *
+from .trusted_server import *
 from .user_admin_roles import *
 from .user_base_schema_property import *
 from .user_factor_question import *
@@ -754,6 +755,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/threatInsightSettings:ThreatInsightSettings": "ThreatInsightSettings"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/trustedServer",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/trustedServer:TrustedServer": "TrustedServer"
   }
  },
  {

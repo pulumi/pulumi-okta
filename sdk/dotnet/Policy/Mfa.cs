@@ -12,57 +12,6 @@ namespace Pulumi.Okta.Policy
     /// <summary>
     /// ## Example Usage
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var classicExample = new Okta.Policy.Mfa("classic_example", new()
-    ///     {
-    ///         Name = "MFA Policy Classic",
-    ///         Status = "ACTIVE",
-    ///         Description = "Example MFA policy using Okta Classic engine with factors.",
-    ///         IsOie = false,
-    ///         OktaPassword = 
-    ///         {
-    ///             { "enroll", "REQUIRED" },
-    ///         },
-    ///         OktaOtp = 
-    ///         {
-    ///             { "enroll", "REQUIRED" },
-    ///         },
-    ///         GroupsIncludeds = new[]
-    ///         {
-    ///             everyone.Id,
-    ///         },
-    ///     });
-    /// 
-    ///     var oieExample = new Okta.Policy.Mfa("oie_example", new()
-    ///     {
-    ///         Name = "MFA Policy OIE",
-    ///         Status = "ACTIVE",
-    ///         Description = "Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
-    ///         IsOie = true,
-    ///         OktaPassword = 
-    ///         {
-    ///             { "enroll", "REQUIRED" },
-    ///         },
-    ///         OktaVerify = 
-    ///         {
-    ///             { "enroll", "REQUIRED" },
-    ///         },
-    ///         GroupsIncludeds = new[]
-    ///         {
-    ///             everyone.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -83,6 +32,9 @@ namespace Pulumi.Okta.Policy
 
         [Output("externalIdp")]
         public Output<ImmutableDictionary<string, string>?> ExternalIdp { get; private set; } = null!;
+
+        [Output("externalIdps")]
+        public Output<ImmutableArray<ImmutableDictionary<string, string>>> ExternalIdps { get; private set; } = null!;
 
         [Output("fidoU2f")]
         public Output<ImmutableDictionary<string, string>?> FidoU2f { get; private set; } = null!;
@@ -233,10 +185,19 @@ namespace Pulumi.Okta.Policy
 
         [Input("externalIdp")]
         private InputMap<string>? _externalIdp;
+        [Obsolete(@"Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead")]
         public InputMap<string> ExternalIdp
         {
             get => _externalIdp ?? (_externalIdp = new InputMap<string>());
             set => _externalIdp = value;
+        }
+
+        [Input("externalIdps")]
+        private InputList<ImmutableDictionary<string, string>>? _externalIdps;
+        public InputList<ImmutableDictionary<string, string>> ExternalIdps
+        {
+            get => _externalIdps ?? (_externalIdps = new InputList<ImmutableDictionary<string, string>>());
+            set => _externalIdps = value;
         }
 
         [Input("fidoU2f")]
@@ -451,10 +412,19 @@ namespace Pulumi.Okta.Policy
 
         [Input("externalIdp")]
         private InputMap<string>? _externalIdp;
+        [Obsolete(@"Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead")]
         public InputMap<string> ExternalIdp
         {
             get => _externalIdp ?? (_externalIdp = new InputMap<string>());
             set => _externalIdp = value;
+        }
+
+        [Input("externalIdps")]
+        private InputList<ImmutableDictionary<string, string>>? _externalIdps;
+        public InputList<ImmutableDictionary<string, string>> ExternalIdps
+        {
+            get => _externalIdps ?? (_externalIdps = new InputList<ImmutableDictionary<string, string>>());
+            set => _externalIdps = value;
         }
 
         [Input("fidoU2f")]

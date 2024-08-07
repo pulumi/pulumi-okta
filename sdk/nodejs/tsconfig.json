@@ -160,6 +160,7 @@
         "templateSms.ts",
         "theme.ts",
         "threatInsightSettings.ts",
+        "trustedServer.ts",
         "trustedorigin/index.ts",
         "trustedorigin/origin.ts",
         "types/index.ts",

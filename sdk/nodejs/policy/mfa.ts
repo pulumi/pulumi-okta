@@ -7,38 +7,6 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const classicExample = new okta.policy.Mfa("classic_example", {
- *     name: "MFA Policy Classic",
- *     status: "ACTIVE",
- *     description: "Example MFA policy using Okta Classic engine with factors.",
- *     isOie: false,
- *     oktaPassword: {
- *         enroll: "REQUIRED",
- *     },
- *     oktaOtp: {
- *         enroll: "REQUIRED",
- *     },
- *     groupsIncludeds: [everyone.id],
- * });
- * const oieExample = new okta.policy.Mfa("oie_example", {
- *     name: "MFA Policy OIE",
- *     status: "ACTIVE",
- *     description: "Example MFA policy that uses Okta Identity Engine (OIE) with authenticators",
- *     isOie: true,
- *     oktaPassword: {
- *         enroll: "REQUIRED",
- *     },
- *     oktaVerify: {
- *         enroll: "REQUIRED",
- *     },
- *     groupsIncludeds: [everyone.id],
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -78,7 +46,11 @@ export class Mfa extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly duo!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * @deprecated Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
+     */
     public readonly externalIdp!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly externalIdps!: pulumi.Output<{[key: string]: string}[] | undefined>;
     public readonly fidoU2f!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly fidoWebauthn!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly googleOtp!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -135,6 +107,7 @@ export class Mfa extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["duo"] = state ? state.duo : undefined;
             resourceInputs["externalIdp"] = state ? state.externalIdp : undefined;
+            resourceInputs["externalIdps"] = state ? state.externalIdps : undefined;
             resourceInputs["fidoU2f"] = state ? state.fidoU2f : undefined;
             resourceInputs["fidoWebauthn"] = state ? state.fidoWebauthn : undefined;
             resourceInputs["googleOtp"] = state ? state.googleOtp : undefined;
@@ -164,6 +137,7 @@ export class Mfa extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["duo"] = args ? args.duo : undefined;
             resourceInputs["externalIdp"] = args ? args.externalIdp : undefined;
+            resourceInputs["externalIdps"] = args ? args.externalIdps : undefined;
             resourceInputs["fidoU2f"] = args ? args.fidoU2f : undefined;
             resourceInputs["fidoWebauthn"] = args ? args.fidoWebauthn : undefined;
             resourceInputs["googleOtp"] = args ? args.googleOtp : undefined;
@@ -203,7 +177,11 @@ export interface MfaState {
      */
     description?: pulumi.Input<string>;
     duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * @deprecated Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
+     */
     externalIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    externalIdps?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
     fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -254,7 +232,11 @@ export interface MfaArgs {
      */
     description?: pulumi.Input<string>;
     duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * @deprecated Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
+     */
     externalIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    externalIdps?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
     fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
