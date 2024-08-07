@@ -50,31 +50,43 @@ func GetNetworkZone(ctx *pulumi.Context, args *GetNetworkZoneArgs, opts ...pulum
 
 // A collection of arguments for invoking getNetworkZone.
 type GetNetworkZoneArgs struct {
+	// Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+	DynamicLocationsExcludes []string `pulumi:"dynamicLocationsExcludes"`
 	// ID of the network zone to retrieve, conflicts with `name`.
 	Id *string `pulumi:"id"`
+	// List of ip service excluded. Use with type `DYNAMIC_V2`
+	IpServiceCategoriesExcludes []string `pulumi:"ipServiceCategoriesExcludes"`
+	// List of ip service included. Use with type `DYNAMIC_V2`
+	IpServiceCategoriesIncludes []string `pulumi:"ipServiceCategoriesIncludes"`
 	// Name of the network zone to retrieve, conflicts with `id`.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getNetworkZone.
 type GetNetworkZoneResult struct {
-	// Format of each array value: a string representation of an ASN numeric value
+	// List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
 	Asns []string `pulumi:"asns"`
-	// Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+	// Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
 	DynamicLocations []string `pulumi:"dynamicLocations"`
-	// Type of proxy being controlled by this network zone
+	// Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+	DynamicLocationsExcludes []string `pulumi:"dynamicLocationsExcludes"`
+	// Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
 	DynamicProxyType string `pulumi:"dynamicProxyType"`
-	// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+	// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
 	Gateways []string `pulumi:"gateways"`
 	// ID of the network zone to retrieve, conflicts with `name`.
 	Id *string `pulumi:"id"`
+	// List of ip service excluded. Use with type `DYNAMIC_V2`
+	IpServiceCategoriesExcludes []string `pulumi:"ipServiceCategoriesExcludes"`
+	// List of ip service included. Use with type `DYNAMIC_V2`
+	IpServiceCategoriesIncludes []string `pulumi:"ipServiceCategoriesIncludes"`
 	// Name of the network zone to retrieve, conflicts with `id`.
 	Name *string `pulumi:"name"`
-	// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+	// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
 	Proxies []string `pulumi:"proxies"`
 	// Network Status - can either be ACTIVE or INACTIVE only
 	Status string `pulumi:"status"`
-	// Type of the Network Zone - can either be IP or DYNAMIC only
+	// Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
 	Type string `pulumi:"type"`
 	// Zone's purpose: POLICY or BLOCKLIST
 	Usage string `pulumi:"usage"`
@@ -95,8 +107,14 @@ func GetNetworkZoneOutput(ctx *pulumi.Context, args GetNetworkZoneOutputArgs, op
 
 // A collection of arguments for invoking getNetworkZone.
 type GetNetworkZoneOutputArgs struct {
+	// Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+	DynamicLocationsExcludes pulumi.StringArrayInput `pulumi:"dynamicLocationsExcludes"`
 	// ID of the network zone to retrieve, conflicts with `name`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// List of ip service excluded. Use with type `DYNAMIC_V2`
+	IpServiceCategoriesExcludes pulumi.StringArrayInput `pulumi:"ipServiceCategoriesExcludes"`
+	// List of ip service included. Use with type `DYNAMIC_V2`
+	IpServiceCategoriesIncludes pulumi.StringArrayInput `pulumi:"ipServiceCategoriesIncludes"`
 	// Name of the network zone to retrieve, conflicts with `id`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
@@ -120,22 +138,27 @@ func (o GetNetworkZoneResultOutput) ToGetNetworkZoneResultOutputWithContext(ctx 
 	return o
 }
 
-// Format of each array value: a string representation of an ASN numeric value
+// List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
 func (o GetNetworkZoneResultOutput) Asns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) []string { return v.Asns }).(pulumi.StringArrayOutput)
 }
 
-// Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+// Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
 func (o GetNetworkZoneResultOutput) DynamicLocations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) []string { return v.DynamicLocations }).(pulumi.StringArrayOutput)
 }
 
-// Type of proxy being controlled by this network zone
+// Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+func (o GetNetworkZoneResultOutput) DynamicLocationsExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkZoneResult) []string { return v.DynamicLocationsExcludes }).(pulumi.StringArrayOutput)
+}
+
+// Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
 func (o GetNetworkZoneResultOutput) DynamicProxyType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) string { return v.DynamicProxyType }).(pulumi.StringOutput)
 }
 
-// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
 func (o GetNetworkZoneResultOutput) Gateways() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) []string { return v.Gateways }).(pulumi.StringArrayOutput)
 }
@@ -145,12 +168,22 @@ func (o GetNetworkZoneResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// List of ip service excluded. Use with type `DYNAMIC_V2`
+func (o GetNetworkZoneResultOutput) IpServiceCategoriesExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkZoneResult) []string { return v.IpServiceCategoriesExcludes }).(pulumi.StringArrayOutput)
+}
+
+// List of ip service included. Use with type `DYNAMIC_V2`
+func (o GetNetworkZoneResultOutput) IpServiceCategoriesIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkZoneResult) []string { return v.IpServiceCategoriesIncludes }).(pulumi.StringArrayOutput)
+}
+
 // Name of the network zone to retrieve, conflicts with `id`.
 func (o GetNetworkZoneResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
 func (o GetNetworkZoneResultOutput) Proxies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) []string { return v.Proxies }).(pulumi.StringArrayOutput)
 }
@@ -160,7 +193,7 @@ func (o GetNetworkZoneResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Type of the Network Zone - can either be IP or DYNAMIC only
+// Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
 func (o GetNetworkZoneResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) string { return v.Type }).(pulumi.StringOutput)
 }

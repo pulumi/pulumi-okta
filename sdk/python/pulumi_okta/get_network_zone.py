@@ -21,13 +21,16 @@ class GetNetworkZoneResult:
     """
     A collection of values returned by getNetworkZone.
     """
-    def __init__(__self__, asns=None, dynamic_locations=None, dynamic_proxy_type=None, gateways=None, id=None, name=None, proxies=None, status=None, type=None, usage=None):
+    def __init__(__self__, asns=None, dynamic_locations=None, dynamic_locations_excludes=None, dynamic_proxy_type=None, gateways=None, id=None, ip_service_categories_excludes=None, ip_service_categories_includes=None, name=None, proxies=None, status=None, type=None, usage=None):
         if asns and not isinstance(asns, list):
             raise TypeError("Expected argument 'asns' to be a list")
         pulumi.set(__self__, "asns", asns)
         if dynamic_locations and not isinstance(dynamic_locations, list):
             raise TypeError("Expected argument 'dynamic_locations' to be a list")
         pulumi.set(__self__, "dynamic_locations", dynamic_locations)
+        if dynamic_locations_excludes and not isinstance(dynamic_locations_excludes, list):
+            raise TypeError("Expected argument 'dynamic_locations_excludes' to be a list")
+        pulumi.set(__self__, "dynamic_locations_excludes", dynamic_locations_excludes)
         if dynamic_proxy_type and not isinstance(dynamic_proxy_type, str):
             raise TypeError("Expected argument 'dynamic_proxy_type' to be a str")
         pulumi.set(__self__, "dynamic_proxy_type", dynamic_proxy_type)
@@ -37,6 +40,12 @@ class GetNetworkZoneResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ip_service_categories_excludes and not isinstance(ip_service_categories_excludes, list):
+            raise TypeError("Expected argument 'ip_service_categories_excludes' to be a list")
+        pulumi.set(__self__, "ip_service_categories_excludes", ip_service_categories_excludes)
+        if ip_service_categories_includes and not isinstance(ip_service_categories_includes, list):
+            raise TypeError("Expected argument 'ip_service_categories_includes' to be a list")
+        pulumi.set(__self__, "ip_service_categories_includes", ip_service_categories_includes)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -57,7 +66,7 @@ class GetNetworkZoneResult:
     @pulumi.getter
     def asns(self) -> Sequence[str]:
         """
-        Format of each array value: a string representation of an ASN numeric value
+        List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
         """
         return pulumi.get(self, "asns")
 
@@ -65,15 +74,23 @@ class GetNetworkZoneResult:
     @pulumi.getter(name="dynamicLocations")
     def dynamic_locations(self) -> Sequence[str]:
         """
-        Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+        Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
         """
         return pulumi.get(self, "dynamic_locations")
+
+    @property
+    @pulumi.getter(name="dynamicLocationsExcludes")
+    def dynamic_locations_excludes(self) -> Optional[Sequence[str]]:
+        """
+        Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+        """
+        return pulumi.get(self, "dynamic_locations_excludes")
 
     @property
     @pulumi.getter(name="dynamicProxyType")
     def dynamic_proxy_type(self) -> str:
         """
-        Type of proxy being controlled by this network zone
+        Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
         """
         return pulumi.get(self, "dynamic_proxy_type")
 
@@ -81,7 +98,7 @@ class GetNetworkZoneResult:
     @pulumi.getter
     def gateways(self) -> Sequence[str]:
         """
-        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
         """
         return pulumi.get(self, "gateways")
 
@@ -92,6 +109,22 @@ class GetNetworkZoneResult:
         ID of the network zone to retrieve, conflicts with `name`.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipServiceCategoriesExcludes")
+    def ip_service_categories_excludes(self) -> Optional[Sequence[str]]:
+        """
+        List of ip service excluded. Use with type `DYNAMIC_V2`
+        """
+        return pulumi.get(self, "ip_service_categories_excludes")
+
+    @property
+    @pulumi.getter(name="ipServiceCategoriesIncludes")
+    def ip_service_categories_includes(self) -> Optional[Sequence[str]]:
+        """
+        List of ip service included. Use with type `DYNAMIC_V2`
+        """
+        return pulumi.get(self, "ip_service_categories_includes")
 
     @property
     @pulumi.getter
@@ -105,7 +138,7 @@ class GetNetworkZoneResult:
     @pulumi.getter
     def proxies(self) -> Sequence[str]:
         """
-        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
         """
         return pulumi.get(self, "proxies")
 
@@ -121,7 +154,7 @@ class GetNetworkZoneResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the Network Zone - can either be IP or DYNAMIC only
+        Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
         """
         return pulumi.get(self, "type")
 
@@ -142,9 +175,12 @@ class AwaitableGetNetworkZoneResult(GetNetworkZoneResult):
         return GetNetworkZoneResult(
             asns=self.asns,
             dynamic_locations=self.dynamic_locations,
+            dynamic_locations_excludes=self.dynamic_locations_excludes,
             dynamic_proxy_type=self.dynamic_proxy_type,
             gateways=self.gateways,
             id=self.id,
+            ip_service_categories_excludes=self.ip_service_categories_excludes,
+            ip_service_categories_includes=self.ip_service_categories_includes,
             name=self.name,
             proxies=self.proxies,
             status=self.status,
@@ -152,7 +188,10 @@ class AwaitableGetNetworkZoneResult(GetNetworkZoneResult):
             usage=self.usage)
 
 
-def get_network_zone(id: Optional[str] = None,
+def get_network_zone(dynamic_locations_excludes: Optional[Sequence[str]] = None,
+                     id: Optional[str] = None,
+                     ip_service_categories_excludes: Optional[Sequence[str]] = None,
+                     ip_service_categories_includes: Optional[Sequence[str]] = None,
                      name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkZoneResult:
     """
@@ -168,11 +207,17 @@ def get_network_zone(id: Optional[str] = None,
     ```
 
 
+    :param Sequence[str] dynamic_locations_excludes: Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
     :param str id: ID of the network zone to retrieve, conflicts with `name`.
+    :param Sequence[str] ip_service_categories_excludes: List of ip service excluded. Use with type `DYNAMIC_V2`
+    :param Sequence[str] ip_service_categories_includes: List of ip service included. Use with type `DYNAMIC_V2`
     :param str name: Name of the network zone to retrieve, conflicts with `id`.
     """
     __args__ = dict()
+    __args__['dynamicLocationsExcludes'] = dynamic_locations_excludes
     __args__['id'] = id
+    __args__['ipServiceCategoriesExcludes'] = ip_service_categories_excludes
+    __args__['ipServiceCategoriesIncludes'] = ip_service_categories_includes
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('okta:index/getNetworkZone:getNetworkZone', __args__, opts=opts, typ=GetNetworkZoneResult).value
@@ -180,9 +225,12 @@ def get_network_zone(id: Optional[str] = None,
     return AwaitableGetNetworkZoneResult(
         asns=pulumi.get(__ret__, 'asns'),
         dynamic_locations=pulumi.get(__ret__, 'dynamic_locations'),
+        dynamic_locations_excludes=pulumi.get(__ret__, 'dynamic_locations_excludes'),
         dynamic_proxy_type=pulumi.get(__ret__, 'dynamic_proxy_type'),
         gateways=pulumi.get(__ret__, 'gateways'),
         id=pulumi.get(__ret__, 'id'),
+        ip_service_categories_excludes=pulumi.get(__ret__, 'ip_service_categories_excludes'),
+        ip_service_categories_includes=pulumi.get(__ret__, 'ip_service_categories_includes'),
         name=pulumi.get(__ret__, 'name'),
         proxies=pulumi.get(__ret__, 'proxies'),
         status=pulumi.get(__ret__, 'status'),
@@ -191,7 +239,10 @@ def get_network_zone(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_network_zone)
-def get_network_zone_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_network_zone_output(dynamic_locations_excludes: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                            id: Optional[pulumi.Input[Optional[str]]] = None,
+                            ip_service_categories_excludes: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                            ip_service_categories_includes: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                             name: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkZoneResult]:
     """
@@ -207,7 +258,10 @@ def get_network_zone_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
+    :param Sequence[str] dynamic_locations_excludes: Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
     :param str id: ID of the network zone to retrieve, conflicts with `name`.
+    :param Sequence[str] ip_service_categories_excludes: List of ip service excluded. Use with type `DYNAMIC_V2`
+    :param Sequence[str] ip_service_categories_includes: List of ip service included. Use with type `DYNAMIC_V2`
     :param str name: Name of the network zone to retrieve, conflicts with `id`.
     """
     ...

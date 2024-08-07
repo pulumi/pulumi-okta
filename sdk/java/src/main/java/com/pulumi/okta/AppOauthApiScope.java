@@ -132,11 +132,18 @@ public class AppOauthApiScope extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AppOauthApiScope(String name, AppOauthApiScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/appOauthApiScope:AppOauthApiScope", name, args == null ? AppOauthApiScopeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/appOauthApiScope:AppOauthApiScope", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AppOauthApiScope(String name, Output<String> id, @Nullable AppOauthApiScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/appOauthApiScope:AppOauthApiScope", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AppOauthApiScopeArgs makeArgs(AppOauthApiScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppOauthApiScopeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

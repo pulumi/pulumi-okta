@@ -520,11 +520,18 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RuleSignon(String name, @Nullable RuleSignonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/ruleSignon:RuleSignon", name, args == null ? RuleSignonArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:policy/ruleSignon:RuleSignon", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RuleSignon(String name, Output<String> id, @Nullable RuleSignonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:policy/ruleSignon:RuleSignon", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RuleSignonArgs makeArgs(@Nullable RuleSignonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RuleSignonArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

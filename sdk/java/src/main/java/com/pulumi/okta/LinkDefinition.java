@@ -176,11 +176,18 @@ public class LinkDefinition extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LinkDefinition(String name, LinkDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/linkDefinition:LinkDefinition", name, args == null ? LinkDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/linkDefinition:LinkDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinkDefinition(String name, Output<String> id, @Nullable LinkDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/linkDefinition:LinkDefinition", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinkDefinitionArgs makeArgs(LinkDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkDefinitionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

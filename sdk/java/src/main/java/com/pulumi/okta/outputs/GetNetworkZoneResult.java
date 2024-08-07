@@ -14,22 +14,27 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetNetworkZoneResult {
     /**
-     * @return Format of each array value: a string representation of an ASN numeric value
+     * @return List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
      * 
      */
     private List<String> asns;
     /**
-     * @return Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+     * @return Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
      * 
      */
     private List<String> dynamicLocations;
     /**
-     * @return Type of proxy being controlled by this network zone
+     * @return Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+     * 
+     */
+    private @Nullable List<String> dynamicLocationsExcludes;
+    /**
+     * @return Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
      * 
      */
     private String dynamicProxyType;
     /**
-     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
      * 
      */
     private List<String> gateways;
@@ -39,12 +44,22 @@ public final class GetNetworkZoneResult {
      */
     private @Nullable String id;
     /**
+     * @return List of ip service excluded. Use with type `DYNAMIC_V2`
+     * 
+     */
+    private @Nullable List<String> ipServiceCategoriesExcludes;
+    /**
+     * @return List of ip service included. Use with type `DYNAMIC_V2`
+     * 
+     */
+    private @Nullable List<String> ipServiceCategoriesIncludes;
+    /**
      * @return Name of the network zone to retrieve, conflicts with `id`.
      * 
      */
     private @Nullable String name;
     /**
-     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
      * 
      */
     private List<String> proxies;
@@ -54,7 +69,7 @@ public final class GetNetworkZoneResult {
      */
     private String status;
     /**
-     * @return Type of the Network Zone - can either be IP or DYNAMIC only
+     * @return Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      * 
      */
     private String type;
@@ -66,28 +81,35 @@ public final class GetNetworkZoneResult {
 
     private GetNetworkZoneResult() {}
     /**
-     * @return Format of each array value: a string representation of an ASN numeric value
+     * @return List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
      * 
      */
     public List<String> asns() {
         return this.asns;
     }
     /**
-     * @return Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+     * @return Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
      * 
      */
     public List<String> dynamicLocations() {
         return this.dynamicLocations;
     }
     /**
-     * @return Type of proxy being controlled by this network zone
+     * @return Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+     * 
+     */
+    public List<String> dynamicLocationsExcludes() {
+        return this.dynamicLocationsExcludes == null ? List.of() : this.dynamicLocationsExcludes;
+    }
+    /**
+     * @return Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
      * 
      */
     public String dynamicProxyType() {
         return this.dynamicProxyType;
     }
     /**
-     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
      * 
      */
     public List<String> gateways() {
@@ -101,6 +123,20 @@ public final class GetNetworkZoneResult {
         return Optional.ofNullable(this.id);
     }
     /**
+     * @return List of ip service excluded. Use with type `DYNAMIC_V2`
+     * 
+     */
+    public List<String> ipServiceCategoriesExcludes() {
+        return this.ipServiceCategoriesExcludes == null ? List.of() : this.ipServiceCategoriesExcludes;
+    }
+    /**
+     * @return List of ip service included. Use with type `DYNAMIC_V2`
+     * 
+     */
+    public List<String> ipServiceCategoriesIncludes() {
+        return this.ipServiceCategoriesIncludes == null ? List.of() : this.ipServiceCategoriesIncludes;
+    }
+    /**
      * @return Name of the network zone to retrieve, conflicts with `id`.
      * 
      */
@@ -108,7 +144,7 @@ public final class GetNetworkZoneResult {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
      * 
      */
     public List<String> proxies() {
@@ -122,7 +158,7 @@ public final class GetNetworkZoneResult {
         return this.status;
     }
     /**
-     * @return Type of the Network Zone - can either be IP or DYNAMIC only
+     * @return Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      * 
      */
     public String type() {
@@ -147,9 +183,12 @@ public final class GetNetworkZoneResult {
     public static final class Builder {
         private List<String> asns;
         private List<String> dynamicLocations;
+        private @Nullable List<String> dynamicLocationsExcludes;
         private String dynamicProxyType;
         private List<String> gateways;
         private @Nullable String id;
+        private @Nullable List<String> ipServiceCategoriesExcludes;
+        private @Nullable List<String> ipServiceCategoriesIncludes;
         private @Nullable String name;
         private List<String> proxies;
         private String status;
@@ -160,9 +199,12 @@ public final class GetNetworkZoneResult {
     	      Objects.requireNonNull(defaults);
     	      this.asns = defaults.asns;
     	      this.dynamicLocations = defaults.dynamicLocations;
+    	      this.dynamicLocationsExcludes = defaults.dynamicLocationsExcludes;
     	      this.dynamicProxyType = defaults.dynamicProxyType;
     	      this.gateways = defaults.gateways;
     	      this.id = defaults.id;
+    	      this.ipServiceCategoriesExcludes = defaults.ipServiceCategoriesExcludes;
+    	      this.ipServiceCategoriesIncludes = defaults.ipServiceCategoriesIncludes;
     	      this.name = defaults.name;
     	      this.proxies = defaults.proxies;
     	      this.status = defaults.status;
@@ -193,6 +235,15 @@ public final class GetNetworkZoneResult {
             return dynamicLocations(List.of(dynamicLocations));
         }
         @CustomType.Setter
+        public Builder dynamicLocationsExcludes(@Nullable List<String> dynamicLocationsExcludes) {
+
+            this.dynamicLocationsExcludes = dynamicLocationsExcludes;
+            return this;
+        }
+        public Builder dynamicLocationsExcludes(String... dynamicLocationsExcludes) {
+            return dynamicLocationsExcludes(List.of(dynamicLocationsExcludes));
+        }
+        @CustomType.Setter
         public Builder dynamicProxyType(String dynamicProxyType) {
             if (dynamicProxyType == null) {
               throw new MissingRequiredPropertyException("GetNetworkZoneResult", "dynamicProxyType");
@@ -216,6 +267,24 @@ public final class GetNetworkZoneResult {
 
             this.id = id;
             return this;
+        }
+        @CustomType.Setter
+        public Builder ipServiceCategoriesExcludes(@Nullable List<String> ipServiceCategoriesExcludes) {
+
+            this.ipServiceCategoriesExcludes = ipServiceCategoriesExcludes;
+            return this;
+        }
+        public Builder ipServiceCategoriesExcludes(String... ipServiceCategoriesExcludes) {
+            return ipServiceCategoriesExcludes(List.of(ipServiceCategoriesExcludes));
+        }
+        @CustomType.Setter
+        public Builder ipServiceCategoriesIncludes(@Nullable List<String> ipServiceCategoriesIncludes) {
+
+            this.ipServiceCategoriesIncludes = ipServiceCategoriesIncludes;
+            return this;
+        }
+        public Builder ipServiceCategoriesIncludes(String... ipServiceCategoriesIncludes) {
+            return ipServiceCategoriesIncludes(List.of(ipServiceCategoriesIncludes));
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
@@ -262,9 +331,12 @@ public final class GetNetworkZoneResult {
             final var _resultValue = new GetNetworkZoneResult();
             _resultValue.asns = asns;
             _resultValue.dynamicLocations = dynamicLocations;
+            _resultValue.dynamicLocationsExcludes = dynamicLocationsExcludes;
             _resultValue.dynamicProxyType = dynamicProxyType;
             _resultValue.gateways = gateways;
             _resultValue.id = id;
+            _resultValue.ipServiceCategoriesExcludes = ipServiceCategoriesExcludes;
+            _resultValue.ipServiceCategoriesIncludes = ipServiceCategoriesIncludes;
             _resultValue.name = name;
             _resultValue.proxies = proxies;
             _resultValue.status = status;

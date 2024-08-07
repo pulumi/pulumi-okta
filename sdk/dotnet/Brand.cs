@@ -53,7 +53,7 @@ namespace Pulumi.Okta
         /// Custom privacy policy URL
         /// </summary>
         [Output("customPrivacyPolicyUrl")]
-        public Output<string?> CustomPrivacyPolicyUrl { get; private set; } = null!;
+        public Output<string> CustomPrivacyPolicyUrl { get; private set; } = null!;
 
         /// <summary>
         /// Default app app instance id

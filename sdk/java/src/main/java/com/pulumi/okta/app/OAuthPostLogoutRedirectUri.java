@@ -127,11 +127,18 @@ public class OAuthPostLogoutRedirectUri extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public OAuthPostLogoutRedirectUri(String name, OAuthPostLogoutRedirectUriArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri", name, args == null ? OAuthPostLogoutRedirectUriArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private OAuthPostLogoutRedirectUri(String name, Output<String> id, @Nullable OAuthPostLogoutRedirectUriState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OAuthPostLogoutRedirectUriArgs makeArgs(OAuthPostLogoutRedirectUriArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OAuthPostLogoutRedirectUriArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

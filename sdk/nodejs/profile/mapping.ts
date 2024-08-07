@@ -40,12 +40,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
- * ## Import
- *
- * ```sh
- * $ pulumi import okta:profile/mapping:Mapping example &#60;id&#62;
- * ```
  */
 export class Mapping extends pulumi.CustomResource {
     /**

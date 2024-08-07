@@ -226,11 +226,18 @@ public class AuthServerDefault extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AuthServerDefault(String name, @Nullable AuthServerDefaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/authServerDefault:AuthServerDefault", name, args == null ? AuthServerDefaultArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/authServerDefault:AuthServerDefault", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AuthServerDefault(String name, Output<String> id, @Nullable AuthServerDefaultState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/authServerDefault:AuthServerDefault", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AuthServerDefaultArgs makeArgs(@Nullable AuthServerDefaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AuthServerDefaultArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -56,12 +56,6 @@ namespace Pulumi.Okta.Profile
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ```sh
-    /// $ pulumi import okta:profile/mapping:Mapping example &amp;#60;id&amp;#62;
-    /// ```
     /// </summary>
     [OktaResourceType("okta:profile/mapping:Mapping")]
     public partial class Mapping : global::Pulumi.CustomResource

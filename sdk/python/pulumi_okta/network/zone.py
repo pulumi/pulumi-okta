@@ -17,21 +17,27 @@ class ZoneArgs:
                  type: pulumi.Input[str],
                  asns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dynamic_locations_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip_service_categories_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip_service_categories_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  usage: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Zone resource.
-        :param pulumi.Input[str] type: Type of the Network Zone - can either be `IP` or `DYNAMIC` only
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Format of each array value: a string representation of an ASN numeric value
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
-        :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        :param pulumi.Input[str] type: Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations_excludes: Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+        :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_service_categories_excludes: List of ip service excluded. Use with type `DYNAMIC_V2`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_service_categories_includes: List of ip service included. Use with type `DYNAMIC_V2`
         :param pulumi.Input[str] name: Name of the Network Zone Resource
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
         :param pulumi.Input[str] status: Network Status - can either be `ACTIVE` or `INACTIVE` only
         :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
         """
@@ -40,10 +46,16 @@ class ZoneArgs:
             pulumi.set(__self__, "asns", asns)
         if dynamic_locations is not None:
             pulumi.set(__self__, "dynamic_locations", dynamic_locations)
+        if dynamic_locations_excludes is not None:
+            pulumi.set(__self__, "dynamic_locations_excludes", dynamic_locations_excludes)
         if dynamic_proxy_type is not None:
             pulumi.set(__self__, "dynamic_proxy_type", dynamic_proxy_type)
         if gateways is not None:
             pulumi.set(__self__, "gateways", gateways)
+        if ip_service_categories_excludes is not None:
+            pulumi.set(__self__, "ip_service_categories_excludes", ip_service_categories_excludes)
+        if ip_service_categories_includes is not None:
+            pulumi.set(__self__, "ip_service_categories_includes", ip_service_categories_includes)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if proxies is not None:
@@ -57,7 +69,7 @@ class ZoneArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+        Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
         """
         return pulumi.get(self, "type")
 
@@ -69,7 +81,7 @@ class ZoneArgs:
     @pulumi.getter
     def asns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Format of each array value: a string representation of an ASN numeric value
+        List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
         """
         return pulumi.get(self, "asns")
 
@@ -81,7 +93,7 @@ class ZoneArgs:
     @pulumi.getter(name="dynamicLocations")
     def dynamic_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+        Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
         """
         return pulumi.get(self, "dynamic_locations")
 
@@ -90,10 +102,22 @@ class ZoneArgs:
         pulumi.set(self, "dynamic_locations", value)
 
     @property
+    @pulumi.getter(name="dynamicLocationsExcludes")
+    def dynamic_locations_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+        """
+        return pulumi.get(self, "dynamic_locations_excludes")
+
+    @dynamic_locations_excludes.setter
+    def dynamic_locations_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dynamic_locations_excludes", value)
+
+    @property
     @pulumi.getter(name="dynamicProxyType")
     def dynamic_proxy_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+        Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
         """
         return pulumi.get(self, "dynamic_proxy_type")
 
@@ -105,13 +129,37 @@ class ZoneArgs:
     @pulumi.getter
     def gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
         """
         return pulumi.get(self, "gateways")
 
     @gateways.setter
     def gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "gateways", value)
+
+    @property
+    @pulumi.getter(name="ipServiceCategoriesExcludes")
+    def ip_service_categories_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of ip service excluded. Use with type `DYNAMIC_V2`
+        """
+        return pulumi.get(self, "ip_service_categories_excludes")
+
+    @ip_service_categories_excludes.setter
+    def ip_service_categories_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_service_categories_excludes", value)
+
+    @property
+    @pulumi.getter(name="ipServiceCategoriesIncludes")
+    def ip_service_categories_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of ip service included. Use with type `DYNAMIC_V2`
+        """
+        return pulumi.get(self, "ip_service_categories_includes")
+
+    @ip_service_categories_includes.setter
+    def ip_service_categories_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_service_categories_includes", value)
 
     @property
     @pulumi.getter
@@ -129,7 +177,7 @@ class ZoneArgs:
     @pulumi.getter
     def proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
         """
         return pulumi.get(self, "proxies")
 
@@ -167,8 +215,11 @@ class _ZoneState:
     def __init__(__self__, *,
                  asns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dynamic_locations_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip_service_categories_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip_service_categories_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -176,24 +227,33 @@ class _ZoneState:
                  usage: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Zone resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Format of each array value: a string representation of an ASN numeric value
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
-        :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations_excludes: Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+        :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_service_categories_excludes: List of ip service excluded. Use with type `DYNAMIC_V2`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_service_categories_includes: List of ip service included. Use with type `DYNAMIC_V2`
         :param pulumi.Input[str] name: Name of the Network Zone Resource
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
         :param pulumi.Input[str] status: Network Status - can either be `ACTIVE` or `INACTIVE` only
-        :param pulumi.Input[str] type: Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+        :param pulumi.Input[str] type: Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
         :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
         """
         if asns is not None:
             pulumi.set(__self__, "asns", asns)
         if dynamic_locations is not None:
             pulumi.set(__self__, "dynamic_locations", dynamic_locations)
+        if dynamic_locations_excludes is not None:
+            pulumi.set(__self__, "dynamic_locations_excludes", dynamic_locations_excludes)
         if dynamic_proxy_type is not None:
             pulumi.set(__self__, "dynamic_proxy_type", dynamic_proxy_type)
         if gateways is not None:
             pulumi.set(__self__, "gateways", gateways)
+        if ip_service_categories_excludes is not None:
+            pulumi.set(__self__, "ip_service_categories_excludes", ip_service_categories_excludes)
+        if ip_service_categories_includes is not None:
+            pulumi.set(__self__, "ip_service_categories_includes", ip_service_categories_includes)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if proxies is not None:
@@ -209,7 +269,7 @@ class _ZoneState:
     @pulumi.getter
     def asns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Format of each array value: a string representation of an ASN numeric value
+        List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
         """
         return pulumi.get(self, "asns")
 
@@ -221,7 +281,7 @@ class _ZoneState:
     @pulumi.getter(name="dynamicLocations")
     def dynamic_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+        Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
         """
         return pulumi.get(self, "dynamic_locations")
 
@@ -230,10 +290,22 @@ class _ZoneState:
         pulumi.set(self, "dynamic_locations", value)
 
     @property
+    @pulumi.getter(name="dynamicLocationsExcludes")
+    def dynamic_locations_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+        """
+        return pulumi.get(self, "dynamic_locations_excludes")
+
+    @dynamic_locations_excludes.setter
+    def dynamic_locations_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dynamic_locations_excludes", value)
+
+    @property
     @pulumi.getter(name="dynamicProxyType")
     def dynamic_proxy_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+        Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
         """
         return pulumi.get(self, "dynamic_proxy_type")
 
@@ -245,13 +317,37 @@ class _ZoneState:
     @pulumi.getter
     def gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
         """
         return pulumi.get(self, "gateways")
 
     @gateways.setter
     def gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "gateways", value)
+
+    @property
+    @pulumi.getter(name="ipServiceCategoriesExcludes")
+    def ip_service_categories_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of ip service excluded. Use with type `DYNAMIC_V2`
+        """
+        return pulumi.get(self, "ip_service_categories_excludes")
+
+    @ip_service_categories_excludes.setter
+    def ip_service_categories_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_service_categories_excludes", value)
+
+    @property
+    @pulumi.getter(name="ipServiceCategoriesIncludes")
+    def ip_service_categories_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of ip service included. Use with type `DYNAMIC_V2`
+        """
+        return pulumi.get(self, "ip_service_categories_includes")
+
+    @ip_service_categories_includes.setter
+    def ip_service_categories_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_service_categories_includes", value)
 
     @property
     @pulumi.getter
@@ -269,7 +365,7 @@ class _ZoneState:
     @pulumi.getter
     def proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
         """
         return pulumi.get(self, "proxies")
 
@@ -293,7 +389,7 @@ class _ZoneState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+        Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
         """
         return pulumi.get(self, "type")
 
@@ -321,8 +417,11 @@ class Zone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dynamic_locations_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip_service_categories_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip_service_categories_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -340,14 +439,17 @@ class Zone(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Format of each array value: a string representation of an ASN numeric value
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
-        :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations_excludes: Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+        :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_service_categories_excludes: List of ip service excluded. Use with type `DYNAMIC_V2`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_service_categories_includes: List of ip service included. Use with type `DYNAMIC_V2`
         :param pulumi.Input[str] name: Name of the Network Zone Resource
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
         :param pulumi.Input[str] status: Network Status - can either be `ACTIVE` or `INACTIVE` only
-        :param pulumi.Input[str] type: Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+        :param pulumi.Input[str] type: Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
         :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
         """
         ...
@@ -382,8 +484,11 @@ class Zone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dynamic_locations_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip_service_categories_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip_service_categories_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -400,8 +505,11 @@ class Zone(pulumi.CustomResource):
 
             __props__.__dict__["asns"] = asns
             __props__.__dict__["dynamic_locations"] = dynamic_locations
+            __props__.__dict__["dynamic_locations_excludes"] = dynamic_locations_excludes
             __props__.__dict__["dynamic_proxy_type"] = dynamic_proxy_type
             __props__.__dict__["gateways"] = gateways
+            __props__.__dict__["ip_service_categories_excludes"] = ip_service_categories_excludes
+            __props__.__dict__["ip_service_categories_includes"] = ip_service_categories_includes
             __props__.__dict__["name"] = name
             __props__.__dict__["proxies"] = proxies
             __props__.__dict__["status"] = status
@@ -421,8 +529,11 @@ class Zone(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             asns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            dynamic_locations_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             dynamic_proxy_type: Optional[pulumi.Input[str]] = None,
             gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            ip_service_categories_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            ip_service_categories_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -435,14 +546,17 @@ class Zone(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: Format of each array value: a string representation of an ASN numeric value
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
-        :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asns: List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations: Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dynamic_locations_excludes: Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+        :param pulumi.Input[str] dynamic_proxy_type: Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateways: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_service_categories_excludes: List of ip service excluded. Use with type `DYNAMIC_V2`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_service_categories_includes: List of ip service included. Use with type `DYNAMIC_V2`
         :param pulumi.Input[str] name: Name of the Network Zone Resource
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
         :param pulumi.Input[str] status: Network Status - can either be `ACTIVE` or `INACTIVE` only
-        :param pulumi.Input[str] type: Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+        :param pulumi.Input[str] type: Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
         :param pulumi.Input[str] usage: Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -451,8 +565,11 @@ class Zone(pulumi.CustomResource):
 
         __props__.__dict__["asns"] = asns
         __props__.__dict__["dynamic_locations"] = dynamic_locations
+        __props__.__dict__["dynamic_locations_excludes"] = dynamic_locations_excludes
         __props__.__dict__["dynamic_proxy_type"] = dynamic_proxy_type
         __props__.__dict__["gateways"] = gateways
+        __props__.__dict__["ip_service_categories_excludes"] = ip_service_categories_excludes
+        __props__.__dict__["ip_service_categories_includes"] = ip_service_categories_includes
         __props__.__dict__["name"] = name
         __props__.__dict__["proxies"] = proxies
         __props__.__dict__["status"] = status
@@ -464,7 +581,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def asns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Format of each array value: a string representation of an ASN numeric value
+        List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
         """
         return pulumi.get(self, "asns")
 
@@ -472,15 +589,23 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter(name="dynamicLocations")
     def dynamic_locations(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+        Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
         """
         return pulumi.get(self, "dynamic_locations")
+
+    @property
+    @pulumi.getter(name="dynamicLocationsExcludes")
+    def dynamic_locations_excludes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+        """
+        return pulumi.get(self, "dynamic_locations_excludes")
 
     @property
     @pulumi.getter(name="dynamicProxyType")
     def dynamic_proxy_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+        Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
         """
         return pulumi.get(self, "dynamic_proxy_type")
 
@@ -488,9 +613,25 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def gateways(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
         """
         return pulumi.get(self, "gateways")
+
+    @property
+    @pulumi.getter(name="ipServiceCategoriesExcludes")
+    def ip_service_categories_excludes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of ip service excluded. Use with type `DYNAMIC_V2`
+        """
+        return pulumi.get(self, "ip_service_categories_excludes")
+
+    @property
+    @pulumi.getter(name="ipServiceCategoriesIncludes")
+    def ip_service_categories_includes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of ip service included. Use with type `DYNAMIC_V2`
+        """
+        return pulumi.get(self, "ip_service_categories_includes")
 
     @property
     @pulumi.getter
@@ -504,7 +645,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def proxies(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+        Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
         """
         return pulumi.get(self, "proxies")
 
@@ -520,7 +661,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+        Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
         """
         return pulumi.get(self, "type")
 

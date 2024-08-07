@@ -133,11 +133,18 @@ public class AppSamlAppSettings extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AppSamlAppSettings(String name, AppSamlAppSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/appSamlAppSettings:AppSamlAppSettings", name, args == null ? AppSamlAppSettingsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/appSamlAppSettings:AppSamlAppSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AppSamlAppSettings(String name, Output<String> id, @Nullable AppSamlAppSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/appSamlAppSettings:AppSamlAppSettings", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AppSamlAppSettingsArgs makeArgs(AppSamlAppSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppSamlAppSettingsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -221,11 +221,18 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RuleMfa(String name, @Nullable RuleMfaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/ruleMfa:RuleMfa", name, args == null ? RuleMfaArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:policy/ruleMfa:RuleMfa", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RuleMfa(String name, Output<String> id, @Nullable RuleMfaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:policy/ruleMfa:RuleMfa", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RuleMfaArgs makeArgs(@Nullable RuleMfaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RuleMfaArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

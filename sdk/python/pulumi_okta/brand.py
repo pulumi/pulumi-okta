@@ -560,7 +560,7 @@ class Brand(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customPrivacyPolicyUrl")
-    def custom_privacy_policy_url(self) -> pulumi.Output[Optional[str]]:
+    def custom_privacy_policy_url(self) -> pulumi.Output[str]:
         """
         Custom privacy policy URL
         """

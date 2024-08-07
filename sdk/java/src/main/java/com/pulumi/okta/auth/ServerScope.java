@@ -214,11 +214,18 @@ public class ServerScope extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServerScope(String name, ServerScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:auth/serverScope:ServerScope", name, args == null ? ServerScopeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:auth/serverScope:ServerScope", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServerScope(String name, Output<String> id, @Nullable ServerScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:auth/serverScope:ServerScope", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServerScopeArgs makeArgs(ServerScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerScopeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -52,7 +52,7 @@ type Brand struct {
 	// Deprecated: Okta has fully support brand creation, this attribute is a no op and will be removed
 	BrandId pulumi.StringOutput `pulumi:"brandId"`
 	// Custom privacy policy URL
-	CustomPrivacyPolicyUrl pulumi.StringPtrOutput `pulumi:"customPrivacyPolicyUrl"`
+	CustomPrivacyPolicyUrl pulumi.StringOutput `pulumi:"customPrivacyPolicyUrl"`
 	// Default app app instance id
 	DefaultAppAppInstanceId pulumi.StringPtrOutput `pulumi:"defaultAppAppInstanceId"`
 	// Default app app link name
@@ -311,8 +311,8 @@ func (o BrandOutput) BrandId() pulumi.StringOutput {
 }
 
 // Custom privacy policy URL
-func (o BrandOutput) CustomPrivacyPolicyUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Brand) pulumi.StringPtrOutput { return v.CustomPrivacyPolicyUrl }).(pulumi.StringPtrOutput)
+func (o BrandOutput) CustomPrivacyPolicyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Brand) pulumi.StringOutput { return v.CustomPrivacyPolicyUrl }).(pulumi.StringOutput)
 }
 
 // Default app app instance id

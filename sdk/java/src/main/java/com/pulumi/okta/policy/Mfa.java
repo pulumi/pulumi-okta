@@ -21,55 +21,6 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.policy.Mfa;
- * import com.pulumi.okta.policy.MfaArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var classicExample = new Mfa("classicExample", MfaArgs.builder()
- *             .name("MFA Policy Classic")
- *             .status("ACTIVE")
- *             .description("Example MFA policy using Okta Classic engine with factors.")
- *             .isOie(false)
- *             .oktaPassword(Map.of("enroll", "REQUIRED"))
- *             .oktaOtp(Map.of("enroll", "REQUIRED"))
- *             .groupsIncludeds(everyone.id())
- *             .build());
- * 
- *         var oieExample = new Mfa("oieExample", MfaArgs.builder()
- *             .name("MFA Policy OIE")
- *             .status("ACTIVE")
- *             .description("Example MFA policy that uses Okta Identity Engine (OIE) with authenticators")
- *             .isOie(true)
- *             .oktaPassword(Map.of("enroll", "REQUIRED"))
- *             .oktaVerify(Map.of("enroll", "REQUIRED"))
- *             .groupsIncludeds(everyone.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * ```sh
@@ -99,11 +50,23 @@ public class Mfa extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> duo() {
         return Codegen.optional(this.duo);
     }
+    /**
+     * @deprecated
+     * Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead
+     * 
+     */
+    @Deprecated /* Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead */
     @Export(name="externalIdp", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> externalIdp;
 
     public Output<Optional<Map<String,String>>> externalIdp() {
         return Codegen.optional(this.externalIdp);
+    }
+    @Export(name="externalIdps", refs={List.class,Map.class,String.class}, tree="[0,[1,2,2]]")
+    private Output</* @Nullable */ List<Map<String,String>>> externalIdps;
+
+    public Output<Optional<List<Map<String,String>>>> externalIdps() {
+        return Codegen.optional(this.externalIdps);
     }
     @Export(name="fidoU2f", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> fidoU2f;
@@ -312,11 +275,18 @@ public class Mfa extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Mfa(String name, @Nullable MfaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/mfa:Mfa", name, args == null ? MfaArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:policy/mfa:Mfa", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Mfa(String name, Output<String> id, @Nullable MfaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:policy/mfa:Mfa", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MfaArgs makeArgs(@Nullable MfaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MfaArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -23,7 +23,10 @@ export function getNetworkZone(args?: GetNetworkZoneArgs, opts?: pulumi.InvokeOp
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getNetworkZone:getNetworkZone", {
+        "dynamicLocationsExcludes": args.dynamicLocationsExcludes,
         "id": args.id,
+        "ipServiceCategoriesExcludes": args.ipServiceCategoriesExcludes,
+        "ipServiceCategoriesIncludes": args.ipServiceCategoriesIncludes,
         "name": args.name,
     }, opts);
 }
@@ -33,9 +36,21 @@ export function getNetworkZone(args?: GetNetworkZoneArgs, opts?: pulumi.InvokeOp
  */
 export interface GetNetworkZoneArgs {
     /**
+     * Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+     */
+    dynamicLocationsExcludes?: string[];
+    /**
      * ID of the network zone to retrieve, conflicts with `name`.
      */
     id?: string;
+    /**
+     * List of ip service excluded. Use with type `DYNAMIC_V2`
+     */
+    ipServiceCategoriesExcludes?: string[];
+    /**
+     * List of ip service included. Use with type `DYNAMIC_V2`
+     */
+    ipServiceCategoriesIncludes?: string[];
     /**
      * Name of the network zone to retrieve, conflicts with `id`.
      */
@@ -47,19 +62,23 @@ export interface GetNetworkZoneArgs {
  */
 export interface GetNetworkZoneResult {
     /**
-     * Format of each array value: a string representation of an ASN numeric value
+     * List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
      */
     readonly asns: string[];
     /**
-     * Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+     * Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
      */
     readonly dynamicLocations: string[];
     /**
-     * Type of proxy being controlled by this network zone
+     * Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+     */
+    readonly dynamicLocationsExcludes?: string[];
+    /**
+     * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
      */
     readonly dynamicProxyType: string;
     /**
-     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
      */
     readonly gateways: string[];
     /**
@@ -67,11 +86,19 @@ export interface GetNetworkZoneResult {
      */
     readonly id?: string;
     /**
+     * List of ip service excluded. Use with type `DYNAMIC_V2`
+     */
+    readonly ipServiceCategoriesExcludes?: string[];
+    /**
+     * List of ip service included. Use with type `DYNAMIC_V2`
+     */
+    readonly ipServiceCategoriesIncludes?: string[];
+    /**
      * Name of the network zone to retrieve, conflicts with `id`.
      */
     readonly name?: string;
     /**
-     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+     * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
      */
     readonly proxies: string[];
     /**
@@ -79,7 +106,7 @@ export interface GetNetworkZoneResult {
      */
     readonly status: string;
     /**
-     * Type of the Network Zone - can either be IP or DYNAMIC only
+     * Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      */
     readonly type: string;
     /**
@@ -110,9 +137,21 @@ export function getNetworkZoneOutput(args?: GetNetworkZoneOutputArgs, opts?: pul
  */
 export interface GetNetworkZoneOutputArgs {
     /**
+     * Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+     */
+    dynamicLocationsExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * ID of the network zone to retrieve, conflicts with `name`.
      */
     id?: pulumi.Input<string>;
+    /**
+     * List of ip service excluded. Use with type `DYNAMIC_V2`
+     */
+    ipServiceCategoriesExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of ip service included. Use with type `DYNAMIC_V2`
+     */
+    ipServiceCategoriesIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the network zone to retrieve, conflicts with `id`.
      */

@@ -147,11 +147,18 @@ public class PolicyProfileEnrollmentApps extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public PolicyProfileEnrollmentApps(String name, PolicyProfileEnrollmentAppsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps", name, args == null ? PolicyProfileEnrollmentAppsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PolicyProfileEnrollmentApps(String name, Output<String> id, @Nullable PolicyProfileEnrollmentAppsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PolicyProfileEnrollmentAppsArgs makeArgs(PolicyProfileEnrollmentAppsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PolicyProfileEnrollmentAppsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

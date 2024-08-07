@@ -571,11 +571,18 @@ public class Social extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Social(String name, SocialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:idp/social:Social", name, args == null ? SocialArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:idp/social:Social", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Social(String name, Output<String> id, @Nullable SocialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:idp/social:Social", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SocialArgs makeArgs(SocialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SocialArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

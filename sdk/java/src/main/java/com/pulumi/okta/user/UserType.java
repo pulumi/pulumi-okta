@@ -127,11 +127,18 @@ public class UserType extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UserType(String name, UserTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:user/userType:UserType", name, args == null ? UserTypeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:user/userType:UserType", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserType(String name, Output<String> id, @Nullable UserTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:user/userType:UserType", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserTypeArgs makeArgs(UserTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserTypeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

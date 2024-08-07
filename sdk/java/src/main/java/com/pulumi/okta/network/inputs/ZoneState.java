@@ -17,14 +17,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     public static final ZoneState Empty = new ZoneState();
 
     /**
-     * Format of each array value: a string representation of an ASN numeric value
+     * List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
      * 
      */
     @Import(name="asns")
     private @Nullable Output<List<String>> asns;
 
     /**
-     * @return Format of each array value: a string representation of an ASN numeric value
+     * @return List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
      * 
      */
     public Optional<Output<List<String>>> asns() {
@@ -32,14 +32,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+     * Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
      * 
      */
     @Import(name="dynamicLocations")
     private @Nullable Output<List<String>> dynamicLocations;
 
     /**
-     * @return Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+     * @return Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
      * 
      */
     public Optional<Output<List<String>>> dynamicLocations() {
@@ -47,14 +47,29 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+     * Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+     * 
+     */
+    @Import(name="dynamicLocationsExcludes")
+    private @Nullable Output<List<String>> dynamicLocationsExcludes;
+
+    /**
+     * @return Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+     * 
+     */
+    public Optional<Output<List<String>>> dynamicLocationsExcludes() {
+        return Optional.ofNullable(this.dynamicLocationsExcludes);
+    }
+
+    /**
+     * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
      * 
      */
     @Import(name="dynamicProxyType")
     private @Nullable Output<String> dynamicProxyType;
 
     /**
-     * @return Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+     * @return Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
      * 
      */
     public Optional<Output<String>> dynamicProxyType() {
@@ -62,18 +77,48 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+     * Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
      * 
      */
     @Import(name="gateways")
     private @Nullable Output<List<String>> gateways;
 
     /**
-     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
      * 
      */
     public Optional<Output<List<String>>> gateways() {
         return Optional.ofNullable(this.gateways);
+    }
+
+    /**
+     * List of ip service excluded. Use with type `DYNAMIC_V2`
+     * 
+     */
+    @Import(name="ipServiceCategoriesExcludes")
+    private @Nullable Output<List<String>> ipServiceCategoriesExcludes;
+
+    /**
+     * @return List of ip service excluded. Use with type `DYNAMIC_V2`
+     * 
+     */
+    public Optional<Output<List<String>>> ipServiceCategoriesExcludes() {
+        return Optional.ofNullable(this.ipServiceCategoriesExcludes);
+    }
+
+    /**
+     * List of ip service included. Use with type `DYNAMIC_V2`
+     * 
+     */
+    @Import(name="ipServiceCategoriesIncludes")
+    private @Nullable Output<List<String>> ipServiceCategoriesIncludes;
+
+    /**
+     * @return List of ip service included. Use with type `DYNAMIC_V2`
+     * 
+     */
+    public Optional<Output<List<String>>> ipServiceCategoriesIncludes() {
+        return Optional.ofNullable(this.ipServiceCategoriesIncludes);
     }
 
     /**
@@ -92,14 +137,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+     * Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
      * 
      */
     @Import(name="proxies")
     private @Nullable Output<List<String>> proxies;
 
     /**
-     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+     * @return Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
      * 
      */
     public Optional<Output<List<String>>> proxies() {
@@ -122,14 +167,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+     * Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+     * @return Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      * 
      */
     public Optional<Output<String>> type() {
@@ -156,8 +201,11 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     private ZoneState(ZoneState $) {
         this.asns = $.asns;
         this.dynamicLocations = $.dynamicLocations;
+        this.dynamicLocationsExcludes = $.dynamicLocationsExcludes;
         this.dynamicProxyType = $.dynamicProxyType;
         this.gateways = $.gateways;
+        this.ipServiceCategoriesExcludes = $.ipServiceCategoriesExcludes;
+        this.ipServiceCategoriesIncludes = $.ipServiceCategoriesIncludes;
         this.name = $.name;
         this.proxies = $.proxies;
         this.status = $.status;
@@ -184,7 +232,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param asns Format of each array value: a string representation of an ASN numeric value
+         * @param asns List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
          * 
          * @return builder
          * 
@@ -195,7 +243,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param asns Format of each array value: a string representation of an ASN numeric value
+         * @param asns List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
          * 
          * @return builder
          * 
@@ -205,7 +253,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param asns Format of each array value: a string representation of an ASN numeric value
+         * @param asns List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
          * 
          * @return builder
          * 
@@ -215,7 +263,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamicLocations Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+         * @param dynamicLocations Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
          * 
          * @return builder
          * 
@@ -226,7 +274,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamicLocations Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+         * @param dynamicLocations Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
          * 
          * @return builder
          * 
@@ -236,7 +284,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamicLocations Array of locations ISO-3166-1(2). Format code: countryCode OR countryCode-regionCode
+         * @param dynamicLocations Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
          * 
          * @return builder
          * 
@@ -246,7 +294,38 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamicProxyType Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+         * @param dynamicLocationsExcludes Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicLocationsExcludes(@Nullable Output<List<String>> dynamicLocationsExcludes) {
+            $.dynamicLocationsExcludes = dynamicLocationsExcludes;
+            return this;
+        }
+
+        /**
+         * @param dynamicLocationsExcludes Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicLocationsExcludes(List<String> dynamicLocationsExcludes) {
+            return dynamicLocationsExcludes(Output.of(dynamicLocationsExcludes));
+        }
+
+        /**
+         * @param dynamicLocationsExcludes Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicLocationsExcludes(String... dynamicLocationsExcludes) {
+            return dynamicLocationsExcludes(List.of(dynamicLocationsExcludes));
+        }
+
+        /**
+         * @param dynamicProxyType Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
          * 
          * @return builder
          * 
@@ -257,7 +336,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamicProxyType Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`.
+         * @param dynamicProxyType Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
          * 
          * @return builder
          * 
@@ -267,7 +346,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gateways Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+         * @param gateways Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
          * 
          * @return builder
          * 
@@ -278,7 +357,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gateways Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+         * @param gateways Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
          * 
          * @return builder
          * 
@@ -288,13 +367,75 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gateways Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples
+         * @param gateways Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
          * 
          * @return builder
          * 
          */
         public Builder gateways(String... gateways) {
             return gateways(List.of(gateways));
+        }
+
+        /**
+         * @param ipServiceCategoriesExcludes List of ip service excluded. Use with type `DYNAMIC_V2`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipServiceCategoriesExcludes(@Nullable Output<List<String>> ipServiceCategoriesExcludes) {
+            $.ipServiceCategoriesExcludes = ipServiceCategoriesExcludes;
+            return this;
+        }
+
+        /**
+         * @param ipServiceCategoriesExcludes List of ip service excluded. Use with type `DYNAMIC_V2`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipServiceCategoriesExcludes(List<String> ipServiceCategoriesExcludes) {
+            return ipServiceCategoriesExcludes(Output.of(ipServiceCategoriesExcludes));
+        }
+
+        /**
+         * @param ipServiceCategoriesExcludes List of ip service excluded. Use with type `DYNAMIC_V2`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipServiceCategoriesExcludes(String... ipServiceCategoriesExcludes) {
+            return ipServiceCategoriesExcludes(List.of(ipServiceCategoriesExcludes));
+        }
+
+        /**
+         * @param ipServiceCategoriesIncludes List of ip service included. Use with type `DYNAMIC_V2`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipServiceCategoriesIncludes(@Nullable Output<List<String>> ipServiceCategoriesIncludes) {
+            $.ipServiceCategoriesIncludes = ipServiceCategoriesIncludes;
+            return this;
+        }
+
+        /**
+         * @param ipServiceCategoriesIncludes List of ip service included. Use with type `DYNAMIC_V2`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipServiceCategoriesIncludes(List<String> ipServiceCategoriesIncludes) {
+            return ipServiceCategoriesIncludes(Output.of(ipServiceCategoriesIncludes));
+        }
+
+        /**
+         * @param ipServiceCategoriesIncludes List of ip service included. Use with type `DYNAMIC_V2`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipServiceCategoriesIncludes(String... ipServiceCategoriesIncludes) {
+            return ipServiceCategoriesIncludes(List.of(ipServiceCategoriesIncludes));
         }
 
         /**
@@ -319,7 +460,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param proxies Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+         * @param proxies Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
          * 
          * @return builder
          * 
@@ -330,7 +471,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param proxies Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+         * @param proxies Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
          * 
          * @return builder
          * 
@@ -340,7 +481,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param proxies Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`
+         * @param proxies Array of values in CIDR/range form depending on the way it&#39;s been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
          * 
          * @return builder
          * 
@@ -371,7 +512,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+         * @param type Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
          * 
          * @return builder
          * 
@@ -382,7 +523,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the Network Zone - can either be `IP` or `DYNAMIC` only
+         * @param type Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
          * 
          * @return builder
          * 

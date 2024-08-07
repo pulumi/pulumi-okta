@@ -61,7 +61,7 @@ export class Brand extends pulumi.CustomResource {
     /**
      * Custom privacy policy URL
      */
-    public readonly customPrivacyPolicyUrl!: pulumi.Output<string | undefined>;
+    public readonly customPrivacyPolicyUrl!: pulumi.Output<string>;
     /**
      * Default app app instance id
      */

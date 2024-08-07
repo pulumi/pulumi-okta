@@ -190,11 +190,18 @@ public class EventHook extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EventHook(String name, EventHookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/eventHook:EventHook", name, args == null ? EventHookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/eventHook:EventHook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventHook(String name, Output<String> id, @Nullable EventHookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/eventHook:EventHook", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventHookArgs makeArgs(EventHookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventHookArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

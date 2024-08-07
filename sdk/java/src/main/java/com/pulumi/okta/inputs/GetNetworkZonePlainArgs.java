@@ -5,6 +5,7 @@ package com.pulumi.okta.inputs;
 
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -13,6 +14,21 @@ import javax.annotation.Nullable;
 public final class GetNetworkZonePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetNetworkZonePlainArgs Empty = new GetNetworkZonePlainArgs();
+
+    /**
+     * Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+     * 
+     */
+    @Import(name="dynamicLocationsExcludes")
+    private @Nullable List<String> dynamicLocationsExcludes;
+
+    /**
+     * @return Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+     * 
+     */
+    public Optional<List<String>> dynamicLocationsExcludes() {
+        return Optional.ofNullable(this.dynamicLocationsExcludes);
+    }
 
     /**
      * ID of the network zone to retrieve, conflicts with `name`.
@@ -27,6 +43,36 @@ public final class GetNetworkZonePlainArgs extends com.pulumi.resources.InvokeAr
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
+    }
+
+    /**
+     * List of ip service excluded. Use with type `DYNAMIC_V2`
+     * 
+     */
+    @Import(name="ipServiceCategoriesExcludes")
+    private @Nullable List<String> ipServiceCategoriesExcludes;
+
+    /**
+     * @return List of ip service excluded. Use with type `DYNAMIC_V2`
+     * 
+     */
+    public Optional<List<String>> ipServiceCategoriesExcludes() {
+        return Optional.ofNullable(this.ipServiceCategoriesExcludes);
+    }
+
+    /**
+     * List of ip service included. Use with type `DYNAMIC_V2`
+     * 
+     */
+    @Import(name="ipServiceCategoriesIncludes")
+    private @Nullable List<String> ipServiceCategoriesIncludes;
+
+    /**
+     * @return List of ip service included. Use with type `DYNAMIC_V2`
+     * 
+     */
+    public Optional<List<String>> ipServiceCategoriesIncludes() {
+        return Optional.ofNullable(this.ipServiceCategoriesIncludes);
     }
 
     /**
@@ -47,7 +93,10 @@ public final class GetNetworkZonePlainArgs extends com.pulumi.resources.InvokeAr
     private GetNetworkZonePlainArgs() {}
 
     private GetNetworkZonePlainArgs(GetNetworkZonePlainArgs $) {
+        this.dynamicLocationsExcludes = $.dynamicLocationsExcludes;
         this.id = $.id;
+        this.ipServiceCategoriesExcludes = $.ipServiceCategoriesExcludes;
+        this.ipServiceCategoriesIncludes = $.ipServiceCategoriesIncludes;
         this.name = $.name;
     }
 
@@ -70,6 +119,27 @@ public final class GetNetworkZonePlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
+         * @param dynamicLocationsExcludes Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicLocationsExcludes(@Nullable List<String> dynamicLocationsExcludes) {
+            $.dynamicLocationsExcludes = dynamicLocationsExcludes;
+            return this;
+        }
+
+        /**
+         * @param dynamicLocationsExcludes Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicLocationsExcludes(String... dynamicLocationsExcludes) {
+            return dynamicLocationsExcludes(List.of(dynamicLocationsExcludes));
+        }
+
+        /**
          * @param id ID of the network zone to retrieve, conflicts with `name`.
          * 
          * @return builder
@@ -78,6 +148,48 @@ public final class GetNetworkZonePlainArgs extends com.pulumi.resources.InvokeAr
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
+        }
+
+        /**
+         * @param ipServiceCategoriesExcludes List of ip service excluded. Use with type `DYNAMIC_V2`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipServiceCategoriesExcludes(@Nullable List<String> ipServiceCategoriesExcludes) {
+            $.ipServiceCategoriesExcludes = ipServiceCategoriesExcludes;
+            return this;
+        }
+
+        /**
+         * @param ipServiceCategoriesExcludes List of ip service excluded. Use with type `DYNAMIC_V2`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipServiceCategoriesExcludes(String... ipServiceCategoriesExcludes) {
+            return ipServiceCategoriesExcludes(List.of(ipServiceCategoriesExcludes));
+        }
+
+        /**
+         * @param ipServiceCategoriesIncludes List of ip service included. Use with type `DYNAMIC_V2`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipServiceCategoriesIncludes(@Nullable List<String> ipServiceCategoriesIncludes) {
+            $.ipServiceCategoriesIncludes = ipServiceCategoriesIncludes;
+            return this;
+        }
+
+        /**
+         * @param ipServiceCategoriesIncludes List of ip service included. Use with type `DYNAMIC_V2`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipServiceCategoriesIncludes(String... ipServiceCategoriesIncludes) {
+            return ipServiceCategoriesIncludes(List.of(ipServiceCategoriesIncludes));
         }
 
         /**

@@ -351,11 +351,18 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Authenticator(String name, AuthenticatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/authenticator:Authenticator", name, args == null ? AuthenticatorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/authenticator:Authenticator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Authenticator(String name, Output<String> id, @Nullable AuthenticatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/authenticator:Authenticator", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AuthenticatorArgs makeArgs(AuthenticatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AuthenticatorArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

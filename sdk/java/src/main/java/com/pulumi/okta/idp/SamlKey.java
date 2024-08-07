@@ -197,11 +197,18 @@ public class SamlKey extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SamlKey(String name, SamlKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:idp/samlKey:SamlKey", name, args == null ? SamlKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:idp/samlKey:SamlKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SamlKey(String name, Output<String> id, @Nullable SamlKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:idp/samlKey:SamlKey", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SamlKeyArgs makeArgs(SamlKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SamlKeyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

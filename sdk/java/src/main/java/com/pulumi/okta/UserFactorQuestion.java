@@ -181,11 +181,18 @@ public class UserFactorQuestion extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UserFactorQuestion(String name, UserFactorQuestionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/userFactorQuestion:UserFactorQuestion", name, args == null ? UserFactorQuestionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:index/userFactorQuestion:UserFactorQuestion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserFactorQuestion(String name, Output<String> id, @Nullable UserFactorQuestionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/userFactorQuestion:UserFactorQuestion", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserFactorQuestionArgs makeArgs(UserFactorQuestionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserFactorQuestionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

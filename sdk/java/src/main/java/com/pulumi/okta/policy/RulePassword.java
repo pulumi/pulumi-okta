@@ -205,11 +205,18 @@ public class RulePassword extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RulePassword(String name, @Nullable RulePasswordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/rulePassword:RulePassword", name, args == null ? RulePasswordArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("okta:policy/rulePassword:RulePassword", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RulePassword(String name, Output<String> id, @Nullable RulePasswordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:policy/rulePassword:RulePassword", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RulePasswordArgs makeArgs(@Nullable RulePasswordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RulePasswordArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
