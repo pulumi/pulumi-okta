@@ -310,7 +310,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BasicAuth(String name) {
+    public BasicAuth(java.lang.String name) {
         this(name, BasicAuthArgs.Empty);
     }
     /**
@@ -318,7 +318,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BasicAuth(String name, BasicAuthArgs args) {
+    public BasicAuth(java.lang.String name, BasicAuthArgs args) {
         this(name, args, null);
     }
     /**
@@ -327,12 +327,12 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BasicAuth(String name, BasicAuthArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/basicAuth:BasicAuth", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public BasicAuth(java.lang.String name, BasicAuthArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/basicAuth:BasicAuth", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BasicAuth(String name, Output<String> id, @Nullable BasicAuthState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/basicAuth:BasicAuth", name, state, makeResourceOptions(options, id));
+    private BasicAuth(java.lang.String name, Output<java.lang.String> id, @Nullable BasicAuthState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/basicAuth:BasicAuth", name, state, makeResourceOptions(options, id), false);
     }
 
     private static BasicAuthArgs makeArgs(BasicAuthArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -342,7 +342,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
         return args == null ? BasicAuthArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -358,7 +358,7 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BasicAuth get(String name, Output<String> id, @Nullable BasicAuthState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BasicAuth get(java.lang.String name, Output<java.lang.String> id, @Nullable BasicAuthState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BasicAuth(name, id, state, options);
     }
 }

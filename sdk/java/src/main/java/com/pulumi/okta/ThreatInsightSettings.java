@@ -109,7 +109,7 @@ public class ThreatInsightSettings extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ThreatInsightSettings(String name) {
+    public ThreatInsightSettings(java.lang.String name) {
         this(name, ThreatInsightSettingsArgs.Empty);
     }
     /**
@@ -117,7 +117,7 @@ public class ThreatInsightSettings extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ThreatInsightSettings(String name, ThreatInsightSettingsArgs args) {
+    public ThreatInsightSettings(java.lang.String name, ThreatInsightSettingsArgs args) {
         this(name, args, null);
     }
     /**
@@ -126,12 +126,12 @@ public class ThreatInsightSettings extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ThreatInsightSettings(String name, ThreatInsightSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/threatInsightSettings:ThreatInsightSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ThreatInsightSettings(java.lang.String name, ThreatInsightSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/threatInsightSettings:ThreatInsightSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ThreatInsightSettings(String name, Output<String> id, @Nullable ThreatInsightSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/threatInsightSettings:ThreatInsightSettings", name, state, makeResourceOptions(options, id));
+    private ThreatInsightSettings(java.lang.String name, Output<java.lang.String> id, @Nullable ThreatInsightSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/threatInsightSettings:ThreatInsightSettings", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ThreatInsightSettingsArgs makeArgs(ThreatInsightSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -141,7 +141,7 @@ public class ThreatInsightSettings extends com.pulumi.resources.CustomResource {
         return args == null ? ThreatInsightSettingsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -157,7 +157,7 @@ public class ThreatInsightSettings extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ThreatInsightSettings get(String name, Output<String> id, @Nullable ThreatInsightSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ThreatInsightSettings get(java.lang.String name, Output<java.lang.String> id, @Nullable ThreatInsightSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ThreatInsightSettings(name, id, state, options);
     }
 }

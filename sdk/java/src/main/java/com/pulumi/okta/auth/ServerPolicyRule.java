@@ -312,7 +312,7 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServerPolicyRule(String name) {
+    public ServerPolicyRule(java.lang.String name) {
         this(name, ServerPolicyRuleArgs.Empty);
     }
     /**
@@ -320,7 +320,7 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServerPolicyRule(String name, ServerPolicyRuleArgs args) {
+    public ServerPolicyRule(java.lang.String name, ServerPolicyRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -329,12 +329,12 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServerPolicyRule(String name, ServerPolicyRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:auth/serverPolicyRule:ServerPolicyRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ServerPolicyRule(java.lang.String name, ServerPolicyRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:auth/serverPolicyRule:ServerPolicyRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServerPolicyRule(String name, Output<String> id, @Nullable ServerPolicyRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:auth/serverPolicyRule:ServerPolicyRule", name, state, makeResourceOptions(options, id));
+    private ServerPolicyRule(java.lang.String name, Output<java.lang.String> id, @Nullable ServerPolicyRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:auth/serverPolicyRule:ServerPolicyRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ServerPolicyRuleArgs makeArgs(ServerPolicyRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -344,7 +344,7 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
         return args == null ? ServerPolicyRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
@@ -363,7 +363,7 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServerPolicyRule get(String name, Output<String> id, @Nullable ServerPolicyRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServerPolicyRule get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerPolicyRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServerPolicyRule(name, id, state, options);
     }
 }

@@ -303,7 +303,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PolicyMfaDefault(String name) {
+    public PolicyMfaDefault(java.lang.String name) {
         this(name, PolicyMfaDefaultArgs.Empty);
     }
     /**
@@ -311,7 +311,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PolicyMfaDefault(String name, @Nullable PolicyMfaDefaultArgs args) {
+    public PolicyMfaDefault(java.lang.String name, @Nullable PolicyMfaDefaultArgs args) {
         this(name, args, null);
     }
     /**
@@ -320,12 +320,12 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PolicyMfaDefault(String name, @Nullable PolicyMfaDefaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/policyMfaDefault:PolicyMfaDefault", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public PolicyMfaDefault(java.lang.String name, @Nullable PolicyMfaDefaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/policyMfaDefault:PolicyMfaDefault", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PolicyMfaDefault(String name, Output<String> id, @Nullable PolicyMfaDefaultState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/policyMfaDefault:PolicyMfaDefault", name, state, makeResourceOptions(options, id));
+    private PolicyMfaDefault(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyMfaDefaultState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/policyMfaDefault:PolicyMfaDefault", name, state, makeResourceOptions(options, id), false);
     }
 
     private static PolicyMfaDefaultArgs makeArgs(@Nullable PolicyMfaDefaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -335,7 +335,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
         return args == null ? PolicyMfaDefaultArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -351,7 +351,7 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PolicyMfaDefault get(String name, Output<String> id, @Nullable PolicyMfaDefaultState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PolicyMfaDefault get(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyMfaDefaultState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PolicyMfaDefault(name, id, state, options);
     }
 }

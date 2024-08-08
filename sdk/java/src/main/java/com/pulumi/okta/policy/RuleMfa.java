@@ -203,7 +203,7 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RuleMfa(String name) {
+    public RuleMfa(java.lang.String name) {
         this(name, RuleMfaArgs.Empty);
     }
     /**
@@ -211,7 +211,7 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RuleMfa(String name, @Nullable RuleMfaArgs args) {
+    public RuleMfa(java.lang.String name, @Nullable RuleMfaArgs args) {
         this(name, args, null);
     }
     /**
@@ -220,12 +220,12 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RuleMfa(String name, @Nullable RuleMfaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/ruleMfa:RuleMfa", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public RuleMfa(java.lang.String name, @Nullable RuleMfaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/ruleMfa:RuleMfa", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RuleMfa(String name, Output<String> id, @Nullable RuleMfaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/ruleMfa:RuleMfa", name, state, makeResourceOptions(options, id));
+    private RuleMfa(java.lang.String name, Output<java.lang.String> id, @Nullable RuleMfaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/ruleMfa:RuleMfa", name, state, makeResourceOptions(options, id), false);
     }
 
     private static RuleMfaArgs makeArgs(@Nullable RuleMfaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -235,7 +235,7 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
         return args == null ? RuleMfaArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -251,7 +251,7 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RuleMfa get(String name, Output<String> id, @Nullable RuleMfaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RuleMfa get(java.lang.String name, Output<java.lang.String> id, @Nullable RuleMfaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RuleMfa(name, id, state, options);
     }
 }

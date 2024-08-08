@@ -19,6 +19,14 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a sign-on policy rules for the application.
+ * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+ * This resource allows you to create and configure a sign-on policy rule for the application.
+ * A default or &#39;Catch-all Rule&#39; sign-on policy rule can be imported and managed as a custom rule.
+ * The only difference is that these fields are immutable and can not be managed: &#39;network_connection&#39;, &#39;network_excludes&#39;,
+ * &#39;network_includes&#39;, &#39;platform_include&#39;, &#39;custom_expression&#39;, &#39;device_is_registered&#39;, &#39;device_is_managed&#39;, &#39;users_excluded&#39;,
+ * &#39;users_included&#39;, &#39;groups_excluded&#39;, &#39;groups_included&#39;, &#39;user_types_excluded&#39; and &#39;user_types_included&#39;.
+ * 
  * ## Import
  * 
  * ```sh
@@ -389,7 +397,7 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AppSignonPolicyRule(String name) {
+    public AppSignonPolicyRule(java.lang.String name) {
         this(name, AppSignonPolicyRuleArgs.Empty);
     }
     /**
@@ -397,7 +405,7 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AppSignonPolicyRule(String name, AppSignonPolicyRuleArgs args) {
+    public AppSignonPolicyRule(java.lang.String name, AppSignonPolicyRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -406,12 +414,12 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AppSignonPolicyRule(String name, AppSignonPolicyRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/appSignonPolicyRule:AppSignonPolicyRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AppSignonPolicyRule(java.lang.String name, AppSignonPolicyRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/appSignonPolicyRule:AppSignonPolicyRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AppSignonPolicyRule(String name, Output<String> id, @Nullable AppSignonPolicyRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/appSignonPolicyRule:AppSignonPolicyRule", name, state, makeResourceOptions(options, id));
+    private AppSignonPolicyRule(java.lang.String name, Output<java.lang.String> id, @Nullable AppSignonPolicyRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/appSignonPolicyRule:AppSignonPolicyRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AppSignonPolicyRuleArgs makeArgs(AppSignonPolicyRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -421,7 +429,7 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
         return args == null ? AppSignonPolicyRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -437,7 +445,7 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AppSignonPolicyRule get(String name, Output<String> id, @Nullable AppSignonPolicyRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AppSignonPolicyRule get(java.lang.String name, Output<java.lang.String> id, @Nullable AppSignonPolicyRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AppSignonPolicyRule(name, id, state, options);
     }
 }

@@ -524,7 +524,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SecurePasswordStore(String name) {
+    public SecurePasswordStore(java.lang.String name) {
         this(name, SecurePasswordStoreArgs.Empty);
     }
     /**
@@ -532,7 +532,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SecurePasswordStore(String name, SecurePasswordStoreArgs args) {
+    public SecurePasswordStore(java.lang.String name, SecurePasswordStoreArgs args) {
         this(name, args, null);
     }
     /**
@@ -541,12 +541,12 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SecurePasswordStore(String name, SecurePasswordStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/securePasswordStore:SecurePasswordStore", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SecurePasswordStore(java.lang.String name, SecurePasswordStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/securePasswordStore:SecurePasswordStore", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SecurePasswordStore(String name, Output<String> id, @Nullable SecurePasswordStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/securePasswordStore:SecurePasswordStore", name, state, makeResourceOptions(options, id));
+    private SecurePasswordStore(java.lang.String name, Output<java.lang.String> id, @Nullable SecurePasswordStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/securePasswordStore:SecurePasswordStore", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SecurePasswordStoreArgs makeArgs(SecurePasswordStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -556,7 +556,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
         return args == null ? SecurePasswordStoreArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -572,7 +572,7 @@ public class SecurePasswordStore extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SecurePasswordStore get(String name, Output<String> id, @Nullable SecurePasswordStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SecurePasswordStore get(java.lang.String name, Output<java.lang.String> id, @Nullable SecurePasswordStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SecurePasswordStore(name, id, state, options);
     }
 }

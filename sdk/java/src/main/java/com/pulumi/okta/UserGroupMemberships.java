@@ -36,17 +36,17 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new User("test", UserArgs.builder()
  *             .firstName("TestAcc")
  *             .lastName("Smith")
- *             .login("testAcc-replace_with_uuid{@literal @}example.com")
- *             .email("testAcc-replace_with_uuid{@literal @}example.com")
+ *             .login("testAcc-replace_with_uuid}{@literal @}{@code example.com")
+ *             .email("testAcc-replace_with_uuid}{@literal @}{@code example.com")
  *             .build());
  * 
  *         var testUserGroupMemberships = new UserGroupMemberships("testUserGroupMemberships", UserGroupMembershipsArgs.builder()
@@ -56,8 +56,8 @@ import javax.annotation.Nullable;
  *                 test2.id())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -98,7 +98,7 @@ public class UserGroupMemberships extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UserGroupMemberships(String name) {
+    public UserGroupMemberships(java.lang.String name) {
         this(name, UserGroupMembershipsArgs.Empty);
     }
     /**
@@ -106,7 +106,7 @@ public class UserGroupMemberships extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserGroupMemberships(String name, UserGroupMembershipsArgs args) {
+    public UserGroupMemberships(java.lang.String name, UserGroupMembershipsArgs args) {
         this(name, args, null);
     }
     /**
@@ -115,12 +115,12 @@ public class UserGroupMemberships extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserGroupMemberships(String name, UserGroupMembershipsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/userGroupMemberships:UserGroupMemberships", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public UserGroupMemberships(java.lang.String name, UserGroupMembershipsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/userGroupMemberships:UserGroupMemberships", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UserGroupMemberships(String name, Output<String> id, @Nullable UserGroupMembershipsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/userGroupMemberships:UserGroupMemberships", name, state, makeResourceOptions(options, id));
+    private UserGroupMemberships(java.lang.String name, Output<java.lang.String> id, @Nullable UserGroupMembershipsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/userGroupMemberships:UserGroupMemberships", name, state, makeResourceOptions(options, id), false);
     }
 
     private static UserGroupMembershipsArgs makeArgs(UserGroupMembershipsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -130,7 +130,7 @@ public class UserGroupMemberships extends com.pulumi.resources.CustomResource {
         return args == null ? UserGroupMembershipsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -146,7 +146,7 @@ public class UserGroupMemberships extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UserGroupMemberships get(String name, Output<String> id, @Nullable UserGroupMembershipsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UserGroupMemberships get(java.lang.String name, Output<java.lang.String> id, @Nullable UserGroupMembershipsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UserGroupMemberships(name, id, state, options);
     }
 }

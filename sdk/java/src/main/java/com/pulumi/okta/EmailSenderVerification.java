@@ -39,15 +39,15 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new EmailSender("example", EmailSenderArgs.builder()
  *             .fromName("Paul Atreides")
- *             .fromAddress("no-reply{@literal @}caladan.planet")
+ *             .fromAddress("no-reply}{@literal @}{@code caladan.planet")
  *             .subdomain("mail")
  *             .build());
  * 
@@ -55,8 +55,8 @@ import javax.annotation.Nullable;
  *             .senderId(valid.id())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -83,7 +83,7 @@ public class EmailSenderVerification extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EmailSenderVerification(String name) {
+    public EmailSenderVerification(java.lang.String name) {
         this(name, EmailSenderVerificationArgs.Empty);
     }
     /**
@@ -91,7 +91,7 @@ public class EmailSenderVerification extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EmailSenderVerification(String name, EmailSenderVerificationArgs args) {
+    public EmailSenderVerification(java.lang.String name, EmailSenderVerificationArgs args) {
         this(name, args, null);
     }
     /**
@@ -100,12 +100,12 @@ public class EmailSenderVerification extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EmailSenderVerification(String name, EmailSenderVerificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/emailSenderVerification:EmailSenderVerification", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EmailSenderVerification(java.lang.String name, EmailSenderVerificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/emailSenderVerification:EmailSenderVerification", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EmailSenderVerification(String name, Output<String> id, @Nullable EmailSenderVerificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/emailSenderVerification:EmailSenderVerification", name, state, makeResourceOptions(options, id));
+    private EmailSenderVerification(java.lang.String name, Output<java.lang.String> id, @Nullable EmailSenderVerificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/emailSenderVerification:EmailSenderVerification", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EmailSenderVerificationArgs makeArgs(EmailSenderVerificationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -115,7 +115,7 @@ public class EmailSenderVerification extends com.pulumi.resources.CustomResource
         return args == null ? EmailSenderVerificationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -131,7 +131,7 @@ public class EmailSenderVerification extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EmailSenderVerification get(String name, Output<String> id, @Nullable EmailSenderVerificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EmailSenderVerification get(java.lang.String name, Output<java.lang.String> id, @Nullable EmailSenderVerificationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EmailSenderVerification(name, id, state, options);
     }
 }

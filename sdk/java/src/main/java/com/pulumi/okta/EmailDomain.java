@@ -152,7 +152,7 @@ public class EmailDomain extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EmailDomain(String name) {
+    public EmailDomain(java.lang.String name) {
         this(name, EmailDomainArgs.Empty);
     }
     /**
@@ -160,7 +160,7 @@ public class EmailDomain extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EmailDomain(String name, EmailDomainArgs args) {
+    public EmailDomain(java.lang.String name, EmailDomainArgs args) {
         this(name, args, null);
     }
     /**
@@ -169,12 +169,12 @@ public class EmailDomain extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EmailDomain(String name, EmailDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/emailDomain:EmailDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EmailDomain(java.lang.String name, EmailDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/emailDomain:EmailDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EmailDomain(String name, Output<String> id, @Nullable EmailDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/emailDomain:EmailDomain", name, state, makeResourceOptions(options, id));
+    private EmailDomain(java.lang.String name, Output<java.lang.String> id, @Nullable EmailDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/emailDomain:EmailDomain", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EmailDomainArgs makeArgs(EmailDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -184,7 +184,7 @@ public class EmailDomain extends com.pulumi.resources.CustomResource {
         return args == null ? EmailDomainArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -200,7 +200,7 @@ public class EmailDomain extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EmailDomain get(String name, Output<String> id, @Nullable EmailDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EmailDomain get(java.lang.String name, Output<java.lang.String> id, @Nullable EmailDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EmailDomain(name, id, state, options);
     }
 }

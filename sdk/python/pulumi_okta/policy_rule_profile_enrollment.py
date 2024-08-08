@@ -372,7 +372,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                  email_verification: Optional[pulumi.Input[bool]] = None,
                  inline_hook_id: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]] = None,
+                 profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]]] = None,
                  progressive_profiling_action: Optional[pulumi.Input[str]] = None,
                  target_group_id: Optional[pulumi.Input[str]] = None,
                  ui_schema_id: Optional[pulumi.Input[str]] = None,
@@ -416,21 +416,21 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
             email_verification=True,
             access="ALLOW",
             profile_attributes=[
-                okta.PolicyRuleProfileEnrollmentProfileAttributeArgs(
-                    name="email",
-                    label="Email",
-                    required=True,
-                ),
-                okta.PolicyRuleProfileEnrollmentProfileAttributeArgs(
-                    name="name",
-                    label="Name",
-                    required=True,
-                ),
-                okta.PolicyRuleProfileEnrollmentProfileAttributeArgs(
-                    name="t-shirt",
-                    label="T-Shirt Size",
-                    required=False,
-                ),
+                {
+                    "name": "email",
+                    "label": "Email",
+                    "required": True,
+                },
+                {
+                    "name": "name",
+                    "label": "Name",
+                    "required": True,
+                },
+                {
+                    "name": "t-shirt",
+                    "label": "T-Shirt Size",
+                    "required": False,
+                },
             ])
         ```
 
@@ -446,7 +446,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted. Default: `true`.
         :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook
         :param pulumi.Input[str] policy_id: ID of the policy
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
                these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
                the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
                supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
@@ -500,21 +500,21 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
             email_verification=True,
             access="ALLOW",
             profile_attributes=[
-                okta.PolicyRuleProfileEnrollmentProfileAttributeArgs(
-                    name="email",
-                    label="Email",
-                    required=True,
-                ),
-                okta.PolicyRuleProfileEnrollmentProfileAttributeArgs(
-                    name="name",
-                    label="Name",
-                    required=True,
-                ),
-                okta.PolicyRuleProfileEnrollmentProfileAttributeArgs(
-                    name="t-shirt",
-                    label="T-Shirt Size",
-                    required=False,
-                ),
+                {
+                    "name": "email",
+                    "label": "Email",
+                    "required": True,
+                },
+                {
+                    "name": "name",
+                    "label": "Name",
+                    "required": True,
+                },
+                {
+                    "name": "t-shirt",
+                    "label": "T-Shirt Size",
+                    "required": False,
+                },
             ])
         ```
 
@@ -543,7 +543,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                  email_verification: Optional[pulumi.Input[bool]] = None,
                  inline_hook_id: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]] = None,
+                 profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]]] = None,
                  progressive_profiling_action: Optional[pulumi.Input[str]] = None,
                  target_group_id: Optional[pulumi.Input[str]] = None,
                  ui_schema_id: Optional[pulumi.Input[str]] = None,
@@ -587,7 +587,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
             inline_hook_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             policy_id: Optional[pulumi.Input[str]] = None,
-            profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]] = None,
+            profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]]] = None,
             progressive_profiling_action: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             target_group_id: Optional[pulumi.Input[str]] = None,
@@ -605,7 +605,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook
         :param pulumi.Input[str] name: Name of the rule
         :param pulumi.Input[str] policy_id: ID of the policy
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
                these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
                the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
                supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
