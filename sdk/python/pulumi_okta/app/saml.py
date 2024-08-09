@@ -1765,7 +1765,7 @@ class Saml(pulumi.CustomResource):
                  app_links_json: Optional[pulumi.Input[str]] = None,
                  app_settings_json: Optional[pulumi.Input[str]] = None,
                  assertion_signed: Optional[pulumi.Input[bool]] = None,
-                 attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]]] = None,
+                 attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlAttributeStatementArgs', 'SamlAttributeStatementArgsDict']]]]] = None,
                  audience: Optional[pulumi.Input[str]] = None,
                  authentication_policy: Optional[pulumi.Input[str]] = None,
                  authn_context_class_ref: Optional[pulumi.Input[str]] = None,
@@ -1922,7 +1922,7 @@ class Saml(pulumi.CustomResource):
                  app_links_json: Optional[pulumi.Input[str]] = None,
                  app_settings_json: Optional[pulumi.Input[str]] = None,
                  assertion_signed: Optional[pulumi.Input[bool]] = None,
-                 attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]]] = None,
+                 attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlAttributeStatementArgs', 'SamlAttributeStatementArgsDict']]]]] = None,
                  audience: Optional[pulumi.Input[str]] = None,
                  authentication_policy: Optional[pulumi.Input[str]] = None,
                  authn_context_class_ref: Optional[pulumi.Input[str]] = None,
@@ -2049,7 +2049,7 @@ class Saml(pulumi.CustomResource):
             app_links_json: Optional[pulumi.Input[str]] = None,
             app_settings_json: Optional[pulumi.Input[str]] = None,
             assertion_signed: Optional[pulumi.Input[bool]] = None,
-            attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlAttributeStatementArgs']]]]] = None,
+            attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlAttributeStatementArgs', 'SamlAttributeStatementArgsDict']]]]] = None,
             audience: Optional[pulumi.Input[str]] = None,
             authentication_policy: Optional[pulumi.Input[str]] = None,
             authn_context_class_ref: Optional[pulumi.Input[str]] = None,
@@ -2074,7 +2074,7 @@ class Saml(pulumi.CustomResource):
             key_id: Optional[pulumi.Input[str]] = None,
             key_name: Optional[pulumi.Input[str]] = None,
             key_years_valid: Optional[pulumi.Input[int]] = None,
-            keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlKeyArgs']]]]] = None,
+            keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlKeyArgs', 'SamlKeyArgsDict']]]]] = None,
             label: Optional[pulumi.Input[str]] = None,
             logo: Optional[pulumi.Input[str]] = None,
             logo_url: Optional[pulumi.Input[str]] = None,
@@ -2140,7 +2140,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] key_id: Certificate ID
         :param pulumi.Input[str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`
         :param pulumi.Input[int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamlKeyArgs']]]] keys: Application keys
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SamlKeyArgs', 'SamlKeyArgsDict']]]] keys: Application keys
         :param pulumi.Input[str] label: The Application's display name.
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_url: URL of the application's logo

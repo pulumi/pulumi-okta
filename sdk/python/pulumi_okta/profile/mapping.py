@@ -258,7 +258,7 @@ class Mapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_apply: Optional[pulumi.Input[bool]] = None,
                  delete_when_absent: Optional[pulumi.Input[bool]] = None,
-                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]]] = None,
+                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict']]]]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -277,22 +277,22 @@ class Mapping(pulumi.CustomResource):
             target_id=user.id,
             delete_when_absent=True,
             mappings=[
-                okta.profile.MappingMappingArgs(
-                    id="firstName",
-                    expression="appuser.firstName",
-                ),
-                okta.profile.MappingMappingArgs(
-                    id="lastName",
-                    expression="appuser.lastName",
-                ),
-                okta.profile.MappingMappingArgs(
-                    id="email",
-                    expression="appuser.email",
-                ),
-                okta.profile.MappingMappingArgs(
-                    id="login",
-                    expression="appuser.email",
-                ),
+                {
+                    "id": "firstName",
+                    "expression": "appuser.firstName",
+                },
+                {
+                    "id": "lastName",
+                    "expression": "appuser.lastName",
+                },
+                {
+                    "id": "email",
+                    "expression": "appuser.email",
+                },
+                {
+                    "id": "login",
+                    "expression": "appuser.email",
+                },
             ])
         ```
 
@@ -326,22 +326,22 @@ class Mapping(pulumi.CustomResource):
             target_id=user.id,
             delete_when_absent=True,
             mappings=[
-                okta.profile.MappingMappingArgs(
-                    id="firstName",
-                    expression="appuser.firstName",
-                ),
-                okta.profile.MappingMappingArgs(
-                    id="lastName",
-                    expression="appuser.lastName",
-                ),
-                okta.profile.MappingMappingArgs(
-                    id="email",
-                    expression="appuser.email",
-                ),
-                okta.profile.MappingMappingArgs(
-                    id="login",
-                    expression="appuser.email",
-                ),
+                {
+                    "id": "firstName",
+                    "expression": "appuser.firstName",
+                },
+                {
+                    "id": "lastName",
+                    "expression": "appuser.lastName",
+                },
+                {
+                    "id": "email",
+                    "expression": "appuser.email",
+                },
+                {
+                    "id": "login",
+                    "expression": "appuser.email",
+                },
             ])
         ```
 
@@ -362,7 +362,7 @@ class Mapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_apply: Optional[pulumi.Input[bool]] = None,
                  delete_when_absent: Optional[pulumi.Input[bool]] = None,
-                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]]] = None,
+                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict']]]]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -399,7 +399,7 @@ class Mapping(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             always_apply: Optional[pulumi.Input[bool]] = None,
             delete_when_absent: Optional[pulumi.Input[bool]] = None,
-            mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MappingMappingArgs']]]]] = None,
+            mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict']]]]] = None,
             source_id: Optional[pulumi.Input[str]] = None,
             source_name: Optional[pulumi.Input[str]] = None,
             source_type: Optional[pulumi.Input[str]] = None,

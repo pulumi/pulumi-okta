@@ -114,7 +114,7 @@ public class AppOauthApiScope extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AppOauthApiScope(String name) {
+    public AppOauthApiScope(java.lang.String name) {
         this(name, AppOauthApiScopeArgs.Empty);
     }
     /**
@@ -122,7 +122,7 @@ public class AppOauthApiScope extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AppOauthApiScope(String name, AppOauthApiScopeArgs args) {
+    public AppOauthApiScope(java.lang.String name, AppOauthApiScopeArgs args) {
         this(name, args, null);
     }
     /**
@@ -131,12 +131,12 @@ public class AppOauthApiScope extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AppOauthApiScope(String name, AppOauthApiScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/appOauthApiScope:AppOauthApiScope", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AppOauthApiScope(java.lang.String name, AppOauthApiScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/appOauthApiScope:AppOauthApiScope", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AppOauthApiScope(String name, Output<String> id, @Nullable AppOauthApiScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/appOauthApiScope:AppOauthApiScope", name, state, makeResourceOptions(options, id));
+    private AppOauthApiScope(java.lang.String name, Output<java.lang.String> id, @Nullable AppOauthApiScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/appOauthApiScope:AppOauthApiScope", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AppOauthApiScopeArgs makeArgs(AppOauthApiScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -146,7 +146,7 @@ public class AppOauthApiScope extends com.pulumi.resources.CustomResource {
         return args == null ? AppOauthApiScopeArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -162,7 +162,7 @@ public class AppOauthApiScope extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AppOauthApiScope get(String name, Output<String> id, @Nullable AppOauthApiScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AppOauthApiScope get(java.lang.String name, Output<java.lang.String> id, @Nullable AppOauthApiScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AppOauthApiScope(name, id, state, options);
     }
 }

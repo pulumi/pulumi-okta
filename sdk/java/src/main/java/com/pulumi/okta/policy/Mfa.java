@@ -257,7 +257,7 @@ public class Mfa extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Mfa(String name) {
+    public Mfa(java.lang.String name) {
         this(name, MfaArgs.Empty);
     }
     /**
@@ -265,7 +265,7 @@ public class Mfa extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Mfa(String name, @Nullable MfaArgs args) {
+    public Mfa(java.lang.String name, @Nullable MfaArgs args) {
         this(name, args, null);
     }
     /**
@@ -274,12 +274,12 @@ public class Mfa extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Mfa(String name, @Nullable MfaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/mfa:Mfa", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Mfa(java.lang.String name, @Nullable MfaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/mfa:Mfa", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Mfa(String name, Output<String> id, @Nullable MfaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/mfa:Mfa", name, state, makeResourceOptions(options, id));
+    private Mfa(java.lang.String name, Output<java.lang.String> id, @Nullable MfaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/mfa:Mfa", name, state, makeResourceOptions(options, id), false);
     }
 
     private static MfaArgs makeArgs(@Nullable MfaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -289,7 +289,7 @@ public class Mfa extends com.pulumi.resources.CustomResource {
         return args == null ? MfaArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -305,7 +305,7 @@ public class Mfa extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Mfa get(String name, Output<String> id, @Nullable MfaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Mfa get(java.lang.String name, Output<java.lang.String> id, @Nullable MfaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Mfa(name, id, state, options);
     }
 }

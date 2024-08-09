@@ -43,17 +43,17 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .firstName("John")
  *             .lastName("Smith")
- *             .login("john.smith{@literal @}example.com")
- *             .email("john.smith{@literal @}example.com")
+ *             .login("john.smith}{@literal @}{@code example.com")
+ *             .email("john.smith}{@literal @}{@code example.com")
  *             .build());
  * 
  *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
@@ -73,8 +73,8 @@ import javax.annotation.Nullable;
  *                 .dependsOn(exampleFactor)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -163,7 +163,7 @@ public class UserFactorQuestion extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UserFactorQuestion(String name) {
+    public UserFactorQuestion(java.lang.String name) {
         this(name, UserFactorQuestionArgs.Empty);
     }
     /**
@@ -171,7 +171,7 @@ public class UserFactorQuestion extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserFactorQuestion(String name, UserFactorQuestionArgs args) {
+    public UserFactorQuestion(java.lang.String name, UserFactorQuestionArgs args) {
         this(name, args, null);
     }
     /**
@@ -180,12 +180,12 @@ public class UserFactorQuestion extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserFactorQuestion(String name, UserFactorQuestionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/userFactorQuestion:UserFactorQuestion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public UserFactorQuestion(java.lang.String name, UserFactorQuestionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/userFactorQuestion:UserFactorQuestion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UserFactorQuestion(String name, Output<String> id, @Nullable UserFactorQuestionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/userFactorQuestion:UserFactorQuestion", name, state, makeResourceOptions(options, id));
+    private UserFactorQuestion(java.lang.String name, Output<java.lang.String> id, @Nullable UserFactorQuestionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/userFactorQuestion:UserFactorQuestion", name, state, makeResourceOptions(options, id), false);
     }
 
     private static UserFactorQuestionArgs makeArgs(UserFactorQuestionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -195,7 +195,7 @@ public class UserFactorQuestion extends com.pulumi.resources.CustomResource {
         return args == null ? UserFactorQuestionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -214,7 +214,7 @@ public class UserFactorQuestion extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UserFactorQuestion get(String name, Output<String> id, @Nullable UserFactorQuestionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UserFactorQuestion get(java.lang.String name, Output<java.lang.String> id, @Nullable UserFactorQuestionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UserFactorQuestion(name, id, state, options);
     }
 }

@@ -494,7 +494,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AppSharedCredentials(String name) {
+    public AppSharedCredentials(java.lang.String name) {
         this(name, AppSharedCredentialsArgs.Empty);
     }
     /**
@@ -502,7 +502,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AppSharedCredentials(String name, AppSharedCredentialsArgs args) {
+    public AppSharedCredentials(java.lang.String name, AppSharedCredentialsArgs args) {
         this(name, args, null);
     }
     /**
@@ -511,12 +511,12 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AppSharedCredentials(String name, AppSharedCredentialsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/appSharedCredentials:AppSharedCredentials", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AppSharedCredentials(java.lang.String name, AppSharedCredentialsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/appSharedCredentials:AppSharedCredentials", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AppSharedCredentials(String name, Output<String> id, @Nullable AppSharedCredentialsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/appSharedCredentials:AppSharedCredentials", name, state, makeResourceOptions(options, id));
+    private AppSharedCredentials(java.lang.String name, Output<java.lang.String> id, @Nullable AppSharedCredentialsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/appSharedCredentials:AppSharedCredentials", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AppSharedCredentialsArgs makeArgs(AppSharedCredentialsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -526,7 +526,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
         return args == null ? AppSharedCredentialsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -542,7 +542,7 @@ public class AppSharedCredentials extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AppSharedCredentials get(String name, Output<String> id, @Nullable AppSharedCredentialsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AppSharedCredentials get(java.lang.String name, Output<java.lang.String> id, @Nullable AppSharedCredentialsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AppSharedCredentials(name, id, state, options);
     }
 }

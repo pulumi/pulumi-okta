@@ -177,7 +177,7 @@ public class AdminRoleCustom extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AdminRoleCustom(String name) {
+    public AdminRoleCustom(java.lang.String name) {
         this(name, AdminRoleCustomArgs.Empty);
     }
     /**
@@ -185,7 +185,7 @@ public class AdminRoleCustom extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AdminRoleCustom(String name, AdminRoleCustomArgs args) {
+    public AdminRoleCustom(java.lang.String name, AdminRoleCustomArgs args) {
         this(name, args, null);
     }
     /**
@@ -194,12 +194,12 @@ public class AdminRoleCustom extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AdminRoleCustom(String name, AdminRoleCustomArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/adminRoleCustom:AdminRoleCustom", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AdminRoleCustom(java.lang.String name, AdminRoleCustomArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/adminRoleCustom:AdminRoleCustom", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AdminRoleCustom(String name, Output<String> id, @Nullable AdminRoleCustomState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/adminRoleCustom:AdminRoleCustom", name, state, makeResourceOptions(options, id));
+    private AdminRoleCustom(java.lang.String name, Output<java.lang.String> id, @Nullable AdminRoleCustomState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/adminRoleCustom:AdminRoleCustom", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AdminRoleCustomArgs makeArgs(AdminRoleCustomArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -209,7 +209,7 @@ public class AdminRoleCustom extends com.pulumi.resources.CustomResource {
         return args == null ? AdminRoleCustomArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -225,7 +225,7 @@ public class AdminRoleCustom extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AdminRoleCustom get(String name, Output<String> id, @Nullable AdminRoleCustomState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AdminRoleCustom get(java.lang.String name, Output<java.lang.String> id, @Nullable AdminRoleCustomState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AdminRoleCustom(name, id, state, options);
     }
 }

@@ -16,51 +16,77 @@ import (
 //
 // ## Example Usage
 //
-// ### Full profile:
+// ```go
+// package main
 //
-//	resource "user.User" "example" {
-//	  firstName         = "John"
-//	  lastName          = "Smith"
-//	  login              = "john.smith@example.com"
-//	  email              = "john.smith@example.com"
-//	  city               = "New York"
-//	  costCenter        = "10"
-//	  countryCode       = "US"
-//	  department         = "IT"
-//	  displayName       = "Dr. John Smith"
-//	  division           = "Acquisitions"
-//	  employeeNumber    = "111111"
-//	  honorificPrefix   = "Dr."
-//	  honorificSuffix   = "Jr."
-//	  locale             = "en_US"
-//	  manager            = "Jimbo"
-//	  managerId         = "222222"
-//	  middleName        = "John"
-//	  mobilePhone       = "1112223333"
-//	  nickName          = "Johnny"
-//	  organization       = "Testing Inc."
-//	  postalAddress     = "1234 Testing St."
-//	  preferredLanguage = "en-us"
-//	  primaryPhone      = "4445556666"
-//	  profileUrl        = "https://www.example.com/profile"
-//	  secondEmail       = "john.smith.fun@example.com"
-//	  state              = "NY"
-//	  streetAddress     = "5678 Testing Ave."
-//	  timezone           = "America/New_York"
-//	  title              = "Director"
-//	  userType          = "Employee"
-//	  zipCode           = "11111"
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ## Full profile:
+//			_, err := user.NewUser(ctx, "example", &user.UserArgs{
+//				FirstName:         pulumi.String("John"),
+//				LastName:          pulumi.String("Smith"),
+//				Login:             pulumi.String("john.smith@example.com"),
+//				Email:             pulumi.String("john.smith@example.com"),
+//				City:              pulumi.String("New York"),
+//				CostCenter:        pulumi.String("10"),
+//				CountryCode:       pulumi.String("US"),
+//				Department:        pulumi.String("IT"),
+//				DisplayName:       pulumi.String("Dr. John Smith"),
+//				Division:          pulumi.String("Acquisitions"),
+//				EmployeeNumber:    pulumi.String("111111"),
+//				HonorificPrefix:   pulumi.String("Dr."),
+//				HonorificSuffix:   pulumi.String("Jr."),
+//				Locale:            pulumi.String("en_US"),
+//				Manager:           pulumi.String("Jimbo"),
+//				ManagerId:         pulumi.String("222222"),
+//				MiddleName:        pulumi.String("John"),
+//				MobilePhone:       pulumi.String("1112223333"),
+//				NickName:          pulumi.String("Johnny"),
+//				Organization:      pulumi.String("Testing Inc."),
+//				PostalAddress:     pulumi.String("1234 Testing St."),
+//				PreferredLanguage: pulumi.String("en-us"),
+//				PrimaryPhone:      pulumi.String("4445556666"),
+//				ProfileUrl:        pulumi.String("https://www.example.com/profile"),
+//				SecondEmail:       pulumi.String("john.smith.fun@example.com"),
+//				State:             pulumi.String("NY"),
+//				StreetAddress:     pulumi.String("5678 Testing Ave."),
+//				Timezone:          pulumi.String("America/New_York"),
+//				Title:             pulumi.String("Director"),
+//				UserType:          pulumi.String("Employee"),
+//				ZipCode:           pulumi.String("11111"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// ## With Password Inline Hook:
+//			_, err = user.NewUser(ctx, "test2", &user.UserArgs{
+//				FirstName:          pulumi.String("John"),
+//				LastName:           pulumi.String("Smith"),
+//				Login:              pulumi.String("example@example.com"),
+//				Email:              pulumi.String("example@example.com"),
+//				PasswordInlineHook: pulumi.String("default"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
 //	}
 //
-// ### With Password Inline Hook:
+// ```
 //
-//	resource "user.User" "test2" {
-//	  firstName           = "John"
-//	  lastName            = "Smith"
-//	  login                = "example@example.com"
-//	  email                = "example@example.com"
-//	  passwordInlineHook = "default"
-//	}
+// ## Import
+//
+// ```sh
+// $ pulumi import okta:user/user:User example &#60;user id&#62;
+// ```
 type User struct {
 	pulumi.CustomResourceState
 

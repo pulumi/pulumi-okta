@@ -339,7 +339,7 @@ public class GroupSchemaProperty extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GroupSchemaProperty(String name) {
+    public GroupSchemaProperty(java.lang.String name) {
         this(name, GroupSchemaPropertyArgs.Empty);
     }
     /**
@@ -347,7 +347,7 @@ public class GroupSchemaProperty extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GroupSchemaProperty(String name, GroupSchemaPropertyArgs args) {
+    public GroupSchemaProperty(java.lang.String name, GroupSchemaPropertyArgs args) {
         this(name, args, null);
     }
     /**
@@ -356,12 +356,12 @@ public class GroupSchemaProperty extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GroupSchemaProperty(String name, GroupSchemaPropertyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/groupSchemaProperty:GroupSchemaProperty", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public GroupSchemaProperty(java.lang.String name, GroupSchemaPropertyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/groupSchemaProperty:GroupSchemaProperty", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GroupSchemaProperty(String name, Output<String> id, @Nullable GroupSchemaPropertyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/groupSchemaProperty:GroupSchemaProperty", name, state, makeResourceOptions(options, id));
+    private GroupSchemaProperty(java.lang.String name, Output<java.lang.String> id, @Nullable GroupSchemaPropertyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/groupSchemaProperty:GroupSchemaProperty", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GroupSchemaPropertyArgs makeArgs(GroupSchemaPropertyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -371,7 +371,7 @@ public class GroupSchemaProperty extends com.pulumi.resources.CustomResource {
         return args == null ? GroupSchemaPropertyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -387,7 +387,7 @@ public class GroupSchemaProperty extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GroupSchemaProperty get(String name, Output<String> id, @Nullable GroupSchemaPropertyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GroupSchemaProperty get(java.lang.String name, Output<java.lang.String> id, @Nullable GroupSchemaPropertyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GroupSchemaProperty(name, id, state, options);
     }
 }

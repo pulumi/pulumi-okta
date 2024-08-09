@@ -11,49 +11,59 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Full profile:
- * resource "okta.user.User" "example" {
- *   firstName         = "John"
- *   lastName          = "Smith"
- *   login              = "john.smith@example.com"
- *   email              = "john.smith@example.com"
- *   city               = "New York"
- *   costCenter        = "10"
- *   countryCode       = "US"
- *   department         = "IT"
- *   displayName       = "Dr. John Smith"
- *   division           = "Acquisitions"
- *   employeeNumber    = "111111"
- *   honorificPrefix   = "Dr."
- *   honorificSuffix   = "Jr."
- *   locale             = "en_US"
- *   manager            = "Jimbo"
- *   managerId         = "222222"
- *   middleName        = "John"
- *   mobilePhone       = "1112223333"
- *   nickName          = "Johnny"
- *   organization       = "Testing Inc."
- *   postalAddress     = "1234 Testing St."
- *   preferredLanguage = "en-us"
- *   primaryPhone      = "4445556666"
- *   profileUrl        = "https://www.example.com/profile"
- *   secondEmail       = "john.smith.fun@example.com"
- *   state              = "NY"
- *   streetAddress     = "5678 Testing Ave."
- *   timezone           = "America/New_York"
- *   title              = "Director"
- *   userType          = "Employee"
- *   zipCode           = "11111"
- * }
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
  *
- * ### With Password Inline Hook:
- * resource "okta.user.User" "test2" {
- *   firstName           = "John"
- *   lastName            = "Smith"
- *   login                = "example@example.com"
- *   email                = "example@example.com"
- *   passwordInlineHook = "default"
- * }
+ * //## Full profile:
+ * const example = new okta.user.User("example", {
+ *     firstName: "John",
+ *     lastName: "Smith",
+ *     login: "john.smith@example.com",
+ *     email: "john.smith@example.com",
+ *     city: "New York",
+ *     costCenter: "10",
+ *     countryCode: "US",
+ *     department: "IT",
+ *     displayName: "Dr. John Smith",
+ *     division: "Acquisitions",
+ *     employeeNumber: "111111",
+ *     honorificPrefix: "Dr.",
+ *     honorificSuffix: "Jr.",
+ *     locale: "en_US",
+ *     manager: "Jimbo",
+ *     managerId: "222222",
+ *     middleName: "John",
+ *     mobilePhone: "1112223333",
+ *     nickName: "Johnny",
+ *     organization: "Testing Inc.",
+ *     postalAddress: "1234 Testing St.",
+ *     preferredLanguage: "en-us",
+ *     primaryPhone: "4445556666",
+ *     profileUrl: "https://www.example.com/profile",
+ *     secondEmail: "john.smith.fun@example.com",
+ *     state: "NY",
+ *     streetAddress: "5678 Testing Ave.",
+ *     timezone: "America/New_York",
+ *     title: "Director",
+ *     userType: "Employee",
+ *     zipCode: "11111",
+ * });
+ * //## With Password Inline Hook:
+ * const test2 = new okta.user.User("test2", {
+ *     firstName: "John",
+ *     lastName: "Smith",
+ *     login: "example@example.com",
+ *     email: "example@example.com",
+ *     passwordInlineHook: "default",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import okta:user/user:User example &#60;user id&#62;
+ * ```
  */
 export class User extends pulumi.CustomResource {
     /**

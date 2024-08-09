@@ -12,31 +12,11 @@ namespace Pulumi.Okta
     /// <summary>
     /// Manages log streams
     /// 
-    /// ## Example Usage
+    /// ## Import
     /// 
-    /// ### AWS EventBridge
-    /// resource "okta.LogStream" "example" {
-    ///   name   = "EventBridge Log Stream"
-    ///   type   = "aws_eventbridge"
-    ///   status = "ACTIVE"
-    ///   settings {
-    ///     account_id        = "123456789012"
-    ///     region            = "us-north-1"
-    ///     event_source_name = "okta.LogStream"
-    ///   }
-    /// }
-    /// 
-    /// ### Splunk Event Collector
-    /// resource "okta.LogStream" "example" {
-    ///   name   = "Splunk log Stream"
-    ///   type   = "splunk_cloud_logstreaming"
-    ///   status = "ACTIVE"
-    ///   settings {
-    ///     host    = "acme.splunkcloud.com"
-    ///     edition = "gcp"
-    ///     token   = "YOUR_HEC_TOKEN"
-    ///   }
-    /// }
+    /// ```sh
+    /// $ pulumi import okta:index/logStream:LogStream example &amp;#60;strema id&amp;#62;
+    /// ```
     /// </summary>
     [OktaResourceType("okta:index/logStream:LogStream")]
     public partial class LogStream : global::Pulumi.CustomResource

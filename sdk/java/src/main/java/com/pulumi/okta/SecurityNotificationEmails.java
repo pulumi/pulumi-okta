@@ -143,7 +143,7 @@ public class SecurityNotificationEmails extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SecurityNotificationEmails(String name) {
+    public SecurityNotificationEmails(java.lang.String name) {
         this(name, SecurityNotificationEmailsArgs.Empty);
     }
     /**
@@ -151,7 +151,7 @@ public class SecurityNotificationEmails extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SecurityNotificationEmails(String name, @Nullable SecurityNotificationEmailsArgs args) {
+    public SecurityNotificationEmails(java.lang.String name, @Nullable SecurityNotificationEmailsArgs args) {
         this(name, args, null);
     }
     /**
@@ -160,12 +160,12 @@ public class SecurityNotificationEmails extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SecurityNotificationEmails(String name, @Nullable SecurityNotificationEmailsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/securityNotificationEmails:SecurityNotificationEmails", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SecurityNotificationEmails(java.lang.String name, @Nullable SecurityNotificationEmailsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/securityNotificationEmails:SecurityNotificationEmails", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SecurityNotificationEmails(String name, Output<String> id, @Nullable SecurityNotificationEmailsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/securityNotificationEmails:SecurityNotificationEmails", name, state, makeResourceOptions(options, id));
+    private SecurityNotificationEmails(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityNotificationEmailsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/securityNotificationEmails:SecurityNotificationEmails", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SecurityNotificationEmailsArgs makeArgs(@Nullable SecurityNotificationEmailsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -175,7 +175,7 @@ public class SecurityNotificationEmails extends com.pulumi.resources.CustomResou
         return args == null ? SecurityNotificationEmailsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -191,7 +191,7 @@ public class SecurityNotificationEmails extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SecurityNotificationEmails get(String name, Output<String> id, @Nullable SecurityNotificationEmailsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SecurityNotificationEmails get(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityNotificationEmailsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SecurityNotificationEmails(name, id, state, options);
     }
 }

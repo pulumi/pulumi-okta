@@ -40,12 +40,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new Saml("test", SamlArgs.builder()
  *             .preconfiguredApp("amazon_aws")
  *             .label("Amazon AWS")
@@ -58,17 +58,17 @@ import javax.annotation.Nullable;
  *                 jsonObject(
  *                     jsonProperty("appFilter", "okta"),
  *                     jsonProperty("awsEnvironmentType", "aws.amazon"),
- *                     jsonProperty("groupFilter", "aws_(?{{accountid}}\\\\d+)_(?{{role}}[a-zA-Z0-9+=,.{@literal @}\\\\-_]+)"),
+ *                     jsonProperty("groupFilter", "aws_(?}{{{@code accountid}}}{@code \\\\d+)_(?}{{{@code role}}}{@code [a-zA-Z0-9+=,.}{@literal @}{@code \\\\-_]+)"),
  *                     jsonProperty("joinAllRoles", false),
  *                     jsonProperty("loginURL", "https://console.aws.amazon.com/ec2/home"),
- *                     jsonProperty("roleValuePattern", "arn:aws:iam::${accountid}:saml-provider/OKTA,arn:aws:iam::${accountid}:role/${role}"),
+ *                     jsonProperty("roleValuePattern", "arn:aws:iam::$}{{@code accountid}}{@code :saml-provider/OKTA,arn:aws:iam::$}{{@code accountid}}{@code :role/$}{{@code role}}{@code "),
  *                     jsonProperty("sessionDuration", 3200),
  *                     jsonProperty("useGroupMapping", false)
  *                 )))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -115,7 +115,7 @@ public class AppSamlAppSettings extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AppSamlAppSettings(String name) {
+    public AppSamlAppSettings(java.lang.String name) {
         this(name, AppSamlAppSettingsArgs.Empty);
     }
     /**
@@ -123,7 +123,7 @@ public class AppSamlAppSettings extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AppSamlAppSettings(String name, AppSamlAppSettingsArgs args) {
+    public AppSamlAppSettings(java.lang.String name, AppSamlAppSettingsArgs args) {
         this(name, args, null);
     }
     /**
@@ -132,12 +132,12 @@ public class AppSamlAppSettings extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AppSamlAppSettings(String name, AppSamlAppSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/appSamlAppSettings:AppSamlAppSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AppSamlAppSettings(java.lang.String name, AppSamlAppSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/appSamlAppSettings:AppSamlAppSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AppSamlAppSettings(String name, Output<String> id, @Nullable AppSamlAppSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/appSamlAppSettings:AppSamlAppSettings", name, state, makeResourceOptions(options, id));
+    private AppSamlAppSettings(java.lang.String name, Output<java.lang.String> id, @Nullable AppSamlAppSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/appSamlAppSettings:AppSamlAppSettings", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AppSamlAppSettingsArgs makeArgs(AppSamlAppSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -147,7 +147,7 @@ public class AppSamlAppSettings extends com.pulumi.resources.CustomResource {
         return args == null ? AppSamlAppSettingsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -163,7 +163,7 @@ public class AppSamlAppSettings extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AppSamlAppSettings get(String name, Output<String> id, @Nullable AppSamlAppSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AppSamlAppSettings get(java.lang.String name, Output<java.lang.String> id, @Nullable AppSamlAppSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AppSamlAppSettings(name, id, state, options);
     }
 }

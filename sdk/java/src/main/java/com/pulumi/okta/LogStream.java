@@ -18,31 +18,11 @@ import javax.annotation.Nullable;
 /**
  * Manages log streams
  * 
- * ## Example Usage
+ * ## Import
  * 
- * ### AWS EventBridge
- * resource &#34;okta.LogStream&#34; &#34;example&#34; {
- *   name   = &#34;EventBridge Log Stream&#34;
- *   type   = &#34;aws_eventbridge&#34;
- *   status = &#34;ACTIVE&#34;
- *   settings {
- *     account_id        = &#34;123456789012&#34;
- *     region            = &#34;us-north-1&#34;
- *     event_source_name = &#34;okta.LogStream&#34;
- *   }
- * }
- * 
- * ### Splunk Event Collector
- * resource &#34;okta.LogStream&#34; &#34;example&#34; {
- *   name   = &#34;Splunk log Stream&#34;
- *   type   = &#34;splunk_cloud_logstreaming&#34;
- *   status = &#34;ACTIVE&#34;
- *   settings {
- *     host    = &#34;acme.splunkcloud.com&#34;
- *     edition = &#34;gcp&#34;
- *     token   = &#34;YOUR_HEC_TOKEN&#34;
- *   }
- * }
+ * ```sh
+ * $ pulumi import okta:index/logStream:LogStream example &amp;#60;strema id&amp;#62;
+ * ```
  * 
  */
 @ResourceType(type="okta:index/logStream:LogStream")
@@ -100,7 +80,7 @@ public class LogStream extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LogStream(String name) {
+    public LogStream(java.lang.String name) {
         this(name, LogStreamArgs.Empty);
     }
     /**
@@ -108,7 +88,7 @@ public class LogStream extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LogStream(String name, LogStreamArgs args) {
+    public LogStream(java.lang.String name, LogStreamArgs args) {
         this(name, args, null);
     }
     /**
@@ -117,12 +97,12 @@ public class LogStream extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LogStream(String name, LogStreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/logStream:LogStream", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LogStream(java.lang.String name, LogStreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/logStream:LogStream", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LogStream(String name, Output<String> id, @Nullable LogStreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/logStream:LogStream", name, state, makeResourceOptions(options, id));
+    private LogStream(java.lang.String name, Output<java.lang.String> id, @Nullable LogStreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/logStream:LogStream", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LogStreamArgs makeArgs(LogStreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -132,7 +112,7 @@ public class LogStream extends com.pulumi.resources.CustomResource {
         return args == null ? LogStreamArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -148,7 +128,7 @@ public class LogStream extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LogStream get(String name, Output<String> id, @Nullable LogStreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LogStream get(java.lang.String name, Output<java.lang.String> id, @Nullable LogStreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LogStream(name, id, state, options);
     }
 }

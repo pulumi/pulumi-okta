@@ -38,22 +38,22 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ServerClaim("example", ServerClaimArgs.builder()
  *             .authServerId("<auth server id>")
  *             .name("staff")
- *             .value("String.substringAfter(user.email, \"{@literal @}\") == \"example.com\"")
+ *             .value("String.substringAfter(user.email, \"}{@literal @}{@code \") == \"example.com\"")
  *             .scopes(exampleOktaAuthServerScope.name())
  *             .claimType("IDENTITY")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -198,7 +198,7 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServerClaim(String name) {
+    public ServerClaim(java.lang.String name) {
         this(name, ServerClaimArgs.Empty);
     }
     /**
@@ -206,7 +206,7 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServerClaim(String name, ServerClaimArgs args) {
+    public ServerClaim(java.lang.String name, ServerClaimArgs args) {
         this(name, args, null);
     }
     /**
@@ -215,12 +215,12 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServerClaim(String name, ServerClaimArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:auth/serverClaim:ServerClaim", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ServerClaim(java.lang.String name, ServerClaimArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:auth/serverClaim:ServerClaim", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServerClaim(String name, Output<String> id, @Nullable ServerClaimState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:auth/serverClaim:ServerClaim", name, state, makeResourceOptions(options, id));
+    private ServerClaim(java.lang.String name, Output<java.lang.String> id, @Nullable ServerClaimState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:auth/serverClaim:ServerClaim", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ServerClaimArgs makeArgs(ServerClaimArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -230,7 +230,7 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
         return args == null ? ServerClaimArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -246,7 +246,7 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServerClaim get(String name, Output<String> id, @Nullable ServerClaimState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServerClaim get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerClaimState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServerClaim(name, id, state, options);
     }
 }

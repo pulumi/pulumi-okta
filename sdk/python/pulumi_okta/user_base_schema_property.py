@@ -322,6 +322,12 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
 
         ## Import
 
+        ### User schema property of default user type can be imported via the property index.
+
+        ```sh
+        $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;property name&#62;
+        ```
+
         ### User schema property of custom user type can be imported via user type id and property index
 
         ```sh
@@ -372,6 +378,12 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### User schema property of default user type can be imported via the property index.
+
+        ```sh
+        $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;property name&#62;
+        ```
 
         ### User schema property of custom user type can be imported via user type id and property index
 

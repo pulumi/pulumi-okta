@@ -19,53 +19,84 @@ namespace Pulumi.Okta.Policy
     /// 
     /// ## Example Usage
     /// 
-    /// ### All Okta orgs contain only one IdP Discovery Policy
-    /// data "okta.policy.getPolicy" "idp_discovery_policy" {
-    ///   name = "Idp Discovery Policy"
-    ///   type = "IDP_DISCOVERY"
-    /// }
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
     /// 
-    /// resource "okta.policy.RuleIdpDiscovery" "example" {
-    ///   policy_id                 = data.okta_policy.idp_discovery_policy.id
-    ///   name                      = "example"
-    ///   idp_id                    = "&lt;idp id&gt;"
-    ///   idp_type                  = "OIDC"
-    ///   network_connection        = "ANYWHERE"
-    ///   priority                  = 1
-    ///   status                    = "ACTIVE"
-    ///   user_identifier_type      = "ATTRIBUTE"
-    ///   user_identifier_attribute = "company"
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     //## All Okta orgs contain only one IdP Discovery Policy
+    ///     var idpDiscoveryPolicy = Okta.Policy.GetPolicy.Invoke(new()
+    ///     {
+    ///         Name = "Idp Discovery Policy",
+    ///         Type = "IDP_DISCOVERY",
+    ///     });
     /// 
-    ///   app_exclude {
-    ///     id   = "&lt;app id&gt;"
-    ///     type = "APP"
-    ///   }
+    ///     var example = new Okta.Policy.RuleIdpDiscovery("example", new()
+    ///     {
+    ///         PolicyId = idpDiscoveryPolicy.Apply(getPolicyResult =&gt; getPolicyResult.Id),
+    ///         Name = "example",
+    ///         IdpId = "&lt;idp id&gt;",
+    ///         IdpType = "OIDC",
+    ///         NetworkConnection = "ANYWHERE",
+    ///         Priority = 1,
+    ///         Status = "ACTIVE",
+    ///         UserIdentifierType = "ATTRIBUTE",
+    ///         UserIdentifierAttribute = "company",
+    ///         AppExcludes = new[]
+    ///         {
+    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs
+    ///             {
+    ///                 Id = "&lt;app id&gt;",
+    ///                 Type = "APP",
+    ///             },
+    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs
+    ///             {
+    ///                 Name = "yahoo_mail",
+    ///                 Type = "APP_TYPE",
+    ///             },
+    ///         },
+    ///         AppIncludes = new[]
+    ///         {
+    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs
+    ///             {
+    ///                 Id = "&lt;app id&gt;",
+    ///                 Type = "APP",
+    ///             },
+    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs
+    ///             {
+    ///                 Name = "&lt;app type name&gt;",
+    ///                 Type = "APP_TYPE",
+    ///             },
+    ///         },
+    ///         PlatformIncludes = new[]
+    ///         {
+    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryPlatformIncludeArgs
+    ///             {
+    ///                 Type = "MOBILE",
+    ///                 OsType = "OSX",
+    ///             },
+    ///         },
+    ///         UserIdentifierPatterns = new[]
+    ///         {
+    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs
+    ///             {
+    ///                 MatchType = "EQUALS",
+    ///                 Value = "Articulate",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    ///   app_exclude {
-    ///     name = "yahoo_mail"
-    ///     type = "APP_TYPE"
-    ///   }
+    /// });
+    /// ```
     /// 
-    ///   app_include {
-    ///     id   = "&lt;app id&gt;"
-    ///     type = "APP"
-    ///   }
+    /// ## Import
     /// 
-    ///   app_include {
-    ///     name = "&lt;app type name&gt;"
-    ///     type = "APP_TYPE"
-    ///   }
-    /// 
-    ///   platform_include {
-    ///     type    = "MOBILE"
-    ///     os_type = "OSX"
-    ///   }
-    /// 
-    ///   user_identifier_patterns {
-    ///     match_type = "EQUALS"
-    ///     value      = "Articulate"
-    ///   }
-    /// }
+    /// ```sh
+    /// $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
+    /// ```
     /// </summary>
     [OktaResourceType("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery")]
     public partial class RuleIdpDiscovery : global::Pulumi.CustomResource

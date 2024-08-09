@@ -333,7 +333,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Authenticator(String name) {
+    public Authenticator(java.lang.String name) {
         this(name, AuthenticatorArgs.Empty);
     }
     /**
@@ -341,7 +341,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Authenticator(String name, AuthenticatorArgs args) {
+    public Authenticator(java.lang.String name, AuthenticatorArgs args) {
         this(name, args, null);
     }
     /**
@@ -350,12 +350,12 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Authenticator(String name, AuthenticatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/authenticator:Authenticator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Authenticator(java.lang.String name, AuthenticatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/authenticator:Authenticator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Authenticator(String name, Output<String> id, @Nullable AuthenticatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/authenticator:Authenticator", name, state, makeResourceOptions(options, id));
+    private Authenticator(java.lang.String name, Output<java.lang.String> id, @Nullable AuthenticatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/authenticator:Authenticator", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AuthenticatorArgs makeArgs(AuthenticatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -365,7 +365,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
         return args == null ? AuthenticatorArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -384,7 +384,7 @@ public class Authenticator extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Authenticator get(String name, Output<String> id, @Nullable AuthenticatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Authenticator get(java.lang.String name, Output<java.lang.String> id, @Nullable AuthenticatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Authenticator(name, id, state, options);
     }
 }

@@ -13,84 +13,12 @@ namespace Pulumi.Okta.User
     {
         /// <summary>
         /// Get a list of users from Okta.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Lookup Users by Search Criteria
-        /// 
-        /// data "okta.user.getUsers" "example" {
-        ///   search {
-        ///     name       = "profile.company"
-        ///     value      = "Articulate"
-        ///     comparison = "sw"
-        ///   }
-        /// }
-        /// 
-        /// # Search for multiple users based on a raw search expression string
-        /// data "okta.user.getUsers" "example" {
-        ///   search {
-        ///     expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")"
-        ///   }
-        /// }
-        /// 
-        /// ### Lookup Users by Group Membership
-        /// 
-        /// resource "okta.group.Group" "example" {
-        ///   name = "example-group"
-        /// }
-        /// 
-        /// data "okta.user.getUsers" "example" {
-        ///   group_id = okta_group.example.id
-        /// 
-        ///   # optionally include each user's group membership
-        ///   include_groups = true
-        /// 
-        ///   # optionally include each user's administrator roles
-        ///   include_roles = true
-        /// }
-        /// ```
         /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("okta:user/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a list of users from Okta.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Lookup Users by Search Criteria
-        /// 
-        /// data "okta.user.getUsers" "example" {
-        ///   search {
-        ///     name       = "profile.company"
-        ///     value      = "Articulate"
-        ///     comparison = "sw"
-        ///   }
-        /// }
-        /// 
-        /// # Search for multiple users based on a raw search expression string
-        /// data "okta.user.getUsers" "example" {
-        ///   search {
-        ///     expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")"
-        ///   }
-        /// }
-        /// 
-        /// ### Lookup Users by Group Membership
-        /// 
-        /// resource "okta.group.Group" "example" {
-        ///   name = "example-group"
-        /// }
-        /// 
-        /// data "okta.user.getUsers" "example" {
-        ///   group_id = okta_group.example.id
-        /// 
-        ///   # optionally include each user's group membership
-        ///   include_groups = true
-        /// 
-        ///   # optionally include each user's administrator roles
-        ///   include_roles = true
-        /// }
-        /// ```
         /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("okta:user/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());

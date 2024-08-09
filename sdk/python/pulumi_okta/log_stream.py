@@ -154,38 +154,18 @@ class LogStream(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['LogStreamSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['LogStreamSettingsArgs', 'LogStreamSettingsArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages log streams
 
-        ## Example Usage
+        ## Import
 
-        ### AWS EventBridge
-        resource "LogStream" "example" {
-          name   = "EventBridge Log Stream"
-          type   = "aws_eventbridge"
-          status = "ACTIVE"
-          settings {
-            account_id        = "123456789012"
-            region            = "us-north-1"
-            event_source_name = "LogStream"
-          }
-        }
-
-        ### Splunk Event Collector
-        resource "LogStream" "example" {
-          name   = "Splunk log Stream"
-          type   = "splunk_cloud_logstreaming"
-          status = "ACTIVE"
-          settings {
-            host    = "acme.splunkcloud.com"
-            edition = "gcp"
-            token   = "YOUR_HEC_TOKEN"
-          }
-        }
+        ```sh
+        $ pulumi import okta:index/logStream:LogStream example &#60;strema id&#62;
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,31 +182,11 @@ class LogStream(pulumi.CustomResource):
         """
         Manages log streams
 
-        ## Example Usage
+        ## Import
 
-        ### AWS EventBridge
-        resource "LogStream" "example" {
-          name   = "EventBridge Log Stream"
-          type   = "aws_eventbridge"
-          status = "ACTIVE"
-          settings {
-            account_id        = "123456789012"
-            region            = "us-north-1"
-            event_source_name = "LogStream"
-          }
-        }
-
-        ### Splunk Event Collector
-        resource "LogStream" "example" {
-          name   = "Splunk log Stream"
-          type   = "splunk_cloud_logstreaming"
-          status = "ACTIVE"
-          settings {
-            host    = "acme.splunkcloud.com"
-            edition = "gcp"
-            token   = "YOUR_HEC_TOKEN"
-          }
-        }
+        ```sh
+        $ pulumi import okta:index/logStream:LogStream example &#60;strema id&#62;
+        ```
 
         :param str resource_name: The name of the resource.
         :param LogStreamArgs args: The arguments to use to populate this resource's properties.
@@ -244,7 +204,7 @@ class LogStream(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['LogStreamSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['LogStreamSettingsArgs', 'LogStreamSettingsArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -273,7 +233,7 @@ class LogStream(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            settings: Optional[pulumi.Input[pulumi.InputType['LogStreamSettingsArgs']]] = None,
+            settings: Optional[pulumi.Input[Union['LogStreamSettingsArgs', 'LogStreamSettingsArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'LogStream':
         """

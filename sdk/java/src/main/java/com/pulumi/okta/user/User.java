@@ -22,49 +22,84 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Full profile:
- * resource &#34;okta.user.User&#34; &#34;example&#34; {
- *   first_name         = &#34;John&#34;
- *   last_name          = &#34;Smith&#34;
- *   login              = &#34;john.smith{@literal @}example.com&#34;
- *   email              = &#34;john.smith{@literal @}example.com&#34;
- *   city               = &#34;New York&#34;
- *   cost_center        = &#34;10&#34;
- *   country_code       = &#34;US&#34;
- *   department         = &#34;IT&#34;
- *   display_name       = &#34;Dr. John Smith&#34;
- *   division           = &#34;Acquisitions&#34;
- *   employee_number    = &#34;111111&#34;
- *   honorific_prefix   = &#34;Dr.&#34;
- *   honorific_suffix   = &#34;Jr.&#34;
- *   locale             = &#34;en_US&#34;
- *   manager            = &#34;Jimbo&#34;
- *   manager_id         = &#34;222222&#34;
- *   middle_name        = &#34;John&#34;
- *   mobile_phone       = &#34;1112223333&#34;
- *   nick_name          = &#34;Johnny&#34;
- *   organization       = &#34;Testing Inc.&#34;
- *   postal_address     = &#34;1234 Testing St.&#34;
- *   preferred_language = &#34;en-us&#34;
- *   primary_phone      = &#34;4445556666&#34;
- *   profile_url        = &#34;https://www.example.com/profile&#34;
- *   second_email       = &#34;john.smith.fun{@literal @}example.com&#34;
- *   state              = &#34;NY&#34;
- *   street_address     = &#34;5678 Testing Ave.&#34;
- *   timezone           = &#34;America/New_York&#34;
- *   title              = &#34;Director&#34;
- *   user_type          = &#34;Employee&#34;
- *   zip_code           = &#34;11111&#34;
- * }
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
  * 
- * ### With Password Inline Hook:
- * resource &#34;okta.user.User&#34; &#34;test2&#34; {
- *   first_name           = &#34;John&#34;
- *   last_name            = &#34;Smith&#34;
- *   login                = &#34;example{@literal @}example.com&#34;
- *   email                = &#34;example{@literal @}example.com&#34;
- *   password_inline_hook = &#34;default&#34;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.user.User;
+ * import com.pulumi.okta.user.UserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         //## Full profile:
+ *         var example = new User("example", UserArgs.builder()
+ *             .firstName("John")
+ *             .lastName("Smith")
+ *             .login("john.smith}{@literal @}{@code example.com")
+ *             .email("john.smith}{@literal @}{@code example.com")
+ *             .city("New York")
+ *             .costCenter("10")
+ *             .countryCode("US")
+ *             .department("IT")
+ *             .displayName("Dr. John Smith")
+ *             .division("Acquisitions")
+ *             .employeeNumber("111111")
+ *             .honorificPrefix("Dr.")
+ *             .honorificSuffix("Jr.")
+ *             .locale("en_US")
+ *             .manager("Jimbo")
+ *             .managerId("222222")
+ *             .middleName("John")
+ *             .mobilePhone("1112223333")
+ *             .nickName("Johnny")
+ *             .organization("Testing Inc.")
+ *             .postalAddress("1234 Testing St.")
+ *             .preferredLanguage("en-us")
+ *             .primaryPhone("4445556666")
+ *             .profileUrl("https://www.example.com/profile")
+ *             .secondEmail("john.smith.fun}{@literal @}{@code example.com")
+ *             .state("NY")
+ *             .streetAddress("5678 Testing Ave.")
+ *             .timezone("America/New_York")
+ *             .title("Director")
+ *             .userType("Employee")
+ *             .zipCode("11111")
+ *             .build());
+ * 
+ *         //## With Password Inline Hook:
+ *         var test2 = new User("test2", UserArgs.builder()
+ *             .firstName("John")
+ *             .lastName("Smith")
+ *             .login("example}{@literal @}{@code example.com")
+ *             .email("example}{@literal @}{@code example.com")
+ *             .passwordInlineHook("default")
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
  * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import okta:user/user:User example &amp;#60;user id&amp;#62;
+ * ```
  * 
  */
 @ResourceType(type="okta:user/user:User")
@@ -672,7 +707,7 @@ public class User extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public User(String name) {
+    public User(java.lang.String name) {
         this(name, UserArgs.Empty);
     }
     /**
@@ -680,7 +715,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public User(String name, UserArgs args) {
+    public User(java.lang.String name, UserArgs args) {
         this(name, args, null);
     }
     /**
@@ -689,12 +724,12 @@ public class User extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public User(String name, UserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:user/user:User", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public User(java.lang.String name, UserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:user/user:User", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private User(String name, Output<String> id, @Nullable UserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:user/user:User", name, state, makeResourceOptions(options, id));
+    private User(java.lang.String name, Output<java.lang.String> id, @Nullable UserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:user/user:User", name, state, makeResourceOptions(options, id), false);
     }
 
     private static UserArgs makeArgs(UserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -704,7 +739,7 @@ public class User extends com.pulumi.resources.CustomResource {
         return args == null ? UserArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -725,7 +760,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static User get(String name, Output<String> id, @Nullable UserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static User get(java.lang.String name, Output<java.lang.String> id, @Nullable UserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new User(name, id, state, options);
     }
 }

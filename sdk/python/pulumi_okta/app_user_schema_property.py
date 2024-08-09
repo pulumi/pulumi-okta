@@ -720,7 +720,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
                  array_enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyArrayOneOfArgs']]]]] = None,
+                 array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyArrayOneOfArgs', 'AppUserSchemaPropertyArrayOneOfArgsDict']]]]] = None,
                  array_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -730,7 +730,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
                  master: Optional[pulumi.Input[str]] = None,
                  max_length: Optional[pulumi.Input[int]] = None,
                  min_length: Optional[pulumi.Input[int]] = None,
-                 one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyOneOfArgs']]]]] = None,
+                 one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyOneOfArgs', 'AppUserSchemaPropertyOneOfArgsDict']]]]] = None,
                  permissions: Optional[pulumi.Input[str]] = None,
                  required: Optional[pulumi.Input[bool]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -767,7 +767,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The Application's ID the user custom schema property should be assigned to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyArrayOneOfArgs']]]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyArrayOneOfArgs', 'AppUserSchemaPropertyArrayOneOfArgsDict']]]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
                - (Required) display name for the enum value.
         :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `array`
         :param pulumi.Input[str] description: The description of the user schema property.
@@ -778,7 +778,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
         :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `string`
         :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `string`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyOneOfArgs', 'AppUserSchemaPropertyOneOfArgsDict']]]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
                'enum'. - 'title' - (Required) display name for the enum value.
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
         :param pulumi.Input[bool] required: Whether the subschema is required
@@ -837,7 +837,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
                  array_enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyArrayOneOfArgs']]]]] = None,
+                 array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyArrayOneOfArgs', 'AppUserSchemaPropertyArrayOneOfArgsDict']]]]] = None,
                  array_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -847,7 +847,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
                  master: Optional[pulumi.Input[str]] = None,
                  max_length: Optional[pulumi.Input[int]] = None,
                  min_length: Optional[pulumi.Input[int]] = None,
-                 one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyOneOfArgs']]]]] = None,
+                 one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyOneOfArgs', 'AppUserSchemaPropertyOneOfArgsDict']]]]] = None,
                  permissions: Optional[pulumi.Input[str]] = None,
                  required: Optional[pulumi.Input[bool]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -906,7 +906,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_id: Optional[pulumi.Input[str]] = None,
             array_enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyArrayOneOfArgs']]]]] = None,
+            array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyArrayOneOfArgs', 'AppUserSchemaPropertyArrayOneOfArgsDict']]]]] = None,
             array_type: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -916,7 +916,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
             master: Optional[pulumi.Input[str]] = None,
             max_length: Optional[pulumi.Input[int]] = None,
             min_length: Optional[pulumi.Input[int]] = None,
-            one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyOneOfArgs']]]]] = None,
+            one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyOneOfArgs', 'AppUserSchemaPropertyOneOfArgsDict']]]]] = None,
             permissions: Optional[pulumi.Input[str]] = None,
             required: Optional[pulumi.Input[bool]] = None,
             scope: Optional[pulumi.Input[str]] = None,
@@ -934,7 +934,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The Application's ID the user custom schema property should be assigned to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyArrayOneOfArgs']]]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyArrayOneOfArgs', 'AppUserSchemaPropertyArrayOneOfArgsDict']]]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
                - (Required) display name for the enum value.
         :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `array`
         :param pulumi.Input[str] description: The description of the user schema property.
@@ -945,7 +945,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
         :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `string`
         :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `string`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppUserSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyOneOfArgs', 'AppUserSchemaPropertyOneOfArgsDict']]]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
                'enum'. - 'title' - (Required) display name for the enum value.
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
         :param pulumi.Input[bool] required: Whether the subschema is required

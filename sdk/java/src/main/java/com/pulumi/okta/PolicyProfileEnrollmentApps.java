@@ -129,7 +129,7 @@ public class PolicyProfileEnrollmentApps extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PolicyProfileEnrollmentApps(String name) {
+    public PolicyProfileEnrollmentApps(java.lang.String name) {
         this(name, PolicyProfileEnrollmentAppsArgs.Empty);
     }
     /**
@@ -137,7 +137,7 @@ public class PolicyProfileEnrollmentApps extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PolicyProfileEnrollmentApps(String name, PolicyProfileEnrollmentAppsArgs args) {
+    public PolicyProfileEnrollmentApps(java.lang.String name, PolicyProfileEnrollmentAppsArgs args) {
         this(name, args, null);
     }
     /**
@@ -146,12 +146,12 @@ public class PolicyProfileEnrollmentApps extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PolicyProfileEnrollmentApps(String name, PolicyProfileEnrollmentAppsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public PolicyProfileEnrollmentApps(java.lang.String name, PolicyProfileEnrollmentAppsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PolicyProfileEnrollmentApps(String name, Output<String> id, @Nullable PolicyProfileEnrollmentAppsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps", name, state, makeResourceOptions(options, id));
+    private PolicyProfileEnrollmentApps(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyProfileEnrollmentAppsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps", name, state, makeResourceOptions(options, id), false);
     }
 
     private static PolicyProfileEnrollmentAppsArgs makeArgs(PolicyProfileEnrollmentAppsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -161,7 +161,7 @@ public class PolicyProfileEnrollmentApps extends com.pulumi.resources.CustomReso
         return args == null ? PolicyProfileEnrollmentAppsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -177,7 +177,7 @@ public class PolicyProfileEnrollmentApps extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PolicyProfileEnrollmentApps get(String name, Output<String> id, @Nullable PolicyProfileEnrollmentAppsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PolicyProfileEnrollmentApps get(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyProfileEnrollmentAppsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PolicyProfileEnrollmentApps(name, id, state, options);
     }
 }

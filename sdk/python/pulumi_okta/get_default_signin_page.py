@@ -101,8 +101,8 @@ class AwaitableGetDefaultSigninPageResult(GetDefaultSigninPageResult):
 
 
 def get_default_signin_page(brand_id: Optional[str] = None,
-                            content_security_policy_setting: Optional[pulumi.InputType['GetDefaultSigninPageContentSecurityPolicySettingArgs']] = None,
-                            widget_customizations: Optional[pulumi.InputType['GetDefaultSigninPageWidgetCustomizationsArgs']] = None,
+                            content_security_policy_setting: Optional[Union['GetDefaultSigninPageContentSecurityPolicySettingArgs', 'GetDefaultSigninPageContentSecurityPolicySettingArgsDict']] = None,
+                            widget_customizations: Optional[Union['GetDefaultSigninPageWidgetCustomizationsArgs', 'GetDefaultSigninPageWidgetCustomizationsArgsDict']] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultSigninPageResult:
     """
     Retrieve the default signin page of a brand
@@ -128,8 +128,8 @@ def get_default_signin_page(brand_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_default_signin_page)
 def get_default_signin_page_output(brand_id: Optional[pulumi.Input[str]] = None,
-                                   content_security_policy_setting: Optional[pulumi.Input[Optional[pulumi.InputType['GetDefaultSigninPageContentSecurityPolicySettingArgs']]]] = None,
-                                   widget_customizations: Optional[pulumi.Input[Optional[pulumi.InputType['GetDefaultSigninPageWidgetCustomizationsArgs']]]] = None,
+                                   content_security_policy_setting: Optional[pulumi.Input[Optional[Union['GetDefaultSigninPageContentSecurityPolicySettingArgs', 'GetDefaultSigninPageContentSecurityPolicySettingArgsDict']]]] = None,
+                                   widget_customizations: Optional[pulumi.Input[Optional[Union['GetDefaultSigninPageWidgetCustomizationsArgs', 'GetDefaultSigninPageWidgetCustomizationsArgsDict']]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultSigninPageResult]:
     """
     Retrieve the default signin page of a brand

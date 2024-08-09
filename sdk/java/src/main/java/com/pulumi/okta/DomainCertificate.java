@@ -179,7 +179,7 @@ public class DomainCertificate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DomainCertificate(String name) {
+    public DomainCertificate(java.lang.String name) {
         this(name, DomainCertificateArgs.Empty);
     }
     /**
@@ -187,7 +187,7 @@ public class DomainCertificate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DomainCertificate(String name, DomainCertificateArgs args) {
+    public DomainCertificate(java.lang.String name, DomainCertificateArgs args) {
         this(name, args, null);
     }
     /**
@@ -196,12 +196,12 @@ public class DomainCertificate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DomainCertificate(String name, DomainCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/domainCertificate:DomainCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DomainCertificate(java.lang.String name, DomainCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/domainCertificate:DomainCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DomainCertificate(String name, Output<String> id, @Nullable DomainCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/domainCertificate:DomainCertificate", name, state, makeResourceOptions(options, id));
+    private DomainCertificate(java.lang.String name, Output<java.lang.String> id, @Nullable DomainCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/domainCertificate:DomainCertificate", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DomainCertificateArgs makeArgs(DomainCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -211,7 +211,7 @@ public class DomainCertificate extends com.pulumi.resources.CustomResource {
         return args == null ? DomainCertificateArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -227,7 +227,7 @@ public class DomainCertificate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DomainCertificate get(String name, Output<String> id, @Nullable DomainCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DomainCertificate get(java.lang.String name, Output<java.lang.String> id, @Nullable DomainCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DomainCertificate(name, id, state, options);
     }
 }

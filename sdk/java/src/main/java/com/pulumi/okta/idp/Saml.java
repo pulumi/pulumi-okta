@@ -522,7 +522,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Saml(String name) {
+    public Saml(java.lang.String name) {
         this(name, SamlArgs.Empty);
     }
     /**
@@ -530,7 +530,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Saml(String name, SamlArgs args) {
+    public Saml(java.lang.String name, SamlArgs args) {
         this(name, args, null);
     }
     /**
@@ -539,12 +539,12 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Saml(String name, SamlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:idp/saml:Saml", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Saml(java.lang.String name, SamlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:idp/saml:Saml", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Saml(String name, Output<String> id, @Nullable SamlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:idp/saml:Saml", name, state, makeResourceOptions(options, id));
+    private Saml(java.lang.String name, Output<java.lang.String> id, @Nullable SamlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:idp/saml:Saml", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SamlArgs makeArgs(SamlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -554,7 +554,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return args == null ? SamlArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -570,7 +570,7 @@ public class Saml extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Saml get(String name, Output<String> id, @Nullable SamlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Saml get(java.lang.String name, Output<java.lang.String> id, @Nullable SamlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Saml(name, id, state, options);
     }
 }

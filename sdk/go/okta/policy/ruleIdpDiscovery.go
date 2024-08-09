@@ -20,54 +20,83 @@ import (
 //
 // ## Example Usage
 //
-// ### All Okta orgs contain only one IdP Discovery Policy
+// ```go
+// package main
 //
-//	data "policy.getPolicy" "idpDiscoveryPolicy" {
-//	  name = "Idp Discovery Policy"
-//	  type = "IDP_DISCOVERY"
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ## All Okta orgs contain only one IdP Discovery Policy
+//			idpDiscoveryPolicy, err := policy.GetPolicy(ctx, &policy.GetPolicyArgs{
+//				Name: "Idp Discovery Policy",
+//				Type: "IDP_DISCOVERY",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = policy.NewRuleIdpDiscovery(ctx, "example", &policy.RuleIdpDiscoveryArgs{
+//				PolicyId:                pulumi.String(idpDiscoveryPolicy.Id),
+//				Name:                    pulumi.String("example"),
+//				IdpId:                   pulumi.String("<idp id>"),
+//				IdpType:                 pulumi.String("OIDC"),
+//				NetworkConnection:       pulumi.String("ANYWHERE"),
+//				Priority:                pulumi.Int(1),
+//				Status:                  pulumi.String("ACTIVE"),
+//				UserIdentifierType:      pulumi.String("ATTRIBUTE"),
+//				UserIdentifierAttribute: pulumi.String("company"),
+//				AppExcludes: policy.RuleIdpDiscoveryAppExcludeArray{
+//					&policy.RuleIdpDiscoveryAppExcludeArgs{
+//						Id:   pulumi.String("<app id>"),
+//						Type: pulumi.String("APP"),
+//					},
+//					&policy.RuleIdpDiscoveryAppExcludeArgs{
+//						Name: pulumi.String("yahoo_mail"),
+//						Type: pulumi.String("APP_TYPE"),
+//					},
+//				},
+//				AppIncludes: policy.RuleIdpDiscoveryAppIncludeArray{
+//					&policy.RuleIdpDiscoveryAppIncludeArgs{
+//						Id:   pulumi.String("<app id>"),
+//						Type: pulumi.String("APP"),
+//					},
+//					&policy.RuleIdpDiscoveryAppIncludeArgs{
+//						Name: pulumi.String("<app type name>"),
+//						Type: pulumi.String("APP_TYPE"),
+//					},
+//				},
+//				PlatformIncludes: policy.RuleIdpDiscoveryPlatformIncludeArray{
+//					&policy.RuleIdpDiscoveryPlatformIncludeArgs{
+//						Type:   pulumi.String("MOBILE"),
+//						OsType: pulumi.String("OSX"),
+//					},
+//				},
+//				UserIdentifierPatterns: policy.RuleIdpDiscoveryUserIdentifierPatternArray{
+//					&policy.RuleIdpDiscoveryUserIdentifierPatternArgs{
+//						MatchType: pulumi.String("EQUALS"),
+//						Value:     pulumi.String("Articulate"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
 //	}
 //
-//	resource "policy.RuleIdpDiscovery" "example" {
-//	  policyId                 = data.okta_policy.idp_discovery_policy.id
-//	  name                      = "example"
-//	  idpId                    = "<idp id>"
-//	  idpType                  = "OIDC"
-//	  networkConnection        = "ANYWHERE"
-//	  priority                  = 1
-//	  status                    = "ACTIVE"
-//	  userIdentifierType      = "ATTRIBUTE"
-//	  userIdentifierAttribute = "company"
+// ```
 //
-//	  appExclude {
-//	    id   = "<app id>"
-//	    type = "APP"
-//	  }
+// ## Import
 //
-//	  appExclude {
-//	    name = "yahooMail"
-//	    type = "APP_TYPE"
-//	  }
-//
-//	  appInclude {
-//	    id   = "<app id>"
-//	    type = "APP"
-//	  }
-//
-//	  appInclude {
-//	    name = "<app type name>"
-//	    type = "APP_TYPE"
-//	  }
-//
-//	  platformInclude {
-//	    type    = "MOBILE"
-//	    osType = "OSX"
-//	  }
-//
-//	  userIdentifierPatterns {
-//	    matchType = "EQUALS"
-//	    value      = "Articulate"
-//	  }
-//	}
+// ```sh
+// $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &#60;policy id&#62;/&#60;rule id&#62;
+// ```
 type RuleIdpDiscovery struct {
 	pulumi.CustomResourceState
 

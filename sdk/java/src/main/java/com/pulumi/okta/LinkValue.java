@@ -42,12 +42,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var padishah = new LinkDefinition("padishah", LinkDefinitionArgs.builder()
  *             .primaryName("emperor")
  *             .primaryTitle("Emperor")
@@ -60,20 +60,20 @@ import javax.annotation.Nullable;
  *         var emperor = new User("emperor", UserArgs.builder()
  *             .firstName("Shaddam")
  *             .lastName("Corrino IV")
- *             .login("shaddam.corrino.iv{@literal @}salusa-secundus.planet")
- *             .email("shaddam.corrino.iv{@literal @}salusa-secundus.planet")
+ *             .login("shaddam.corrino.iv}{@literal @}{@code salusa-secundus.planet")
+ *             .email("shaddam.corrino.iv}{@literal @}{@code salusa-secundus.planet")
  *             .build());
  * 
- *         for (var i = 0; i < 5; i++) {
+ *         for (var i = 0; i < 5; i++) }{{@code
  *             new User("sardaukars-" + i, UserArgs.builder()
  *                 .firstName("Amrit")
  *                 .lastName(String.format("Sardaukar_%s", range.value()))
- *                 .login(String.format("amritsardaukar_%s{@literal @}salusa-secundus.planet", range.value()))
- *                 .email(String.format("amritsardaukar_%s{@literal @}salusa-secundus.planet", range.value()))
+ *                 .login(String.format("amritsardaukar_%s}{@literal @}{@code salusa-secundus.planet", range.value()))
+ *                 .email(String.format("amritsardaukar_%s}{@literal @}{@code salusa-secundus.planet", range.value()))
  *                 .build());
  * 
  *         
- * }
+ * }}{@code
  *         var example = new LinkValue("example", LinkValueArgs.builder()
  *             .primaryName(padishah.primaryName())
  *             .primaryUserId(emperor.id())
@@ -85,8 +85,8 @@ import javax.annotation.Nullable;
  *                 sardaukars[4].id())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -147,7 +147,7 @@ public class LinkValue extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinkValue(String name) {
+    public LinkValue(java.lang.String name) {
         this(name, LinkValueArgs.Empty);
     }
     /**
@@ -155,7 +155,7 @@ public class LinkValue extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinkValue(String name, LinkValueArgs args) {
+    public LinkValue(java.lang.String name, LinkValueArgs args) {
         this(name, args, null);
     }
     /**
@@ -164,12 +164,12 @@ public class LinkValue extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinkValue(String name, LinkValueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/linkValue:LinkValue", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LinkValue(java.lang.String name, LinkValueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/linkValue:LinkValue", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinkValue(String name, Output<String> id, @Nullable LinkValueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/linkValue:LinkValue", name, state, makeResourceOptions(options, id));
+    private LinkValue(java.lang.String name, Output<java.lang.String> id, @Nullable LinkValueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/linkValue:LinkValue", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LinkValueArgs makeArgs(LinkValueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -179,7 +179,7 @@ public class LinkValue extends com.pulumi.resources.CustomResource {
         return args == null ? LinkValueArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -195,7 +195,7 @@ public class LinkValue extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinkValue get(String name, Output<String> id, @Nullable LinkValueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinkValue get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkValueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinkValue(name, id, state, options);
     }
 }

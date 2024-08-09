@@ -68,6 +68,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### User schema property of default user type can be imported via the property index.
+ * 
+ * ```sh
+ * $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &amp;#60;property name&amp;#62;
+ * ```
+ * 
  * ### User schema property of custom user type can be imported via user type id and property index
  * 
  * ```sh
@@ -194,7 +200,7 @@ public class UserBaseSchemaProperty extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UserBaseSchemaProperty(String name) {
+    public UserBaseSchemaProperty(java.lang.String name) {
         this(name, UserBaseSchemaPropertyArgs.Empty);
     }
     /**
@@ -202,7 +208,7 @@ public class UserBaseSchemaProperty extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserBaseSchemaProperty(String name, UserBaseSchemaPropertyArgs args) {
+    public UserBaseSchemaProperty(java.lang.String name, UserBaseSchemaPropertyArgs args) {
         this(name, args, null);
     }
     /**
@@ -211,12 +217,12 @@ public class UserBaseSchemaProperty extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserBaseSchemaProperty(String name, UserBaseSchemaPropertyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/userBaseSchemaProperty:UserBaseSchemaProperty", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public UserBaseSchemaProperty(java.lang.String name, UserBaseSchemaPropertyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/userBaseSchemaProperty:UserBaseSchemaProperty", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UserBaseSchemaProperty(String name, Output<String> id, @Nullable UserBaseSchemaPropertyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/userBaseSchemaProperty:UserBaseSchemaProperty", name, state, makeResourceOptions(options, id));
+    private UserBaseSchemaProperty(java.lang.String name, Output<java.lang.String> id, @Nullable UserBaseSchemaPropertyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/userBaseSchemaProperty:UserBaseSchemaProperty", name, state, makeResourceOptions(options, id), false);
     }
 
     private static UserBaseSchemaPropertyArgs makeArgs(UserBaseSchemaPropertyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -226,7 +232,7 @@ public class UserBaseSchemaProperty extends com.pulumi.resources.CustomResource 
         return args == null ? UserBaseSchemaPropertyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -242,7 +248,7 @@ public class UserBaseSchemaProperty extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UserBaseSchemaProperty get(String name, Output<String> id, @Nullable UserBaseSchemaPropertyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UserBaseSchemaProperty get(java.lang.String name, Output<java.lang.String> id, @Nullable UserBaseSchemaPropertyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UserBaseSchemaProperty(name, id, state, options);
     }
 }

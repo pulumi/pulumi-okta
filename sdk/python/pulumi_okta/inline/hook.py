@@ -241,7 +241,7 @@ class Hook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HookHeaderArgs']]]]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HookHeaderArgs', 'HookHeaderArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -280,7 +280,7 @@ class Hook(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HookHeaderArgs']]]] headers: Map of headers to send along in inline hook request.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HookHeaderArgs', 'HookHeaderArgsDict']]]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
         :param pulumi.Input[str] status: Default to `ACTIVE`
         :param pulumi.Input[str] type: The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
@@ -340,7 +340,7 @@ class Hook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HookHeaderArgs']]]]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HookHeaderArgs', 'HookHeaderArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -379,7 +379,7 @@ class Hook(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HookHeaderArgs']]]]] = None,
+            headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HookHeaderArgs', 'HookHeaderArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
@@ -391,7 +391,7 @@ class Hook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HookHeaderArgs']]]] headers: Map of headers to send along in inline hook request.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HookHeaderArgs', 'HookHeaderArgsDict']]]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
         :param pulumi.Input[str] status: Default to `ACTIVE`
         :param pulumi.Input[str] type: The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).

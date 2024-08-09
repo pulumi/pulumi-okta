@@ -63,7 +63,7 @@ public class CaptchaOrgWideSettings extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CaptchaOrgWideSettings(String name) {
+    public CaptchaOrgWideSettings(java.lang.String name) {
         this(name, CaptchaOrgWideSettingsArgs.Empty);
     }
     /**
@@ -71,7 +71,7 @@ public class CaptchaOrgWideSettings extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CaptchaOrgWideSettings(String name, @Nullable CaptchaOrgWideSettingsArgs args) {
+    public CaptchaOrgWideSettings(java.lang.String name, @Nullable CaptchaOrgWideSettingsArgs args) {
         this(name, args, null);
     }
     /**
@@ -80,12 +80,12 @@ public class CaptchaOrgWideSettings extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CaptchaOrgWideSettings(String name, @Nullable CaptchaOrgWideSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CaptchaOrgWideSettings(java.lang.String name, @Nullable CaptchaOrgWideSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CaptchaOrgWideSettings(String name, Output<String> id, @Nullable CaptchaOrgWideSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings", name, state, makeResourceOptions(options, id));
+    private CaptchaOrgWideSettings(java.lang.String name, Output<java.lang.String> id, @Nullable CaptchaOrgWideSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CaptchaOrgWideSettingsArgs makeArgs(@Nullable CaptchaOrgWideSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -95,7 +95,7 @@ public class CaptchaOrgWideSettings extends com.pulumi.resources.CustomResource 
         return args == null ? CaptchaOrgWideSettingsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -111,7 +111,7 @@ public class CaptchaOrgWideSettings extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CaptchaOrgWideSettings get(String name, Output<String> id, @Nullable CaptchaOrgWideSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CaptchaOrgWideSettings get(java.lang.String name, Output<java.lang.String> id, @Nullable CaptchaOrgWideSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CaptchaOrgWideSettings(name, id, state, options);
     }
 }

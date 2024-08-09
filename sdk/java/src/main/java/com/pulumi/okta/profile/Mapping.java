@@ -208,7 +208,7 @@ public class Mapping extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Mapping(String name) {
+    public Mapping(java.lang.String name) {
         this(name, MappingArgs.Empty);
     }
     /**
@@ -216,7 +216,7 @@ public class Mapping extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Mapping(String name, MappingArgs args) {
+    public Mapping(java.lang.String name, MappingArgs args) {
         this(name, args, null);
     }
     /**
@@ -225,12 +225,12 @@ public class Mapping extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Mapping(String name, MappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:profile/mapping:Mapping", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Mapping(java.lang.String name, MappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:profile/mapping:Mapping", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Mapping(String name, Output<String> id, @Nullable MappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:profile/mapping:Mapping", name, state, makeResourceOptions(options, id));
+    private Mapping(java.lang.String name, Output<java.lang.String> id, @Nullable MappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:profile/mapping:Mapping", name, state, makeResourceOptions(options, id), false);
     }
 
     private static MappingArgs makeArgs(MappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -240,7 +240,7 @@ public class Mapping extends com.pulumi.resources.CustomResource {
         return args == null ? MappingArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -256,7 +256,7 @@ public class Mapping extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Mapping get(String name, Output<String> id, @Nullable MappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Mapping get(java.lang.String name, Output<java.lang.String> id, @Nullable MappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Mapping(name, id, state, options);
     }
 }

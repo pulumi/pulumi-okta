@@ -30,53 +30,90 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### All Okta orgs contain only one IdP Discovery Policy
- * data &#34;okta.policy.getPolicy&#34; &#34;idp_discovery_policy&#34; {
- *   name = &#34;Idp Discovery Policy&#34;
- *   type = &#34;IDP_DISCOVERY&#34;
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.policy.PolicyFunctions;
+ * import com.pulumi.okta.policy.inputs.GetPolicyArgs;
+ * import com.pulumi.okta.policy.RuleIdpDiscovery;
+ * import com.pulumi.okta.policy.RuleIdpDiscoveryArgs;
+ * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppExcludeArgs;
+ * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppIncludeArgs;
+ * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryPlatformIncludeArgs;
+ * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryUserIdentifierPatternArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         //## All Okta orgs contain only one IdP Discovery Policy
+ *         final var idpDiscoveryPolicy = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
+ *             .name("Idp Discovery Policy")
+ *             .type("IDP_DISCOVERY")
+ *             .build());
+ * 
+ *         var example = new RuleIdpDiscovery("example", RuleIdpDiscoveryArgs.builder()
+ *             .policyId(idpDiscoveryPolicy.applyValue(getPolicyResult -> getPolicyResult.id()))
+ *             .name("example")
+ *             .idpId("<idp id>")
+ *             .idpType("OIDC")
+ *             .networkConnection("ANYWHERE")
+ *             .priority(1)
+ *             .status("ACTIVE")
+ *             .userIdentifierType("ATTRIBUTE")
+ *             .userIdentifierAttribute("company")
+ *             .appExcludes(            
+ *                 RuleIdpDiscoveryAppExcludeArgs.builder()
+ *                     .id("<app id>")
+ *                     .type("APP")
+ *                     .build(),
+ *                 RuleIdpDiscoveryAppExcludeArgs.builder()
+ *                     .name("yahoo_mail")
+ *                     .type("APP_TYPE")
+ *                     .build())
+ *             .appIncludes(            
+ *                 RuleIdpDiscoveryAppIncludeArgs.builder()
+ *                     .id("<app id>")
+ *                     .type("APP")
+ *                     .build(),
+ *                 RuleIdpDiscoveryAppIncludeArgs.builder()
+ *                     .name("<app type name>")
+ *                     .type("APP_TYPE")
+ *                     .build())
+ *             .platformIncludes(RuleIdpDiscoveryPlatformIncludeArgs.builder()
+ *                 .type("MOBILE")
+ *                 .osType("OSX")
+ *                 .build())
+ *             .userIdentifierPatterns(RuleIdpDiscoveryUserIdentifierPatternArgs.builder()
+ *                 .matchType("EQUALS")
+ *                 .value("Articulate")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
  * }
- * 
- * resource &#34;okta.policy.RuleIdpDiscovery&#34; &#34;example&#34; {
- *   policy_id                 = data.okta_policy.idp_discovery_policy.id
- *   name                      = &#34;example&#34;
- *   idp_id                    = &#34;&lt;idp id&gt;&#34;
- *   idp_type                  = &#34;OIDC&#34;
- *   network_connection        = &#34;ANYWHERE&#34;
- *   priority                  = 1
- *   status                    = &#34;ACTIVE&#34;
- *   user_identifier_type      = &#34;ATTRIBUTE&#34;
- *   user_identifier_attribute = &#34;company&#34;
- * 
- *   app_exclude {
- *     id   = &#34;&lt;app id&gt;&#34;
- *     type = &#34;APP&#34;
- *   }
- * 
- *   app_exclude {
- *     name = &#34;yahoo_mail&#34;
- *     type = &#34;APP_TYPE&#34;
- *   }
- * 
- *   app_include {
- *     id   = &#34;&lt;app id&gt;&#34;
- *     type = &#34;APP&#34;
- *   }
- * 
- *   app_include {
- *     name = &#34;&lt;app type name&gt;&#34;
- *     type = &#34;APP_TYPE&#34;
- *   }
- * 
- *   platform_include {
- *     type    = &#34;MOBILE&#34;
- *     os_type = &#34;OSX&#34;
- *   }
- * 
- *   user_identifier_patterns {
- *     match_type = &#34;EQUALS&#34;
- *     value      = &#34;Articulate&#34;
- *   }
  * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
+ * ```
  * 
  */
 @ResourceType(type="okta:policy/ruleIdpDiscovery:RuleIdpDiscovery")
@@ -318,7 +355,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RuleIdpDiscovery(String name) {
+    public RuleIdpDiscovery(java.lang.String name) {
         this(name, RuleIdpDiscoveryArgs.Empty);
     }
     /**
@@ -326,7 +363,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RuleIdpDiscovery(String name, @Nullable RuleIdpDiscoveryArgs args) {
+    public RuleIdpDiscovery(java.lang.String name, @Nullable RuleIdpDiscoveryArgs args) {
         this(name, args, null);
     }
     /**
@@ -335,12 +372,12 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RuleIdpDiscovery(String name, @Nullable RuleIdpDiscoveryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public RuleIdpDiscovery(java.lang.String name, @Nullable RuleIdpDiscoveryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RuleIdpDiscovery(String name, Output<String> id, @Nullable RuleIdpDiscoveryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery", name, state, makeResourceOptions(options, id));
+    private RuleIdpDiscovery(java.lang.String name, Output<java.lang.String> id, @Nullable RuleIdpDiscoveryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery", name, state, makeResourceOptions(options, id), false);
     }
 
     private static RuleIdpDiscoveryArgs makeArgs(@Nullable RuleIdpDiscoveryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -350,7 +387,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
         return args == null ? RuleIdpDiscoveryArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -366,7 +403,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RuleIdpDiscovery get(String name, Output<String> id, @Nullable RuleIdpDiscoveryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RuleIdpDiscovery get(java.lang.String name, Output<java.lang.String> id, @Nullable RuleIdpDiscoveryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RuleIdpDiscovery(name, id, state, options);
     }
 }

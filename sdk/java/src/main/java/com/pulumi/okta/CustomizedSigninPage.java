@@ -193,7 +193,7 @@ public class CustomizedSigninPage extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CustomizedSigninPage(String name) {
+    public CustomizedSigninPage(java.lang.String name) {
         this(name, CustomizedSigninPageArgs.Empty);
     }
     /**
@@ -201,7 +201,7 @@ public class CustomizedSigninPage extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CustomizedSigninPage(String name, CustomizedSigninPageArgs args) {
+    public CustomizedSigninPage(java.lang.String name, CustomizedSigninPageArgs args) {
         this(name, args, null);
     }
     /**
@@ -210,12 +210,12 @@ public class CustomizedSigninPage extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CustomizedSigninPage(String name, CustomizedSigninPageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/customizedSigninPage:CustomizedSigninPage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CustomizedSigninPage(java.lang.String name, CustomizedSigninPageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/customizedSigninPage:CustomizedSigninPage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CustomizedSigninPage(String name, Output<String> id, @Nullable CustomizedSigninPageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/customizedSigninPage:CustomizedSigninPage", name, state, makeResourceOptions(options, id));
+    private CustomizedSigninPage(java.lang.String name, Output<java.lang.String> id, @Nullable CustomizedSigninPageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/customizedSigninPage:CustomizedSigninPage", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CustomizedSigninPageArgs makeArgs(CustomizedSigninPageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -225,7 +225,7 @@ public class CustomizedSigninPage extends com.pulumi.resources.CustomResource {
         return args == null ? CustomizedSigninPageArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -241,7 +241,7 @@ public class CustomizedSigninPage extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CustomizedSigninPage get(String name, Output<String> id, @Nullable CustomizedSigninPageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CustomizedSigninPage get(java.lang.String name, Output<java.lang.String> id, @Nullable CustomizedSigninPageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CustomizedSigninPage(name, id, state, options);
     }
 }

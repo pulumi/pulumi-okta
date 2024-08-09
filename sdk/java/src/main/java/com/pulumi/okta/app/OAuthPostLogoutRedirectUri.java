@@ -109,7 +109,7 @@ public class OAuthPostLogoutRedirectUri extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OAuthPostLogoutRedirectUri(String name) {
+    public OAuthPostLogoutRedirectUri(java.lang.String name) {
         this(name, OAuthPostLogoutRedirectUriArgs.Empty);
     }
     /**
@@ -117,7 +117,7 @@ public class OAuthPostLogoutRedirectUri extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OAuthPostLogoutRedirectUri(String name, OAuthPostLogoutRedirectUriArgs args) {
+    public OAuthPostLogoutRedirectUri(java.lang.String name, OAuthPostLogoutRedirectUriArgs args) {
         this(name, args, null);
     }
     /**
@@ -126,12 +126,12 @@ public class OAuthPostLogoutRedirectUri extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OAuthPostLogoutRedirectUri(String name, OAuthPostLogoutRedirectUriArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public OAuthPostLogoutRedirectUri(java.lang.String name, OAuthPostLogoutRedirectUriArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OAuthPostLogoutRedirectUri(String name, Output<String> id, @Nullable OAuthPostLogoutRedirectUriState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri", name, state, makeResourceOptions(options, id));
+    private OAuthPostLogoutRedirectUri(java.lang.String name, Output<java.lang.String> id, @Nullable OAuthPostLogoutRedirectUriState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri", name, state, makeResourceOptions(options, id), false);
     }
 
     private static OAuthPostLogoutRedirectUriArgs makeArgs(OAuthPostLogoutRedirectUriArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -141,7 +141,7 @@ public class OAuthPostLogoutRedirectUri extends com.pulumi.resources.CustomResou
         return args == null ? OAuthPostLogoutRedirectUriArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -157,7 +157,7 @@ public class OAuthPostLogoutRedirectUri extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OAuthPostLogoutRedirectUri get(String name, Output<String> id, @Nullable OAuthPostLogoutRedirectUriState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OAuthPostLogoutRedirectUri get(java.lang.String name, Output<java.lang.String> id, @Nullable OAuthPostLogoutRedirectUriState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OAuthPostLogoutRedirectUri(name, id, state, options);
     }
 }

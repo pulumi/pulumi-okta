@@ -487,82 +487,12 @@ public final class UserFunctions {
     /**
      * Get a list of users from Okta.
      * 
-     * ## Example Usage
-     * 
-     * ### Lookup Users by Search Criteria
-     * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     name       = &#34;profile.company&#34;
-     *     value      = &#34;Articulate&#34;
-     *     comparison = &#34;sw&#34;
-     *   }
-     * }
-     * 
-     * # Search for multiple users based on a raw search expression string
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     expression = &#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;
-     *   }
-     * }
-     * 
-     * ### Lookup Users by Group Membership
-     * 
-     * resource &#34;okta.group.Group&#34; &#34;example&#34; {
-     *   name = &#34;example-group&#34;
-     * }
-     * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   group_id = okta_group.example.id
-     * 
-     * # optionally include each user&#39;s group membership
-     *   include_groups = true
-     * 
-     * # optionally include each user&#39;s administrator roles
-     *   include_roles = true
-     * }
-     * 
      */
     public static Output<GetUsersResult> getUsers() {
         return getUsers(GetUsersArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Get a list of users from Okta.
-     * 
-     * ## Example Usage
-     * 
-     * ### Lookup Users by Search Criteria
-     * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     name       = &#34;profile.company&#34;
-     *     value      = &#34;Articulate&#34;
-     *     comparison = &#34;sw&#34;
-     *   }
-     * }
-     * 
-     * # Search for multiple users based on a raw search expression string
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     expression = &#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;
-     *   }
-     * }
-     * 
-     * ### Lookup Users by Group Membership
-     * 
-     * resource &#34;okta.group.Group&#34; &#34;example&#34; {
-     *   name = &#34;example-group&#34;
-     * }
-     * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   group_id = okta_group.example.id
-     * 
-     * # optionally include each user&#39;s group membership
-     *   include_groups = true
-     * 
-     * # optionally include each user&#39;s administrator roles
-     *   include_roles = true
-     * }
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain() {
@@ -571,82 +501,12 @@ public final class UserFunctions {
     /**
      * Get a list of users from Okta.
      * 
-     * ## Example Usage
-     * 
-     * ### Lookup Users by Search Criteria
-     * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     name       = &#34;profile.company&#34;
-     *     value      = &#34;Articulate&#34;
-     *     comparison = &#34;sw&#34;
-     *   }
-     * }
-     * 
-     * # Search for multiple users based on a raw search expression string
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     expression = &#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;
-     *   }
-     * }
-     * 
-     * ### Lookup Users by Group Membership
-     * 
-     * resource &#34;okta.group.Group&#34; &#34;example&#34; {
-     *   name = &#34;example-group&#34;
-     * }
-     * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   group_id = okta_group.example.id
-     * 
-     * # optionally include each user&#39;s group membership
-     *   include_groups = true
-     * 
-     * # optionally include each user&#39;s administrator roles
-     *   include_roles = true
-     * }
-     * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args) {
         return getUsers(args, InvokeOptions.Empty);
     }
     /**
      * Get a list of users from Okta.
-     * 
-     * ## Example Usage
-     * 
-     * ### Lookup Users by Search Criteria
-     * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     name       = &#34;profile.company&#34;
-     *     value      = &#34;Articulate&#34;
-     *     comparison = &#34;sw&#34;
-     *   }
-     * }
-     * 
-     * # Search for multiple users based on a raw search expression string
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     expression = &#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;
-     *   }
-     * }
-     * 
-     * ### Lookup Users by Group Membership
-     * 
-     * resource &#34;okta.group.Group&#34; &#34;example&#34; {
-     *   name = &#34;example-group&#34;
-     * }
-     * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   group_id = okta_group.example.id
-     * 
-     * # optionally include each user&#39;s group membership
-     *   include_groups = true
-     * 
-     * # optionally include each user&#39;s administrator roles
-     *   include_roles = true
-     * }
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args) {
@@ -655,82 +515,12 @@ public final class UserFunctions {
     /**
      * Get a list of users from Okta.
      * 
-     * ## Example Usage
-     * 
-     * ### Lookup Users by Search Criteria
-     * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     name       = &#34;profile.company&#34;
-     *     value      = &#34;Articulate&#34;
-     *     comparison = &#34;sw&#34;
-     *   }
-     * }
-     * 
-     * # Search for multiple users based on a raw search expression string
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     expression = &#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;
-     *   }
-     * }
-     * 
-     * ### Lookup Users by Group Membership
-     * 
-     * resource &#34;okta.group.Group&#34; &#34;example&#34; {
-     *   name = &#34;example-group&#34;
-     * }
-     * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   group_id = okta_group.example.id
-     * 
-     * # optionally include each user&#39;s group membership
-     *   include_groups = true
-     * 
-     * # optionally include each user&#39;s administrator roles
-     *   include_roles = true
-     * }
-     * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:user/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a list of users from Okta.
-     * 
-     * ## Example Usage
-     * 
-     * ### Lookup Users by Search Criteria
-     * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     name       = &#34;profile.company&#34;
-     *     value      = &#34;Articulate&#34;
-     *     comparison = &#34;sw&#34;
-     *   }
-     * }
-     * 
-     * # Search for multiple users based on a raw search expression string
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   search {
-     *     expression = &#34;profile.department eq \&#34;Engineering\&#34; and (created lt \&#34;2014-01-01T00:00:00.000Z\&#34; or status eq \&#34;ACTIVE\&#34;)&#34;
-     *   }
-     * }
-     * 
-     * ### Lookup Users by Group Membership
-     * 
-     * resource &#34;okta.group.Group&#34; &#34;example&#34; {
-     *   name = &#34;example-group&#34;
-     * }
-     * 
-     * data &#34;okta.user.getUsers&#34; &#34;example&#34; {
-     *   group_id = okta_group.example.id
-     * 
-     * # optionally include each user&#39;s group membership
-     *   include_groups = true
-     * 
-     * # optionally include each user&#39;s administrator roles
-     *   include_roles = true
-     * }
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {

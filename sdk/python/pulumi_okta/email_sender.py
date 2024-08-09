@@ -269,7 +269,7 @@ class EmailSender(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dns_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailSenderDnsRecordArgs']]]]] = None,
+            dns_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmailSenderDnsRecordArgs', 'EmailSenderDnsRecordArgsDict']]]]] = None,
             from_address: Optional[pulumi.Input[str]] = None,
             from_name: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -281,7 +281,7 @@ class EmailSender(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailSenderDnsRecordArgs']]]] dns_records: TXT and CNAME records to be registered for the Domain
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EmailSenderDnsRecordArgs', 'EmailSenderDnsRecordArgsDict']]]] dns_records: TXT and CNAME records to be registered for the Domain
         :param pulumi.Input[str] from_address: Email address to send from
         :param pulumi.Input[str] from_name: Name of sender
         :param pulumi.Input[str] status: Verification status

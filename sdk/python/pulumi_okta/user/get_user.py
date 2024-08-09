@@ -444,7 +444,7 @@ class AwaitableGetUserResult(GetUserResult):
 
 def get_user(compound_search_operator: Optional[str] = None,
              delay_read_seconds: Optional[str] = None,
-             searches: Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]] = None,
+             searches: Optional[Sequence[Union['GetUserSearchArgs', 'GetUserSearchArgsDict']]] = None,
              skip_groups: Optional[bool] = None,
              skip_roles: Optional[bool] = None,
              user_id: Optional[str] = None,
@@ -455,7 +455,7 @@ def get_user(compound_search_operator: Optional[str] = None,
 
     :param str compound_search_operator: Search operator used when joining multiple search clauses
     :param str delay_read_seconds: Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
-    :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+    :param Sequence[Union['GetUserSearchArgs', 'GetUserSearchArgsDict']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
     :param bool skip_groups: Do not populate user groups information (prevents additional API call)
     :param bool skip_roles: Do not populate user roles information (prevents additional API call)
     :param str user_id: Retrieve a single user based on their id
@@ -519,7 +519,7 @@ def get_user(compound_search_operator: Optional[str] = None,
 @_utilities.lift_output_func(get_user)
 def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[str]]] = None,
                     delay_read_seconds: Optional[pulumi.Input[Optional[str]]] = None,
-                    searches: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetUserSearchArgs']]]]] = None,
+                    searches: Optional[pulumi.Input[Optional[Sequence[Union['GetUserSearchArgs', 'GetUserSearchArgsDict']]]]] = None,
                     skip_groups: Optional[pulumi.Input[Optional[bool]]] = None,
                     skip_roles: Optional[pulumi.Input[Optional[bool]]] = None,
                     user_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -530,7 +530,7 @@ def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[str
 
     :param str compound_search_operator: Search operator used when joining multiple search clauses
     :param str delay_read_seconds: Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
-    :param Sequence[pulumi.InputType['GetUserSearchArgs']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+    :param Sequence[Union['GetUserSearchArgs', 'GetUserSearchArgsDict']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
     :param bool skip_groups: Do not populate user groups information (prevents additional API call)
     :param bool skip_roles: Do not populate user roles information (prevents additional API call)
     :param str user_id: Retrieve a single user based on their id
