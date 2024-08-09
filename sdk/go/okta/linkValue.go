@@ -57,9 +57,9 @@ import (
 //				val0 := index
 //				__res, err := user.NewUser(ctx, fmt.Sprintf("sardaukars-%v", key0), &user.UserArgs{
 //					FirstName: pulumi.String("Amrit"),
-//					LastName:  pulumi.String(fmt.Sprintf("Sardaukar_%v", val0)),
-//					Login:     pulumi.String(fmt.Sprintf("amritsardaukar_%v@salusa-secundus.planet", val0)),
-//					Email:     pulumi.String(fmt.Sprintf("amritsardaukar_%v@salusa-secundus.planet", val0)),
+//					LastName:  pulumi.Sprintf("Sardaukar_%v", val0),
+//					Login:     pulumi.Sprintf("amritsardaukar_%v@salusa-secundus.planet", val0),
+//					Email:     pulumi.Sprintf("amritsardaukar_%v@salusa-secundus.planet", val0),
 //				})
 //				if err != nil {
 //					return err

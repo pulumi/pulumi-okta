@@ -159,7 +159,7 @@ public class DeviceAssuranceIos extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DeviceAssuranceIos(String name) {
+    public DeviceAssuranceIos(java.lang.String name) {
         this(name, DeviceAssuranceIosArgs.Empty);
     }
     /**
@@ -167,7 +167,7 @@ public class DeviceAssuranceIos extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DeviceAssuranceIos(String name, @Nullable DeviceAssuranceIosArgs args) {
+    public DeviceAssuranceIos(java.lang.String name, @Nullable DeviceAssuranceIosArgs args) {
         this(name, args, null);
     }
     /**
@@ -176,12 +176,12 @@ public class DeviceAssuranceIos extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DeviceAssuranceIos(String name, @Nullable DeviceAssuranceIosArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/deviceAssuranceIos:DeviceAssuranceIos", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DeviceAssuranceIos(java.lang.String name, @Nullable DeviceAssuranceIosArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/deviceAssuranceIos:DeviceAssuranceIos", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DeviceAssuranceIos(String name, Output<String> id, @Nullable DeviceAssuranceIosState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/deviceAssuranceIos:DeviceAssuranceIos", name, state, makeResourceOptions(options, id));
+    private DeviceAssuranceIos(java.lang.String name, Output<java.lang.String> id, @Nullable DeviceAssuranceIosState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/deviceAssuranceIos:DeviceAssuranceIos", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DeviceAssuranceIosArgs makeArgs(@Nullable DeviceAssuranceIosArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -191,7 +191,7 @@ public class DeviceAssuranceIos extends com.pulumi.resources.CustomResource {
         return args == null ? DeviceAssuranceIosArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -207,7 +207,7 @@ public class DeviceAssuranceIos extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DeviceAssuranceIos get(String name, Output<String> id, @Nullable DeviceAssuranceIosState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DeviceAssuranceIos get(java.lang.String name, Output<java.lang.String> id, @Nullable DeviceAssuranceIosState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DeviceAssuranceIos(name, id, state, options);
     }
 }

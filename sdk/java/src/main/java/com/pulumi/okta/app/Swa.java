@@ -454,7 +454,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Swa(String name) {
+    public Swa(java.lang.String name) {
         this(name, SwaArgs.Empty);
     }
     /**
@@ -462,7 +462,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Swa(String name, SwaArgs args) {
+    public Swa(java.lang.String name, SwaArgs args) {
         this(name, args, null);
     }
     /**
@@ -471,12 +471,12 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Swa(String name, SwaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/swa:Swa", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Swa(java.lang.String name, SwaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/swa:Swa", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Swa(String name, Output<String> id, @Nullable SwaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/swa:Swa", name, state, makeResourceOptions(options, id));
+    private Swa(java.lang.String name, Output<java.lang.String> id, @Nullable SwaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/swa:Swa", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SwaArgs makeArgs(SwaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -486,7 +486,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
         return args == null ? SwaArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -502,7 +502,7 @@ public class Swa extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Swa get(String name, Output<String> id, @Nullable SwaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Swa get(java.lang.String name, Output<java.lang.String> id, @Nullable SwaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Swa(name, id, state, options);
     }
 }

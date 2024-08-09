@@ -14,49 +14,68 @@ namespace Pulumi.Okta.User
     /// 
     /// ## Example Usage
     /// 
-    /// ### Full profile:
-    /// resource "okta.user.User" "example" {
-    ///   first_name         = "John"
-    ///   last_name          = "Smith"
-    ///   login              = "john.smith@example.com"
-    ///   email              = "john.smith@example.com"
-    ///   city               = "New York"
-    ///   cost_center        = "10"
-    ///   country_code       = "US"
-    ///   department         = "IT"
-    ///   display_name       = "Dr. John Smith"
-    ///   division           = "Acquisitions"
-    ///   employee_number    = "111111"
-    ///   honorific_prefix   = "Dr."
-    ///   honorific_suffix   = "Jr."
-    ///   locale             = "en_US"
-    ///   manager            = "Jimbo"
-    ///   manager_id         = "222222"
-    ///   middle_name        = "John"
-    ///   mobile_phone       = "1112223333"
-    ///   nick_name          = "Johnny"
-    ///   organization       = "Testing Inc."
-    ///   postal_address     = "1234 Testing St."
-    ///   preferred_language = "en-us"
-    ///   primary_phone      = "4445556666"
-    ///   profile_url        = "https://www.example.com/profile"
-    ///   second_email       = "john.smith.fun@example.com"
-    ///   state              = "NY"
-    ///   street_address     = "5678 Testing Ave."
-    ///   timezone           = "America/New_York"
-    ///   title              = "Director"
-    ///   user_type          = "Employee"
-    ///   zip_code           = "11111"
-    /// }
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
     /// 
-    /// ### With Password Inline Hook:
-    /// resource "okta.user.User" "test2" {
-    ///   first_name           = "John"
-    ///   last_name            = "Smith"
-    ///   login                = "example@example.com"
-    ///   email                = "example@example.com"
-    ///   password_inline_hook = "default"
-    /// }
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     //## Full profile:
+    ///     var example = new Okta.User.User("example", new()
+    ///     {
+    ///         FirstName = "John",
+    ///         LastName = "Smith",
+    ///         Login = "john.smith@example.com",
+    ///         Email = "john.smith@example.com",
+    ///         City = "New York",
+    ///         CostCenter = "10",
+    ///         CountryCode = "US",
+    ///         Department = "IT",
+    ///         DisplayName = "Dr. John Smith",
+    ///         Division = "Acquisitions",
+    ///         EmployeeNumber = "111111",
+    ///         HonorificPrefix = "Dr.",
+    ///         HonorificSuffix = "Jr.",
+    ///         Locale = "en_US",
+    ///         Manager = "Jimbo",
+    ///         ManagerId = "222222",
+    ///         MiddleName = "John",
+    ///         MobilePhone = "1112223333",
+    ///         NickName = "Johnny",
+    ///         Organization = "Testing Inc.",
+    ///         PostalAddress = "1234 Testing St.",
+    ///         PreferredLanguage = "en-us",
+    ///         PrimaryPhone = "4445556666",
+    ///         ProfileUrl = "https://www.example.com/profile",
+    ///         SecondEmail = "john.smith.fun@example.com",
+    ///         State = "NY",
+    ///         StreetAddress = "5678 Testing Ave.",
+    ///         Timezone = "America/New_York",
+    ///         Title = "Director",
+    ///         UserType = "Employee",
+    ///         ZipCode = "11111",
+    ///     });
+    /// 
+    ///     //## With Password Inline Hook:
+    ///     var test2 = new Okta.User.User("test2", new()
+    ///     {
+    ///         FirstName = "John",
+    ///         LastName = "Smith",
+    ///         Login = "example@example.com",
+    ///         Email = "example@example.com",
+    ///         PasswordInlineHook = "default",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import okta:user/user:User example &amp;#60;user id&amp;#62;
+    /// ```
     /// </summary>
     [OktaResourceType("okta:user/user:User")]
     public partial class User : global::Pulumi.CustomResource

@@ -58,7 +58,7 @@ public class AppSignonPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AppSignonPolicy(String name) {
+    public AppSignonPolicy(java.lang.String name) {
         this(name, AppSignonPolicyArgs.Empty);
     }
     /**
@@ -66,7 +66,7 @@ public class AppSignonPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AppSignonPolicy(String name, AppSignonPolicyArgs args) {
+    public AppSignonPolicy(java.lang.String name, AppSignonPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -75,12 +75,12 @@ public class AppSignonPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AppSignonPolicy(String name, AppSignonPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/appSignonPolicy:AppSignonPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AppSignonPolicy(java.lang.String name, AppSignonPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/appSignonPolicy:AppSignonPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AppSignonPolicy(String name, Output<String> id, @Nullable AppSignonPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/appSignonPolicy:AppSignonPolicy", name, state, makeResourceOptions(options, id));
+    private AppSignonPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable AppSignonPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/appSignonPolicy:AppSignonPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AppSignonPolicyArgs makeArgs(AppSignonPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -90,7 +90,7 @@ public class AppSignonPolicy extends com.pulumi.resources.CustomResource {
         return args == null ? AppSignonPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -106,7 +106,7 @@ public class AppSignonPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AppSignonPolicy get(String name, Output<String> id, @Nullable AppSignonPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AppSignonPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable AppSignonPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AppSignonPolicy(name, id, state, options);
     }
 }

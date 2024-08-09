@@ -716,7 +716,7 @@ class UserSchemaProperty(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  array_enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyArrayOneOfArgs']]]]] = None,
+                 array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserSchemaPropertyArrayOneOfArgs', 'UserSchemaPropertyArrayOneOfArgsDict']]]]] = None,
                  array_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -724,10 +724,10 @@ class UserSchemaProperty(pulumi.CustomResource):
                  external_namespace: Optional[pulumi.Input[str]] = None,
                  index: Optional[pulumi.Input[str]] = None,
                  master: Optional[pulumi.Input[str]] = None,
-                 master_override_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyMasterOverridePriorityArgs']]]]] = None,
+                 master_override_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserSchemaPropertyMasterOverridePriorityArgs', 'UserSchemaPropertyMasterOverridePriorityArgsDict']]]]] = None,
                  max_length: Optional[pulumi.Input[int]] = None,
                  min_length: Optional[pulumi.Input[int]] = None,
-                 one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyOneOfArgs']]]]] = None,
+                 one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserSchemaPropertyOneOfArgs', 'UserSchemaPropertyOneOfArgsDict']]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[str]] = None,
                  required: Optional[pulumi.Input[bool]] = None,
@@ -763,7 +763,7 @@ class UserSchemaProperty(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyArrayOneOfArgs']]]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserSchemaPropertyArrayOneOfArgs', 'UserSchemaPropertyArrayOneOfArgsDict']]]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
                - (Required) display name for the enum value.
         :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `array`
         :param pulumi.Input[str] description: The description of the user schema property.
@@ -772,11 +772,11 @@ class UserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[str] external_namespace: External namespace of the user schema property.
         :param pulumi.Input[str] index: Subschema unique string identifier
         :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyMasterOverridePriorityArgs']]]] master_override_priorities: Prioritized list of profile sources (required when 'master' is 'OVERRIDE'). - 'type' - (Optional) - Type of profile
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserSchemaPropertyMasterOverridePriorityArgs', 'UserSchemaPropertyMasterOverridePriorityArgsDict']]]] master_override_priorities: Prioritized list of profile sources (required when 'master' is 'OVERRIDE'). - 'type' - (Optional) - Type of profile
                source. - 'value' - (Required) - ID of profile source.
         :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `string`
         :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `string`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserSchemaPropertyOneOfArgs', 'UserSchemaPropertyOneOfArgsDict']]]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
                'enum'. - 'title' - (Required) display name for the enum value.
         :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
@@ -832,7 +832,7 @@ class UserSchemaProperty(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  array_enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyArrayOneOfArgs']]]]] = None,
+                 array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserSchemaPropertyArrayOneOfArgs', 'UserSchemaPropertyArrayOneOfArgsDict']]]]] = None,
                  array_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -840,10 +840,10 @@ class UserSchemaProperty(pulumi.CustomResource):
                  external_namespace: Optional[pulumi.Input[str]] = None,
                  index: Optional[pulumi.Input[str]] = None,
                  master: Optional[pulumi.Input[str]] = None,
-                 master_override_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyMasterOverridePriorityArgs']]]]] = None,
+                 master_override_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserSchemaPropertyMasterOverridePriorityArgs', 'UserSchemaPropertyMasterOverridePriorityArgsDict']]]]] = None,
                  max_length: Optional[pulumi.Input[int]] = None,
                  min_length: Optional[pulumi.Input[int]] = None,
-                 one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyOneOfArgs']]]]] = None,
+                 one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserSchemaPropertyOneOfArgs', 'UserSchemaPropertyOneOfArgsDict']]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[str]] = None,
                  required: Optional[pulumi.Input[bool]] = None,
@@ -899,7 +899,7 @@ class UserSchemaProperty(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             array_enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyArrayOneOfArgs']]]]] = None,
+            array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserSchemaPropertyArrayOneOfArgs', 'UserSchemaPropertyArrayOneOfArgsDict']]]]] = None,
             array_type: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -907,10 +907,10 @@ class UserSchemaProperty(pulumi.CustomResource):
             external_namespace: Optional[pulumi.Input[str]] = None,
             index: Optional[pulumi.Input[str]] = None,
             master: Optional[pulumi.Input[str]] = None,
-            master_override_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyMasterOverridePriorityArgs']]]]] = None,
+            master_override_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserSchemaPropertyMasterOverridePriorityArgs', 'UserSchemaPropertyMasterOverridePriorityArgsDict']]]]] = None,
             max_length: Optional[pulumi.Input[int]] = None,
             min_length: Optional[pulumi.Input[int]] = None,
-            one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyOneOfArgs']]]]] = None,
+            one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserSchemaPropertyOneOfArgs', 'UserSchemaPropertyOneOfArgsDict']]]]] = None,
             pattern: Optional[pulumi.Input[str]] = None,
             permissions: Optional[pulumi.Input[str]] = None,
             required: Optional[pulumi.Input[bool]] = None,
@@ -927,7 +927,7 @@ class UserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyArrayOneOfArgs']]]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserSchemaPropertyArrayOneOfArgs', 'UserSchemaPropertyArrayOneOfArgsDict']]]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
                - (Required) display name for the enum value.
         :param pulumi.Input[str] array_type: The type of the array elements if `type` is set to `array`
         :param pulumi.Input[str] description: The description of the user schema property.
@@ -936,11 +936,11 @@ class UserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[str] external_namespace: External namespace of the user schema property.
         :param pulumi.Input[str] index: Subschema unique string identifier
         :param pulumi.Input[str] master: Master priority for the user schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyMasterOverridePriorityArgs']]]] master_override_priorities: Prioritized list of profile sources (required when 'master' is 'OVERRIDE'). - 'type' - (Optional) - Type of profile
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserSchemaPropertyMasterOverridePriorityArgs', 'UserSchemaPropertyMasterOverridePriorityArgsDict']]]] master_override_priorities: Prioritized list of profile sources (required when 'master' is 'OVERRIDE'). - 'type' - (Optional) - Type of profile
                source. - 'value' - (Required) - ID of profile source.
         :param pulumi.Input[int] max_length: The maximum length of the user property value. Only applies to type `string`
         :param pulumi.Input[int] min_length: The minimum length of the user property value. Only applies to type `string`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSchemaPropertyOneOfArgs']]]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserSchemaPropertyOneOfArgs', 'UserSchemaPropertyOneOfArgsDict']]]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
                'enum'. - 'title' - (Required) display name for the enum value.
         :param pulumi.Input[str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
         :param pulumi.Input[str] permissions: Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`

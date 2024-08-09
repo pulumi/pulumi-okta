@@ -40,17 +40,17 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new User("test", UserArgs.builder()
  *             .firstName("TestAcc")
  *             .lastName("Smith")
- *             .login("testAcc-replace_with_uuid{@literal @}example.com")
- *             .email("testAcc-replace_with_uuid{@literal @}example.com")
+ *             .login("testAcc-replace_with_uuid}{@literal @}{@code example.com")
+ *             .email("testAcc-replace_with_uuid}{@literal @}{@code example.com")
  *             .build());
  * 
  *         var testUserAdminRoles = new UserAdminRoles("testUserAdminRoles", UserAdminRolesArgs.builder()
@@ -58,8 +58,8 @@ import javax.annotation.Nullable;
  *             .adminRoles("APP_ADMIN")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -120,7 +120,7 @@ public class UserAdminRoles extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UserAdminRoles(String name) {
+    public UserAdminRoles(java.lang.String name) {
         this(name, UserAdminRolesArgs.Empty);
     }
     /**
@@ -128,7 +128,7 @@ public class UserAdminRoles extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserAdminRoles(String name, UserAdminRolesArgs args) {
+    public UserAdminRoles(java.lang.String name, UserAdminRolesArgs args) {
         this(name, args, null);
     }
     /**
@@ -137,12 +137,12 @@ public class UserAdminRoles extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserAdminRoles(String name, UserAdminRolesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/userAdminRoles:UserAdminRoles", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public UserAdminRoles(java.lang.String name, UserAdminRolesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/userAdminRoles:UserAdminRoles", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UserAdminRoles(String name, Output<String> id, @Nullable UserAdminRolesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/userAdminRoles:UserAdminRoles", name, state, makeResourceOptions(options, id));
+    private UserAdminRoles(java.lang.String name, Output<java.lang.String> id, @Nullable UserAdminRolesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/userAdminRoles:UserAdminRoles", name, state, makeResourceOptions(options, id), false);
     }
 
     private static UserAdminRolesArgs makeArgs(UserAdminRolesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -152,7 +152,7 @@ public class UserAdminRoles extends com.pulumi.resources.CustomResource {
         return args == null ? UserAdminRolesArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -168,7 +168,7 @@ public class UserAdminRoles extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UserAdminRoles get(String name, Output<String> id, @Nullable UserAdminRolesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UserAdminRoles get(java.lang.String name, Output<java.lang.String> id, @Nullable UserAdminRolesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UserAdminRoles(name, id, state, options);
     }
 }

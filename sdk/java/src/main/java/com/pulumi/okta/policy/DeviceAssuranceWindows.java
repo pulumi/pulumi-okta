@@ -453,7 +453,7 @@ public class DeviceAssuranceWindows extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DeviceAssuranceWindows(String name) {
+    public DeviceAssuranceWindows(java.lang.String name) {
         this(name, DeviceAssuranceWindowsArgs.Empty);
     }
     /**
@@ -461,7 +461,7 @@ public class DeviceAssuranceWindows extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DeviceAssuranceWindows(String name, @Nullable DeviceAssuranceWindowsArgs args) {
+    public DeviceAssuranceWindows(java.lang.String name, @Nullable DeviceAssuranceWindowsArgs args) {
         this(name, args, null);
     }
     /**
@@ -470,12 +470,12 @@ public class DeviceAssuranceWindows extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DeviceAssuranceWindows(String name, @Nullable DeviceAssuranceWindowsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DeviceAssuranceWindows(java.lang.String name, @Nullable DeviceAssuranceWindowsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DeviceAssuranceWindows(String name, Output<String> id, @Nullable DeviceAssuranceWindowsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows", name, state, makeResourceOptions(options, id));
+    private DeviceAssuranceWindows(java.lang.String name, Output<java.lang.String> id, @Nullable DeviceAssuranceWindowsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DeviceAssuranceWindowsArgs makeArgs(@Nullable DeviceAssuranceWindowsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -485,7 +485,7 @@ public class DeviceAssuranceWindows extends com.pulumi.resources.CustomResource 
         return args == null ? DeviceAssuranceWindowsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -501,7 +501,7 @@ public class DeviceAssuranceWindows extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DeviceAssuranceWindows get(String name, Output<String> id, @Nullable DeviceAssuranceWindowsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DeviceAssuranceWindows get(java.lang.String name, Output<java.lang.String> id, @Nullable DeviceAssuranceWindowsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DeviceAssuranceWindows(name, id, state, options);
     }
 }
