@@ -845,7 +845,7 @@ class RuleSignon(pulumi.CustomResource):
                  access: Optional[pulumi.Input[str]] = None,
                  authtype: Optional[pulumi.Input[str]] = None,
                  behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleSignonFactorSequenceArgs']]]]] = None,
+                 factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]]] = None,
                  identity_provider: Optional[pulumi.Input[str]] = None,
                  identity_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mfa_lifetime: Optional[pulumi.Input[int]] = None,
@@ -891,60 +891,60 @@ class RuleSignon(pulumi.CustomResource):
             risc_level="HIGH",
             behaviors=[new_city.id],
             factor_sequences=[
-                okta.policy.RuleSignonFactorSequenceArgs(
-                    primary_criteria_factor_type="token:hotp",
-                    primary_criteria_provider="CUSTOM",
-                    secondary_criterias=[
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="token:software:totp",
-                            provider="OKTA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="push",
-                            provider="OKTA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="password",
-                            provider="OKTA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="question",
-                            provider="OKTA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="sms",
-                            provider="OKTA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="token:software:totp",
-                            provider="GOOGLE",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="email",
-                            provider="OKTA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="call",
-                            provider="OKTA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="webauthn",
-                            provider="FIDO",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="token",
-                            provider="RSA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="token",
-                            provider="SYMANTEC",
-                        ),
+                {
+                    "primary_criteria_factor_type": "token:hotp",
+                    "primary_criteria_provider": "CUSTOM",
+                    "secondary_criterias": [
+                        {
+                            "factor_type": "token:software:totp",
+                            "provider": "OKTA",
+                        },
+                        {
+                            "factor_type": "push",
+                            "provider": "OKTA",
+                        },
+                        {
+                            "factor_type": "password",
+                            "provider": "OKTA",
+                        },
+                        {
+                            "factor_type": "question",
+                            "provider": "OKTA",
+                        },
+                        {
+                            "factor_type": "sms",
+                            "provider": "OKTA",
+                        },
+                        {
+                            "factor_type": "token:software:totp",
+                            "provider": "GOOGLE",
+                        },
+                        {
+                            "factor_type": "email",
+                            "provider": "OKTA",
+                        },
+                        {
+                            "factor_type": "call",
+                            "provider": "OKTA",
+                        },
+                        {
+                            "factor_type": "webauthn",
+                            "provider": "FIDO",
+                        },
+                        {
+                            "factor_type": "token",
+                            "provider": "RSA",
+                        },
+                        {
+                            "factor_type": "token",
+                            "provider": "SYMANTEC",
+                        },
                     ],
-                ),
-                okta.policy.RuleSignonFactorSequenceArgs(
-                    primary_criteria_factor_type="token:software:totp",
-                    primary_criteria_provider="OKTA",
-                ),
+                },
+                {
+                    "primary_criteria_factor_type": "token:software:totp",
+                    "primary_criteria_provider": "OKTA",
+                },
             ])
         ```
 
@@ -959,7 +959,7 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
         :param pulumi.Input[str] authtype: Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] behaviors: List of behavior IDs
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleSignonFactorSequenceArgs']]]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
                provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
                'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
                authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
@@ -1019,60 +1019,60 @@ class RuleSignon(pulumi.CustomResource):
             risc_level="HIGH",
             behaviors=[new_city.id],
             factor_sequences=[
-                okta.policy.RuleSignonFactorSequenceArgs(
-                    primary_criteria_factor_type="token:hotp",
-                    primary_criteria_provider="CUSTOM",
-                    secondary_criterias=[
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="token:software:totp",
-                            provider="OKTA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="push",
-                            provider="OKTA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="password",
-                            provider="OKTA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="question",
-                            provider="OKTA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="sms",
-                            provider="OKTA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="token:software:totp",
-                            provider="GOOGLE",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="email",
-                            provider="OKTA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="call",
-                            provider="OKTA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="webauthn",
-                            provider="FIDO",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="token",
-                            provider="RSA",
-                        ),
-                        okta.policy.RuleSignonFactorSequenceSecondaryCriteriaArgs(
-                            factor_type="token",
-                            provider="SYMANTEC",
-                        ),
+                {
+                    "primary_criteria_factor_type": "token:hotp",
+                    "primary_criteria_provider": "CUSTOM",
+                    "secondary_criterias": [
+                        {
+                            "factor_type": "token:software:totp",
+                            "provider": "OKTA",
+                        },
+                        {
+                            "factor_type": "push",
+                            "provider": "OKTA",
+                        },
+                        {
+                            "factor_type": "password",
+                            "provider": "OKTA",
+                        },
+                        {
+                            "factor_type": "question",
+                            "provider": "OKTA",
+                        },
+                        {
+                            "factor_type": "sms",
+                            "provider": "OKTA",
+                        },
+                        {
+                            "factor_type": "token:software:totp",
+                            "provider": "GOOGLE",
+                        },
+                        {
+                            "factor_type": "email",
+                            "provider": "OKTA",
+                        },
+                        {
+                            "factor_type": "call",
+                            "provider": "OKTA",
+                        },
+                        {
+                            "factor_type": "webauthn",
+                            "provider": "FIDO",
+                        },
+                        {
+                            "factor_type": "token",
+                            "provider": "RSA",
+                        },
+                        {
+                            "factor_type": "token",
+                            "provider": "SYMANTEC",
+                        },
                     ],
-                ),
-                okta.policy.RuleSignonFactorSequenceArgs(
-                    primary_criteria_factor_type="token:software:totp",
-                    primary_criteria_provider="OKTA",
-                ),
+                },
+                {
+                    "primary_criteria_factor_type": "token:software:totp",
+                    "primary_criteria_provider": "OKTA",
+                },
             ])
         ```
 
@@ -1100,7 +1100,7 @@ class RuleSignon(pulumi.CustomResource):
                  access: Optional[pulumi.Input[str]] = None,
                  authtype: Optional[pulumi.Input[str]] = None,
                  behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleSignonFactorSequenceArgs']]]]] = None,
+                 factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]]] = None,
                  identity_provider: Optional[pulumi.Input[str]] = None,
                  identity_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mfa_lifetime: Optional[pulumi.Input[int]] = None,
@@ -1167,7 +1167,7 @@ class RuleSignon(pulumi.CustomResource):
             access: Optional[pulumi.Input[str]] = None,
             authtype: Optional[pulumi.Input[str]] = None,
             behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleSignonFactorSequenceArgs']]]]] = None,
+            factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]]] = None,
             identity_provider: Optional[pulumi.Input[str]] = None,
             identity_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             mfa_lifetime: Optional[pulumi.Input[int]] = None,
@@ -1198,7 +1198,7 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
         :param pulumi.Input[str] authtype: Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] behaviors: List of behavior IDs
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleSignonFactorSequenceArgs']]]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
                provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
                'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
                authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.

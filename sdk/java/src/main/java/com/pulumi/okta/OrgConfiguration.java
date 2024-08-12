@@ -308,7 +308,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OrgConfiguration(String name) {
+    public OrgConfiguration(java.lang.String name) {
         this(name, OrgConfigurationArgs.Empty);
     }
     /**
@@ -316,7 +316,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OrgConfiguration(String name, OrgConfigurationArgs args) {
+    public OrgConfiguration(java.lang.String name, OrgConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -325,12 +325,12 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OrgConfiguration(String name, OrgConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/orgConfiguration:OrgConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public OrgConfiguration(java.lang.String name, OrgConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/orgConfiguration:OrgConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OrgConfiguration(String name, Output<String> id, @Nullable OrgConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/orgConfiguration:OrgConfiguration", name, state, makeResourceOptions(options, id));
+    private OrgConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable OrgConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/orgConfiguration:OrgConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
     private static OrgConfigurationArgs makeArgs(OrgConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -340,7 +340,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
         return args == null ? OrgConfigurationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -356,7 +356,7 @@ public class OrgConfiguration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OrgConfiguration get(String name, Output<String> id, @Nullable OrgConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OrgConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable OrgConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OrgConfiguration(name, id, state, options);
     }
 }

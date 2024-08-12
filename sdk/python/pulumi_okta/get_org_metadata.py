@@ -82,15 +82,15 @@ class AwaitableGetOrgMetadataResult(GetOrgMetadataResult):
             settings=self.settings)
 
 
-def get_org_metadata(domains: Optional[pulumi.InputType['GetOrgMetadataDomainsArgs']] = None,
-                     settings: Optional[pulumi.InputType['GetOrgMetadataSettingsArgs']] = None,
+def get_org_metadata(domains: Optional[Union['GetOrgMetadataDomainsArgs', 'GetOrgMetadataDomainsArgsDict']] = None,
+                     settings: Optional[Union['GetOrgMetadataSettingsArgs', 'GetOrgMetadataSettingsArgsDict']] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrgMetadataResult:
     """
     Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
 
 
-    :param pulumi.InputType['GetOrgMetadataDomainsArgs'] domains: The URIs for the org's configured domains.
-    :param pulumi.InputType['GetOrgMetadataSettingsArgs'] settings: The wellknown org settings (safe for public consumption).
+    :param Union['GetOrgMetadataDomainsArgs', 'GetOrgMetadataDomainsArgsDict'] domains: The URIs for the org's configured domains.
+    :param Union['GetOrgMetadataSettingsArgs', 'GetOrgMetadataSettingsArgsDict'] settings: The wellknown org settings (safe for public consumption).
     """
     __args__ = dict()
     __args__['domains'] = domains
@@ -106,14 +106,14 @@ def get_org_metadata(domains: Optional[pulumi.InputType['GetOrgMetadataDomainsAr
 
 
 @_utilities.lift_output_func(get_org_metadata)
-def get_org_metadata_output(domains: Optional[pulumi.Input[Optional[pulumi.InputType['GetOrgMetadataDomainsArgs']]]] = None,
-                            settings: Optional[pulumi.Input[Optional[pulumi.InputType['GetOrgMetadataSettingsArgs']]]] = None,
+def get_org_metadata_output(domains: Optional[pulumi.Input[Optional[Union['GetOrgMetadataDomainsArgs', 'GetOrgMetadataDomainsArgsDict']]]] = None,
+                            settings: Optional[pulumi.Input[Optional[Union['GetOrgMetadataSettingsArgs', 'GetOrgMetadataSettingsArgsDict']]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrgMetadataResult]:
     """
     Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
 
 
-    :param pulumi.InputType['GetOrgMetadataDomainsArgs'] domains: The URIs for the org's configured domains.
-    :param pulumi.InputType['GetOrgMetadataSettingsArgs'] settings: The wellknown org settings (safe for public consumption).
+    :param Union['GetOrgMetadataDomainsArgs', 'GetOrgMetadataDomainsArgsDict'] domains: The URIs for the org's configured domains.
+    :param Union['GetOrgMetadataSettingsArgs', 'GetOrgMetadataSettingsArgsDict'] settings: The wellknown org settings (safe for public consumption).
     """
     ...

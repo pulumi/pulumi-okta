@@ -112,7 +112,7 @@ public class AppGroupAssignments extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AppGroupAssignments(String name) {
+    public AppGroupAssignments(java.lang.String name) {
         this(name, AppGroupAssignmentsArgs.Empty);
     }
     /**
@@ -120,7 +120,7 @@ public class AppGroupAssignments extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AppGroupAssignments(String name, AppGroupAssignmentsArgs args) {
+    public AppGroupAssignments(java.lang.String name, AppGroupAssignmentsArgs args) {
         this(name, args, null);
     }
     /**
@@ -129,12 +129,12 @@ public class AppGroupAssignments extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AppGroupAssignments(String name, AppGroupAssignmentsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/appGroupAssignments:AppGroupAssignments", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AppGroupAssignments(java.lang.String name, AppGroupAssignmentsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/appGroupAssignments:AppGroupAssignments", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AppGroupAssignments(String name, Output<String> id, @Nullable AppGroupAssignmentsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/appGroupAssignments:AppGroupAssignments", name, state, makeResourceOptions(options, id));
+    private AppGroupAssignments(java.lang.String name, Output<java.lang.String> id, @Nullable AppGroupAssignmentsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/appGroupAssignments:AppGroupAssignments", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AppGroupAssignmentsArgs makeArgs(AppGroupAssignmentsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -144,7 +144,7 @@ public class AppGroupAssignments extends com.pulumi.resources.CustomResource {
         return args == null ? AppGroupAssignmentsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -160,7 +160,7 @@ public class AppGroupAssignments extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AppGroupAssignments get(String name, Output<String> id, @Nullable AppGroupAssignmentsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AppGroupAssignments get(java.lang.String name, Output<java.lang.String> id, @Nullable AppGroupAssignmentsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AppGroupAssignments(name, id, state, options);
     }
 }

@@ -135,45 +135,10 @@ def get_users(compound_search_operator: Optional[str] = None,
               group_id: Optional[str] = None,
               include_groups: Optional[bool] = None,
               include_roles: Optional[bool] = None,
-              searches: Optional[Sequence[pulumi.InputType['GetUsersSearchArgs']]] = None,
+              searches: Optional[Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUsersResult:
     """
     Get a list of users from Okta.
-
-    ## Example Usage
-
-    ### Lookup Users by Search Criteria
-
-    data "user_get_users" "example" {
-      search {
-        name       = "profile.company"
-        value      = "Articulate"
-        comparison = "sw"
-      }
-    }
-
-    # Search for multiple users based on a raw search expression string
-    data "user_get_users" "example" {
-      search {
-        expression = "profile.department eq \\"Engineering\\" and (created lt \\"2014-01-01T00:00:00.000Z\\" or status eq \\"ACTIVE\\")"
-      }
-    }
-
-    ### Lookup Users by Group Membership
-
-    resource "group.Group" "example" {
-      name = "example-group"
-    }
-
-    data "user_get_users" "example" {
-      group_id = okta_group.example.id
-
-    # optionally include each user's group membership
-      include_groups = true
-
-    # optionally include each user's administrator roles
-      include_roles = true
-    }
 
 
     :param str compound_search_operator: Search operator used when joining multiple search clauses
@@ -181,7 +146,7 @@ def get_users(compound_search_operator: Optional[str] = None,
     :param str group_id: Find users based on group membership using the id of the group.
     :param bool include_groups: Fetch group memberships for each user
     :param bool include_roles: Fetch user roles for each user
-    :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+    :param Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
     """
     __args__ = dict()
     __args__['compoundSearchOperator'] = compound_search_operator
@@ -210,45 +175,10 @@ def get_users_output(compound_search_operator: Optional[pulumi.Input[Optional[st
                      group_id: Optional[pulumi.Input[Optional[str]]] = None,
                      include_groups: Optional[pulumi.Input[Optional[bool]]] = None,
                      include_roles: Optional[pulumi.Input[Optional[bool]]] = None,
-                     searches: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetUsersSearchArgs']]]]] = None,
+                     searches: Optional[pulumi.Input[Optional[Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
     """
     Get a list of users from Okta.
-
-    ## Example Usage
-
-    ### Lookup Users by Search Criteria
-
-    data "user_get_users" "example" {
-      search {
-        name       = "profile.company"
-        value      = "Articulate"
-        comparison = "sw"
-      }
-    }
-
-    # Search for multiple users based on a raw search expression string
-    data "user_get_users" "example" {
-      search {
-        expression = "profile.department eq \\"Engineering\\" and (created lt \\"2014-01-01T00:00:00.000Z\\" or status eq \\"ACTIVE\\")"
-      }
-    }
-
-    ### Lookup Users by Group Membership
-
-    resource "group.Group" "example" {
-      name = "example-group"
-    }
-
-    data "user_get_users" "example" {
-      group_id = okta_group.example.id
-
-    # optionally include each user's group membership
-      include_groups = true
-
-    # optionally include each user's administrator roles
-      include_roles = true
-    }
 
 
     :param str compound_search_operator: Search operator used when joining multiple search clauses
@@ -256,6 +186,6 @@ def get_users_output(compound_search_operator: Optional[pulumi.Input[Optional[st
     :param str group_id: Find users based on group membership using the id of the group.
     :param bool include_groups: Fetch group memberships for each user
     :param bool include_roles: Fetch user roles for each user
-    :param Sequence[pulumi.InputType['GetUsersSearchArgs']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+    :param Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
     """
     ...

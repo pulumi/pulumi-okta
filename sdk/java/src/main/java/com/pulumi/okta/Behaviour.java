@@ -194,7 +194,7 @@ public class Behaviour extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Behaviour(String name) {
+    public Behaviour(java.lang.String name) {
         this(name, BehaviourArgs.Empty);
     }
     /**
@@ -202,7 +202,7 @@ public class Behaviour extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Behaviour(String name, BehaviourArgs args) {
+    public Behaviour(java.lang.String name, BehaviourArgs args) {
         this(name, args, null);
     }
     /**
@@ -211,12 +211,12 @@ public class Behaviour extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Behaviour(String name, BehaviourArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/behaviour:Behaviour", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Behaviour(java.lang.String name, BehaviourArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/behaviour:Behaviour", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Behaviour(String name, Output<String> id, @Nullable BehaviourState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/behaviour:Behaviour", name, state, makeResourceOptions(options, id));
+    private Behaviour(java.lang.String name, Output<java.lang.String> id, @Nullable BehaviourState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/behaviour:Behaviour", name, state, makeResourceOptions(options, id), false);
     }
 
     private static BehaviourArgs makeArgs(BehaviourArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -226,7 +226,7 @@ public class Behaviour extends com.pulumi.resources.CustomResource {
         return args == null ? BehaviourArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -242,7 +242,7 @@ public class Behaviour extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Behaviour get(String name, Output<String> id, @Nullable BehaviourState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Behaviour get(java.lang.String name, Output<java.lang.String> id, @Nullable BehaviourState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Behaviour(name, id, state, options);
     }
 }

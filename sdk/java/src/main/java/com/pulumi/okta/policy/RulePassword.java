@@ -187,7 +187,7 @@ public class RulePassword extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RulePassword(String name) {
+    public RulePassword(java.lang.String name) {
         this(name, RulePasswordArgs.Empty);
     }
     /**
@@ -195,7 +195,7 @@ public class RulePassword extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RulePassword(String name, @Nullable RulePasswordArgs args) {
+    public RulePassword(java.lang.String name, @Nullable RulePasswordArgs args) {
         this(name, args, null);
     }
     /**
@@ -204,12 +204,12 @@ public class RulePassword extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RulePassword(String name, @Nullable RulePasswordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/rulePassword:RulePassword", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public RulePassword(java.lang.String name, @Nullable RulePasswordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/rulePassword:RulePassword", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RulePassword(String name, Output<String> id, @Nullable RulePasswordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/rulePassword:RulePassword", name, state, makeResourceOptions(options, id));
+    private RulePassword(java.lang.String name, Output<java.lang.String> id, @Nullable RulePasswordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/rulePassword:RulePassword", name, state, makeResourceOptions(options, id), false);
     }
 
     private static RulePasswordArgs makeArgs(@Nullable RulePasswordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -219,7 +219,7 @@ public class RulePassword extends com.pulumi.resources.CustomResource {
         return args == null ? RulePasswordArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -235,7 +235,7 @@ public class RulePassword extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RulePassword get(String name, Output<String> id, @Nullable RulePasswordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RulePassword get(java.lang.String name, Output<java.lang.String> id, @Nullable RulePasswordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RulePassword(name, id, state, options);
     }
 }

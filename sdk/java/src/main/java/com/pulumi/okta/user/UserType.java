@@ -109,7 +109,7 @@ public class UserType extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UserType(String name) {
+    public UserType(java.lang.String name) {
         this(name, UserTypeArgs.Empty);
     }
     /**
@@ -117,7 +117,7 @@ public class UserType extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserType(String name, UserTypeArgs args) {
+    public UserType(java.lang.String name, UserTypeArgs args) {
         this(name, args, null);
     }
     /**
@@ -126,12 +126,12 @@ public class UserType extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserType(String name, UserTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:user/userType:UserType", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public UserType(java.lang.String name, UserTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:user/userType:UserType", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UserType(String name, Output<String> id, @Nullable UserTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:user/userType:UserType", name, state, makeResourceOptions(options, id));
+    private UserType(java.lang.String name, Output<java.lang.String> id, @Nullable UserTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:user/userType:UserType", name, state, makeResourceOptions(options, id), false);
     }
 
     private static UserTypeArgs makeArgs(UserTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -141,7 +141,7 @@ public class UserType extends com.pulumi.resources.CustomResource {
         return args == null ? UserTypeArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -157,7 +157,7 @@ public class UserType extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UserType get(String name, Output<String> id, @Nullable UserTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UserType get(java.lang.String name, Output<java.lang.String> id, @Nullable UserTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UserType(name, id, state, options);
     }
 }

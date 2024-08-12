@@ -89,7 +89,7 @@ public class Factor extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Factor(String name) {
+    public Factor(java.lang.String name) {
         this(name, FactorArgs.Empty);
     }
     /**
@@ -97,7 +97,7 @@ public class Factor extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Factor(String name, FactorArgs args) {
+    public Factor(java.lang.String name, FactorArgs args) {
         this(name, args, null);
     }
     /**
@@ -106,12 +106,12 @@ public class Factor extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Factor(String name, FactorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:factor/factor:Factor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Factor(java.lang.String name, FactorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:factor/factor:Factor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Factor(String name, Output<String> id, @Nullable FactorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:factor/factor:Factor", name, state, makeResourceOptions(options, id));
+    private Factor(java.lang.String name, Output<java.lang.String> id, @Nullable FactorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:factor/factor:Factor", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FactorArgs makeArgs(FactorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -121,7 +121,7 @@ public class Factor extends com.pulumi.resources.CustomResource {
         return args == null ? FactorArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -137,7 +137,7 @@ public class Factor extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Factor get(String name, Output<String> id, @Nullable FactorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Factor get(java.lang.String name, Output<java.lang.String> id, @Nullable FactorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Factor(name, id, state, options);
     }
 }

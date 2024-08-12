@@ -502,7 +502,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RuleSignon(String name) {
+    public RuleSignon(java.lang.String name) {
         this(name, RuleSignonArgs.Empty);
     }
     /**
@@ -510,7 +510,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RuleSignon(String name, @Nullable RuleSignonArgs args) {
+    public RuleSignon(java.lang.String name, @Nullable RuleSignonArgs args) {
         this(name, args, null);
     }
     /**
@@ -519,12 +519,12 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RuleSignon(String name, @Nullable RuleSignonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/ruleSignon:RuleSignon", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public RuleSignon(java.lang.String name, @Nullable RuleSignonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/ruleSignon:RuleSignon", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RuleSignon(String name, Output<String> id, @Nullable RuleSignonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/ruleSignon:RuleSignon", name, state, makeResourceOptions(options, id));
+    private RuleSignon(java.lang.String name, Output<java.lang.String> id, @Nullable RuleSignonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/ruleSignon:RuleSignon", name, state, makeResourceOptions(options, id), false);
     }
 
     private static RuleSignonArgs makeArgs(@Nullable RuleSignonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -534,7 +534,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
         return args == null ? RuleSignonArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -550,7 +550,7 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RuleSignon get(String name, Output<String> id, @Nullable RuleSignonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RuleSignon get(java.lang.String name, Output<java.lang.String> id, @Nullable RuleSignonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RuleSignon(name, id, state, options);
     }
 }

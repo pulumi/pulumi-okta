@@ -9,31 +9,11 @@ import * as utilities from "./utilities";
 /**
  * Manages log streams
  *
- * ## Example Usage
+ * ## Import
  *
- * ### AWS EventBridge
- * resource "okta.LogStream" "example" {
- *   name   = "EventBridge Log Stream"
- *   type   = "awsEventbridge"
- *   status = "ACTIVE"
- *   settings {
- *     accountId        = "123456789012"
- *     region            = "us-north-1"
- *     eventSourceName = "okta.LogStream"
- *   }
- * }
- *
- * ### Splunk Event Collector
- * resource "okta.LogStream" "example" {
- *   name   = "Splunk log Stream"
- *   type   = "splunkCloudLogstreaming"
- *   status = "ACTIVE"
- *   settings {
- *     host    = "acme.splunkcloud.com"
- *     edition = "gcp"
- *     token   = "YOUR_HEC_TOKEN"
- *   }
- * }
+ * ```sh
+ * $ pulumi import okta:index/logStream:LogStream example &#60;strema id&#62;
+ * ```
  */
 export class LogStream extends pulumi.CustomResource {
     /**

@@ -117,7 +117,7 @@ public class OauthRoleAssignment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OauthRoleAssignment(String name) {
+    public OauthRoleAssignment(java.lang.String name) {
         this(name, OauthRoleAssignmentArgs.Empty);
     }
     /**
@@ -125,7 +125,7 @@ public class OauthRoleAssignment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OauthRoleAssignment(String name, OauthRoleAssignmentArgs args) {
+    public OauthRoleAssignment(java.lang.String name, OauthRoleAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -134,12 +134,12 @@ public class OauthRoleAssignment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OauthRoleAssignment(String name, OauthRoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/oauthRoleAssignment:OauthRoleAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public OauthRoleAssignment(java.lang.String name, OauthRoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/oauthRoleAssignment:OauthRoleAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OauthRoleAssignment(String name, Output<String> id, @Nullable OauthRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/oauthRoleAssignment:OauthRoleAssignment", name, state, makeResourceOptions(options, id));
+    private OauthRoleAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable OauthRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/oauthRoleAssignment:OauthRoleAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
     private static OauthRoleAssignmentArgs makeArgs(OauthRoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -149,7 +149,7 @@ public class OauthRoleAssignment extends com.pulumi.resources.CustomResource {
         return args == null ? OauthRoleAssignmentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -165,7 +165,7 @@ public class OauthRoleAssignment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OauthRoleAssignment get(String name, Output<String> id, @Nullable OauthRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OauthRoleAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable OauthRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OauthRoleAssignment(name, id, state, options);
     }
 }

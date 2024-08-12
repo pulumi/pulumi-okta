@@ -16,53 +16,61 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### All Okta orgs contain only one IdP Discovery Policy
- * data "okta.policy.getPolicy" "idpDiscoveryPolicy" {
- *   name = "Idp Discovery Policy"
- *   type = "IDP_DISCOVERY"
- * }
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
  *
- * resource "okta.policy.RuleIdpDiscovery" "example" {
- *   policyId                 = data.okta_policy.idp_discovery_policy.id
- *   name                      = "example"
- *   idpId                    = "<idp id>"
- *   idpType                  = "OIDC"
- *   networkConnection        = "ANYWHERE"
- *   priority                  = 1
- *   status                    = "ACTIVE"
- *   userIdentifierType      = "ATTRIBUTE"
- *   userIdentifierAttribute = "company"
+ * //## All Okta orgs contain only one IdP Discovery Policy
+ * const idpDiscoveryPolicy = okta.policy.getPolicy({
+ *     name: "Idp Discovery Policy",
+ *     type: "IDP_DISCOVERY",
+ * });
+ * const example = new okta.policy.RuleIdpDiscovery("example", {
+ *     policyId: idpDiscoveryPolicy.then(idpDiscoveryPolicy => idpDiscoveryPolicy.id),
+ *     name: "example",
+ *     idpId: "<idp id>",
+ *     idpType: "OIDC",
+ *     networkConnection: "ANYWHERE",
+ *     priority: 1,
+ *     status: "ACTIVE",
+ *     userIdentifierType: "ATTRIBUTE",
+ *     userIdentifierAttribute: "company",
+ *     appExcludes: [
+ *         {
+ *             id: "<app id>",
+ *             type: "APP",
+ *         },
+ *         {
+ *             name: "yahoo_mail",
+ *             type: "APP_TYPE",
+ *         },
+ *     ],
+ *     appIncludes: [
+ *         {
+ *             id: "<app id>",
+ *             type: "APP",
+ *         },
+ *         {
+ *             name: "<app type name>",
+ *             type: "APP_TYPE",
+ *         },
+ *     ],
+ *     platformIncludes: [{
+ *         type: "MOBILE",
+ *         osType: "OSX",
+ *     }],
+ *     userIdentifierPatterns: [{
+ *         matchType: "EQUALS",
+ *         value: "Articulate",
+ *     }],
+ * });
+ * ```
  *
- *   appExclude {
- *     id   = "<app id>"
- *     type = "APP"
- *   }
+ * ## Import
  *
- *   appExclude {
- *     name = "yahooMail"
- *     type = "APP_TYPE"
- *   }
- *
- *   appInclude {
- *     id   = "<app id>"
- *     type = "APP"
- *   }
- *
- *   appInclude {
- *     name = "<app type name>"
- *     type = "APP_TYPE"
- *   }
- *
- *   platformInclude {
- *     type    = "MOBILE"
- *     osType = "OSX"
- *   }
- *
- *   userIdentifierPatterns {
- *     matchType = "EQUALS"
- *     value      = "Articulate"
- *   }
- * }
+ * ```sh
+ * $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &#60;policy id&#62;/&#60;rule id&#62;
+ * ```
  */
 export class RuleIdpDiscovery extends pulumi.CustomResource {
     /**

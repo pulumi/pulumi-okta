@@ -126,7 +126,7 @@ public class Origin extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Origin(String name) {
+    public Origin(java.lang.String name) {
         this(name, OriginArgs.Empty);
     }
     /**
@@ -134,7 +134,7 @@ public class Origin extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Origin(String name, OriginArgs args) {
+    public Origin(java.lang.String name, OriginArgs args) {
         this(name, args, null);
     }
     /**
@@ -143,12 +143,12 @@ public class Origin extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Origin(String name, OriginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:trustedorigin/origin:Origin", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Origin(java.lang.String name, OriginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:trustedorigin/origin:Origin", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Origin(String name, Output<String> id, @Nullable OriginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:trustedorigin/origin:Origin", name, state, makeResourceOptions(options, id));
+    private Origin(java.lang.String name, Output<java.lang.String> id, @Nullable OriginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:trustedorigin/origin:Origin", name, state, makeResourceOptions(options, id), false);
     }
 
     private static OriginArgs makeArgs(OriginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -158,7 +158,7 @@ public class Origin extends com.pulumi.resources.CustomResource {
         return args == null ? OriginArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -174,7 +174,7 @@ public class Origin extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Origin get(String name, Output<String> id, @Nullable OriginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Origin get(java.lang.String name, Output<java.lang.String> id, @Nullable OriginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Origin(name, id, state, options);
     }
 }

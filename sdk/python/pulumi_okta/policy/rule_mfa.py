@@ -414,8 +414,8 @@ class RuleMfa(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppExcludeArgs']]]]] = None,
-                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppIncludeArgs']]]]] = None,
+                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppExcludeArgs', 'RuleMfaAppExcludeArgsDict']]]]] = None,
+                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppIncludeArgs', 'RuleMfaAppIncludeArgsDict']]]]] = None,
                  enroll: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_connection: Optional[pulumi.Input[str]] = None,
@@ -437,11 +437,11 @@ class RuleMfa(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppExcludeArgs']]]] app_excludes: Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppExcludeArgs', 'RuleMfaAppExcludeArgsDict']]]] app_excludes: Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
                - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
                is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
                of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppIncludeArgs']]]] app_includes: Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppIncludeArgs', 'RuleMfaAppIncludeArgsDict']]]] app_includes: Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
                - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
                is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
                of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
@@ -486,8 +486,8 @@ class RuleMfa(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppExcludeArgs']]]]] = None,
-                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppIncludeArgs']]]]] = None,
+                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppExcludeArgs', 'RuleMfaAppExcludeArgsDict']]]]] = None,
+                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppIncludeArgs', 'RuleMfaAppIncludeArgsDict']]]]] = None,
                  enroll: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_connection: Optional[pulumi.Input[str]] = None,
@@ -527,8 +527,8 @@ class RuleMfa(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppExcludeArgs']]]]] = None,
-            app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppIncludeArgs']]]]] = None,
+            app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppExcludeArgs', 'RuleMfaAppExcludeArgsDict']]]]] = None,
+            app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppIncludeArgs', 'RuleMfaAppIncludeArgsDict']]]]] = None,
             enroll: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_connection: Optional[pulumi.Input[str]] = None,
@@ -545,11 +545,11 @@ class RuleMfa(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppExcludeArgs']]]] app_excludes: Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppExcludeArgs', 'RuleMfaAppExcludeArgsDict']]]] app_excludes: Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
                - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
                is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
                of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleMfaAppIncludeArgs']]]] app_includes: Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppIncludeArgs', 'RuleMfaAppIncludeArgsDict']]]] app_includes: Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
                - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
                is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
                of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
