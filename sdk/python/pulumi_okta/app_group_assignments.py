@@ -97,7 +97,7 @@ class AppGroupAssignments(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppGroupAssignmentsGroupArgs']]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]]] = None,
                  __props__=None):
         """
         Assigns groups to an application. This resource allows you to create multiple App Group assignments.
@@ -114,17 +114,17 @@ class AppGroupAssignments(pulumi.CustomResource):
         example = okta.AppGroupAssignments("example",
             app_id="<app id>",
             groups=[
-                okta.AppGroupAssignmentsGroupArgs(
-                    id="<group id>",
-                    priority=1,
-                ),
-                okta.AppGroupAssignmentsGroupArgs(
-                    id="<another group id>",
-                    priority=2,
-                    profile=json.dumps({
-                        "application profile field": "application profile value",
+                {
+                    "id": "<group id>",
+                    "priority": 1,
+                },
+                {
+                    "id": "<another group id>",
+                    "priority": 2,
+                    "profile": json.dumps({
+                        "application_profile_field": "application profile value",
                     }),
-                ),
+                },
             ])
         ```
 
@@ -137,7 +137,7 @@ class AppGroupAssignments(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppGroupAssignmentsGroupArgs']]]] groups: A group to assign to this application
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]] groups: A group to assign to this application
         """
         ...
     @overload
@@ -160,17 +160,17 @@ class AppGroupAssignments(pulumi.CustomResource):
         example = okta.AppGroupAssignments("example",
             app_id="<app id>",
             groups=[
-                okta.AppGroupAssignmentsGroupArgs(
-                    id="<group id>",
-                    priority=1,
-                ),
-                okta.AppGroupAssignmentsGroupArgs(
-                    id="<another group id>",
-                    priority=2,
-                    profile=json.dumps({
-                        "application profile field": "application profile value",
+                {
+                    "id": "<group id>",
+                    "priority": 1,
+                },
+                {
+                    "id": "<another group id>",
+                    "priority": 2,
+                    "profile": json.dumps({
+                        "application_profile_field": "application profile value",
                     }),
-                ),
+                },
             ])
         ```
 
@@ -196,7 +196,7 @@ class AppGroupAssignments(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppGroupAssignmentsGroupArgs']]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -223,7 +223,7 @@ class AppGroupAssignments(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             app_id: Optional[pulumi.Input[str]] = None,
-            groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppGroupAssignmentsGroupArgs']]]]] = None) -> 'AppGroupAssignments':
+            groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]]] = None) -> 'AppGroupAssignments':
         """
         Get an existing AppGroupAssignments resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -232,7 +232,7 @@ class AppGroupAssignments(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppGroupAssignmentsGroupArgs']]]] groups: A group to assign to this application
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]] groups: A group to assign to this application
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

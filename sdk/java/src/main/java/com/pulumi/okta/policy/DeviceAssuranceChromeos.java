@@ -361,7 +361,7 @@ public class DeviceAssuranceChromeos extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DeviceAssuranceChromeos(String name) {
+    public DeviceAssuranceChromeos(java.lang.String name) {
         this(name, DeviceAssuranceChromeosArgs.Empty);
     }
     /**
@@ -369,7 +369,7 @@ public class DeviceAssuranceChromeos extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DeviceAssuranceChromeos(String name, @Nullable DeviceAssuranceChromeosArgs args) {
+    public DeviceAssuranceChromeos(java.lang.String name, @Nullable DeviceAssuranceChromeosArgs args) {
         this(name, args, null);
     }
     /**
@@ -378,12 +378,12 @@ public class DeviceAssuranceChromeos extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DeviceAssuranceChromeos(String name, @Nullable DeviceAssuranceChromeosArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DeviceAssuranceChromeos(java.lang.String name, @Nullable DeviceAssuranceChromeosArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DeviceAssuranceChromeos(String name, Output<String> id, @Nullable DeviceAssuranceChromeosState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos", name, state, makeResourceOptions(options, id));
+    private DeviceAssuranceChromeos(java.lang.String name, Output<java.lang.String> id, @Nullable DeviceAssuranceChromeosState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DeviceAssuranceChromeosArgs makeArgs(@Nullable DeviceAssuranceChromeosArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -393,7 +393,7 @@ public class DeviceAssuranceChromeos extends com.pulumi.resources.CustomResource
         return args == null ? DeviceAssuranceChromeosArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -409,7 +409,7 @@ public class DeviceAssuranceChromeos extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DeviceAssuranceChromeos get(String name, Output<String> id, @Nullable DeviceAssuranceChromeosState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DeviceAssuranceChromeos get(java.lang.String name, Output<java.lang.String> id, @Nullable DeviceAssuranceChromeosState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DeviceAssuranceChromeos(name, id, state, options);
     }
 }

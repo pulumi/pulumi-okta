@@ -3453,25 +3453,25 @@ public final class OktaFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var exampleUser = new User("exampleUser", UserArgs.builder()
      *             .firstName("John")
      *             .lastName("Smith")
-     *             .login("john.smith{@literal @}example.com")
-     *             .email("john.smith{@literal @}example.com")
+     *             .login("john.smith}{@literal @}{@code example.com")
+     *             .email("john.smith}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
      *             .userId(exampleUser.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -3502,25 +3502,25 @@ public final class OktaFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var exampleUser = new User("exampleUser", UserArgs.builder()
      *             .firstName("John")
      *             .lastName("Smith")
-     *             .login("john.smith{@literal @}example.com")
-     *             .email("john.smith{@literal @}example.com")
+     *             .login("john.smith}{@literal @}{@code example.com")
+     *             .email("john.smith}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
      *             .userId(exampleUser.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -3551,25 +3551,25 @@ public final class OktaFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var exampleUser = new User("exampleUser", UserArgs.builder()
      *             .firstName("John")
      *             .lastName("Smith")
-     *             .login("john.smith{@literal @}example.com")
-     *             .email("john.smith{@literal @}example.com")
+     *             .login("john.smith}{@literal @}{@code example.com")
+     *             .email("john.smith}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
      *             .userId(exampleUser.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -3600,25 +3600,25 @@ public final class OktaFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var exampleUser = new User("exampleUser", UserArgs.builder()
      *             .firstName("John")
      *             .lastName("Smith")
-     *             .login("john.smith{@literal @}example.com")
-     *             .email("john.smith{@literal @}example.com")
+     *             .login("john.smith}{@literal @}{@code example.com")
+     *             .email("john.smith}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
      *             .userId(exampleUser.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;

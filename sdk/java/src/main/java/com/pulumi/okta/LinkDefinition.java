@@ -158,7 +158,7 @@ public class LinkDefinition extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinkDefinition(String name) {
+    public LinkDefinition(java.lang.String name) {
         this(name, LinkDefinitionArgs.Empty);
     }
     /**
@@ -166,7 +166,7 @@ public class LinkDefinition extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinkDefinition(String name, LinkDefinitionArgs args) {
+    public LinkDefinition(java.lang.String name, LinkDefinitionArgs args) {
         this(name, args, null);
     }
     /**
@@ -175,12 +175,12 @@ public class LinkDefinition extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinkDefinition(String name, LinkDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/linkDefinition:LinkDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LinkDefinition(java.lang.String name, LinkDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/linkDefinition:LinkDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinkDefinition(String name, Output<String> id, @Nullable LinkDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/linkDefinition:LinkDefinition", name, state, makeResourceOptions(options, id));
+    private LinkDefinition(java.lang.String name, Output<java.lang.String> id, @Nullable LinkDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/linkDefinition:LinkDefinition", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LinkDefinitionArgs makeArgs(LinkDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -190,7 +190,7 @@ public class LinkDefinition extends com.pulumi.resources.CustomResource {
         return args == null ? LinkDefinitionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -206,7 +206,7 @@ public class LinkDefinition extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinkDefinition get(String name, Output<String> id, @Nullable LinkDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinkDefinition get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinkDefinition(name, id, state, options);
     }
 }

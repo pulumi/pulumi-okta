@@ -414,7 +414,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AutoLogin(String name) {
+    public AutoLogin(java.lang.String name) {
         this(name, AutoLoginArgs.Empty);
     }
     /**
@@ -422,7 +422,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AutoLogin(String name, AutoLoginArgs args) {
+    public AutoLogin(java.lang.String name, AutoLoginArgs args) {
         this(name, args, null);
     }
     /**
@@ -431,12 +431,12 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AutoLogin(String name, AutoLoginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/autoLogin:AutoLogin", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AutoLogin(java.lang.String name, AutoLoginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/autoLogin:AutoLogin", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AutoLogin(String name, Output<String> id, @Nullable AutoLoginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/autoLogin:AutoLogin", name, state, makeResourceOptions(options, id));
+    private AutoLogin(java.lang.String name, Output<java.lang.String> id, @Nullable AutoLoginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/autoLogin:AutoLogin", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AutoLoginArgs makeArgs(AutoLoginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -446,7 +446,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
         return args == null ? AutoLoginArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -462,7 +462,7 @@ public class AutoLogin extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AutoLogin get(String name, Output<String> id, @Nullable AutoLoginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AutoLogin get(java.lang.String name, Output<java.lang.String> id, @Nullable AutoLoginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AutoLogin(name, id, state, options);
     }
 }

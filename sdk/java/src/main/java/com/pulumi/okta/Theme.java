@@ -275,7 +275,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Theme(String name) {
+    public Theme(java.lang.String name) {
         this(name, ThemeArgs.Empty);
     }
     /**
@@ -283,7 +283,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Theme(String name, ThemeArgs args) {
+    public Theme(java.lang.String name, ThemeArgs args) {
         this(name, args, null);
     }
     /**
@@ -292,12 +292,12 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Theme(String name, ThemeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/theme:Theme", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Theme(java.lang.String name, ThemeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/theme:Theme", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Theme(String name, Output<String> id, @Nullable ThemeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/theme:Theme", name, state, makeResourceOptions(options, id));
+    private Theme(java.lang.String name, Output<java.lang.String> id, @Nullable ThemeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/theme:Theme", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ThemeArgs makeArgs(ThemeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -307,7 +307,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
         return args == null ? ThemeArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -323,7 +323,7 @@ public class Theme extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Theme get(String name, Output<String> id, @Nullable ThemeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Theme get(java.lang.String name, Output<java.lang.String> id, @Nullable ThemeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Theme(name, id, state, options);
     }
 }

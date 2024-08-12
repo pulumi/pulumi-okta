@@ -1591,12 +1591,12 @@ class OAuth(pulumi.CustomResource):
                  consent_method: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 groups_claim: Optional[pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']]] = None,
+                 groups_claim: Optional[pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  implicit_assignment: Optional[pulumi.Input[bool]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
-                 jwks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]]] = None,
+                 jwks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict']]]]] = None,
                  jwks_uri: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  login_mode: Optional[pulumi.Input[str]] = None,
@@ -1670,7 +1670,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
-        :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+        :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
@@ -1763,12 +1763,12 @@ class OAuth(pulumi.CustomResource):
                  consent_method: Optional[pulumi.Input[str]] = None,
                  enduser_note: Optional[pulumi.Input[str]] = None,
                  grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 groups_claim: Optional[pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']]] = None,
+                 groups_claim: Optional[pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']]] = None,
                  hide_ios: Optional[pulumi.Input[bool]] = None,
                  hide_web: Optional[pulumi.Input[bool]] = None,
                  implicit_assignment: Optional[pulumi.Input[bool]] = None,
                  issuer_mode: Optional[pulumi.Input[str]] = None,
-                 jwks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]]] = None,
+                 jwks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict']]]]] = None,
                  jwks_uri: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  login_mode: Optional[pulumi.Input[str]] = None,
@@ -1885,12 +1885,12 @@ class OAuth(pulumi.CustomResource):
             consent_method: Optional[pulumi.Input[str]] = None,
             enduser_note: Optional[pulumi.Input[str]] = None,
             grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            groups_claim: Optional[pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']]] = None,
+            groups_claim: Optional[pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']]] = None,
             hide_ios: Optional[pulumi.Input[bool]] = None,
             hide_web: Optional[pulumi.Input[bool]] = None,
             implicit_assignment: Optional[pulumi.Input[bool]] = None,
             issuer_mode: Optional[pulumi.Input[str]] = None,
-            jwks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OAuthJwkArgs']]]]] = None,
+            jwks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict']]]]] = None,
             jwks_uri: Optional[pulumi.Input[str]] = None,
             label: Optional[pulumi.Input[str]] = None,
             login_mode: Optional[pulumi.Input[str]] = None,
@@ -1946,7 +1946,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
-        :param pulumi.Input[pulumi.InputType['OAuthGroupsClaimArgs']] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+        :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
         :param pulumi.Input[bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.

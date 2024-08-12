@@ -1415,7 +1415,7 @@ class User(pulumi.CustomResource):
                  old_password: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 password_hash: Optional[pulumi.Input[pulumi.InputType['UserPasswordHashArgs']]] = None,
+                 password_hash: Optional[pulumi.Input[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']]] = None,
                  password_inline_hook: Optional[pulumi.Input[str]] = None,
                  postal_address: Optional[pulumi.Input[str]] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
@@ -1438,49 +1438,57 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Full profile:
-        resource "user.User" "example" {
-          first_name         = "John"
-          last_name          = "Smith"
-          login              = "john.smith@example.com"
-          email              = "john.smith@example.com"
-          city               = "New York"
-          cost_center        = "10"
-          country_code       = "US"
-          department         = "IT"
-          display_name       = "Dr. John Smith"
-          division           = "Acquisitions"
-          employee_number    = "111111"
-          honorific_prefix   = "Dr."
-          honorific_suffix   = "Jr."
-          locale             = "en_US"
-          manager            = "Jimbo"
-          manager_id         = "222222"
-          middle_name        = "John"
-          mobile_phone       = "1112223333"
-          nick_name          = "Johnny"
-          organization       = "Testing Inc."
-          postal_address     = "1234 Testing St."
-          preferred_language = "en-us"
-          primary_phone      = "4445556666"
-          profile_url        = "https://www.example.com/profile"
-          second_email       = "john.smith.fun@example.com"
-          state              = "NY"
-          street_address     = "5678 Testing Ave."
-          timezone           = "America/New_York"
-          title              = "Director"
-          user_type          = "Employee"
-          zip_code           = "11111"
-        }
+        ```python
+        import pulumi
+        import pulumi_okta as okta
 
+        ### Full profile:
+        example = okta.user.User("example",
+            first_name="John",
+            last_name="Smith",
+            login="john.smith@example.com",
+            email="john.smith@example.com",
+            city="New York",
+            cost_center="10",
+            country_code="US",
+            department="IT",
+            display_name="Dr. John Smith",
+            division="Acquisitions",
+            employee_number="111111",
+            honorific_prefix="Dr.",
+            honorific_suffix="Jr.",
+            locale="en_US",
+            manager="Jimbo",
+            manager_id="222222",
+            middle_name="John",
+            mobile_phone="1112223333",
+            nick_name="Johnny",
+            organization="Testing Inc.",
+            postal_address="1234 Testing St.",
+            preferred_language="en-us",
+            primary_phone="4445556666",
+            profile_url="https://www.example.com/profile",
+            second_email="john.smith.fun@example.com",
+            state="NY",
+            street_address="5678 Testing Ave.",
+            timezone="America/New_York",
+            title="Director",
+            user_type="Employee",
+            zip_code="11111")
         ### With Password Inline Hook:
-        resource "user.User" "test2" {
-          first_name           = "John"
-          last_name            = "Smith"
-          login                = "example@example.com"
-          email                = "example@example.com"
-          password_inline_hook = "default"
-        }
+        test2 = okta.user.User("test2",
+            first_name="John",
+            last_name="Smith",
+            login="example@example.com",
+            email="example@example.com",
+            password_inline_hook="default")
+        ```
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:user/user:User example &#60;user id&#62;
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1508,7 +1516,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] old_password: Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
         :param pulumi.Input[str] organization: User organization
         :param pulumi.Input[str] password: User Password
-        :param pulumi.Input[pulumi.InputType['UserPasswordHashArgs']] password_hash: Specifies a hashed password to import into Okta.
+        :param pulumi.Input[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']] password_hash: Specifies a hashed password to import into Okta.
         :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
         :param pulumi.Input[str] postal_address: User mailing address
         :param pulumi.Input[str] preferred_language: User preferred language
@@ -1537,49 +1545,57 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Full profile:
-        resource "user.User" "example" {
-          first_name         = "John"
-          last_name          = "Smith"
-          login              = "john.smith@example.com"
-          email              = "john.smith@example.com"
-          city               = "New York"
-          cost_center        = "10"
-          country_code       = "US"
-          department         = "IT"
-          display_name       = "Dr. John Smith"
-          division           = "Acquisitions"
-          employee_number    = "111111"
-          honorific_prefix   = "Dr."
-          honorific_suffix   = "Jr."
-          locale             = "en_US"
-          manager            = "Jimbo"
-          manager_id         = "222222"
-          middle_name        = "John"
-          mobile_phone       = "1112223333"
-          nick_name          = "Johnny"
-          organization       = "Testing Inc."
-          postal_address     = "1234 Testing St."
-          preferred_language = "en-us"
-          primary_phone      = "4445556666"
-          profile_url        = "https://www.example.com/profile"
-          second_email       = "john.smith.fun@example.com"
-          state              = "NY"
-          street_address     = "5678 Testing Ave."
-          timezone           = "America/New_York"
-          title              = "Director"
-          user_type          = "Employee"
-          zip_code           = "11111"
-        }
+        ```python
+        import pulumi
+        import pulumi_okta as okta
 
+        ### Full profile:
+        example = okta.user.User("example",
+            first_name="John",
+            last_name="Smith",
+            login="john.smith@example.com",
+            email="john.smith@example.com",
+            city="New York",
+            cost_center="10",
+            country_code="US",
+            department="IT",
+            display_name="Dr. John Smith",
+            division="Acquisitions",
+            employee_number="111111",
+            honorific_prefix="Dr.",
+            honorific_suffix="Jr.",
+            locale="en_US",
+            manager="Jimbo",
+            manager_id="222222",
+            middle_name="John",
+            mobile_phone="1112223333",
+            nick_name="Johnny",
+            organization="Testing Inc.",
+            postal_address="1234 Testing St.",
+            preferred_language="en-us",
+            primary_phone="4445556666",
+            profile_url="https://www.example.com/profile",
+            second_email="john.smith.fun@example.com",
+            state="NY",
+            street_address="5678 Testing Ave.",
+            timezone="America/New_York",
+            title="Director",
+            user_type="Employee",
+            zip_code="11111")
         ### With Password Inline Hook:
-        resource "user.User" "test2" {
-          first_name           = "John"
-          last_name            = "Smith"
-          login                = "example@example.com"
-          email                = "example@example.com"
-          password_inline_hook = "default"
-        }
+        test2 = okta.user.User("test2",
+            first_name="John",
+            last_name="Smith",
+            login="example@example.com",
+            email="example@example.com",
+            password_inline_hook="default")
+        ```
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:user/user:User example &#60;user id&#62;
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
@@ -1621,7 +1637,7 @@ class User(pulumi.CustomResource):
                  old_password: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 password_hash: Optional[pulumi.Input[pulumi.InputType['UserPasswordHashArgs']]] = None,
+                 password_hash: Optional[pulumi.Input[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']]] = None,
                  password_inline_hook: Optional[pulumi.Input[str]] = None,
                  postal_address: Optional[pulumi.Input[str]] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
@@ -1735,7 +1751,7 @@ class User(pulumi.CustomResource):
             old_password: Optional[pulumi.Input[str]] = None,
             organization: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
-            password_hash: Optional[pulumi.Input[pulumi.InputType['UserPasswordHashArgs']]] = None,
+            password_hash: Optional[pulumi.Input[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']]] = None,
             password_inline_hook: Optional[pulumi.Input[str]] = None,
             postal_address: Optional[pulumi.Input[str]] = None,
             preferred_language: Optional[pulumi.Input[str]] = None,
@@ -1784,7 +1800,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] old_password: Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
         :param pulumi.Input[str] organization: User organization
         :param pulumi.Input[str] password: User Password
-        :param pulumi.Input[pulumi.InputType['UserPasswordHashArgs']] password_hash: Specifies a hashed password to import into Okta.
+        :param pulumi.Input[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']] password_hash: Specifies a hashed password to import into Okta.
         :param pulumi.Input[str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
         :param pulumi.Input[str] postal_address: User mailing address
         :param pulumi.Input[str] preferred_language: User preferred language

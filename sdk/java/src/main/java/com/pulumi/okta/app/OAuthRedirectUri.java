@@ -108,7 +108,7 @@ public class OAuthRedirectUri extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OAuthRedirectUri(String name) {
+    public OAuthRedirectUri(java.lang.String name) {
         this(name, OAuthRedirectUriArgs.Empty);
     }
     /**
@@ -116,7 +116,7 @@ public class OAuthRedirectUri extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OAuthRedirectUri(String name, OAuthRedirectUriArgs args) {
+    public OAuthRedirectUri(java.lang.String name, OAuthRedirectUriArgs args) {
         this(name, args, null);
     }
     /**
@@ -125,12 +125,12 @@ public class OAuthRedirectUri extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OAuthRedirectUri(String name, OAuthRedirectUriArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/oAuthRedirectUri:OAuthRedirectUri", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public OAuthRedirectUri(java.lang.String name, OAuthRedirectUriArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/oAuthRedirectUri:OAuthRedirectUri", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OAuthRedirectUri(String name, Output<String> id, @Nullable OAuthRedirectUriState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/oAuthRedirectUri:OAuthRedirectUri", name, state, makeResourceOptions(options, id));
+    private OAuthRedirectUri(java.lang.String name, Output<java.lang.String> id, @Nullable OAuthRedirectUriState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/oAuthRedirectUri:OAuthRedirectUri", name, state, makeResourceOptions(options, id), false);
     }
 
     private static OAuthRedirectUriArgs makeArgs(OAuthRedirectUriArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -140,7 +140,7 @@ public class OAuthRedirectUri extends com.pulumi.resources.CustomResource {
         return args == null ? OAuthRedirectUriArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -156,7 +156,7 @@ public class OAuthRedirectUri extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OAuthRedirectUri get(String name, Output<String> id, @Nullable OAuthRedirectUriState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OAuthRedirectUri get(java.lang.String name, Output<java.lang.String> id, @Nullable OAuthRedirectUriState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OAuthRedirectUri(name, id, state, options);
     }
 }

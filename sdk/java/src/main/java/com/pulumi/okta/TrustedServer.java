@@ -114,7 +114,7 @@ public class TrustedServer extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TrustedServer(String name) {
+    public TrustedServer(java.lang.String name) {
         this(name, TrustedServerArgs.Empty);
     }
     /**
@@ -122,7 +122,7 @@ public class TrustedServer extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TrustedServer(String name, TrustedServerArgs args) {
+    public TrustedServer(java.lang.String name, TrustedServerArgs args) {
         this(name, args, null);
     }
     /**
@@ -131,12 +131,12 @@ public class TrustedServer extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TrustedServer(String name, TrustedServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/trustedServer:TrustedServer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public TrustedServer(java.lang.String name, TrustedServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/trustedServer:TrustedServer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TrustedServer(String name, Output<String> id, @Nullable TrustedServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/trustedServer:TrustedServer", name, state, makeResourceOptions(options, id));
+    private TrustedServer(java.lang.String name, Output<java.lang.String> id, @Nullable TrustedServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/trustedServer:TrustedServer", name, state, makeResourceOptions(options, id), false);
     }
 
     private static TrustedServerArgs makeArgs(TrustedServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -146,7 +146,7 @@ public class TrustedServer extends com.pulumi.resources.CustomResource {
         return args == null ? TrustedServerArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -162,7 +162,7 @@ public class TrustedServer extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TrustedServer get(String name, Output<String> id, @Nullable TrustedServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TrustedServer get(java.lang.String name, Output<java.lang.String> id, @Nullable TrustedServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TrustedServer(name, id, state, options);
     }
 }

@@ -258,7 +258,7 @@ class Domain(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             brand_id: Optional[pulumi.Input[str]] = None,
             certificate_source_type: Optional[pulumi.Input[str]] = None,
-            dns_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainDnsRecordArgs']]]]] = None,
+            dns_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainDnsRecordArgs', 'DomainDnsRecordArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             validation_status: Optional[pulumi.Input[str]] = None) -> 'Domain':
         """
@@ -270,7 +270,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] brand_id: Brand id of the domain
         :param pulumi.Input[str] certificate_source_type: Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainDnsRecordArgs']]]] dns_records: TXT and CNAME records to be registered for the Domain
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainDnsRecordArgs', 'DomainDnsRecordArgsDict']]]] dns_records: TXT and CNAME records to be registered for the Domain
         :param pulumi.Input[str] name: Custom Domain name
         :param pulumi.Input[str] validation_status: Status of the domain
         """

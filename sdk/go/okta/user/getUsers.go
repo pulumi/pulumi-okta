@@ -12,44 +12,6 @@ import (
 )
 
 // Get a list of users from Okta.
-//
-// ## Example Usage
-//
-// ### Lookup Users by Search Criteria
-//
-//	data "user.getUsers" "example" {
-//	  search {
-//	    name       = "profile.company"
-//	    value      = "Articulate"
-//	    comparison = "sw"
-//	  }
-//	}
-//
-// # Search for multiple users based on a raw search expression string
-//
-//	data "user.getUsers" "example" {
-//	  search {
-//	    expression = "profile.department eq \"Engineering\" and (created lt \"2014-01-01T00:00:00.000Z\" or status eq \"ACTIVE\")"
-//	  }
-//	}
-//
-// ### Lookup Users by Group Membership
-//
-//	resource "group.Group" "example" {
-//	  name = "example-group"
-//	}
-//
-//	data "user.getUsers" "example" {
-//	  groupId = okta_group.example.id
-//
-// # optionally include each user's group membership
-//
-//	includeGroups = true
-//
-// # optionally include each user's administrator roles
-//
-//	  includeRoles = true
-//	}
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUsersResult

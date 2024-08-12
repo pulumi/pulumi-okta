@@ -105,7 +105,7 @@ public class OrgSupport extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OrgSupport(String name) {
+    public OrgSupport(java.lang.String name) {
         this(name, OrgSupportArgs.Empty);
     }
     /**
@@ -113,7 +113,7 @@ public class OrgSupport extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OrgSupport(String name, @Nullable OrgSupportArgs args) {
+    public OrgSupport(java.lang.String name, @Nullable OrgSupportArgs args) {
         this(name, args, null);
     }
     /**
@@ -122,12 +122,12 @@ public class OrgSupport extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OrgSupport(String name, @Nullable OrgSupportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/orgSupport:OrgSupport", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public OrgSupport(java.lang.String name, @Nullable OrgSupportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/orgSupport:OrgSupport", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OrgSupport(String name, Output<String> id, @Nullable OrgSupportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:index/orgSupport:OrgSupport", name, state, makeResourceOptions(options, id));
+    private OrgSupport(java.lang.String name, Output<java.lang.String> id, @Nullable OrgSupportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:index/orgSupport:OrgSupport", name, state, makeResourceOptions(options, id), false);
     }
 
     private static OrgSupportArgs makeArgs(@Nullable OrgSupportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -137,7 +137,7 @@ public class OrgSupport extends com.pulumi.resources.CustomResource {
         return args == null ? OrgSupportArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -153,7 +153,7 @@ public class OrgSupport extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OrgSupport get(String name, Output<String> id, @Nullable OrgSupportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OrgSupport get(java.lang.String name, Output<java.lang.String> id, @Nullable OrgSupportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OrgSupport(name, id, state, options);
     }
 }

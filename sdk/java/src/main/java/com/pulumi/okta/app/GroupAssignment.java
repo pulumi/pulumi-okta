@@ -142,7 +142,7 @@ public class GroupAssignment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GroupAssignment(String name) {
+    public GroupAssignment(java.lang.String name) {
         this(name, GroupAssignmentArgs.Empty);
     }
     /**
@@ -150,7 +150,7 @@ public class GroupAssignment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GroupAssignment(String name, GroupAssignmentArgs args) {
+    public GroupAssignment(java.lang.String name, GroupAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -159,12 +159,12 @@ public class GroupAssignment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GroupAssignment(String name, GroupAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/groupAssignment:GroupAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public GroupAssignment(java.lang.String name, GroupAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/groupAssignment:GroupAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GroupAssignment(String name, Output<String> id, @Nullable GroupAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:app/groupAssignment:GroupAssignment", name, state, makeResourceOptions(options, id));
+    private GroupAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable GroupAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:app/groupAssignment:GroupAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GroupAssignmentArgs makeArgs(GroupAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -174,7 +174,7 @@ public class GroupAssignment extends com.pulumi.resources.CustomResource {
         return args == null ? GroupAssignmentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -190,7 +190,7 @@ public class GroupAssignment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GroupAssignment get(String name, Output<String> id, @Nullable GroupAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GroupAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable GroupAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GroupAssignment(name, id, state, options);
     }
 }

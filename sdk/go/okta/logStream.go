@@ -14,33 +14,11 @@ import (
 
 // Manages log streams
 //
-// ## Example Usage
+// ## Import
 //
-// ### AWS EventBridge
-//
-//	resource "LogStream" "example" {
-//	  name   = "EventBridge Log Stream"
-//	  type   = "awsEventbridge"
-//	  status = "ACTIVE"
-//	  settings {
-//	    accountId        = "123456789012"
-//	    region            = "us-north-1"
-//	    eventSourceName = "LogStream"
-//	  }
-//	}
-//
-// ### Splunk Event Collector
-//
-//	resource "LogStream" "example" {
-//	  name   = "Splunk log Stream"
-//	  type   = "splunkCloudLogstreaming"
-//	  status = "ACTIVE"
-//	  settings {
-//	    host    = "acme.splunkcloud.com"
-//	    edition = "gcp"
-//	    token   = "YOUR_HEC_TOKEN"
-//	  }
-//	}
+// ```sh
+// $ pulumi import okta:index/logStream:LogStream example &#60;strema id&#62;
+// ```
 type LogStream struct {
 	pulumi.CustomResourceState
 

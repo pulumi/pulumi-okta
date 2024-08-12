@@ -196,7 +196,7 @@ public class ServerScope extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServerScope(String name) {
+    public ServerScope(java.lang.String name) {
         this(name, ServerScopeArgs.Empty);
     }
     /**
@@ -204,7 +204,7 @@ public class ServerScope extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServerScope(String name, ServerScopeArgs args) {
+    public ServerScope(java.lang.String name, ServerScopeArgs args) {
         this(name, args, null);
     }
     /**
@@ -213,12 +213,12 @@ public class ServerScope extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServerScope(String name, ServerScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:auth/serverScope:ServerScope", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ServerScope(java.lang.String name, ServerScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:auth/serverScope:ServerScope", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServerScope(String name, Output<String> id, @Nullable ServerScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("okta:auth/serverScope:ServerScope", name, state, makeResourceOptions(options, id));
+    private ServerScope(java.lang.String name, Output<java.lang.String> id, @Nullable ServerScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("okta:auth/serverScope:ServerScope", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ServerScopeArgs makeArgs(ServerScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -228,7 +228,7 @@ public class ServerScope extends com.pulumi.resources.CustomResource {
         return args == null ? ServerScopeArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -244,7 +244,7 @@ public class ServerScope extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServerScope get(String name, Output<String> id, @Nullable ServerScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServerScope get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServerScope(name, id, state, options);
     }
 }

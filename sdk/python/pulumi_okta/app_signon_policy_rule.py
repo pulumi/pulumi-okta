@@ -855,7 +855,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  network_connection: Optional[pulumi.Input[str]] = None,
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSignonPolicyRulePlatformIncludeArgs']]]]] = None,
+                 platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppSignonPolicyRulePlatformIncludeArgs', 'AppSignonPolicyRulePlatformIncludeArgsDict']]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  re_authentication_frequency: Optional[pulumi.Input[str]] = None,
@@ -868,6 +868,14 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Manages a sign-on policy rules for the application.
+        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+        This resource allows you to create and configure a sign-on policy rule for the application.
+        A default or 'Catch-all Rule' sign-on policy rule can be imported and managed as a custom rule.
+        The only difference is that these fields are immutable and can not be managed: 'network_connection', 'network_excludes',
+        'network_includes', 'platform_include', 'custom_expression', 'device_is_registered', 'device_is_managed', 'users_excluded',
+        'users_included', 'groups_excluded', 'groups_included', 'user_types_excluded' and 'user_types_included'.
+
         ## Import
 
         ```sh
@@ -908,6 +916,14 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  args: AppSignonPolicyRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a sign-on policy rules for the application.
+        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+        This resource allows you to create and configure a sign-on policy rule for the application.
+        A default or 'Catch-all Rule' sign-on policy rule can be imported and managed as a custom rule.
+        The only difference is that these fields are immutable and can not be managed: 'network_connection', 'network_excludes',
+        'network_includes', 'platform_include', 'custom_expression', 'device_is_registered', 'device_is_managed', 'users_excluded',
+        'users_included', 'groups_excluded', 'groups_included', 'user_types_excluded' and 'user_types_included'.
+
         ## Import
 
         ```sh
@@ -943,7 +959,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  network_connection: Optional[pulumi.Input[str]] = None,
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSignonPolicyRulePlatformIncludeArgs']]]]] = None,
+                 platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppSignonPolicyRulePlatformIncludeArgs', 'AppSignonPolicyRulePlatformIncludeArgsDict']]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  re_authentication_frequency: Optional[pulumi.Input[str]] = None,
@@ -1015,7 +1031,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             network_connection: Optional[pulumi.Input[str]] = None,
             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSignonPolicyRulePlatformIncludeArgs']]]]] = None,
+            platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppSignonPolicyRulePlatformIncludeArgs', 'AppSignonPolicyRulePlatformIncludeArgsDict']]]]] = None,
             policy_id: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             re_authentication_frequency: Optional[pulumi.Input[str]] = None,
