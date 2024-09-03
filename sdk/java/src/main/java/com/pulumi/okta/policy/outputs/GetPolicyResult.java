@@ -26,7 +26,7 @@ public final class GetPolicyResult {
      */
     private String status;
     /**
-     * @return Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+     * @return Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
      * 
      */
     private String type;
@@ -54,7 +54,7 @@ public final class GetPolicyResult {
         return this.status;
     }
     /**
-     * @return Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+     * @return Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
      * 
      */
     public String type() {

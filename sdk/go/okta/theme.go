@@ -19,12 +19,6 @@ import (
 //
 // The Okta Management API does not have a true Create or Delete for a theme. Therefore, the theme resource must be imported
 // first into the pulumi state before updates can be applied to the theme.
-//
-// ## Import
-//
-// ```sh
-// $ pulumi import okta:index/theme:Theme example &#60;brand id&#62;/&#60;theme id&#62;
-// ```
 type Theme struct {
 	pulumi.CustomResourceState
 

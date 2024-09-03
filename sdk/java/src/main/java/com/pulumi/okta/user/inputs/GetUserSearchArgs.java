@@ -23,14 +23,14 @@ public final class GetUserSearchArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+     * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
      * 
      */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
     /**
-     * @return A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+     * @return A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
      * 
      */
     public Optional<Output<String>> expression() {
@@ -38,14 +38,14 @@ public final class GetUserSearchArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+     * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+     * @return Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
      * 
      */
     public Optional<Output<String>> name() {
@@ -96,7 +96,7 @@ public final class GetUserSearchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expression A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * @param expression A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class GetUserSearchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expression A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * @param expression A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class GetUserSearchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * @param name Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class GetUserSearchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+         * @param name Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
          * 
          * @return builder
          * 

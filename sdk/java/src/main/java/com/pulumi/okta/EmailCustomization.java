@@ -17,34 +17,34 @@ import javax.annotation.Nullable;
 
 /**
  * Create an email customization of an email template belonging to a brand in an Okta organization.
- * 		Use this resource to create an [email
- * 		customization](https://developer.okta.com/docs/reference/api/brands/#create-email-customization)
- * 		of an email template belonging to a brand in an Okta organization.
- * 		&gt; Okta&#39;s public API is strict regarding the behavior of the &#39;is_default&#39;
- * 		property in [an email
- * 		customization](https://developer.okta.com/docs/reference/api/brands/#email-customization).
- * 		Make use of &#39;depends_on&#39; meta argument to ensure the provider navigates email customization
- * 		language versions seamlessly. Have all secondary customizations depend on the primary
- * 		customization that is marked default. See Example Usage.
- * 		&gt; Caveats for [creating an email
- * 		customization](https://developer.okta.com/docs/reference/api/brands/#response-body-19).
- * 		If this is the first customization being created for the email template, and
- * 		&#39;is_default&#39; is not set for the customization in its resource configuration, the
- * 		API will respond with the created customization marked as default. The API will
- * 		400 if the language parameter is not one of the supported languages or the body
- * 		parameter does not contain a required variable reference. The API will error 409
- * 		if &#39;is_default&#39; is true and a default customization exists. The API will 404 for
- * 		an invalid &#39;brand_id&#39; or &#39;template_name&#39;.
- * 		&gt; Caveats for [updating an email
- * 		customization](https://developer.okta.com/docs/reference/api/brands/#response-body-22).
- * 		If the &#39;is_default&#39; parameter is true, the previous default email customization
- * 		has its &#39;is_default&#39; set to false (see previous note about mitigating this with
- * 		&#39;depends_on&#39; meta argument). The API will 409 if there’s already another email
- * 		customization for the specified language or the &#39;is_default&#39; parameter is false
- * 		and the email customization being updated is the default. The API will 400 if
- * 		the language parameter is not one of the supported locales or the body parameter
- * 		does not contain a required variable reference.  The API will 404 for an invalid
- * 		&#39;brand_id&#39; or &#39;template_name&#39;.
+ * Use this resource to create an [email
+ * customization](https://developer.okta.com/docs/reference/api/brands/#create-email-customization)
+ * of an email template belonging to a brand in an Okta organization.
+ * &gt; Okta&#39;s public API is strict regarding the behavior of the &#39;is_default&#39;
+ * property in [an email
+ * customization](https://developer.okta.com/docs/reference/api/brands/#email-customization).
+ * Make use of &#39;depends_on&#39; meta argument to ensure the provider navigates email customization
+ * language versions seamlessly. Have all secondary customizations depend on the primary
+ * customization that is marked default. See Example Usage.
+ * Caveats for [creating an email
+ * customization](https://developer.okta.com/docs/reference/api/brands/#response-body-19).
+ * If this is the first customization being created for the email template, and
+ * &#39;is_default&#39; is not set for the customization in its resource configuration, the
+ * API will respond with the created customization marked as default. The API will
+ * 400 if the language parameter is not one of the supported languages or the body
+ * parameter does not contain a required variable reference. The API will error 409
+ * if &#39;is_default&#39; is true and a default customization exists. The API will 404 for
+ * an invalid &#39;brand_id&#39; or &#39;template_name&#39;.
+ * Caveats for [updating an email
+ * customization](https://developer.okta.com/docs/reference/api/brands/#response-body-22).
+ * If the &#39;is_default&#39; parameter is true, the previous default email customization
+ * has its &#39;is_default&#39; set to false (see previous note about mitigating this with
+ * &#39;depends_on&#39; meta argument). The API will 409 if there’s already another email
+ * customization for the specified language or the &#39;is_default&#39; parameter is false
+ * and the email customization being updated is the default. The API will 400 if
+ * the language parameter is not one of the supported locales or the body parameter
+ * does not contain a required variable reference.  The API will 404 for an invalid
+ * &#39;brand_id&#39; or &#39;template_name&#39;.
  * 
  * ## Import
  * 

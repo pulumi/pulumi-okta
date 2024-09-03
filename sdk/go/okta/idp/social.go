@@ -121,7 +121,7 @@ type Social struct {
 	TrustRevocation pulumi.StringOutput `pulumi:"trustRevocation"`
 	// Trust revocation cache lifetime for the Okta IdP instance.
 	TrustRevocationCacheLifetime pulumi.IntOutput `pulumi:"trustRevocationCacheLifetime"`
-	// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+	// Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 	UsernameTemplate pulumi.StringPtrOutput `pulumi:"usernameTemplate"`
@@ -238,7 +238,7 @@ type socialState struct {
 	TrustRevocation *string `pulumi:"trustRevocation"`
 	// Trust revocation cache lifetime for the Okta IdP instance.
 	TrustRevocationCacheLifetime *int `pulumi:"trustRevocationCacheLifetime"`
-	// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+	// Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
 	Type *string `pulumi:"type"`
 	// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 	UsernameTemplate *string `pulumi:"usernameTemplate"`
@@ -309,7 +309,7 @@ type SocialState struct {
 	TrustRevocation pulumi.StringPtrInput
 	// Trust revocation cache lifetime for the Okta IdP instance.
 	TrustRevocationCacheLifetime pulumi.IntPtrInput
-	// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+	// Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
 	Type pulumi.StringPtrInput
 	// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 	UsernameTemplate pulumi.StringPtrInput
@@ -366,7 +366,7 @@ type socialArgs struct {
 	SubjectMatchType *string `pulumi:"subjectMatchType"`
 	// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	SuspendedAction *string `pulumi:"suspendedAction"`
-	// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+	// Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
 	Type string `pulumi:"type"`
 	// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 	UsernameTemplate *string `pulumi:"usernameTemplate"`
@@ -420,7 +420,7 @@ type SocialArgs struct {
 	SubjectMatchType pulumi.StringPtrInput
 	// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	SuspendedAction pulumi.StringPtrInput
-	// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+	// Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
 	Type pulumi.StringInput
 	// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 	UsernameTemplate pulumi.StringPtrInput
@@ -673,7 +673,7 @@ func (o SocialOutput) TrustRevocationCacheLifetime() pulumi.IntOutput {
 	return o.ApplyT(func(v *Social) pulumi.IntOutput { return v.TrustRevocationCacheLifetime }).(pulumi.IntOutput)
 }
 
-// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+// Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
 func (o SocialOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

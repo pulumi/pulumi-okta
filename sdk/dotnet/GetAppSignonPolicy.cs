@@ -14,12 +14,12 @@ namespace Pulumi.Okta
         /// <summary>
         /// Get a sign-on policy for the application.
         /// 
-        /// &gt; **WARNING:** This feature is only available as a part of the 
-        /// Identity Engine. Contact support 
+        /// &gt; **WARNING:** This feature is only available as a part of the
+        /// Identity Engine. Contact support
         /// for further information.
         /// 
-        /// &gt; Inside the product a sign-on policy is referenced as an _authentication
-        /// policy_, in the public API the policy is of type
+        /// &gt; Inside the product a sign-on policy is referenced as an *authentication
+        /// policy*, in the public API the policy is of type
         /// [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
         /// 
         /// ## Example Usage
@@ -46,12 +46,12 @@ namespace Pulumi.Okta
         /// <summary>
         /// Get a sign-on policy for the application.
         /// 
-        /// &gt; **WARNING:** This feature is only available as a part of the 
-        /// Identity Engine. Contact support 
+        /// &gt; **WARNING:** This feature is only available as a part of the
+        /// Identity Engine. Contact support
         /// for further information.
         /// 
-        /// &gt; Inside the product a sign-on policy is referenced as an _authentication
-        /// policy_, in the public API the policy is of type
+        /// &gt; Inside the product a sign-on policy is referenced as an *authentication
+        /// policy*, in the public API the policy is of type
         /// [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
         /// 
         /// ## Example Usage

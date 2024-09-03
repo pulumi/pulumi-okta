@@ -17,10 +17,10 @@ import javax.annotation.Nullable;
 
 /**
  * Creates a Three Field Application.
- * 		This resource allows you to create and configure a Three Field Application.
- * 		&gt; During an apply if there is change in &#39;status&#39; the app will first be
- * 		activated or deactivated in accordance with the &#39;status&#39; change. Then, all
- * 		other arguments that changed will be applied.
+ * This resource allows you to create and configure a Three Field Application.
+ * &gt; During an apply if there is change in &#39;status&#39; the app will first be
+ * activated or deactivated in accordance with the &#39;status&#39; change. Then, all
+ * other arguments that changed will be applied.
  * 
  * ## Example Usage
  * 

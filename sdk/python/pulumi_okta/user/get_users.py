@@ -101,7 +101,7 @@ class GetUsersResult:
     @pulumi.getter
     def searches(self) -> Optional[Sequence['outputs.GetUsersSearchResult']]:
         """
-        Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+        Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter [https://developer.okta.com/docs/reference/core-okta-api/#filter](https://developer.okta.com/docs/reference/core-okta-api/#filter) . The set name/value/comparison properties will be ignored if expression is present
         """
         return pulumi.get(self, "searches")
 
@@ -146,7 +146,7 @@ def get_users(compound_search_operator: Optional[str] = None,
     :param str group_id: Find users based on group membership using the id of the group.
     :param bool include_groups: Fetch group memberships for each user
     :param bool include_roles: Fetch user roles for each user
-    :param Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+    :param Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter [https://developer.okta.com/docs/reference/core-okta-api/#filter](https://developer.okta.com/docs/reference/core-okta-api/#filter) . The set name/value/comparison properties will be ignored if expression is present
     """
     __args__ = dict()
     __args__['compoundSearchOperator'] = compound_search_operator
@@ -186,6 +186,6 @@ def get_users_output(compound_search_operator: Optional[pulumi.Input[Optional[st
     :param str group_id: Find users based on group membership using the id of the group.
     :param bool include_groups: Fetch group memberships for each user
     :param bool include_roles: Fetch user roles for each user
-    :param Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+    :param Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter [https://developer.okta.com/docs/reference/core-okta-api/#filter](https://developer.okta.com/docs/reference/core-okta-api/#filter) . The set name/value/comparison properties will be ignored if expression is present
     """
     ...

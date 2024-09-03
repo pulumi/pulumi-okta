@@ -311,14 +311,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return this.entityKey;
     }
     /**
-     * Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+     * Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
      * 
      */
     @Export(name="entityUrl", refs={String.class}, tree="[0]")
     private Output<String> entityUrl;
 
     /**
-     * @return Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+     * @return Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
      * 
      */
     public Output<String> entityUrl() {

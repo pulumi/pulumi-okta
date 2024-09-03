@@ -47,8 +47,8 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * The label of the app to retrieve, conflicts with label_prefix and id. Label
-     * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
-     * 			this searches both name and label. This is used to avoid paginating through all applications.
+     * uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+     * this searches both name and label. This is used to avoid paginating through all applications.
      * 
      */
     @Import(name="label")
@@ -56,8 +56,8 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return The label of the app to retrieve, conflicts with label_prefix and id. Label
-     * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
-     * 			this searches both name and label. This is used to avoid paginating through all applications.
+     * uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+     * this searches both name and label. This is used to avoid paginating through all applications.
      * 
      */
     public Optional<String> label() {
@@ -66,7 +66,7 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * provider to do a starts with query as opposed to an equals query.
      * 
      */
     @Import(name="labelPrefix")
@@ -74,7 +74,7 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * provider to do a starts with query as opposed to an equals query.
      * 
      */
     public Optional<String> labelPrefix() {
@@ -196,8 +196,8 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param label The label of the app to retrieve, conflicts with label_prefix and id. Label
-         * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
-         * 			this searches both name and label. This is used to avoid paginating through all applications.
+         * uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+         * this searches both name and label. This is used to avoid paginating through all applications.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param labelPrefix Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-         * 			provider to do a starts with query as opposed to an equals query.
+         * provider to do a starts with query as opposed to an equals query.
          * 
          * @return builder
          * 

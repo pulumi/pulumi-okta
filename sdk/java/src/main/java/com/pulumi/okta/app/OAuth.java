@@ -148,10 +148,10 @@ public class OAuth extends com.pulumi.resources.CustomResource {
     }
     /**
      * Requested key rotation mode. If
-     * 			auto*key*rotation isn&#39;t specified, the client automatically opts in for Okta&#39;s
-     * 			key rotation. You can update this property via the API or via the administrator
-     * 			UI.
-     * 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object&#34;
+     * auto*key*rotation isn&#39;t specified, the client automatically opts in for Okta&#39;s
+     * key rotation. You can update this property via the API or via the administrator
+     * UI.
+     * See: \n\n
      * 
      */
     @Export(name="autoKeyRotation", refs={Boolean.class}, tree="[0]")
@@ -159,10 +159,10 @@ public class OAuth extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Requested key rotation mode. If
-     * 			auto*key*rotation isn&#39;t specified, the client automatically opts in for Okta&#39;s
-     * 			key rotation. You can update this property via the API or via the administrator
-     * 			UI.
-     * 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object&#34;
+     * auto*key*rotation isn&#39;t specified, the client automatically opts in for Okta&#39;s
+     * key rotation. You can update this property via the API or via the administrator
+     * UI.
+     * See: \n\n
      * 
      */
     public Output<Optional<Boolean>> autoKeyRotation() {
@@ -267,14 +267,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enduserNote);
     }
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+     * List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
      * 
      */
     @Export(name="grantTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> grantTypes;
 
     /**
-     * @return List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+     * @return List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
      * 
      */
     public Output<Optional<List<String>>> grantTypes() {
@@ -497,14 +497,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.omitSecret);
     }
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
      * 
      */
     @Export(name="pkceRequired", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> pkceRequired;
 
     /**
-     * @return Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * @return Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
      * 
      */
     public Output<Boolean> pkceRequired() {

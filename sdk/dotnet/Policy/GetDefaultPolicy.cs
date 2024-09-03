@@ -12,8 +12,8 @@ namespace Pulumi.Okta.Policy
     public static class GetDefaultPolicy
     {
         /// <summary>
-        /// Use this data source to retrieve a default policy from Okta. This 
-        /// same thing can be achieved using the `okta.policy.getPolicy` with default 
+        /// Use this data source to retrieve a default policy from Okta. This
+        /// same thing can be achieved using the `okta.policy.getPolicy` with default
         /// names, this is simply a shortcut.
         /// 
         /// ## Example Usage
@@ -38,8 +38,8 @@ namespace Pulumi.Okta.Policy
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultPolicyResult>("okta:policy/getDefaultPolicy:getDefaultPolicy", args ?? new GetDefaultPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve a default policy from Okta. This 
-        /// same thing can be achieved using the `okta.policy.getPolicy` with default 
+        /// Use this data source to retrieve a default policy from Okta. This
+        /// same thing can be achieved using the `okta.policy.getPolicy` with default
         /// names, this is simply a shortcut.
         /// 
         /// ## Example Usage

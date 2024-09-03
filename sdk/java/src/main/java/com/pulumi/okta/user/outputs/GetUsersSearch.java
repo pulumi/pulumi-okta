@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 public final class GetUsersSearch {
     private @Nullable String comparison;
     /**
-     * @return A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+     * @return A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
      * 
      */
     private @Nullable String expression;
     /**
-     * @return Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+     * @return Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
      * 
      */
     private @Nullable String name;
@@ -29,14 +29,14 @@ public final class GetUsersSearch {
         return Optional.ofNullable(this.comparison);
     }
     /**
-     * @return A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+     * @return A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
      * 
      */
     public Optional<String> expression() {
         return Optional.ofNullable(this.expression);
     }
     /**
-     * @return Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+     * @return Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
      * 
      */
     public Optional<String> name() {

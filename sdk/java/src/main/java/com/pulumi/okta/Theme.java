@@ -23,12 +23,6 @@ import javax.annotation.Nullable;
  * The Okta Management API does not have a true Create or Delete for a theme. Therefore, the theme resource must be imported
  * first into the pulumi state before updates can be applied to the theme.
  * 
- * ## Import
- * 
- * ```sh
- * $ pulumi import okta:index/theme:Theme example &amp;#60;brand id&amp;#62;/&amp;#60;theme id&amp;#62;
- * ```
- * 
  */
 @ResourceType(type="okta:index/theme:Theme")
 public class Theme extends com.pulumi.resources.CustomResource {

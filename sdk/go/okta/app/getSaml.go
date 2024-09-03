@@ -55,11 +55,11 @@ type LookupSamlArgs struct {
 	// Id of application to retrieve, conflicts with label and label_prefix.
 	Id *string `pulumi:"id"`
 	// The label of the app to retrieve, conflicts with labelPrefix and id. Label
-	// 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-	// 			this searches both name and label. This is used to avoid paginating through all applications.
+	// uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
+	// this searches both name and label. This is used to avoid paginating through all applications.
 	Label *string `pulumi:"label"`
 	// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-	// 			provider to do a starts with query as opposed to an equals query.
+	// provider to do a starts with query as opposed to an equals query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
 	// Denotes whether the request is compressed or not.
 	RequestCompressed *bool `pulumi:"requestCompressed"`
@@ -123,11 +123,11 @@ type LookupSamlResult struct {
 	// Certificate ID
 	KeyId string `pulumi:"keyId"`
 	// The label of the app to retrieve, conflicts with labelPrefix and id. Label
-	// 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-	// 			this searches both name and label. This is used to avoid paginating through all applications.
+	// uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
+	// this searches both name and label. This is used to avoid paginating through all applications.
 	Label *string `pulumi:"label"`
 	// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-	// 			provider to do a starts with query as opposed to an equals query.
+	// provider to do a starts with query as opposed to an equals query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
 	// Discoverable resources related to the app
 	Links string `pulumi:"links"`
@@ -201,11 +201,11 @@ type LookupSamlOutputArgs struct {
 	// Id of application to retrieve, conflicts with label and label_prefix.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The label of the app to retrieve, conflicts with labelPrefix and id. Label
-	// 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-	// 			this searches both name and label. This is used to avoid paginating through all applications.
+	// uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
+	// this searches both name and label. This is used to avoid paginating through all applications.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-	// 			provider to do a starts with query as opposed to an equals query.
+	// provider to do a starts with query as opposed to an equals query.
 	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
 	// Denotes whether the request is compressed or not.
 	RequestCompressed pulumi.BoolPtrInput `pulumi:"requestCompressed"`
@@ -355,16 +355,14 @@ func (o LookupSamlResultOutput) KeyId() pulumi.StringOutput {
 }
 
 // The label of the app to retrieve, conflicts with labelPrefix and id. Label
-//
-//	uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-//	this searches both name and label. This is used to avoid paginating through all applications.
+// uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
+// this searches both name and label. This is used to avoid paginating through all applications.
 func (o LookupSamlResultOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSamlResult) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
 // Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-//
-//	provider to do a starts with query as opposed to an equals query.
+// provider to do a starts with query as opposed to an equals query.
 func (o LookupSamlResultOutput) LabelPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSamlResult) *string { return v.LabelPrefix }).(pulumi.StringPtrOutput)
 }

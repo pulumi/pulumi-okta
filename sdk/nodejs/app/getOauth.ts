@@ -46,17 +46,17 @@ export interface GetOauthArgs {
     id?: string;
     /**
      * The label of the app to retrieve, conflicts with
-     * 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
-     * 			Okta's List Apps API. The API will search both name and label using that
-     * 			query. Therefore similarily named and labeled apps may be returned in the query
-     * 			and have the unitended result of associating the wrong app with this data
-     * 			source. See:
-     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+     * labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * Okta's List Apps API. The API will search both name and label using that
+     * query. Therefore similarily named and labeled apps may be returned in the query
+     * and have the unitended result of associating the wrong app with this data
+     * source. See:
+     * [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
      */
     label?: string;
     /**
      * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * provider to do a starts with query as opposed to an equals query.
      */
     labelPrefix?: string;
     /**
@@ -115,17 +115,17 @@ export interface GetOauthResult {
     readonly id?: string;
     /**
      * The label of the app to retrieve, conflicts with
-     * 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
-     * 			Okta's List Apps API. The API will search both name and label using that
-     * 			query. Therefore similarily named and labeled apps may be returned in the query
-     * 			and have the unitended result of associating the wrong app with this data
-     * 			source. See:
-     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+     * labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * Okta's List Apps API. The API will search both name and label using that
+     * query. Therefore similarily named and labeled apps may be returned in the query
+     * and have the unitended result of associating the wrong app with this data
+     * source. See:
+     * [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
      */
     readonly label?: string;
     /**
      * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * provider to do a starts with query as opposed to an equals query.
      */
     readonly labelPrefix?: string;
     /**
@@ -225,17 +225,17 @@ export interface GetOauthOutputArgs {
     id?: pulumi.Input<string>;
     /**
      * The label of the app to retrieve, conflicts with
-     * 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
-     * 			Okta's List Apps API. The API will search both name and label using that
-     * 			query. Therefore similarily named and labeled apps may be returned in the query
-     * 			and have the unitended result of associating the wrong app with this data
-     * 			source. See:
-     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+     * labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * Okta's List Apps API. The API will search both name and label using that
+     * query. Therefore similarily named and labeled apps may be returned in the query
+     * and have the unitended result of associating the wrong app with this data
+     * source. See:
+     * [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
      */
     label?: pulumi.Input<string>;
     /**
      * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * provider to do a starts with query as opposed to an equals query.
      */
     labelPrefix?: pulumi.Input<string>;
     /**

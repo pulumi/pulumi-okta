@@ -14,8 +14,8 @@ namespace Pulumi.Okta
         /// <summary>
         /// Get an authenticator by key, name of ID.
         /// 
-        /// &gt; **WARNING:** This feature is only available as a part of the 
-        /// Identity Engine. Contact support 
+        /// &gt; **WARNING:** This feature is only available as a part of the
+        /// Identity Engine. Contact support
         /// for further information.
         /// 
         /// ## Example Usage
@@ -47,8 +47,8 @@ namespace Pulumi.Okta
         /// <summary>
         /// Get an authenticator by key, name of ID.
         /// 
-        /// &gt; **WARNING:** This feature is only available as a part of the 
-        /// Identity Engine. Contact support 
+        /// &gt; **WARNING:** This feature is only available as a part of the
+        /// Identity Engine. Contact support
         /// for further information.
         /// 
         /// ## Example Usage

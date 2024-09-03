@@ -97,7 +97,7 @@ type Oidc struct {
 	MaxClockSkew pulumi.IntPtrOutput `pulumi:"maxClockSkew"`
 	// Name of the IdP
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
 	PkceRequired pulumi.BoolPtrOutput `pulumi:"pkceRequired"`
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster pulumi.BoolPtrOutput `pulumi:"profileMaster"`
@@ -105,7 +105,7 @@ type Oidc struct {
 	ProtocolType pulumi.StringPtrOutput `pulumi:"protocolType"`
 	// Provisioning action for an IdP user during authentication. Default: `AUTO`
 	ProvisioningAction pulumi.StringPtrOutput `pulumi:"provisioningAction"`
-	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
 	RequestSignatureAlgorithm pulumi.StringPtrOutput `pulumi:"requestSignatureAlgorithm"`
 	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
 	RequestSignatureScope pulumi.StringPtrOutput `pulumi:"requestSignatureScope"`
@@ -235,7 +235,7 @@ type oidcState struct {
 	MaxClockSkew *int `pulumi:"maxClockSkew"`
 	// Name of the IdP
 	Name *string `pulumi:"name"`
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
 	PkceRequired *bool `pulumi:"pkceRequired"`
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster *bool `pulumi:"profileMaster"`
@@ -243,7 +243,7 @@ type oidcState struct {
 	ProtocolType *string `pulumi:"protocolType"`
 	// Provisioning action for an IdP user during authentication. Default: `AUTO`
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
 	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
 	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
@@ -307,7 +307,7 @@ type OidcState struct {
 	MaxClockSkew pulumi.IntPtrInput
 	// Name of the IdP
 	Name pulumi.StringPtrInput
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
 	PkceRequired pulumi.BoolPtrInput
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster pulumi.BoolPtrInput
@@ -315,7 +315,7 @@ type OidcState struct {
 	ProtocolType pulumi.StringPtrInput
 	// Provisioning action for an IdP user during authentication. Default: `AUTO`
 	ProvisioningAction pulumi.StringPtrInput
-	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
 	RequestSignatureAlgorithm pulumi.StringPtrInput
 	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
 	RequestSignatureScope pulumi.StringPtrInput
@@ -383,7 +383,7 @@ type oidcArgs struct {
 	MaxClockSkew *int `pulumi:"maxClockSkew"`
 	// Name of the IdP
 	Name *string `pulumi:"name"`
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
 	PkceRequired *bool `pulumi:"pkceRequired"`
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster *bool `pulumi:"profileMaster"`
@@ -391,7 +391,7 @@ type oidcArgs struct {
 	ProtocolType *string `pulumi:"protocolType"`
 	// Provisioning action for an IdP user during authentication. Default: `AUTO`
 	ProvisioningAction *string `pulumi:"provisioningAction"`
-	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
 	RequestSignatureAlgorithm *string `pulumi:"requestSignatureAlgorithm"`
 	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
 	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
@@ -452,7 +452,7 @@ type OidcArgs struct {
 	MaxClockSkew pulumi.IntPtrInput
 	// Name of the IdP
 	Name pulumi.StringPtrInput
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
 	PkceRequired pulumi.BoolPtrInput
 	// Determines if the IdP should act as a source of truth for user profile attributes.
 	ProfileMaster pulumi.BoolPtrInput
@@ -460,7 +460,7 @@ type OidcArgs struct {
 	ProtocolType pulumi.StringPtrInput
 	// Provisioning action for an IdP user during authentication. Default: `AUTO`
 	ProvisioningAction pulumi.StringPtrInput
-	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+	// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
 	RequestSignatureAlgorithm pulumi.StringPtrInput
 	// Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
 	RequestSignatureScope pulumi.StringPtrInput
@@ -657,7 +657,7 @@ func (o OidcOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
 func (o OidcOutput) PkceRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.BoolPtrOutput { return v.PkceRequired }).(pulumi.BoolPtrOutput)
 }
@@ -677,7 +677,7 @@ func (o OidcOutput) ProvisioningAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
 }
 
-// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+// The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
 func (o OidcOutput) RequestSignatureAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.RequestSignatureAlgorithm }).(pulumi.StringPtrOutput)
 }

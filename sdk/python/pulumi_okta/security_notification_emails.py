@@ -200,9 +200,9 @@ class SecurityNotificationEmails(pulumi.CustomResource):
                  __props__=None):
         """
         Manages Security Notification Emails
-        		This resource allows you to configure Security Notification Emails.
-        		> **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
-        		> **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+        This resource allows you to configure Security Notification Emails.
+        > **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
+        **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
 
         ## Example Usage
 
@@ -240,9 +240,9 @@ class SecurityNotificationEmails(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages Security Notification Emails
-        		This resource allows you to configure Security Notification Emails.
-        		> **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
-        		> **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+        This resource allows you to configure Security Notification Emails.
+        > **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.
+        **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
 
         ## Example Usage
 

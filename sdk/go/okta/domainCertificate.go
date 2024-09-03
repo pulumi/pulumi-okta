@@ -81,17 +81,17 @@ import (
 // ## Let's Encrypt Certbot
 //
 // This example demonstrates generatoring a domain certificate with letsencrypt
-// certbot https://letsencrypt.org/getting-started/
+// certbot <https://letsencrypt.org/getting-started/>
 //
 // Use letsencrypt's certbot to generate domain certificates in RSA output mode.
 // The generator's output corresponds to `DomainCertificate` fields in the
 // following manner.
 //
-// Okta Field          | Certbot file
-// --------------------|--------------
-// `certificate`       | `cert.pem`
-// `certificateChain` | `chain.pem`
-// `privateKey`       | `privkey.pem`
+// |        Okta         |    Certbot    |
+// |---------------------|---------------|
+// | `certificate`       | `cert.pem`    |
+// | `certificateChain` | `chain.pem`   |
+// | `privateKey`       | `privkey.pem` |
 type DomainCertificate struct {
 	pulumi.CustomResourceState
 

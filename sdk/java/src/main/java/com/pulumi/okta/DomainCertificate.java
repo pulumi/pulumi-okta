@@ -89,17 +89,17 @@ import javax.annotation.Nullable;
  * ## Let&#39;s Encrypt Certbot
  * 
  * This example demonstrates generatoring a domain certificate with letsencrypt
- * certbot https://letsencrypt.org/getting-started/
+ * certbot &lt;https://letsencrypt.org/getting-started/&gt;
  * 
  * Use letsencrypt&#39;s certbot to generate domain certificates in RSA output mode.
  * The generator&#39;s output corresponds to `okta.DomainCertificate` fields in the
  * following manner.
  * 
- * Okta Field          | Certbot file
- * --------------------|--------------
- * `certificate`       | `cert.pem`
- * `certificate_chain` | `chain.pem`
- * `private_key`       | `privkey.pem`
+ * |        Okta         |    Certbot    |
+ * |---------------------|---------------|
+ * | `certificate`       | `cert.pem`    |
+ * | `certificate_chain` | `chain.pem`   |
+ * | `private_key`       | `privkey.pem` |
  * 
  */
 @ResourceType(type="okta:index/domainCertificate:DomainCertificate")

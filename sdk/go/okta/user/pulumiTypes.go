@@ -228,9 +228,9 @@ func (o UserPasswordHashPtrOutput) WorkFactor() pulumi.IntPtrOutput {
 
 type GetUserSearch struct {
 	Comparison *string `pulumi:"comparison"`
-	// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+	// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
 	Expression *string `pulumi:"expression"`
-	// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+	// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
 	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
@@ -248,9 +248,9 @@ type GetUserSearchInput interface {
 
 type GetUserSearchArgs struct {
 	Comparison pulumi.StringPtrInput `pulumi:"comparison"`
-	// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+	// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+	// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
 	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
@@ -310,12 +310,12 @@ func (o GetUserSearchOutput) Comparison() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUserSearch) *string { return v.Comparison }).(pulumi.StringPtrOutput)
 }
 
-// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
 func (o GetUserSearchOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUserSearch) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
 func (o GetUserSearchOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUserSearch) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -346,9 +346,9 @@ func (o GetUserSearchArrayOutput) Index(i pulumi.IntInput) GetUserSearchOutput {
 
 type GetUsersSearch struct {
 	Comparison *string `pulumi:"comparison"`
-	// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+	// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
 	Expression *string `pulumi:"expression"`
-	// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+	// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
 	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
@@ -366,9 +366,9 @@ type GetUsersSearchInput interface {
 
 type GetUsersSearchArgs struct {
 	Comparison pulumi.StringPtrInput `pulumi:"comparison"`
-	// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+	// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+	// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
 	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
@@ -428,12 +428,12 @@ func (o GetUsersSearchOutput) Comparison() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersSearch) *string { return v.Comparison }).(pulumi.StringPtrOutput)
 }
 
-// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
 func (o GetUsersSearchOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersSearch) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
 func (o GetUsersSearchOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersSearch) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

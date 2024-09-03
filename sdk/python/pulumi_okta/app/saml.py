@@ -854,7 +854,7 @@ class _SamlState:
         :param pulumi.Input[str] embed_url: The url that can be used to embed this application in other portals.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the entity_url
-        :param pulumi.Input[str] entity_url: Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+        :param pulumi.Input[str] entity_url: Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features to enable
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
@@ -1266,7 +1266,7 @@ class _SamlState:
     @pulumi.getter(name="entityUrl")
     def entity_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+        Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
         """
         return pulumi.get(self, "entity_url")
 
@@ -2127,7 +2127,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[str] embed_url: The url that can be used to embed this application in other portals.
         :param pulumi.Input[str] enduser_note: Application notes for end users.
         :param pulumi.Input[str] entity_key: Entity ID, the ID portion of the entity_url
-        :param pulumi.Input[str] entity_url: Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+        :param pulumi.Input[str] entity_url: Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] features: features to enable
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
@@ -2404,7 +2404,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="entityUrl")
     def entity_url(self) -> pulumi.Output[str]:
         """
-        Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+        Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
         """
         return pulumi.get(self, "entity_url")
 

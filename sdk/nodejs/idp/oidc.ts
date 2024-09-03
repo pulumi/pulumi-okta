@@ -134,7 +134,7 @@ export class Oidc extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
      */
     public readonly pkceRequired!: pulumi.Output<boolean | undefined>;
     /**
@@ -150,7 +150,7 @@ export class Oidc extends pulumi.CustomResource {
      */
     public readonly provisioningAction!: pulumi.Output<string | undefined>;
     /**
-     * The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+     * The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
      */
     public readonly requestSignatureAlgorithm!: pulumi.Output<string | undefined>;
     /**
@@ -399,7 +399,7 @@ export interface OidcState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
      */
     pkceRequired?: pulumi.Input<boolean>;
     /**
@@ -415,7 +415,7 @@ export interface OidcState {
      */
     provisioningAction?: pulumi.Input<string>;
     /**
-     * The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+     * The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
      */
     requestSignatureAlgorithm?: pulumi.Input<string>;
     /**
@@ -542,7 +542,7 @@ export interface OidcArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
      */
     pkceRequired?: pulumi.Input<boolean>;
     /**
@@ -558,7 +558,7 @@ export interface OidcArgs {
      */
     provisioningAction?: pulumi.Input<string>;
     /**
-     * The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+     * The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
      */
     requestSignatureAlgorithm?: pulumi.Input<string>;
     /**

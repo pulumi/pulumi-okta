@@ -54,10 +54,10 @@ type OAuth struct {
 	// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
 	AuthenticationPolicy pulumi.StringOutput `pulumi:"authenticationPolicy"`
 	// Requested key rotation mode. If
-	// 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-	// 			key rotation. You can update this property via the API or via the administrator
-	// 			UI.
-	// 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+	// auto*key*rotation isn't specified, the client automatically opts in for Okta's
+	// key rotation. You can update this property via the API or via the administrator
+	// UI.
+	// See: \n\n
 	AutoKeyRotation pulumi.BoolPtrOutput `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
@@ -73,7 +73,7 @@ type OAuth struct {
 	ConsentMethod pulumi.StringPtrOutput `pulumi:"consentMethod"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
-	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
 	GrantTypes pulumi.StringArrayOutput `pulumi:"grantTypes"`
 	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
 	GroupsClaim OAuthGroupsClaimPtrOutput `pulumi:"groupsClaim"`
@@ -106,7 +106,7 @@ type OAuth struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrOutput `pulumi:"omitSecret"`
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
 	PkceRequired pulumi.BoolOutput `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrOutput `pulumi:"policyUri"`
@@ -203,10 +203,10 @@ type oauthState struct {
 	// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
 	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Requested key rotation mode. If
-	// 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-	// 			key rotation. You can update this property via the API or via the administrator
-	// 			UI.
-	// 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+	// auto*key*rotation isn't specified, the client automatically opts in for Okta's
+	// key rotation. You can update this property via the API or via the administrator
+	// UI.
+	// See: \n\n
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -222,7 +222,7 @@ type oauthState struct {
 	ConsentMethod *string `pulumi:"consentMethod"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
 	GrantTypes []string `pulumi:"grantTypes"`
 	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
@@ -255,7 +255,7 @@ type oauthState struct {
 	Name *string `pulumi:"name"`
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret *bool `pulumi:"omitSecret"`
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
 	PkceRequired *bool `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
@@ -309,10 +309,10 @@ type OAuthState struct {
 	// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
 	AuthenticationPolicy pulumi.StringPtrInput
 	// Requested key rotation mode. If
-	// 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-	// 			key rotation. You can update this property via the API or via the administrator
-	// 			UI.
-	// 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+	// auto*key*rotation isn't specified, the client automatically opts in for Okta's
+	// key rotation. You can update this property via the API or via the administrator
+	// UI.
+	// See: \n\n
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -328,7 +328,7 @@ type OAuthState struct {
 	ConsentMethod pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
 	GrantTypes pulumi.StringArrayInput
 	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
 	GroupsClaim OAuthGroupsClaimPtrInput
@@ -361,7 +361,7 @@ type OAuthState struct {
 	Name pulumi.StringPtrInput
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrInput
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
 	PkceRequired pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
@@ -419,10 +419,10 @@ type oauthArgs struct {
 	// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
 	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Requested key rotation mode. If
-	// 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-	// 			key rotation. You can update this property via the API or via the administrator
-	// 			UI.
-	// 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+	// auto*key*rotation isn't specified, the client automatically opts in for Okta's
+	// key rotation. You can update this property via the API or via the administrator
+	// UI.
+	// See: \n\n
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
@@ -436,7 +436,7 @@ type oauthArgs struct {
 	ConsentMethod *string `pulumi:"consentMethod"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
-	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
 	GrantTypes []string `pulumi:"grantTypes"`
 	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
@@ -465,7 +465,7 @@ type oauthArgs struct {
 	LogoUri *string `pulumi:"logoUri"`
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret *bool `pulumi:"omitSecret"`
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
 	PkceRequired *bool `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
 	PolicyUri *string `pulumi:"policyUri"`
@@ -518,10 +518,10 @@ type OAuthArgs struct {
 	// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
 	AuthenticationPolicy pulumi.StringPtrInput
 	// Requested key rotation mode. If
-	// 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-	// 			key rotation. You can update this property via the API or via the administrator
-	// 			UI.
-	// 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+	// auto*key*rotation isn't specified, the client automatically opts in for Okta's
+	// key rotation. You can update this property via the API or via the administrator
+	// UI.
+	// See: \n\n
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
@@ -535,7 +535,7 @@ type OAuthArgs struct {
 	ConsentMethod pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
-	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+	// List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
 	GrantTypes pulumi.StringArrayInput
 	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
 	GroupsClaim OAuthGroupsClaimPtrInput
@@ -564,7 +564,7 @@ type OAuthArgs struct {
 	LogoUri pulumi.StringPtrInput
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrInput
-	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
 	PkceRequired pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
 	PolicyUri pulumi.StringPtrInput
@@ -723,11 +723,10 @@ func (o OAuthOutput) AuthenticationPolicy() pulumi.StringOutput {
 }
 
 // Requested key rotation mode. If
-//
-//	auto*key*rotation isn't specified, the client automatically opts in for Okta's
-//	key rotation. You can update this property via the API or via the administrator
-//	UI.
-//	See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+// auto*key*rotation isn't specified, the client automatically opts in for Okta's
+// key rotation. You can update this property via the API or via the administrator
+// UI.
+// See: \n\n
 func (o OAuthOutput) AutoKeyRotation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.AutoKeyRotation }).(pulumi.BoolPtrOutput)
 }
@@ -767,7 +766,7 @@ func (o OAuthOutput) EnduserNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
 }
 
-// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+// List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
 func (o OAuthOutput) GrantTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.GrantTypes }).(pulumi.StringArrayOutput)
 }
@@ -851,7 +850,7 @@ func (o OAuthOutput) OmitSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.OmitSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
 func (o OAuthOutput) PkceRequired() pulumi.BoolOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolOutput { return v.PkceRequired }).(pulumi.BoolOutput)
 }

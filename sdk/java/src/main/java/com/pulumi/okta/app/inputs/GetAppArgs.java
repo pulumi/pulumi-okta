@@ -48,12 +48,12 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * The label of the app to retrieve, conflicts with
-     * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
-     * 			Okta&#39;s List Apps API. The API will search both name and label using that
-     * 			query. Therefore similarily named and labeled apps may be returned in the query
-     * 			and have the unitended result of associating the wrong app with this data
-     * 			source. See:
-     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+     * label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * Okta&#39;s List Apps API. The API will search both name and label using that
+     * query. Therefore similarily named and labeled apps may be returned in the query
+     * and have the unitended result of associating the wrong app with this data
+     * source. See:
+     * [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
      * 
      */
     @Import(name="label")
@@ -61,12 +61,12 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return The label of the app to retrieve, conflicts with
-     * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
-     * 			Okta&#39;s List Apps API. The API will search both name and label using that
-     * 			query. Therefore similarily named and labeled apps may be returned in the query
-     * 			and have the unitended result of associating the wrong app with this data
-     * 			source. See:
-     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+     * label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * Okta&#39;s List Apps API. The API will search both name and label using that
+     * query. Therefore similarily named and labeled apps may be returned in the query
+     * and have the unitended result of associating the wrong app with this data
+     * source. See:
+     * [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
      * 
      */
     public Optional<Output<String>> label() {
@@ -75,7 +75,7 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * provider to do a starts with query as opposed to an equals query.
      * 
      */
     @Import(name="labelPrefix")
@@ -83,7 +83,7 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * provider to do a starts with query as opposed to an equals query.
      * 
      */
     public Optional<Output<String>> labelPrefix() {
@@ -209,12 +209,12 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param label The label of the app to retrieve, conflicts with
-         * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
-         * 			Okta&#39;s List Apps API. The API will search both name and label using that
-         * 			query. Therefore similarily named and labeled apps may be returned in the query
-         * 			and have the unitended result of associating the wrong app with this data
-         * 			source. See:
-         * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+         * label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+         * Okta&#39;s List Apps API. The API will search both name and label using that
+         * query. Therefore similarily named and labeled apps may be returned in the query
+         * and have the unitended result of associating the wrong app with this data
+         * source. See:
+         * [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
          * 
          * @return builder
          * 
@@ -226,12 +226,12 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param label The label of the app to retrieve, conflicts with
-         * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
-         * 			Okta&#39;s List Apps API. The API will search both name and label using that
-         * 			query. Therefore similarily named and labeled apps may be returned in the query
-         * 			and have the unitended result of associating the wrong app with this data
-         * 			source. See:
-         * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+         * label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+         * Okta&#39;s List Apps API. The API will search both name and label using that
+         * query. Therefore similarily named and labeled apps may be returned in the query
+         * and have the unitended result of associating the wrong app with this data
+         * source. See:
+         * [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param labelPrefix Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-         * 			provider to do a starts with query as opposed to an equals query.
+         * provider to do a starts with query as opposed to an equals query.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param labelPrefix Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-         * 			provider to do a starts with query as opposed to an equals query.
+         * provider to do a starts with query as opposed to an equals query.
          * 
          * @return builder
          * 

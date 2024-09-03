@@ -128,7 +128,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public /*out*/ readonly entityKey!: pulumi.Output<string>;
     /**
-     * Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+     * Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
      */
     public /*out*/ readonly entityUrl!: pulumi.Output<string>;
     /**
@@ -523,7 +523,7 @@ export interface SamlState {
      */
     entityKey?: pulumi.Input<string>;
     /**
-     * Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+     * Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
      */
     entityUrl?: pulumi.Input<string>;
     /**

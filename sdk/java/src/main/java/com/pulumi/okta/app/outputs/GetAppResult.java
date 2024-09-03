@@ -35,18 +35,18 @@ public final class GetAppResult {
     private @Nullable String id;
     /**
      * @return The label of the app to retrieve, conflicts with
-     * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
-     * 			Okta&#39;s List Apps API. The API will search both name and label using that
-     * 			query. Therefore similarily named and labeled apps may be returned in the query
-     * 			and have the unitended result of associating the wrong app with this data
-     * 			source. See:
-     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+     * label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * Okta&#39;s List Apps API. The API will search both name and label using that
+     * query. Therefore similarily named and labeled apps may be returned in the query
+     * and have the unitended result of associating the wrong app with this data
+     * source. See:
+     * [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
      * 
      */
     private @Nullable String label;
     /**
      * @return Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * provider to do a starts with query as opposed to an equals query.
      * 
      */
     private @Nullable String labelPrefix;
@@ -121,12 +121,12 @@ public final class GetAppResult {
     }
     /**
      * @return The label of the app to retrieve, conflicts with
-     * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
-     * 			Okta&#39;s List Apps API. The API will search both name and label using that
-     * 			query. Therefore similarily named and labeled apps may be returned in the query
-     * 			and have the unitended result of associating the wrong app with this data
-     * 			source. See:
-     * 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+     * label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * Okta&#39;s List Apps API. The API will search both name and label using that
+     * query. Therefore similarily named and labeled apps may be returned in the query
+     * and have the unitended result of associating the wrong app with this data
+     * source. See:
+     * [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
      * 
      */
     public Optional<String> label() {
@@ -134,7 +134,7 @@ public final class GetAppResult {
     }
     /**
      * @return Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * provider to do a starts with query as opposed to an equals query.
      * 
      */
     public Optional<String> labelPrefix() {

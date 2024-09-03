@@ -12,7 +12,7 @@ namespace Pulumi.Okta.Group
     public static class GetEveryoneGroup
     {
         /// <summary>
-        /// Use this data source to retrieve the `Everyone` group from Okta. The 
+        /// Use this data source to retrieve the `Everyone` group from Okta. The
         /// same can be achieved with the `okta.group.Group` data
         /// source with `name = "Everyone"`. This is simply a shortcut.
         /// 
@@ -35,7 +35,7 @@ namespace Pulumi.Okta.Group
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEveryoneGroupResult>("okta:group/getEveryoneGroup:getEveryoneGroup", args ?? new GetEveryoneGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve the `Everyone` group from Okta. The 
+        /// Use this data source to retrieve the `Everyone` group from Okta. The
         /// same can be achieved with the `okta.group.Group` data
         /// source with `name = "Everyone"`. This is simply a shortcut.
         /// 

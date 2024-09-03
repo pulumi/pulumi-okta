@@ -128,10 +128,10 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Requested key rotation mode. If
-     * 			auto*key*rotation isn&#39;t specified, the client automatically opts in for Okta&#39;s
-     * 			key rotation. You can update this property via the API or via the administrator
-     * 			UI.
-     * 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object&#34;
+     * auto*key*rotation isn&#39;t specified, the client automatically opts in for Okta&#39;s
+     * key rotation. You can update this property via the API or via the administrator
+     * UI.
+     * See: \n\n
      * 
      */
     @Import(name="autoKeyRotation")
@@ -139,10 +139,10 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Requested key rotation mode. If
-     * 			auto*key*rotation isn&#39;t specified, the client automatically opts in for Okta&#39;s
-     * 			key rotation. You can update this property via the API or via the administrator
-     * 			UI.
-     * 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object&#34;
+     * auto*key*rotation isn&#39;t specified, the client automatically opts in for Okta&#39;s
+     * key rotation. You can update this property via the API or via the administrator
+     * UI.
+     * See: \n\n
      * 
      */
     public Optional<Output<Boolean>> autoKeyRotation() {
@@ -240,14 +240,14 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+     * List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
      * 
      */
     @Import(name="grantTypes")
     private @Nullable Output<List<String>> grantTypes;
 
     /**
-     * @return List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+     * @return List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
      * 
      */
     public Optional<Output<List<String>>> grantTypes() {
@@ -457,14 +457,14 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
      * 
      */
     @Import(name="pkceRequired")
     private @Nullable Output<Boolean> pkceRequired;
 
     /**
-     * @return Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * @return Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
      * 
      */
     public Optional<Output<Boolean>> pkceRequired() {
@@ -929,10 +929,10 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param autoKeyRotation Requested key rotation mode. If
-         * 			auto*key*rotation isn&#39;t specified, the client automatically opts in for Okta&#39;s
-         * 			key rotation. You can update this property via the API or via the administrator
-         * 			UI.
-         * 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object&#34;
+         * auto*key*rotation isn&#39;t specified, the client automatically opts in for Okta&#39;s
+         * key rotation. You can update this property via the API or via the administrator
+         * UI.
+         * See: \n\n
          * 
          * @return builder
          * 
@@ -944,10 +944,10 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param autoKeyRotation Requested key rotation mode. If
-         * 			auto*key*rotation isn&#39;t specified, the client automatically opts in for Okta&#39;s
-         * 			key rotation. You can update this property via the API or via the administrator
-         * 			UI.
-         * 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object&#34;
+         * auto*key*rotation isn&#39;t specified, the client automatically opts in for Okta&#39;s
+         * key rotation. You can update this property via the API or via the administrator
+         * UI.
+         * See: \n\n
          * 
          * @return builder
          * 
@@ -1083,7 +1083,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantTypes List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+         * @param grantTypes List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
          * 
          * @return builder
          * 
@@ -1094,7 +1094,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantTypes List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+         * @param grantTypes List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
          * 
          * @return builder
          * 
@@ -1104,7 +1104,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantTypes List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+         * @param grantTypes List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
          * 
          * @return builder
          * 
@@ -1410,7 +1410,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
          * 
          * @return builder
          * 
@@ -1421,7 +1421,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+         * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
          * 
          * @return builder
          * 

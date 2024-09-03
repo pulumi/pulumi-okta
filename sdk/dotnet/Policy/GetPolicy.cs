@@ -72,7 +72,7 @@ namespace Pulumi.Okta.Policy
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+        /// Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
         /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Okta.Policy
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+        /// Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+        /// Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
         /// </summary>
         public readonly string Type;
 

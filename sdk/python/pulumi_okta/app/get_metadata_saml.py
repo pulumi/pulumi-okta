@@ -70,7 +70,7 @@ class GetMetadataSamlResult:
     @pulumi.getter(name="entityId")
     def entity_id(self) -> str:
         """
-        Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
+        Entity URL for instance [https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf](https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf)
         """
         return pulumi.get(self, "entity_id")
 

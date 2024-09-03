@@ -34,7 +34,7 @@ type GetUsersArgs struct {
 	IncludeGroups *bool `pulumi:"includeGroups"`
 	// Fetch user roles for each user
 	IncludeRoles *bool `pulumi:"includeRoles"`
-	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter [https://developer.okta.com/docs/reference/core-okta-api/#filter](https://developer.okta.com/docs/reference/core-okta-api/#filter) . The set name/value/comparison properties will be ignored if expression is present
 	Searches []GetUsersSearch `pulumi:"searches"`
 }
 
@@ -52,7 +52,7 @@ type GetUsersResult struct {
 	IncludeGroups *bool `pulumi:"includeGroups"`
 	// Fetch user roles for each user
 	IncludeRoles *bool `pulumi:"includeRoles"`
-	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter [https://developer.okta.com/docs/reference/core-okta-api/#filter](https://developer.okta.com/docs/reference/core-okta-api/#filter) . The set name/value/comparison properties will be ignored if expression is present
 	Searches []GetUsersSearch `pulumi:"searches"`
 	// collection of users retrieved from Okta.
 	Users []GetUsersUser `pulumi:"users"`
@@ -83,7 +83,7 @@ type GetUsersOutputArgs struct {
 	IncludeGroups pulumi.BoolPtrInput `pulumi:"includeGroups"`
 	// Fetch user roles for each user
 	IncludeRoles pulumi.BoolPtrInput `pulumi:"includeRoles"`
-	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter [https://developer.okta.com/docs/reference/core-okta-api/#filter](https://developer.okta.com/docs/reference/core-okta-api/#filter) . The set name/value/comparison properties will be ignored if expression is present
 	Searches GetUsersSearchArrayInput `pulumi:"searches"`
 }
 
@@ -136,7 +136,7 @@ func (o GetUsersResultOutput) IncludeRoles() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetUsersResult) *bool { return v.IncludeRoles }).(pulumi.BoolPtrOutput)
 }
 
-// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter [https://developer.okta.com/docs/reference/core-okta-api/#filter](https://developer.okta.com/docs/reference/core-okta-api/#filter) . The set name/value/comparison properties will be ignored if expression is present
 func (o GetUsersResultOutput) Searches() GetUsersSearchArrayOutput {
 	return o.ApplyT(func(v GetUsersResult) []GetUsersSearch { return v.Searches }).(GetUsersSearchArrayOutput)
 }

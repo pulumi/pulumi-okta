@@ -178,12 +178,12 @@ class GetOauthResult:
     def label(self) -> Optional[str]:
         """
         The label of the app to retrieve, conflicts with
-        			label_prefix and id. Label uses the ?q=\\n\\n query parameter exposed by
-        			Okta's List Apps API. The API will search both name and label using that
-        			query. Therefore similarily named and labeled apps may be returned in the query
-        			and have the unitended result of associating the wrong app with this data
-        			source. See:
-        			https://developer.okta.com/docs/reference/api/apps/#list-applications
+        label_prefix and id. Label uses the ?q=\\n\\n query parameter exposed by
+        Okta's List Apps API. The API will search both name and label using that
+        query. Therefore similarily named and labeled apps may be returned in the query
+        and have the unitended result of associating the wrong app with this data
+        source. See:
+        [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
         """
         return pulumi.get(self, "label")
 
@@ -192,7 +192,7 @@ class GetOauthResult:
     def label_prefix(self) -> Optional[str]:
         """
         Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-        			provider to do a starts with query as opposed to an equals query.
+        provider to do a starts with query as opposed to an equals query.
         """
         return pulumi.get(self, "label_prefix")
 
@@ -376,14 +376,14 @@ def get_oauth(active_only: Optional[bool] = None,
     :param bool active_only: Search only ACTIVE applications.
     :param str id: Id of application to retrieve, conflicts with label and label_prefix.
     :param str label: The label of the app to retrieve, conflicts with
-           			label_prefix and id. Label uses the ?q=\\n\\n query parameter exposed by
-           			Okta's List Apps API. The API will search both name and label using that
-           			query. Therefore similarily named and labeled apps may be returned in the query
-           			and have the unitended result of associating the wrong app with this data
-           			source. See:
-           			https://developer.okta.com/docs/reference/api/apps/#list-applications
+           label_prefix and id. Label uses the ?q=\\n\\n query parameter exposed by
+           Okta's List Apps API. The API will search both name and label using that
+           query. Therefore similarily named and labeled apps may be returned in the query
+           and have the unitended result of associating the wrong app with this data
+           source. See:
+           [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-           			provider to do a starts with query as opposed to an equals query.
+           provider to do a starts with query as opposed to an equals query.
     :param bool skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
     :param bool skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
     """
@@ -450,14 +450,14 @@ def get_oauth_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
     :param bool active_only: Search only ACTIVE applications.
     :param str id: Id of application to retrieve, conflicts with label and label_prefix.
     :param str label: The label of the app to retrieve, conflicts with
-           			label_prefix and id. Label uses the ?q=\\n\\n query parameter exposed by
-           			Okta's List Apps API. The API will search both name and label using that
-           			query. Therefore similarily named and labeled apps may be returned in the query
-           			and have the unitended result of associating the wrong app with this data
-           			source. See:
-           			https://developer.okta.com/docs/reference/api/apps/#list-applications
+           label_prefix and id. Label uses the ?q=\\n\\n query parameter exposed by
+           Okta's List Apps API. The API will search both name and label using that
+           query. Therefore similarily named and labeled apps may be returned in the query
+           and have the unitended result of associating the wrong app with this data
+           source. See:
+           [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-           			provider to do a starts with query as opposed to an equals query.
+           provider to do a starts with query as opposed to an equals query.
     :param bool skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
     :param bool skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
     """

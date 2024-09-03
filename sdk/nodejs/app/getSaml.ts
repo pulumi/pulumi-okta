@@ -49,13 +49,13 @@ export interface GetSamlArgs {
     id?: string;
     /**
      * The label of the app to retrieve, conflicts with labelPrefix and id. Label
-     * 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-     * 			this searches both name and label. This is used to avoid paginating through all applications.
+     * uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
+     * this searches both name and label. This is used to avoid paginating through all applications.
      */
     label?: string;
     /**
      * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * provider to do a starts with query as opposed to an equals query.
      */
     labelPrefix?: string;
     /**
@@ -173,13 +173,13 @@ export interface GetSamlResult {
     readonly keyId: string;
     /**
      * The label of the app to retrieve, conflicts with labelPrefix and id. Label
-     * 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-     * 			this searches both name and label. This is used to avoid paginating through all applications.
+     * uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
+     * this searches both name and label. This is used to avoid paginating through all applications.
      */
     readonly label?: string;
     /**
      * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * provider to do a starts with query as opposed to an equals query.
      */
     readonly labelPrefix?: string;
     /**
@@ -309,13 +309,13 @@ export interface GetSamlOutputArgs {
     id?: pulumi.Input<string>;
     /**
      * The label of the app to retrieve, conflicts with labelPrefix and id. Label
-     * 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-     * 			this searches both name and label. This is used to avoid paginating through all applications.
+     * uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
+     * this searches both name and label. This is used to avoid paginating through all applications.
      */
     label?: pulumi.Input<string>;
     /**
      * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * provider to do a starts with query as opposed to an equals query.
      */
     labelPrefix?: pulumi.Input<string>;
     /**
