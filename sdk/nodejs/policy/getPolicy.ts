@@ -37,7 +37,7 @@ export interface GetPolicyArgs {
      */
     name: string;
     /**
-     * Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+     * Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
      */
     type: string;
 }
@@ -59,7 +59,7 @@ export interface GetPolicyResult {
      */
     readonly status: string;
     /**
-     * Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+     * Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
      */
     readonly type: string;
 }
@@ -91,7 +91,7 @@ export interface GetPolicyOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+     * Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
      */
     type: pulumi.Input<string>;
 }

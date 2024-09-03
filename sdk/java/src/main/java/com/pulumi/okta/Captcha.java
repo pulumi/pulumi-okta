@@ -16,8 +16,8 @@ import javax.annotation.Nullable;
 
 /**
  * Creates different types of captcha.
- * 		&gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
- * 		This resource allows you to create and configure a CAPTCHA.
+ * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+ * This resource allows you to create and configure a CAPTCHA.
  * 
  * ## Example Usage
  * 

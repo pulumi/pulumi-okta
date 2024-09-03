@@ -69,11 +69,11 @@ class OidcArgs:
         :param pulumi.Input[str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `ORG_URL`, `CUSTOM_URL`, or `DYNAMIC`. Default: `ORG_URL`
         :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OIDC`
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication. Default: `AUTO`
-        :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+        :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
         :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
         :param pulumi.Input[str] status: Default to `ACTIVE`
         :param pulumi.Input[str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
@@ -383,7 +383,7 @@ class OidcArgs:
     @pulumi.getter(name="pkceRequired")
     def pkce_required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
         """
         return pulumi.get(self, "pkce_required")
 
@@ -431,7 +431,7 @@ class OidcArgs:
     @pulumi.getter(name="requestSignatureAlgorithm")
     def request_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+        The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
         """
         return pulumi.get(self, "request_signature_algorithm")
 
@@ -590,11 +590,11 @@ class _OidcState:
         :param pulumi.Input[str] jwks_url: Endpoint where the keys signer publishes its keys in a JWK Set.
         :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OIDC`
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication. Default: `AUTO`
-        :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+        :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
         :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
         :param pulumi.Input[str] status: Default to `ACTIVE`
@@ -887,7 +887,7 @@ class _OidcState:
     @pulumi.getter(name="pkceRequired")
     def pkce_required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
         """
         return pulumi.get(self, "pkce_required")
 
@@ -935,7 +935,7 @@ class _OidcState:
     @pulumi.getter(name="requestSignatureAlgorithm")
     def request_signature_algorithm(self) -> Optional[pulumi.Input[str]]:
         """
-        The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+        The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
         """
         return pulumi.get(self, "request_signature_algorithm")
 
@@ -1187,11 +1187,11 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[str] jwks_url: Endpoint where the keys signer publishes its keys in a JWK Set.
         :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OIDC`
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication. Default: `AUTO`
-        :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+        :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
         :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
         :param pulumi.Input[str] status: Default to `ACTIVE`
@@ -1424,11 +1424,11 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[str] jwks_url: Endpoint where the keys signer publishes its keys in a JWK Set.
         :param pulumi.Input[int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[str] name: Name of the IdP
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
         :param pulumi.Input[bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[str] protocol_type: The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OIDC`
         :param pulumi.Input[str] provisioning_action: Provisioning action for an IdP user during authentication. Default: `AUTO`
-        :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+        :param pulumi.Input[str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
         :param pulumi.Input[str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scopes of the IdP.
         :param pulumi.Input[str] status: Default to `ACTIVE`
@@ -1623,7 +1623,7 @@ class Oidc(pulumi.CustomResource):
     @pulumi.getter(name="pkceRequired")
     def pkce_required(self) -> pulumi.Output[Optional[bool]]:
         """
-        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
+        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object](https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object)
         """
         return pulumi.get(self, "pkce_required")
 
@@ -1655,7 +1655,7 @@ class Oidc(pulumi.CustomResource):
     @pulumi.getter(name="requestSignatureAlgorithm")
     def request_signature_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
-        The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
+        The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs [https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object](https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object)
         """
         return pulumi.get(self, "request_signature_algorithm")
 

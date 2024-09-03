@@ -521,14 +521,14 @@ public class Social extends com.pulumi.resources.CustomResource {
         return this.trustRevocationCacheLifetime;
     }
     /**
-     * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     * Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     * @return Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      * 
      */
     public Output<String> type() {

@@ -55,15 +55,15 @@ type GetAppArgs struct {
 	// Id of application to retrieve, conflicts with label and label_prefix.
 	Id *string `pulumi:"id"`
 	// The label of the app to retrieve, conflicts with
-	// 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
-	// 			Okta's List Apps API. The API will search both name and label using that
-	// 			query. Therefore similarily named and labeled apps may be returned in the query
-	// 			and have the unitended result of associating the wrong app with this data
-	// 			source. See:
-	// 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+	// labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+	// Okta's List Apps API. The API will search both name and label using that
+	// query. Therefore similarily named and labeled apps may be returned in the query
+	// and have the unitended result of associating the wrong app with this data
+	// source. See:
+	// [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
 	Label *string `pulumi:"label"`
 	// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-	// 			provider to do a starts with query as opposed to an equals query.
+	// provider to do a starts with query as opposed to an equals query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
 	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
 	//
@@ -86,15 +86,15 @@ type GetAppResult struct {
 	// Id of application to retrieve, conflicts with label and label_prefix.
 	Id *string `pulumi:"id"`
 	// The label of the app to retrieve, conflicts with
-	// 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
-	// 			Okta's List Apps API. The API will search both name and label using that
-	// 			query. Therefore similarily named and labeled apps may be returned in the query
-	// 			and have the unitended result of associating the wrong app with this data
-	// 			source. See:
-	// 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+	// labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+	// Okta's List Apps API. The API will search both name and label using that
+	// query. Therefore similarily named and labeled apps may be returned in the query
+	// and have the unitended result of associating the wrong app with this data
+	// source. See:
+	// [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
 	Label *string `pulumi:"label"`
 	// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-	// 			provider to do a starts with query as opposed to an equals query.
+	// provider to do a starts with query as opposed to an equals query.
 	LabelPrefix *string `pulumi:"labelPrefix"`
 	// Discoverable resources related to the app
 	Links string `pulumi:"links"`
@@ -136,15 +136,15 @@ type GetAppOutputArgs struct {
 	// Id of application to retrieve, conflicts with label and label_prefix.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The label of the app to retrieve, conflicts with
-	// 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
-	// 			Okta's List Apps API. The API will search both name and label using that
-	// 			query. Therefore similarily named and labeled apps may be returned in the query
-	// 			and have the unitended result of associating the wrong app with this data
-	// 			source. See:
-	// 			https://developer.okta.com/docs/reference/api/apps/#list-applications
+	// labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+	// Okta's List Apps API. The API will search both name and label using that
+	// query. Therefore similarily named and labeled apps may be returned in the query
+	// and have the unitended result of associating the wrong app with this data
+	// source. See:
+	// [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-	// 			provider to do a starts with query as opposed to an equals query.
+	// provider to do a starts with query as opposed to an equals query.
 	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
 	// Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
 	//
@@ -193,20 +193,18 @@ func (o GetAppResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The label of the app to retrieve, conflicts with
-//
-//	labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
-//	Okta's List Apps API. The API will search both name and label using that
-//	query. Therefore similarily named and labeled apps may be returned in the query
-//	and have the unitended result of associating the wrong app with this data
-//	source. See:
-//	https://developer.okta.com/docs/reference/api/apps/#list-applications
+// labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+// Okta's List Apps API. The API will search both name and label using that
+// query. Therefore similarily named and labeled apps may be returned in the query
+// and have the unitended result of associating the wrong app with this data
+// source. See:
+// [https://developer.okta.com/docs/reference/api/apps/#list-applications](https://developer.okta.com/docs/reference/api/apps/#list-applications)
 func (o GetAppResultOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAppResult) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
 // Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-//
-//	provider to do a starts with query as opposed to an equals query.
+// provider to do a starts with query as opposed to an equals query.
 func (o GetAppResultOutput) LabelPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAppResult) *string { return v.LabelPrefix }).(pulumi.StringPtrOutput)
 }

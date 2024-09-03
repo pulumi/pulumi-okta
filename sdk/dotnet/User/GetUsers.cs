@@ -61,7 +61,7 @@ namespace Pulumi.Okta.User
         private List<Inputs.GetUsersSearchArgs>? _searches;
 
         /// <summary>
-        /// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+        /// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter [https://developer.okta.com/docs/reference/core-okta-api/#filter](https://developer.okta.com/docs/reference/core-okta-api/#filter) . The set name/value/comparison properties will be ignored if expression is present
         /// </summary>
         public List<Inputs.GetUsersSearchArgs> Searches
         {
@@ -111,7 +111,7 @@ namespace Pulumi.Okta.User
         private InputList<Inputs.GetUsersSearchInputArgs>? _searches;
 
         /// <summary>
-        /// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+        /// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter [https://developer.okta.com/docs/reference/core-okta-api/#filter](https://developer.okta.com/docs/reference/core-okta-api/#filter) . The set name/value/comparison properties will be ignored if expression is present
         /// </summary>
         public InputList<Inputs.GetUsersSearchInputArgs> Searches
         {
@@ -154,7 +154,7 @@ namespace Pulumi.Okta.User
         /// </summary>
         public readonly bool? IncludeRoles;
         /// <summary>
-        /// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+        /// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter [https://developer.okta.com/docs/reference/core-okta-api/#filter](https://developer.okta.com/docs/reference/core-okta-api/#filter) . The set name/value/comparison properties will be ignored if expression is present
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUsersSearchResult> Searches;
         /// <summary>

@@ -89,17 +89,33 @@ import javax.annotation.Nullable;
  * ## Let&#39;s Encrypt Certbot
  * 
  * This example demonstrates generatoring a domain certificate with letsencrypt
- * certbot https://letsencrypt.org/getting-started/
+ * certbot &lt;https://letsencrypt.org/getting-started/&gt;
  * 
  * Use letsencrypt&#39;s certbot to generate domain certificates in RSA output mode.
  * The generator&#39;s output corresponds to `okta.DomainCertificate` fields in the
  * following manner.
- * 
- * Okta Field          | Certbot file
- * --------------------|--------------
- * `certificate`       | `cert.pem`
- * `certificate_chain` | `chain.pem`
- * `private_key`       | `privkey.pem`
+ * &lt;table&gt;
+ * &lt;thead&gt;
+ * &lt;tr&gt;
+ * &lt;th&gt;Okta Field&lt;/th&gt;
+ * &lt;th&gt;Certbot file&lt;/th&gt;
+ * &lt;/tr&gt;
+ * &lt;/thead&gt;
+ * &lt;tbody&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`certificate`&lt;/td&gt;
+ * &lt;td&gt;`cert.pem`&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`certificate_chain`&lt;/td&gt;
+ * &lt;td&gt;`chain.pem`&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`private_key`&lt;/td&gt;
+ * &lt;td&gt;`privkey.pem`&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;/tbody&gt;
+ * &lt;/table&gt;
  * 
  */
 @ResourceType(type="okta:index/domainCertificate:DomainCertificate")

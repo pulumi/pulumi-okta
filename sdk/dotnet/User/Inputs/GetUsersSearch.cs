@@ -16,13 +16,13 @@ namespace Pulumi.Okta.User.Inputs
         public string? Comparison { get; set; }
 
         /// <summary>
-        /// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        /// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
         /// </summary>
         [Input("expression")]
         public string? Expression { get; set; }
 
         /// <summary>
-        /// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        /// Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }

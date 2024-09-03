@@ -77,15 +77,15 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The label of the app to retrieve, conflicts with label_prefix and id. Label
-        /// 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-        /// 			this searches both name and label. This is used to avoid paginating through all applications.
+        /// uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
+        /// this searches both name and label. This is used to avoid paginating through all applications.
         /// </summary>
         [Input("label")]
         public string? Label { get; set; }
 
         /// <summary>
         /// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-        /// 			provider to do a starts with query as opposed to an equals query.
+        /// provider to do a starts with query as opposed to an equals query.
         /// </summary>
         [Input("labelPrefix")]
         public string? LabelPrefix { get; set; }
@@ -130,15 +130,15 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The label of the app to retrieve, conflicts with label_prefix and id. Label
-        /// 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-        /// 			this searches both name and label. This is used to avoid paginating through all applications.
+        /// uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
+        /// this searches both name and label. This is used to avoid paginating through all applications.
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
         /// <summary>
         /// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-        /// 			provider to do a starts with query as opposed to an equals query.
+        /// provider to do a starts with query as opposed to an equals query.
         /// </summary>
         [Input("labelPrefix")]
         public Input<string>? LabelPrefix { get; set; }
@@ -262,13 +262,13 @@ namespace Pulumi.Okta.App
         public readonly string KeyId;
         /// <summary>
         /// The label of the app to retrieve, conflicts with label_prefix and id. Label
-        /// 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
-        /// 			this searches both name and label. This is used to avoid paginating through all applications.
+        /// uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
+        /// this searches both name and label. This is used to avoid paginating through all applications.
         /// </summary>
         public readonly string? Label;
         /// <summary>
         /// Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-        /// 			provider to do a starts with query as opposed to an equals query.
+        /// provider to do a starts with query as opposed to an equals query.
         /// </summary>
         public readonly string? LabelPrefix;
         /// <summary>

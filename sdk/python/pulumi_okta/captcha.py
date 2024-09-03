@@ -164,8 +164,8 @@ class Captcha(pulumi.CustomResource):
                  __props__=None):
         """
         Creates different types of captcha.
-        		> **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-        		This resource allows you to create and configure a CAPTCHA.
+        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+        This resource allows you to create and configure a CAPTCHA.
 
         ## Example Usage
 
@@ -201,8 +201,8 @@ class Captcha(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates different types of captcha.
-        		> **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
-        		This resource allows you to create and configure a CAPTCHA.
+        > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+        This resource allows you to create and configure a CAPTCHA.
 
         ## Example Usage
 

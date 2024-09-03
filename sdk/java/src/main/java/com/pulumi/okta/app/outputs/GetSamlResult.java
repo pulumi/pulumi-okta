@@ -132,14 +132,14 @@ public final class GetSamlResult {
     private String keyId;
     /**
      * @return The label of the app to retrieve, conflicts with label_prefix and id. Label
-     * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
-     * 			this searches both name and label. This is used to avoid paginating through all applications.
+     * uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+     * this searches both name and label. This is used to avoid paginating through all applications.
      * 
      */
     private @Nullable String label;
     /**
      * @return Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * provider to do a starts with query as opposed to an equals query.
      * 
      */
     private @Nullable String labelPrefix;
@@ -430,8 +430,8 @@ public final class GetSamlResult {
     }
     /**
      * @return The label of the app to retrieve, conflicts with label_prefix and id. Label
-     * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
-     * 			this searches both name and label. This is used to avoid paginating through all applications.
+     * uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+     * this searches both name and label. This is used to avoid paginating through all applications.
      * 
      */
     public Optional<String> label() {
@@ -439,7 +439,7 @@ public final class GetSamlResult {
     }
     /**
      * @return Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-     * 			provider to do a starts with query as opposed to an equals query.
+     * provider to do a starts with query as opposed to an equals query.
      * 
      */
     public Optional<String> labelPrefix() {

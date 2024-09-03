@@ -190,7 +190,7 @@ export class Social extends pulumi.CustomResource {
      */
     public /*out*/ readonly trustRevocationCacheLifetime!: pulumi.Output<number>;
     /**
-     * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     * Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -428,7 +428,7 @@ export interface SocialState {
      */
     trustRevocationCacheLifetime?: pulumi.Input<number>;
     /**
-     * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     * Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      */
     type?: pulumi.Input<string>;
     /**
@@ -534,7 +534,7 @@ export interface SocialArgs {
      */
     suspendedAction?: pulumi.Input<string>;
     /**
-     * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     * Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      */
     type: pulumi.Input<string>;
     /**

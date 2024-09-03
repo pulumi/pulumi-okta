@@ -82,10 +82,10 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Requested key rotation mode. If
-        /// 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-        /// 			key rotation. You can update this property via the API or via the administrator
-        /// 			UI.
-        /// 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+        /// auto*key*rotation isn't specified, the client automatically opts in for Okta's
+        /// key rotation. You can update this property via the API or via the administrator
+        /// UI.
+        /// See: \n\n
         /// </summary>
         [Output("autoKeyRotation")]
         public Output<bool?> AutoKeyRotation { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Okta.App
         public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
-        /// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        /// List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         /// </summary>
         [Output("grantTypes")]
         public Output<ImmutableArray<string>> GrantTypes { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Okta.App
         public Output<bool?> OmitSecret { get; private set; } = null!;
 
         /// <summary>
-        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
         /// </summary>
         [Output("pkceRequired")]
         public Output<bool> PkceRequired { get; private set; } = null!;
@@ -434,10 +434,10 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Requested key rotation mode. If
-        /// 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-        /// 			key rotation. You can update this property via the API or via the administrator
-        /// 			UI.
-        /// 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+        /// auto*key*rotation isn't specified, the client automatically opts in for Okta's
+        /// key rotation. You can update this property via the API or via the administrator
+        /// UI.
+        /// See: \n\n
         /// </summary>
         [Input("autoKeyRotation")]
         public Input<bool>? AutoKeyRotation { get; set; }
@@ -492,7 +492,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _grantTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        /// List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         /// </summary>
         public InputList<string> GrantTypes
         {
@@ -593,7 +593,7 @@ namespace Pulumi.Okta.App
         public Input<bool>? OmitSecret { get; set; }
 
         /// <summary>
-        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
         /// </summary>
         [Input("pkceRequired")]
         public Input<bool>? PkceRequired { get; set; }
@@ -764,10 +764,10 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// Requested key rotation mode. If
-        /// 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-        /// 			key rotation. You can update this property via the API or via the administrator
-        /// 			UI.
-        /// 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+        /// auto*key*rotation isn't specified, the client automatically opts in for Okta's
+        /// key rotation. You can update this property via the API or via the administrator
+        /// UI.
+        /// See: \n\n
         /// </summary>
         [Input("autoKeyRotation")]
         public Input<bool>? AutoKeyRotation { get; set; }
@@ -838,7 +838,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _grantTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        /// List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         /// </summary>
         public InputList<string> GrantTypes
         {
@@ -951,7 +951,7 @@ namespace Pulumi.Okta.App
         public Input<bool>? OmitSecret { get; set; }
 
         /// <summary>
-        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
         /// </summary>
         [Input("pkceRequired")]
         public Input<bool>? PkceRequired { get; set; }

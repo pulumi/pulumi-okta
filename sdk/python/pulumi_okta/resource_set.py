@@ -133,13 +133,13 @@ class ResourceSet(pulumi.CustomResource):
         """
         Manages Resource Sets as custom collections of resources. This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use Okta Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources.
         The 'resources' field supports the following:
-        	- Apps
-        	- Groups
-        	- All Users within a Group
-        	- All Users within the org
-        	- All Groups within the org
-        	- All Apps within the org
-        	- All Apps of the same type
+        - Apps
+        - Groups
+        - All Users within a Group
+        - All Users within the org
+        - All Groups within the org
+        - All Apps within the org
+        - All Apps of the same type
 
         ## Import
 
@@ -162,13 +162,13 @@ class ResourceSet(pulumi.CustomResource):
         """
         Manages Resource Sets as custom collections of resources. This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use Okta Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources.
         The 'resources' field supports the following:
-        	- Apps
-        	- Groups
-        	- All Users within a Group
-        	- All Users within the org
-        	- All Groups within the org
-        	- All Apps within the org
-        	- All Apps of the same type
+        - Apps
+        - Groups
+        - All Users within a Group
+        - All Users within the org
+        - All Groups within the org
+        - All Apps within the org
+        - All Apps of the same type
 
         ## Import
 

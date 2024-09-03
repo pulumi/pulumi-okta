@@ -90,10 +90,10 @@ export class OAuth extends pulumi.CustomResource {
     public readonly authenticationPolicy!: pulumi.Output<string>;
     /**
      * Requested key rotation mode. If
-     * 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-     * 			key rotation. You can update this property via the API or via the administrator
-     * 			UI.
-     * 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+     * auto*key*rotation isn't specified, the client automatically opts in for Okta's
+     * key rotation. You can update this property via the API or via the administrator
+     * UI.
+     * See: \n\n
      */
     public readonly autoKeyRotation!: pulumi.Output<boolean | undefined>;
     /**
@@ -125,7 +125,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+     * List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
      */
     public readonly grantTypes!: pulumi.Output<string[] | undefined>;
     /**
@@ -190,7 +190,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly omitSecret!: pulumi.Output<boolean | undefined>;
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
      */
     public readonly pkceRequired!: pulumi.Output<boolean>;
     /**
@@ -425,10 +425,10 @@ export interface OAuthState {
     authenticationPolicy?: pulumi.Input<string>;
     /**
      * Requested key rotation mode. If
-     * 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-     * 			key rotation. You can update this property via the API or via the administrator
-     * 			UI.
-     * 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+     * auto*key*rotation isn't specified, the client automatically opts in for Okta's
+     * key rotation. You can update this property via the API or via the administrator
+     * UI.
+     * See: \n\n
      */
     autoKeyRotation?: pulumi.Input<boolean>;
     /**
@@ -460,7 +460,7 @@ export interface OAuthState {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+     * List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
      */
     grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -525,7 +525,7 @@ export interface OAuthState {
      */
     omitSecret?: pulumi.Input<boolean>;
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
      */
     pkceRequired?: pulumi.Input<boolean>;
     /**
@@ -632,10 +632,10 @@ export interface OAuthArgs {
     authenticationPolicy?: pulumi.Input<string>;
     /**
      * Requested key rotation mode. If
-     * 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-     * 			key rotation. You can update this property via the API or via the administrator
-     * 			UI.
-     * 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+     * auto*key*rotation isn't specified, the client automatically opts in for Okta's
+     * key rotation. You can update this property via the API or via the administrator
+     * UI.
+     * See: \n\n
      */
     autoKeyRotation?: pulumi.Input<boolean>;
     /**
@@ -663,7 +663,7 @@ export interface OAuthArgs {
      */
     enduserNote?: pulumi.Input<string>;
     /**
-     * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+     * List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
      */
     grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -720,7 +720,7 @@ export interface OAuthArgs {
      */
     omitSecret?: pulumi.Input<boolean>;
     /**
-     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+     * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
      */
     pkceRequired?: pulumi.Input<boolean>;
     /**

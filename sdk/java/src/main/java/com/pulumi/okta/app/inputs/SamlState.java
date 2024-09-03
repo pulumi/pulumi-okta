@@ -313,14 +313,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+     * Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
      * 
      */
     @Import(name="entityUrl")
     private @Nullable Output<String> entityUrl;
 
     /**
-     * @return Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+     * @return Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
      * 
      */
     public Optional<Output<String>> entityUrl() {
@@ -1436,7 +1436,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityUrl Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+         * @param entityUrl Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
          * 
          * @return builder
          * 
@@ -1447,7 +1447,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityUrl Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+         * @param entityUrl Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
          * 
          * @return builder
          * 

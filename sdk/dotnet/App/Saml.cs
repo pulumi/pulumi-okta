@@ -146,7 +146,7 @@ namespace Pulumi.Okta.App
         public Output<string> EntityKey { get; private set; } = null!;
 
         /// <summary>
-        /// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+        /// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
         /// </summary>
         [Output("entityUrl")]
         public Output<string> EntityUrl { get; private set; } = null!;
@@ -870,7 +870,7 @@ namespace Pulumi.Okta.App
         public Input<string>? EntityKey { get; set; }
 
         /// <summary>
-        /// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+        /// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
         /// </summary>
         [Input("entityUrl")]
         public Input<string>? EntityUrl { get; set; }

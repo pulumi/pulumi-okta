@@ -242,7 +242,7 @@ namespace Pulumi.Okta.Idp
         public Output<int> TrustRevocationCacheLifetime { get; private set; } = null!;
 
         /// <summary>
-        /// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+        /// Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -487,7 +487,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? SuspendedAction { get; set; }
 
         /// <summary>
-        /// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+        /// Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -743,7 +743,7 @@ namespace Pulumi.Okta.Idp
         public Input<int>? TrustRevocationCacheLifetime { get; set; }
 
         /// <summary>
-        /// Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+        /// Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

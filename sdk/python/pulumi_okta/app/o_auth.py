@@ -74,17 +74,17 @@ class OAuthArgs:
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode. If
-               			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-               			key rotation. You can update this property via the API or via the administrator
-               			UI.
-               			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+               auto*key*rotation isn't specified, the client automatically opts in for Okta's
+               key rotation. You can update this property via the API or via the administrator
+               UI.
+               See: \\n\\n
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] client_basic_secret: The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
@@ -97,7 +97,7 @@ class OAuthArgs:
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[bool] omit_secret: This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile
@@ -318,10 +318,10 @@ class OAuthArgs:
     def auto_key_rotation(self) -> Optional[pulumi.Input[bool]]:
         """
         Requested key rotation mode. If
-        			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-        			key rotation. You can update this property via the API or via the administrator
-        			UI.
-        			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+        auto*key*rotation isn't specified, the client automatically opts in for Okta's
+        key rotation. You can update this property via the API or via the administrator
+        UI.
+        See: \\n\\n
         """
         return pulumi.get(self, "auto_key_rotation")
 
@@ -405,7 +405,7 @@ class OAuthArgs:
     @pulumi.getter(name="grantTypes")
     def grant_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         """
         return pulumi.get(self, "grant_types")
 
@@ -570,7 +570,7 @@ class OAuthArgs:
     @pulumi.getter(name="pkceRequired")
     def pkce_required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
         """
         return pulumi.get(self, "pkce_required")
 
@@ -822,10 +822,10 @@ class _OAuthState:
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode. If
-               			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-               			key rotation. You can update this property via the API or via the administrator
-               			UI.
-               			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+               auto*key*rotation isn't specified, the client automatically opts in for Okta's
+               key rotation. You can update this property via the API or via the administrator
+               UI.
+               See: \\n\\n
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] client_basic_secret: The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id.
@@ -833,7 +833,7 @@ class _OAuthState:
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
@@ -849,7 +849,7 @@ class _OAuthState:
         :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[bool] omit_secret: This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile
@@ -1058,10 +1058,10 @@ class _OAuthState:
     def auto_key_rotation(self) -> Optional[pulumi.Input[bool]]:
         """
         Requested key rotation mode. If
-        			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-        			key rotation. You can update this property via the API or via the administrator
-        			UI.
-        			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+        auto*key*rotation isn't specified, the client automatically opts in for Okta's
+        key rotation. You can update this property via the API or via the administrator
+        UI.
+        See: \\n\\n
         """
         return pulumi.get(self, "auto_key_rotation")
 
@@ -1157,7 +1157,7 @@ class _OAuthState:
     @pulumi.getter(name="grantTypes")
     def grant_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         """
         return pulumi.get(self, "grant_types")
 
@@ -1358,7 +1358,7 @@ class _OAuthState:
     @pulumi.getter(name="pkceRequired")
     def pkce_required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
         """
         return pulumi.get(self, "pkce_required")
 
@@ -1659,17 +1659,17 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode. If
-               			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-               			key rotation. You can update this property via the API or via the administrator
-               			UI.
-               			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+               auto*key*rotation isn't specified, the client automatically opts in for Okta's
+               key rotation. You can update this property via the API or via the administrator
+               UI.
+               See: \\n\\n
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] client_basic_secret: The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
@@ -1683,7 +1683,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[bool] omit_secret: This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile
@@ -1934,10 +1934,10 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] app_settings_json: Application settings in JSON format
         :param pulumi.Input[str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
         :param pulumi.Input[bool] auto_key_rotation: Requested key rotation mode. If
-               			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-               			key rotation. You can update this property via the API or via the administrator
-               			UI.
-               			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+               auto*key*rotation isn't specified, the client automatically opts in for Okta's
+               key rotation. You can update this property via the API or via the administrator
+               UI.
+               See: \\n\\n
         :param pulumi.Input[bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[str] client_basic_secret: The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
         :param pulumi.Input[str] client_id: OAuth client ID. If set during creation, app is created with this id.
@@ -1945,7 +1945,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
         :param pulumi.Input[str] enduser_note: Application notes for end users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
         :param pulumi.Input[bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[bool] hide_web: Do not display application icon to users
@@ -1961,7 +1961,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[str] logo_url: URL of the application's logo
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[bool] omit_secret: This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
-        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        :param pulumi.Input[bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
         :param pulumi.Input[str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
         :param pulumi.Input[str] profile: Custom JSON that represents an OAuth application's profile
@@ -2097,10 +2097,10 @@ class OAuth(pulumi.CustomResource):
     def auto_key_rotation(self) -> pulumi.Output[Optional[bool]]:
         """
         Requested key rotation mode. If
-        			auto*key*rotation isn't specified, the client automatically opts in for Okta's
-        			key rotation. You can update this property via the API or via the administrator
-        			UI.
-        			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
+        auto*key*rotation isn't specified, the client automatically opts in for Okta's
+        key rotation. You can update this property via the API or via the administrator
+        UI.
+        See: \\n\\n
         """
         return pulumi.get(self, "auto_key_rotation")
 
@@ -2164,7 +2164,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="grantTypes")
     def grant_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
+        List of OAuth 2.0 grant types. Conditional validation params found here [https://developer.okta.com/docs/api/resources/apps#credentials-settings-details](https://developer.okta.com/docs/api/resources/apps#credentials-settings-details). Defaults to minimum requirements per app type.
         """
         return pulumi.get(self, "grant_types")
 
@@ -2297,7 +2297,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="pkceRequired")
     def pkce_required(self) -> pulumi.Output[bool]:
         """
-        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
+        Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: [https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object](https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object)
         """
         return pulumi.get(self, "pkce_required")
 

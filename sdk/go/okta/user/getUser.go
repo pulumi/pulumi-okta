@@ -28,7 +28,7 @@ type LookupUserArgs struct {
 	CompoundSearchOperator *string `pulumi:"compoundSearchOperator"`
 	// Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
 	DelayReadSeconds *string `pulumi:"delayReadSeconds"`
-	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter [https://developer.okta.com/docs/reference/core-okta-api/#filter](https://developer.okta.com/docs/reference/core-okta-api/#filter) . The set name/value/comparison properties will be ignored if expression is present
 	Searches []GetUserSearch `pulumi:"searches"`
 	// Do not populate user groups information (prevents additional API call)
 	SkipGroups *bool `pulumi:"skipGroups"`
@@ -74,7 +74,7 @@ type LookupUserResult struct {
 	PrimaryPhone      string   `pulumi:"primaryPhone"`
 	ProfileUrl        string   `pulumi:"profileUrl"`
 	Roles             []string `pulumi:"roles"`
-	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter [https://developer.okta.com/docs/reference/core-okta-api/#filter](https://developer.okta.com/docs/reference/core-okta-api/#filter) . The set name/value/comparison properties will be ignored if expression is present
 	Searches    []GetUserSearch `pulumi:"searches"`
 	SecondEmail string          `pulumi:"secondEmail"`
 	// Do not populate user groups information (prevents additional API call)
@@ -111,7 +111,7 @@ type LookupUserOutputArgs struct {
 	CompoundSearchOperator pulumi.StringPtrInput `pulumi:"compoundSearchOperator"`
 	// Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
 	DelayReadSeconds pulumi.StringPtrInput `pulumi:"delayReadSeconds"`
-	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter [https://developer.okta.com/docs/reference/core-okta-api/#filter](https://developer.okta.com/docs/reference/core-okta-api/#filter) . The set name/value/comparison properties will be ignored if expression is present
 	Searches GetUserSearchArrayInput `pulumi:"searches"`
 	// Do not populate user groups information (prevents additional API call)
 	SkipGroups pulumi.BoolPtrInput `pulumi:"skipGroups"`
@@ -267,7 +267,7 @@ func (o LookupUserResultOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
-// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter [https://developer.okta.com/docs/reference/core-okta-api/#filter](https://developer.okta.com/docs/reference/core-okta-api/#filter) . The set name/value/comparison properties will be ignored if expression is present
 func (o LookupUserResultOutput) Searches() GetUserSearchArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []GetUserSearch { return v.Searches }).(GetUserSearchArrayOutput)
 }

@@ -55,7 +55,7 @@ export interface GetMetadataSamlResult {
      */
     readonly certificate: string;
     /**
-     * Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
+     * Entity URL for instance [https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf](https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf)
      */
     readonly entityId: string;
     /**

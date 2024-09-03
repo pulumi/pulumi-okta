@@ -108,8 +108,8 @@ class GetUserSearchResult(dict):
                  name: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str expression: A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
-        :param str name: Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        :param str expression: A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
+        :param str name: Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
         """
         if comparison is not None:
             pulumi.set(__self__, "comparison", comparison)
@@ -129,7 +129,7 @@ class GetUserSearchResult(dict):
     @pulumi.getter
     def expression(self) -> Optional[str]:
         """
-        A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
         """
         return pulumi.get(self, "expression")
 
@@ -137,7 +137,7 @@ class GetUserSearchResult(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
         """
         return pulumi.get(self, "name")
 
@@ -155,8 +155,8 @@ class GetUsersSearchResult(dict):
                  name: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str expression: A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
-        :param str name: Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        :param str expression: A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
+        :param str name: Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
         """
         if comparison is not None:
             pulumi.set(__self__, "comparison", comparison)
@@ -176,7 +176,7 @@ class GetUsersSearchResult(dict):
     @pulumi.getter
     def expression(self) -> Optional[str]:
         """
-        A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
         """
         return pulumi.get(self, "expression")
 
@@ -184,7 +184,7 @@ class GetUsersSearchResult(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. [https://developer.okta.com/docs/api/resources/users#list-users-with-search](https://developer.okta.com/docs/api/resources/users#list-users-with-search)
         """
         return pulumi.get(self, "name")
 

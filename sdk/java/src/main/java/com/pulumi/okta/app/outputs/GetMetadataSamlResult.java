@@ -24,7 +24,7 @@ public final class GetMetadataSamlResult {
      */
     private String certificate;
     /**
-     * @return Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
+     * @return Entity URL for instance [https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf](https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf)
      * 
      */
     private String entityId;
@@ -75,7 +75,7 @@ public final class GetMetadataSamlResult {
         return this.certificate;
     }
     /**
-     * @return Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
+     * @return Entity URL for instance [https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf](https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf)
      * 
      */
     public String entityId() {

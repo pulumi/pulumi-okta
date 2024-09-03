@@ -499,14 +499,14 @@ public final class SocialState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     * Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+     * @return Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
      * 
      */
     public Optional<Output<String>> type() {
@@ -1298,7 +1298,7 @@ public final class SocialState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+         * @param type Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
          * 
          * @return builder
          * 
@@ -1309,7 +1309,7 @@ public final class SocialState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
+         * @param type Identity Provider Types: [https://developer.okta.com/docs/reference/api/idps/#identity-provider-type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type)
          * 
          * @return builder
          * 

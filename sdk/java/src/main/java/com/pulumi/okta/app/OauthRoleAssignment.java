@@ -16,8 +16,8 @@ import javax.annotation.Nullable;
 
 /**
  * Manages assignment of an admin role to an OAuth application
- * 		This resource allows you to assign an Okta admin role to a OAuth
- * 		service application. This requires the Okta tenant feature flag for this function to be enabled.
+ * This resource allows you to assign an Okta admin role to a OAuth
+ * service application. This requires the Okta tenant feature flag for this function to be enabled.
  * 
  * ## Import
  * 

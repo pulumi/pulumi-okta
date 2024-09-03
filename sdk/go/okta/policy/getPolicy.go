@@ -53,7 +53,7 @@ func GetPolicy(ctx *pulumi.Context, args *GetPolicyArgs, opts ...pulumi.InvokeOp
 type GetPolicyArgs struct {
 	// Name of the policy
 	Name string `pulumi:"name"`
-	// Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+	// Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
 	Type string `pulumi:"type"`
 }
 
@@ -65,7 +65,7 @@ type GetPolicyResult struct {
 	Name string `pulumi:"name"`
 	// Status of the policy
 	Status string `pulumi:"status"`
-	// Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+	// Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
 	Type string `pulumi:"type"`
 }
 
@@ -86,7 +86,7 @@ func GetPolicyOutput(ctx *pulumi.Context, args GetPolicyOutputArgs, opts ...pulu
 type GetPolicyOutputArgs struct {
 	// Name of the policy
 	Name pulumi.StringInput `pulumi:"name"`
-	// Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+	// Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -124,7 +124,7 @@ func (o GetPolicyResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+// Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
 func (o GetPolicyResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyResult) string { return v.Type }).(pulumi.StringOutput)
 }

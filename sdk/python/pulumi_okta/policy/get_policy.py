@@ -63,7 +63,7 @@ class GetPolicyResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+        Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
         """
         return pulumi.get(self, "type")
 
@@ -98,7 +98,7 @@ def get_policy(name: Optional[str] = None,
 
 
     :param str name: Name of the policy
-    :param str type: Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+    :param str type: Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
     """
     __args__ = dict()
     __args__['name'] = name
@@ -132,6 +132,6 @@ def get_policy_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: Name of the policy
-    :param str type: Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+    :param str type: Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
     """
     ...

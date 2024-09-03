@@ -233,8 +233,8 @@ class FactorTotp(pulumi.CustomResource):
                  __props__=None):
         """
         Allows you to manage the time-based one-time password (TOTP) factors. A time-based one-time password (TOTP) is a
-        		temporary passcode that is generated for user authentication. Examples of TOTP include hardware authenticators and
-        		mobile app authenticators.
+        temporary passcode that is generated for user authentication. Examples of TOTP include hardware authenticators and
+        mobile app authenticators.
 
         Once saved, the settings cannot be changed (except for the 'name' field). Any other change would force resource
         recreation.
@@ -271,8 +271,8 @@ class FactorTotp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to manage the time-based one-time password (TOTP) factors. A time-based one-time password (TOTP) is a
-        		temporary passcode that is generated for user authentication. Examples of TOTP include hardware authenticators and
-        		mobile app authenticators.
+        temporary passcode that is generated for user authentication. Examples of TOTP include hardware authenticators and
+        mobile app authenticators.
 
         Once saved, the settings cannot be changed (except for the 'name' field). Any other change would force resource
         recreation.

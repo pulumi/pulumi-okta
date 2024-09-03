@@ -352,8 +352,8 @@ class GetSamlResult:
     def label(self) -> Optional[str]:
         """
         The label of the app to retrieve, conflicts with label_prefix and id. Label
-        			uses the ?q=\\n\\n query parameter exposed by Okta's API. It should be noted that at this time
-        			this searches both name and label. This is used to avoid paginating through all applications.
+        uses the ?q=\\n\\n query parameter exposed by Okta's API. It should be noted that at this time
+        this searches both name and label. This is used to avoid paginating through all applications.
         """
         return pulumi.get(self, "label")
 
@@ -362,7 +362,7 @@ class GetSamlResult:
     def label_prefix(self) -> Optional[str]:
         """
         Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-        			provider to do a starts with query as opposed to an equals query.
+        provider to do a starts with query as opposed to an equals query.
         """
         return pulumi.get(self, "label_prefix")
 
@@ -625,10 +625,10 @@ def get_saml(active_only: Optional[bool] = None,
     :param bool active_only: Search only ACTIVE applications.
     :param str id: Id of application to retrieve, conflicts with label and label_prefix.
     :param str label: The label of the app to retrieve, conflicts with label_prefix and id. Label
-           			uses the ?q=\\n\\n query parameter exposed by Okta's API. It should be noted that at this time
-           			this searches both name and label. This is used to avoid paginating through all applications.
+           uses the ?q=\\n\\n query parameter exposed by Okta's API. It should be noted that at this time
+           this searches both name and label. This is used to avoid paginating through all applications.
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-           			provider to do a starts with query as opposed to an equals query.
+           provider to do a starts with query as opposed to an equals query.
     :param bool request_compressed: Denotes whether the request is compressed or not.
     :param bool skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
     :param bool skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
@@ -719,10 +719,10 @@ def get_saml_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
     :param bool active_only: Search only ACTIVE applications.
     :param str id: Id of application to retrieve, conflicts with label and label_prefix.
     :param str label: The label of the app to retrieve, conflicts with label_prefix and id. Label
-           			uses the ?q=\\n\\n query parameter exposed by Okta's API. It should be noted that at this time
-           			this searches both name and label. This is used to avoid paginating through all applications.
+           uses the ?q=\\n\\n query parameter exposed by Okta's API. It should be noted that at this time
+           this searches both name and label. This is used to avoid paginating through all applications.
     :param str label_prefix: Label prefix of the app to retrieve, conflicts with label and id. This will tell the
-           			provider to do a starts with query as opposed to an equals query.
+           provider to do a starts with query as opposed to an equals query.
     :param bool request_compressed: Denotes whether the request is compressed or not.
     :param bool skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
     :param bool skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources

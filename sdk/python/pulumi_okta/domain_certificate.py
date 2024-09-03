@@ -236,17 +236,33 @@ class DomainCertificate(pulumi.CustomResource):
         ## Let's Encrypt Certbot
 
         This example demonstrates generatoring a domain certificate with letsencrypt
-        certbot https://letsencrypt.org/getting-started/
+        certbot <https://letsencrypt.org/getting-started/>
 
         Use letsencrypt's certbot to generate domain certificates in RSA output mode.
         The generator's output corresponds to `DomainCertificate` fields in the
         following manner.
-
-        Okta Field          | Certbot file
-        --------------------|--------------
-        `certificate`       | `cert.pem`
-        `certificate_chain` | `chain.pem`
-        `private_key`       | `privkey.pem`
+        <table>
+        <thead>
+        <tr>
+        <th>Okta Field</th>
+        <th>Certbot file</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>`certificate`</td>
+        <td>`cert.pem`</td>
+        </tr>
+        <tr>
+        <td>`certificate_chain`</td>
+        <td>`chain.pem`</td>
+        </tr>
+        <tr>
+        <td>`private_key`</td>
+        <td>`privkey.pem`</td>
+        </tr>
+        </tbody>
+        </table>
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -305,17 +321,33 @@ class DomainCertificate(pulumi.CustomResource):
         ## Let's Encrypt Certbot
 
         This example demonstrates generatoring a domain certificate with letsencrypt
-        certbot https://letsencrypt.org/getting-started/
+        certbot <https://letsencrypt.org/getting-started/>
 
         Use letsencrypt's certbot to generate domain certificates in RSA output mode.
         The generator's output corresponds to `DomainCertificate` fields in the
         following manner.
-
-        Okta Field          | Certbot file
-        --------------------|--------------
-        `certificate`       | `cert.pem`
-        `certificate_chain` | `chain.pem`
-        `private_key`       | `privkey.pem`
+        <table>
+        <thead>
+        <tr>
+        <th>Okta Field</th>
+        <th>Certbot file</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>`certificate`</td>
+        <td>`cert.pem`</td>
+        </tr>
+        <tr>
+        <td>`certificate_chain`</td>
+        <td>`chain.pem`</td>
+        </tr>
+        <tr>
+        <td>`private_key`</td>
+        <td>`privkey.pem`</td>
+        </tr>
+        </tbody>
+        </table>
 
         :param str resource_name: The name of the resource.
         :param DomainCertificateArgs args: The arguments to use to populate this resource's properties.

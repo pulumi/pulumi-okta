@@ -116,7 +116,7 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string Certificate;
         /// <summary>
-        /// Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
+        /// Entity URL for instance [https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf](https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf)
         /// </summary>
         public readonly string EntityId;
         /// <summary>

@@ -62,7 +62,7 @@ type GetMetadataSamlResult struct {
 	AuthnRequestSigned bool `pulumi:"authnRequestSigned"`
 	// SAML request encryption certificate.
 	EncryptionCertificate string `pulumi:"encryptionCertificate"`
-	// Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
+	// Entity URL for instance [https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf](https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf)
 	EntityId string `pulumi:"entityId"`
 	// urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
 	HttpPostBinding string `pulumi:"httpPostBinding"`
@@ -131,7 +131,7 @@ func (o GetMetadataSamlResultOutput) EncryptionCertificate() pulumi.StringOutput
 	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.EncryptionCertificate }).(pulumi.StringOutput)
 }
 
-// Entity URL for instance https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf
+// Entity URL for instance [https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf](https://www.okta.com/saml2/service-provider/sposcfdmlybtwkdcgtuf)
 func (o GetMetadataSamlResultOutput) EntityId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMetadataSamlResult) string { return v.EntityId }).(pulumi.StringOutput)
 }

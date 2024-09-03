@@ -30,14 +30,14 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+     * Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+     * @return Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
      * 
      */
     public Output<String> type() {
@@ -91,7 +91,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+         * @param type Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type Policy type, see https://developer.okta.com/docs/reference/api/policy/#policy-object
+         * @param type Policy type, see [https://developer.okta.com/docs/reference/api/policy/#policy-object](https://developer.okta.com/docs/reference/api/policy/#policy-object)
          * 
          * @return builder
          * 

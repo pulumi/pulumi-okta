@@ -119,9 +119,9 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
         > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
         This resource allows you to manage the apps in the Profile Enrollment Policy.
         **Important Notes:**
-         - Default Enrollment Policy can not be used in this resource since it is used as a policy to re-assign apps to when they are unassigned from this one.
-         - When re-assigning the app to another policy, please use 'depends_on' in the policy to which the app will be assigned. This is necessary to avoid
-             unexpected behavior, since if the app is unassigned from the policy it is just assigned to the 'Default' one.
+        - Default Enrollment Policy can not be used in this resource since it is used as a policy to re-assign apps to when they are unassigned from this one.
+        - When re-assigning the app to another policy, please use 'depends_on' in the policy to which the app will be assigned. This is necessary to avoid
+          unexpected behavior, since if the app is unassigned from the policy it is just assigned to the 'Default' one.
 
         ## Example Usage
 
@@ -159,9 +159,9 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
         > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
         This resource allows you to manage the apps in the Profile Enrollment Policy.
         **Important Notes:**
-         - Default Enrollment Policy can not be used in this resource since it is used as a policy to re-assign apps to when they are unassigned from this one.
-         - When re-assigning the app to another policy, please use 'depends_on' in the policy to which the app will be assigned. This is necessary to avoid
-             unexpected behavior, since if the app is unassigned from the policy it is just assigned to the 'Default' one.
+        - Default Enrollment Policy can not be used in this resource since it is used as a policy to re-assign apps to when they are unassigned from this one.
+        - When re-assigning the app to another policy, please use 'depends_on' in the policy to which the app will be assigned. This is necessary to avoid
+          unexpected behavior, since if the app is unassigned from the policy it is just assigned to the 'Default' one.
 
         ## Example Usage
 

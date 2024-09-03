@@ -68,7 +68,7 @@ type Saml struct {
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Entity ID, the ID portion of the entity_url
 	EntityKey pulumi.StringOutput `pulumi:"entityKey"`
-	// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+	// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
 	EntityUrl pulumi.StringOutput `pulumi:"entityUrl"`
 	// features to enable
 	Features pulumi.StringArrayOutput `pulumi:"features"`
@@ -231,7 +231,7 @@ type samlState struct {
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Entity ID, the ID portion of the entity_url
 	EntityKey *string `pulumi:"entityKey"`
-	// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+	// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
 	EntityUrl *string `pulumi:"entityUrl"`
 	// features to enable
 	Features []string `pulumi:"features"`
@@ -362,7 +362,7 @@ type SamlState struct {
 	EnduserNote pulumi.StringPtrInput
 	// Entity ID, the ID portion of the entity_url
 	EntityKey pulumi.StringPtrInput
-	// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+	// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
 	EntityUrl pulumi.StringPtrInput
 	// features to enable
 	Features pulumi.StringArrayInput
@@ -850,7 +850,7 @@ func (o SamlOutput) EntityKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.EntityKey }).(pulumi.StringOutput)
 }
 
-// Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
+// Entity URL for instance [http://www.okta.com/exk1fcia6d6EMsf331d8](http://www.okta.com/exk1fcia6d6EMsf331d8)
 func (o SamlOutput) EntityUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringOutput { return v.EntityUrl }).(pulumi.StringOutput)
 }
