@@ -317,7 +317,7 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example &#60;device assurance id&#62;
+        $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example <device_assurance_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -341,7 +341,7 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example &#60;device assurance id&#62;
+        $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example <device_assurance_id>
         ```
 
         :param str resource_name: The name of the resource.

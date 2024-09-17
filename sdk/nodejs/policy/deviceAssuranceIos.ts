@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:policy/deviceAssuranceIos:DeviceAssuranceIos example &#60;device assurance id&#62;
+ * $ pulumi import okta:policy/deviceAssuranceIos:DeviceAssuranceIos example <device_assurance_id>
  * ```
  */
 export class DeviceAssuranceIos extends pulumi.CustomResource {

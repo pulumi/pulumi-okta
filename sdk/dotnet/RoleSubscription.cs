@@ -39,7 +39,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/roleSubscription:RoleSubscription example &amp;#60;role_type&amp;#62;/&amp;#60;notification_type&amp;#62;
+    /// $ pulumi import okta:index/roleSubscription:RoleSubscription example &lt;role_type&gt;/&lt;notification_type&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/roleSubscription:RoleSubscription")]

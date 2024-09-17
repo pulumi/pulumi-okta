@@ -52,7 +52,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &#60;app id&#62
+// $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example <app_id>
 // ```
 type SecurePasswordStore struct {
 	pulumi.CustomResourceState

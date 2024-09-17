@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty example &#60;app id&#62;/&#60;property name&#62;
+ * $ pulumi import okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty example <app_id>/<property_name>
  * ```
  */
 export class AppUserBaseSchemaProperty extends pulumi.CustomResource {

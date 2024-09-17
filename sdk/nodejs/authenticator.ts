@@ -57,7 +57,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/authenticator:Authenticator example &#60;authenticator_id&#62;
+ * $ pulumi import okta:index/authenticator:Authenticator example <authenticator_id>
  * ```
  */
 export class Authenticator extends pulumi.CustomResource {

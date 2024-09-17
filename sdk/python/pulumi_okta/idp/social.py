@@ -1025,7 +1025,7 @@ class Social(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:idp/social:Social example &#60;idp id&#62;
+        $ pulumi import okta:idp/social:Social example <idp_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -1087,7 +1087,7 @@ class Social(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:idp/social:Social example &#60;idp id&#62;
+        $ pulumi import okta:idp/social:Social example <idp_id>
         ```
 
         :param str resource_name: The name of the resource.

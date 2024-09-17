@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/logStream:LogStream example &#60;strema id&#62;
+ * $ pulumi import okta:index/logStream:LogStream example <stream_id>
  * ```
  */
 export class LogStream extends pulumi.CustomResource {

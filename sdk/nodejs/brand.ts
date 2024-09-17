@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/brand:Brand example &#60;brand id&#62;
+ * $ pulumi import okta:index/brand:Brand example <brand_id>
  * ```
  */
 export class Brand extends pulumi.CustomResource {

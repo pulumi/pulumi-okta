@@ -203,7 +203,7 @@ class AdminRoleTargets(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &#60;user id&#62;/&#60;role type&#62;
+        $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example <user_id>/<role_type>
         ```
 
         :param str resource_name: The name of the resource.
@@ -243,7 +243,7 @@ class AdminRoleTargets(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &#60;user id&#62;/&#60;role type&#62;
+        $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example <user_id>/<role_type>
         ```
 
         :param str resource_name: The name of the resource.

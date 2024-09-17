@@ -46,7 +46,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:auth/serverScope:ServerScope example &#60;auth server id&#62;/&#60;scope id&#62;
+// $ pulumi import okta:auth/serverScope:ServerScope example <auth_server_id>/<scope_id>
 // ```
 type ServerScope struct {
 	pulumi.CustomResourceState

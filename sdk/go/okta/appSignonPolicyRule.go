@@ -23,7 +23,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &#60;policy_id&#62;/&#60;rule_id&#62
+// $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example <policy_id>/<rule_id>
 // ```
 type AppSignonPolicyRule struct {
 	pulumi.CustomResourceState

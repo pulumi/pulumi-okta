@@ -10,7 +10,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example &#60;policy_id&#62;
+ * $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example <policy_id>
  * ```
  */
 export class AppSignonPolicy extends pulumi.CustomResource {

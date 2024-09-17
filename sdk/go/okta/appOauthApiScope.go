@@ -50,7 +50,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62
+// $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example <app_id>
 // ```
 type AppOauthApiScope struct {
 	pulumi.CustomResourceState

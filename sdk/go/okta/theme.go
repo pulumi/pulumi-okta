@@ -23,7 +23,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/theme:Theme example &#60;brand id&#62;/&#60;theme id&#62;
+// $ pulumi import okta:index/theme:Theme example <brand_id>/<theme_id>
 // ```
 type Theme struct {
 	pulumi.CustomResourceState

@@ -50,6 +50,36 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Resource Set ID. Required for role_type = `CUSTOM`
+     * 
+     */
+    @Import(name="resourceSetId")
+    private @Nullable Output<String> resourceSetId;
+
+    /**
+     * @return Resource Set ID. Required for role_type = `CUSTOM`
+     * 
+     */
+    public Optional<Output<String>> resourceSetId() {
+        return Optional.ofNullable(this.resourceSetId);
+    }
+
+    /**
+     * Role ID. Required for role_type = `CUSTOM`
+     * 
+     */
+    @Import(name="roleId")
+    private @Nullable Output<String> roleId;
+
+    /**
+     * @return Role ID. Required for role_type = `CUSTOM`
+     * 
+     */
+    public Optional<Output<String>> roleId() {
+        return Optional.ofNullable(this.roleId);
+    }
+
+    /**
      * Admin role assigned to the group. It can be any one of the following values: &#34;API_ADMIN&#34;, &#34;APP_ADMIN&#34;, &#34;CUSTOM&#34;,
      * &#34;GROUP_MEMBERSHIP_ADMIN&#34;, &#34;HELP_DESK_ADMIN&#34;, &#34;MOBILE_ADMIN&#34;, &#34;ORG_ADMIN&#34;, &#34;READ_ONLY_ADMIN&#34;, &#34;REPORT_ADMIN&#34;,
      * &#34;SUPER_ADMIN&#34;, &#34;USER_ADMIN&#34; . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
@@ -111,6 +141,8 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     private RoleState(RoleState $) {
         this.disableNotifications = $.disableNotifications;
         this.groupId = $.groupId;
+        this.resourceSetId = $.resourceSetId;
+        this.roleId = $.roleId;
         this.roleType = $.roleType;
         this.targetAppLists = $.targetAppLists;
         this.targetGroupLists = $.targetGroupLists;
@@ -176,6 +208,48 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder groupId(String groupId) {
             return groupId(Output.of(groupId));
+        }
+
+        /**
+         * @param resourceSetId Resource Set ID. Required for role_type = `CUSTOM`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceSetId(@Nullable Output<String> resourceSetId) {
+            $.resourceSetId = resourceSetId;
+            return this;
+        }
+
+        /**
+         * @param resourceSetId Resource Set ID. Required for role_type = `CUSTOM`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceSetId(String resourceSetId) {
+            return resourceSetId(Output.of(resourceSetId));
+        }
+
+        /**
+         * @param roleId Role ID. Required for role_type = `CUSTOM`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder roleId(@Nullable Output<String> roleId) {
+            $.roleId = roleId;
+            return this;
+        }
+
+        /**
+         * @param roleId Role ID. Required for role_type = `CUSTOM`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder roleId(String roleId) {
+            return roleId(Output.of(roleId));
         }
 
         /**

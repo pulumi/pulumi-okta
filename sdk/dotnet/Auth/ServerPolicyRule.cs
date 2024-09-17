@@ -43,7 +43,7 @@ namespace Pulumi.Okta.Auth
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:auth/serverPolicyRule:ServerPolicyRule example &amp;#60;auth server id&amp;#62;/&amp;#60;policy id&amp;#62;/&amp;#60;policy rule id&amp;#62;
+    /// $ pulumi import okta:auth/serverPolicyRule:ServerPolicyRule example &lt;auth_server_id&gt;/&lt;policy_id&gt;/&lt;policy_rule_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:auth/serverPolicyRule:ServerPolicyRule")]

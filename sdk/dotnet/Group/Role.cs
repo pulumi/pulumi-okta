@@ -12,29 +12,10 @@ namespace Pulumi.Okta.Group
     /// <summary>
     /// Assigns Admin roles to Okta Groups. This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one interface between the Okta group and the admin role.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.Group.Role("example", new()
-    ///     {
-    ///         GroupId = "&lt;group id&gt;",
-    ///         RoleType = "READ_ONLY_ADMIN",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:group/role:Role example &amp;#60;group id&amp;#62;/&amp;#60;role id&amp;#62;
+    /// $ pulumi import okta:group/role:Role example &lt;group_id&gt;/&lt;role_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:group/role:Role")]
@@ -52,6 +33,18 @@ namespace Pulumi.Okta.Group
         /// </summary>
         [Output("groupId")]
         public Output<string> GroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource Set ID. Required for role_type = `CUSTOM`
+        /// </summary>
+        [Output("resourceSetId")]
+        public Output<string?> ResourceSetId { get; private set; } = null!;
+
+        /// <summary>
+        /// Role ID. Required for role_type = `CUSTOM`
+        /// </summary>
+        [Output("roleId")]
+        public Output<string?> RoleId { get; private set; } = null!;
 
         /// <summary>
         /// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
@@ -137,6 +130,18 @@ namespace Pulumi.Okta.Group
         public Input<string> GroupId { get; set; } = null!;
 
         /// <summary>
+        /// Resource Set ID. Required for role_type = `CUSTOM`
+        /// </summary>
+        [Input("resourceSetId")]
+        public Input<string>? ResourceSetId { get; set; }
+
+        /// <summary>
+        /// Role ID. Required for role_type = `CUSTOM`
+        /// </summary>
+        [Input("roleId")]
+        public Input<string>? RoleId { get; set; }
+
+        /// <summary>
         /// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
         /// "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
         /// "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
@@ -192,6 +197,18 @@ namespace Pulumi.Okta.Group
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
+
+        /// <summary>
+        /// Resource Set ID. Required for role_type = `CUSTOM`
+        /// </summary>
+        [Input("resourceSetId")]
+        public Input<string>? ResourceSetId { get; set; }
+
+        /// <summary>
+        /// Role ID. Required for role_type = `CUSTOM`
+        /// </summary>
+        [Input("roleId")]
+        public Input<string>? RoleId { get; set; }
 
         /// <summary>
         /// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",

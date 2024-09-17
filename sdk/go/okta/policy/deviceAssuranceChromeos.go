@@ -56,7 +56,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos example &#60;device assurance id&#62;
+// $ pulumi import okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos example <device_assurance_id>
 // ```
 type DeviceAssuranceChromeos struct {
 	pulumi.CustomResourceState

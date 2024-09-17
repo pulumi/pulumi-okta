@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:app/swa:Swa example &#60;app id&#62;
+ * $ pulumi import okta:app/swa:Swa example <app_id>
  * ```
  */
 export class Swa extends pulumi.CustomResource {

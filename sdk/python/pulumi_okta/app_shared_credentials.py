@@ -975,7 +975,7 @@ class AppSharedCredentials(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62
+        $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -1050,7 +1050,7 @@ class AppSharedCredentials(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62
+        $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app_id>
         ```
 
         :param str resource_name: The name of the resource.

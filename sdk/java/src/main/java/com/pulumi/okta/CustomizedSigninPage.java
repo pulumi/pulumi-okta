@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/customizedSigninPage:CustomizedSigninPage example &amp;#60;customized_signin_page_id&amp;#62;
+ * $ pulumi import okta:index/customizedSigninPage:CustomizedSigninPage example &lt;brand_id&gt;
  * ```
  * 
  */

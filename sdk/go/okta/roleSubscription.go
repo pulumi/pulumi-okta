@@ -49,7 +49,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/roleSubscription:RoleSubscription example &#60;role_type&#62;/&#60;notification_type&#62;
+// $ pulumi import okta:index/roleSubscription:RoleSubscription example <role_type>/<notification_type>
 // ```
 type RoleSubscription struct {
 	pulumi.CustomResourceState

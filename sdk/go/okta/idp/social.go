@@ -52,7 +52,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:idp/social:Social example &#60;idp id&#62;
+// $ pulumi import okta:idp/social:Social example <idp_id>
 // ```
 type Social struct {
 	pulumi.CustomResourceState

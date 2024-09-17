@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &amp;#60;index&amp;#62;
+ * $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &lt;index&gt;
  * ```
  * 
  */

@@ -54,7 +54,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/templateSms:TemplateSms example &#60;template type&#62;
+// $ pulumi import okta:index/templateSms:TemplateSms example <template_type>
 // ```
 type TemplateSms struct {
 	pulumi.CustomResourceState

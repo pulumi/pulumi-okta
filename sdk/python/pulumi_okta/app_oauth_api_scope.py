@@ -152,7 +152,7 @@ class AppOauthApiScope(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62
+        $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example <app_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -190,7 +190,7 @@ class AppOauthApiScope(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62
+        $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example <app_id>
         ```
 
         :param str resource_name: The name of the resource.

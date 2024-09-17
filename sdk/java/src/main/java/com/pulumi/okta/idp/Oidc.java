@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:idp/oidc:Oidc example &amp;#60;idp id&amp;#62;
+ * $ pulumi import okta:idp/oidc:Oidc example &lt;idp_id&gt;
  * ```
  * 
  */

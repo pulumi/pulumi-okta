@@ -325,13 +325,13 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
         ### User schema property of default user type can be imported via the property index.
 
         ```sh
-        $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;property name&#62;
+        $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example <property_name>
         ```
 
         ### User schema property of custom user type can be imported via user type id and property index
 
         ```sh
-        $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;user type id&#62;.&#60;property name&#62;
+        $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example <user_type_id>.<property name>
         ```
 
         :param str resource_name: The name of the resource.
@@ -382,13 +382,13 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
         ### User schema property of default user type can be imported via the property index.
 
         ```sh
-        $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;property name&#62;
+        $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example <property_name>
         ```
 
         ### User schema property of custom user type can be imported via user type id and property index
 
         ```sh
-        $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &#60;user type id&#62;.&#60;property name&#62;
+        $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example <user_type_id>.<property name>
         ```
 
         :param str resource_name: The name of the resource.

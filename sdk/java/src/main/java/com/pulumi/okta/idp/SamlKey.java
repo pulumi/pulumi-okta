@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:idp/samlKey:SamlKey example &amp;#60;key id&amp;#62;
+ * $ pulumi import okta:idp/samlKey:SamlKey example &lt;key_id&gt;
  * ```
  * 
  */

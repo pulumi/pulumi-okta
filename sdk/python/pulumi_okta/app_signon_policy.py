@@ -104,7 +104,7 @@ class AppSignonPolicy(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example &#60;policy_id&#62;
+        $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example <policy_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -124,7 +124,7 @@ class AppSignonPolicy(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example &#60;policy_id&#62;
+        $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example <policy_id>
         ```
 
         :param str resource_name: The name of the resource.

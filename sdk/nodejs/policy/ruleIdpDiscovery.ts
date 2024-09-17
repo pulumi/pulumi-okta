@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &#60;policy id&#62;/&#60;rule id&#62;
+ * $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example <policy_id>/<rule_id>
  * ```
  */
 export class RuleIdpDiscovery extends pulumi.CustomResource {

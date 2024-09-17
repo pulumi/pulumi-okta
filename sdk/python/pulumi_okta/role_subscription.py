@@ -184,7 +184,7 @@ class RoleSubscription(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/roleSubscription:RoleSubscription example &#60;role_type&#62;/&#60;notification_type&#62;
+        $ pulumi import okta:index/roleSubscription:RoleSubscription example <role_type>/<notification_type>
         ```
 
         :param str resource_name: The name of the resource.
@@ -229,7 +229,7 @@ class RoleSubscription(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/roleSubscription:RoleSubscription example &#60;role_type&#62;/&#60;notification_type&#62;
+        $ pulumi import okta:index/roleSubscription:RoleSubscription example <role_type>/<notification_type>
         ```
 
         :param str resource_name: The name of the resource.

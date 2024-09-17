@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:app/oAuth:OAuth example &amp;#60;app id&amp;#62
+ * $ pulumi import okta:app/oAuth:OAuth example &lt;app_id&gt;
  * ```
  * 
  */

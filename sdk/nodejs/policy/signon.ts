@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:policy/signon:Signon example &#60;policy id&#62;
+ * $ pulumi import okta:policy/signon:Signon example <policy_id>
  * ```
  */
 export class Signon extends pulumi.CustomResource {

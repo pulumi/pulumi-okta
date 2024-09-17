@@ -57,7 +57,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/eventHook:EventHook example &#60;hook id&#62;
+// $ pulumi import okta:index/eventHook:EventHook example <hook_id>
 // ```
 type EventHook struct {
 	pulumi.CustomResourceState

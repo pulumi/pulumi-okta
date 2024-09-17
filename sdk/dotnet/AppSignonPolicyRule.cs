@@ -21,7 +21,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &amp;#60;policy_id&amp;#62;/&amp;#60;rule_id&amp;#62
+    /// $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example &lt;policy_id&gt;/&lt;rule_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appSignonPolicyRule:AppSignonPolicyRule")]

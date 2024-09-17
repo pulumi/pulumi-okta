@@ -89,7 +89,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/linkValue:LinkValue example &#60;primary_name&#62;/&#60;primary_user_id&#62;
+// $ pulumi import okta:index/linkValue:LinkValue example <primary_name>/<primary_user_id>
 // ```
 type LinkValue struct {
 	pulumi.CustomResourceState

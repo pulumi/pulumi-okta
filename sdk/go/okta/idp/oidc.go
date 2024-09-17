@@ -58,7 +58,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:idp/oidc:Oidc example &#60;idp id&#62;
+// $ pulumi import okta:idp/oidc:Oidc example <idp_id>
 // ```
 type Oidc struct {
 	pulumi.CustomResourceState

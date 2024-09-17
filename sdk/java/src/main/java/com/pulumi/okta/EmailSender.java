@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/emailSender:EmailSender example &amp;#60;sender id&amp;#62;
+ * $ pulumi import okta:index/emailSender:EmailSender example &lt;sender_id&gt;
  * ```
  * 
  */

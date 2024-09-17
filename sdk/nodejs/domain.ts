@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
+ * $ pulumi import okta:index/domain:Domain example <domain_id>
  * ```
  */
 export class Domain extends pulumi.CustomResource {
@@ -55,7 +55,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Brand id of the domain
      */
-    public readonly brandId!: pulumi.Output<string | undefined>;
+    public readonly brandId!: pulumi.Output<string>;
     /**
      * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
      */

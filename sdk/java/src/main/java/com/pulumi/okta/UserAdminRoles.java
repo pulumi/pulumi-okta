@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/userAdminRoles:UserAdminRoles example &amp;#60;user id&amp;#62;
+ * $ pulumi import okta:index/userAdminRoles:UserAdminRoles example &lt;user_id&gt;
  * ```
  * 
  */

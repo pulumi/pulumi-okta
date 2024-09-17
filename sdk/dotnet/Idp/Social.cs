@@ -43,7 +43,7 @@ namespace Pulumi.Okta.Idp
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:idp/social:Social example &amp;#60;idp id&amp;#62;
+    /// $ pulumi import okta:idp/social:Social example &lt;idp_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:idp/social:Social")]

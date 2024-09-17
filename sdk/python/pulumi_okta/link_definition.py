@@ -250,7 +250,7 @@ class LinkDefinition(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
+        $ pulumi import okta:index/linkDefinition:LinkDefinition example <primary_name>
         ```
 
         :param str resource_name: The name of the resource.
@@ -293,7 +293,7 @@ class LinkDefinition(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
+        $ pulumi import okta:index/linkDefinition:LinkDefinition example <primary_name>
         ```
 
         :param str resource_name: The name of the resource.

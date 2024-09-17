@@ -36,7 +36,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &amp;#60;auth server id&amp;#62;/&amp;#60;claim name&amp;#62;
+    /// $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &lt;auth_server_id&gt;/&lt;claim_name&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/authServerClaimDefault:AuthServerClaimDefault")]

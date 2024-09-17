@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;default&#62;
+ * $ pulumi import okta:index/authServerDefault:AuthServerDefault example <default>
  * ```
  */
 export class AuthServerDefault extends pulumi.CustomResource {

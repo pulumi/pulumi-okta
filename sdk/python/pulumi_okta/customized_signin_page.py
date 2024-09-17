@@ -207,7 +207,7 @@ class CustomizedSigninPage(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/customizedSigninPage:CustomizedSigninPage example &#60;customized_signin_page_id&#62;
+        $ pulumi import okta:index/customizedSigninPage:CustomizedSigninPage example <brand_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -233,7 +233,7 @@ class CustomizedSigninPage(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/customizedSigninPage:CustomizedSigninPage example &#60;customized_signin_page_id&#62;
+        $ pulumi import okta:index/customizedSigninPage:CustomizedSigninPage example <brand_id>
         ```
 
         :param str resource_name: The name of the resource.

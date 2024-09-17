@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example &#60;app id&#62;
+ * $ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example <app_id>
  * ```
  */
 export class AccessPolicyAssignment extends pulumi.CustomResource {

@@ -65,7 +65,11 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &amp;#60;user type id&amp;#62;.&amp;#60;index&amp;#62;
+ * $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &lt;variableName&gt;
+ * ```
+ * 
+ * ```sh
+ * $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &lt;user_type_id&gt;.&lt;index&gt;
  * ```
  * 
  */

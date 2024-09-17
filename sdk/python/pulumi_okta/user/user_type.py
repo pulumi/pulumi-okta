@@ -148,7 +148,7 @@ class UserType(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:user/userType:UserType example &#60;user type id&#62;
+        $ pulumi import okta:user/userType:UserType example <user_type_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -181,7 +181,7 @@ class UserType(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:user/userType:UserType example &#60;user type id&#62;
+        $ pulumi import okta:user/userType:UserType example <user_type_id>
         ```
 
         :param str resource_name: The name of the resource.

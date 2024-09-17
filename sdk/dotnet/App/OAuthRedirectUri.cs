@@ -56,7 +56,7 @@ namespace Pulumi.Okta.App
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &amp;#60;app id&amp;#62;/&amp;#60;uri&amp;#62
+    /// $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &lt;app_id&gt;/&lt;uri&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/oAuthRedirectUri:OAuthRedirectUri")]

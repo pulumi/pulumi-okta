@@ -119,7 +119,7 @@ class PolicyProfileEnrollment(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &#60;policy id&#62;
+        $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example <policy_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -153,7 +153,7 @@ class PolicyProfileEnrollment(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &#60;policy id&#62;
+        $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example <policy_id>
         ```
 
         :param str resource_name: The name of the resource.

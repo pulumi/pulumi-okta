@@ -72,7 +72,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/linkValue:LinkValue example &amp;#60;primary_name&amp;#62;/&amp;#60;primary_user_id&amp;#62;
+    /// $ pulumi import okta:index/linkValue:LinkValue example &lt;primary_name&gt;/&lt;primary_user_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/linkValue:LinkValue")]

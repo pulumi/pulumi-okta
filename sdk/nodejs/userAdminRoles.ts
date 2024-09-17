@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/userAdminRoles:UserAdminRoles example &#60;user id&#62;
+ * $ pulumi import okta:index/userAdminRoles:UserAdminRoles example <user_id>
  * ```
  */
 export class UserAdminRoles extends pulumi.CustomResource {

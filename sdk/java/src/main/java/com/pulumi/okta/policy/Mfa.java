@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:policy/mfa:Mfa example &amp;#60;policy id&amp;#62;
+ * $ pulumi import okta:policy/mfa:Mfa example &lt;policy_id&gt;
  * ```
  * 
  */

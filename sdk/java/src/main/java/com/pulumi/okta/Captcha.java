@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/captcha:Captcha example &amp;#60;captcha id&amp;#62;
+ * $ pulumi import okta:index/captcha:Captcha example &lt;captcha_id&gt;
  * ```
  * 
  */

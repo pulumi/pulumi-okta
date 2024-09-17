@@ -561,7 +561,7 @@ class BasicAuth(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62
+        $ pulumi import okta:app/basicAuth:BasicAuth example <app_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -608,7 +608,7 @@ class BasicAuth(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62
+        $ pulumi import okta:app/basicAuth:BasicAuth example <app_id>
         ```
 
         :param str resource_name: The name of the resource.

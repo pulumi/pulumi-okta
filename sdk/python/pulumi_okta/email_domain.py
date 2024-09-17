@@ -212,7 +212,7 @@ class EmailDomain(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/emailDomain:EmailDomain example &#60;domain id&#62;
+        $ pulumi import okta:index/emailDomain:EmailDomain example <domain_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -245,7 +245,7 @@ class EmailDomain(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/emailDomain:EmailDomain example &#60;domain id&#62;
+        $ pulumi import okta:index/emailDomain:EmailDomain example <domain_id>
         ```
 
         :param str resource_name: The name of the resource.

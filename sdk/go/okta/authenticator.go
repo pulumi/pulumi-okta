@@ -94,7 +94,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/authenticator:Authenticator example &#60;authenticator_id&#62;
+// $ pulumi import okta:index/authenticator:Authenticator example <authenticator_id>
 // ```
 type Authenticator struct {
 	pulumi.CustomResourceState

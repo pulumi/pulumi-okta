@@ -64,7 +64,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &#60;app id&#62
+// $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app_id>
 // ```
 type AppSharedCredentials struct {
 	pulumi.CustomResourceState

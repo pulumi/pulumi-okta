@@ -311,6 +311,14 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "group/owner",
+  "fqn": "pulumi_okta.group",
+  "classes": {
+   "okta:group/owner:Owner": "Owner"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "group/role",
   "fqn": "pulumi_okta.group",
   "classes": {

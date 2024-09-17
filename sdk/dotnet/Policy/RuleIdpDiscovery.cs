@@ -95,7 +95,7 @@ namespace Pulumi.Okta.Policy
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
+    /// $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &lt;policy_id&gt;/&lt;rule_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery")]

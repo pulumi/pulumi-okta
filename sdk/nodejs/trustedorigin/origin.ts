@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:trustedorigin/origin:Origin example &#60;trusted origin id&#62;
+ * $ pulumi import okta:trustedorigin/origin:Origin example <trusted_origin_id>
  * ```
  */
 export class Origin extends pulumi.CustomResource {

@@ -179,7 +179,7 @@ class Group(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:group/group:Group example &#60;group id&#62;
+        $ pulumi import okta:group/group:Group example <group_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -201,7 +201,7 @@ class Group(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:group/group:Group example &#60;group id&#62;
+        $ pulumi import okta:group/group:Group example <group_id>
         ```
 
         :param str resource_name: The name of the resource.

@@ -183,7 +183,7 @@ class Captcha(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/captcha:Captcha example &#60;captcha id&#62;
+        $ pulumi import okta:index/captcha:Captcha example <captcha_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -220,7 +220,7 @@ class Captcha(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/captcha:Captcha example &#60;captcha id&#62;
+        $ pulumi import okta:index/captcha:Captcha example <captcha_id>
         ```
 
         :param str resource_name: The name of the resource.

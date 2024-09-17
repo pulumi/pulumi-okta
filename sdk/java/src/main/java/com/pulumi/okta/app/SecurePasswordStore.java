@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &amp;#60;app id&amp;#62
+ * $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &lt;app_id&gt;
  * ```
  * 
  */

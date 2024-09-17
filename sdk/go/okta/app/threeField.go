@@ -22,7 +22,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;
+// $ pulumi import okta:app/threeField:ThreeField example <app_id>
 // ```
 type ThreeField struct {
 	pulumi.CustomResourceState

@@ -746,7 +746,7 @@ class DeviceAssuranceMacos(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos example &#60;device assurance id&#62;
+        $ pulumi import okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos example <device_assurance_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -783,7 +783,7 @@ class DeviceAssuranceMacos(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos example &#60;device assurance id&#62;
+        $ pulumi import okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos example <device_assurance_id>
         ```
 
         :param str resource_name: The name of the resource.

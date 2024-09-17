@@ -1093,7 +1093,7 @@ class Saml(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:idp/saml:Saml example &#60;idp id&#62;
+        $ pulumi import okta:idp/saml:Saml example <idp_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -1160,7 +1160,7 @@ class Saml(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:idp/saml:Saml example &#60;idp id&#62;
+        $ pulumi import okta:idp/saml:Saml example <idp_id>
         ```
 
         :param str resource_name: The name of the resource.

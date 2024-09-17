@@ -40,7 +40,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/brand:Brand example &#60;brand id&#62;
+// $ pulumi import okta:index/brand:Brand example <brand_id>
 // ```
 type Brand struct {
 	pulumi.CustomResourceState

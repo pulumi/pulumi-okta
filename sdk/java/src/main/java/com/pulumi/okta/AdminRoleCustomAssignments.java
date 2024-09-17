@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example &amp;#60;resource_set_id&amp;#62;/&amp;#60;custom_role_id&amp;#62;
+ * $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example &lt;resource_set_id&gt;/&lt;custom_role_id&gt;
  * ```
  * 
  */

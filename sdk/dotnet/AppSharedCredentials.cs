@@ -54,7 +54,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &amp;#60;app id&amp;#62
+    /// $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example &lt;app_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appSharedCredentials:AppSharedCredentials")]

@@ -37,7 +37,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/eventHook:EventHook example &#60;hook id&#62;
+ * $ pulumi import okta:index/eventHook:EventHook example <hook_id>
  * ```
  */
 export class EventHook extends pulumi.CustomResource {

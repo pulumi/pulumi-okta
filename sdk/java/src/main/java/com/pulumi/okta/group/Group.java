@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:group/group:Group example &amp;#60;group id&amp;#62;
+ * $ pulumi import okta:group/group:Group example &lt;group_id&gt;
  * ```
  * 
  */

@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/emailDomain:EmailDomain example &amp;#60;domain id&amp;#62;
+ * $ pulumi import okta:index/emailDomain:EmailDomain example &lt;domain_id&gt;
  * ```
  * 
  */

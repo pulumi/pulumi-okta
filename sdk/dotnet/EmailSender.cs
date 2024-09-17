@@ -37,7 +37,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/emailSender:EmailSender example &amp;#60;sender id&amp;#62;
+    /// $ pulumi import okta:index/emailSender:EmailSender example &lt;sender_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/emailSender:EmailSender")]

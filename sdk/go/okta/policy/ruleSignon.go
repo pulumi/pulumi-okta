@@ -122,7 +122,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:policy/ruleSignon:RuleSignon example &#60;policy id&#62;/&#60;rule id&#62;
+// $ pulumi import okta:policy/ruleSignon:RuleSignon example <policy_id>/<rule_id>
 // ```
 type RuleSignon struct {
 	pulumi.CustomResourceState

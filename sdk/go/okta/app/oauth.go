@@ -34,7 +34,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62
+// $ pulumi import okta:app/oAuth:OAuth example <app_id>
 // ```
 type OAuth struct {
 	pulumi.CustomResourceState

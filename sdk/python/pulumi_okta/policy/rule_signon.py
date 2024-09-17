@@ -951,7 +951,7 @@ class RuleSignon(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:policy/ruleSignon:RuleSignon example &#60;policy id&#62;/&#60;rule id&#62;
+        $ pulumi import okta:policy/ruleSignon:RuleSignon example <policy_id>/<rule_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -1079,7 +1079,7 @@ class RuleSignon(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:policy/ruleSignon:RuleSignon example &#60;policy id&#62;/&#60;rule id&#62;
+        $ pulumi import okta:policy/ruleSignon:RuleSignon example <policy_id>/<rule_id>
         ```
 
         :param str resource_name: The name of the resource.

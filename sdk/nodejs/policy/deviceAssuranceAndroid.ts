@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example &#60;device assurance id&#62;
+ * $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example <device_assurance_id>
  * ```
  */
 export class DeviceAssuranceAndroid extends pulumi.CustomResource {

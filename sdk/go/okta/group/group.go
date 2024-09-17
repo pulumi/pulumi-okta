@@ -16,7 +16,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:group/group:Group example &#60;group id&#62;
+// $ pulumi import okta:group/group:Group example <group_id>
 // ```
 type Group struct {
 	pulumi.CustomResourceState

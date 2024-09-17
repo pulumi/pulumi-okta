@@ -16,7 +16,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows example &#60;device assurance id&#62;
+// $ pulumi import okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows example <device_assurance_id>
 // ```
 type DeviceAssuranceWindows struct {
 	pulumi.CustomResourceState

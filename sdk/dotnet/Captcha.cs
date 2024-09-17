@@ -38,7 +38,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/captcha:Captcha example &amp;#60;captcha id&amp;#62;
+    /// $ pulumi import okta:index/captcha:Captcha example &lt;captcha_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/captcha:Captcha")]

@@ -33,7 +33,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/domain:Domain example &amp;#60;domain_id&amp;#62;
+    /// $ pulumi import okta:index/domain:Domain example &lt;domain_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/domain:Domain")]
@@ -43,7 +43,7 @@ namespace Pulumi.Okta
         /// Brand id of the domain
         /// </summary>
         [Output("brandId")]
-        public Output<string?> BrandId { get; private set; } = null!;
+        public Output<string> BrandId { get; private set; } = null!;
 
         /// <summary>
         /// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL

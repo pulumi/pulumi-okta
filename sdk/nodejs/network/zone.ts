@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:network/zone:Zone example &#60;zone id&#62;
+ * $ pulumi import okta:network/zone:Zone example <zone_id>
  * ```
  */
 export class Zone extends pulumi.CustomResource {

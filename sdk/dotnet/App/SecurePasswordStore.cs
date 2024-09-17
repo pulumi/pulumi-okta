@@ -42,7 +42,7 @@ namespace Pulumi.Okta.App
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &amp;#60;app id&amp;#62
+    /// $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &lt;app_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/securePasswordStore:SecurePasswordStore")]

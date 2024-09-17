@@ -71,13 +71,13 @@ import javax.annotation.Nullable;
  * ### User schema property of default user type can be imported via the property index.
  * 
  * ```sh
- * $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &amp;#60;property name&amp;#62;
+ * $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &lt;property_name&gt;
  * ```
  * 
  * ### User schema property of custom user type can be imported via user type id and property index
  * 
  * ```sh
- * $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &amp;#60;user type id&amp;#62;.&amp;#60;property name&amp;#62;
+ * $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &lt;user_type_id&gt;.&lt;property name&gt;
  * ```
  * 
  */

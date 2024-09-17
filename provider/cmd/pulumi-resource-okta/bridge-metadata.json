@@ -438,6 +438,10 @@
                     }
                 }
             },
+            "okta_group_owner": {
+                "current": "okta:group/owner:Owner",
+                "majorVersion": 4
+            },
             "okta_group_role": {
                 "current": "okta:group/role:Role",
                 "majorVersion": 4,
@@ -1437,6 +1441,7 @@
             "okta:auth/serverScope:ServerScope": 0,
             "okta:factor/factor:Factor": 0,
             "okta:group/group:Group": 0,
+            "okta:group/owner:Owner": 1,
             "okta:group/role:Role": 0,
             "okta:group/rule:Rule": 0,
             "okta:idp/oidc:Oidc": 0,

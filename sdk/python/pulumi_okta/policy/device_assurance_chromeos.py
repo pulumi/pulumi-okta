@@ -638,7 +638,7 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos example &#60;device assurance id&#62;
+        $ pulumi import okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos example <device_assurance_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -695,7 +695,7 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos example &#60;device assurance id&#62;
+        $ pulumi import okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos example <device_assurance_id>
         ```
 
         :param str resource_name: The name of the resource.

@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/resourceSet:ResourceSet example &#60;resource_set_id&#62;
+ * $ pulumi import okta:index/resourceSet:ResourceSet example <resource_set_id>
  * ```
  */
 export class ResourceSet extends pulumi.CustomResource {

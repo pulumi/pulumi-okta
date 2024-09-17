@@ -49,7 +49,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62
+// $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example <custom_role_id>
 // ```
 type AdminRoleCustom struct {
 	pulumi.CustomResourceState

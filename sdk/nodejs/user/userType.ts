@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:user/userType:UserType example &#60;user type id&#62;
+ * $ pulumi import okta:user/userType:UserType example <user_type_id>
  * ```
  */
 export class UserType extends pulumi.CustomResource {

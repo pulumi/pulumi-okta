@@ -39,7 +39,7 @@ namespace Pulumi.Okta.Policy
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:policy/signon:Signon example &amp;#60;policy id&amp;#62;
+    /// $ pulumi import okta:policy/signon:Signon example &lt;policy_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:policy/signon:Signon")]

@@ -40,7 +40,7 @@ namespace Pulumi.Okta.Policy
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:policy/password:Password example &amp;#60;policy id&amp;#62;
+    /// $ pulumi import okta:policy/password:Password example &lt;policy_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:policy/password:Password")]

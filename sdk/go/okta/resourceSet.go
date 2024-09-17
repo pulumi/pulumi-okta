@@ -25,7 +25,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/resourceSet:ResourceSet example &#60;resource_set_id&#62;
+// $ pulumi import okta:index/resourceSet:ResourceSet example <resource_set_id>
 // ```
 type ResourceSet struct {
 	pulumi.CustomResourceState

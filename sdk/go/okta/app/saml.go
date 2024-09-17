@@ -24,7 +24,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:app/saml:Saml example &#60;app id&#62
+// $ pulumi import okta:app/saml:Saml example <app_id>
 // ```
 type Saml struct {
 	pulumi.CustomResourceState

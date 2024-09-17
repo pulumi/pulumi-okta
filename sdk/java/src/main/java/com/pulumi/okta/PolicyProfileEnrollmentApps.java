@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &amp;#60;policy id&amp;#62;
+ * $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &lt;policy_id&gt;
  * ```
  * 
  */

@@ -15,7 +15,7 @@ namespace Pulumi.Okta.Network
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:network/zone:Zone example &amp;#60;zone id&amp;#62;
+    /// $ pulumi import okta:network/zone:Zone example &lt;zone_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:network/zone:Zone")]

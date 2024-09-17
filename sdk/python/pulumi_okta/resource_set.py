@@ -144,7 +144,7 @@ class ResourceSet(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/resourceSet:ResourceSet example &#60;resource_set_id&#62;
+        $ pulumi import okta:index/resourceSet:ResourceSet example <resource_set_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -173,7 +173,7 @@ class ResourceSet(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/resourceSet:ResourceSet example &#60;resource_set_id&#62;
+        $ pulumi import okta:index/resourceSet:ResourceSet example <resource_set_id>
         ```
 
         :param str resource_name: The name of the resource.

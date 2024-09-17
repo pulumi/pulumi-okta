@@ -187,7 +187,7 @@ class SamlKey(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
+        $ pulumi import okta:idp/samlKey:SamlKey example <key_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -226,7 +226,7 @@ class SamlKey(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:idp/samlKey:SamlKey example &#60;key id&#62;
+        $ pulumi import okta:idp/samlKey:SamlKey example <key_id>
         ```
 
         :param str resource_name: The name of the resource.

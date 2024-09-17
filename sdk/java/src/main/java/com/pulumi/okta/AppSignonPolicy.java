@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example &amp;#60;policy_id&amp;#62;
+ * $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example &lt;policy_id&gt;
  * ```
  * 
  */

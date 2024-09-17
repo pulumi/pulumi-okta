@@ -42,7 +42,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &amp;#60;user id&amp;#62;/&amp;#60;role type&amp;#62;
+    /// $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example &lt;user_id&gt;/&lt;role_type&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/adminRoleTargets:AdminRoleTargets")]

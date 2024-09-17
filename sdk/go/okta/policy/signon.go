@@ -47,7 +47,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:policy/signon:Signon example &#60;policy id&#62;
+// $ pulumi import okta:policy/signon:Signon example <policy_id>
 // ```
 type Signon struct {
 	pulumi.CustomResourceState

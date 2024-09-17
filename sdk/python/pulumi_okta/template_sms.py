@@ -159,7 +159,7 @@ class TemplateSms(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/templateSms:TemplateSms example &#60;template type&#62;
+        $ pulumi import okta:index/templateSms:TemplateSms example <template_type>
         ```
 
         :param str resource_name: The name of the resource.
@@ -201,7 +201,7 @@ class TemplateSms(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/templateSms:TemplateSms example &#60;template type&#62;
+        $ pulumi import okta:index/templateSms:TemplateSms example <template_type>
         ```
 
         :param str resource_name: The name of the resource.

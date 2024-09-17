@@ -247,7 +247,7 @@ class AuthServerClaimDefault(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim name&#62;
+        $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example <auth_server_id>/<claim_name>
         ```
 
         :param str resource_name: The name of the resource.
@@ -282,7 +282,7 @@ class AuthServerClaimDefault(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim name&#62;
+        $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example <auth_server_id>/<claim_name>
         ```
 
         :param str resource_name: The name of the resource.
