@@ -1059,7 +1059,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &#60;app id&#62
+        $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example <app_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -1125,7 +1125,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example &#60;app id&#62
+        $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example <app_id>
         ```
 
         :param str resource_name: The name of the resource.

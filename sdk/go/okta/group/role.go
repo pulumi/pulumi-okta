@@ -14,37 +14,10 @@ import (
 
 // Assigns Admin roles to Okta Groups. This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one interface between the Okta group and the admin role.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/group"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := group.NewRole(ctx, "example", &group.RoleArgs{
-//				GroupId:  pulumi.String("<group id>"),
-//				RoleType: pulumi.String("READ_ONLY_ADMIN"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:group/role:Role example &#60;group id&#62;/&#60;role id&#62;
+// $ pulumi import okta:group/role:Role example <group_id>/<role_id>
 // ```
 type Role struct {
 	pulumi.CustomResourceState
@@ -54,6 +27,10 @@ type Role struct {
 	DisableNotifications pulumi.BoolPtrOutput `pulumi:"disableNotifications"`
 	// ID of group to attach admin roles to
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
+	// Resource Set ID. Required for roleType = `CUSTOM`
+	ResourceSetId pulumi.StringPtrOutput `pulumi:"resourceSetId"`
+	// Role ID. Required for roleType = `CUSTOM`
+	RoleId pulumi.StringPtrOutput `pulumi:"roleId"`
 	// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
 	// "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
 	// "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
@@ -109,6 +86,10 @@ type roleState struct {
 	DisableNotifications *bool `pulumi:"disableNotifications"`
 	// ID of group to attach admin roles to
 	GroupId *string `pulumi:"groupId"`
+	// Resource Set ID. Required for roleType = `CUSTOM`
+	ResourceSetId *string `pulumi:"resourceSetId"`
+	// Role ID. Required for roleType = `CUSTOM`
+	RoleId *string `pulumi:"roleId"`
 	// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
 	// "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
 	// "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
@@ -129,6 +110,10 @@ type RoleState struct {
 	DisableNotifications pulumi.BoolPtrInput
 	// ID of group to attach admin roles to
 	GroupId pulumi.StringPtrInput
+	// Resource Set ID. Required for roleType = `CUSTOM`
+	ResourceSetId pulumi.StringPtrInput
+	// Role ID. Required for roleType = `CUSTOM`
+	RoleId pulumi.StringPtrInput
 	// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
 	// "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
 	// "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
@@ -153,6 +138,10 @@ type roleArgs struct {
 	DisableNotifications *bool `pulumi:"disableNotifications"`
 	// ID of group to attach admin roles to
 	GroupId string `pulumi:"groupId"`
+	// Resource Set ID. Required for roleType = `CUSTOM`
+	ResourceSetId *string `pulumi:"resourceSetId"`
+	// Role ID. Required for roleType = `CUSTOM`
+	RoleId *string `pulumi:"roleId"`
 	// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
 	// "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
 	// "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
@@ -174,6 +163,10 @@ type RoleArgs struct {
 	DisableNotifications pulumi.BoolPtrInput
 	// ID of group to attach admin roles to
 	GroupId pulumi.StringInput
+	// Resource Set ID. Required for roleType = `CUSTOM`
+	ResourceSetId pulumi.StringPtrInput
+	// Role ID. Required for roleType = `CUSTOM`
+	RoleId pulumi.StringPtrInput
 	// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
 	// "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
 	// "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
@@ -284,6 +277,16 @@ func (o RoleOutput) DisableNotifications() pulumi.BoolPtrOutput {
 // ID of group to attach admin roles to
 func (o RoleOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// Resource Set ID. Required for roleType = `CUSTOM`
+func (o RoleOutput) ResourceSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringPtrOutput { return v.ResourceSetId }).(pulumi.StringPtrOutput)
+}
+
+// Role ID. Required for roleType = `CUSTOM`
+func (o RoleOutput) RoleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringPtrOutput { return v.RoleId }).(pulumi.StringPtrOutput)
 }
 
 // Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",

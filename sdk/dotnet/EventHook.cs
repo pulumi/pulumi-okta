@@ -50,7 +50,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/eventHook:EventHook example &amp;#60;hook id&amp;#62;
+    /// $ pulumi import okta:index/eventHook:EventHook example &lt;hook_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/eventHook:EventHook")]

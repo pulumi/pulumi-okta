@@ -16,7 +16,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:policy/mfa:Mfa example &#60;policy id&#62;
+// $ pulumi import okta:policy/mfa:Mfa example <policy_id>
 // ```
 type Mfa struct {
 	pulumi.CustomResourceState

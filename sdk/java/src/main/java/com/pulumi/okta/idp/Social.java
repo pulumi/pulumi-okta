@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:idp/social:Social example &amp;#60;idp id&amp;#62;
+ * $ pulumi import okta:idp/social:Social example &lt;idp_id&gt;
  * ```
  * 
  */

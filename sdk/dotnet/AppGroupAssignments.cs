@@ -53,7 +53,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &amp;#60;app_id&amp;#62
+    /// $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &lt;app_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/appGroupAssignments:AppGroupAssignments")]

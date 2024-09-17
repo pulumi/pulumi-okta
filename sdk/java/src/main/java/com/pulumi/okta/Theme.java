@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/theme:Theme example &amp;#60;brand id&amp;#62;/&amp;#60;theme id&amp;#62;
+ * $ pulumi import okta:index/theme:Theme example &lt;brand_id&gt;/&lt;theme_id&gt;
  * ```
  * 
  */

@@ -106,6 +106,7 @@
         "group/getRule.ts",
         "group/group.ts",
         "group/index.ts",
+        "group/owner.ts",
         "group/role.ts",
         "group/rule.ts",
         "groupMemberships.ts",

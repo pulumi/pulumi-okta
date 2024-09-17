@@ -48,7 +48,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62
+// $ pulumi import okta:app/basicAuth:BasicAuth example <app_id>
 // ```
 type BasicAuth struct {
 	pulumi.CustomResourceState

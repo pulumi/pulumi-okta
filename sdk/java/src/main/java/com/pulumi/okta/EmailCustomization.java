@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/emailCustomization:EmailCustomization example &amp;#60;customization_id&amp;#62;/&amp;#60;brand_id&amp;#62;/&amp;#60;template_name&amp;#62;
+ * $ pulumi import okta:index/emailCustomization:EmailCustomization example &lt;customization_id&gt;/&lt;brand_id&gt;/&lt;template_name&gt;
  * ```
  * 
  */

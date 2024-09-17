@@ -1646,7 +1646,7 @@ class OAuth(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62
+        $ pulumi import okta:app/oAuth:OAuth example <app_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -1730,7 +1730,7 @@ class OAuth(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62
+        $ pulumi import okta:app/oAuth:OAuth example <app_id>
         ```
 
         :param str resource_name: The name of the resource.

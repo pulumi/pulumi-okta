@@ -47,7 +47,11 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;user type id&#62;.&#60;index&#62;
+// $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example <variableName>
+// ```
+//
+// ```sh
+// $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example <user_type_id>.<index>
 // ```
 type UserSchemaProperty struct {
 	pulumi.CustomResourceState

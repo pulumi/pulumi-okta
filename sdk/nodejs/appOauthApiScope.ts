@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &#60;app id&#62
+ * $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example <app_id>
  * ```
  */
 export class AppOauthApiScope extends pulumi.CustomResource {

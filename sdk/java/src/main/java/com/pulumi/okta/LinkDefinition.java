@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/linkDefinition:LinkDefinition example &amp;#60;primary_name&amp;#62;
+ * $ pulumi import okta:index/linkDefinition:LinkDefinition example &lt;primary_name&gt;
  * ```
  * 
  */

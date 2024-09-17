@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/theme:Theme example &#60;brand id&#62;/&#60;theme id&#62;
+ * $ pulumi import okta:index/theme:Theme example <brand_id>/<theme_id>
  * ```
  */
 export class Theme extends pulumi.CustomResource {

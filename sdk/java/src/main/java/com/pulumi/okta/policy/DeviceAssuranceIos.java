@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:policy/deviceAssuranceIos:DeviceAssuranceIos example &amp;#60;device assurance id&amp;#62;
+ * $ pulumi import okta:policy/deviceAssuranceIos:DeviceAssuranceIos example &lt;device_assurance_id&gt;
  * ```
  * 
  */

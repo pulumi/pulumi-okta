@@ -975,7 +975,7 @@ class ThreeField(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;
+        $ pulumi import okta:app/threeField:ThreeField example <app_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -1024,7 +1024,7 @@ class ThreeField(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/threeField:ThreeField example &#60;app id&#62;
+        $ pulumi import okta:app/threeField:ThreeField example <app_id>
         ```
 
         :param str resource_name: The name of the resource.

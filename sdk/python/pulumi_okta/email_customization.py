@@ -320,7 +320,7 @@ class EmailCustomization(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/emailCustomization:EmailCustomization example &#60;customization_id&#62;/&#60;brand_id&#62;/&#60;template_name&#62;
+        $ pulumi import okta:index/emailCustomization:EmailCustomization example <customization_id>/<brand_id>/<template_name>
         ```
 
         :param str resource_name: The name of the resource.
@@ -373,7 +373,7 @@ class EmailCustomization(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/emailCustomization:EmailCustomization example &#60;customization_id&#62;/&#60;brand_id&#62;/&#60;template_name&#62;
+        $ pulumi import okta:index/emailCustomization:EmailCustomization example <customization_id>/<brand_id>/<template_name>
         ```
 
         :param str resource_name: The name of the resource.

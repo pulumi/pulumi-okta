@@ -125,7 +125,7 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &#60;app id&#62;/&#60;uri&#62
+        $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example <app_id>/<uri>
         ```
 
         :param str resource_name: The name of the resource.
@@ -167,7 +167,7 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example &#60;app id&#62;/&#60;uri&#62
+        $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example <app_id>/<uri>
         ```
 
         :param str resource_name: The name of the resource.

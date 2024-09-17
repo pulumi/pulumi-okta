@@ -314,7 +314,7 @@ class Server(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:auth/server:Server example &#60;auth server id&#62;
+        $ pulumi import okta:auth/server:Server example <auth_server_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -352,7 +352,7 @@ class Server(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:auth/server:Server example &#60;auth server id&#62;
+        $ pulumi import okta:auth/server:Server example <auth_server_id>
         ```
 
         :param str resource_name: The name of the resource.

@@ -42,7 +42,7 @@ namespace Pulumi.Okta.App
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:app/swa:Swa example &amp;#60;app id&amp;#62;
+    /// $ pulumi import okta:app/swa:Swa example &lt;app_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/swa:Swa")]

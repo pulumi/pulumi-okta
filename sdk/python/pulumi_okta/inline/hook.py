@@ -275,7 +275,7 @@ class Hook(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
+        $ pulumi import okta:inline/hook:Hook example <hook_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -320,7 +320,7 @@ class Hook(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
+        $ pulumi import okta:inline/hook:Hook example <hook_id>
         ```
 
         :param str resource_name: The name of the resource.

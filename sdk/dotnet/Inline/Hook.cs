@@ -47,7 +47,7 @@ namespace Pulumi.Okta.Inline
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:inline/hook:Hook example &amp;#60;hook id&amp;#62;
+    /// $ pulumi import okta:inline/hook:Hook example &lt;hook_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:inline/hook:Hook")]

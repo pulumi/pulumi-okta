@@ -47,7 +47,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/emailSender:EmailSender example &#60;sender id&#62;
+// $ pulumi import okta:index/emailSender:EmailSender example <sender_id>
 // ```
 type EmailSender struct {
 	pulumi.CustomResourceState

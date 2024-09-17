@@ -52,7 +52,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:idp/saml:Saml example &#60;idp id&#62;
+// $ pulumi import okta:idp/saml:Saml example <idp_id>
 // ```
 type Saml struct {
 	pulumi.CustomResourceState

@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &amp;#60;app id&amp;#62
+ * $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example &lt;app_id&gt;
  * ```
  * 
  */

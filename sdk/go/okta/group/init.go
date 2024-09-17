@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "okta:group/group:Group":
 		r = &Group{}
+	case "okta:group/owner:Owner":
+		r = &Owner{}
 	case "okta:group/role:Role":
 		r = &Role{}
 	case "okta:group/rule:Rule":
@@ -43,6 +45,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"group/group",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"group/owner",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

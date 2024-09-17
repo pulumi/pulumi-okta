@@ -278,7 +278,7 @@ class AdminRoleCustom(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62
+        $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example <custom_role_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -345,7 +345,7 @@ class AdminRoleCustom(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example &#60;custom role id&#62
+        $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example <custom_role_id>
         ```
 
         :param str resource_name: The name of the resource.

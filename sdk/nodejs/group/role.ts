@@ -7,22 +7,10 @@ import * as utilities from "../utilities";
 /**
  * Assigns Admin roles to Okta Groups. This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one interface between the Okta group and the admin role.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.group.Role("example", {
- *     groupId: "<group id>",
- *     roleType: "READ_ONLY_ADMIN",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:group/role:Role example &#60;group id&#62;/&#60;role id&#62;
+ * $ pulumi import okta:group/role:Role example <group_id>/<role_id>
  * ```
  */
 export class Role extends pulumi.CustomResource {
@@ -63,6 +51,14 @@ export class Role extends pulumi.CustomResource {
      */
     public readonly groupId!: pulumi.Output<string>;
     /**
+     * Resource Set ID. Required for roleType = `CUSTOM`
+     */
+    public readonly resourceSetId!: pulumi.Output<string | undefined>;
+    /**
+     * Role ID. Required for roleType = `CUSTOM`
+     */
+    public readonly roleId!: pulumi.Output<string | undefined>;
+    /**
      * Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
      * "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
      * "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
@@ -96,6 +92,8 @@ export class Role extends pulumi.CustomResource {
             const state = argsOrState as RoleState | undefined;
             resourceInputs["disableNotifications"] = state ? state.disableNotifications : undefined;
             resourceInputs["groupId"] = state ? state.groupId : undefined;
+            resourceInputs["resourceSetId"] = state ? state.resourceSetId : undefined;
+            resourceInputs["roleId"] = state ? state.roleId : undefined;
             resourceInputs["roleType"] = state ? state.roleType : undefined;
             resourceInputs["targetAppLists"] = state ? state.targetAppLists : undefined;
             resourceInputs["targetGroupLists"] = state ? state.targetGroupLists : undefined;
@@ -109,6 +107,8 @@ export class Role extends pulumi.CustomResource {
             }
             resourceInputs["disableNotifications"] = args ? args.disableNotifications : undefined;
             resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["resourceSetId"] = args ? args.resourceSetId : undefined;
+            resourceInputs["roleId"] = args ? args.roleId : undefined;
             resourceInputs["roleType"] = args ? args.roleType : undefined;
             resourceInputs["targetAppLists"] = args ? args.targetAppLists : undefined;
             resourceInputs["targetGroupLists"] = args ? args.targetGroupLists : undefined;
@@ -131,6 +131,14 @@ export interface RoleState {
      * ID of group to attach admin roles to
      */
     groupId?: pulumi.Input<string>;
+    /**
+     * Resource Set ID. Required for roleType = `CUSTOM`
+     */
+    resourceSetId?: pulumi.Input<string>;
+    /**
+     * Role ID. Required for roleType = `CUSTOM`
+     */
+    roleId?: pulumi.Input<string>;
     /**
      * Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
      * "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
@@ -164,6 +172,14 @@ export interface RoleArgs {
      * ID of group to attach admin roles to
      */
     groupId: pulumi.Input<string>;
+    /**
+     * Resource Set ID. Required for roleType = `CUSTOM`
+     */
+    resourceSetId?: pulumi.Input<string>;
+    /**
+     * Role ID. Required for roleType = `CUSTOM`
+     */
+    roleId?: pulumi.Input<string>;
     /**
      * Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
      * "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",

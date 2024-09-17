@@ -32,7 +32,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62
+ * $ pulumi import okta:app/saml:Saml example &lt;app_id&gt;
  * ```
  * 
  */

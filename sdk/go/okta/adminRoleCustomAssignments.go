@@ -20,7 +20,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example &#60;resource_set_id&#62;/&#60;custom_role_id&#62;
+// $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example <resource_set_id>/<custom_role_id>
 // ```
 type AdminRoleCustomAssignments struct {
 	pulumi.CustomResourceState

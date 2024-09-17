@@ -40,7 +40,7 @@ namespace Pulumi.Okta.Auth
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:auth/server:Server example &amp;#60;auth server id&amp;#62;
+    /// $ pulumi import okta:auth/server:Server example &lt;auth_server_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:auth/server:Server")]

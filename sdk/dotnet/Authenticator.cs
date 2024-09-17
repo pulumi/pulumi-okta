@@ -74,7 +74,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/authenticator:Authenticator example &amp;#60;authenticator_id&amp;#62;
+    /// $ pulumi import okta:index/authenticator:Authenticator example &lt;authenticator_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/authenticator:Authenticator")]

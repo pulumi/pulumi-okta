@@ -23,7 +23,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/resourceSet:ResourceSet example &amp;#60;resource_set_id&amp;#62;
+    /// $ pulumi import okta:index/resourceSet:ResourceSet example &lt;resource_set_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/resourceSet:ResourceSet")]

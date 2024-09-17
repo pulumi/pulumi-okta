@@ -34,7 +34,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/templateSms:TemplateSms example &#60;template type&#62;
+ * $ pulumi import okta:index/templateSms:TemplateSms example <template_type>
  * ```
  */
 export class TemplateSms extends pulumi.CustomResource {

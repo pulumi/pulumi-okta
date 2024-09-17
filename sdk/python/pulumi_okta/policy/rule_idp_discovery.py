@@ -634,7 +634,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &#60;policy id&#62;/&#60;rule id&#62;
+        $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example <policy_id>/<rule_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -732,7 +732,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example &#60;policy id&#62;/&#60;rule id&#62;
+        $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example <policy_id>/<rule_id>
         ```
 
         :param str resource_name: The name of the resource.

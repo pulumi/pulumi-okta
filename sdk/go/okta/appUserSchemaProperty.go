@@ -47,7 +47,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example &#60;app id&#62;/&#60;property name&#62;
+// $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example <app_id>/<property_name>
 // ```
 type AppUserSchemaProperty struct {
 	pulumi.CustomResourceState

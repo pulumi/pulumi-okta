@@ -273,7 +273,7 @@ class EventHook(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/eventHook:EventHook example &#60;hook id&#62;
+        $ pulumi import okta:index/eventHook:EventHook example <hook_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -324,7 +324,7 @@ class EventHook(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/eventHook:EventHook example &#60;hook id&#62;
+        $ pulumi import okta:index/eventHook:EventHook example <hook_id>
         ```
 
         :param str resource_name: The name of the resource.

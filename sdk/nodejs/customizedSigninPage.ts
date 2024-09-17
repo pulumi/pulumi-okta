@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/customizedSigninPage:CustomizedSigninPage example &#60;customized_signin_page_id&#62;
+ * $ pulumi import okta:index/customizedSigninPage:CustomizedSigninPage example <brand_id>
  * ```
  */
 export class CustomizedSigninPage extends pulumi.CustomResource {

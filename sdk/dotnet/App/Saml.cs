@@ -22,7 +22,7 @@ namespace Pulumi.Okta.App
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:app/saml:Saml example &amp;#60;app id&amp;#62
+    /// $ pulumi import okta:app/saml:Saml example &lt;app_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/saml:Saml")]

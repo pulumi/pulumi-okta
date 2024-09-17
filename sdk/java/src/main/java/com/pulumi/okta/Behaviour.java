@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/behaviour:Behaviour example &amp;#60;behavior id&amp;#62;
+ * $ pulumi import okta:index/behaviour:Behaviour example &lt;behavior_id&gt;
  * ```
  * 
  */

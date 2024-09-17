@@ -152,7 +152,7 @@ class UserAdminRoles(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/userAdminRoles:UserAdminRoles example &#60;user id&#62;
+        $ pulumi import okta:index/userAdminRoles:UserAdminRoles example <user_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -189,7 +189,7 @@ class UserAdminRoles(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/userAdminRoles:UserAdminRoles example &#60;user id&#62;
+        $ pulumi import okta:index/userAdminRoles:UserAdminRoles example <user_id>
         ```
 
         :param str resource_name: The name of the resource.

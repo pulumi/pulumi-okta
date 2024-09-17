@@ -38,7 +38,7 @@ namespace Pulumi.Okta.Group
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:group/rule:Rule example &amp;#60;group rule id&amp;#62;
+    /// $ pulumi import okta:group/rule:Rule example &lt;group_rule_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:group/rule:Rule")]

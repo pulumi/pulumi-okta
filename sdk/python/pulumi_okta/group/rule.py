@@ -280,7 +280,7 @@ class Rule(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
+        $ pulumi import okta:group/rule:Rule example <group_rule_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -317,7 +317,7 @@ class Rule(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:group/rule:Rule example &#60;group rule id&#62;
+        $ pulumi import okta:group/rule:Rule example <group_rule_id>
         ```
 
         :param str resource_name: The name of the resource.

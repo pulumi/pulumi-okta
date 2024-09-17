@@ -331,7 +331,7 @@ class ServerScope(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:auth/serverScope:ServerScope example &#60;auth server id&#62;/&#60;scope id&#62;
+        $ pulumi import okta:auth/serverScope:ServerScope example <auth_server_id>/<scope_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -370,7 +370,7 @@ class ServerScope(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:auth/serverScope:ServerScope example &#60;auth server id&#62;/&#60;scope id&#62;
+        $ pulumi import okta:auth/serverScope:ServerScope example <auth_server_id>/<scope_id>
         ```
 
         :param str resource_name: The name of the resource.

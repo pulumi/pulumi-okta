@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:policy/password:Password example &#60;policy id&#62;
+ * $ pulumi import okta:policy/password:Password example <policy_id>
  * ```
  */
 export class Password extends pulumi.CustomResource {

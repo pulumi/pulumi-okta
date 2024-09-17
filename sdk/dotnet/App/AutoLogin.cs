@@ -19,7 +19,7 @@ namespace Pulumi.Okta.App
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:app/autoLogin:AutoLogin example &amp;#60;app id&amp;#62
+    /// $ pulumi import okta:app/autoLogin:AutoLogin example &lt;app_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:app/autoLogin:AutoLogin")]

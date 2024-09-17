@@ -70,7 +70,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;
+// $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example <user_id>/<question_factor_id>
 // ```
 type UserFactorQuestion struct {
 	pulumi.CustomResourceState

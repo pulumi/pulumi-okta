@@ -130,7 +130,7 @@ class AppSamlAppSettings(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62
+        $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example <app_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -177,7 +177,7 @@ class AppSamlAppSettings(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62
+        $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example <app_id>
         ```
 
         :param str resource_name: The name of the resource.

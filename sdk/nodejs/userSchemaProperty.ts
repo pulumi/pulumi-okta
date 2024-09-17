@@ -27,7 +27,11 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &#60;user type id&#62;.&#60;index&#62;
+ * $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example <variableName>
+ * ```
+ *
+ * ```sh
+ * $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example <user_type_id>.<index>
  * ```
  */
 export class UserSchemaProperty extends pulumi.CustomResource {

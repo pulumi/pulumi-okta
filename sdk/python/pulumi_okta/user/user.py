@@ -1487,7 +1487,7 @@ class User(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:user/user:User example &#60;user id&#62;
+        $ pulumi import okta:user/user:User example <user_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -1594,7 +1594,7 @@ class User(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:user/user:User example &#60;user id&#62;
+        $ pulumi import okta:user/user:User example <user_id>
         ```
 
         :param str resource_name: The name of the resource.

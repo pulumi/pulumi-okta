@@ -15,7 +15,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/logStream:LogStream example &amp;#60;strema id&amp;#62;
+    /// $ pulumi import okta:index/logStream:LogStream example &lt;stream_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/logStream:LogStream")]

@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/templateSms:TemplateSms example &amp;#60;template type&amp;#62;
+ * $ pulumi import okta:index/templateSms:TemplateSms example &lt;template_type&gt;
  * ```
  * 
  */

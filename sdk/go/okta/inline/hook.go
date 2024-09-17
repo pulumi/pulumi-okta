@@ -55,7 +55,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:inline/hook:Hook example &#60;hook id&#62;
+// $ pulumi import okta:inline/hook:Hook example <hook_id>
 // ```
 type Hook struct {
 	pulumi.CustomResourceState

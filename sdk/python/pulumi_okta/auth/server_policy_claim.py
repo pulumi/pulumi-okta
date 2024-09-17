@@ -598,7 +598,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example &#60;auth server id&#62;/&#60;policy id&#62;/&#60;policy rule id&#62;
+        $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example <auth_server_id>/<policy_id>/<policy_rule_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -646,7 +646,7 @@ class ServerPolicyClaim(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example &#60;auth server id&#62;/&#60;policy id&#62;/&#60;policy rule id&#62;
+        $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example <auth_server_id>/<policy_id>/<policy_rule_id>
         ```
 
         :param str resource_name: The name of the resource.

@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:auth/serverScope:ServerScope example &amp;#60;auth server id&amp;#62;/&amp;#60;scope id&amp;#62;
+ * $ pulumi import okta:auth/serverScope:ServerScope example &lt;auth_server_id&gt;/&lt;scope_id&gt;
  * ```
  * 
  */

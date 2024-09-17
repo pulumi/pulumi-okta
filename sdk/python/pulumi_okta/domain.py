@@ -181,7 +181,7 @@ class Domain(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
+        $ pulumi import okta:index/domain:Domain example <domain_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -211,7 +211,7 @@ class Domain(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
+        $ pulumi import okta:index/domain:Domain example <domain_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -287,7 +287,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="brandId")
-    def brand_id(self) -> pulumi.Output[Optional[str]]:
+    def brand_id(self) -> pulumi.Output[str]:
         """
         Brand id of the domain
         """

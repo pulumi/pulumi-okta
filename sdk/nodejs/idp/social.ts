@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:idp/social:Social example &#60;idp id&#62;
+ * $ pulumi import okta:idp/social:Social example <idp_id>
  * ```
  */
 export class Social extends pulumi.CustomResource {

@@ -15,7 +15,7 @@ namespace Pulumi.Okta.Policy
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:policy/deviceAssuranceIos:DeviceAssuranceIos example &amp;#60;device assurance id&amp;#62;
+    /// $ pulumi import okta:policy/deviceAssuranceIos:DeviceAssuranceIos example &lt;device_assurance_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:policy/deviceAssuranceIos:DeviceAssuranceIos")]

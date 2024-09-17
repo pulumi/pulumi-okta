@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example &#60;auth server id&#62;/&#60;claim name&#62;
+ * $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example <auth_server_id>/<claim_name>
  * ```
  */
 export class AuthServerClaimDefault extends pulumi.CustomResource {

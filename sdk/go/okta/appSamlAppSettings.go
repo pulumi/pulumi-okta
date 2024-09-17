@@ -71,7 +71,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example &#60;app id&#62
+// $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example <app_id>
 // ```
 type AppSamlAppSettings struct {
 	pulumi.CustomResourceState

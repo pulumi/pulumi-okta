@@ -1043,7 +1043,7 @@ class Password(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:policy/password:Password example &#60;policy id&#62;
+        $ pulumi import okta:policy/password:Password example <policy_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -1105,7 +1105,7 @@ class Password(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:policy/password:Password example &#60;policy id&#62;
+        $ pulumi import okta:policy/password:Password example <policy_id>
         ```
 
         :param str resource_name: The name of the resource.

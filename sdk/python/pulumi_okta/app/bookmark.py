@@ -594,7 +594,7 @@ class Bookmark(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62t
+        $ pulumi import okta:app/bookmark:Bookmark example <app_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -641,7 +641,7 @@ class Bookmark(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62t
+        $ pulumi import okta:app/bookmark:Bookmark example <app_id>
         ```
 
         :param str resource_name: The name of the resource.

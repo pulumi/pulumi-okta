@@ -300,7 +300,7 @@ class Behaviour(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/behaviour:Behaviour example &#60;behavior id&#62;
+        $ pulumi import okta:index/behaviour:Behaviour example <behavior_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -356,7 +356,7 @@ class Behaviour(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/behaviour:Behaviour example &#60;behavior id&#62;
+        $ pulumi import okta:index/behaviour:Behaviour example <behavior_id>
         ```
 
         :param str resource_name: The name of the resource.

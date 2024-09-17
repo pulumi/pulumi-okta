@@ -189,7 +189,7 @@ class UserFactorQuestion(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;
+        $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example <user_id>/<question_factor_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -232,7 +232,7 @@ class UserFactorQuestion(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &#60;user id&#62;/&#60;question factor id&#62;
+        $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example <user_id>/<question_factor_id>
         ```
 
         :param str resource_name: The name of the resource.

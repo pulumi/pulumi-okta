@@ -52,7 +52,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/linkDefinition:LinkDefinition example &#60;primary_name&#62;
+// $ pulumi import okta:index/linkDefinition:LinkDefinition example <primary_name>
 // ```
 type LinkDefinition struct {
 	pulumi.CustomResourceState

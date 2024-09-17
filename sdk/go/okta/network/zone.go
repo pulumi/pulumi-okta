@@ -17,7 +17,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:network/zone:Zone example &#60;zone id&#62;
+// $ pulumi import okta:network/zone:Zone example <zone_id>
 // ```
 type Zone struct {
 	pulumi.CustomResourceState

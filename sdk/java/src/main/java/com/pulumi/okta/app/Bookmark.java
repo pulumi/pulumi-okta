@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:app/bookmark:Bookmark example &amp;#60;app id&amp;#62t
+ * $ pulumi import okta:app/bookmark:Bookmark example &lt;app_id&gt;
  * ```
  * 
  */

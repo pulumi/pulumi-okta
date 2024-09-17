@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:policy/ruleSignon:RuleSignon example &amp;#60;policy id&amp;#62;/&amp;#60;rule id&amp;#62;
+ * $ pulumi import okta:policy/ruleSignon:RuleSignon example &lt;policy_id&gt;/&lt;rule_id&gt;
  * ```
  * 
  */

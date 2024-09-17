@@ -64,7 +64,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62
+// $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example <app_id>/<uri>
 // ```
 type OAuthRedirectUri struct {
 	pulumi.CustomResourceState

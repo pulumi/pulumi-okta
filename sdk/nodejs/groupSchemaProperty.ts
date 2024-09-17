@@ -26,7 +26,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
+ * $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example <index>
  * ```
  */
 export class GroupSchemaProperty extends pulumi.CustomResource {

@@ -56,7 +56,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/userAdminRoles:UserAdminRoles example &#60;user id&#62;
+// $ pulumi import okta:index/userAdminRoles:UserAdminRoles example <user_id>
 // ```
 type UserAdminRoles struct {
 	pulumi.CustomResourceState

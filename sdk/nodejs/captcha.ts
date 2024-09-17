@@ -26,7 +26,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/captcha:Captcha example &#60;captcha id&#62;
+ * $ pulumi import okta:index/captcha:Captcha example <captcha_id>
  * ```
  */
 export class Captcha extends pulumi.CustomResource {

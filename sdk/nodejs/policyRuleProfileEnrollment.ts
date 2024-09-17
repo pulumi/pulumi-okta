@@ -68,7 +68,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example &#60;policy id&#62;/&#60;rule id&#62;
+ * $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example <policy_id>/<rule_id>
  * ```
  */
 export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {

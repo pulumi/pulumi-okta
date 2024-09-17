@@ -1165,7 +1165,7 @@ class Oidc(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:idp/oidc:Oidc example &#60;idp id&#62;
+        $ pulumi import okta:idp/oidc:Oidc example <idp_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -1238,7 +1238,7 @@ class Oidc(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:idp/oidc:Oidc example &#60;idp id&#62;
+        $ pulumi import okta:idp/oidc:Oidc example <idp_id>
         ```
 
         :param str resource_name: The name of the resource.

@@ -46,7 +46,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &#60;index&#62;
+// $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example <index>
 // ```
 type GroupSchemaProperty struct {
 	pulumi.CustomResourceState

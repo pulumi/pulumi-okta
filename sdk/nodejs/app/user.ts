@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:app/user:User example &#60;app id&#62;/&#60;user id&#62;
+ * $ pulumi import okta:app/user:User example <app_id>/<user_id>
  * ```
  */
 export class User extends pulumi.CustomResource {

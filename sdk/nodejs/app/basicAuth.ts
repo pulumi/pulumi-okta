@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:app/basicAuth:BasicAuth example &#60;app id&#62
+ * $ pulumi import okta:app/basicAuth:BasicAuth example <app_id>
  * ```
  */
 export class BasicAuth extends pulumi.CustomResource {

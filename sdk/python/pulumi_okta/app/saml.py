@@ -1817,7 +1817,7 @@ class Saml(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/saml:Saml example &#60;app id&#62
+        $ pulumi import okta:app/saml:Saml example <app_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -1896,7 +1896,7 @@ class Saml(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/saml:Saml example &#60;app id&#62
+        $ pulumi import okta:app/saml:Saml example <app_id>
         ```
 
         :param str resource_name: The name of the resource.

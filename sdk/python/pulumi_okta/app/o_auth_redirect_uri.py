@@ -124,7 +124,7 @@ class OAuthRedirectUri(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62
+        $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example <app_id>/<uri>
         ```
 
         :param str resource_name: The name of the resource.
@@ -165,7 +165,7 @@ class OAuthRedirectUri(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example &#60;app id&#62;/&#60;uri&#62
+        $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example <app_id>/<uri>
         ```
 
         :param str resource_name: The name of the resource.

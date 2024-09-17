@@ -67,7 +67,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example &#60;policy id&#62;
+// $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example <policy_id>
 // ```
 type PolicyProfileEnrollmentApps struct {
 	pulumi.CustomResourceState

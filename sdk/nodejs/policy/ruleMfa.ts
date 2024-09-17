@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:policy/ruleMfa:RuleMfa example &#60;policy id&#62;/&#60;rule id&#62;
+ * $ pulumi import okta:policy/ruleMfa:RuleMfa example <policy_id>/<rule_id>
  * ```
  */
 export class RuleMfa extends pulumi.CustomResource {

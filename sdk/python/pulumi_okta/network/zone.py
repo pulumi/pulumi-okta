@@ -434,7 +434,7 @@ class Zone(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:network/zone:Zone example &#60;zone id&#62;
+        $ pulumi import okta:network/zone:Zone example <zone_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -464,7 +464,7 @@ class Zone(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:network/zone:Zone example &#60;zone id&#62;
+        $ pulumi import okta:network/zone:Zone example <zone_id>
         ```
 
         :param str resource_name: The name of the resource.

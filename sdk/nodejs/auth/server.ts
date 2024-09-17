@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:auth/server:Server example &#60;auth server id&#62;
+ * $ pulumi import okta:auth/server:Server example <auth_server_id>
  * ```
  */
 export class Server extends pulumi.CustomResource {

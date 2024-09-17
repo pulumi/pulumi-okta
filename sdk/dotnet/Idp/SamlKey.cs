@@ -54,7 +54,7 @@ namespace Pulumi.Okta.Idp
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:idp/samlKey:SamlKey example &amp;#60;key id&amp;#62;
+    /// $ pulumi import okta:idp/samlKey:SamlKey example &lt;key_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:idp/samlKey:SamlKey")]

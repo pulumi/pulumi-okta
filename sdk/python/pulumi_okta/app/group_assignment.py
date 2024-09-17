@@ -215,7 +215,7 @@ class GroupAssignment(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/groupAssignment:GroupAssignment example &#60;app_id&#62;/&#60;group_id&#62
+        $ pulumi import okta:app/groupAssignment:GroupAssignment example <app_id>/<group_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -251,7 +251,7 @@ class GroupAssignment(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/groupAssignment:GroupAssignment example &#60;app_id&#62;/&#60;group_id&#62
+        $ pulumi import okta:app/groupAssignment:GroupAssignment example <app_id>/<group_id>
         ```
 
         :param str resource_name: The name of the resource.

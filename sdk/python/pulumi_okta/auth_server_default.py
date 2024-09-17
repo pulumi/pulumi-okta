@@ -312,7 +312,7 @@ class AuthServerDefault(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;default&#62;
+        $ pulumi import okta:index/authServerDefault:AuthServerDefault example <default>
         ```
 
         :param str resource_name: The name of the resource.
@@ -347,7 +347,7 @@ class AuthServerDefault(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;default&#62;
+        $ pulumi import okta:index/authServerDefault:AuthServerDefault example <default>
         ```
 
         :param str resource_name: The name of the resource.

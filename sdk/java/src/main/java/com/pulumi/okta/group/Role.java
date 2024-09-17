@@ -19,46 +19,10 @@ import javax.annotation.Nullable;
 /**
  * Assigns Admin roles to Okta Groups. This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one interface between the Okta group and the admin role.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.group.Role;
- * import com.pulumi.okta.group.RoleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Role("example", RoleArgs.builder()
- *             .groupId("<group id>")
- *             .roleType("READ_ONLY_ADMIN")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:group/role:Role example &amp;#60;group id&amp;#62;/&amp;#60;role id&amp;#62;
+ * $ pulumi import okta:group/role:Role example &lt;group_id&gt;/&lt;role_id&gt;
  * ```
  * 
  */
@@ -93,6 +57,34 @@ public class Role extends com.pulumi.resources.CustomResource {
      */
     public Output<String> groupId() {
         return this.groupId;
+    }
+    /**
+     * Resource Set ID. Required for role_type = `CUSTOM`
+     * 
+     */
+    @Export(name="resourceSetId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> resourceSetId;
+
+    /**
+     * @return Resource Set ID. Required for role_type = `CUSTOM`
+     * 
+     */
+    public Output<Optional<String>> resourceSetId() {
+        return Codegen.optional(this.resourceSetId);
+    }
+    /**
+     * Role ID. Required for role_type = `CUSTOM`
+     * 
+     */
+    @Export(name="roleId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> roleId;
+
+    /**
+     * @return Role ID. Required for role_type = `CUSTOM`
+     * 
+     */
+    public Output<Optional<String>> roleId() {
+        return Codegen.optional(this.roleId);
     }
     /**
      * Admin role assigned to the group. It can be any one of the following values: &#34;API_ADMIN&#34;, &#34;APP_ADMIN&#34;, &#34;CUSTOM&#34;,

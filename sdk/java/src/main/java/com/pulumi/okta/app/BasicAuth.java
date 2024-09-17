@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:app/basicAuth:BasicAuth example &amp;#60;app id&amp;#62
+ * $ pulumi import okta:app/basicAuth:BasicAuth example &lt;app_id&gt;
  * ```
  * 
  */

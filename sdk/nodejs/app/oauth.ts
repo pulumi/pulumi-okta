@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:app/oAuth:OAuth example &#60;app id&#62
+ * $ pulumi import okta:app/oAuth:OAuth example <app_id>
  * ```
  */
 export class OAuth extends pulumi.CustomResource {

@@ -43,7 +43,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:app/user:User example &#60;app id&#62;/&#60;user id&#62;
+// $ pulumi import okta:app/user:User example <app_id>/<user_id>
 // ```
 type User struct {
 	pulumi.CustomResourceState

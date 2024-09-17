@@ -36,7 +36,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &amp;#60;index&amp;#62;
+    /// $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example &lt;index&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/groupSchemaProperty:GroupSchemaProperty")]

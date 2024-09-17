@@ -17,6 +17,8 @@ class RoleArgs:
                  group_id: pulumi.Input[str],
                  role_type: pulumi.Input[str],
                  disable_notifications: Optional[pulumi.Input[bool]] = None,
+                 resource_set_id: Optional[pulumi.Input[str]] = None,
+                 role_id: Optional[pulumi.Input[str]] = None,
                  target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -28,6 +30,8 @@ class RoleArgs:
                "USER_ADMIN" is the Group Administrator.
         :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also
                won't have access to contact Okta Support and open support cases on behalf of your org.
+        :param pulumi.Input[str] resource_set_id: Resource Set ID. Required for role_type = `CUSTOM`
+        :param pulumi.Input[str] role_id: Role ID. Required for role_type = `CUSTOM`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_app_lists: A list of app names (name represents set of app instances, like 'salesforce' or 'facebook'), or a combination of app
                name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as the targets of the admin role. - Only
                supported when used with the role type `APP_ADMIN`.
@@ -38,6 +42,10 @@ class RoleArgs:
         pulumi.set(__self__, "role_type", role_type)
         if disable_notifications is not None:
             pulumi.set(__self__, "disable_notifications", disable_notifications)
+        if resource_set_id is not None:
+            pulumi.set(__self__, "resource_set_id", resource_set_id)
+        if role_id is not None:
+            pulumi.set(__self__, "role_id", role_id)
         if target_app_lists is not None:
             pulumi.set(__self__, "target_app_lists", target_app_lists)
         if target_group_lists is not None:
@@ -84,6 +92,30 @@ class RoleArgs:
         pulumi.set(self, "disable_notifications", value)
 
     @property
+    @pulumi.getter(name="resourceSetId")
+    def resource_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Set ID. Required for role_type = `CUSTOM`
+        """
+        return pulumi.get(self, "resource_set_id")
+
+    @resource_set_id.setter
+    def resource_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_set_id", value)
+
+    @property
+    @pulumi.getter(name="roleId")
+    def role_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Role ID. Required for role_type = `CUSTOM`
+        """
+        return pulumi.get(self, "role_id")
+
+    @role_id.setter
+    def role_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_id", value)
+
+    @property
     @pulumi.getter(name="targetAppLists")
     def target_app_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -116,6 +148,8 @@ class _RoleState:
     def __init__(__self__, *,
                  disable_notifications: Optional[pulumi.Input[bool]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
+                 resource_set_id: Optional[pulumi.Input[str]] = None,
+                 role_id: Optional[pulumi.Input[str]] = None,
                  role_type: Optional[pulumi.Input[str]] = None,
                  target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -124,6 +158,8 @@ class _RoleState:
         :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also
                won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[str] group_id: ID of group to attach admin roles to
+        :param pulumi.Input[str] resource_set_id: Resource Set ID. Required for role_type = `CUSTOM`
+        :param pulumi.Input[str] role_id: Role ID. Required for role_type = `CUSTOM`
         :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
                "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
                "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
@@ -138,6 +174,10 @@ class _RoleState:
             pulumi.set(__self__, "disable_notifications", disable_notifications)
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
+        if resource_set_id is not None:
+            pulumi.set(__self__, "resource_set_id", resource_set_id)
+        if role_id is not None:
+            pulumi.set(__self__, "role_id", role_id)
         if role_type is not None:
             pulumi.set(__self__, "role_type", role_type)
         if target_app_lists is not None:
@@ -169,6 +209,30 @@ class _RoleState:
     @group_id.setter
     def group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter(name="resourceSetId")
+    def resource_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Set ID. Required for role_type = `CUSTOM`
+        """
+        return pulumi.get(self, "resource_set_id")
+
+    @resource_set_id.setter
+    def resource_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_set_id", value)
+
+    @property
+    @pulumi.getter(name="roleId")
+    def role_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Role ID. Required for role_type = `CUSTOM`
+        """
+        return pulumi.get(self, "role_id")
+
+    @role_id.setter
+    def role_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_id", value)
 
     @property
     @pulumi.getter(name="roleType")
@@ -220,6 +284,8 @@ class Role(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disable_notifications: Optional[pulumi.Input[bool]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
+                 resource_set_id: Optional[pulumi.Input[str]] = None,
+                 role_id: Optional[pulumi.Input[str]] = None,
                  role_type: Optional[pulumi.Input[str]] = None,
                  target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -227,21 +293,10 @@ class Role(pulumi.CustomResource):
         """
         Assigns Admin roles to Okta Groups. This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one interface between the Okta group and the admin role.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.group.Role("example",
-            group_id="<group id>",
-            role_type="READ_ONLY_ADMIN")
-        ```
-
         ## Import
 
         ```sh
-        $ pulumi import okta:group/role:Role example &#60;group id&#62;/&#60;role id&#62;
+        $ pulumi import okta:group/role:Role example <group_id>/<role_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -249,6 +304,8 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also
                won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[str] group_id: ID of group to attach admin roles to
+        :param pulumi.Input[str] resource_set_id: Resource Set ID. Required for role_type = `CUSTOM`
+        :param pulumi.Input[str] role_id: Role ID. Required for role_type = `CUSTOM`
         :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
                "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
                "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
@@ -268,21 +325,10 @@ class Role(pulumi.CustomResource):
         """
         Assigns Admin roles to Okta Groups. This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one interface between the Okta group and the admin role.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.group.Role("example",
-            group_id="<group id>",
-            role_type="READ_ONLY_ADMIN")
-        ```
-
         ## Import
 
         ```sh
-        $ pulumi import okta:group/role:Role example &#60;group id&#62;/&#60;role id&#62;
+        $ pulumi import okta:group/role:Role example <group_id>/<role_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -302,6 +348,8 @@ class Role(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disable_notifications: Optional[pulumi.Input[bool]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
+                 resource_set_id: Optional[pulumi.Input[str]] = None,
+                 role_id: Optional[pulumi.Input[str]] = None,
                  role_type: Optional[pulumi.Input[str]] = None,
                  target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -318,6 +366,8 @@ class Role(pulumi.CustomResource):
             if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
             __props__.__dict__["group_id"] = group_id
+            __props__.__dict__["resource_set_id"] = resource_set_id
+            __props__.__dict__["role_id"] = role_id
             if role_type is None and not opts.urn:
                 raise TypeError("Missing required property 'role_type'")
             __props__.__dict__["role_type"] = role_type
@@ -335,6 +385,8 @@ class Role(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             disable_notifications: Optional[pulumi.Input[bool]] = None,
             group_id: Optional[pulumi.Input[str]] = None,
+            resource_set_id: Optional[pulumi.Input[str]] = None,
+            role_id: Optional[pulumi.Input[str]] = None,
             role_type: Optional[pulumi.Input[str]] = None,
             target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Role':
@@ -348,6 +400,8 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also
                won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[str] group_id: ID of group to attach admin roles to
+        :param pulumi.Input[str] resource_set_id: Resource Set ID. Required for role_type = `CUSTOM`
+        :param pulumi.Input[str] role_id: Role ID. Required for role_type = `CUSTOM`
         :param pulumi.Input[str] role_type: Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
                "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
                "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
@@ -364,6 +418,8 @@ class Role(pulumi.CustomResource):
 
         __props__.__dict__["disable_notifications"] = disable_notifications
         __props__.__dict__["group_id"] = group_id
+        __props__.__dict__["resource_set_id"] = resource_set_id
+        __props__.__dict__["role_id"] = role_id
         __props__.__dict__["role_type"] = role_type
         __props__.__dict__["target_app_lists"] = target_app_lists
         __props__.__dict__["target_group_lists"] = target_group_lists
@@ -385,6 +441,22 @@ class Role(pulumi.CustomResource):
         ID of group to attach admin roles to
         """
         return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="resourceSetId")
+    def resource_set_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Resource Set ID. Required for role_type = `CUSTOM`
+        """
+        return pulumi.get(self, "resource_set_id")
+
+    @property
+    @pulumi.getter(name="roleId")
+    def role_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Role ID. Required for role_type = `CUSTOM`
+        """
+        return pulumi.get(self, "role_id")
 
     @property
     @pulumi.getter(name="roleType")

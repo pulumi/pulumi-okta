@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example &amp;#60;app id&amp;#62;/&amp;#60;property name&amp;#62;
+ * $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example &lt;app_id&gt;/&lt;property_name&gt;
  * ```
  * 
  */

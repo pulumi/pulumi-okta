@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:trustedorigin/origin:Origin example &amp;#60;trusted origin id&amp;#62;
+ * $ pulumi import okta:trustedorigin/origin:Origin example &lt;trusted_origin_id&gt;
  * ```
  * 
  */

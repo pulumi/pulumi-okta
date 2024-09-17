@@ -38,7 +38,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62
+ * $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example <app_id>
  * ```
  */
 export class AppGroupAssignments extends pulumi.CustomResource {

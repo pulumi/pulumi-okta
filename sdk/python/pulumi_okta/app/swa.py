@@ -897,7 +897,7 @@ class Swa(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/swa:Swa example &#60;app id&#62;
+        $ pulumi import okta:app/swa:Swa example <app_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -958,7 +958,7 @@ class Swa(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/swa:Swa example &#60;app id&#62;
+        $ pulumi import okta:app/swa:Swa example <app_id>
         ```
 
         :param str resource_name: The name of the resource.

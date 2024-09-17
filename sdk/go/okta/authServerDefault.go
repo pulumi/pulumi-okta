@@ -45,7 +45,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/authServerDefault:AuthServerDefault example &#60;default&#62;
+// $ pulumi import okta:index/authServerDefault:AuthServerDefault example <default>
 // ```
 type AuthServerDefault struct {
 	pulumi.CustomResourceState

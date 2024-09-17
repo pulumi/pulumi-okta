@@ -164,13 +164,13 @@ class GroupMemberships(pulumi.CustomResource):
         an Okta Group's memberships can be imported via the Okta group ID.
 
         ```sh
-        $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;
+        $ pulumi import okta:index/groupMemberships:GroupMemberships test <group_id>
         ```
 
         optional parameter track all users will also import all user id currently assigned to the group
 
         ```sh
-        $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;/&#60;true&#62;
+        $ pulumi import okta:index/groupMemberships:GroupMemberships test <group_id>/<true>
         ```
 
         :param str resource_name: The name of the resource.
@@ -219,13 +219,13 @@ class GroupMemberships(pulumi.CustomResource):
         an Okta Group's memberships can be imported via the Okta group ID.
 
         ```sh
-        $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;
+        $ pulumi import okta:index/groupMemberships:GroupMemberships test <group_id>
         ```
 
         optional parameter track all users will also import all user id currently assigned to the group
 
         ```sh
-        $ pulumi import okta:index/groupMemberships:GroupMemberships test &#60;group id&#62;/&#60;true&#62;
+        $ pulumi import okta:index/groupMemberships:GroupMemberships test <group_id>/<true>
         ```
 
         :param str resource_name: The name of the resource.

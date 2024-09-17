@@ -47,7 +47,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:app/bookmark:Bookmark example &#60;app id&#62t
+// $ pulumi import okta:app/bookmark:Bookmark example <app_id>
 // ```
 type Bookmark struct {
 	pulumi.CustomResourceState

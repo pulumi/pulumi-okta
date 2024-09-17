@@ -181,7 +181,7 @@ class Origin(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:trustedorigin/origin:Origin example &#60;trusted origin id&#62;
+        $ pulumi import okta:trustedorigin/origin:Origin example <trusted_origin_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -215,7 +215,7 @@ class Origin(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:trustedorigin/origin:Origin example &#60;trusted origin id&#62;
+        $ pulumi import okta:trustedorigin/origin:Origin example <trusted_origin_id>
         ```
 
         :param str resource_name: The name of the resource.

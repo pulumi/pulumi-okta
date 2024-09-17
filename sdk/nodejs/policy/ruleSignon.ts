@@ -94,7 +94,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:policy/ruleSignon:RuleSignon example &#60;policy id&#62;/&#60;rule id&#62;
+ * $ pulumi import okta:policy/ruleSignon:RuleSignon example <policy_id>/<rule_id>
  * ```
  */
 export class RuleSignon extends pulumi.CustomResource {

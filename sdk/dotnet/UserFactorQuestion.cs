@@ -60,7 +60,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &amp;#60;user id&amp;#62;/&amp;#60;question factor id&amp;#62;
+    /// $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example &lt;user_id&gt;/&lt;question_factor_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/userFactorQuestion:UserFactorQuestion")]

@@ -42,13 +42,13 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/domain:Domain example &#60;domain_id&#62;
+// $ pulumi import okta:index/domain:Domain example <domain_id>
 // ```
 type Domain struct {
 	pulumi.CustomResourceState
 
 	// Brand id of the domain
-	BrandId pulumi.StringPtrOutput `pulumi:"brandId"`
+	BrandId pulumi.StringOutput `pulumi:"brandId"`
 	// Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
 	CertificateSourceType pulumi.StringPtrOutput `pulumi:"certificateSourceType"`
 	// TXT and CNAME records to be registered for the Domain
@@ -225,8 +225,8 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 }
 
 // Brand id of the domain
-func (o DomainOutput) BrandId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.BrandId }).(pulumi.StringPtrOutput)
+func (o DomainOutput) BrandId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.BrandId }).(pulumi.StringOutput)
 }
 
 // Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL

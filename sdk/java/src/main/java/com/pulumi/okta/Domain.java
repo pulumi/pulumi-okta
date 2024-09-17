@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/domain:Domain example &amp;#60;domain_id&amp;#62;
+ * $ pulumi import okta:index/domain:Domain example &lt;domain_id&gt;
  * ```
  * 
  */
@@ -68,14 +68,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="brandId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> brandId;
+    private Output<String> brandId;
 
     /**
      * @return Brand id of the domain
      * 
      */
-    public Output<Optional<String>> brandId() {
-        return Codegen.optional(this.brandId);
+    public Output<String> brandId() {
+        return this.brandId;
     }
     /**
      * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL

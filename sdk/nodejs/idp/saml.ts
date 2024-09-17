@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:idp/saml:Saml example &#60;idp id&#62;
+ * $ pulumi import okta:idp/saml:Saml example <idp_id>
  * ```
  */
 export class Saml extends pulumi.CustomResource {

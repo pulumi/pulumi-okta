@@ -217,7 +217,7 @@ class Signon(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:policy/signon:Signon example &#60;policy id&#62;
+        $ pulumi import okta:policy/signon:Signon example <policy_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -253,7 +253,7 @@ class Signon(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:policy/signon:Signon example &#60;policy id&#62;
+        $ pulumi import okta:policy/signon:Signon example <policy_id>
         ```
 
         :param str resource_name: The name of the resource.

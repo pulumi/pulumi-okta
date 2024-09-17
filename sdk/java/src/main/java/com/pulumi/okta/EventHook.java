@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/eventHook:EventHook example &amp;#60;hook id&amp;#62;
+ * $ pulumi import okta:index/eventHook:EventHook example &lt;hook_id&gt;
  * ```
  * 
  */

@@ -164,7 +164,7 @@ class LogStream(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/logStream:LogStream example &#60;strema id&#62;
+        $ pulumi import okta:index/logStream:LogStream example <stream_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -185,7 +185,7 @@ class LogStream(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/logStream:LogStream example &#60;strema id&#62;
+        $ pulumi import okta:index/logStream:LogStream example <stream_id>
         ```
 
         :param str resource_name: The name of the resource.

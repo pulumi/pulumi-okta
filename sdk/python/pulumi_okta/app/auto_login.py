@@ -882,7 +882,7 @@ class AutoLogin(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62
+        $ pulumi import okta:app/autoLogin:AutoLogin example <app_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -928,7 +928,7 @@ class AutoLogin(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62
+        $ pulumi import okta:app/autoLogin:AutoLogin example <app_id>
         ```
 
         :param str resource_name: The name of the resource.

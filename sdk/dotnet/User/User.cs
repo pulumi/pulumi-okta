@@ -74,7 +74,7 @@ namespace Pulumi.Okta.User
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:user/user:User example &amp;#60;user id&amp;#62;
+    /// $ pulumi import okta:user/user:User example &lt;user_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:user/user:User")]

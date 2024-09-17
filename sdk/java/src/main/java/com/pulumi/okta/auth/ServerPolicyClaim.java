@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example &amp;#60;auth server id&amp;#62;/&amp;#60;policy id&amp;#62;/&amp;#60;policy rule id&amp;#62;
+ * $ pulumi import okta:auth/serverPolicyClaim:ServerPolicyClaim example &lt;auth_server_id&gt;/&lt;policy_id&gt;/&lt;policy_rule_id&gt;
  * ```
  * 
  * @deprecated

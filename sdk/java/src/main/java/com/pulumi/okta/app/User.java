@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:app/user:User example &amp;#60;app id&amp;#62;/&amp;#60;user id&amp;#62;
+ * $ pulumi import okta:app/user:User example &lt;app_id&gt;/&lt;user_id&gt;
  * ```
  * 
  */

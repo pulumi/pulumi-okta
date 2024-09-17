@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:app/autoLogin:AutoLogin example &#60;app id&#62
+ * $ pulumi import okta:app/autoLogin:AutoLogin example <app_id>
  * ```
  */
 export class AutoLogin extends pulumi.CustomResource {

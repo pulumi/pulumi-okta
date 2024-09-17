@@ -65,7 +65,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example &#60;app_id&#62
+// $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example <app_id>
 // ```
 type AppGroupAssignments struct {
 	pulumi.CustomResourceState

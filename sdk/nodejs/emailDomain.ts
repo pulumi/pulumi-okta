@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/emailDomain:EmailDomain example &#60;domain id&#62;
+ * $ pulumi import okta:index/emailDomain:EmailDomain example <domain_id>
  * ```
  */
 export class EmailDomain extends pulumi.CustomResource {

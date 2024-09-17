@@ -31,7 +31,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/brand:Brand example &amp;#60;brand id&amp;#62;
+    /// $ pulumi import okta:index/brand:Brand example &lt;brand_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/brand:Brand")]

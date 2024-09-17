@@ -37,7 +37,7 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &amp;#60;policy id&amp;#62;
+    /// $ pulumi import okta:index/policyProfileEnrollment:PolicyProfileEnrollment example &lt;policy_id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/policyProfileEnrollment:PolicyProfileEnrollment")]

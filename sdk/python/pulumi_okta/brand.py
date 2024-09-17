@@ -399,7 +399,7 @@ class Brand(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/brand:Brand example &#60;brand id&#62;
+        $ pulumi import okta:index/brand:Brand example <brand_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -433,7 +433,7 @@ class Brand(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import okta:index/brand:Brand example &#60;brand id&#62;
+        $ pulumi import okta:index/brand:Brand example <brand_id>
         ```
 
         :param str resource_name: The name of the resource.
