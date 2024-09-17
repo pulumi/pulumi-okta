@@ -1,13 +1,15 @@
 module github.com/pulumi/pulumi-okta/provider/v4
 
-go 1.21.12
+go 1.22
+
+toolchain go1.22.7
 
 require (
 	github.com/okta/terraform-provider-okta v0.0.0
 	github.com/pulumi/providertest v0.0.14
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.42.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.89.1
-	github.com/pulumi/pulumi/sdk/v3 v3.129.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.43.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.90.0
+	github.com/pulumi/pulumi/sdk/v3 v3.130.0
 	github.com/stretchr/testify v1.9.0
 )
 
@@ -33,13 +35,13 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/keyvault/azkeys v0.10.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/keyvault/internal v0.7.1 // indirect
 	github.com/AzureAD/microsoft-authentication-library-for-go v1.2.2 // indirect
-	github.com/BurntSushi/toml v1.3.2 // indirect
+	github.com/BurntSushi/toml v1.4.0 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/semver/v3 v3.2.0 // indirect
 	github.com/Masterminds/sprig/v3 v3.2.3 // indirect
 	github.com/Microsoft/go-winio v0.6.1 // indirect
-	github.com/ProtonMail/go-crypto v1.1.0-alpha.0 // indirect
+	github.com/ProtonMail/go-crypto v1.1.0-alpha.2 // indirect
 	github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/apparentlymart/go-cidr v1.1.0 // indirect
@@ -124,7 +126,7 @@ require (
 	github.com/hashicorp/go-secure-stdlib/strutil v0.1.2 // indirect
 	github.com/hashicorp/go-sockaddr v1.0.6 // indirect
 	github.com/hashicorp/go-uuid v1.0.3 // indirect
-	github.com/hashicorp/go-version v1.6.0 // indirect
+	github.com/hashicorp/go-version v1.7.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/hashicorp/hcl/v2 v2.19.1 // indirect
 	github.com/hashicorp/hil v0.0.0-20190212132231-97b3a9cdfa93 // indirect
@@ -182,7 +184,7 @@ require (
 	github.com/nxadm/tail v1.4.11 // indirect
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/okta/okta-sdk-golang/v4 v4.1.2 // indirect
-	github.com/okta/okta-sdk-golang/v5 v5.0.0 // indirect
+	github.com/okta/okta-sdk-golang/v5 v5.0.2 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
@@ -200,7 +202,7 @@ require (
 	github.com/pulumi/pulumi-java/pkg v0.14.0 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
 	github.com/pulumi/pulumi-yaml v1.9.2 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.129.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.130.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
@@ -233,7 +235,7 @@ require (
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect
 	github.com/yuin/goldmark v1.7.4 // indirect
-	github.com/zclconf/go-cty v1.14.2 // indirect
+	github.com/zclconf/go-cty v1.14.4 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.49.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.49.0 // indirect
