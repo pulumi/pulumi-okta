@@ -66,14 +66,20 @@ type GetAuthServerClaimsResult struct {
 
 func GetAuthServerClaimsOutput(ctx *pulumi.Context, args GetAuthServerClaimsOutputArgs, opts ...pulumi.InvokeOption) GetAuthServerClaimsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAuthServerClaimsResult, error) {
+		ApplyT(func(v interface{}) (GetAuthServerClaimsResultOutput, error) {
 			args := v.(GetAuthServerClaimsArgs)
-			r, err := GetAuthServerClaims(ctx, &args, opts...)
-			var s GetAuthServerClaimsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetAuthServerClaimsResult
+			secret, err := ctx.InvokePackageRaw("okta:index/getAuthServerClaims:getAuthServerClaims", args, &rv, "", opts...)
+			if err != nil {
+				return GetAuthServerClaimsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetAuthServerClaimsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetAuthServerClaimsResultOutput), nil
+			}
+			return output, nil
 		}).(GetAuthServerClaimsResultOutput)
 }
 

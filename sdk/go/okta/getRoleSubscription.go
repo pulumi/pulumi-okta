@@ -71,14 +71,20 @@ type LookupRoleSubscriptionResult struct {
 
 func LookupRoleSubscriptionOutput(ctx *pulumi.Context, args LookupRoleSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupRoleSubscriptionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRoleSubscriptionResult, error) {
+		ApplyT(func(v interface{}) (LookupRoleSubscriptionResultOutput, error) {
 			args := v.(LookupRoleSubscriptionArgs)
-			r, err := LookupRoleSubscription(ctx, &args, opts...)
-			var s LookupRoleSubscriptionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRoleSubscriptionResult
+			secret, err := ctx.InvokePackageRaw("okta:index/getRoleSubscription:getRoleSubscription", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRoleSubscriptionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRoleSubscriptionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRoleSubscriptionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRoleSubscriptionResultOutput)
 }
 

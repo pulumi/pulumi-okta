@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
  * Get a single Theme of a Brand of an Okta Organization.
  */
 export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promise<GetThemeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getTheme:getTheme", {
         "brandId": args.brandId,
@@ -99,7 +98,11 @@ export interface GetThemeResult {
  * Get a single Theme of a Brand of an Okta Organization.
  */
 export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemeResult> {
-    return pulumi.output(args).apply((a: any) => getTheme(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getTheme:getTheme", {
+        "brandId": args.brandId,
+        "themeId": args.themeId,
+    }, opts);
 }
 
 /**

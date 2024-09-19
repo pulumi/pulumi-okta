@@ -25,7 +25,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getUserSecurityQuestions(args: GetUserSecurityQuestionsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSecurityQuestionsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", {
         "userId": args.userId,
@@ -75,7 +74,10 @@ export interface GetUserSecurityQuestionsResult {
  * ```
  */
 export function getUserSecurityQuestionsOutput(args: GetUserSecurityQuestionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSecurityQuestionsResult> {
-    return pulumi.output(args).apply((a: any) => getUserSecurityQuestions(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", {
+        "userId": args.userId,
+    }, opts);
 }
 
 /**

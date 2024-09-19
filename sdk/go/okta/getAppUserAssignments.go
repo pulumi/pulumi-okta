@@ -64,14 +64,20 @@ type GetAppUserAssignmentsResult struct {
 
 func GetAppUserAssignmentsOutput(ctx *pulumi.Context, args GetAppUserAssignmentsOutputArgs, opts ...pulumi.InvokeOption) GetAppUserAssignmentsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAppUserAssignmentsResult, error) {
+		ApplyT(func(v interface{}) (GetAppUserAssignmentsResultOutput, error) {
 			args := v.(GetAppUserAssignmentsArgs)
-			r, err := GetAppUserAssignments(ctx, &args, opts...)
-			var s GetAppUserAssignmentsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetAppUserAssignmentsResult
+			secret, err := ctx.InvokePackageRaw("okta:index/getAppUserAssignments:getAppUserAssignments", args, &rv, "", opts...)
+			if err != nil {
+				return GetAppUserAssignmentsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetAppUserAssignmentsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetAppUserAssignmentsResultOutput), nil
+			}
+			return output, nil
 		}).(GetAppUserAssignmentsResultOutput)
 }
 

@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
  * Get a single Brand from Okta.
  */
 export function getBrand(args: GetBrandArgs, opts?: pulumi.InvokeOptions): Promise<GetBrandResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getBrand:getBrand", {
         "brandId": args.brandId,
@@ -58,7 +57,10 @@ export interface GetBrandResult {
  * Get a single Brand from Okta.
  */
 export function getBrandOutput(args: GetBrandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrandResult> {
-    return pulumi.output(args).apply((a: any) => getBrand(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getBrand:getBrand", {
+        "brandId": args.brandId,
+    }, opts);
 }
 
 /**

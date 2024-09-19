@@ -46,14 +46,20 @@ type LookupBrandResult struct {
 
 func LookupBrandOutput(ctx *pulumi.Context, args LookupBrandOutputArgs, opts ...pulumi.InvokeOption) LookupBrandResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupBrandResult, error) {
+		ApplyT(func(v interface{}) (LookupBrandResultOutput, error) {
 			args := v.(LookupBrandArgs)
-			r, err := LookupBrand(ctx, &args, opts...)
-			var s LookupBrandResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupBrandResult
+			secret, err := ctx.InvokePackageRaw("okta:index/getBrand:getBrand", args, &rv, "", opts...)
+			if err != nil {
+				return LookupBrandResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupBrandResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupBrandResultOutput), nil
+			}
+			return output, nil
 		}).(LookupBrandResultOutput)
 }
 

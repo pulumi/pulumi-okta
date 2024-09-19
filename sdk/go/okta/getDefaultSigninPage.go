@@ -46,14 +46,20 @@ type GetDefaultSigninPageResult struct {
 
 func GetDefaultSigninPageOutput(ctx *pulumi.Context, args GetDefaultSigninPageOutputArgs, opts ...pulumi.InvokeOption) GetDefaultSigninPageResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDefaultSigninPageResult, error) {
+		ApplyT(func(v interface{}) (GetDefaultSigninPageResultOutput, error) {
 			args := v.(GetDefaultSigninPageArgs)
-			r, err := GetDefaultSigninPage(ctx, &args, opts...)
-			var s GetDefaultSigninPageResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDefaultSigninPageResult
+			secret, err := ctx.InvokePackageRaw("okta:index/getDefaultSigninPage:getDefaultSigninPage", args, &rv, "", opts...)
+			if err != nil {
+				return GetDefaultSigninPageResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDefaultSigninPageResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDefaultSigninPageResultOutput), nil
+			}
+			return output, nil
 		}).(GetDefaultSigninPageResultOutput)
 }
 

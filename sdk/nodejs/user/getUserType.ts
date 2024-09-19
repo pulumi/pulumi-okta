@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUserType(args: GetUserTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetUserTypeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:user/getUserType:getUserType", {
         "name": args.name,
@@ -72,7 +71,10 @@ export interface GetUserTypeResult {
  * ```
  */
 export function getUserTypeOutput(args: GetUserTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserTypeResult> {
-    return pulumi.output(args).apply((a: any) => getUserType(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:user/getUserType:getUserType", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  * Retrieve the default signin page of a brand
  */
 export function getDefaultSigninPage(args: GetDefaultSigninPageArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultSigninPageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getDefaultSigninPage:getDefaultSigninPage", {
         "brandId": args.brandId,
@@ -58,7 +57,12 @@ export interface GetDefaultSigninPageResult {
  * Retrieve the default signin page of a brand
  */
 export function getDefaultSigninPageOutput(args: GetDefaultSigninPageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultSigninPageResult> {
-    return pulumi.output(args).apply((a: any) => getDefaultSigninPage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getDefaultSigninPage:getDefaultSigninPage", {
+        "brandId": args.brandId,
+        "contentSecurityPolicySetting": args.contentSecurityPolicySetting,
+        "widgetCustomizations": args.widgetCustomizations,
+    }, opts);
 }
 
 /**

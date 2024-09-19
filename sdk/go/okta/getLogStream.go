@@ -46,14 +46,20 @@ type LookupLogStreamResult struct {
 
 func LookupLogStreamOutput(ctx *pulumi.Context, args LookupLogStreamOutputArgs, opts ...pulumi.InvokeOption) LookupLogStreamResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLogStreamResult, error) {
+		ApplyT(func(v interface{}) (LookupLogStreamResultOutput, error) {
 			args := v.(LookupLogStreamArgs)
-			r, err := LookupLogStream(ctx, &args, opts...)
-			var s LookupLogStreamResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLogStreamResult
+			secret, err := ctx.InvokePackageRaw("okta:index/getLogStream:getLogStream", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLogStreamResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLogStreamResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLogStreamResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLogStreamResultOutput)
 }
 

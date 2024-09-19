@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  */
 export function getLogStream(args?: GetLogStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetLogStreamResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getLogStream:getLogStream", {
         "id": args.id,
@@ -61,7 +60,13 @@ export interface GetLogStreamResult {
  * Log Streams
  */
 export function getLogStreamOutput(args?: GetLogStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogStreamResult> {
-    return pulumi.output(args).apply((a: any) => getLogStream(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getLogStream:getLogStream", {
+        "id": args.id,
+        "name": args.name,
+        "settings": args.settings,
+    }, opts);
 }
 
 /**
