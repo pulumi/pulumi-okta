@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  */
 export function getSaml(args?: GetSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:idp/getSaml:getSaml", {
         "id": args.id,
@@ -118,7 +117,12 @@ export interface GetSamlResult {
  * ```
  */
 export function getSamlOutput(args?: GetSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamlResult> {
-    return pulumi.output(args).apply((a: any) => getSaml(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:idp/getSaml:getSaml", {
+        "id": args.id,
+        "name": args.name,
+    }, opts);
 }
 
 /**

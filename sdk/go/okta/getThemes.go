@@ -40,14 +40,20 @@ type GetThemesResult struct {
 
 func GetThemesOutput(ctx *pulumi.Context, args GetThemesOutputArgs, opts ...pulumi.InvokeOption) GetThemesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetThemesResult, error) {
+		ApplyT(func(v interface{}) (GetThemesResultOutput, error) {
 			args := v.(GetThemesArgs)
-			r, err := GetThemes(ctx, &args, opts...)
-			var s GetThemesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetThemesResult
+			secret, err := ctx.InvokePackageRaw("okta:index/getThemes:getThemes", args, &rv, "", opts...)
+			if err != nil {
+				return GetThemesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetThemesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetThemesResultOutput), nil
+			}
+			return output, nil
 		}).(GetThemesResultOutput)
 }
 

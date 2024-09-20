@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getBrands(opts?: pulumi.InvokeOptions): Promise<GetBrandsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getBrands:getBrands", {
     }, opts);
@@ -51,5 +50,7 @@ export interface GetBrandsResult {
  * ```
  */
 export function getBrandsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetBrandsResult> {
-    return pulumi.output(getBrands(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getBrands:getBrands", {
+    }, opts);
 }

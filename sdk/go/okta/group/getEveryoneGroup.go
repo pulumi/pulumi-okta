@@ -66,14 +66,20 @@ type GetEveryoneGroupResult struct {
 
 func GetEveryoneGroupOutput(ctx *pulumi.Context, args GetEveryoneGroupOutputArgs, opts ...pulumi.InvokeOption) GetEveryoneGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetEveryoneGroupResult, error) {
+		ApplyT(func(v interface{}) (GetEveryoneGroupResultOutput, error) {
 			args := v.(GetEveryoneGroupArgs)
-			r, err := GetEveryoneGroup(ctx, &args, opts...)
-			var s GetEveryoneGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetEveryoneGroupResult
+			secret, err := ctx.InvokePackageRaw("okta:group/getEveryoneGroup:getEveryoneGroup", args, &rv, "", opts...)
+			if err != nil {
+				return GetEveryoneGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetEveryoneGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetEveryoneGroupResultOutput), nil
+			}
+			return output, nil
 		}).(GetEveryoneGroupResultOutput)
 }
 

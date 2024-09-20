@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  */
 export function getTrustedOrigins(args?: GetTrustedOriginsArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustedOriginsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getTrustedOrigins:getTrustedOrigins", {
         "filter": args.filter,
@@ -64,7 +63,11 @@ export interface GetTrustedOriginsResult {
  * ```
  */
 export function getTrustedOriginsOutput(args?: GetTrustedOriginsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustedOriginsResult> {
-    return pulumi.output(args).apply((a: any) => getTrustedOrigins(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getTrustedOrigins:getTrustedOrigins", {
+        "filter": args.filter,
+    }, opts);
 }
 
 /**

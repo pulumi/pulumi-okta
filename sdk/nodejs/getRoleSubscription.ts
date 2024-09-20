@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRoleSubscription(args: GetRoleSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getRoleSubscription:getRoleSubscription", {
         "notificationType": args.notificationType,
@@ -79,7 +78,11 @@ export interface GetRoleSubscriptionResult {
  * ```
  */
 export function getRoleSubscriptionOutput(args: GetRoleSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getRoleSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getRoleSubscription:getRoleSubscription", {
+        "notificationType": args.notificationType,
+        "roleType": args.roleType,
+    }, opts);
 }
 
 /**

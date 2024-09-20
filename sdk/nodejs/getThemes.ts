@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  * Get Themes of a Brand of an Okta Organization.
  */
 export function getThemes(args: GetThemesArgs, opts?: pulumi.InvokeOptions): Promise<GetThemesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getThemes:getThemes", {
         "brandId": args.brandId,
@@ -48,7 +47,10 @@ export interface GetThemesResult {
  * Get Themes of a Brand of an Okta Organization.
  */
 export function getThemesOutput(args: GetThemesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemesResult> {
-    return pulumi.output(args).apply((a: any) => getThemes(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getThemes:getThemes", {
+        "brandId": args.brandId,
+    }, opts);
 }
 
 /**

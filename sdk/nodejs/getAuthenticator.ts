@@ -27,7 +27,6 @@ import * as utilities from "./utilities";
  */
 export function getAuthenticator(args?: GetAuthenticatorArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthenticatorResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getAuthenticator:getAuthenticator", {
         "id": args.id,
@@ -129,7 +128,13 @@ export interface GetAuthenticatorResult {
  * ```
  */
 export function getAuthenticatorOutput(args?: GetAuthenticatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthenticatorResult> {
-    return pulumi.output(args).apply((a: any) => getAuthenticator(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getAuthenticator:getAuthenticator", {
+        "id": args.id,
+        "key": args.key,
+        "name": args.name,
+    }, opts);
 }
 
 /**

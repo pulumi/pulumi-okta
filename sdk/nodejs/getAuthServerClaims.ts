@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getAuthServerClaims(args: GetAuthServerClaimsArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthServerClaimsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getAuthServerClaims:getAuthServerClaims", {
         "authServerId": args.authServerId,
@@ -70,7 +69,10 @@ export interface GetAuthServerClaimsResult {
  * ```
  */
 export function getAuthServerClaimsOutput(args: GetAuthServerClaimsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthServerClaimsResult> {
-    return pulumi.output(args).apply((a: any) => getAuthServerClaims(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getAuthServerClaims:getAuthServerClaims", {
+        "authServerId": args.authServerId,
+    }, opts);
 }
 
 /**

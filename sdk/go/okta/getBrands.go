@@ -55,13 +55,19 @@ type GetBrandsResult struct {
 }
 
 func GetBrandsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetBrandsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetBrandsResult, error) {
-		r, err := GetBrands(ctx, opts...)
-		var s GetBrandsResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetBrandsResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetBrandsResult
+		secret, err := ctx.InvokePackageRaw("okta:index/getBrands:getBrands", nil, &rv, "", opts...)
+		if err != nil {
+			return GetBrandsResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetBrandsResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetBrandsResultOutput), nil
+		}
+		return output, nil
 	}).(GetBrandsResultOutput)
 }
 

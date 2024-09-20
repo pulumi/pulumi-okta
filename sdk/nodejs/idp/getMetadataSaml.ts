@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  */
 export function getMetadataSaml(args?: GetMetadataSamlArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataSamlResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:idp/getMetadataSaml:getMetadataSaml", {
         "idpId": args.idpId,
@@ -97,7 +96,11 @@ export interface GetMetadataSamlResult {
  * ```
  */
 export function getMetadataSamlOutput(args?: GetMetadataSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataSamlResult> {
-    return pulumi.output(args).apply((a: any) => getMetadataSaml(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:idp/getMetadataSaml:getMetadataSaml", {
+        "idpId": args.idpId,
+    }, opts);
 }
 
 /**

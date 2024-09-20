@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUserProfileMappingSource(opts?: pulumi.InvokeOptions): Promise<GetUserProfileMappingSourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", {
     }, opts);
@@ -59,5 +58,7 @@ export interface GetUserProfileMappingSourceResult {
  * ```
  */
 export function getUserProfileMappingSourceOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetUserProfileMappingSourceResult> {
-    return pulumi.output(getUserProfileMappingSource(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", {
+    }, opts);
 }

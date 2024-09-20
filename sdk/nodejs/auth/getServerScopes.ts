@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServerScopes(args: GetServerScopesArgs, opts?: pulumi.InvokeOptions): Promise<GetServerScopesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:auth/getServerScopes:getServerScopes", {
         "authServerId": args.authServerId,
@@ -70,7 +69,10 @@ export interface GetServerScopesResult {
  * ```
  */
 export function getServerScopesOutput(args: GetServerScopesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerScopesResult> {
-    return pulumi.output(args).apply((a: any) => getServerScopes(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:auth/getServerScopes:getServerScopes", {
+        "authServerId": args.authServerId,
+    }, opts);
 }
 
 /**

@@ -98,14 +98,20 @@ type LookupAuthenticatorResult struct {
 
 func LookupAuthenticatorOutput(ctx *pulumi.Context, args LookupAuthenticatorOutputArgs, opts ...pulumi.InvokeOption) LookupAuthenticatorResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAuthenticatorResult, error) {
+		ApplyT(func(v interface{}) (LookupAuthenticatorResultOutput, error) {
 			args := v.(LookupAuthenticatorArgs)
-			r, err := LookupAuthenticator(ctx, &args, opts...)
-			var s LookupAuthenticatorResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAuthenticatorResult
+			secret, err := ctx.InvokePackageRaw("okta:index/getAuthenticator:getAuthenticator", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAuthenticatorResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAuthenticatorResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAuthenticatorResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAuthenticatorResultOutput)
 }
 
