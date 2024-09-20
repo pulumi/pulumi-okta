@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:user/getUsers:getUsers", {
         "compoundSearchOperator": args.compoundSearchOperator,
@@ -94,7 +93,16 @@ export interface GetUsersResult {
  * Get a list of users from Okta.
  */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
-    return pulumi.output(args).apply((a: any) => getUsers(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:user/getUsers:getUsers", {
+        "compoundSearchOperator": args.compoundSearchOperator,
+        "delayReadSeconds": args.delayReadSeconds,
+        "groupId": args.groupId,
+        "includeGroups": args.includeGroups,
+        "includeRoles": args.includeRoles,
+        "searches": args.searches,
+    }, opts);
 }
 
 /**

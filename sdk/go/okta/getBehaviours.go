@@ -65,14 +65,20 @@ type GetBehavioursResult struct {
 
 func GetBehavioursOutput(ctx *pulumi.Context, args GetBehavioursOutputArgs, opts ...pulumi.InvokeOption) GetBehavioursResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetBehavioursResult, error) {
+		ApplyT(func(v interface{}) (GetBehavioursResultOutput, error) {
 			args := v.(GetBehavioursArgs)
-			r, err := GetBehaviours(ctx, &args, opts...)
-			var s GetBehavioursResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetBehavioursResult
+			secret, err := ctx.InvokePackageRaw("okta:index/getBehaviours:getBehaviours", args, &rv, "", opts...)
+			if err != nil {
+				return GetBehavioursResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetBehavioursResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetBehavioursResultOutput), nil
+			}
+			return output, nil
 		}).(GetBehavioursResultOutput)
 }
 

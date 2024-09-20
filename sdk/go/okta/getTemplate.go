@@ -44,14 +44,20 @@ type GetTemplateResult struct {
 
 func GetTemplateOutput(ctx *pulumi.Context, args GetTemplateOutputArgs, opts ...pulumi.InvokeOption) GetTemplateResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetTemplateResult, error) {
+		ApplyT(func(v interface{}) (GetTemplateResultOutput, error) {
 			args := v.(GetTemplateArgs)
-			r, err := GetTemplate(ctx, &args, opts...)
-			var s GetTemplateResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetTemplateResult
+			secret, err := ctx.InvokePackageRaw("okta:index/getTemplate:getTemplate", args, &rv, "", opts...)
+			if err != nil {
+				return GetTemplateResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetTemplateResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetTemplateResultOutput), nil
+			}
+			return output, nil
 		}).(GetTemplateResultOutput)
 }
 

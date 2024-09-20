@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  */
 export function getBehaviours(args?: GetBehavioursArgs, opts?: pulumi.InvokeOptions): Promise<GetBehavioursResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getBehaviours:getBehaviours", {
         "q": args.q,
@@ -68,7 +67,11 @@ export interface GetBehavioursResult {
  * ```
  */
 export function getBehavioursOutput(args?: GetBehavioursOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBehavioursResult> {
-    return pulumi.output(args).apply((a: any) => getBehaviours(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getBehaviours:getBehaviours", {
+        "q": args.q,
+    }, opts);
 }
 
 /**

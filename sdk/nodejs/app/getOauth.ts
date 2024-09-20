@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  */
 export function getOauth(args?: GetOauthArgs, opts?: pulumi.InvokeOptions): Promise<GetOauthResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:app/getOauth:getOauth", {
         "activeOnly": args.activeOnly,
@@ -208,7 +207,16 @@ export interface GetOauthResult {
  * ```
  */
 export function getOauthOutput(args?: GetOauthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOauthResult> {
-    return pulumi.output(args).apply((a: any) => getOauth(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:app/getOauth:getOauth", {
+        "activeOnly": args.activeOnly,
+        "id": args.id,
+        "label": args.label,
+        "labelPrefix": args.labelPrefix,
+        "skipGroups": args.skipGroups,
+        "skipUsers": args.skipUsers,
+    }, opts);
 }
 
 /**

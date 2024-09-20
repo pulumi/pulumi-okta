@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  */
 export function getApp(args?: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:app/getApp:getApp", {
         "activeOnly": args.activeOnly,
@@ -152,7 +151,16 @@ export interface GetAppResult {
  * ```
  */
 export function getAppOutput(args?: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
-    return pulumi.output(args).apply((a: any) => getApp(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:app/getApp:getApp", {
+        "activeOnly": args.activeOnly,
+        "id": args.id,
+        "label": args.label,
+        "labelPrefix": args.labelPrefix,
+        "skipGroups": args.skipGroups,
+        "skipUsers": args.skipUsers,
+    }, opts);
 }
 
 /**

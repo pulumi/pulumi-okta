@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getAppGroupAssignments(args: GetAppGroupAssignmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetAppGroupAssignmentsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getAppGroupAssignments:getAppGroupAssignments", {
         "id": args.id,
@@ -64,7 +63,10 @@ export interface GetAppGroupAssignmentsResult {
  * ```
  */
 export function getAppGroupAssignmentsOutput(args: GetAppGroupAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppGroupAssignmentsResult> {
-    return pulumi.output(args).apply((a: any) => getAppGroupAssignments(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getAppGroupAssignments:getAppGroupAssignments", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

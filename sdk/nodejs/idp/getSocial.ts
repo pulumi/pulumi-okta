@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  */
 export function getSocial(args?: GetSocialArgs, opts?: pulumi.InvokeOptions): Promise<GetSocialResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:idp/getSocial:getSocial", {
         "id": args.id,
@@ -170,7 +169,12 @@ export interface GetSocialResult {
  * ```
  */
 export function getSocialOutput(args?: GetSocialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSocialResult> {
-    return pulumi.output(args).apply((a: any) => getSocial(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:idp/getSocial:getSocial", {
+        "id": args.id,
+        "name": args.name,
+    }, opts);
 }
 
 /**

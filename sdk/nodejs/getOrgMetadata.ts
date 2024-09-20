@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  */
 export function getOrgMetadata(args?: GetOrgMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetOrgMetadataResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getOrgMetadata:getOrgMetadata", {
         "domains": args.domains,
@@ -58,7 +57,12 @@ export interface GetOrgMetadataResult {
  * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
  */
 export function getOrgMetadataOutput(args?: GetOrgMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrgMetadataResult> {
-    return pulumi.output(args).apply((a: any) => getOrgMetadata(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getOrgMetadata:getOrgMetadata", {
+        "domains": args.domains,
+        "settings": args.settings,
+    }, opts);
 }
 
 /**

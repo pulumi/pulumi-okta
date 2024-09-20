@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getAppUserAssignments(args: GetAppUserAssignmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetAppUserAssignmentsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getAppUserAssignments:getAppUserAssignments", {
         "id": args.id,
@@ -64,7 +63,10 @@ export interface GetAppUserAssignmentsResult {
  * ```
  */
 export function getAppUserAssignmentsOutput(args: GetAppUserAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppUserAssignmentsResult> {
-    return pulumi.output(args).apply((a: any) => getAppUserAssignments(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getAppUserAssignments:getAppUserAssignments", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  */
 export function getBehaviour(args?: GetBehaviourArgs, opts?: pulumi.InvokeOptions): Promise<GetBehaviourResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getBehaviour:getBehaviour", {
         "id": args.id,
@@ -60,7 +59,12 @@ export interface GetBehaviourResult {
  * Get a behavior by name or ID.
  */
 export function getBehaviourOutput(args?: GetBehaviourOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBehaviourResult> {
-    return pulumi.output(args).apply((a: any) => getBehaviour(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getBehaviour:getBehaviour", {
+        "id": args.id,
+        "name": args.name,
+    }, opts);
 }
 
 /**

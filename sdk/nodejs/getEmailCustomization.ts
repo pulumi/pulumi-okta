@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
  * Get the email customization of an email template belonging to a brand in an Okta organization.
  */
 export function getEmailCustomization(args: GetEmailCustomizationArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailCustomizationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getEmailCustomization:getEmailCustomization", {
         "brandId": args.brandId,
@@ -80,7 +79,12 @@ export interface GetEmailCustomizationResult {
  * Get the email customization of an email template belonging to a brand in an Okta organization.
  */
 export function getEmailCustomizationOutput(args: GetEmailCustomizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailCustomizationResult> {
-    return pulumi.output(args).apply((a: any) => getEmailCustomization(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getEmailCustomization:getEmailCustomization", {
+        "brandId": args.brandId,
+        "customizationId": args.customizationId,
+        "templateName": args.templateName,
+    }, opts);
 }
 
 /**

@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  */
 export function getNetworkZone(args?: GetNetworkZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkZoneResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getNetworkZone:getNetworkZone", {
         "dynamicLocationsExcludes": args.dynamicLocationsExcludes,
@@ -129,7 +128,15 @@ export interface GetNetworkZoneResult {
  * ```
  */
 export function getNetworkZoneOutput(args?: GetNetworkZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkZoneResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkZone(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:index/getNetworkZone:getNetworkZone", {
+        "dynamicLocationsExcludes": args.dynamicLocationsExcludes,
+        "id": args.id,
+        "ipServiceCategoriesExcludes": args.ipServiceCategoriesExcludes,
+        "ipServiceCategoriesIncludes": args.ipServiceCategoriesIncludes,
+        "name": args.name,
+    }, opts);
 }
 
 /**

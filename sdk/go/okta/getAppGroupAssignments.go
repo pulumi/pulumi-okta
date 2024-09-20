@@ -64,14 +64,20 @@ type LookupAppGroupAssignmentsResult struct {
 
 func LookupAppGroupAssignmentsOutput(ctx *pulumi.Context, args LookupAppGroupAssignmentsOutputArgs, opts ...pulumi.InvokeOption) LookupAppGroupAssignmentsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAppGroupAssignmentsResult, error) {
+		ApplyT(func(v interface{}) (LookupAppGroupAssignmentsResultOutput, error) {
 			args := v.(LookupAppGroupAssignmentsArgs)
-			r, err := LookupAppGroupAssignments(ctx, &args, opts...)
-			var s LookupAppGroupAssignmentsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAppGroupAssignmentsResult
+			secret, err := ctx.InvokePackageRaw("okta:index/getAppGroupAssignments:getAppGroupAssignments", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAppGroupAssignmentsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAppGroupAssignmentsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAppGroupAssignmentsResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAppGroupAssignmentsResultOutput)
 }
 

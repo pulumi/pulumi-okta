@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  */
 export function getRule(args?: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:group/getRule:getRule", {
         "id": args.id,
@@ -95,7 +94,13 @@ export interface GetRuleResult {
  * ```
  */
 export function getRuleOutput(args?: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
-    return pulumi.output(args).apply((a: any) => getRule(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:group/getRule:getRule", {
+        "id": args.id,
+        "name": args.name,
+        "status": args.status,
+    }, opts);
 }
 
 /**

@@ -63,14 +63,20 @@ type GetTrustedOriginsResult struct {
 
 func GetTrustedOriginsOutput(ctx *pulumi.Context, args GetTrustedOriginsOutputArgs, opts ...pulumi.InvokeOption) GetTrustedOriginsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetTrustedOriginsResult, error) {
+		ApplyT(func(v interface{}) (GetTrustedOriginsResultOutput, error) {
 			args := v.(GetTrustedOriginsArgs)
-			r, err := GetTrustedOrigins(ctx, &args, opts...)
-			var s GetTrustedOriginsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetTrustedOriginsResult
+			secret, err := ctx.InvokePackageRaw("okta:index/getTrustedOrigins:getTrustedOrigins", args, &rv, "", opts...)
+			if err != nil {
+				return GetTrustedOriginsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetTrustedOriginsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetTrustedOriginsResultOutput), nil
+			}
+			return output, nil
 		}).(GetTrustedOriginsResultOutput)
 }
 

@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDefaultPolicy(args: GetDefaultPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:policy/getDefaultPolicy:getDefaultPolicy", {
         "type": args.type,
@@ -68,7 +67,10 @@ export interface GetDefaultPolicyResult {
  * ```
  */
 export function getDefaultPolicyOutput(args: GetDefaultPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getDefaultPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:policy/getDefaultPolicy:getDefaultPolicy", {
+        "type": args.type,
+    }, opts);
 }
 
 /**

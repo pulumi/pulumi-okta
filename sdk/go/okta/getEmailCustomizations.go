@@ -44,14 +44,20 @@ type GetEmailCustomizationsResult struct {
 
 func GetEmailCustomizationsOutput(ctx *pulumi.Context, args GetEmailCustomizationsOutputArgs, opts ...pulumi.InvokeOption) GetEmailCustomizationsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetEmailCustomizationsResult, error) {
+		ApplyT(func(v interface{}) (GetEmailCustomizationsResultOutput, error) {
 			args := v.(GetEmailCustomizationsArgs)
-			r, err := GetEmailCustomizations(ctx, &args, opts...)
-			var s GetEmailCustomizationsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetEmailCustomizationsResult
+			secret, err := ctx.InvokePackageRaw("okta:index/getEmailCustomizations:getEmailCustomizations", args, &rv, "", opts...)
+			if err != nil {
+				return GetEmailCustomizationsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetEmailCustomizationsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetEmailCustomizationsResultOutput), nil
+			}
+			return output, nil
 		}).(GetEmailCustomizationsResultOutput)
 }
 

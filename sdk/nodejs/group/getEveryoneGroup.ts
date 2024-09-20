@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  */
 export function getEveryoneGroup(args?: GetEveryoneGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetEveryoneGroupResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:group/getEveryoneGroup:getEveryoneGroup", {
         "includeUsers": args.includeUsers,
@@ -69,7 +68,11 @@ export interface GetEveryoneGroupResult {
  * ```
  */
 export function getEveryoneGroupOutput(args?: GetEveryoneGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEveryoneGroupResult> {
-    return pulumi.output(args).apply((a: any) => getEveryoneGroup(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("okta:group/getEveryoneGroup:getEveryoneGroup", {
+        "includeUsers": args.includeUsers,
+    }, opts);
 }
 
 /**

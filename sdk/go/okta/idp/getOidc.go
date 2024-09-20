@@ -98,14 +98,20 @@ type LookupOidcResult struct {
 
 func LookupOidcOutput(ctx *pulumi.Context, args LookupOidcOutputArgs, opts ...pulumi.InvokeOption) LookupOidcResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupOidcResult, error) {
+		ApplyT(func(v interface{}) (LookupOidcResultOutput, error) {
 			args := v.(LookupOidcArgs)
-			r, err := LookupOidc(ctx, &args, opts...)
-			var s LookupOidcResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupOidcResult
+			secret, err := ctx.InvokePackageRaw("okta:idp/getOidc:getOidc", args, &rv, "", opts...)
+			if err != nil {
+				return LookupOidcResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupOidcResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupOidcResultOutput), nil
+			}
+			return output, nil
 		}).(LookupOidcResultOutput)
 }
 
