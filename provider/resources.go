@@ -361,11 +361,21 @@ func Provider() tfbridge.ProviderInfo {
 }
 
 func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
-	return append(defaults, tfbridge.DocsEdit{
-		Path: "*",
-		Edit: func(_ string, content []byte) ([]byte, error) {
-			b := bytes.ReplaceAll(content, []byte("terraform state"), []byte("pulumi state"))
-			return b, nil
+	return append(
+		defaults,
+		tfbridge.DocsEdit{
+			Path: "*",
+			Edit: func(_ string, content []byte) ([]byte, error) {
+				b := bytes.ReplaceAll(content, []byte("terraform state"), []byte("pulumi state"))
+				return b, nil
+			},
 		},
-	})
+		tfbridge.DocsEdit{
+			Path: "index.md",
+			Edit: func(_ string, content []byte) ([]byte, error) {
+				b := bytes.ReplaceAll(content, []byte(" and run\n`pulumi state replace-provider oktadeveloper/okta okta/okta`"), []byte(""))
+				return b, nil
+			},
+		},
+	)
 }
