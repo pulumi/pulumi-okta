@@ -373,7 +373,11 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 		tfbridge.DocsEdit{
 			Path: "index.md",
 			Edit: func(_ string, content []byte) ([]byte, error) {
-				b := bytes.ReplaceAll(content, []byte(" and run\n`pulumi state replace-provider oktadeveloper/okta okta/okta`"), []byte(""))
+				b := bytes.ReplaceAll(
+					content,
+					[]byte(" and run\n`pulumi state replace-provider oktadeveloper/okta okta/okta`"),
+					[]byte(""),
+				)
 				return b, nil
 			},
 		},
