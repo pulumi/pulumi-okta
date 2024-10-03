@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.GetTrustedOrigins(ctx, nil, nil)
+//			_, err := okta.GetTrustedOrigins(ctx, &okta.GetTrustedOriginsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
