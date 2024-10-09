@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -292,9 +297,6 @@ def get_oidc(id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_info_binding=pulumi.get(__ret__, 'user_info_binding'),
         user_info_url=pulumi.get(__ret__, 'user_info_url'))
-
-
-@_utilities.lift_output_func(get_oidc)
 def get_oidc_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOidcResult]:
@@ -314,4 +316,27 @@ def get_oidc_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str id: Id of idp.
     :param str name: Name of the idp.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:idp/getOidc:getOidc', __args__, opts=opts, typ=GetOidcResult)
+    return __ret__.apply(lambda __response__: GetOidcResult(
+        authorization_binding=pulumi.get(__response__, 'authorization_binding'),
+        authorization_url=pulumi.get(__response__, 'authorization_url'),
+        client_id=pulumi.get(__response__, 'client_id'),
+        client_secret=pulumi.get(__response__, 'client_secret'),
+        id=pulumi.get(__response__, 'id'),
+        issuer_mode=pulumi.get(__response__, 'issuer_mode'),
+        issuer_url=pulumi.get(__response__, 'issuer_url'),
+        jwks_binding=pulumi.get(__response__, 'jwks_binding'),
+        jwks_url=pulumi.get(__response__, 'jwks_url'),
+        max_clock_skew=pulumi.get(__response__, 'max_clock_skew'),
+        name=pulumi.get(__response__, 'name'),
+        protocol_type=pulumi.get(__response__, 'protocol_type'),
+        scopes=pulumi.get(__response__, 'scopes'),
+        token_binding=pulumi.get(__response__, 'token_binding'),
+        token_url=pulumi.get(__response__, 'token_url'),
+        type=pulumi.get(__response__, 'type'),
+        user_info_binding=pulumi.get(__response__, 'user_info_binding'),
+        user_info_url=pulumi.get(__response__, 'user_info_url')))

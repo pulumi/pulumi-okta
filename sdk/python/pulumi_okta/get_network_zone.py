@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -236,9 +241,6 @@ def get_network_zone(dynamic_locations_excludes: Optional[Sequence[str]] = None,
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'),
         usage=pulumi.get(__ret__, 'usage'))
-
-
-@_utilities.lift_output_func(get_network_zone)
 def get_network_zone_output(dynamic_locations_excludes: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                             id: Optional[pulumi.Input[Optional[str]]] = None,
                             ip_service_categories_excludes: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -264,4 +266,25 @@ def get_network_zone_output(dynamic_locations_excludes: Optional[pulumi.Input[Op
     :param Sequence[str] ip_service_categories_includes: List of ip service included. Use with type `DYNAMIC_V2`
     :param str name: Name of the network zone to retrieve, conflicts with `id`.
     """
-    ...
+    __args__ = dict()
+    __args__['dynamicLocationsExcludes'] = dynamic_locations_excludes
+    __args__['id'] = id
+    __args__['ipServiceCategoriesExcludes'] = ip_service_categories_excludes
+    __args__['ipServiceCategoriesIncludes'] = ip_service_categories_includes
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getNetworkZone:getNetworkZone', __args__, opts=opts, typ=GetNetworkZoneResult)
+    return __ret__.apply(lambda __response__: GetNetworkZoneResult(
+        asns=pulumi.get(__response__, 'asns'),
+        dynamic_locations=pulumi.get(__response__, 'dynamic_locations'),
+        dynamic_locations_excludes=pulumi.get(__response__, 'dynamic_locations_excludes'),
+        dynamic_proxy_type=pulumi.get(__response__, 'dynamic_proxy_type'),
+        gateways=pulumi.get(__response__, 'gateways'),
+        id=pulumi.get(__response__, 'id'),
+        ip_service_categories_excludes=pulumi.get(__response__, 'ip_service_categories_excludes'),
+        ip_service_categories_includes=pulumi.get(__response__, 'ip_service_categories_includes'),
+        name=pulumi.get(__response__, 'name'),
+        proxies=pulumi.get(__response__, 'proxies'),
+        status=pulumi.get(__response__, 'status'),
+        type=pulumi.get(__response__, 'type'),
+        usage=pulumi.get(__response__, 'usage')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -86,9 +91,6 @@ def get_themes(brand_id: Optional[str] = None,
         brand_id=pulumi.get(__ret__, 'brand_id'),
         id=pulumi.get(__ret__, 'id'),
         themes=pulumi.get(__ret__, 'themes'))
-
-
-@_utilities.lift_output_func(get_themes)
 def get_themes_output(brand_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThemesResult]:
     """
@@ -97,4 +99,11 @@ def get_themes_output(brand_id: Optional[pulumi.Input[str]] = None,
 
     :param str brand_id: Brand ID
     """
-    ...
+    __args__ = dict()
+    __args__['brandId'] = brand_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getThemes:getThemes', __args__, opts=opts, typ=GetThemesResult)
+    return __ret__.apply(lambda __response__: GetThemesResult(
+        brand_id=pulumi.get(__response__, 'brand_id'),
+        id=pulumi.get(__response__, 'id'),
+        themes=pulumi.get(__response__, 'themes')))

@@ -4,17 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'OAuthGroupsClaimArgs',
+    'OAuthGroupsClaimArgsDict',
     'OAuthJwkArgs',
+    'OAuthJwkArgsDict',
     'SamlAttributeStatementArgs',
+    'SamlAttributeStatementArgsDict',
     'SamlKeyArgs',
+    'SamlKeyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class OAuthGroupsClaimArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the claim that will be used in the token.
+        """
+        type: pulumi.Input[str]
+        """
+        Groups claim type.
+        """
+        value: pulumi.Input[str]
+        """
+        Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
+        """
+        filter_type: NotRequired[pulumi.Input[str]]
+        """
+        Groups claim filter. Can only be set if type is FILTER.
+        """
+        issuer_mode: NotRequired[pulumi.Input[str]]
+        """
+        Issuer mode inherited from OAuth App
+        """
+elif False:
+    OAuthGroupsClaimArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OAuthGroupsClaimArgs:
@@ -99,6 +135,35 @@ class OAuthGroupsClaimArgs:
     def issuer_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "issuer_mode", value)
 
+
+if not MYPY:
+    class OAuthJwkArgsDict(TypedDict):
+        kid: pulumi.Input[str]
+        """
+        Key ID
+        """
+        kty: pulumi.Input[str]
+        """
+        Key type
+        """
+        e: NotRequired[pulumi.Input[str]]
+        """
+        RSA Exponent
+        """
+        n: NotRequired[pulumi.Input[str]]
+        """
+        RSA Modulus
+        """
+        x: NotRequired[pulumi.Input[str]]
+        """
+        X coordinate of the elliptic curve point
+        """
+        y: NotRequired[pulumi.Input[str]]
+        """
+        Y coordinate of the elliptic curve point
+        """
+elif False:
+    OAuthJwkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OAuthJwkArgs:
@@ -201,6 +266,32 @@ class OAuthJwkArgs:
         pulumi.set(self, "y", value)
 
 
+if not MYPY:
+    class SamlAttributeStatementArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The reference name of the attribute statement
+        """
+        filter_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`
+        """
+        filter_value: NotRequired[pulumi.Input[str]]
+        """
+        Filter value to use
+        """
+        namespace: NotRequired[pulumi.Input[str]]
+        """
+        The attribute namespace. It can be set to `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`, `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, or `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of attribute statements object
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    SamlAttributeStatementArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SamlAttributeStatementArgs:
     def __init__(__self__, *,
@@ -298,6 +389,51 @@ class SamlAttributeStatementArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class SamlKeyArgsDict(TypedDict):
+        created: NotRequired[pulumi.Input[str]]
+        """
+        Created date
+        """
+        e: NotRequired[pulumi.Input[str]]
+        """
+        RSA exponent
+        """
+        expires_at: NotRequired[pulumi.Input[str]]
+        """
+        Expiration date
+        """
+        kid: NotRequired[pulumi.Input[str]]
+        """
+        Key ID
+        """
+        kty: NotRequired[pulumi.Input[str]]
+        """
+        Key type. Identifies the cryptographic algorithm family used with the key.
+        """
+        last_updated: NotRequired[pulumi.Input[str]]
+        """
+        Last updated date
+        """
+        n: NotRequired[pulumi.Input[str]]
+        """
+        RSA modulus
+        """
+        use: NotRequired[pulumi.Input[str]]
+        """
+        Intended use of the public key.
+        """
+        x5cs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        X.509 Certificate Chain
+        """
+        x5t_s256: NotRequired[pulumi.Input[str]]
+        """
+        X.509 certificate SHA-256 thumbprint
+        """
+elif False:
+    SamlKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SamlKeyArgs:

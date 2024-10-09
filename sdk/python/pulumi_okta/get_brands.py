@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -77,9 +82,6 @@ def get_brands(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrand
     return AwaitableGetBrandsResult(
         brands=pulumi.get(__ret__, 'brands'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_brands)
 def get_brands_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrandsResult]:
     """
     Get the brands belonging to an Okta organization.
@@ -93,4 +95,9 @@ def get_brands_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Out
     test = okta.get_brands()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getBrands:getBrands', __args__, opts=opts, typ=GetBrandsResult)
+    return __ret__.apply(lambda __response__: GetBrandsResult(
+        brands=pulumi.get(__response__, 'brands'),
+        id=pulumi.get(__response__, 'id')))

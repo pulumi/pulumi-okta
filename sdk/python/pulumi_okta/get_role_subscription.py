@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -111,9 +116,6 @@ def get_role_subscription(notification_type: Optional[str] = None,
         notification_type=pulumi.get(__ret__, 'notification_type'),
         role_type=pulumi.get(__ret__, 'role_type'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_role_subscription)
 def get_role_subscription_output(notification_type: Optional[pulumi.Input[str]] = None,
                                  role_type: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleSubscriptionResult]:
@@ -134,4 +136,13 @@ def get_role_subscription_output(notification_type: Optional[pulumi.Input[str]] 
     :param str notification_type: Type of the notification
     :param str role_type: Type of the role
     """
-    ...
+    __args__ = dict()
+    __args__['notificationType'] = notification_type
+    __args__['roleType'] = role_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getRoleSubscription:getRoleSubscription', __args__, opts=opts, typ=GetRoleSubscriptionResult)
+    return __ret__.apply(lambda __response__: GetRoleSubscriptionResult(
+        id=pulumi.get(__response__, 'id'),
+        notification_type=pulumi.get(__response__, 'notification_type'),
+        role_type=pulumi.get(__response__, 'role_type'),
+        status=pulumi.get(__response__, 'status')))

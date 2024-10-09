@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -152,9 +157,6 @@ def get_rule(id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         users_excludeds=pulumi.get(__ret__, 'users_excludeds'))
-
-
-@_utilities.lift_output_func(get_rule)
 def get_rule_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[Optional[str]]] = None,
                     status: Optional[pulumi.Input[Optional[str]]] = None,
@@ -176,4 +178,17 @@ def get_rule_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: The name of the Group Rule.
     :param str status: Default to `ACTIVE`
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    __args__['status'] = status
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:group/getRule:getRule', __args__, opts=opts, typ=GetRuleResult)
+    return __ret__.apply(lambda __response__: GetRuleResult(
+        expression_type=pulumi.get(__response__, 'expression_type'),
+        expression_value=pulumi.get(__response__, 'expression_value'),
+        group_assignments=pulumi.get(__response__, 'group_assignments'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        status=pulumi.get(__response__, 'status'),
+        users_excludeds=pulumi.get(__response__, 'users_excludeds')))

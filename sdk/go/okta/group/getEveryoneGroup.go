@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := group.GetEveryoneGroup(ctx, nil, nil)
+//			_, err := group.GetEveryoneGroup(ctx, &group.GetEveryoneGroupArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
