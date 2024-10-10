@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -185,9 +190,6 @@ def get_metadata_saml(idp_id: Optional[str] = None,
         idp_id=pulumi.get(__ret__, 'idp_id'),
         metadata=pulumi.get(__ret__, 'metadata'),
         signing_certificate=pulumi.get(__ret__, 'signing_certificate'))
-
-
-@_utilities.lift_output_func(get_metadata_saml)
 def get_metadata_saml_output(idp_id: Optional[pulumi.Input[Optional[str]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetadataSamlResult]:
     """
@@ -205,4 +207,18 @@ def get_metadata_saml_output(idp_id: Optional[pulumi.Input[Optional[str]]] = Non
 
     :param str idp_id: The id of the IdP to retrieve metadata for.
     """
-    ...
+    __args__ = dict()
+    __args__['idpId'] = idp_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:idp/getMetadataSaml:getMetadataSaml', __args__, opts=opts, typ=GetMetadataSamlResult)
+    return __ret__.apply(lambda __response__: GetMetadataSamlResult(
+        assertions_signed=pulumi.get(__response__, 'assertions_signed'),
+        authn_request_signed=pulumi.get(__response__, 'authn_request_signed'),
+        encryption_certificate=pulumi.get(__response__, 'encryption_certificate'),
+        entity_id=pulumi.get(__response__, 'entity_id'),
+        http_post_binding=pulumi.get(__response__, 'http_post_binding'),
+        http_redirect_binding=pulumi.get(__response__, 'http_redirect_binding'),
+        id=pulumi.get(__response__, 'id'),
+        idp_id=pulumi.get(__response__, 'idp_id'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        signing_certificate=pulumi.get(__response__, 'signing_certificate')))

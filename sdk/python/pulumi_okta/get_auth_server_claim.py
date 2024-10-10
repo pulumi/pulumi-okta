@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -179,9 +184,6 @@ def get_auth_server_claim(auth_server_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         value=pulumi.get(__ret__, 'value'),
         value_type=pulumi.get(__ret__, 'value_type'))
-
-
-@_utilities.lift_output_func(get_auth_server_claim)
 def get_auth_server_claim_output(auth_server_id: Optional[pulumi.Input[str]] = None,
                                  id: Optional[pulumi.Input[Optional[str]]] = None,
                                  name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -204,4 +206,19 @@ def get_auth_server_claim_output(auth_server_id: Optional[pulumi.Input[str]] = N
     :param str id: Name of the claim. Conflicts with `name`.
     :param str name: Name of the claim. Conflicts with `id`.
     """
-    ...
+    __args__ = dict()
+    __args__['authServerId'] = auth_server_id
+    __args__['id'] = id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getAuthServerClaim:getAuthServerClaim', __args__, opts=opts, typ=GetAuthServerClaimResult)
+    return __ret__.apply(lambda __response__: GetAuthServerClaimResult(
+        always_include_in_token=pulumi.get(__response__, 'always_include_in_token'),
+        auth_server_id=pulumi.get(__response__, 'auth_server_id'),
+        claim_type=pulumi.get(__response__, 'claim_type'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        scopes=pulumi.get(__response__, 'scopes'),
+        status=pulumi.get(__response__, 'status'),
+        value=pulumi.get(__response__, 'value'),
+        value_type=pulumi.get(__response__, 'value_type')))

@@ -4,39 +4,89 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
     'AppGroupAssignmentsGroupArgs',
+    'AppGroupAssignmentsGroupArgsDict',
     'AppSignonPolicyRulePlatformIncludeArgs',
+    'AppSignonPolicyRulePlatformIncludeArgsDict',
     'AppUserSchemaPropertyArrayOneOfArgs',
+    'AppUserSchemaPropertyArrayOneOfArgsDict',
     'AppUserSchemaPropertyOneOfArgs',
+    'AppUserSchemaPropertyOneOfArgsDict',
     'CustomizedSigninPageContentSecurityPolicySettingArgs',
+    'CustomizedSigninPageContentSecurityPolicySettingArgsDict',
     'CustomizedSigninPageWidgetCustomizationsArgs',
+    'CustomizedSigninPageWidgetCustomizationsArgsDict',
     'DomainDnsRecordArgs',
+    'DomainDnsRecordArgsDict',
     'EmailDomainDnsValidationRecordArgs',
+    'EmailDomainDnsValidationRecordArgsDict',
     'EmailSenderDnsRecordArgs',
+    'EmailSenderDnsRecordArgsDict',
     'EventHookHeaderArgs',
+    'EventHookHeaderArgsDict',
     'GroupSchemaPropertyArrayOneOfArgs',
+    'GroupSchemaPropertyArrayOneOfArgsDict',
     'GroupSchemaPropertyMasterOverridePriorityArgs',
+    'GroupSchemaPropertyMasterOverridePriorityArgsDict',
     'GroupSchemaPropertyOneOfArgs',
+    'GroupSchemaPropertyOneOfArgsDict',
     'LogStreamSettingsArgs',
+    'LogStreamSettingsArgsDict',
     'PolicyRuleProfileEnrollmentProfileAttributeArgs',
+    'PolicyRuleProfileEnrollmentProfileAttributeArgsDict',
     'PreviewSigninPageContentSecurityPolicySettingArgs',
+    'PreviewSigninPageContentSecurityPolicySettingArgsDict',
     'PreviewSigninPageWidgetCustomizationsArgs',
+    'PreviewSigninPageWidgetCustomizationsArgsDict',
     'TemplateSmsTranslationArgs',
+    'TemplateSmsTranslationArgsDict',
     'UserSchemaPropertyArrayOneOfArgs',
+    'UserSchemaPropertyArrayOneOfArgsDict',
     'UserSchemaPropertyMasterOverridePriorityArgs',
+    'UserSchemaPropertyMasterOverridePriorityArgsDict',
     'UserSchemaPropertyOneOfArgs',
+    'UserSchemaPropertyOneOfArgsDict',
     'GetDefaultSigninPageContentSecurityPolicySettingArgs',
+    'GetDefaultSigninPageContentSecurityPolicySettingArgsDict',
     'GetDefaultSigninPageWidgetCustomizationsArgs',
+    'GetDefaultSigninPageWidgetCustomizationsArgsDict',
     'GetLogStreamSettingsArgs',
+    'GetLogStreamSettingsArgsDict',
     'GetOrgMetadataDomainsArgs',
+    'GetOrgMetadataDomainsArgsDict',
     'GetOrgMetadataSettingsArgs',
+    'GetOrgMetadataSettingsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AppGroupAssignmentsGroupArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        A group to associate with the application
+        """
+        profile: pulumi.Input[str]
+        """
+        JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Priority of group assignment
+        """
+elif False:
+    AppGroupAssignmentsGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppGroupAssignmentsGroupArgs:
@@ -91,6 +141,17 @@ class AppGroupAssignmentsGroupArgs:
         pulumi.set(self, "priority", value)
 
 
+if not MYPY:
+    class AppSignonPolicyRulePlatformIncludeArgsDict(TypedDict):
+        os_expression: NotRequired[pulumi.Input[str]]
+        """
+        Only available with OTHER OS type
+        """
+        os_type: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    AppSignonPolicyRulePlatformIncludeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppSignonPolicyRulePlatformIncludeArgs:
     def __init__(__self__, *,
@@ -138,6 +199,19 @@ class AppSignonPolicyRulePlatformIncludeArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class AppUserSchemaPropertyArrayOneOfArgsDict(TypedDict):
+        const: pulumi.Input[str]
+        """
+        Value mapping to member of `array_enum`
+        """
+        title: pulumi.Input[str]
+        """
+        Display name for the enum value.
+        """
+elif False:
+    AppUserSchemaPropertyArrayOneOfArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppUserSchemaPropertyArrayOneOfArgs:
     def __init__(__self__, *,
@@ -175,6 +249,19 @@ class AppUserSchemaPropertyArrayOneOfArgs:
         pulumi.set(self, "title", value)
 
 
+if not MYPY:
+    class AppUserSchemaPropertyOneOfArgsDict(TypedDict):
+        const: pulumi.Input[str]
+        """
+        Enum value
+        """
+        title: pulumi.Input[str]
+        """
+        Enum title
+        """
+elif False:
+    AppUserSchemaPropertyOneOfArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppUserSchemaPropertyOneOfArgs:
     def __init__(__self__, *,
@@ -211,6 +298,17 @@ class AppUserSchemaPropertyOneOfArgs:
     def title(self, value: pulumi.Input[str]):
         pulumi.set(self, "title", value)
 
+
+if not MYPY:
+    class CustomizedSigninPageContentSecurityPolicySettingArgsDict(TypedDict):
+        mode: NotRequired[pulumi.Input[str]]
+        """
+        enforced or report_only
+        """
+        report_uri: NotRequired[pulumi.Input[str]]
+        src_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    CustomizedSigninPageContentSecurityPolicySettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomizedSigninPageContentSecurityPolicySettingArgs:
@@ -258,6 +356,32 @@ class CustomizedSigninPageContentSecurityPolicySettingArgs:
     def src_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "src_lists", value)
 
+
+if not MYPY:
+    class CustomizedSigninPageWidgetCustomizationsArgsDict(TypedDict):
+        widget_generation: pulumi.Input[str]
+        authenticator_page_custom_link_label: NotRequired[pulumi.Input[str]]
+        authenticator_page_custom_link_url: NotRequired[pulumi.Input[str]]
+        classic_recovery_flow_email_or_username_label: NotRequired[pulumi.Input[str]]
+        custom_link1_label: NotRequired[pulumi.Input[str]]
+        custom_link1_url: NotRequired[pulumi.Input[str]]
+        custom_link2_label: NotRequired[pulumi.Input[str]]
+        custom_link2_url: NotRequired[pulumi.Input[str]]
+        forgot_password_label: NotRequired[pulumi.Input[str]]
+        forgot_password_url: NotRequired[pulumi.Input[str]]
+        help_label: NotRequired[pulumi.Input[str]]
+        help_url: NotRequired[pulumi.Input[str]]
+        password_info_tip: NotRequired[pulumi.Input[str]]
+        password_label: NotRequired[pulumi.Input[str]]
+        show_password_visibility_toggle: NotRequired[pulumi.Input[bool]]
+        show_user_identifier: NotRequired[pulumi.Input[bool]]
+        sign_in_label: NotRequired[pulumi.Input[str]]
+        unlock_account_label: NotRequired[pulumi.Input[str]]
+        unlock_account_url: NotRequired[pulumi.Input[str]]
+        username_info_tip: NotRequired[pulumi.Input[str]]
+        username_label: NotRequired[pulumi.Input[str]]
+elif False:
+    CustomizedSigninPageWidgetCustomizationsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomizedSigninPageWidgetCustomizationsArgs:
@@ -515,6 +639,27 @@ class CustomizedSigninPageWidgetCustomizationsArgs:
         pulumi.set(self, "username_label", value)
 
 
+if not MYPY:
+    class DomainDnsRecordArgsDict(TypedDict):
+        expiration: NotRequired[pulumi.Input[str]]
+        """
+        TXT record expiration
+        """
+        fqdn: NotRequired[pulumi.Input[str]]
+        """
+        DNS record name
+        """
+        record_type: NotRequired[pulumi.Input[str]]
+        """
+        Record type can be TXT or CNAME
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        DNS verification value
+        """
+elif False:
+    DomainDnsRecordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DomainDnsRecordArgs:
     def __init__(__self__, *,
@@ -585,6 +730,27 @@ class DomainDnsRecordArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class EmailDomainDnsValidationRecordArgsDict(TypedDict):
+        expiration: NotRequired[pulumi.Input[str]]
+        """
+        DNS TXT record expiration
+        """
+        fqdn: NotRequired[pulumi.Input[str]]
+        """
+        DNS record name
+        """
+        record_type: NotRequired[pulumi.Input[str]]
+        """
+        Record type can be TXT or cname
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        DNS record value
+        """
+elif False:
+    EmailDomainDnsValidationRecordArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EmailDomainDnsValidationRecordArgs:
@@ -661,6 +827,23 @@ class EmailDomainDnsValidationRecordArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EmailSenderDnsRecordArgsDict(TypedDict):
+        fqdn: NotRequired[pulumi.Input[str]]
+        """
+        DNS record name
+        """
+        record_type: NotRequired[pulumi.Input[str]]
+        """
+        Record type can be TXT or CNAME
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        DNS verification value
+        """
+elif False:
+    EmailSenderDnsRecordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EmailSenderDnsRecordArgs:
     def __init__(__self__, *,
@@ -716,6 +899,13 @@ class EmailSenderDnsRecordArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventHookHeaderArgsDict(TypedDict):
+        key: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    EventHookHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventHookHeaderArgs:
     def __init__(__self__, *,
@@ -744,6 +934,19 @@ class EventHookHeaderArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class GroupSchemaPropertyArrayOneOfArgsDict(TypedDict):
+        const: pulumi.Input[str]
+        """
+        Value mapping to member of `array_enum`
+        """
+        title: pulumi.Input[str]
+        """
+        Display name for the enum value.
+        """
+elif False:
+    GroupSchemaPropertyArrayOneOfArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GroupSchemaPropertyArrayOneOfArgs:
@@ -782,6 +985,13 @@ class GroupSchemaPropertyArrayOneOfArgs:
         pulumi.set(self, "title", value)
 
 
+if not MYPY:
+    class GroupSchemaPropertyMasterOverridePriorityArgsDict(TypedDict):
+        value: pulumi.Input[str]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    GroupSchemaPropertyMasterOverridePriorityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GroupSchemaPropertyMasterOverridePriorityArgs:
     def __init__(__self__, *,
@@ -809,6 +1019,19 @@ class GroupSchemaPropertyMasterOverridePriorityArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class GroupSchemaPropertyOneOfArgsDict(TypedDict):
+        const: pulumi.Input[str]
+        """
+        Enum value
+        """
+        title: pulumi.Input[str]
+        """
+        Enum title
+        """
+elif False:
+    GroupSchemaPropertyOneOfArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GroupSchemaPropertyOneOfArgs:
@@ -846,6 +1069,35 @@ class GroupSchemaPropertyOneOfArgs:
     def title(self, value: pulumi.Input[str]):
         pulumi.set(self, "title", value)
 
+
+if not MYPY:
+    class LogStreamSettingsArgsDict(TypedDict):
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        AWS account ID. Required only for 'aws_eventbridge' type
+        """
+        edition: NotRequired[pulumi.Input[str]]
+        """
+        Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
+        """
+        event_source_name: NotRequired[pulumi.Input[str]]
+        """
+        An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
+        """
+        host: NotRequired[pulumi.Input[str]]
+        """
+        The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
+        """
+        token: NotRequired[pulumi.Input[str]]
+        """
+        The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
+        """
+elif False:
+    LogStreamSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogStreamSettingsArgs:
@@ -950,6 +1202,23 @@ class LogStreamSettingsArgs:
         pulumi.set(self, "token", value)
 
 
+if not MYPY:
+    class PolicyRuleProfileEnrollmentProfileAttributeArgsDict(TypedDict):
+        label: pulumi.Input[str]
+        """
+        A display-friendly label for this property
+        """
+        name: pulumi.Input[str]
+        """
+        The name of a User Profile property
+        """
+        required: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates if this property is required for enrollment
+        """
+elif False:
+    PolicyRuleProfileEnrollmentProfileAttributeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyRuleProfileEnrollmentProfileAttributeArgs:
     def __init__(__self__, *,
@@ -1003,6 +1272,17 @@ class PolicyRuleProfileEnrollmentProfileAttributeArgs:
         pulumi.set(self, "required", value)
 
 
+if not MYPY:
+    class PreviewSigninPageContentSecurityPolicySettingArgsDict(TypedDict):
+        mode: NotRequired[pulumi.Input[str]]
+        """
+        enforced or report_only
+        """
+        report_uri: NotRequired[pulumi.Input[str]]
+        src_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    PreviewSigninPageContentSecurityPolicySettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PreviewSigninPageContentSecurityPolicySettingArgs:
     def __init__(__self__, *,
@@ -1049,6 +1329,32 @@ class PreviewSigninPageContentSecurityPolicySettingArgs:
     def src_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "src_lists", value)
 
+
+if not MYPY:
+    class PreviewSigninPageWidgetCustomizationsArgsDict(TypedDict):
+        widget_generation: pulumi.Input[str]
+        authenticator_page_custom_link_label: NotRequired[pulumi.Input[str]]
+        authenticator_page_custom_link_url: NotRequired[pulumi.Input[str]]
+        classic_recovery_flow_email_or_username_label: NotRequired[pulumi.Input[str]]
+        custom_link1_label: NotRequired[pulumi.Input[str]]
+        custom_link1_url: NotRequired[pulumi.Input[str]]
+        custom_link2_label: NotRequired[pulumi.Input[str]]
+        custom_link2_url: NotRequired[pulumi.Input[str]]
+        forgot_password_label: NotRequired[pulumi.Input[str]]
+        forgot_password_url: NotRequired[pulumi.Input[str]]
+        help_label: NotRequired[pulumi.Input[str]]
+        help_url: NotRequired[pulumi.Input[str]]
+        password_info_tip: NotRequired[pulumi.Input[str]]
+        password_label: NotRequired[pulumi.Input[str]]
+        show_password_visibility_toggle: NotRequired[pulumi.Input[bool]]
+        show_user_identifier: NotRequired[pulumi.Input[bool]]
+        sign_in_label: NotRequired[pulumi.Input[str]]
+        unlock_account_label: NotRequired[pulumi.Input[str]]
+        unlock_account_url: NotRequired[pulumi.Input[str]]
+        username_info_tip: NotRequired[pulumi.Input[str]]
+        username_label: NotRequired[pulumi.Input[str]]
+elif False:
+    PreviewSigninPageWidgetCustomizationsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PreviewSigninPageWidgetCustomizationsArgs:
@@ -1306,6 +1612,19 @@ class PreviewSigninPageWidgetCustomizationsArgs:
         pulumi.set(self, "username_label", value)
 
 
+if not MYPY:
+    class TemplateSmsTranslationArgsDict(TypedDict):
+        language: pulumi.Input[str]
+        """
+        The language to map the template to.
+        """
+        template: pulumi.Input[str]
+        """
+        The SMS message.
+        """
+elif False:
+    TemplateSmsTranslationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TemplateSmsTranslationArgs:
     def __init__(__self__, *,
@@ -1342,6 +1661,19 @@ class TemplateSmsTranslationArgs:
     def template(self, value: pulumi.Input[str]):
         pulumi.set(self, "template", value)
 
+
+if not MYPY:
+    class UserSchemaPropertyArrayOneOfArgsDict(TypedDict):
+        const: pulumi.Input[str]
+        """
+        Value mapping to member of `array_enum`
+        """
+        title: pulumi.Input[str]
+        """
+        Display name for the enum value.
+        """
+elif False:
+    UserSchemaPropertyArrayOneOfArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserSchemaPropertyArrayOneOfArgs:
@@ -1380,6 +1712,13 @@ class UserSchemaPropertyArrayOneOfArgs:
         pulumi.set(self, "title", value)
 
 
+if not MYPY:
+    class UserSchemaPropertyMasterOverridePriorityArgsDict(TypedDict):
+        value: pulumi.Input[str]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    UserSchemaPropertyMasterOverridePriorityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserSchemaPropertyMasterOverridePriorityArgs:
     def __init__(__self__, *,
@@ -1407,6 +1746,19 @@ class UserSchemaPropertyMasterOverridePriorityArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class UserSchemaPropertyOneOfArgsDict(TypedDict):
+        const: pulumi.Input[str]
+        """
+        Enum value
+        """
+        title: pulumi.Input[str]
+        """
+        Enum title
+        """
+elif False:
+    UserSchemaPropertyOneOfArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserSchemaPropertyOneOfArgs:
@@ -1444,6 +1796,17 @@ class UserSchemaPropertyOneOfArgs:
     def title(self, value: pulumi.Input[str]):
         pulumi.set(self, "title", value)
 
+
+if not MYPY:
+    class GetDefaultSigninPageContentSecurityPolicySettingArgsDict(TypedDict):
+        mode: str
+        """
+        enforced or report_only
+        """
+        report_uri: str
+        src_lists: Sequence[str]
+elif False:
+    GetDefaultSigninPageContentSecurityPolicySettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetDefaultSigninPageContentSecurityPolicySettingArgs:
@@ -1488,6 +1851,32 @@ class GetDefaultSigninPageContentSecurityPolicySettingArgs:
     def src_lists(self, value: Sequence[str]):
         pulumi.set(self, "src_lists", value)
 
+
+if not MYPY:
+    class GetDefaultSigninPageWidgetCustomizationsArgsDict(TypedDict):
+        authenticator_page_custom_link_label: str
+        authenticator_page_custom_link_url: str
+        classic_recovery_flow_email_or_username_label: str
+        custom_link1_label: str
+        custom_link1_url: str
+        custom_link2_label: str
+        custom_link2_url: str
+        forgot_password_label: str
+        forgot_password_url: str
+        help_label: str
+        help_url: str
+        password_info_tip: str
+        password_label: str
+        show_password_visibility_toggle: bool
+        show_user_identifier: bool
+        sign_in_label: str
+        unlock_account_label: str
+        unlock_account_url: str
+        username_info_tip: str
+        username_label: str
+        widget_generation: str
+elif False:
+    GetDefaultSigninPageWidgetCustomizationsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetDefaultSigninPageWidgetCustomizationsArgs:
@@ -1725,6 +2114,35 @@ class GetDefaultSigninPageWidgetCustomizationsArgs:
         pulumi.set(self, "widget_generation", value)
 
 
+if not MYPY:
+    class GetLogStreamSettingsArgsDict(TypedDict):
+        account_id: str
+        """
+        AWS account ID. Required only for 'aws_eventbridge' type
+        """
+        edition: str
+        """
+        Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
+        """
+        event_source_name: str
+        """
+        An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
+        """
+        host: str
+        """
+        The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
+        """
+        region: str
+        """
+        The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
+        """
+        token: str
+        """
+        The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
+        """
+elif False:
+    GetLogStreamSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetLogStreamSettingsArgs:
     def __init__(__self__, *,
@@ -1822,6 +2240,19 @@ class GetLogStreamSettingsArgs:
         pulumi.set(self, "token", value)
 
 
+if not MYPY:
+    class GetOrgMetadataDomainsArgsDict(TypedDict):
+        alternate: str
+        """
+        Custom Domain Org URI
+        """
+        organization: str
+        """
+        Standard Org URI
+        """
+elif False:
+    GetOrgMetadataDomainsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetOrgMetadataDomainsArgs:
     def __init__(__self__, *,
@@ -1858,6 +2289,17 @@ class GetOrgMetadataDomainsArgs:
     def organization(self, value: str):
         pulumi.set(self, "organization", value)
 
+
+if not MYPY:
+    class GetOrgMetadataSettingsArgsDict(TypedDict):
+        analytics_collection_enabled: bool
+        bug_reporting_enabled: bool
+        om_enabled: bool
+        """
+        Whether the legacy Okta Mobile application is enabled for the org
+        """
+elif False:
+    GetOrgMetadataSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetOrgMetadataSettingsArgs:

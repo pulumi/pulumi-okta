@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -167,9 +172,6 @@ def get_users(compound_search_operator: Optional[str] = None,
         include_roles=pulumi.get(__ret__, 'include_roles'),
         searches=pulumi.get(__ret__, 'searches'),
         users=pulumi.get(__ret__, 'users'))
-
-
-@_utilities.lift_output_func(get_users)
 def get_users_output(compound_search_operator: Optional[pulumi.Input[Optional[str]]] = None,
                      delay_read_seconds: Optional[pulumi.Input[Optional[str]]] = None,
                      group_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -188,4 +190,21 @@ def get_users_output(compound_search_operator: Optional[pulumi.Input[Optional[st
     :param bool include_roles: Fetch user roles for each user
     :param Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
     """
-    ...
+    __args__ = dict()
+    __args__['compoundSearchOperator'] = compound_search_operator
+    __args__['delayReadSeconds'] = delay_read_seconds
+    __args__['groupId'] = group_id
+    __args__['includeGroups'] = include_groups
+    __args__['includeRoles'] = include_roles
+    __args__['searches'] = searches
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:user/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult)
+    return __ret__.apply(lambda __response__: GetUsersResult(
+        compound_search_operator=pulumi.get(__response__, 'compound_search_operator'),
+        delay_read_seconds=pulumi.get(__response__, 'delay_read_seconds'),
+        group_id=pulumi.get(__response__, 'group_id'),
+        id=pulumi.get(__response__, 'id'),
+        include_groups=pulumi.get(__response__, 'include_groups'),
+        include_roles=pulumi.get(__response__, 'include_roles'),
+        searches=pulumi.get(__response__, 'searches'),
+        users=pulumi.get(__response__, 'users')))

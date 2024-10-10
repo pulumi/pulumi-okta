@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -92,9 +97,6 @@ def get_behaviours(q: Optional[str] = None,
         behaviors=pulumi.get(__ret__, 'behaviors'),
         id=pulumi.get(__ret__, 'id'),
         q=pulumi.get(__ret__, 'q'))
-
-
-@_utilities.lift_output_func(get_behaviours)
 def get_behaviours_output(q: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBehavioursResult]:
     """
@@ -112,4 +114,11 @@ def get_behaviours_output(q: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str q: Searches the name property of behaviors for matching value
     """
-    ...
+    __args__ = dict()
+    __args__['q'] = q
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getBehaviours:getBehaviours', __args__, opts=opts, typ=GetBehavioursResult)
+    return __ret__.apply(lambda __response__: GetBehavioursResult(
+        behaviors=pulumi.get(__response__, 'behaviors'),
+        id=pulumi.get(__response__, 'id'),
+        q=pulumi.get(__response__, 'q')))

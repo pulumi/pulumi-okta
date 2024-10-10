@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -231,9 +236,6 @@ def get_app(active_only: Optional[bool] = None,
         skip_users=pulumi.get(__ret__, 'skip_users'),
         status=pulumi.get(__ret__, 'status'),
         users=pulumi.get(__ret__, 'users'))
-
-
-@_utilities.lift_output_func(get_app)
 def get_app_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
                    id: Optional[pulumi.Input[Optional[str]]] = None,
                    label: Optional[pulumi.Input[Optional[str]]] = None,
@@ -268,4 +270,24 @@ def get_app_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
     :param bool skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
     :param bool skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
     """
-    ...
+    __args__ = dict()
+    __args__['activeOnly'] = active_only
+    __args__['id'] = id
+    __args__['label'] = label
+    __args__['labelPrefix'] = label_prefix
+    __args__['skipGroups'] = skip_groups
+    __args__['skipUsers'] = skip_users
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:app/getApp:getApp', __args__, opts=opts, typ=GetAppResult)
+    return __ret__.apply(lambda __response__: GetAppResult(
+        active_only=pulumi.get(__response__, 'active_only'),
+        groups=pulumi.get(__response__, 'groups'),
+        id=pulumi.get(__response__, 'id'),
+        label=pulumi.get(__response__, 'label'),
+        label_prefix=pulumi.get(__response__, 'label_prefix'),
+        links=pulumi.get(__response__, 'links'),
+        name=pulumi.get(__response__, 'name'),
+        skip_groups=pulumi.get(__response__, 'skip_groups'),
+        skip_users=pulumi.get(__response__, 'skip_users'),
+        status=pulumi.get(__response__, 'status'),
+        users=pulumi.get(__response__, 'users')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -103,9 +108,6 @@ def get_org_metadata(domains: Optional[Union['GetOrgMetadataDomainsArgs', 'GetOr
         id=pulumi.get(__ret__, 'id'),
         pipeline=pulumi.get(__ret__, 'pipeline'),
         settings=pulumi.get(__ret__, 'settings'))
-
-
-@_utilities.lift_output_func(get_org_metadata)
 def get_org_metadata_output(domains: Optional[pulumi.Input[Optional[Union['GetOrgMetadataDomainsArgs', 'GetOrgMetadataDomainsArgsDict']]]] = None,
                             settings: Optional[pulumi.Input[Optional[Union['GetOrgMetadataSettingsArgs', 'GetOrgMetadataSettingsArgsDict']]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrgMetadataResult]:
@@ -116,4 +118,13 @@ def get_org_metadata_output(domains: Optional[pulumi.Input[Optional[Union['GetOr
     :param Union['GetOrgMetadataDomainsArgs', 'GetOrgMetadataDomainsArgsDict'] domains: The URIs for the org's configured domains.
     :param Union['GetOrgMetadataSettingsArgs', 'GetOrgMetadataSettingsArgsDict'] settings: The wellknown org settings (safe for public consumption).
     """
-    ...
+    __args__ = dict()
+    __args__['domains'] = domains
+    __args__['settings'] = settings
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getOrgMetadata:getOrgMetadata', __args__, opts=opts, typ=GetOrgMetadataResult)
+    return __ret__.apply(lambda __response__: GetOrgMetadataResult(
+        domains=pulumi.get(__response__, 'domains'),
+        id=pulumi.get(__response__, 'id'),
+        pipeline=pulumi.get(__response__, 'pipeline'),
+        settings=pulumi.get(__response__, 'settings')))

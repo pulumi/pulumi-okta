@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -514,9 +519,6 @@ def get_user(compound_search_operator: Optional[str] = None,
         user_id=pulumi.get(__ret__, 'user_id'),
         user_type=pulumi.get(__ret__, 'user_type'),
         zip_code=pulumi.get(__ret__, 'zip_code'))
-
-
-@_utilities.lift_output_func(get_user)
 def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[str]]] = None,
                     delay_read_seconds: Optional[pulumi.Input[Optional[str]]] = None,
                     searches: Optional[pulumi.Input[Optional[Sequence[Union['GetUserSearchArgs', 'GetUserSearchArgsDict']]]]] = None,
@@ -535,4 +537,56 @@ def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[str
     :param bool skip_roles: Do not populate user roles information (prevents additional API call)
     :param str user_id: Retrieve a single user based on their id
     """
-    ...
+    __args__ = dict()
+    __args__['compoundSearchOperator'] = compound_search_operator
+    __args__['delayReadSeconds'] = delay_read_seconds
+    __args__['searches'] = searches
+    __args__['skipGroups'] = skip_groups
+    __args__['skipRoles'] = skip_roles
+    __args__['userId'] = user_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:user/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
+    return __ret__.apply(lambda __response__: GetUserResult(
+        admin_roles=pulumi.get(__response__, 'admin_roles'),
+        city=pulumi.get(__response__, 'city'),
+        compound_search_operator=pulumi.get(__response__, 'compound_search_operator'),
+        cost_center=pulumi.get(__response__, 'cost_center'),
+        country_code=pulumi.get(__response__, 'country_code'),
+        custom_profile_attributes=pulumi.get(__response__, 'custom_profile_attributes'),
+        delay_read_seconds=pulumi.get(__response__, 'delay_read_seconds'),
+        department=pulumi.get(__response__, 'department'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        division=pulumi.get(__response__, 'division'),
+        email=pulumi.get(__response__, 'email'),
+        employee_number=pulumi.get(__response__, 'employee_number'),
+        first_name=pulumi.get(__response__, 'first_name'),
+        group_memberships=pulumi.get(__response__, 'group_memberships'),
+        honorific_prefix=pulumi.get(__response__, 'honorific_prefix'),
+        honorific_suffix=pulumi.get(__response__, 'honorific_suffix'),
+        id=pulumi.get(__response__, 'id'),
+        last_name=pulumi.get(__response__, 'last_name'),
+        locale=pulumi.get(__response__, 'locale'),
+        login=pulumi.get(__response__, 'login'),
+        manager=pulumi.get(__response__, 'manager'),
+        manager_id=pulumi.get(__response__, 'manager_id'),
+        middle_name=pulumi.get(__response__, 'middle_name'),
+        mobile_phone=pulumi.get(__response__, 'mobile_phone'),
+        nick_name=pulumi.get(__response__, 'nick_name'),
+        organization=pulumi.get(__response__, 'organization'),
+        postal_address=pulumi.get(__response__, 'postal_address'),
+        preferred_language=pulumi.get(__response__, 'preferred_language'),
+        primary_phone=pulumi.get(__response__, 'primary_phone'),
+        profile_url=pulumi.get(__response__, 'profile_url'),
+        roles=pulumi.get(__response__, 'roles'),
+        searches=pulumi.get(__response__, 'searches'),
+        second_email=pulumi.get(__response__, 'second_email'),
+        skip_groups=pulumi.get(__response__, 'skip_groups'),
+        skip_roles=pulumi.get(__response__, 'skip_roles'),
+        state=pulumi.get(__response__, 'state'),
+        status=pulumi.get(__response__, 'status'),
+        street_address=pulumi.get(__response__, 'street_address'),
+        timezone=pulumi.get(__response__, 'timezone'),
+        title=pulumi.get(__response__, 'title'),
+        user_id=pulumi.get(__response__, 'user_id'),
+        user_type=pulumi.get(__response__, 'user_type'),
+        zip_code=pulumi.get(__response__, 'zip_code')))

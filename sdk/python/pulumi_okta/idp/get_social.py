@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -409,9 +414,6 @@ def get_social(id: Optional[str] = None,
         token_url=pulumi.get(__ret__, 'token_url'),
         type=pulumi.get(__ret__, 'type'),
         username_template=pulumi.get(__ret__, 'username_template'))
-
-
-@_utilities.lift_output_func(get_social)
 def get_social_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSocialResult]:
@@ -431,4 +433,36 @@ def get_social_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str id: The id of the social idp to retrieve, conflicts with `name`.
     :param str name: The name of the social idp to retrieve, conflicts with `id`.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:idp/getSocial:getSocial', __args__, opts=opts, typ=GetSocialResult)
+    return __ret__.apply(lambda __response__: GetSocialResult(
+        account_link_action=pulumi.get(__response__, 'account_link_action'),
+        account_link_group_includes=pulumi.get(__response__, 'account_link_group_includes'),
+        authorization_binding=pulumi.get(__response__, 'authorization_binding'),
+        authorization_url=pulumi.get(__response__, 'authorization_url'),
+        client_id=pulumi.get(__response__, 'client_id'),
+        client_secret=pulumi.get(__response__, 'client_secret'),
+        deprovisioned_action=pulumi.get(__response__, 'deprovisioned_action'),
+        groups_action=pulumi.get(__response__, 'groups_action'),
+        groups_assignments=pulumi.get(__response__, 'groups_assignments'),
+        groups_attribute=pulumi.get(__response__, 'groups_attribute'),
+        groups_filters=pulumi.get(__response__, 'groups_filters'),
+        id=pulumi.get(__response__, 'id'),
+        issuer_mode=pulumi.get(__response__, 'issuer_mode'),
+        max_clock_skew=pulumi.get(__response__, 'max_clock_skew'),
+        name=pulumi.get(__response__, 'name'),
+        profile_master=pulumi.get(__response__, 'profile_master'),
+        protocol_type=pulumi.get(__response__, 'protocol_type'),
+        provisioning_action=pulumi.get(__response__, 'provisioning_action'),
+        scopes=pulumi.get(__response__, 'scopes'),
+        status=pulumi.get(__response__, 'status'),
+        subject_match_attribute=pulumi.get(__response__, 'subject_match_attribute'),
+        subject_match_type=pulumi.get(__response__, 'subject_match_type'),
+        suspended_action=pulumi.get(__response__, 'suspended_action'),
+        token_binding=pulumi.get(__response__, 'token_binding'),
+        token_url=pulumi.get(__response__, 'token_url'),
+        type=pulumi.get(__response__, 'type'),
+        username_template=pulumi.get(__response__, 'username_template')))
