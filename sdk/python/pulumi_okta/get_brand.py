@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -124,9 +129,6 @@ def get_brand(brand_id: Optional[str] = None,
         links=pulumi.get(__ret__, 'links'),
         name=pulumi.get(__ret__, 'name'),
         remove_powered_by_okta=pulumi.get(__ret__, 'remove_powered_by_okta'))
-
-
-@_utilities.lift_output_func(get_brand)
 def get_brand_output(brand_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrandResult]:
     """
@@ -135,4 +137,14 @@ def get_brand_output(brand_id: Optional[pulumi.Input[str]] = None,
 
     :param str brand_id: Brand ID
     """
-    ...
+    __args__ = dict()
+    __args__['brandId'] = brand_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getBrand:getBrand', __args__, opts=opts, typ=GetBrandResult)
+    return __ret__.apply(lambda __response__: GetBrandResult(
+        brand_id=pulumi.get(__response__, 'brand_id'),
+        custom_privacy_policy_url=pulumi.get(__response__, 'custom_privacy_policy_url'),
+        id=pulumi.get(__response__, 'id'),
+        links=pulumi.get(__response__, 'links'),
+        name=pulumi.get(__response__, 'name'),
+        remove_powered_by_okta=pulumi.get(__response__, 'remove_powered_by_okta')))

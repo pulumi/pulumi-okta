@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -101,9 +106,6 @@ def get_template(brand_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         links=pulumi.get(__ret__, 'links'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_template)
 def get_template_output(brand_id: Optional[pulumi.Input[str]] = None,
                         name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateResult]:
@@ -114,4 +116,13 @@ def get_template_output(brand_id: Optional[pulumi.Input[str]] = None,
     :param str brand_id: Brand ID
     :param str name: The name of the email template
     """
-    ...
+    __args__ = dict()
+    __args__['brandId'] = brand_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getTemplate:getTemplate', __args__, opts=opts, typ=GetTemplateResult)
+    return __ret__.apply(lambda __response__: GetTemplateResult(
+        brand_id=pulumi.get(__response__, 'brand_id'),
+        id=pulumi.get(__response__, 'id'),
+        links=pulumi.get(__response__, 'links'),
+        name=pulumi.get(__response__, 'name')))

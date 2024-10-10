@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -149,9 +154,6 @@ def get_domain(domain_id_or_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         public_certificate=pulumi.get(__ret__, 'public_certificate'),
         validation_status=pulumi.get(__ret__, 'validation_status'))
-
-
-@_utilities.lift_output_func(get_domain)
 def get_domain_output(domain_id_or_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
@@ -171,4 +173,15 @@ def get_domain_output(domain_id_or_name: Optional[pulumi.Input[str]] = None,
 
     :param str domain_id_or_name: Brand ID
     """
-    ...
+    __args__ = dict()
+    __args__['domainIdOrName'] = domain_id_or_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult)
+    return __ret__.apply(lambda __response__: GetDomainResult(
+        certificate_source_type=pulumi.get(__response__, 'certificate_source_type'),
+        dns_records=pulumi.get(__response__, 'dns_records'),
+        domain=pulumi.get(__response__, 'domain'),
+        domain_id_or_name=pulumi.get(__response__, 'domain_id_or_name'),
+        id=pulumi.get(__response__, 'id'),
+        public_certificate=pulumi.get(__response__, 'public_certificate'),
+        validation_status=pulumi.get(__response__, 'validation_status')))

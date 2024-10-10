@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -81,9 +86,6 @@ def get_app_user_assignments(id: Optional[str] = None,
     return AwaitableGetAppUserAssignmentsResult(
         id=pulumi.get(__ret__, 'id'),
         users=pulumi.get(__ret__, 'users'))
-
-
-@_utilities.lift_output_func(get_app_user_assignments)
 def get_app_user_assignments_output(id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppUserAssignmentsResult]:
     """
@@ -101,4 +103,10 @@ def get_app_user_assignments_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: ID of the Okta App being queried for groups
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getAppUserAssignments:getAppUserAssignments', __args__, opts=opts, typ=GetAppUserAssignmentsResult)
+    return __ret__.apply(lambda __response__: GetAppUserAssignmentsResult(
+        id=pulumi.get(__response__, 'id'),
+        users=pulumi.get(__response__, 'users')))

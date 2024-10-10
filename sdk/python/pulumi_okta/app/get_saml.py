@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -692,9 +697,6 @@ def get_saml(active_only: Optional[bool] = None,
         user_name_template_suffix=pulumi.get(__ret__, 'user_name_template_suffix'),
         user_name_template_type=pulumi.get(__ret__, 'user_name_template_type'),
         users=pulumi.get(__ret__, 'users'))
-
-
-@_utilities.lift_output_func(get_saml)
 def get_saml_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
                     id: Optional[pulumi.Input[Optional[str]]] = None,
                     label: Optional[pulumi.Input[Optional[str]]] = None,
@@ -727,4 +729,61 @@ def get_saml_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
     :param bool skip_groups: Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
     :param bool skip_users: Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
     """
-    ...
+    __args__ = dict()
+    __args__['activeOnly'] = active_only
+    __args__['id'] = id
+    __args__['label'] = label
+    __args__['labelPrefix'] = label_prefix
+    __args__['requestCompressed'] = request_compressed
+    __args__['skipGroups'] = skip_groups
+    __args__['skipUsers'] = skip_users
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:app/getSaml:getSaml', __args__, opts=opts, typ=GetSamlResult)
+    return __ret__.apply(lambda __response__: GetSamlResult(
+        accessibility_error_redirect_url=pulumi.get(__response__, 'accessibility_error_redirect_url'),
+        accessibility_login_redirect_url=pulumi.get(__response__, 'accessibility_login_redirect_url'),
+        accessibility_self_service=pulumi.get(__response__, 'accessibility_self_service'),
+        acs_endpoints=pulumi.get(__response__, 'acs_endpoints'),
+        active_only=pulumi.get(__response__, 'active_only'),
+        app_settings_json=pulumi.get(__response__, 'app_settings_json'),
+        assertion_signed=pulumi.get(__response__, 'assertion_signed'),
+        attribute_statements=pulumi.get(__response__, 'attribute_statements'),
+        audience=pulumi.get(__response__, 'audience'),
+        authn_context_class_ref=pulumi.get(__response__, 'authn_context_class_ref'),
+        auto_submit_toolbar=pulumi.get(__response__, 'auto_submit_toolbar'),
+        default_relay_state=pulumi.get(__response__, 'default_relay_state'),
+        destination=pulumi.get(__response__, 'destination'),
+        digest_algorithm=pulumi.get(__response__, 'digest_algorithm'),
+        features=pulumi.get(__response__, 'features'),
+        groups=pulumi.get(__response__, 'groups'),
+        hide_ios=pulumi.get(__response__, 'hide_ios'),
+        hide_web=pulumi.get(__response__, 'hide_web'),
+        honor_force_authn=pulumi.get(__response__, 'honor_force_authn'),
+        id=pulumi.get(__response__, 'id'),
+        idp_issuer=pulumi.get(__response__, 'idp_issuer'),
+        inline_hook_id=pulumi.get(__response__, 'inline_hook_id'),
+        key_id=pulumi.get(__response__, 'key_id'),
+        label=pulumi.get(__response__, 'label'),
+        label_prefix=pulumi.get(__response__, 'label_prefix'),
+        links=pulumi.get(__response__, 'links'),
+        name=pulumi.get(__response__, 'name'),
+        recipient=pulumi.get(__response__, 'recipient'),
+        request_compressed=pulumi.get(__response__, 'request_compressed'),
+        response_signed=pulumi.get(__response__, 'response_signed'),
+        saml_signed_request_enabled=pulumi.get(__response__, 'saml_signed_request_enabled'),
+        signature_algorithm=pulumi.get(__response__, 'signature_algorithm'),
+        single_logout_certificate=pulumi.get(__response__, 'single_logout_certificate'),
+        single_logout_issuer=pulumi.get(__response__, 'single_logout_issuer'),
+        single_logout_url=pulumi.get(__response__, 'single_logout_url'),
+        skip_groups=pulumi.get(__response__, 'skip_groups'),
+        skip_users=pulumi.get(__response__, 'skip_users'),
+        sp_issuer=pulumi.get(__response__, 'sp_issuer'),
+        sso_url=pulumi.get(__response__, 'sso_url'),
+        status=pulumi.get(__response__, 'status'),
+        subject_name_id_format=pulumi.get(__response__, 'subject_name_id_format'),
+        subject_name_id_template=pulumi.get(__response__, 'subject_name_id_template'),
+        user_name_template=pulumi.get(__response__, 'user_name_template'),
+        user_name_template_push_status=pulumi.get(__response__, 'user_name_template_push_status'),
+        user_name_template_suffix=pulumi.get(__response__, 'user_name_template_suffix'),
+        user_name_template_type=pulumi.get(__response__, 'user_name_template_type'),
+        users=pulumi.get(__response__, 'users')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -114,9 +119,6 @@ def get_behaviour(id: Optional[str] = None,
         settings=pulumi.get(__ret__, 'settings'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_behaviour)
 def get_behaviour_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                          name: Optional[pulumi.Input[Optional[str]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBehaviourResult]:
@@ -127,4 +129,14 @@ def get_behaviour_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str id: Behavior ID.
     :param str name: Behavior name.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getBehaviour:getBehaviour', __args__, opts=opts, typ=GetBehaviourResult)
+    return __ret__.apply(lambda __response__: GetBehaviourResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        settings=pulumi.get(__response__, 'settings'),
+        status=pulumi.get(__response__, 'status'),
+        type=pulumi.get(__response__, 'type')))
