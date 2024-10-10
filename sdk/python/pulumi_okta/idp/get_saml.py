@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -240,9 +245,6 @@ def get_saml(id: Optional[str] = None,
         subject_filter=pulumi.get(__ret__, 'subject_filter'),
         subject_formats=pulumi.get(__ret__, 'subject_formats'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_saml)
 def get_saml_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamlResult]:
@@ -262,4 +264,23 @@ def get_saml_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str id: Id of idp.
     :param str name: Name of the idp.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:idp/getSaml:getSaml', __args__, opts=opts, typ=GetSamlResult)
+    return __ret__.apply(lambda __response__: GetSamlResult(
+        acs_binding=pulumi.get(__response__, 'acs_binding'),
+        acs_type=pulumi.get(__response__, 'acs_type'),
+        audience=pulumi.get(__response__, 'audience'),
+        id=pulumi.get(__response__, 'id'),
+        issuer=pulumi.get(__response__, 'issuer'),
+        issuer_mode=pulumi.get(__response__, 'issuer_mode'),
+        kid=pulumi.get(__response__, 'kid'),
+        name=pulumi.get(__response__, 'name'),
+        sso_binding=pulumi.get(__response__, 'sso_binding'),
+        sso_destination=pulumi.get(__response__, 'sso_destination'),
+        sso_url=pulumi.get(__response__, 'sso_url'),
+        subject_filter=pulumi.get(__response__, 'subject_filter'),
+        subject_formats=pulumi.get(__response__, 'subject_formats'),
+        type=pulumi.get(__response__, 'type')))

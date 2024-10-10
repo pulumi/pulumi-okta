@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -154,9 +159,6 @@ def get_group(delay_read_seconds: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'),
         users=pulumi.get(__ret__, 'users'))
-
-
-@_utilities.lift_output_func(get_group)
 def get_group_output(delay_read_seconds: Optional[pulumi.Input[Optional[str]]] = None,
                      id: Optional[pulumi.Input[Optional[str]]] = None,
                      include_users: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -181,4 +183,19 @@ def get_group_output(delay_read_seconds: Optional[pulumi.Input[Optional[str]]] =
     :param bool include_users: Fetch group users, having default off cuts down on API calls.
     :param str name: Name of group.
     """
-    ...
+    __args__ = dict()
+    __args__['delayReadSeconds'] = delay_read_seconds
+    __args__['id'] = id
+    __args__['includeUsers'] = include_users
+    __args__['name'] = name
+    __args__['type'] = type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:group/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
+    return __ret__.apply(lambda __response__: GetGroupResult(
+        delay_read_seconds=pulumi.get(__response__, 'delay_read_seconds'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        include_users=pulumi.get(__response__, 'include_users'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type'),
+        users=pulumi.get(__response__, 'users')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -95,9 +100,6 @@ def get_auth_server_claims(auth_server_id: Optional[str] = None,
         auth_server_id=pulumi.get(__ret__, 'auth_server_id'),
         claims=pulumi.get(__ret__, 'claims'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_auth_server_claims)
 def get_auth_server_claims_output(auth_server_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthServerClaimsResult]:
     """
@@ -115,4 +117,11 @@ def get_auth_server_claims_output(auth_server_id: Optional[pulumi.Input[str]] = 
 
     :param str auth_server_id: Auth server ID
     """
-    ...
+    __args__ = dict()
+    __args__['authServerId'] = auth_server_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getAuthServerClaims:getAuthServerClaims', __args__, opts=opts, typ=GetAuthServerClaimsResult)
+    return __ret__.apply(lambda __response__: GetAuthServerClaimsResult(
+        auth_server_id=pulumi.get(__response__, 'auth_server_id'),
+        claims=pulumi.get(__response__, 'claims'),
+        id=pulumi.get(__response__, 'id')))

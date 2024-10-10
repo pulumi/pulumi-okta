@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -92,9 +97,6 @@ def get_trusted_origins(filter: Optional[str] = None,
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
         trusted_origins=pulumi.get(__ret__, 'trusted_origins'))
-
-
-@_utilities.lift_output_func(get_trusted_origins)
 def get_trusted_origins_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustedOriginsResult]:
     """
@@ -112,4 +114,11 @@ def get_trusted_origins_output(filter: Optional[pulumi.Input[Optional[str]]] = N
 
     :param str filter: Filter criteria. Filter value will be URL-encoded by the provider
     """
-    ...
+    __args__ = dict()
+    __args__['filter'] = filter
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getTrustedOrigins:getTrustedOrigins', __args__, opts=opts, typ=GetTrustedOriginsResult)
+    return __ret__.apply(lambda __response__: GetTrustedOriginsResult(
+        filter=pulumi.get(__response__, 'filter'),
+        id=pulumi.get(__response__, 'id'),
+        trusted_origins=pulumi.get(__response__, 'trusted_origins')))

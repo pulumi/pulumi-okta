@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -95,9 +100,6 @@ def get_user_security_questions(user_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         questions=pulumi.get(__ret__, 'questions'),
         user_id=pulumi.get(__ret__, 'user_id'))
-
-
-@_utilities.lift_output_func(get_user_security_questions)
 def get_user_security_questions_output(user_id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSecurityQuestionsResult]:
     """
@@ -118,4 +120,11 @@ def get_user_security_questions_output(user_id: Optional[pulumi.Input[str]] = No
 
     :param str user_id: ID of a Okta User
     """
-    ...
+    __args__ = dict()
+    __args__['userId'] = user_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getUserSecurityQuestions:getUserSecurityQuestions', __args__, opts=opts, typ=GetUserSecurityQuestionsResult)
+    return __ret__.apply(lambda __response__: GetUserSecurityQuestionsResult(
+        id=pulumi.get(__response__, 'id'),
+        questions=pulumi.get(__response__, 'questions'),
+        user_id=pulumi.get(__response__, 'user_id')))

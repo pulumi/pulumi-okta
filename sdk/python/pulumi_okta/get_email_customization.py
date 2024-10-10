@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -169,9 +174,6 @@ def get_email_customization(brand_id: Optional[str] = None,
         links=pulumi.get(__ret__, 'links'),
         subject=pulumi.get(__ret__, 'subject'),
         template_name=pulumi.get(__ret__, 'template_name'))
-
-
-@_utilities.lift_output_func(get_email_customization)
 def get_email_customization_output(brand_id: Optional[pulumi.Input[str]] = None,
                                    customization_id: Optional[pulumi.Input[str]] = None,
                                    template_name: Optional[pulumi.Input[str]] = None,
@@ -184,4 +186,19 @@ def get_email_customization_output(brand_id: Optional[pulumi.Input[str]] = None,
     :param str customization_id: The ID of the customization
     :param str template_name: Template Name
     """
-    ...
+    __args__ = dict()
+    __args__['brandId'] = brand_id
+    __args__['customizationId'] = customization_id
+    __args__['templateName'] = template_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getEmailCustomization:getEmailCustomization', __args__, opts=opts, typ=GetEmailCustomizationResult)
+    return __ret__.apply(lambda __response__: GetEmailCustomizationResult(
+        body=pulumi.get(__response__, 'body'),
+        brand_id=pulumi.get(__response__, 'brand_id'),
+        customization_id=pulumi.get(__response__, 'customization_id'),
+        id=pulumi.get(__response__, 'id'),
+        is_default=pulumi.get(__response__, 'is_default'),
+        language=pulumi.get(__response__, 'language'),
+        links=pulumi.get(__response__, 'links'),
+        subject=pulumi.get(__response__, 'subject'),
+        template_name=pulumi.get(__response__, 'template_name')))

@@ -6,10 +6,10 @@ toolchain go1.22.7
 
 require (
 	github.com/okta/terraform-provider-okta v0.0.0
-	github.com/pulumi/providertest v0.0.14
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.44.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.91.1
-	github.com/pulumi/pulumi/sdk/v3 v3.133.0
+	github.com/pulumi/providertest v0.1.2
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.44.2-0.20241009210200-fa7a7b989500
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.91.2-0.20241009210200-fa7a7b989500
+	github.com/pulumi/pulumi/sdk/v3 v3.136.1
 	github.com/stretchr/testify v1.9.0
 )
 
@@ -146,7 +146,7 @@ require (
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
-	github.com/jonboulle/clockwork v0.2.2 // indirect
+	github.com/jonboulle/clockwork v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kelseyhightower/envconfig v1.4.0 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
@@ -199,9 +199,9 @@ require (
 	github.com/pulumi/esc v0.10.0 // indirect
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.16.1 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
-	github.com/pulumi/pulumi-yaml v1.10.0 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.133.0 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.10 // indirect
+	github.com/pulumi/pulumi-yaml v1.10.3 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.136.1 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
