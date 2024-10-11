@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -124,9 +129,6 @@ def get_default_signin_page(brand_id: Optional[str] = None,
         page_content=pulumi.get(__ret__, 'page_content'),
         widget_customizations=pulumi.get(__ret__, 'widget_customizations'),
         widget_version=pulumi.get(__ret__, 'widget_version'))
-
-
-@_utilities.lift_output_func(get_default_signin_page)
 def get_default_signin_page_output(brand_id: Optional[pulumi.Input[str]] = None,
                                    content_security_policy_setting: Optional[pulumi.Input[Optional[Union['GetDefaultSigninPageContentSecurityPolicySettingArgs', 'GetDefaultSigninPageContentSecurityPolicySettingArgsDict']]]] = None,
                                    widget_customizations: Optional[pulumi.Input[Optional[Union['GetDefaultSigninPageWidgetCustomizationsArgs', 'GetDefaultSigninPageWidgetCustomizationsArgsDict']]]] = None,
@@ -137,4 +139,16 @@ def get_default_signin_page_output(brand_id: Optional[pulumi.Input[str]] = None,
 
     :param str brand_id: brand id of the preview signin page
     """
-    ...
+    __args__ = dict()
+    __args__['brandId'] = brand_id
+    __args__['contentSecurityPolicySetting'] = content_security_policy_setting
+    __args__['widgetCustomizations'] = widget_customizations
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getDefaultSigninPage:getDefaultSigninPage', __args__, opts=opts, typ=GetDefaultSigninPageResult)
+    return __ret__.apply(lambda __response__: GetDefaultSigninPageResult(
+        brand_id=pulumi.get(__response__, 'brand_id'),
+        content_security_policy_setting=pulumi.get(__response__, 'content_security_policy_setting'),
+        id=pulumi.get(__response__, 'id'),
+        page_content=pulumi.get(__response__, 'page_content'),
+        widget_customizations=pulumi.get(__response__, 'widget_customizations'),
+        widget_version=pulumi.get(__response__, 'widget_version')))

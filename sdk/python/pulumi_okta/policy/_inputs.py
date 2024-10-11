@@ -4,21 +4,44 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'RuleIdpDiscoveryAppExcludeArgs',
+    'RuleIdpDiscoveryAppExcludeArgsDict',
     'RuleIdpDiscoveryAppIncludeArgs',
+    'RuleIdpDiscoveryAppIncludeArgsDict',
     'RuleIdpDiscoveryPlatformIncludeArgs',
+    'RuleIdpDiscoveryPlatformIncludeArgsDict',
     'RuleIdpDiscoveryUserIdentifierPatternArgs',
+    'RuleIdpDiscoveryUserIdentifierPatternArgsDict',
     'RuleMfaAppExcludeArgs',
+    'RuleMfaAppExcludeArgsDict',
     'RuleMfaAppIncludeArgs',
+    'RuleMfaAppIncludeArgsDict',
     'RuleSignonFactorSequenceArgs',
+    'RuleSignonFactorSequenceArgsDict',
     'RuleSignonFactorSequenceSecondaryCriteriaArgs',
+    'RuleSignonFactorSequenceSecondaryCriteriaArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class RuleIdpDiscoveryAppExcludeArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        id: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    RuleIdpDiscoveryAppExcludeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleIdpDiscoveryAppExcludeArgs:
@@ -60,6 +83,14 @@ class RuleIdpDiscoveryAppExcludeArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class RuleIdpDiscoveryAppIncludeArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        id: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    RuleIdpDiscoveryAppIncludeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleIdpDiscoveryAppIncludeArgs:
     def __init__(__self__, *,
@@ -99,6 +130,17 @@ class RuleIdpDiscoveryAppIncludeArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class RuleIdpDiscoveryPlatformIncludeArgsDict(TypedDict):
+        os_expression: NotRequired[pulumi.Input[str]]
+        """
+        Only available with OTHER OS type
+        """
+        os_type: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    RuleIdpDiscoveryPlatformIncludeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleIdpDiscoveryPlatformIncludeArgs:
@@ -147,6 +189,13 @@ class RuleIdpDiscoveryPlatformIncludeArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class RuleIdpDiscoveryUserIdentifierPatternArgsDict(TypedDict):
+        match_type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    RuleIdpDiscoveryUserIdentifierPatternArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleIdpDiscoveryUserIdentifierPatternArgs:
     def __init__(__self__, *,
@@ -175,6 +224,14 @@ class RuleIdpDiscoveryUserIdentifierPatternArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class RuleMfaAppExcludeArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        id: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    RuleMfaAppExcludeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleMfaAppExcludeArgs:
@@ -216,6 +273,14 @@ class RuleMfaAppExcludeArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class RuleMfaAppIncludeArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        id: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    RuleMfaAppIncludeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleMfaAppIncludeArgs:
     def __init__(__self__, *,
@@ -255,6 +320,20 @@ class RuleMfaAppIncludeArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class RuleSignonFactorSequenceArgsDict(TypedDict):
+        primary_criteria_factor_type: pulumi.Input[str]
+        """
+        Type of a Factor
+        """
+        primary_criteria_provider: pulumi.Input[str]
+        """
+        Factor provider
+        """
+        secondary_criterias: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgsDict']]]]
+elif False:
+    RuleSignonFactorSequenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleSignonFactorSequenceArgs:
@@ -304,6 +383,19 @@ class RuleSignonFactorSequenceArgs:
     def secondary_criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgs']]]]):
         pulumi.set(self, "secondary_criterias", value)
 
+
+if not MYPY:
+    class RuleSignonFactorSequenceSecondaryCriteriaArgsDict(TypedDict):
+        factor_type: pulumi.Input[str]
+        """
+        Type of a Factor
+        """
+        provider: pulumi.Input[str]
+        """
+        Factor provider
+        """
+elif False:
+    RuleSignonFactorSequenceSecondaryCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleSignonFactorSequenceSecondaryCriteriaArgs:

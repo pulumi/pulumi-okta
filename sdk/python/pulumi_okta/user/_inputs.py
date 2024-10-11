@@ -4,16 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'UserPasswordHashArgs',
+    'UserPasswordHashArgsDict',
     'GetUserSearchArgs',
+    'GetUserSearchArgsDict',
     'GetUsersSearchArgs',
+    'GetUsersSearchArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class UserPasswordHashArgsDict(TypedDict):
+        algorithm: pulumi.Input[str]
+        """
+        The algorithm used to generate the hash using the password
+        """
+        value: pulumi.Input[str]
+        """
+        For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+        """
+        salt: NotRequired[pulumi.Input[str]]
+        """
+        Only required for salted hashes
+        """
+        salt_order: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether salt was pre- or postfixed to the password before hashing
+        """
+        work_factor: NotRequired[pulumi.Input[int]]
+        """
+        Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
+        """
+elif False:
+    UserPasswordHashArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPasswordHashArgs:
@@ -100,6 +135,21 @@ class UserPasswordHashArgs:
         pulumi.set(self, "work_factor", value)
 
 
+if not MYPY:
+    class GetUserSearchArgsDict(TypedDict):
+        comparison: NotRequired[str]
+        expression: NotRequired[str]
+        """
+        A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        """
+        name: NotRequired[str]
+        """
+        Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        """
+        value: NotRequired[str]
+elif False:
+    GetUserSearchArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetUserSearchArgs:
     def __init__(__self__, *,
@@ -162,6 +212,21 @@ class GetUserSearchArgs:
     def value(self, value: Optional[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class GetUsersSearchArgsDict(TypedDict):
+        comparison: NotRequired[str]
+        expression: NotRequired[str]
+        """
+        A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        """
+        name: NotRequired[str]
+        """
+        Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+        """
+        value: NotRequired[str]
+elif False:
+    GetUsersSearchArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetUsersSearchArgs:

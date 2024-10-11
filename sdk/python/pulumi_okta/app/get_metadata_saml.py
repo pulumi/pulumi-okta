@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -176,9 +181,6 @@ def get_metadata_saml(app_id: Optional[str] = None,
         key_id=pulumi.get(__ret__, 'key_id'),
         metadata=pulumi.get(__ret__, 'metadata'),
         want_authn_requests_signed=pulumi.get(__ret__, 'want_authn_requests_signed'))
-
-
-@_utilities.lift_output_func(get_metadata_saml)
 def get_metadata_saml_output(app_id: Optional[pulumi.Input[str]] = None,
                              key_id: Optional[pulumi.Input[Optional[str]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetadataSamlResult]:
@@ -199,4 +201,18 @@ def get_metadata_saml_output(app_id: Optional[pulumi.Input[str]] = None,
     :param str app_id: The application ID.
     :param str key_id: Certificate Key ID.
     """
-    ...
+    __args__ = dict()
+    __args__['appId'] = app_id
+    __args__['keyId'] = key_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:app/getMetadataSaml:getMetadataSaml', __args__, opts=opts, typ=GetMetadataSamlResult)
+    return __ret__.apply(lambda __response__: GetMetadataSamlResult(
+        app_id=pulumi.get(__response__, 'app_id'),
+        certificate=pulumi.get(__response__, 'certificate'),
+        entity_id=pulumi.get(__response__, 'entity_id'),
+        http_post_binding=pulumi.get(__response__, 'http_post_binding'),
+        http_redirect_binding=pulumi.get(__response__, 'http_redirect_binding'),
+        id=pulumi.get(__response__, 'id'),
+        key_id=pulumi.get(__response__, 'key_id'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        want_authn_requests_signed=pulumi.get(__response__, 'want_authn_requests_signed')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -96,9 +101,6 @@ def get_everyone_group(include_users: Optional[bool] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         include_users=pulumi.get(__ret__, 'include_users'))
-
-
-@_utilities.lift_output_func(get_everyone_group)
 def get_everyone_group_output(include_users: Optional[pulumi.Input[Optional[bool]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEveryoneGroupResult]:
     """
@@ -118,4 +120,11 @@ def get_everyone_group_output(include_users: Optional[pulumi.Input[Optional[bool
 
     :param bool include_users: Fetch group users, having default off cuts down on API calls.
     """
-    ...
+    __args__ = dict()
+    __args__['includeUsers'] = include_users
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:group/getEveryoneGroup:getEveryoneGroup', __args__, opts=opts, typ=GetEveryoneGroupResult)
+    return __ret__.apply(lambda __response__: GetEveryoneGroupResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        include_users=pulumi.get(__response__, 'include_users')))

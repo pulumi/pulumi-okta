@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -120,9 +125,6 @@ def get_groups(q: Optional[str] = None,
         q=pulumi.get(__ret__, 'q'),
         search=pulumi.get(__ret__, 'search'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_groups)
 def get_groups_output(q: Optional[pulumi.Input[Optional[str]]] = None,
                       search: Optional[pulumi.Input[Optional[str]]] = None,
                       type: Optional[pulumi.Input[Optional[str]]] = None,
@@ -143,4 +145,15 @@ def get_groups_output(q: Optional[pulumi.Input[Optional[str]]] = None,
     :param str q: Searches the name property of groups for matching value
     :param str search: Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
     """
-    ...
+    __args__ = dict()
+    __args__['q'] = q
+    __args__['search'] = search
+    __args__['type'] = type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getGroups:getGroups', __args__, opts=opts, typ=GetGroupsResult)
+    return __ret__.apply(lambda __response__: GetGroupsResult(
+        groups=pulumi.get(__response__, 'groups'),
+        id=pulumi.get(__response__, 'id'),
+        q=pulumi.get(__response__, 'q'),
+        search=pulumi.get(__response__, 'search'),
+        type=pulumi.get(__response__, 'type')))

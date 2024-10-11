@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -244,9 +249,6 @@ def get_theme(brand_id: Optional[str] = None,
         secondary_color_hex=pulumi.get(__ret__, 'secondary_color_hex'),
         sign_in_page_touch_point_variant=pulumi.get(__ret__, 'sign_in_page_touch_point_variant'),
         theme_id=pulumi.get(__ret__, 'theme_id'))
-
-
-@_utilities.lift_output_func(get_theme)
 def get_theme_output(brand_id: Optional[pulumi.Input[str]] = None,
                      theme_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThemeResult]:
@@ -257,4 +259,24 @@ def get_theme_output(brand_id: Optional[pulumi.Input[str]] = None,
     :param str brand_id: Brand ID
     :param str theme_id: Theme ID
     """
-    ...
+    __args__ = dict()
+    __args__['brandId'] = brand_id
+    __args__['themeId'] = theme_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('okta:index/getTheme:getTheme', __args__, opts=opts, typ=GetThemeResult)
+    return __ret__.apply(lambda __response__: GetThemeResult(
+        background_image_url=pulumi.get(__response__, 'background_image_url'),
+        brand_id=pulumi.get(__response__, 'brand_id'),
+        email_template_touch_point_variant=pulumi.get(__response__, 'email_template_touch_point_variant'),
+        end_user_dashboard_touch_point_variant=pulumi.get(__response__, 'end_user_dashboard_touch_point_variant'),
+        error_page_touch_point_variant=pulumi.get(__response__, 'error_page_touch_point_variant'),
+        favicon_url=pulumi.get(__response__, 'favicon_url'),
+        id=pulumi.get(__response__, 'id'),
+        links=pulumi.get(__response__, 'links'),
+        logo_url=pulumi.get(__response__, 'logo_url'),
+        primary_color_contrast_hex=pulumi.get(__response__, 'primary_color_contrast_hex'),
+        primary_color_hex=pulumi.get(__response__, 'primary_color_hex'),
+        secondary_color_contrast_hex=pulumi.get(__response__, 'secondary_color_contrast_hex'),
+        secondary_color_hex=pulumi.get(__response__, 'secondary_color_hex'),
+        sign_in_page_touch_point_variant=pulumi.get(__response__, 'sign_in_page_touch_point_variant'),
+        theme_id=pulumi.get(__response__, 'theme_id')))
