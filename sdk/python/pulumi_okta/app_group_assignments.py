@@ -127,7 +127,7 @@ class AppGroupAssignments(pulumi.CustomResource):
                     "id": "<another group id>",
                     "priority": 2,
                     "profile": json.dumps({
-                        "application_profile_field": "application profile value",
+                        "application profile field": "application profile value",
                     }),
                 },
             ])
@@ -173,7 +173,7 @@ class AppGroupAssignments(pulumi.CustomResource):
                     "id": "<another group id>",
                     "priority": 2,
                     "profile": json.dumps({
-                        "application_profile_field": "application profile value",
+                        "application profile field": "application profile value",
                     }),
                 },
             ])
