@@ -6,7 +6,7 @@ layout: package
 ---
 ## Installation
 
-The okta provider is available as a package in all Pulumi languages:
+The Okta provider is available as a package in all Pulumi languages:
 
 * JavaScript/TypeScript: [`@pulumi/okta`](https://www.npmjs.com/package/@pulumi/okta)
 * Python: [`pulumi-okta`](https://pypi.org/project/pulumi-okta/)
