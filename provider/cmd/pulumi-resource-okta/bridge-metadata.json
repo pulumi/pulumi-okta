@@ -1059,6 +1059,22 @@
                     }
                 }
             },
+            "okta_apps": {
+                "current": "okta:index/getApps:getApps",
+                "majorVersion": 4,
+                "fields": {
+                    "apps": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "features": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "okta_auth_server": {
                 "current": "okta:auth/getServer:getServer",
                 "majorVersion": 4,
@@ -1152,6 +1168,29 @@
                     "content_security_policy_setting": {
                         "fields": {
                             "src_list": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
+            "okta_device_assurance_policy": {
+                "current": "okta:index/getDeviceAssurancePolicy:getDeviceAssurancePolicy",
+                "majorVersion": 4,
+                "fields": {
+                    "disk_encryption_type": {
+                        "fields": {
+                            "include": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "os_version_constraint": {
+                        "maxItemsOne": false
+                    },
+                    "screenlock_type": {
+                        "fields": {
+                            "include": {
                                 "maxItemsOne": false
                             }
                         }
@@ -1541,6 +1580,7 @@
             "okta:index/getAppGroupAssignments:getAppGroupAssignments": 0,
             "okta:index/getAppSignonPolicy:getAppSignonPolicy": 0,
             "okta:index/getAppUserAssignments:getAppUserAssignments": 0,
+            "okta:index/getApps:getApps": 1,
             "okta:index/getAuthServerClaim:getAuthServerClaim": 0,
             "okta:index/getAuthServerClaims:getAuthServerClaims": 0,
             "okta:index/getAuthenticator:getAuthenticator": 0,
@@ -1549,6 +1589,7 @@
             "okta:index/getBrand:getBrand": 0,
             "okta:index/getBrands:getBrands": 0,
             "okta:index/getDefaultSigninPage:getDefaultSigninPage": 1,
+            "okta:index/getDeviceAssurancePolicy:getDeviceAssurancePolicy": 1,
             "okta:index/getDomain:getDomain": 0,
             "okta:index/getEmailCustomization:getEmailCustomization": 0,
             "okta:index/getEmailCustomizations:getEmailCustomizations": 0,
@@ -1567,7 +1608,7 @@
             "okta:policy/getPolicy:getPolicy": 0,
             "okta:user/getUser:getUser": 0,
             "okta:user/getUserProfileMappingSource:getUserProfileMappingSource": 0,
-            "okta:user/getUserType:getUserType": 0,
+            "okta:user/getUserType:getUserType": 1,
             "okta:user/getUsers:getUsers": 0
         }
     },

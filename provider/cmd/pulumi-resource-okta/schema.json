@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.11.1",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.12.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -945,6 +945,109 @@
                 "title"
             ]
         },
+        "okta:index/getAppsApp:getAppsApp": {
+            "properties": {
+                "adminNote": {
+                    "type": "string"
+                },
+                "created": {
+                    "type": "string"
+                },
+                "enduserNote": {
+                    "type": "string"
+                },
+                "features": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "lastUpdated": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "signOnMode": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "visibility": {
+                    "$ref": "#/types/okta:index/getAppsAppVisibility:getAppsAppVisibility"
+                }
+            },
+            "type": "object",
+            "required": [
+                "adminNote",
+                "created",
+                "enduserNote",
+                "features",
+                "id",
+                "label",
+                "lastUpdated",
+                "name",
+                "signOnMode",
+                "status",
+                "visibility"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/getAppsAppVisibility:getAppsAppVisibility": {
+            "properties": {
+                "autoLaunch": {
+                    "type": "boolean"
+                },
+                "autoSubmitToolbar": {
+                    "type": "boolean"
+                },
+                "hide": {
+                    "$ref": "#/types/okta:index/getAppsAppVisibilityHide:getAppsAppVisibilityHide"
+                }
+            },
+            "type": "object",
+            "required": [
+                "autoLaunch",
+                "autoSubmitToolbar",
+                "hide"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/getAppsAppVisibilityHide:getAppsAppVisibilityHide": {
+            "properties": {
+                "ios": {
+                    "type": "boolean"
+                },
+                "web": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object",
+            "required": [
+                "ios",
+                "web"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "okta:index/getAuthServerClaimsClaim:getAuthServerClaimsClaim": {
             "properties": {
                 "alwaysIncludeInToken": {
@@ -1200,6 +1303,252 @@
                     "requiredInputs": []
                 }
             }
+        },
+        "okta:index/getDeviceAssurancePolicyDiskEncryptionType:getDeviceAssurancePolicyDiskEncryptionType": {
+            "properties": {
+                "includes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "includes"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/getDeviceAssurancePolicyOsVersion:getDeviceAssurancePolicyOsVersion": {
+            "properties": {
+                "dynamicVersionRequirement": {
+                    "$ref": "#/types/okta:index/getDeviceAssurancePolicyOsVersionDynamicVersionRequirement:getDeviceAssurancePolicyOsVersionDynamicVersionRequirement"
+                },
+                "minimum": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dynamicVersionRequirement",
+                "minimum"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/getDeviceAssurancePolicyOsVersionConstraint:getDeviceAssurancePolicyOsVersionConstraint": {
+            "properties": {
+                "dynamicVersionRequirement": {
+                    "$ref": "#/types/okta:index/getDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirement:getDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirement"
+                },
+                "majorVersionConstraint": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dynamicVersionRequirement",
+                "majorVersionConstraint"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/getDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirement:getDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirement": {
+            "properties": {
+                "distanceFromLatestMajor": {
+                    "type": "integer"
+                },
+                "latestSecurityPatch": {
+                    "type": "boolean"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "distanceFromLatestMajor",
+                "latestSecurityPatch",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/getDeviceAssurancePolicyOsVersionDynamicVersionRequirement:getDeviceAssurancePolicyOsVersionDynamicVersionRequirement": {
+            "properties": {
+                "distanceFromLatestMajor": {
+                    "type": "integer"
+                },
+                "latestSecurityPatch": {
+                    "type": "boolean"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "distanceFromLatestMajor",
+                "latestSecurityPatch",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/getDeviceAssurancePolicyScreenlockType:getDeviceAssurancePolicyScreenlockType": {
+            "properties": {
+                "includes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "includes"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/getDeviceAssurancePolicyThirdPartySignalProvider:getDeviceAssurancePolicyThirdPartySignalProvider": {
+            "properties": {
+                "dtc": {
+                    "$ref": "#/types/okta:index/getDeviceAssurancePolicyThirdPartySignalProviderDtc:getDeviceAssurancePolicyThirdPartySignalProviderDtc"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dtc"
+            ]
+        },
+        "okta:index/getDeviceAssurancePolicyThirdPartySignalProviderDtc:getDeviceAssurancePolicyThirdPartySignalProviderDtc": {
+            "properties": {
+                "allowScreenLock": {
+                    "type": "boolean"
+                },
+                "browserVersion": {
+                    "$ref": "#/types/okta:index/getDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion:getDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion"
+                },
+                "builtInDnsClientEnabled": {
+                    "type": "boolean"
+                },
+                "chromeRemoteDesktopAppBlocked": {
+                    "type": "boolean"
+                },
+                "crowdStrikeAgentId": {
+                    "type": "string"
+                },
+                "crowdStrikeCustomerId": {
+                    "type": "string"
+                },
+                "deviceEnrollmentDomain": {
+                    "type": "string"
+                },
+                "diskEncrypted": {
+                    "type": "boolean"
+                },
+                "keyTrustLevel": {
+                    "type": "string"
+                },
+                "managedDevice": {
+                    "type": "boolean"
+                },
+                "osFirewall": {
+                    "type": "boolean"
+                },
+                "osVersion": {
+                    "$ref": "#/types/okta:index/getDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion:getDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion"
+                },
+                "passwordProtectionWarningTrigger": {
+                    "type": "string"
+                },
+                "realtimeUrlCheckMode": {
+                    "type": "boolean"
+                },
+                "safeBrowsingProtectionLevel": {
+                    "type": "string"
+                },
+                "screenLockSecured": {
+                    "type": "boolean"
+                },
+                "siteIsolationEnabled": {
+                    "type": "boolean"
+                },
+                "thirdPartyBlockingEnabled": {
+                    "type": "boolean"
+                },
+                "windowsMachineDomain": {
+                    "type": "string"
+                },
+                "windowsUserDomain": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "allowScreenLock",
+                "browserVersion",
+                "builtInDnsClientEnabled",
+                "chromeRemoteDesktopAppBlocked",
+                "crowdStrikeAgentId",
+                "crowdStrikeCustomerId",
+                "deviceEnrollmentDomain",
+                "diskEncrypted",
+                "keyTrustLevel",
+                "managedDevice",
+                "osFirewall",
+                "osVersion",
+                "passwordProtectionWarningTrigger",
+                "realtimeUrlCheckMode",
+                "safeBrowsingProtectionLevel",
+                "screenLockSecured",
+                "siteIsolationEnabled",
+                "thirdPartyBlockingEnabled",
+                "windowsMachineDomain",
+                "windowsUserDomain"
+            ]
+        },
+        "okta:index/getDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion:getDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion": {
+            "properties": {
+                "minimum": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "minimum"
+            ]
+        },
+        "okta:index/getDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion:getDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion": {
+            "properties": {
+                "minimum": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "minimum"
+            ]
         },
         "okta:index/getDomainDnsRecord:getDomainDnsRecord": {
             "properties": {
@@ -3258,10 +3607,12 @@
                 "authenticationPolicy",
                 "clientId",
                 "clientSecret",
+                "grantTypes",
                 "label",
                 "logoUrl",
                 "name",
                 "pkceRequired",
+                "responseTypes",
                 "signOnMode",
                 "type"
             ],
@@ -8859,7 +9210,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The permissions that the new Role grants. At least one\n\t\t\tpermission must be specified when creating custom role. Valid values: \"okta.authzServers.manage\",\n\t\t  \"okta.authzServers.read\",\n\t\t  \"okta.apps.assignment.manage\",\n\t\t  \"okta.apps.manage\",\n\t\t  \"okta.apps.read\",\n\t\t  \"okta.customizations.manage\",\n\t\t  \"okta.customizations.read\",\n\t\t  \"okta.groups.appAssignment.manage\",\n\t\t  \"okta.groups.create\",\n\t\t  \"okta.groups.manage\",\n\t\t  \"okta.groups.members.manage\",\n\t\t  \"okta.groups.read\",\n\t\t  \"okta.profilesources.import.run\",\n\t\t  \"okta.users.appAssignment.manage\",\n\t\t  \"okta.users.create\",\n\t\t  \"okta.users.credentials.expirePassword\",\n\t\t  \"okta.users.credentials.manage\",\n\t\t  \"okta.users.credentials.resetFactors\",\n\t\t  \"okta.users.credentials.resetPassword\",\n\t\t  \"okta.users.groupMembership.manage\",\n\t\t  \"okta.users.lifecycle.activate\",\n\t\t  \"okta.users.lifecycle.clearSessions\",\n\t\t  \"okta.users.lifecycle.deactivate\",\n\t\t  \"okta.users.lifecycle.delete\",\n\t\t  \"okta.users.lifecycle.manage\",\n\t\t  \"okta.users.lifecycle.suspend\",\n\t\t  \"okta.users.lifecycle.unlock\",\n\t\t  \"okta.users.lifecycle.unsuspend\",\n\t\t  \"okta.users.manage\",\n\t\t  \"okta.users.read\",\n\t\t  \"okta.users.userprofile.manage\",\n\t\t  \"okta.workflows.invoke\".,\n"
+                    "description": "The permissions that the new Role grants. At least one\n\t\t\tpermission must be specified when creating custom role. Valid values: \"okta.users.manage\",\n\t\t\t\"okta.users.create\",\n\t\t\t\"okta.users.read\",\n\t\t\t\"okta.users.credentials.manage\",\n\t\t\t\"okta.users.credentials.resetFactors\",\n\t\t\t\"okta.users.credentials.resetPassword\",\n\t\t\t\"okta.users.credentials.expirePassword\",\n\t\t\t\"okta.users.userprofile.manage\",\n\t\t\t\"okta.users.lifecycle.manage\",\n\t\t\t\"okta.users.lifecycle.activate\",\n\t\t\t\"okta.users.lifecycle.deactivate\",\n\t\t\t\"okta.users.lifecycle.suspend\",\n\t\t\t\"okta.users.lifecycle.unsuspend\",\n\t\t\t\"okta.users.lifecycle.delete\",\n\t\t\t\"okta.users.lifecycle.unlock\",\n\t\t\t\"okta.users.lifecycle.clearSessions\",\n\t\t\t\"okta.users.groupMembership.manage\",\n\t\t\t\"okta.users.appAssignment.manage\",\n\t\t\t\"okta.users.apitokens.manage\",\n\t\t\t\"okta.users.apitokens.read\",\n\t\t\t\"okta.groups.manage\",\n\t\t\t\"okta.groups.create\",\n\t\t\t\"okta.groups.members.manage\",\n\t\t\t\"okta.groups.read\",\n\t\t\t\"okta.groups.appAssignment.manage\",\n\t\t\t\"okta.apps.read\",\n\t\t\t\"okta.apps.manage\",\n\t\t\t\"okta.apps.assignment.manage\",\n\t\t\t\"okta.profilesources.import.run\",\n\t\t\t\"okta.authzServers.read\",\n\t\t\t\"okta.users.userprofile.manage\",\n\t\t\t\"okta.authzServers.manage\",\n\t\t\t\"okta.customizations.read\",\n\t\t\t\"okta.customizations.manage\",\n\t\t\t\"okta.identityProviders.read\",\n\t\t\t\"okta.identityProviders.manage\",\n\t\t\t\"okta.workflows.read\",\n\t\t\t\"okta.workflows.invoke\".\n\t\t\t\"okta.governance.accessCertifications.manage\",\n\t\t\t\"okta.governance.accessRequests.manage\",\n\t\t\t\"okta.apps.manageFirstPartyApps\",\n\t\t\t\"okta.agents.manage\",\n\t\t\t\"okta.agents.register\",\n\t\t\t\"okta.agents.view\",\n\t\t\t\"okta.directories.manage\",\n\t\t\t\"okta.directories.read\",\n\t\t\t\"okta.devices.manage\",\n\t\t\t\"okta.devices.lifecycle.manage\",\n\t\t\t\"okta.devices.lifecycle.activate\",\n\t\t\t\"okta.devices.lifecycle.deactivate\",\n\t\t\t\"okta.devices.lifecycle.suspend\",\n\t\t\t\"okta.devices.lifecycle.unsuspend\",\n\t\t\t\"okta.devices.lifecycle.delete\",\n\t\t\t\"okta.devices.read\",\n\t\t\t\"okta.iam.read\",\n\t\t\t\"okta.support.cases.manage\".,\n"
                 }
             },
             "required": [
@@ -8881,7 +9232,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The permissions that the new Role grants. At least one\n\t\t\tpermission must be specified when creating custom role. Valid values: \"okta.authzServers.manage\",\n\t\t  \"okta.authzServers.read\",\n\t\t  \"okta.apps.assignment.manage\",\n\t\t  \"okta.apps.manage\",\n\t\t  \"okta.apps.read\",\n\t\t  \"okta.customizations.manage\",\n\t\t  \"okta.customizations.read\",\n\t\t  \"okta.groups.appAssignment.manage\",\n\t\t  \"okta.groups.create\",\n\t\t  \"okta.groups.manage\",\n\t\t  \"okta.groups.members.manage\",\n\t\t  \"okta.groups.read\",\n\t\t  \"okta.profilesources.import.run\",\n\t\t  \"okta.users.appAssignment.manage\",\n\t\t  \"okta.users.create\",\n\t\t  \"okta.users.credentials.expirePassword\",\n\t\t  \"okta.users.credentials.manage\",\n\t\t  \"okta.users.credentials.resetFactors\",\n\t\t  \"okta.users.credentials.resetPassword\",\n\t\t  \"okta.users.groupMembership.manage\",\n\t\t  \"okta.users.lifecycle.activate\",\n\t\t  \"okta.users.lifecycle.clearSessions\",\n\t\t  \"okta.users.lifecycle.deactivate\",\n\t\t  \"okta.users.lifecycle.delete\",\n\t\t  \"okta.users.lifecycle.manage\",\n\t\t  \"okta.users.lifecycle.suspend\",\n\t\t  \"okta.users.lifecycle.unlock\",\n\t\t  \"okta.users.lifecycle.unsuspend\",\n\t\t  \"okta.users.manage\",\n\t\t  \"okta.users.read\",\n\t\t  \"okta.users.userprofile.manage\",\n\t\t  \"okta.workflows.invoke\".,\n"
+                    "description": "The permissions that the new Role grants. At least one\n\t\t\tpermission must be specified when creating custom role. Valid values: \"okta.users.manage\",\n\t\t\t\"okta.users.create\",\n\t\t\t\"okta.users.read\",\n\t\t\t\"okta.users.credentials.manage\",\n\t\t\t\"okta.users.credentials.resetFactors\",\n\t\t\t\"okta.users.credentials.resetPassword\",\n\t\t\t\"okta.users.credentials.expirePassword\",\n\t\t\t\"okta.users.userprofile.manage\",\n\t\t\t\"okta.users.lifecycle.manage\",\n\t\t\t\"okta.users.lifecycle.activate\",\n\t\t\t\"okta.users.lifecycle.deactivate\",\n\t\t\t\"okta.users.lifecycle.suspend\",\n\t\t\t\"okta.users.lifecycle.unsuspend\",\n\t\t\t\"okta.users.lifecycle.delete\",\n\t\t\t\"okta.users.lifecycle.unlock\",\n\t\t\t\"okta.users.lifecycle.clearSessions\",\n\t\t\t\"okta.users.groupMembership.manage\",\n\t\t\t\"okta.users.appAssignment.manage\",\n\t\t\t\"okta.users.apitokens.manage\",\n\t\t\t\"okta.users.apitokens.read\",\n\t\t\t\"okta.groups.manage\",\n\t\t\t\"okta.groups.create\",\n\t\t\t\"okta.groups.members.manage\",\n\t\t\t\"okta.groups.read\",\n\t\t\t\"okta.groups.appAssignment.manage\",\n\t\t\t\"okta.apps.read\",\n\t\t\t\"okta.apps.manage\",\n\t\t\t\"okta.apps.assignment.manage\",\n\t\t\t\"okta.profilesources.import.run\",\n\t\t\t\"okta.authzServers.read\",\n\t\t\t\"okta.users.userprofile.manage\",\n\t\t\t\"okta.authzServers.manage\",\n\t\t\t\"okta.customizations.read\",\n\t\t\t\"okta.customizations.manage\",\n\t\t\t\"okta.identityProviders.read\",\n\t\t\t\"okta.identityProviders.manage\",\n\t\t\t\"okta.workflows.read\",\n\t\t\t\"okta.workflows.invoke\".\n\t\t\t\"okta.governance.accessCertifications.manage\",\n\t\t\t\"okta.governance.accessRequests.manage\",\n\t\t\t\"okta.apps.manageFirstPartyApps\",\n\t\t\t\"okta.agents.manage\",\n\t\t\t\"okta.agents.register\",\n\t\t\t\"okta.agents.view\",\n\t\t\t\"okta.directories.manage\",\n\t\t\t\"okta.directories.read\",\n\t\t\t\"okta.devices.manage\",\n\t\t\t\"okta.devices.lifecycle.manage\",\n\t\t\t\"okta.devices.lifecycle.activate\",\n\t\t\t\"okta.devices.lifecycle.deactivate\",\n\t\t\t\"okta.devices.lifecycle.suspend\",\n\t\t\t\"okta.devices.lifecycle.unsuspend\",\n\t\t\t\"okta.devices.lifecycle.delete\",\n\t\t\t\"okta.devices.read\",\n\t\t\t\"okta.iam.read\",\n\t\t\t\"okta.support.cases.manage\".,\n"
                 }
             },
             "requiredInputs": [
@@ -8905,7 +9256,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "The permissions that the new Role grants. At least one\n\t\t\tpermission must be specified when creating custom role. Valid values: \"okta.authzServers.manage\",\n\t\t  \"okta.authzServers.read\",\n\t\t  \"okta.apps.assignment.manage\",\n\t\t  \"okta.apps.manage\",\n\t\t  \"okta.apps.read\",\n\t\t  \"okta.customizations.manage\",\n\t\t  \"okta.customizations.read\",\n\t\t  \"okta.groups.appAssignment.manage\",\n\t\t  \"okta.groups.create\",\n\t\t  \"okta.groups.manage\",\n\t\t  \"okta.groups.members.manage\",\n\t\t  \"okta.groups.read\",\n\t\t  \"okta.profilesources.import.run\",\n\t\t  \"okta.users.appAssignment.manage\",\n\t\t  \"okta.users.create\",\n\t\t  \"okta.users.credentials.expirePassword\",\n\t\t  \"okta.users.credentials.manage\",\n\t\t  \"okta.users.credentials.resetFactors\",\n\t\t  \"okta.users.credentials.resetPassword\",\n\t\t  \"okta.users.groupMembership.manage\",\n\t\t  \"okta.users.lifecycle.activate\",\n\t\t  \"okta.users.lifecycle.clearSessions\",\n\t\t  \"okta.users.lifecycle.deactivate\",\n\t\t  \"okta.users.lifecycle.delete\",\n\t\t  \"okta.users.lifecycle.manage\",\n\t\t  \"okta.users.lifecycle.suspend\",\n\t\t  \"okta.users.lifecycle.unlock\",\n\t\t  \"okta.users.lifecycle.unsuspend\",\n\t\t  \"okta.users.manage\",\n\t\t  \"okta.users.read\",\n\t\t  \"okta.users.userprofile.manage\",\n\t\t  \"okta.workflows.invoke\".,\n"
+                        "description": "The permissions that the new Role grants. At least one\n\t\t\tpermission must be specified when creating custom role. Valid values: \"okta.users.manage\",\n\t\t\t\"okta.users.create\",\n\t\t\t\"okta.users.read\",\n\t\t\t\"okta.users.credentials.manage\",\n\t\t\t\"okta.users.credentials.resetFactors\",\n\t\t\t\"okta.users.credentials.resetPassword\",\n\t\t\t\"okta.users.credentials.expirePassword\",\n\t\t\t\"okta.users.userprofile.manage\",\n\t\t\t\"okta.users.lifecycle.manage\",\n\t\t\t\"okta.users.lifecycle.activate\",\n\t\t\t\"okta.users.lifecycle.deactivate\",\n\t\t\t\"okta.users.lifecycle.suspend\",\n\t\t\t\"okta.users.lifecycle.unsuspend\",\n\t\t\t\"okta.users.lifecycle.delete\",\n\t\t\t\"okta.users.lifecycle.unlock\",\n\t\t\t\"okta.users.lifecycle.clearSessions\",\n\t\t\t\"okta.users.groupMembership.manage\",\n\t\t\t\"okta.users.appAssignment.manage\",\n\t\t\t\"okta.users.apitokens.manage\",\n\t\t\t\"okta.users.apitokens.read\",\n\t\t\t\"okta.groups.manage\",\n\t\t\t\"okta.groups.create\",\n\t\t\t\"okta.groups.members.manage\",\n\t\t\t\"okta.groups.read\",\n\t\t\t\"okta.groups.appAssignment.manage\",\n\t\t\t\"okta.apps.read\",\n\t\t\t\"okta.apps.manage\",\n\t\t\t\"okta.apps.assignment.manage\",\n\t\t\t\"okta.profilesources.import.run\",\n\t\t\t\"okta.authzServers.read\",\n\t\t\t\"okta.users.userprofile.manage\",\n\t\t\t\"okta.authzServers.manage\",\n\t\t\t\"okta.customizations.read\",\n\t\t\t\"okta.customizations.manage\",\n\t\t\t\"okta.identityProviders.read\",\n\t\t\t\"okta.identityProviders.manage\",\n\t\t\t\"okta.workflows.read\",\n\t\t\t\"okta.workflows.invoke\".\n\t\t\t\"okta.governance.accessCertifications.manage\",\n\t\t\t\"okta.governance.accessRequests.manage\",\n\t\t\t\"okta.apps.manageFirstPartyApps\",\n\t\t\t\"okta.agents.manage\",\n\t\t\t\"okta.agents.register\",\n\t\t\t\"okta.agents.view\",\n\t\t\t\"okta.directories.manage\",\n\t\t\t\"okta.directories.read\",\n\t\t\t\"okta.devices.manage\",\n\t\t\t\"okta.devices.lifecycle.manage\",\n\t\t\t\"okta.devices.lifecycle.activate\",\n\t\t\t\"okta.devices.lifecycle.deactivate\",\n\t\t\t\"okta.devices.lifecycle.suspend\",\n\t\t\t\"okta.devices.lifecycle.unsuspend\",\n\t\t\t\"okta.devices.lifecycle.delete\",\n\t\t\t\"okta.devices.read\",\n\t\t\t\"okta.iam.read\",\n\t\t\t\"okta.support.cases.manage\".,\n"
                     }
                 },
                 "type": "object"
@@ -9097,8 +9448,7 @@
                 }
             },
             "required": [
-                "appId",
-                "groups"
+                "appId"
             ],
             "inputProperties": {
                 "appId": {
@@ -9115,8 +9465,7 @@
                 }
             },
             "requiredInputs": [
-                "appId",
-                "groups"
+                "appId"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering AppGroupAssignments resources.\n",
@@ -21612,6 +21961,75 @@
                 "type": "object"
             }
         },
+        "okta:index/getApps:getApps": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getApps.\n",
+                "properties": {
+                    "activeOnly": {
+                        "type": "boolean",
+                        "description": "Search only active applications.\n"
+                    },
+                    "includeNonDeleted": {
+                        "type": "boolean",
+                        "description": "Specifies whether to include non-active, but not deleted apps in the results.\n"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Searches for applications whose label or name property matches this value exactly.\n"
+                    },
+                    "labelPrefix": {
+                        "type": "string",
+                        "description": "Searches for applications whose label or name property begins with this value.\n"
+                    },
+                    "useOptimization": {
+                        "type": "boolean",
+                        "description": "Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getApps.\n",
+                "properties": {
+                    "activeOnly": {
+                        "description": "Search only active applications.\n",
+                        "type": "boolean"
+                    },
+                    "apps": {
+                        "description": "The list of applications that match the search criteria.\n",
+                        "items": {
+                            "$ref": "#/types/okta:index/getAppsApp:getAppsApp"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "includeNonDeleted": {
+                        "description": "Specifies whether to include non-active, but not deleted apps in the results.\n",
+                        "type": "boolean"
+                    },
+                    "label": {
+                        "description": "Searches for applications whose label or name property matches this value exactly.\n",
+                        "type": "string"
+                    },
+                    "labelPrefix": {
+                        "description": "Searches for applications whose label or name property begins with this value.\n",
+                        "type": "string"
+                    },
+                    "useOptimization": {
+                        "description": "Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.\n",
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "apps",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
         "okta:index/getAuthServerClaim:getAuthServerClaim": {
             "description": "Get authorization server claim from Okta.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = okta.getAuthServerClaim({\n    authServerId: \"default\",\n    name: \"birthdate\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.get_auth_server_claim(auth_server_id=\"default\",\n    name=\"birthdate\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Okta.GetAuthServerClaim.Invoke(new()\n    {\n        AuthServerId = \"default\",\n        Name = \"birthdate\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.GetAuthServerClaim(ctx, \u0026okta.GetAuthServerClaimArgs{\n\t\t\tAuthServerId: \"default\",\n\t\t\tName:         pulumi.StringRef(\"birthdate\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetAuthServerClaimArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = OktaFunctions.getAuthServerClaim(GetAuthServerClaimArgs.builder()\n            .authServerId(\"default\")\n            .name(\"birthdate\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    fn::invoke:\n      Function: okta:getAuthServerClaim\n      Arguments:\n        authServerId: default\n        name: birthdate\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
@@ -22036,6 +22454,88 @@
                     "id",
                     "pageContent",
                     "widgetVersion"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:index/getDeviceAssurancePolicy:getDeviceAssurancePolicy": {
+            "description": "Get a policy assurance from Okta.\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getDeviceAssurancePolicy.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "ID of the user type to retrieve, conflicts with `name`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of user type to retrieve, conflicts with `id`.\n"
+                    },
+                    "secureHardwarePresent": {
+                        "type": "boolean",
+                        "description": "Indicates if the device contains a secure hardware functionality\n"
+                    },
+                    "thirdPartySignalProvider": {
+                        "$ref": "#/types/okta:index/getDeviceAssurancePolicyThirdPartySignalProvider:getDeviceAssurancePolicyThirdPartySignalProvider",
+                        "description": "Indicates if the device contains a secure hardware functionality\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDeviceAssurancePolicy.\n",
+                "properties": {
+                    "diskEncryptionType": {
+                        "$ref": "#/types/okta:index/getDeviceAssurancePolicyDiskEncryptionType:getDeviceAssurancePolicyDiskEncryptionType",
+                        "description": "List of disk encryption type, can be `FULL`, `USER`\n"
+                    },
+                    "id": {
+                        "description": "ID of the user type to retrieve, conflicts with `name`.\n",
+                        "type": "string"
+                    },
+                    "jailbreak": {
+                        "description": "Is the device jailbroken in the device assurance policy.\n",
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "description": "Name of user type to retrieve, conflicts with `id`.\n",
+                        "type": "string"
+                    },
+                    "osVersion": {
+                        "$ref": "#/types/okta:index/getDeviceAssurancePolicyOsVersion:getDeviceAssurancePolicyOsVersion",
+                        "description": "Minimum os version of the device in the device assurance policy.\n"
+                    },
+                    "osVersionConstraints": {
+                        "description": "The list of os version constraints.\n",
+                        "items": {
+                            "$ref": "#/types/okta:index/getDeviceAssurancePolicyOsVersionConstraint:getDeviceAssurancePolicyOsVersionConstraint"
+                        },
+                        "type": "array"
+                    },
+                    "platform": {
+                        "description": "Policy device assurance platform\n",
+                        "type": "string"
+                    },
+                    "screenlockType": {
+                        "$ref": "#/types/okta:index/getDeviceAssurancePolicyScreenlockType:getDeviceAssurancePolicyScreenlockType",
+                        "description": "List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`\n"
+                    },
+                    "secureHardwarePresent": {
+                        "description": "Indicates if the device contains a secure hardware functionality\n",
+                        "type": "boolean"
+                    },
+                    "thirdPartySignalProvider": {
+                        "$ref": "#/types/okta:index/getDeviceAssurancePolicyThirdPartySignalProvider:getDeviceAssurancePolicyThirdPartySignalProvider",
+                        "description": "Indicates if the device contains a secure hardware functionality\n"
+                    }
+                },
+                "required": [
+                    "diskEncryptionType",
+                    "jailbreak",
+                    "osVersion",
+                    "osVersionConstraints",
+                    "platform",
+                    "screenlockType"
                 ],
                 "type": "object"
             }
@@ -23209,19 +23709,20 @@
             }
         },
         "okta:user/getUserType:getUserType": {
-            "description": "Get a user type from Okta.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.user.getUserType({\n    name: \"example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.user.get_user_type(name=\"example\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.User.GetUserType.Invoke(new()\n    {\n        Name = \"example\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := user.LookupUserType(ctx, \u0026user.LookupUserTypeArgs{\n\t\t\tName: \"example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.user.UserFunctions;\nimport com.pulumi.okta.user.inputs.GetUserTypeArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = UserFunctions.getUserType(GetUserTypeArgs.builder()\n            .name(\"example\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: okta:user:getUserType\n      Arguments:\n        name: example\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "Get a user type from Okta.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.user.getUserType({\n    name: \"example\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.user.get_user_type(name=\"example\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.User.GetUserType.Invoke(new()\n    {\n        Name = \"example\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := user.LookupUserType(ctx, \u0026user.LookupUserTypeArgs{\n\t\t\tName: pulumi.StringRef(\"example\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.user.UserFunctions;\nimport com.pulumi.okta.user.inputs.GetUserTypeArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = UserFunctions.getUserType(GetUserTypeArgs.builder()\n            .name(\"example\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: okta:user:getUserType\n      Arguments:\n        name: example\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getUserType.\n",
                 "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "ID of the user type to retrieve, conflicts with `name`.\n"
+                    },
                     "name": {
                         "type": "string",
-                        "description": "Name of user type to retrieve.\n"
+                        "description": "Name of user type to retrieve, conflicts with `id`.\n"
                     }
                 },
-                "type": "object",
-                "required": [
-                    "name"
-                ]
+                "type": "object"
             },
             "outputs": {
                 "description": "A collection of values returned by getUserType.\n",
@@ -23235,19 +23736,17 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "ID of the user type to retrieve, conflicts with `name`.\n",
                         "type": "string"
                     },
                     "name": {
-                        "description": "Name of user type to retrieve.\n",
+                        "description": "Name of user type to retrieve, conflicts with `id`.\n",
                         "type": "string"
                     }
                 },
                 "required": [
                     "description",
-                    "displayName",
-                    "name",
-                    "id"
+                    "displayName"
                 ],
                 "type": "object"
             }
