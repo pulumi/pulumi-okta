@@ -18,9 +18,11 @@ import * as utilities from "../utilities";
  * });
  * ```
  */
-export function getUserType(args: GetUserTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetUserTypeResult> {
+export function getUserType(args?: GetUserTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetUserTypeResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:user/getUserType:getUserType", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -30,9 +32,13 @@ export function getUserType(args: GetUserTypeArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetUserTypeArgs {
     /**
-     * Name of user type to retrieve.
+     * ID of the user type to retrieve, conflicts with `name`.
      */
-    name: string;
+    id?: string;
+    /**
+     * Name of user type to retrieve, conflicts with `id`.
+     */
+    name?: string;
 }
 
 /**
@@ -48,13 +54,13 @@ export interface GetUserTypeResult {
      */
     readonly displayName: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * ID of the user type to retrieve, conflicts with `name`.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
-     * Name of user type to retrieve.
+     * Name of user type to retrieve, conflicts with `id`.
      */
-    readonly name: string;
+    readonly name?: string;
 }
 /**
  * Get a user type from Okta.
@@ -70,9 +76,11 @@ export interface GetUserTypeResult {
  * });
  * ```
  */
-export function getUserTypeOutput(args: GetUserTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserTypeResult> {
+export function getUserTypeOutput(args?: GetUserTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserTypeResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:user/getUserType:getUserType", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -82,7 +90,11 @@ export function getUserTypeOutput(args: GetUserTypeOutputArgs, opts?: pulumi.Inv
  */
 export interface GetUserTypeOutputArgs {
     /**
-     * Name of user type to retrieve.
+     * ID of the user type to retrieve, conflicts with `name`.
      */
-    name: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
+    /**
+     * Name of user type to retrieve, conflicts with `id`.
+     */
+    name?: pulumi.Input<string>;
 }

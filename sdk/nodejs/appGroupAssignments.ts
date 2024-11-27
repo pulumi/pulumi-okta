@@ -76,7 +76,7 @@ export class AppGroupAssignments extends pulumi.CustomResource {
     /**
      * A group to assign to this application
      */
-    public readonly groups!: pulumi.Output<outputs.AppGroupAssignmentsGroup[]>;
+    public readonly groups!: pulumi.Output<outputs.AppGroupAssignmentsGroup[] | undefined>;
 
     /**
      * Create a AppGroupAssignments resource with the given unique name, arguments, and options.
@@ -97,9 +97,6 @@ export class AppGroupAssignments extends pulumi.CustomResource {
             const args = argsOrState as AppGroupAssignmentsArgs | undefined;
             if ((!args || args.appId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
-            }
-            if ((!args || args.groups === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'groups'");
             }
             resourceInputs["appId"] = args ? args.appId : undefined;
             resourceInputs["groups"] = args ? args.groups : undefined;
@@ -134,5 +131,5 @@ export interface AppGroupAssignmentsArgs {
     /**
      * A group to assign to this application
      */
-    groups: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[]>;
 }

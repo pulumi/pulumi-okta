@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
 
 __all__ = [
     'AppGroupAssignmentsGroup',
@@ -36,11 +37,24 @@ __all__ = [
     'UserSchemaPropertyArrayOneOf',
     'UserSchemaPropertyMasterOverridePriority',
     'UserSchemaPropertyOneOf',
+    'GetAppsAppResult',
+    'GetAppsAppVisibilityResult',
+    'GetAppsAppVisibilityHideResult',
     'GetAuthServerClaimsClaimResult',
     'GetBehavioursBehaviorResult',
     'GetBrandsBrandResult',
     'GetDefaultSigninPageContentSecurityPolicySettingResult',
     'GetDefaultSigninPageWidgetCustomizationsResult',
+    'GetDeviceAssurancePolicyDiskEncryptionTypeResult',
+    'GetDeviceAssurancePolicyOsVersionResult',
+    'GetDeviceAssurancePolicyOsVersionConstraintResult',
+    'GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementResult',
+    'GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementResult',
+    'GetDeviceAssurancePolicyScreenlockTypeResult',
+    'GetDeviceAssurancePolicyThirdPartySignalProviderResult',
+    'GetDeviceAssurancePolicyThirdPartySignalProviderDtcResult',
+    'GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionResult',
+    'GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionResult',
     'GetDomainDnsRecordResult',
     'GetEmailCustomizationsEmailCustomizationResult',
     'GetGroupsGroupResult',
@@ -1323,6 +1337,133 @@ class UserSchemaPropertyOneOf(dict):
 
 
 @pulumi.output_type
+class GetAppsAppResult(dict):
+    def __init__(__self__, *,
+                 admin_note: str,
+                 created: str,
+                 enduser_note: str,
+                 features: Sequence[str],
+                 id: str,
+                 label: str,
+                 last_updated: str,
+                 name: str,
+                 sign_on_mode: str,
+                 status: str,
+                 visibility: 'outputs.GetAppsAppVisibilityResult'):
+        pulumi.set(__self__, "admin_note", admin_note)
+        pulumi.set(__self__, "created", created)
+        pulumi.set(__self__, "enduser_note", enduser_note)
+        pulumi.set(__self__, "features", features)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "last_updated", last_updated)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sign_on_mode", sign_on_mode)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="adminNote")
+    def admin_note(self) -> str:
+        return pulumi.get(self, "admin_note")
+
+    @property
+    @pulumi.getter
+    def created(self) -> str:
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter(name="enduserNote")
+    def enduser_note(self) -> str:
+        return pulumi.get(self, "enduser_note")
+
+    @property
+    @pulumi.getter
+    def features(self) -> Sequence[str]:
+        return pulumi.get(self, "features")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> str:
+        return pulumi.get(self, "last_updated")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="signOnMode")
+    def sign_on_mode(self) -> str:
+        return pulumi.get(self, "sign_on_mode")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> 'outputs.GetAppsAppVisibilityResult':
+        return pulumi.get(self, "visibility")
+
+
+@pulumi.output_type
+class GetAppsAppVisibilityResult(dict):
+    def __init__(__self__, *,
+                 auto_launch: bool,
+                 auto_submit_toolbar: bool,
+                 hide: 'outputs.GetAppsAppVisibilityHideResult'):
+        pulumi.set(__self__, "auto_launch", auto_launch)
+        pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+        pulumi.set(__self__, "hide", hide)
+
+    @property
+    @pulumi.getter(name="autoLaunch")
+    def auto_launch(self) -> bool:
+        return pulumi.get(self, "auto_launch")
+
+    @property
+    @pulumi.getter(name="autoSubmitToolbar")
+    def auto_submit_toolbar(self) -> bool:
+        return pulumi.get(self, "auto_submit_toolbar")
+
+    @property
+    @pulumi.getter
+    def hide(self) -> 'outputs.GetAppsAppVisibilityHideResult':
+        return pulumi.get(self, "hide")
+
+
+@pulumi.output_type
+class GetAppsAppVisibilityHideResult(dict):
+    def __init__(__self__, *,
+                 ios: bool,
+                 web: bool):
+        pulumi.set(__self__, "ios", ios)
+        pulumi.set(__self__, "web", web)
+
+    @property
+    @pulumi.getter
+    def ios(self) -> bool:
+        return pulumi.get(self, "ios")
+
+    @property
+    @pulumi.getter
+    def web(self) -> bool:
+        return pulumi.get(self, "web")
+
+
+@pulumi.output_type
 class GetAuthServerClaimsClaimResult(dict):
     def __init__(__self__, *,
                  always_include_in_token: bool,
@@ -1723,6 +1864,301 @@ class GetDefaultSigninPageWidgetCustomizationsResult(dict):
     @pulumi.getter(name="widgetGeneration")
     def widget_generation(self) -> str:
         return pulumi.get(self, "widget_generation")
+
+
+@pulumi.output_type
+class GetDeviceAssurancePolicyDiskEncryptionTypeResult(dict):
+    def __init__(__self__, *,
+                 includes: Sequence[str]):
+        pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Sequence[str]:
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
+class GetDeviceAssurancePolicyOsVersionResult(dict):
+    def __init__(__self__, *,
+                 dynamic_version_requirement: 'outputs.GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementResult',
+                 minimum: str):
+        pulumi.set(__self__, "dynamic_version_requirement", dynamic_version_requirement)
+        pulumi.set(__self__, "minimum", minimum)
+
+    @property
+    @pulumi.getter(name="dynamicVersionRequirement")
+    def dynamic_version_requirement(self) -> 'outputs.GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementResult':
+        return pulumi.get(self, "dynamic_version_requirement")
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> str:
+        return pulumi.get(self, "minimum")
+
+
+@pulumi.output_type
+class GetDeviceAssurancePolicyOsVersionConstraintResult(dict):
+    def __init__(__self__, *,
+                 dynamic_version_requirement: 'outputs.GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementResult',
+                 major_version_constraint: str):
+        pulumi.set(__self__, "dynamic_version_requirement", dynamic_version_requirement)
+        pulumi.set(__self__, "major_version_constraint", major_version_constraint)
+
+    @property
+    @pulumi.getter(name="dynamicVersionRequirement")
+    def dynamic_version_requirement(self) -> 'outputs.GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementResult':
+        return pulumi.get(self, "dynamic_version_requirement")
+
+    @property
+    @pulumi.getter(name="majorVersionConstraint")
+    def major_version_constraint(self) -> str:
+        return pulumi.get(self, "major_version_constraint")
+
+
+@pulumi.output_type
+class GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementResult(dict):
+    def __init__(__self__, *,
+                 distance_from_latest_major: int,
+                 latest_security_patch: bool,
+                 type: str):
+        pulumi.set(__self__, "distance_from_latest_major", distance_from_latest_major)
+        pulumi.set(__self__, "latest_security_patch", latest_security_patch)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="distanceFromLatestMajor")
+    def distance_from_latest_major(self) -> int:
+        return pulumi.get(self, "distance_from_latest_major")
+
+    @property
+    @pulumi.getter(name="latestSecurityPatch")
+    def latest_security_patch(self) -> bool:
+        return pulumi.get(self, "latest_security_patch")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementResult(dict):
+    def __init__(__self__, *,
+                 distance_from_latest_major: int,
+                 latest_security_patch: bool,
+                 type: str):
+        pulumi.set(__self__, "distance_from_latest_major", distance_from_latest_major)
+        pulumi.set(__self__, "latest_security_patch", latest_security_patch)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="distanceFromLatestMajor")
+    def distance_from_latest_major(self) -> int:
+        return pulumi.get(self, "distance_from_latest_major")
+
+    @property
+    @pulumi.getter(name="latestSecurityPatch")
+    def latest_security_patch(self) -> bool:
+        return pulumi.get(self, "latest_security_patch")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetDeviceAssurancePolicyScreenlockTypeResult(dict):
+    def __init__(__self__, *,
+                 includes: Sequence[str]):
+        pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Sequence[str]:
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
+class GetDeviceAssurancePolicyThirdPartySignalProviderResult(dict):
+    def __init__(__self__, *,
+                 dtc: 'outputs.GetDeviceAssurancePolicyThirdPartySignalProviderDtcResult'):
+        pulumi.set(__self__, "dtc", dtc)
+
+    @property
+    @pulumi.getter
+    def dtc(self) -> 'outputs.GetDeviceAssurancePolicyThirdPartySignalProviderDtcResult':
+        return pulumi.get(self, "dtc")
+
+
+@pulumi.output_type
+class GetDeviceAssurancePolicyThirdPartySignalProviderDtcResult(dict):
+    def __init__(__self__, *,
+                 allow_screen_lock: bool,
+                 browser_version: 'outputs.GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionResult',
+                 built_in_dns_client_enabled: bool,
+                 chrome_remote_desktop_app_blocked: bool,
+                 crowd_strike_agent_id: str,
+                 crowd_strike_customer_id: str,
+                 device_enrollment_domain: str,
+                 disk_encrypted: bool,
+                 key_trust_level: str,
+                 managed_device: bool,
+                 os_firewall: bool,
+                 os_version: 'outputs.GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionResult',
+                 password_protection_warning_trigger: str,
+                 realtime_url_check_mode: bool,
+                 safe_browsing_protection_level: str,
+                 screen_lock_secured: bool,
+                 site_isolation_enabled: bool,
+                 third_party_blocking_enabled: bool,
+                 windows_machine_domain: str,
+                 windows_user_domain: str):
+        pulumi.set(__self__, "allow_screen_lock", allow_screen_lock)
+        pulumi.set(__self__, "browser_version", browser_version)
+        pulumi.set(__self__, "built_in_dns_client_enabled", built_in_dns_client_enabled)
+        pulumi.set(__self__, "chrome_remote_desktop_app_blocked", chrome_remote_desktop_app_blocked)
+        pulumi.set(__self__, "crowd_strike_agent_id", crowd_strike_agent_id)
+        pulumi.set(__self__, "crowd_strike_customer_id", crowd_strike_customer_id)
+        pulumi.set(__self__, "device_enrollment_domain", device_enrollment_domain)
+        pulumi.set(__self__, "disk_encrypted", disk_encrypted)
+        pulumi.set(__self__, "key_trust_level", key_trust_level)
+        pulumi.set(__self__, "managed_device", managed_device)
+        pulumi.set(__self__, "os_firewall", os_firewall)
+        pulumi.set(__self__, "os_version", os_version)
+        pulumi.set(__self__, "password_protection_warning_trigger", password_protection_warning_trigger)
+        pulumi.set(__self__, "realtime_url_check_mode", realtime_url_check_mode)
+        pulumi.set(__self__, "safe_browsing_protection_level", safe_browsing_protection_level)
+        pulumi.set(__self__, "screen_lock_secured", screen_lock_secured)
+        pulumi.set(__self__, "site_isolation_enabled", site_isolation_enabled)
+        pulumi.set(__self__, "third_party_blocking_enabled", third_party_blocking_enabled)
+        pulumi.set(__self__, "windows_machine_domain", windows_machine_domain)
+        pulumi.set(__self__, "windows_user_domain", windows_user_domain)
+
+    @property
+    @pulumi.getter(name="allowScreenLock")
+    def allow_screen_lock(self) -> bool:
+        return pulumi.get(self, "allow_screen_lock")
+
+    @property
+    @pulumi.getter(name="browserVersion")
+    def browser_version(self) -> 'outputs.GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionResult':
+        return pulumi.get(self, "browser_version")
+
+    @property
+    @pulumi.getter(name="builtInDnsClientEnabled")
+    def built_in_dns_client_enabled(self) -> bool:
+        return pulumi.get(self, "built_in_dns_client_enabled")
+
+    @property
+    @pulumi.getter(name="chromeRemoteDesktopAppBlocked")
+    def chrome_remote_desktop_app_blocked(self) -> bool:
+        return pulumi.get(self, "chrome_remote_desktop_app_blocked")
+
+    @property
+    @pulumi.getter(name="crowdStrikeAgentId")
+    def crowd_strike_agent_id(self) -> str:
+        return pulumi.get(self, "crowd_strike_agent_id")
+
+    @property
+    @pulumi.getter(name="crowdStrikeCustomerId")
+    def crowd_strike_customer_id(self) -> str:
+        return pulumi.get(self, "crowd_strike_customer_id")
+
+    @property
+    @pulumi.getter(name="deviceEnrollmentDomain")
+    def device_enrollment_domain(self) -> str:
+        return pulumi.get(self, "device_enrollment_domain")
+
+    @property
+    @pulumi.getter(name="diskEncrypted")
+    def disk_encrypted(self) -> bool:
+        return pulumi.get(self, "disk_encrypted")
+
+    @property
+    @pulumi.getter(name="keyTrustLevel")
+    def key_trust_level(self) -> str:
+        return pulumi.get(self, "key_trust_level")
+
+    @property
+    @pulumi.getter(name="managedDevice")
+    def managed_device(self) -> bool:
+        return pulumi.get(self, "managed_device")
+
+    @property
+    @pulumi.getter(name="osFirewall")
+    def os_firewall(self) -> bool:
+        return pulumi.get(self, "os_firewall")
+
+    @property
+    @pulumi.getter(name="osVersion")
+    def os_version(self) -> 'outputs.GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionResult':
+        return pulumi.get(self, "os_version")
+
+    @property
+    @pulumi.getter(name="passwordProtectionWarningTrigger")
+    def password_protection_warning_trigger(self) -> str:
+        return pulumi.get(self, "password_protection_warning_trigger")
+
+    @property
+    @pulumi.getter(name="realtimeUrlCheckMode")
+    def realtime_url_check_mode(self) -> bool:
+        return pulumi.get(self, "realtime_url_check_mode")
+
+    @property
+    @pulumi.getter(name="safeBrowsingProtectionLevel")
+    def safe_browsing_protection_level(self) -> str:
+        return pulumi.get(self, "safe_browsing_protection_level")
+
+    @property
+    @pulumi.getter(name="screenLockSecured")
+    def screen_lock_secured(self) -> bool:
+        return pulumi.get(self, "screen_lock_secured")
+
+    @property
+    @pulumi.getter(name="siteIsolationEnabled")
+    def site_isolation_enabled(self) -> bool:
+        return pulumi.get(self, "site_isolation_enabled")
+
+    @property
+    @pulumi.getter(name="thirdPartyBlockingEnabled")
+    def third_party_blocking_enabled(self) -> bool:
+        return pulumi.get(self, "third_party_blocking_enabled")
+
+    @property
+    @pulumi.getter(name="windowsMachineDomain")
+    def windows_machine_domain(self) -> str:
+        return pulumi.get(self, "windows_machine_domain")
+
+    @property
+    @pulumi.getter(name="windowsUserDomain")
+    def windows_user_domain(self) -> str:
+        return pulumi.get(self, "windows_user_domain")
+
+
+@pulumi.output_type
+class GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionResult(dict):
+    def __init__(__self__, *,
+                 minimum: str):
+        pulumi.set(__self__, "minimum", minimum)
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> str:
+        return pulumi.get(self, "minimum")
+
+
+@pulumi.output_type
+class GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionResult(dict):
+    def __init__(__self__, *,
+                 minimum: str):
+        pulumi.set(__self__, "minimum", minimum)
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> str:
+        return pulumi.get(self, "minimum")
 
 
 @pulumi.output_type

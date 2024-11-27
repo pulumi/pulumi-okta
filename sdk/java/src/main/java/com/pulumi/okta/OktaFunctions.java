@@ -14,6 +14,8 @@ import com.pulumi.okta.inputs.GetAppSignonPolicyArgs;
 import com.pulumi.okta.inputs.GetAppSignonPolicyPlainArgs;
 import com.pulumi.okta.inputs.GetAppUserAssignmentsArgs;
 import com.pulumi.okta.inputs.GetAppUserAssignmentsPlainArgs;
+import com.pulumi.okta.inputs.GetAppsArgs;
+import com.pulumi.okta.inputs.GetAppsPlainArgs;
 import com.pulumi.okta.inputs.GetAuthServerClaimArgs;
 import com.pulumi.okta.inputs.GetAuthServerClaimPlainArgs;
 import com.pulumi.okta.inputs.GetAuthServerClaimsArgs;
@@ -28,6 +30,8 @@ import com.pulumi.okta.inputs.GetBrandArgs;
 import com.pulumi.okta.inputs.GetBrandPlainArgs;
 import com.pulumi.okta.inputs.GetDefaultSigninPageArgs;
 import com.pulumi.okta.inputs.GetDefaultSigninPagePlainArgs;
+import com.pulumi.okta.inputs.GetDeviceAssurancePolicyArgs;
+import com.pulumi.okta.inputs.GetDeviceAssurancePolicyPlainArgs;
 import com.pulumi.okta.inputs.GetDomainArgs;
 import com.pulumi.okta.inputs.GetDomainPlainArgs;
 import com.pulumi.okta.inputs.GetEmailCustomizationArgs;
@@ -59,6 +63,7 @@ import com.pulumi.okta.inputs.GetUserSecurityQuestionsPlainArgs;
 import com.pulumi.okta.outputs.GetAppGroupAssignmentsResult;
 import com.pulumi.okta.outputs.GetAppSignonPolicyResult;
 import com.pulumi.okta.outputs.GetAppUserAssignmentsResult;
+import com.pulumi.okta.outputs.GetAppsResult;
 import com.pulumi.okta.outputs.GetAuthServerClaimResult;
 import com.pulumi.okta.outputs.GetAuthServerClaimsResult;
 import com.pulumi.okta.outputs.GetAuthenticatorResult;
@@ -67,6 +72,7 @@ import com.pulumi.okta.outputs.GetBehavioursResult;
 import com.pulumi.okta.outputs.GetBrandResult;
 import com.pulumi.okta.outputs.GetBrandsResult;
 import com.pulumi.okta.outputs.GetDefaultSigninPageResult;
+import com.pulumi.okta.outputs.GetDeviceAssurancePolicyResult;
 import com.pulumi.okta.outputs.GetDomainResult;
 import com.pulumi.okta.outputs.GetEmailCustomizationResult;
 import com.pulumi.okta.outputs.GetEmailCustomizationsResult;
@@ -620,6 +626,24 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetAppUserAssignmentsResult> getAppUserAssignmentsPlain(GetAppUserAssignmentsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getAppUserAssignments:getAppUserAssignments", TypeShape.of(GetAppUserAssignmentsResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetAppsResult> getApps() {
+        return getApps(GetAppsArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetAppsResult> getAppsPlain() {
+        return getAppsPlain(GetAppsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetAppsResult> getApps(GetAppsArgs args) {
+        return getApps(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetAppsResult> getAppsPlain(GetAppsPlainArgs args) {
+        return getAppsPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetAppsResult> getApps(GetAppsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getApps:getApps", TypeShape.of(GetAppsResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetAppsResult> getAppsPlain(GetAppsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getApps:getApps", TypeShape.of(GetAppsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get authorization server claim from Okta.
@@ -2054,6 +2078,48 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetDefaultSigninPageResult> getDefaultSigninPagePlain(GetDefaultSigninPagePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getDefaultSigninPage:getDefaultSigninPage", TypeShape.of(GetDefaultSigninPageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a policy assurance from Okta.
+     * 
+     */
+    public static Output<GetDeviceAssurancePolicyResult> getDeviceAssurancePolicy() {
+        return getDeviceAssurancePolicy(GetDeviceAssurancePolicyArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Get a policy assurance from Okta.
+     * 
+     */
+    public static CompletableFuture<GetDeviceAssurancePolicyResult> getDeviceAssurancePolicyPlain() {
+        return getDeviceAssurancePolicyPlain(GetDeviceAssurancePolicyPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Get a policy assurance from Okta.
+     * 
+     */
+    public static Output<GetDeviceAssurancePolicyResult> getDeviceAssurancePolicy(GetDeviceAssurancePolicyArgs args) {
+        return getDeviceAssurancePolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a policy assurance from Okta.
+     * 
+     */
+    public static CompletableFuture<GetDeviceAssurancePolicyResult> getDeviceAssurancePolicyPlain(GetDeviceAssurancePolicyPlainArgs args) {
+        return getDeviceAssurancePolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a policy assurance from Okta.
+     * 
+     */
+    public static Output<GetDeviceAssurancePolicyResult> getDeviceAssurancePolicy(GetDeviceAssurancePolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getDeviceAssurancePolicy:getDeviceAssurancePolicy", TypeShape.of(GetDeviceAssurancePolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a policy assurance from Okta.
+     * 
+     */
+    public static CompletableFuture<GetDeviceAssurancePolicyResult> getDeviceAssurancePolicyPlain(GetDeviceAssurancePolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getDeviceAssurancePolicy:getDeviceAssurancePolicy", TypeShape.of(GetDeviceAssurancePolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a domain from Okta.

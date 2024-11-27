@@ -127,7 +127,7 @@ export class OAuth extends pulumi.CustomResource {
     /**
      * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
      */
-    public readonly grantTypes!: pulumi.Output<string[] | undefined>;
+    public readonly grantTypes!: pulumi.Output<string[]>;
     /**
      * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
      */
@@ -220,7 +220,7 @@ export class OAuth extends pulumi.CustomResource {
     /**
      * List of OAuth 2.0 response type strings.
      */
-    public readonly responseTypes!: pulumi.Output<string[] | undefined>;
+    public readonly responseTypes!: pulumi.Output<string[]>;
     /**
      * Sign on mode of application.
      */

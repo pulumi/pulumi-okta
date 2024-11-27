@@ -2167,7 +2167,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="grantTypes")
-    def grant_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def grant_types(self) -> pulumi.Output[Sequence[str]]:
         """
         List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
         """
@@ -2356,7 +2356,7 @@ class OAuth(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseTypes")
-    def response_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def response_types(self) -> pulumi.Output[Sequence[str]]:
         """
         List of OAuth 2.0 response type strings.
         """

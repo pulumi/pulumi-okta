@@ -86,9 +86,6 @@ func NewAppGroupAssignments(ctx *pulumi.Context,
 	if args.AppId == nil {
 		return nil, errors.New("invalid value for required argument 'AppId'")
 	}
-	if args.Groups == nil {
-		return nil, errors.New("invalid value for required argument 'Groups'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AppGroupAssignments
 	err := ctx.RegisterResource("okta:index/appGroupAssignments:AppGroupAssignments", name, args, &resource, opts...)

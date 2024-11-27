@@ -170,6 +170,11 @@ export const getAppUserAssignments: typeof import("./getAppUserAssignments").get
 export const getAppUserAssignmentsOutput: typeof import("./getAppUserAssignments").getAppUserAssignmentsOutput = null as any;
 utilities.lazyLoad(exports, ["getAppUserAssignments","getAppUserAssignmentsOutput"], () => require("./getAppUserAssignments"));
 
+export { GetAppsArgs, GetAppsResult, GetAppsOutputArgs } from "./getApps";
+export const getApps: typeof import("./getApps").getApps = null as any;
+export const getAppsOutput: typeof import("./getApps").getAppsOutput = null as any;
+utilities.lazyLoad(exports, ["getApps","getAppsOutput"], () => require("./getApps"));
+
 export { GetAuthServerClaimArgs, GetAuthServerClaimResult, GetAuthServerClaimOutputArgs } from "./getAuthServerClaim";
 export const getAuthServerClaim: typeof import("./getAuthServerClaim").getAuthServerClaim = null as any;
 export const getAuthServerClaimOutput: typeof import("./getAuthServerClaim").getAuthServerClaimOutput = null as any;
@@ -209,6 +214,11 @@ export { GetDefaultSigninPageArgs, GetDefaultSigninPageResult, GetDefaultSigninP
 export const getDefaultSigninPage: typeof import("./getDefaultSigninPage").getDefaultSigninPage = null as any;
 export const getDefaultSigninPageOutput: typeof import("./getDefaultSigninPage").getDefaultSigninPageOutput = null as any;
 utilities.lazyLoad(exports, ["getDefaultSigninPage","getDefaultSigninPageOutput"], () => require("./getDefaultSigninPage"));
+
+export { GetDeviceAssurancePolicyArgs, GetDeviceAssurancePolicyResult, GetDeviceAssurancePolicyOutputArgs } from "./getDeviceAssurancePolicy";
+export const getDeviceAssurancePolicy: typeof import("./getDeviceAssurancePolicy").getDeviceAssurancePolicy = null as any;
+export const getDeviceAssurancePolicyOutput: typeof import("./getDeviceAssurancePolicy").getDeviceAssurancePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getDeviceAssurancePolicy","getDeviceAssurancePolicyOutput"], () => require("./getDeviceAssurancePolicy"));
 
 export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
 export const getDomain: typeof import("./getDomain").getDomain = null as any;

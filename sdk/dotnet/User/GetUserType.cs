@@ -32,7 +32,7 @@ namespace Pulumi.Okta.User
         /// });
         /// ```
         /// </summary>
-        public static Task<GetUserTypeResult> InvokeAsync(GetUserTypeArgs args, InvokeOptions? options = null)
+        public static Task<GetUserTypeResult> InvokeAsync(GetUserTypeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserTypeResult>("okta:user/getUserType:getUserType", args ?? new GetUserTypeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Pulumi.Okta.User
         /// });
         /// ```
         /// </summary>
-        public static Output<GetUserTypeResult> Invoke(GetUserTypeInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetUserTypeResult> Invoke(GetUserTypeInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserTypeResult>("okta:user/getUserType:getUserType", args ?? new GetUserTypeInvokeArgs(), options.WithDefaults());
     }
 
@@ -64,10 +64,16 @@ namespace Pulumi.Okta.User
     public sealed class GetUserTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of user type to retrieve.
+        /// ID of the user type to retrieve, conflicts with `name`.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
+        /// Name of user type to retrieve, conflicts with `id`.
+        /// </summary>
+        [Input("name")]
+        public string? Name { get; set; }
 
         public GetUserTypeArgs()
         {
@@ -78,10 +84,16 @@ namespace Pulumi.Okta.User
     public sealed class GetUserTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of user type to retrieve.
+        /// ID of the user type to retrieve, conflicts with `name`.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Name of user type to retrieve, conflicts with `id`.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public GetUserTypeInvokeArgs()
         {
@@ -102,13 +114,13 @@ namespace Pulumi.Okta.User
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// ID of the user type to retrieve, conflicts with `name`.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
-        /// Name of user type to retrieve.
+        /// Name of user type to retrieve, conflicts with `id`.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetUserTypeResult(
@@ -116,9 +128,9 @@ namespace Pulumi.Okta.User
 
             string displayName,
 
-            string id,
+            string? id,
 
-            string name)
+            string? name)
         {
             Description = description;
             DisplayName = displayName;

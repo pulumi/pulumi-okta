@@ -58,17 +58,17 @@ class GetUserTypeResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
-        The provider-assigned unique ID for this managed resource.
+        ID of the user type to retrieve, conflicts with `name`.
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
-        Name of user type to retrieve.
+        Name of user type to retrieve, conflicts with `id`.
         """
         return pulumi.get(self, "name")
 
@@ -85,7 +85,8 @@ class AwaitableGetUserTypeResult(GetUserTypeResult):
             name=self.name)
 
 
-def get_user_type(name: Optional[str] = None,
+def get_user_type(id: Optional[str] = None,
+                  name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserTypeResult:
     """
     Get a user type from Okta.
@@ -100,9 +101,11 @@ def get_user_type(name: Optional[str] = None,
     ```
 
 
-    :param str name: Name of user type to retrieve.
+    :param str id: ID of the user type to retrieve, conflicts with `name`.
+    :param str name: Name of user type to retrieve, conflicts with `id`.
     """
     __args__ = dict()
+    __args__['id'] = id
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('okta:user/getUserType:getUserType', __args__, opts=opts, typ=GetUserTypeResult).value
@@ -112,7 +115,8 @@ def get_user_type(name: Optional[str] = None,
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-def get_user_type_output(name: Optional[pulumi.Input[str]] = None,
+def get_user_type_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                         name: Optional[pulumi.Input[Optional[str]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserTypeResult]:
     """
     Get a user type from Okta.
@@ -127,9 +131,11 @@ def get_user_type_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: Name of user type to retrieve.
+    :param str id: ID of the user type to retrieve, conflicts with `name`.
+    :param str name: Name of user type to retrieve, conflicts with `id`.
     """
     __args__ = dict()
+    __args__['id'] = id
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:user/getUserType:getUserType', __args__, opts=opts, typ=GetUserTypeResult)

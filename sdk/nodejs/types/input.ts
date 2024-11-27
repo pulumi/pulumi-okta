@@ -210,6 +210,76 @@ export interface GetDefaultSigninPageWidgetCustomizationsArgs {
     widgetGeneration?: pulumi.Input<string>;
 }
 
+export interface GetDeviceAssurancePolicyThirdPartySignalProvider {
+    dtc: inputs.GetDeviceAssurancePolicyThirdPartySignalProviderDtc;
+}
+
+export interface GetDeviceAssurancePolicyThirdPartySignalProviderArgs {
+    dtc: pulumi.Input<inputs.GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs>;
+}
+
+export interface GetDeviceAssurancePolicyThirdPartySignalProviderDtc {
+    allowScreenLock: boolean;
+    browserVersion: inputs.GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion;
+    builtInDnsClientEnabled: boolean;
+    chromeRemoteDesktopAppBlocked: boolean;
+    crowdStrikeAgentId: string;
+    crowdStrikeCustomerId: string;
+    deviceEnrollmentDomain: string;
+    diskEncrypted: boolean;
+    keyTrustLevel: string;
+    managedDevice: boolean;
+    osFirewall: boolean;
+    osVersion: inputs.GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion;
+    passwordProtectionWarningTrigger: string;
+    realtimeUrlCheckMode: boolean;
+    safeBrowsingProtectionLevel: string;
+    screenLockSecured: boolean;
+    siteIsolationEnabled: boolean;
+    thirdPartyBlockingEnabled: boolean;
+    windowsMachineDomain: string;
+    windowsUserDomain: string;
+}
+
+export interface GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs {
+    allowScreenLock: pulumi.Input<boolean>;
+    browserVersion: pulumi.Input<inputs.GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs>;
+    builtInDnsClientEnabled: pulumi.Input<boolean>;
+    chromeRemoteDesktopAppBlocked: pulumi.Input<boolean>;
+    crowdStrikeAgentId: pulumi.Input<string>;
+    crowdStrikeCustomerId: pulumi.Input<string>;
+    deviceEnrollmentDomain: pulumi.Input<string>;
+    diskEncrypted: pulumi.Input<boolean>;
+    keyTrustLevel: pulumi.Input<string>;
+    managedDevice: pulumi.Input<boolean>;
+    osFirewall: pulumi.Input<boolean>;
+    osVersion: pulumi.Input<inputs.GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs>;
+    passwordProtectionWarningTrigger: pulumi.Input<string>;
+    realtimeUrlCheckMode: pulumi.Input<boolean>;
+    safeBrowsingProtectionLevel: pulumi.Input<string>;
+    screenLockSecured: pulumi.Input<boolean>;
+    siteIsolationEnabled: pulumi.Input<boolean>;
+    thirdPartyBlockingEnabled: pulumi.Input<boolean>;
+    windowsMachineDomain: pulumi.Input<string>;
+    windowsUserDomain: pulumi.Input<string>;
+}
+
+export interface GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion {
+    minimum: string;
+}
+
+export interface GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs {
+    minimum: pulumi.Input<string>;
+}
+
+export interface GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion {
+    minimum: string;
+}
+
+export interface GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs {
+    minimum: pulumi.Input<string>;
+}
+
 export interface GetLogStreamSettings {
     /**
      * AWS account ID. Required only for 'aws_eventbridge' type

@@ -271,14 +271,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="grantTypes", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> grantTypes;
+    private Output<List<String>> grantTypes;
 
     /**
      * @return List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
      * 
      */
-    public Output<Optional<List<String>>> grantTypes() {
-        return Codegen.optional(this.grantTypes);
+    public Output<List<String>> grantTypes() {
+        return this.grantTypes;
     }
     /**
      * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
@@ -599,14 +599,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="responseTypes", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> responseTypes;
+    private Output<List<String>> responseTypes;
 
     /**
      * @return List of OAuth 2.0 response type strings.
      * 
      */
-    public Output<Optional<List<String>>> responseTypes() {
-        return Codegen.optional(this.responseTypes);
+    public Output<List<String>> responseTypes() {
+        return this.responseTypes;
     }
     /**
      * Sign on mode of application.

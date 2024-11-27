@@ -22,14 +22,15 @@ __all__ = ['AppGroupAssignmentsArgs', 'AppGroupAssignments']
 class AppGroupAssignmentsArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
-                 groups: pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]):
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]] = None):
         """
         The set of arguments for constructing a AppGroupAssignments resource.
         :param pulumi.Input[str] app_id: The ID of the application to assign a group to.
         :param pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]] groups: A group to assign to this application
         """
         pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "groups", groups)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
 
     @property
     @pulumi.getter(name="appId")
@@ -45,14 +46,14 @@ class AppGroupAssignmentsArgs:
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]:
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]]:
         """
         A group to assign to this application
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]):
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]]):
         pulumi.set(self, "groups", value)
 
 
@@ -214,8 +215,6 @@ class AppGroupAssignments(pulumi.CustomResource):
             if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")
             __props__.__dict__["app_id"] = app_id
-            if groups is None and not opts.urn:
-                raise TypeError("Missing required property 'groups'")
             __props__.__dict__["groups"] = groups
         super(AppGroupAssignments, __self__).__init__(
             'okta:index/appGroupAssignments:AppGroupAssignments',
@@ -257,7 +256,7 @@ class AppGroupAssignments(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[Sequence['outputs.AppGroupAssignmentsGroup']]:
+    def groups(self) -> pulumi.Output[Optional[Sequence['outputs.AppGroupAssignmentsGroup']]]:
         """
         A group to assign to this application
         """
