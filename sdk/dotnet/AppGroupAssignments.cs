@@ -123,7 +123,7 @@ namespace Pulumi.Okta
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
-        [Input("groups", required: true)]
+        [Input("groups")]
         private InputList<Inputs.AppGroupAssignmentsGroupArgs>? _groups;
 
         /// <summary>

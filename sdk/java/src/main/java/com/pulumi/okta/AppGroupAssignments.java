@@ -13,6 +13,7 @@ import com.pulumi.okta.inputs.AppGroupAssignmentsState;
 import com.pulumi.okta.outputs.AppGroupAssignmentsGroup;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -98,14 +99,14 @@ public class AppGroupAssignments extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="groups", refs={List.class,AppGroupAssignmentsGroup.class}, tree="[0,1]")
-    private Output<List<AppGroupAssignmentsGroup>> groups;
+    private Output</* @Nullable */ List<AppGroupAssignmentsGroup>> groups;
 
     /**
      * @return A group to assign to this application
      * 
      */
-    public Output<List<AppGroupAssignmentsGroup>> groups() {
-        return this.groups;
+    public Output<Optional<List<AppGroupAssignmentsGroup>>> groups() {
+        return Codegen.optional(this.groups);
     }
 
     /**

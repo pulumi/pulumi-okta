@@ -4,9 +4,10 @@
 package com.pulumi.okta.user.inputs;
 
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetUserTypePlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -14,23 +15,39 @@ public final class GetUserTypePlainArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetUserTypePlainArgs Empty = new GetUserTypePlainArgs();
 
     /**
-     * Name of user type to retrieve.
+     * ID of the user type to retrieve, conflicts with `name`.
      * 
      */
-    @Import(name="name", required=true)
-    private String name;
+    @Import(name="id")
+    private @Nullable String id;
 
     /**
-     * @return Name of user type to retrieve.
+     * @return ID of the user type to retrieve, conflicts with `name`.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+
+    /**
+     * Name of user type to retrieve, conflicts with `id`.
+     * 
+     */
+    @Import(name="name")
+    private @Nullable String name;
+
+    /**
+     * @return Name of user type to retrieve, conflicts with `id`.
+     * 
+     */
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     private GetUserTypePlainArgs() {}
 
     private GetUserTypePlainArgs(GetUserTypePlainArgs $) {
+        this.id = $.id;
         this.name = $.name;
     }
 
@@ -53,20 +70,28 @@ public final class GetUserTypePlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param name Name of user type to retrieve.
+         * @param id ID of the user type to retrieve, conflicts with `name`.
          * 
          * @return builder
          * 
          */
-        public Builder name(String name) {
+        public Builder id(@Nullable String id) {
+            $.id = id;
+            return this;
+        }
+
+        /**
+         * @param name Name of user type to retrieve, conflicts with `id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
         public GetUserTypePlainArgs build() {
-            if ($.name == null) {
-                throw new MissingRequiredPropertyException("GetUserTypePlainArgs", "name");
-            }
             return $;
         }
     }

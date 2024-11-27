@@ -38,6 +38,7 @@ from .factor_totp import *
 from .get_app_group_assignments import *
 from .get_app_signon_policy import *
 from .get_app_user_assignments import *
+from .get_apps import *
 from .get_auth_server_claim import *
 from .get_auth_server_claims import *
 from .get_authenticator import *
@@ -46,6 +47,7 @@ from .get_behaviours import *
 from .get_brand import *
 from .get_brands import *
 from .get_default_signin_page import *
+from .get_device_assurance_policy import *
 from .get_domain import *
 from .get_email_customization import *
 from .get_email_customizations import *

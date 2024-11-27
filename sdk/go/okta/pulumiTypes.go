@@ -3199,6 +3199,276 @@ func (o UserSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) UserSchemaP
 	}).(UserSchemaPropertyOneOfOutput)
 }
 
+type GetAppsApp struct {
+	AdminNote   string               `pulumi:"adminNote"`
+	Created     string               `pulumi:"created"`
+	EnduserNote string               `pulumi:"enduserNote"`
+	Features    []string             `pulumi:"features"`
+	Id          string               `pulumi:"id"`
+	Label       string               `pulumi:"label"`
+	LastUpdated string               `pulumi:"lastUpdated"`
+	Name        string               `pulumi:"name"`
+	SignOnMode  string               `pulumi:"signOnMode"`
+	Status      string               `pulumi:"status"`
+	Visibility  GetAppsAppVisibility `pulumi:"visibility"`
+}
+
+// GetAppsAppInput is an input type that accepts GetAppsAppArgs and GetAppsAppOutput values.
+// You can construct a concrete instance of `GetAppsAppInput` via:
+//
+//	GetAppsAppArgs{...}
+type GetAppsAppInput interface {
+	pulumi.Input
+
+	ToGetAppsAppOutput() GetAppsAppOutput
+	ToGetAppsAppOutputWithContext(context.Context) GetAppsAppOutput
+}
+
+type GetAppsAppArgs struct {
+	AdminNote   pulumi.StringInput        `pulumi:"adminNote"`
+	Created     pulumi.StringInput        `pulumi:"created"`
+	EnduserNote pulumi.StringInput        `pulumi:"enduserNote"`
+	Features    pulumi.StringArrayInput   `pulumi:"features"`
+	Id          pulumi.StringInput        `pulumi:"id"`
+	Label       pulumi.StringInput        `pulumi:"label"`
+	LastUpdated pulumi.StringInput        `pulumi:"lastUpdated"`
+	Name        pulumi.StringInput        `pulumi:"name"`
+	SignOnMode  pulumi.StringInput        `pulumi:"signOnMode"`
+	Status      pulumi.StringInput        `pulumi:"status"`
+	Visibility  GetAppsAppVisibilityInput `pulumi:"visibility"`
+}
+
+func (GetAppsAppArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppsApp)(nil)).Elem()
+}
+
+func (i GetAppsAppArgs) ToGetAppsAppOutput() GetAppsAppOutput {
+	return i.ToGetAppsAppOutputWithContext(context.Background())
+}
+
+func (i GetAppsAppArgs) ToGetAppsAppOutputWithContext(ctx context.Context) GetAppsAppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppsAppOutput)
+}
+
+// GetAppsAppArrayInput is an input type that accepts GetAppsAppArray and GetAppsAppArrayOutput values.
+// You can construct a concrete instance of `GetAppsAppArrayInput` via:
+//
+//	GetAppsAppArray{ GetAppsAppArgs{...} }
+type GetAppsAppArrayInput interface {
+	pulumi.Input
+
+	ToGetAppsAppArrayOutput() GetAppsAppArrayOutput
+	ToGetAppsAppArrayOutputWithContext(context.Context) GetAppsAppArrayOutput
+}
+
+type GetAppsAppArray []GetAppsAppInput
+
+func (GetAppsAppArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppsApp)(nil)).Elem()
+}
+
+func (i GetAppsAppArray) ToGetAppsAppArrayOutput() GetAppsAppArrayOutput {
+	return i.ToGetAppsAppArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppsAppArray) ToGetAppsAppArrayOutputWithContext(ctx context.Context) GetAppsAppArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppsAppArrayOutput)
+}
+
+type GetAppsAppOutput struct{ *pulumi.OutputState }
+
+func (GetAppsAppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppsApp)(nil)).Elem()
+}
+
+func (o GetAppsAppOutput) ToGetAppsAppOutput() GetAppsAppOutput {
+	return o
+}
+
+func (o GetAppsAppOutput) ToGetAppsAppOutputWithContext(ctx context.Context) GetAppsAppOutput {
+	return o
+}
+
+func (o GetAppsAppOutput) AdminNote() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppsApp) string { return v.AdminNote }).(pulumi.StringOutput)
+}
+
+func (o GetAppsAppOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppsApp) string { return v.Created }).(pulumi.StringOutput)
+}
+
+func (o GetAppsAppOutput) EnduserNote() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppsApp) string { return v.EnduserNote }).(pulumi.StringOutput)
+}
+
+func (o GetAppsAppOutput) Features() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppsApp) []string { return v.Features }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAppsAppOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppsApp) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetAppsAppOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppsApp) string { return v.Label }).(pulumi.StringOutput)
+}
+
+func (o GetAppsAppOutput) LastUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppsApp) string { return v.LastUpdated }).(pulumi.StringOutput)
+}
+
+func (o GetAppsAppOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppsApp) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetAppsAppOutput) SignOnMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppsApp) string { return v.SignOnMode }).(pulumi.StringOutput)
+}
+
+func (o GetAppsAppOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppsApp) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetAppsAppOutput) Visibility() GetAppsAppVisibilityOutput {
+	return o.ApplyT(func(v GetAppsApp) GetAppsAppVisibility { return v.Visibility }).(GetAppsAppVisibilityOutput)
+}
+
+type GetAppsAppArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppsAppArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppsApp)(nil)).Elem()
+}
+
+func (o GetAppsAppArrayOutput) ToGetAppsAppArrayOutput() GetAppsAppArrayOutput {
+	return o
+}
+
+func (o GetAppsAppArrayOutput) ToGetAppsAppArrayOutputWithContext(ctx context.Context) GetAppsAppArrayOutput {
+	return o
+}
+
+func (o GetAppsAppArrayOutput) Index(i pulumi.IntInput) GetAppsAppOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppsApp {
+		return vs[0].([]GetAppsApp)[vs[1].(int)]
+	}).(GetAppsAppOutput)
+}
+
+type GetAppsAppVisibility struct {
+	AutoLaunch        bool                     `pulumi:"autoLaunch"`
+	AutoSubmitToolbar bool                     `pulumi:"autoSubmitToolbar"`
+	Hide              GetAppsAppVisibilityHide `pulumi:"hide"`
+}
+
+// GetAppsAppVisibilityInput is an input type that accepts GetAppsAppVisibilityArgs and GetAppsAppVisibilityOutput values.
+// You can construct a concrete instance of `GetAppsAppVisibilityInput` via:
+//
+//	GetAppsAppVisibilityArgs{...}
+type GetAppsAppVisibilityInput interface {
+	pulumi.Input
+
+	ToGetAppsAppVisibilityOutput() GetAppsAppVisibilityOutput
+	ToGetAppsAppVisibilityOutputWithContext(context.Context) GetAppsAppVisibilityOutput
+}
+
+type GetAppsAppVisibilityArgs struct {
+	AutoLaunch        pulumi.BoolInput              `pulumi:"autoLaunch"`
+	AutoSubmitToolbar pulumi.BoolInput              `pulumi:"autoSubmitToolbar"`
+	Hide              GetAppsAppVisibilityHideInput `pulumi:"hide"`
+}
+
+func (GetAppsAppVisibilityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppsAppVisibility)(nil)).Elem()
+}
+
+func (i GetAppsAppVisibilityArgs) ToGetAppsAppVisibilityOutput() GetAppsAppVisibilityOutput {
+	return i.ToGetAppsAppVisibilityOutputWithContext(context.Background())
+}
+
+func (i GetAppsAppVisibilityArgs) ToGetAppsAppVisibilityOutputWithContext(ctx context.Context) GetAppsAppVisibilityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppsAppVisibilityOutput)
+}
+
+type GetAppsAppVisibilityOutput struct{ *pulumi.OutputState }
+
+func (GetAppsAppVisibilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppsAppVisibility)(nil)).Elem()
+}
+
+func (o GetAppsAppVisibilityOutput) ToGetAppsAppVisibilityOutput() GetAppsAppVisibilityOutput {
+	return o
+}
+
+func (o GetAppsAppVisibilityOutput) ToGetAppsAppVisibilityOutputWithContext(ctx context.Context) GetAppsAppVisibilityOutput {
+	return o
+}
+
+func (o GetAppsAppVisibilityOutput) AutoLaunch() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAppsAppVisibility) bool { return v.AutoLaunch }).(pulumi.BoolOutput)
+}
+
+func (o GetAppsAppVisibilityOutput) AutoSubmitToolbar() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAppsAppVisibility) bool { return v.AutoSubmitToolbar }).(pulumi.BoolOutput)
+}
+
+func (o GetAppsAppVisibilityOutput) Hide() GetAppsAppVisibilityHideOutput {
+	return o.ApplyT(func(v GetAppsAppVisibility) GetAppsAppVisibilityHide { return v.Hide }).(GetAppsAppVisibilityHideOutput)
+}
+
+type GetAppsAppVisibilityHide struct {
+	Ios bool `pulumi:"ios"`
+	Web bool `pulumi:"web"`
+}
+
+// GetAppsAppVisibilityHideInput is an input type that accepts GetAppsAppVisibilityHideArgs and GetAppsAppVisibilityHideOutput values.
+// You can construct a concrete instance of `GetAppsAppVisibilityHideInput` via:
+//
+//	GetAppsAppVisibilityHideArgs{...}
+type GetAppsAppVisibilityHideInput interface {
+	pulumi.Input
+
+	ToGetAppsAppVisibilityHideOutput() GetAppsAppVisibilityHideOutput
+	ToGetAppsAppVisibilityHideOutputWithContext(context.Context) GetAppsAppVisibilityHideOutput
+}
+
+type GetAppsAppVisibilityHideArgs struct {
+	Ios pulumi.BoolInput `pulumi:"ios"`
+	Web pulumi.BoolInput `pulumi:"web"`
+}
+
+func (GetAppsAppVisibilityHideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppsAppVisibilityHide)(nil)).Elem()
+}
+
+func (i GetAppsAppVisibilityHideArgs) ToGetAppsAppVisibilityHideOutput() GetAppsAppVisibilityHideOutput {
+	return i.ToGetAppsAppVisibilityHideOutputWithContext(context.Background())
+}
+
+func (i GetAppsAppVisibilityHideArgs) ToGetAppsAppVisibilityHideOutputWithContext(ctx context.Context) GetAppsAppVisibilityHideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppsAppVisibilityHideOutput)
+}
+
+type GetAppsAppVisibilityHideOutput struct{ *pulumi.OutputState }
+
+func (GetAppsAppVisibilityHideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppsAppVisibilityHide)(nil)).Elem()
+}
+
+func (o GetAppsAppVisibilityHideOutput) ToGetAppsAppVisibilityHideOutput() GetAppsAppVisibilityHideOutput {
+	return o
+}
+
+func (o GetAppsAppVisibilityHideOutput) ToGetAppsAppVisibilityHideOutputWithContext(ctx context.Context) GetAppsAppVisibilityHideOutput {
+	return o
+}
+
+func (o GetAppsAppVisibilityHideOutput) Ios() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAppsAppVisibilityHide) bool { return v.Ios }).(pulumi.BoolOutput)
+}
+
+func (o GetAppsAppVisibilityHideOutput) Web() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAppsAppVisibilityHide) bool { return v.Web }).(pulumi.BoolOutput)
+}
+
 type GetAuthServerClaimsClaim struct {
 	// Specifies whether to include Claims in the token.
 	AlwaysIncludeInToken bool `pulumi:"alwaysIncludeInToken"`
@@ -4224,6 +4494,1220 @@ func (o GetDefaultSigninPageWidgetCustomizationsPtrOutput) WidgetGeneration() pu
 			return nil
 		}
 		return &v.WidgetGeneration
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetDeviceAssurancePolicyDiskEncryptionType struct {
+	Includes []string `pulumi:"includes"`
+}
+
+// GetDeviceAssurancePolicyDiskEncryptionTypeInput is an input type that accepts GetDeviceAssurancePolicyDiskEncryptionTypeArgs and GetDeviceAssurancePolicyDiskEncryptionTypeOutput values.
+// You can construct a concrete instance of `GetDeviceAssurancePolicyDiskEncryptionTypeInput` via:
+//
+//	GetDeviceAssurancePolicyDiskEncryptionTypeArgs{...}
+type GetDeviceAssurancePolicyDiskEncryptionTypeInput interface {
+	pulumi.Input
+
+	ToGetDeviceAssurancePolicyDiskEncryptionTypeOutput() GetDeviceAssurancePolicyDiskEncryptionTypeOutput
+	ToGetDeviceAssurancePolicyDiskEncryptionTypeOutputWithContext(context.Context) GetDeviceAssurancePolicyDiskEncryptionTypeOutput
+}
+
+type GetDeviceAssurancePolicyDiskEncryptionTypeArgs struct {
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (GetDeviceAssurancePolicyDiskEncryptionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyDiskEncryptionType)(nil)).Elem()
+}
+
+func (i GetDeviceAssurancePolicyDiskEncryptionTypeArgs) ToGetDeviceAssurancePolicyDiskEncryptionTypeOutput() GetDeviceAssurancePolicyDiskEncryptionTypeOutput {
+	return i.ToGetDeviceAssurancePolicyDiskEncryptionTypeOutputWithContext(context.Background())
+}
+
+func (i GetDeviceAssurancePolicyDiskEncryptionTypeArgs) ToGetDeviceAssurancePolicyDiskEncryptionTypeOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyDiskEncryptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyDiskEncryptionTypeOutput)
+}
+
+type GetDeviceAssurancePolicyDiskEncryptionTypeOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceAssurancePolicyDiskEncryptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyDiskEncryptionType)(nil)).Elem()
+}
+
+func (o GetDeviceAssurancePolicyDiskEncryptionTypeOutput) ToGetDeviceAssurancePolicyDiskEncryptionTypeOutput() GetDeviceAssurancePolicyDiskEncryptionTypeOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyDiskEncryptionTypeOutput) ToGetDeviceAssurancePolicyDiskEncryptionTypeOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyDiskEncryptionTypeOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyDiskEncryptionTypeOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyDiskEncryptionType) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type GetDeviceAssurancePolicyOsVersion struct {
+	DynamicVersionRequirement GetDeviceAssurancePolicyOsVersionDynamicVersionRequirement `pulumi:"dynamicVersionRequirement"`
+	Minimum                   string                                                     `pulumi:"minimum"`
+}
+
+// GetDeviceAssurancePolicyOsVersionInput is an input type that accepts GetDeviceAssurancePolicyOsVersionArgs and GetDeviceAssurancePolicyOsVersionOutput values.
+// You can construct a concrete instance of `GetDeviceAssurancePolicyOsVersionInput` via:
+//
+//	GetDeviceAssurancePolicyOsVersionArgs{...}
+type GetDeviceAssurancePolicyOsVersionInput interface {
+	pulumi.Input
+
+	ToGetDeviceAssurancePolicyOsVersionOutput() GetDeviceAssurancePolicyOsVersionOutput
+	ToGetDeviceAssurancePolicyOsVersionOutputWithContext(context.Context) GetDeviceAssurancePolicyOsVersionOutput
+}
+
+type GetDeviceAssurancePolicyOsVersionArgs struct {
+	DynamicVersionRequirement GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementInput `pulumi:"dynamicVersionRequirement"`
+	Minimum                   pulumi.StringInput                                              `pulumi:"minimum"`
+}
+
+func (GetDeviceAssurancePolicyOsVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyOsVersion)(nil)).Elem()
+}
+
+func (i GetDeviceAssurancePolicyOsVersionArgs) ToGetDeviceAssurancePolicyOsVersionOutput() GetDeviceAssurancePolicyOsVersionOutput {
+	return i.ToGetDeviceAssurancePolicyOsVersionOutputWithContext(context.Background())
+}
+
+func (i GetDeviceAssurancePolicyOsVersionArgs) ToGetDeviceAssurancePolicyOsVersionOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyOsVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyOsVersionOutput)
+}
+
+type GetDeviceAssurancePolicyOsVersionOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceAssurancePolicyOsVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyOsVersion)(nil)).Elem()
+}
+
+func (o GetDeviceAssurancePolicyOsVersionOutput) ToGetDeviceAssurancePolicyOsVersionOutput() GetDeviceAssurancePolicyOsVersionOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyOsVersionOutput) ToGetDeviceAssurancePolicyOsVersionOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyOsVersionOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyOsVersionOutput) DynamicVersionRequirement() GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyOsVersion) GetDeviceAssurancePolicyOsVersionDynamicVersionRequirement {
+		return v.DynamicVersionRequirement
+	}).(GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput)
+}
+
+func (o GetDeviceAssurancePolicyOsVersionOutput) Minimum() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyOsVersion) string { return v.Minimum }).(pulumi.StringOutput)
+}
+
+type GetDeviceAssurancePolicyOsVersionConstraint struct {
+	DynamicVersionRequirement GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirement `pulumi:"dynamicVersionRequirement"`
+	MajorVersionConstraint    string                                                               `pulumi:"majorVersionConstraint"`
+}
+
+// GetDeviceAssurancePolicyOsVersionConstraintInput is an input type that accepts GetDeviceAssurancePolicyOsVersionConstraintArgs and GetDeviceAssurancePolicyOsVersionConstraintOutput values.
+// You can construct a concrete instance of `GetDeviceAssurancePolicyOsVersionConstraintInput` via:
+//
+//	GetDeviceAssurancePolicyOsVersionConstraintArgs{...}
+type GetDeviceAssurancePolicyOsVersionConstraintInput interface {
+	pulumi.Input
+
+	ToGetDeviceAssurancePolicyOsVersionConstraintOutput() GetDeviceAssurancePolicyOsVersionConstraintOutput
+	ToGetDeviceAssurancePolicyOsVersionConstraintOutputWithContext(context.Context) GetDeviceAssurancePolicyOsVersionConstraintOutput
+}
+
+type GetDeviceAssurancePolicyOsVersionConstraintArgs struct {
+	DynamicVersionRequirement GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementInput `pulumi:"dynamicVersionRequirement"`
+	MajorVersionConstraint    pulumi.StringInput                                                        `pulumi:"majorVersionConstraint"`
+}
+
+func (GetDeviceAssurancePolicyOsVersionConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyOsVersionConstraint)(nil)).Elem()
+}
+
+func (i GetDeviceAssurancePolicyOsVersionConstraintArgs) ToGetDeviceAssurancePolicyOsVersionConstraintOutput() GetDeviceAssurancePolicyOsVersionConstraintOutput {
+	return i.ToGetDeviceAssurancePolicyOsVersionConstraintOutputWithContext(context.Background())
+}
+
+func (i GetDeviceAssurancePolicyOsVersionConstraintArgs) ToGetDeviceAssurancePolicyOsVersionConstraintOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyOsVersionConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyOsVersionConstraintOutput)
+}
+
+// GetDeviceAssurancePolicyOsVersionConstraintArrayInput is an input type that accepts GetDeviceAssurancePolicyOsVersionConstraintArray and GetDeviceAssurancePolicyOsVersionConstraintArrayOutput values.
+// You can construct a concrete instance of `GetDeviceAssurancePolicyOsVersionConstraintArrayInput` via:
+//
+//	GetDeviceAssurancePolicyOsVersionConstraintArray{ GetDeviceAssurancePolicyOsVersionConstraintArgs{...} }
+type GetDeviceAssurancePolicyOsVersionConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetDeviceAssurancePolicyOsVersionConstraintArrayOutput() GetDeviceAssurancePolicyOsVersionConstraintArrayOutput
+	ToGetDeviceAssurancePolicyOsVersionConstraintArrayOutputWithContext(context.Context) GetDeviceAssurancePolicyOsVersionConstraintArrayOutput
+}
+
+type GetDeviceAssurancePolicyOsVersionConstraintArray []GetDeviceAssurancePolicyOsVersionConstraintInput
+
+func (GetDeviceAssurancePolicyOsVersionConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeviceAssurancePolicyOsVersionConstraint)(nil)).Elem()
+}
+
+func (i GetDeviceAssurancePolicyOsVersionConstraintArray) ToGetDeviceAssurancePolicyOsVersionConstraintArrayOutput() GetDeviceAssurancePolicyOsVersionConstraintArrayOutput {
+	return i.ToGetDeviceAssurancePolicyOsVersionConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetDeviceAssurancePolicyOsVersionConstraintArray) ToGetDeviceAssurancePolicyOsVersionConstraintArrayOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyOsVersionConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyOsVersionConstraintArrayOutput)
+}
+
+type GetDeviceAssurancePolicyOsVersionConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceAssurancePolicyOsVersionConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyOsVersionConstraint)(nil)).Elem()
+}
+
+func (o GetDeviceAssurancePolicyOsVersionConstraintOutput) ToGetDeviceAssurancePolicyOsVersionConstraintOutput() GetDeviceAssurancePolicyOsVersionConstraintOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyOsVersionConstraintOutput) ToGetDeviceAssurancePolicyOsVersionConstraintOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyOsVersionConstraintOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyOsVersionConstraintOutput) DynamicVersionRequirement() GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyOsVersionConstraint) GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirement {
+		return v.DynamicVersionRequirement
+	}).(GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput)
+}
+
+func (o GetDeviceAssurancePolicyOsVersionConstraintOutput) MajorVersionConstraint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyOsVersionConstraint) string { return v.MajorVersionConstraint }).(pulumi.StringOutput)
+}
+
+type GetDeviceAssurancePolicyOsVersionConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceAssurancePolicyOsVersionConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeviceAssurancePolicyOsVersionConstraint)(nil)).Elem()
+}
+
+func (o GetDeviceAssurancePolicyOsVersionConstraintArrayOutput) ToGetDeviceAssurancePolicyOsVersionConstraintArrayOutput() GetDeviceAssurancePolicyOsVersionConstraintArrayOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyOsVersionConstraintArrayOutput) ToGetDeviceAssurancePolicyOsVersionConstraintArrayOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyOsVersionConstraintArrayOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyOsVersionConstraintArrayOutput) Index(i pulumi.IntInput) GetDeviceAssurancePolicyOsVersionConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeviceAssurancePolicyOsVersionConstraint {
+		return vs[0].([]GetDeviceAssurancePolicyOsVersionConstraint)[vs[1].(int)]
+	}).(GetDeviceAssurancePolicyOsVersionConstraintOutput)
+}
+
+type GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirement struct {
+	DistanceFromLatestMajor int    `pulumi:"distanceFromLatestMajor"`
+	LatestSecurityPatch     bool   `pulumi:"latestSecurityPatch"`
+	Type                    string `pulumi:"type"`
+}
+
+// GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementInput is an input type that accepts GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementArgs and GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput values.
+// You can construct a concrete instance of `GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementInput` via:
+//
+//	GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementArgs{...}
+type GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementInput interface {
+	pulumi.Input
+
+	ToGetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput() GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput
+	ToGetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutputWithContext(context.Context) GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput
+}
+
+type GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementArgs struct {
+	DistanceFromLatestMajor pulumi.IntInput    `pulumi:"distanceFromLatestMajor"`
+	LatestSecurityPatch     pulumi.BoolInput   `pulumi:"latestSecurityPatch"`
+	Type                    pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirement)(nil)).Elem()
+}
+
+func (i GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementArgs) ToGetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput() GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput {
+	return i.ToGetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutputWithContext(context.Background())
+}
+
+func (i GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementArgs) ToGetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput)
+}
+
+type GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirement)(nil)).Elem()
+}
+
+func (o GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput) ToGetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput() GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput) ToGetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput) DistanceFromLatestMajor() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirement) int {
+		return v.DistanceFromLatestMajor
+	}).(pulumi.IntOutput)
+}
+
+func (o GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput) LatestSecurityPatch() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirement) bool {
+		return v.LatestSecurityPatch
+	}).(pulumi.BoolOutput)
+}
+
+func (o GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirement) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetDeviceAssurancePolicyOsVersionDynamicVersionRequirement struct {
+	DistanceFromLatestMajor int    `pulumi:"distanceFromLatestMajor"`
+	LatestSecurityPatch     bool   `pulumi:"latestSecurityPatch"`
+	Type                    string `pulumi:"type"`
+}
+
+// GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementInput is an input type that accepts GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementArgs and GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput values.
+// You can construct a concrete instance of `GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementInput` via:
+//
+//	GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementArgs{...}
+type GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementInput interface {
+	pulumi.Input
+
+	ToGetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput() GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput
+	ToGetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutputWithContext(context.Context) GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput
+}
+
+type GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementArgs struct {
+	DistanceFromLatestMajor pulumi.IntInput    `pulumi:"distanceFromLatestMajor"`
+	LatestSecurityPatch     pulumi.BoolInput   `pulumi:"latestSecurityPatch"`
+	Type                    pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyOsVersionDynamicVersionRequirement)(nil)).Elem()
+}
+
+func (i GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementArgs) ToGetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput() GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput {
+	return i.ToGetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutputWithContext(context.Background())
+}
+
+func (i GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementArgs) ToGetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput)
+}
+
+type GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyOsVersionDynamicVersionRequirement)(nil)).Elem()
+}
+
+func (o GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput) ToGetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput() GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput) ToGetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput) DistanceFromLatestMajor() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyOsVersionDynamicVersionRequirement) int {
+		return v.DistanceFromLatestMajor
+	}).(pulumi.IntOutput)
+}
+
+func (o GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput) LatestSecurityPatch() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyOsVersionDynamicVersionRequirement) bool { return v.LatestSecurityPatch }).(pulumi.BoolOutput)
+}
+
+func (o GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyOsVersionDynamicVersionRequirement) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetDeviceAssurancePolicyScreenlockType struct {
+	Includes []string `pulumi:"includes"`
+}
+
+// GetDeviceAssurancePolicyScreenlockTypeInput is an input type that accepts GetDeviceAssurancePolicyScreenlockTypeArgs and GetDeviceAssurancePolicyScreenlockTypeOutput values.
+// You can construct a concrete instance of `GetDeviceAssurancePolicyScreenlockTypeInput` via:
+//
+//	GetDeviceAssurancePolicyScreenlockTypeArgs{...}
+type GetDeviceAssurancePolicyScreenlockTypeInput interface {
+	pulumi.Input
+
+	ToGetDeviceAssurancePolicyScreenlockTypeOutput() GetDeviceAssurancePolicyScreenlockTypeOutput
+	ToGetDeviceAssurancePolicyScreenlockTypeOutputWithContext(context.Context) GetDeviceAssurancePolicyScreenlockTypeOutput
+}
+
+type GetDeviceAssurancePolicyScreenlockTypeArgs struct {
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (GetDeviceAssurancePolicyScreenlockTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyScreenlockType)(nil)).Elem()
+}
+
+func (i GetDeviceAssurancePolicyScreenlockTypeArgs) ToGetDeviceAssurancePolicyScreenlockTypeOutput() GetDeviceAssurancePolicyScreenlockTypeOutput {
+	return i.ToGetDeviceAssurancePolicyScreenlockTypeOutputWithContext(context.Background())
+}
+
+func (i GetDeviceAssurancePolicyScreenlockTypeArgs) ToGetDeviceAssurancePolicyScreenlockTypeOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyScreenlockTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyScreenlockTypeOutput)
+}
+
+type GetDeviceAssurancePolicyScreenlockTypeOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceAssurancePolicyScreenlockTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyScreenlockType)(nil)).Elem()
+}
+
+func (o GetDeviceAssurancePolicyScreenlockTypeOutput) ToGetDeviceAssurancePolicyScreenlockTypeOutput() GetDeviceAssurancePolicyScreenlockTypeOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyScreenlockTypeOutput) ToGetDeviceAssurancePolicyScreenlockTypeOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyScreenlockTypeOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyScreenlockTypeOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyScreenlockType) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProvider struct {
+	Dtc GetDeviceAssurancePolicyThirdPartySignalProviderDtc `pulumi:"dtc"`
+}
+
+// GetDeviceAssurancePolicyThirdPartySignalProviderInput is an input type that accepts GetDeviceAssurancePolicyThirdPartySignalProviderArgs and GetDeviceAssurancePolicyThirdPartySignalProviderOutput values.
+// You can construct a concrete instance of `GetDeviceAssurancePolicyThirdPartySignalProviderInput` via:
+//
+//	GetDeviceAssurancePolicyThirdPartySignalProviderArgs{...}
+type GetDeviceAssurancePolicyThirdPartySignalProviderInput interface {
+	pulumi.Input
+
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderOutput() GetDeviceAssurancePolicyThirdPartySignalProviderOutput
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderOutputWithContext(context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderOutput
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProviderArgs struct {
+	Dtc GetDeviceAssurancePolicyThirdPartySignalProviderDtcInput `pulumi:"dtc"`
+}
+
+func (GetDeviceAssurancePolicyThirdPartySignalProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProvider)(nil)).Elem()
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderOutput() GetDeviceAssurancePolicyThirdPartySignalProviderOutput {
+	return i.ToGetDeviceAssurancePolicyThirdPartySignalProviderOutputWithContext(context.Background())
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyThirdPartySignalProviderOutput)
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput {
+	return i.ToGetDeviceAssurancePolicyThirdPartySignalProviderPtrOutputWithContext(context.Background())
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyThirdPartySignalProviderOutput).ToGetDeviceAssurancePolicyThirdPartySignalProviderPtrOutputWithContext(ctx)
+}
+
+// GetDeviceAssurancePolicyThirdPartySignalProviderPtrInput is an input type that accepts GetDeviceAssurancePolicyThirdPartySignalProviderArgs, GetDeviceAssurancePolicyThirdPartySignalProviderPtr and GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput values.
+// You can construct a concrete instance of `GetDeviceAssurancePolicyThirdPartySignalProviderPtrInput` via:
+//
+//	        GetDeviceAssurancePolicyThirdPartySignalProviderArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDeviceAssurancePolicyThirdPartySignalProviderPtrInput interface {
+	pulumi.Input
+
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderPtrOutputWithContext(context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput
+}
+
+type getDeviceAssurancePolicyThirdPartySignalProviderPtrType GetDeviceAssurancePolicyThirdPartySignalProviderArgs
+
+func GetDeviceAssurancePolicyThirdPartySignalProviderPtr(v *GetDeviceAssurancePolicyThirdPartySignalProviderArgs) GetDeviceAssurancePolicyThirdPartySignalProviderPtrInput {
+	return (*getDeviceAssurancePolicyThirdPartySignalProviderPtrType)(v)
+}
+
+func (*getDeviceAssurancePolicyThirdPartySignalProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDeviceAssurancePolicyThirdPartySignalProvider)(nil)).Elem()
+}
+
+func (i *getDeviceAssurancePolicyThirdPartySignalProviderPtrType) ToGetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput {
+	return i.ToGetDeviceAssurancePolicyThirdPartySignalProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *getDeviceAssurancePolicyThirdPartySignalProviderPtrType) ToGetDeviceAssurancePolicyThirdPartySignalProviderPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput)
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProviderOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceAssurancePolicyThirdPartySignalProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProvider)(nil)).Elem()
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderOutput() GetDeviceAssurancePolicyThirdPartySignalProviderOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput {
+	return o.ToGetDeviceAssurancePolicyThirdPartySignalProviderPtrOutputWithContext(context.Background())
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDeviceAssurancePolicyThirdPartySignalProvider) *GetDeviceAssurancePolicyThirdPartySignalProvider {
+		return &v
+	}).(GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderOutput) Dtc() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProvider) GetDeviceAssurancePolicyThirdPartySignalProviderDtc {
+		return v.Dtc
+	}).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput)
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDeviceAssurancePolicyThirdPartySignalProvider)(nil)).Elem()
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput) Elem() GetDeviceAssurancePolicyThirdPartySignalProviderOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProvider) GetDeviceAssurancePolicyThirdPartySignalProvider {
+		if v != nil {
+			return *v
+		}
+		var ret GetDeviceAssurancePolicyThirdPartySignalProvider
+		return ret
+	}).(GetDeviceAssurancePolicyThirdPartySignalProviderOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput) Dtc() GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProvider) *GetDeviceAssurancePolicyThirdPartySignalProviderDtc {
+		if v == nil {
+			return nil
+		}
+		return &v.Dtc
+	}).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput)
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtc struct {
+	AllowScreenLock                  bool                                                              `pulumi:"allowScreenLock"`
+	BrowserVersion                   GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion `pulumi:"browserVersion"`
+	BuiltInDnsClientEnabled          bool                                                              `pulumi:"builtInDnsClientEnabled"`
+	ChromeRemoteDesktopAppBlocked    bool                                                              `pulumi:"chromeRemoteDesktopAppBlocked"`
+	CrowdStrikeAgentId               string                                                            `pulumi:"crowdStrikeAgentId"`
+	CrowdStrikeCustomerId            string                                                            `pulumi:"crowdStrikeCustomerId"`
+	DeviceEnrollmentDomain           string                                                            `pulumi:"deviceEnrollmentDomain"`
+	DiskEncrypted                    bool                                                              `pulumi:"diskEncrypted"`
+	KeyTrustLevel                    string                                                            `pulumi:"keyTrustLevel"`
+	ManagedDevice                    bool                                                              `pulumi:"managedDevice"`
+	OsFirewall                       bool                                                              `pulumi:"osFirewall"`
+	OsVersion                        GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion      `pulumi:"osVersion"`
+	PasswordProtectionWarningTrigger string                                                            `pulumi:"passwordProtectionWarningTrigger"`
+	RealtimeUrlCheckMode             bool                                                              `pulumi:"realtimeUrlCheckMode"`
+	SafeBrowsingProtectionLevel      string                                                            `pulumi:"safeBrowsingProtectionLevel"`
+	ScreenLockSecured                bool                                                              `pulumi:"screenLockSecured"`
+	SiteIsolationEnabled             bool                                                              `pulumi:"siteIsolationEnabled"`
+	ThirdPartyBlockingEnabled        bool                                                              `pulumi:"thirdPartyBlockingEnabled"`
+	WindowsMachineDomain             string                                                            `pulumi:"windowsMachineDomain"`
+	WindowsUserDomain                string                                                            `pulumi:"windowsUserDomain"`
+}
+
+// GetDeviceAssurancePolicyThirdPartySignalProviderDtcInput is an input type that accepts GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs and GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput values.
+// You can construct a concrete instance of `GetDeviceAssurancePolicyThirdPartySignalProviderDtcInput` via:
+//
+//	GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs{...}
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcInput interface {
+	pulumi.Input
+
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOutputWithContext(context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs struct {
+	AllowScreenLock                  pulumi.BoolInput                                                       `pulumi:"allowScreenLock"`
+	BrowserVersion                   GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionInput `pulumi:"browserVersion"`
+	BuiltInDnsClientEnabled          pulumi.BoolInput                                                       `pulumi:"builtInDnsClientEnabled"`
+	ChromeRemoteDesktopAppBlocked    pulumi.BoolInput                                                       `pulumi:"chromeRemoteDesktopAppBlocked"`
+	CrowdStrikeAgentId               pulumi.StringInput                                                     `pulumi:"crowdStrikeAgentId"`
+	CrowdStrikeCustomerId            pulumi.StringInput                                                     `pulumi:"crowdStrikeCustomerId"`
+	DeviceEnrollmentDomain           pulumi.StringInput                                                     `pulumi:"deviceEnrollmentDomain"`
+	DiskEncrypted                    pulumi.BoolInput                                                       `pulumi:"diskEncrypted"`
+	KeyTrustLevel                    pulumi.StringInput                                                     `pulumi:"keyTrustLevel"`
+	ManagedDevice                    pulumi.BoolInput                                                       `pulumi:"managedDevice"`
+	OsFirewall                       pulumi.BoolInput                                                       `pulumi:"osFirewall"`
+	OsVersion                        GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionInput      `pulumi:"osVersion"`
+	PasswordProtectionWarningTrigger pulumi.StringInput                                                     `pulumi:"passwordProtectionWarningTrigger"`
+	RealtimeUrlCheckMode             pulumi.BoolInput                                                       `pulumi:"realtimeUrlCheckMode"`
+	SafeBrowsingProtectionLevel      pulumi.StringInput                                                     `pulumi:"safeBrowsingProtectionLevel"`
+	ScreenLockSecured                pulumi.BoolInput                                                       `pulumi:"screenLockSecured"`
+	SiteIsolationEnabled             pulumi.BoolInput                                                       `pulumi:"siteIsolationEnabled"`
+	ThirdPartyBlockingEnabled        pulumi.BoolInput                                                       `pulumi:"thirdPartyBlockingEnabled"`
+	WindowsMachineDomain             pulumi.StringInput                                                     `pulumi:"windowsMachineDomain"`
+	WindowsUserDomain                pulumi.StringInput                                                     `pulumi:"windowsUserDomain"`
+}
+
+func (GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderDtc)(nil)).Elem()
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput {
+	return i.ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOutputWithContext(context.Background())
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput)
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput {
+	return i.ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutputWithContext(context.Background())
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput).ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutputWithContext(ctx)
+}
+
+// GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrInput is an input type that accepts GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs, GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtr and GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput values.
+// You can construct a concrete instance of `GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrInput` via:
+//
+//	        GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrInput interface {
+	pulumi.Input
+
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutputWithContext(context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput
+}
+
+type getDeviceAssurancePolicyThirdPartySignalProviderDtcPtrType GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs
+
+func GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtr(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs) GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrInput {
+	return (*getDeviceAssurancePolicyThirdPartySignalProviderDtcPtrType)(v)
+}
+
+func (*getDeviceAssurancePolicyThirdPartySignalProviderDtcPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDeviceAssurancePolicyThirdPartySignalProviderDtc)(nil)).Elem()
+}
+
+func (i *getDeviceAssurancePolicyThirdPartySignalProviderDtcPtrType) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput {
+	return i.ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutputWithContext(context.Background())
+}
+
+func (i *getDeviceAssurancePolicyThirdPartySignalProviderDtcPtrType) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput)
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderDtc)(nil)).Elem()
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput {
+	return o.ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutputWithContext(context.Background())
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *GetDeviceAssurancePolicyThirdPartySignalProviderDtc {
+		return &v
+	}).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) AllowScreenLock() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) bool { return v.AllowScreenLock }).(pulumi.BoolOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) BrowserVersion() GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion {
+		return v.BrowserVersion
+	}).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) BuiltInDnsClientEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) bool { return v.BuiltInDnsClientEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) ChromeRemoteDesktopAppBlocked() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) bool {
+		return v.ChromeRemoteDesktopAppBlocked
+	}).(pulumi.BoolOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) CrowdStrikeAgentId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) string { return v.CrowdStrikeAgentId }).(pulumi.StringOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) CrowdStrikeCustomerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) string { return v.CrowdStrikeCustomerId }).(pulumi.StringOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) DeviceEnrollmentDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) string { return v.DeviceEnrollmentDomain }).(pulumi.StringOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) DiskEncrypted() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) bool { return v.DiskEncrypted }).(pulumi.BoolOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) KeyTrustLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) string { return v.KeyTrustLevel }).(pulumi.StringOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) ManagedDevice() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) bool { return v.ManagedDevice }).(pulumi.BoolOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) OsFirewall() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) bool { return v.OsFirewall }).(pulumi.BoolOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) OsVersion() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion {
+		return v.OsVersion
+	}).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) PasswordProtectionWarningTrigger() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) string {
+		return v.PasswordProtectionWarningTrigger
+	}).(pulumi.StringOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) RealtimeUrlCheckMode() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) bool { return v.RealtimeUrlCheckMode }).(pulumi.BoolOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) SafeBrowsingProtectionLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) string {
+		return v.SafeBrowsingProtectionLevel
+	}).(pulumi.StringOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) ScreenLockSecured() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) bool { return v.ScreenLockSecured }).(pulumi.BoolOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) SiteIsolationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) bool { return v.SiteIsolationEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) ThirdPartyBlockingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) bool { return v.ThirdPartyBlockingEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) WindowsMachineDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) string { return v.WindowsMachineDomain }).(pulumi.StringOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput) WindowsUserDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtc) string { return v.WindowsUserDomain }).(pulumi.StringOutput)
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDeviceAssurancePolicyThirdPartySignalProviderDtc)(nil)).Elem()
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) Elem() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) GetDeviceAssurancePolicyThirdPartySignalProviderDtc {
+		if v != nil {
+			return *v
+		}
+		var ret GetDeviceAssurancePolicyThirdPartySignalProviderDtc
+		return ret
+	}).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) AllowScreenLock() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AllowScreenLock
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) BrowserVersion() GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion {
+		if v == nil {
+			return nil
+		}
+		return &v.BrowserVersion
+	}).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) BuiltInDnsClientEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.BuiltInDnsClientEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) ChromeRemoteDesktopAppBlocked() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ChromeRemoteDesktopAppBlocked
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) CrowdStrikeAgentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CrowdStrikeAgentId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) CrowdStrikeCustomerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CrowdStrikeCustomerId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) DeviceEnrollmentDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeviceEnrollmentDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) DiskEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DiskEncrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) KeyTrustLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyTrustLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) ManagedDevice() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ManagedDevice
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) OsFirewall() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.OsFirewall
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) OsVersion() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion {
+		if v == nil {
+			return nil
+		}
+		return &v.OsVersion
+	}).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) PasswordProtectionWarningTrigger() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PasswordProtectionWarningTrigger
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) RealtimeUrlCheckMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.RealtimeUrlCheckMode
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) SafeBrowsingProtectionLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SafeBrowsingProtectionLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) ScreenLockSecured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ScreenLockSecured
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) SiteIsolationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SiteIsolationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) ThirdPartyBlockingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ThirdPartyBlockingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) WindowsMachineDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WindowsMachineDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput) WindowsUserDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WindowsUserDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion struct {
+	Minimum string `pulumi:"minimum"`
+}
+
+// GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionInput is an input type that accepts GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs and GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput values.
+// You can construct a concrete instance of `GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionInput` via:
+//
+//	GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs{...}
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionInput interface {
+	pulumi.Input
+
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutputWithContext(context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs struct {
+	Minimum pulumi.StringInput `pulumi:"minimum"`
+}
+
+func (GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion)(nil)).Elem()
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput {
+	return i.ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutputWithContext(context.Background())
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput)
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput {
+	return i.ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutputWithContext(context.Background())
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput).ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutputWithContext(ctx)
+}
+
+// GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrInput is an input type that accepts GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs, GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtr and GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput values.
+// You can construct a concrete instance of `GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrInput` via:
+//
+//	        GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrInput interface {
+	pulumi.Input
+
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutputWithContext(context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput
+}
+
+type getDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrType GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs
+
+func GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtr(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs) GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrInput {
+	return (*getDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrType)(v)
+}
+
+func (*getDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion)(nil)).Elem()
+}
+
+func (i *getDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrType) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput {
+	return i.ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *getDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrType) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput)
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion)(nil)).Elem()
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput {
+	return o.ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutputWithContext(context.Background())
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion) *GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion {
+		return &v
+	}).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput) Minimum() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion) string { return v.Minimum }).(pulumi.StringOutput)
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion)(nil)).Elem()
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput) Elem() GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion) GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion {
+		if v != nil {
+			return *v
+		}
+		var ret GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion
+		return ret
+	}).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput) Minimum() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Minimum
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion struct {
+	Minimum string `pulumi:"minimum"`
+}
+
+// GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionInput is an input type that accepts GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs and GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput values.
+// You can construct a concrete instance of `GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionInput` via:
+//
+//	GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs{...}
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionInput interface {
+	pulumi.Input
+
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutputWithContext(context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs struct {
+	Minimum pulumi.StringInput `pulumi:"minimum"`
+}
+
+func (GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion)(nil)).Elem()
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput {
+	return i.ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutputWithContext(context.Background())
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput)
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput {
+	return i.ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutputWithContext(context.Background())
+}
+
+func (i GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput).ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutputWithContext(ctx)
+}
+
+// GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrInput is an input type that accepts GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs, GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtr and GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput values.
+// You can construct a concrete instance of `GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrInput` via:
+//
+//	        GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrInput interface {
+	pulumi.Input
+
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput
+	ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutputWithContext(context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput
+}
+
+type getDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrType GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs
+
+func GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtr(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs) GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrInput {
+	return (*getDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrType)(v)
+}
+
+func (*getDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion)(nil)).Elem()
+}
+
+func (i *getDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrType) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput {
+	return i.ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *getDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrType) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput)
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion)(nil)).Elem()
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput {
+	return o.ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutputWithContext(context.Background())
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion) *GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion {
+		return &v
+	}).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput) Minimum() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion) string { return v.Minimum }).(pulumi.StringOutput)
+}
+
+type GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion)(nil)).Elem()
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput) ToGetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutputWithContext(ctx context.Context) GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput {
+	return o
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput) Elem() GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion) GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion {
+		if v != nil {
+			return *v
+		}
+		var ret GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion
+		return ret
+	}).(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput)
+}
+
+func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput) Minimum() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Minimum
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5768,6 +7252,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyMasterOverridePriorityArrayInput)(nil)).Elem(), UserSchemaPropertyMasterOverridePriorityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyOneOfInput)(nil)).Elem(), UserSchemaPropertyOneOfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyOneOfArrayInput)(nil)).Elem(), UserSchemaPropertyOneOfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppsAppInput)(nil)).Elem(), GetAppsAppArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppsAppArrayInput)(nil)).Elem(), GetAppsAppArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppsAppVisibilityInput)(nil)).Elem(), GetAppsAppVisibilityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppsAppVisibilityHideInput)(nil)).Elem(), GetAppsAppVisibilityHideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthServerClaimsClaimInput)(nil)).Elem(), GetAuthServerClaimsClaimArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthServerClaimsClaimArrayInput)(nil)).Elem(), GetAuthServerClaimsClaimArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBehavioursBehaviorInput)(nil)).Elem(), GetBehavioursBehaviorArgs{})
@@ -5778,6 +7266,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDefaultSigninPageContentSecurityPolicySettingPtrInput)(nil)).Elem(), GetDefaultSigninPageContentSecurityPolicySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDefaultSigninPageWidgetCustomizationsInput)(nil)).Elem(), GetDefaultSigninPageWidgetCustomizationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDefaultSigninPageWidgetCustomizationsPtrInput)(nil)).Elem(), GetDefaultSigninPageWidgetCustomizationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyDiskEncryptionTypeInput)(nil)).Elem(), GetDeviceAssurancePolicyDiskEncryptionTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyOsVersionInput)(nil)).Elem(), GetDeviceAssurancePolicyOsVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyOsVersionConstraintInput)(nil)).Elem(), GetDeviceAssurancePolicyOsVersionConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyOsVersionConstraintArrayInput)(nil)).Elem(), GetDeviceAssurancePolicyOsVersionConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementInput)(nil)).Elem(), GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementInput)(nil)).Elem(), GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyScreenlockTypeInput)(nil)).Elem(), GetDeviceAssurancePolicyScreenlockTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderInput)(nil)).Elem(), GetDeviceAssurancePolicyThirdPartySignalProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderPtrInput)(nil)).Elem(), GetDeviceAssurancePolicyThirdPartySignalProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderDtcInput)(nil)).Elem(), GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrInput)(nil)).Elem(), GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionInput)(nil)).Elem(), GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrInput)(nil)).Elem(), GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionInput)(nil)).Elem(), GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrInput)(nil)).Elem(), GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainDnsRecordInput)(nil)).Elem(), GetDomainDnsRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainDnsRecordArrayInput)(nil)).Elem(), GetDomainDnsRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEmailCustomizationsEmailCustomizationInput)(nil)).Elem(), GetEmailCustomizationsEmailCustomizationArgs{})
@@ -5840,6 +7343,10 @@ func init() {
 	pulumi.RegisterOutputType(UserSchemaPropertyMasterOverridePriorityArrayOutput{})
 	pulumi.RegisterOutputType(UserSchemaPropertyOneOfOutput{})
 	pulumi.RegisterOutputType(UserSchemaPropertyOneOfArrayOutput{})
+	pulumi.RegisterOutputType(GetAppsAppOutput{})
+	pulumi.RegisterOutputType(GetAppsAppArrayOutput{})
+	pulumi.RegisterOutputType(GetAppsAppVisibilityOutput{})
+	pulumi.RegisterOutputType(GetAppsAppVisibilityHideOutput{})
 	pulumi.RegisterOutputType(GetAuthServerClaimsClaimOutput{})
 	pulumi.RegisterOutputType(GetAuthServerClaimsClaimArrayOutput{})
 	pulumi.RegisterOutputType(GetBehavioursBehaviorOutput{})
@@ -5850,6 +7357,21 @@ func init() {
 	pulumi.RegisterOutputType(GetDefaultSigninPageContentSecurityPolicySettingPtrOutput{})
 	pulumi.RegisterOutputType(GetDefaultSigninPageWidgetCustomizationsOutput{})
 	pulumi.RegisterOutputType(GetDefaultSigninPageWidgetCustomizationsPtrOutput{})
+	pulumi.RegisterOutputType(GetDeviceAssurancePolicyDiskEncryptionTypeOutput{})
+	pulumi.RegisterOutputType(GetDeviceAssurancePolicyOsVersionOutput{})
+	pulumi.RegisterOutputType(GetDeviceAssurancePolicyOsVersionConstraintOutput{})
+	pulumi.RegisterOutputType(GetDeviceAssurancePolicyOsVersionConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirementOutput{})
+	pulumi.RegisterOutputType(GetDeviceAssurancePolicyOsVersionDynamicVersionRequirementOutput{})
+	pulumi.RegisterOutputType(GetDeviceAssurancePolicyScreenlockTypeOutput{})
+	pulumi.RegisterOutputType(GetDeviceAssurancePolicyThirdPartySignalProviderOutput{})
+	pulumi.RegisterOutputType(GetDeviceAssurancePolicyThirdPartySignalProviderPtrOutput{})
+	pulumi.RegisterOutputType(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOutput{})
+	pulumi.RegisterOutputType(GetDeviceAssurancePolicyThirdPartySignalProviderDtcPtrOutput{})
+	pulumi.RegisterOutputType(GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionOutput{})
+	pulumi.RegisterOutputType(GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput{})
+	pulumi.RegisterOutputType(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput{})
+	pulumi.RegisterOutputType(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput{})
 	pulumi.RegisterOutputType(GetDomainDnsRecordOutput{})
 	pulumi.RegisterOutputType(GetDomainDnsRecordArrayOutput{})
 	pulumi.RegisterOutputType(GetEmailCustomizationsEmailCustomizationOutput{})

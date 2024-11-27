@@ -10,6 +10,8 @@ import com.pulumi.okta.inputs.AppGroupAssignmentsGroupArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AppGroupAssignmentsArgs extends com.pulumi.resources.ResourceArgs {
@@ -35,15 +37,15 @@ public final class AppGroupAssignmentsArgs extends com.pulumi.resources.Resource
      * A group to assign to this application
      * 
      */
-    @Import(name="groups", required=true)
-    private Output<List<AppGroupAssignmentsGroupArgs>> groups;
+    @Import(name="groups")
+    private @Nullable Output<List<AppGroupAssignmentsGroupArgs>> groups;
 
     /**
      * @return A group to assign to this application
      * 
      */
-    public Output<List<AppGroupAssignmentsGroupArgs>> groups() {
-        return this.groups;
+    public Optional<Output<List<AppGroupAssignmentsGroupArgs>>> groups() {
+        return Optional.ofNullable(this.groups);
     }
 
     private AppGroupAssignmentsArgs() {}
@@ -98,7 +100,7 @@ public final class AppGroupAssignmentsArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder groups(Output<List<AppGroupAssignmentsGroupArgs>> groups) {
+        public Builder groups(@Nullable Output<List<AppGroupAssignmentsGroupArgs>> groups) {
             $.groups = groups;
             return this;
         }
@@ -126,9 +128,6 @@ public final class AppGroupAssignmentsArgs extends com.pulumi.resources.Resource
         public AppGroupAssignmentsArgs build() {
             if ($.appId == null) {
                 throw new MissingRequiredPropertyException("AppGroupAssignmentsArgs", "appId");
-            }
-            if ($.groups == null) {
-                throw new MissingRequiredPropertyException("AppGroupAssignmentsArgs", "groups");
             }
             return $;
         }

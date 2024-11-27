@@ -61,6 +61,14 @@ __all__ = [
     'GetDefaultSigninPageContentSecurityPolicySettingArgsDict',
     'GetDefaultSigninPageWidgetCustomizationsArgs',
     'GetDefaultSigninPageWidgetCustomizationsArgsDict',
+    'GetDeviceAssurancePolicyThirdPartySignalProviderArgs',
+    'GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict',
+    'GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs',
+    'GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgsDict',
+    'GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs',
+    'GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgsDict',
+    'GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs',
+    'GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgsDict',
     'GetLogStreamSettingsArgs',
     'GetLogStreamSettingsArgsDict',
     'GetOrgMetadataDomainsArgs',
@@ -2112,6 +2120,322 @@ class GetDefaultSigninPageWidgetCustomizationsArgs:
     @widget_generation.setter
     def widget_generation(self, value: str):
         pulumi.set(self, "widget_generation", value)
+
+
+if not MYPY:
+    class GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict(TypedDict):
+        dtc: 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgsDict'
+elif False:
+    GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetDeviceAssurancePolicyThirdPartySignalProviderArgs:
+    def __init__(__self__, *,
+                 dtc: 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs'):
+        pulumi.set(__self__, "dtc", dtc)
+
+    @property
+    @pulumi.getter
+    def dtc(self) -> 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs':
+        return pulumi.get(self, "dtc")
+
+    @dtc.setter
+    def dtc(self, value: 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs'):
+        pulumi.set(self, "dtc", value)
+
+
+if not MYPY:
+    class GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgsDict(TypedDict):
+        allow_screen_lock: bool
+        browser_version: 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgsDict'
+        built_in_dns_client_enabled: bool
+        chrome_remote_desktop_app_blocked: bool
+        crowd_strike_agent_id: str
+        crowd_strike_customer_id: str
+        device_enrollment_domain: str
+        disk_encrypted: bool
+        key_trust_level: str
+        managed_device: bool
+        os_firewall: bool
+        os_version: 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgsDict'
+        password_protection_warning_trigger: str
+        realtime_url_check_mode: bool
+        safe_browsing_protection_level: str
+        screen_lock_secured: bool
+        site_isolation_enabled: bool
+        third_party_blocking_enabled: bool
+        windows_machine_domain: str
+        windows_user_domain: str
+elif False:
+    GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs:
+    def __init__(__self__, *,
+                 allow_screen_lock: bool,
+                 browser_version: 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs',
+                 built_in_dns_client_enabled: bool,
+                 chrome_remote_desktop_app_blocked: bool,
+                 crowd_strike_agent_id: str,
+                 crowd_strike_customer_id: str,
+                 device_enrollment_domain: str,
+                 disk_encrypted: bool,
+                 key_trust_level: str,
+                 managed_device: bool,
+                 os_firewall: bool,
+                 os_version: 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs',
+                 password_protection_warning_trigger: str,
+                 realtime_url_check_mode: bool,
+                 safe_browsing_protection_level: str,
+                 screen_lock_secured: bool,
+                 site_isolation_enabled: bool,
+                 third_party_blocking_enabled: bool,
+                 windows_machine_domain: str,
+                 windows_user_domain: str):
+        pulumi.set(__self__, "allow_screen_lock", allow_screen_lock)
+        pulumi.set(__self__, "browser_version", browser_version)
+        pulumi.set(__self__, "built_in_dns_client_enabled", built_in_dns_client_enabled)
+        pulumi.set(__self__, "chrome_remote_desktop_app_blocked", chrome_remote_desktop_app_blocked)
+        pulumi.set(__self__, "crowd_strike_agent_id", crowd_strike_agent_id)
+        pulumi.set(__self__, "crowd_strike_customer_id", crowd_strike_customer_id)
+        pulumi.set(__self__, "device_enrollment_domain", device_enrollment_domain)
+        pulumi.set(__self__, "disk_encrypted", disk_encrypted)
+        pulumi.set(__self__, "key_trust_level", key_trust_level)
+        pulumi.set(__self__, "managed_device", managed_device)
+        pulumi.set(__self__, "os_firewall", os_firewall)
+        pulumi.set(__self__, "os_version", os_version)
+        pulumi.set(__self__, "password_protection_warning_trigger", password_protection_warning_trigger)
+        pulumi.set(__self__, "realtime_url_check_mode", realtime_url_check_mode)
+        pulumi.set(__self__, "safe_browsing_protection_level", safe_browsing_protection_level)
+        pulumi.set(__self__, "screen_lock_secured", screen_lock_secured)
+        pulumi.set(__self__, "site_isolation_enabled", site_isolation_enabled)
+        pulumi.set(__self__, "third_party_blocking_enabled", third_party_blocking_enabled)
+        pulumi.set(__self__, "windows_machine_domain", windows_machine_domain)
+        pulumi.set(__self__, "windows_user_domain", windows_user_domain)
+
+    @property
+    @pulumi.getter(name="allowScreenLock")
+    def allow_screen_lock(self) -> bool:
+        return pulumi.get(self, "allow_screen_lock")
+
+    @allow_screen_lock.setter
+    def allow_screen_lock(self, value: bool):
+        pulumi.set(self, "allow_screen_lock", value)
+
+    @property
+    @pulumi.getter(name="browserVersion")
+    def browser_version(self) -> 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs':
+        return pulumi.get(self, "browser_version")
+
+    @browser_version.setter
+    def browser_version(self, value: 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs'):
+        pulumi.set(self, "browser_version", value)
+
+    @property
+    @pulumi.getter(name="builtInDnsClientEnabled")
+    def built_in_dns_client_enabled(self) -> bool:
+        return pulumi.get(self, "built_in_dns_client_enabled")
+
+    @built_in_dns_client_enabled.setter
+    def built_in_dns_client_enabled(self, value: bool):
+        pulumi.set(self, "built_in_dns_client_enabled", value)
+
+    @property
+    @pulumi.getter(name="chromeRemoteDesktopAppBlocked")
+    def chrome_remote_desktop_app_blocked(self) -> bool:
+        return pulumi.get(self, "chrome_remote_desktop_app_blocked")
+
+    @chrome_remote_desktop_app_blocked.setter
+    def chrome_remote_desktop_app_blocked(self, value: bool):
+        pulumi.set(self, "chrome_remote_desktop_app_blocked", value)
+
+    @property
+    @pulumi.getter(name="crowdStrikeAgentId")
+    def crowd_strike_agent_id(self) -> str:
+        return pulumi.get(self, "crowd_strike_agent_id")
+
+    @crowd_strike_agent_id.setter
+    def crowd_strike_agent_id(self, value: str):
+        pulumi.set(self, "crowd_strike_agent_id", value)
+
+    @property
+    @pulumi.getter(name="crowdStrikeCustomerId")
+    def crowd_strike_customer_id(self) -> str:
+        return pulumi.get(self, "crowd_strike_customer_id")
+
+    @crowd_strike_customer_id.setter
+    def crowd_strike_customer_id(self, value: str):
+        pulumi.set(self, "crowd_strike_customer_id", value)
+
+    @property
+    @pulumi.getter(name="deviceEnrollmentDomain")
+    def device_enrollment_domain(self) -> str:
+        return pulumi.get(self, "device_enrollment_domain")
+
+    @device_enrollment_domain.setter
+    def device_enrollment_domain(self, value: str):
+        pulumi.set(self, "device_enrollment_domain", value)
+
+    @property
+    @pulumi.getter(name="diskEncrypted")
+    def disk_encrypted(self) -> bool:
+        return pulumi.get(self, "disk_encrypted")
+
+    @disk_encrypted.setter
+    def disk_encrypted(self, value: bool):
+        pulumi.set(self, "disk_encrypted", value)
+
+    @property
+    @pulumi.getter(name="keyTrustLevel")
+    def key_trust_level(self) -> str:
+        return pulumi.get(self, "key_trust_level")
+
+    @key_trust_level.setter
+    def key_trust_level(self, value: str):
+        pulumi.set(self, "key_trust_level", value)
+
+    @property
+    @pulumi.getter(name="managedDevice")
+    def managed_device(self) -> bool:
+        return pulumi.get(self, "managed_device")
+
+    @managed_device.setter
+    def managed_device(self, value: bool):
+        pulumi.set(self, "managed_device", value)
+
+    @property
+    @pulumi.getter(name="osFirewall")
+    def os_firewall(self) -> bool:
+        return pulumi.get(self, "os_firewall")
+
+    @os_firewall.setter
+    def os_firewall(self, value: bool):
+        pulumi.set(self, "os_firewall", value)
+
+    @property
+    @pulumi.getter(name="osVersion")
+    def os_version(self) -> 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs':
+        return pulumi.get(self, "os_version")
+
+    @os_version.setter
+    def os_version(self, value: 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs'):
+        pulumi.set(self, "os_version", value)
+
+    @property
+    @pulumi.getter(name="passwordProtectionWarningTrigger")
+    def password_protection_warning_trigger(self) -> str:
+        return pulumi.get(self, "password_protection_warning_trigger")
+
+    @password_protection_warning_trigger.setter
+    def password_protection_warning_trigger(self, value: str):
+        pulumi.set(self, "password_protection_warning_trigger", value)
+
+    @property
+    @pulumi.getter(name="realtimeUrlCheckMode")
+    def realtime_url_check_mode(self) -> bool:
+        return pulumi.get(self, "realtime_url_check_mode")
+
+    @realtime_url_check_mode.setter
+    def realtime_url_check_mode(self, value: bool):
+        pulumi.set(self, "realtime_url_check_mode", value)
+
+    @property
+    @pulumi.getter(name="safeBrowsingProtectionLevel")
+    def safe_browsing_protection_level(self) -> str:
+        return pulumi.get(self, "safe_browsing_protection_level")
+
+    @safe_browsing_protection_level.setter
+    def safe_browsing_protection_level(self, value: str):
+        pulumi.set(self, "safe_browsing_protection_level", value)
+
+    @property
+    @pulumi.getter(name="screenLockSecured")
+    def screen_lock_secured(self) -> bool:
+        return pulumi.get(self, "screen_lock_secured")
+
+    @screen_lock_secured.setter
+    def screen_lock_secured(self, value: bool):
+        pulumi.set(self, "screen_lock_secured", value)
+
+    @property
+    @pulumi.getter(name="siteIsolationEnabled")
+    def site_isolation_enabled(self) -> bool:
+        return pulumi.get(self, "site_isolation_enabled")
+
+    @site_isolation_enabled.setter
+    def site_isolation_enabled(self, value: bool):
+        pulumi.set(self, "site_isolation_enabled", value)
+
+    @property
+    @pulumi.getter(name="thirdPartyBlockingEnabled")
+    def third_party_blocking_enabled(self) -> bool:
+        return pulumi.get(self, "third_party_blocking_enabled")
+
+    @third_party_blocking_enabled.setter
+    def third_party_blocking_enabled(self, value: bool):
+        pulumi.set(self, "third_party_blocking_enabled", value)
+
+    @property
+    @pulumi.getter(name="windowsMachineDomain")
+    def windows_machine_domain(self) -> str:
+        return pulumi.get(self, "windows_machine_domain")
+
+    @windows_machine_domain.setter
+    def windows_machine_domain(self, value: str):
+        pulumi.set(self, "windows_machine_domain", value)
+
+    @property
+    @pulumi.getter(name="windowsUserDomain")
+    def windows_user_domain(self) -> str:
+        return pulumi.get(self, "windows_user_domain")
+
+    @windows_user_domain.setter
+    def windows_user_domain(self, value: str):
+        pulumi.set(self, "windows_user_domain", value)
+
+
+if not MYPY:
+    class GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgsDict(TypedDict):
+        minimum: str
+elif False:
+    GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs:
+    def __init__(__self__, *,
+                 minimum: str):
+        pulumi.set(__self__, "minimum", minimum)
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> str:
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: str):
+        pulumi.set(self, "minimum", value)
+
+
+if not MYPY:
+    class GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgsDict(TypedDict):
+        minimum: str
+elif False:
+    GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs:
+    def __init__(__self__, *,
+                 minimum: str):
+        pulumi.set(__self__, "minimum", minimum)
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> str:
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: str):
+        pulumi.set(self, "minimum", value)
 
 
 if not MYPY:

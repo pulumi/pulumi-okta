@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := user.LookupUserType(ctx, &user.LookupUserTypeArgs{
-//				Name: "example",
+//				Name: pulumi.StringRef("example"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -50,8 +50,10 @@ func LookupUserType(ctx *pulumi.Context, args *LookupUserTypeArgs, opts ...pulum
 
 // A collection of arguments for invoking getUserType.
 type LookupUserTypeArgs struct {
-	// Name of user type to retrieve.
-	Name string `pulumi:"name"`
+	// ID of the user type to retrieve, conflicts with `name`.
+	Id *string `pulumi:"id"`
+	// Name of user type to retrieve, conflicts with `id`.
+	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getUserType.
@@ -60,10 +62,10 @@ type LookupUserTypeResult struct {
 	Description string `pulumi:"description"`
 	// Display name of user type.
 	DisplayName string `pulumi:"displayName"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Name of user type to retrieve.
-	Name string `pulumi:"name"`
+	// ID of the user type to retrieve, conflicts with `name`.
+	Id *string `pulumi:"id"`
+	// Name of user type to retrieve, conflicts with `id`.
+	Name *string `pulumi:"name"`
 }
 
 func LookupUserTypeOutput(ctx *pulumi.Context, args LookupUserTypeOutputArgs, opts ...pulumi.InvokeOption) LookupUserTypeResultOutput {
@@ -87,8 +89,10 @@ func LookupUserTypeOutput(ctx *pulumi.Context, args LookupUserTypeOutputArgs, op
 
 // A collection of arguments for invoking getUserType.
 type LookupUserTypeOutputArgs struct {
-	// Name of user type to retrieve.
-	Name pulumi.StringInput `pulumi:"name"`
+	// ID of the user type to retrieve, conflicts with `name`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of user type to retrieve, conflicts with `id`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (LookupUserTypeOutputArgs) ElementType() reflect.Type {
@@ -120,14 +124,14 @@ func (o LookupUserTypeResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserTypeResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The provider-assigned unique ID for this managed resource.
-func (o LookupUserTypeResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserTypeResult) string { return v.Id }).(pulumi.StringOutput)
+// ID of the user type to retrieve, conflicts with `name`.
+func (o LookupUserTypeResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserTypeResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Name of user type to retrieve.
-func (o LookupUserTypeResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUserTypeResult) string { return v.Name }).(pulumi.StringOutput)
+// Name of user type to retrieve, conflicts with `id`.
+func (o LookupUserTypeResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserTypeResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -144,6 +144,31 @@ export interface EventHookHeader {
     value?: string;
 }
 
+export interface GetAppsApp {
+    adminNote: string;
+    created: string;
+    enduserNote: string;
+    features: string[];
+    id: string;
+    label: string;
+    lastUpdated: string;
+    name: string;
+    signOnMode: string;
+    status: string;
+    visibility: outputs.GetAppsAppVisibility;
+}
+
+export interface GetAppsAppVisibility {
+    autoLaunch: boolean;
+    autoSubmitToolbar: boolean;
+    hide: outputs.GetAppsAppVisibilityHide;
+}
+
+export interface GetAppsAppVisibilityHide {
+    ios: boolean;
+    web: boolean;
+}
+
 export interface GetAuthServerClaimsClaim {
     /**
      * Specifies whether to include Claims in the token.
@@ -256,6 +281,71 @@ export interface GetDefaultSigninPageWidgetCustomizations {
     usernameInfoTip: string;
     usernameLabel: string;
     widgetGeneration: string;
+}
+
+export interface GetDeviceAssurancePolicyDiskEncryptionType {
+    includes: string[];
+}
+
+export interface GetDeviceAssurancePolicyOsVersion {
+    dynamicVersionRequirement: outputs.GetDeviceAssurancePolicyOsVersionDynamicVersionRequirement;
+    minimum: string;
+}
+
+export interface GetDeviceAssurancePolicyOsVersionConstraint {
+    dynamicVersionRequirement: outputs.GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirement;
+    majorVersionConstraint: string;
+}
+
+export interface GetDeviceAssurancePolicyOsVersionConstraintDynamicVersionRequirement {
+    distanceFromLatestMajor: number;
+    latestSecurityPatch: boolean;
+    type: string;
+}
+
+export interface GetDeviceAssurancePolicyOsVersionDynamicVersionRequirement {
+    distanceFromLatestMajor: number;
+    latestSecurityPatch: boolean;
+    type: string;
+}
+
+export interface GetDeviceAssurancePolicyScreenlockType {
+    includes: string[];
+}
+
+export interface GetDeviceAssurancePolicyThirdPartySignalProvider {
+    dtc: outputs.GetDeviceAssurancePolicyThirdPartySignalProviderDtc;
+}
+
+export interface GetDeviceAssurancePolicyThirdPartySignalProviderDtc {
+    allowScreenLock: boolean;
+    browserVersion: outputs.GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion;
+    builtInDnsClientEnabled: boolean;
+    chromeRemoteDesktopAppBlocked: boolean;
+    crowdStrikeAgentId: string;
+    crowdStrikeCustomerId: string;
+    deviceEnrollmentDomain: string;
+    diskEncrypted: boolean;
+    keyTrustLevel: string;
+    managedDevice: boolean;
+    osFirewall: boolean;
+    osVersion: outputs.GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion;
+    passwordProtectionWarningTrigger: string;
+    realtimeUrlCheckMode: boolean;
+    safeBrowsingProtectionLevel: string;
+    screenLockSecured: boolean;
+    siteIsolationEnabled: boolean;
+    thirdPartyBlockingEnabled: boolean;
+    windowsMachineDomain: string;
+    windowsUserDomain: string;
+}
+
+export interface GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersion {
+    minimum: string;
+}
+
+export interface GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion {
+    minimum: string;
 }
 
 export interface GetDomainDnsRecord {
