@@ -155,7 +155,7 @@ def get_domain(domain_id_or_name: Optional[str] = None,
         public_certificate=pulumi.get(__ret__, 'public_certificate'),
         validation_status=pulumi.get(__ret__, 'validation_status'))
 def get_domain_output(domain_id_or_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     Get a domain from Okta.
 
@@ -175,7 +175,7 @@ def get_domain_output(domain_id_or_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['domainIdOrName'] = domain_id_or_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult)
     return __ret__.apply(lambda __response__: GetDomainResult(
         certificate_source_type=pulumi.get(__response__, 'certificate_source_type'),

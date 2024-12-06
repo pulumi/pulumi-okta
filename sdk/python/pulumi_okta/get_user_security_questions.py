@@ -101,7 +101,7 @@ def get_user_security_questions(user_id: Optional[str] = None,
         questions=pulumi.get(__ret__, 'questions'),
         user_id=pulumi.get(__ret__, 'user_id'))
 def get_user_security_questions_output(user_id: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSecurityQuestionsResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserSecurityQuestionsResult]:
     """
     ## Example Usage
 
@@ -122,7 +122,7 @@ def get_user_security_questions_output(user_id: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['userId'] = user_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getUserSecurityQuestions:getUserSecurityQuestions', __args__, opts=opts, typ=GetUserSecurityQuestionsResult)
     return __ret__.apply(lambda __response__: GetUserSecurityQuestionsResult(
         id=pulumi.get(__response__, 'id'),

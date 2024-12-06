@@ -62,7 +62,7 @@ export interface GetTrustedOriginsResult {
  * const all = okta.getTrustedOrigins({});
  * ```
  */
-export function getTrustedOriginsOutput(args?: GetTrustedOriginsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustedOriginsResult> {
+export function getTrustedOriginsOutput(args?: GetTrustedOriginsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrustedOriginsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getTrustedOrigins:getTrustedOrigins", {

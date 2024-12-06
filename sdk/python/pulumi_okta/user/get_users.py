@@ -178,7 +178,7 @@ def get_users_output(compound_search_operator: Optional[pulumi.Input[Optional[st
                      include_groups: Optional[pulumi.Input[Optional[bool]]] = None,
                      include_roles: Optional[pulumi.Input[Optional[bool]]] = None,
                      searches: Optional[pulumi.Input[Optional[Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']]]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
     Get a list of users from Okta.
 
@@ -197,7 +197,7 @@ def get_users_output(compound_search_operator: Optional[pulumi.Input[Optional[st
     __args__['includeGroups'] = include_groups
     __args__['includeRoles'] = include_roles
     __args__['searches'] = searches
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:user/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult)
     return __ret__.apply(lambda __response__: GetUsersResult(
         compound_search_operator=pulumi.get(__response__, 'compound_search_operator'),

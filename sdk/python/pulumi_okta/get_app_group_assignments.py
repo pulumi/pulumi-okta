@@ -87,7 +87,7 @@ def get_app_group_assignments(id: Optional[str] = None,
         groups=pulumi.get(__ret__, 'groups'),
         id=pulumi.get(__ret__, 'id'))
 def get_app_group_assignments_output(id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppGroupAssignmentsResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppGroupAssignmentsResult]:
     """
     Get a set of groups assigned to an Okta application.
 
@@ -105,7 +105,7 @@ def get_app_group_assignments_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getAppGroupAssignments:getAppGroupAssignments', __args__, opts=opts, typ=GetAppGroupAssignmentsResult)
     return __ret__.apply(lambda __response__: GetAppGroupAssignmentsResult(
         groups=pulumi.get(__response__, 'groups'),

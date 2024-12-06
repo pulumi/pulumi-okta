@@ -77,7 +77,7 @@ export interface GetRoleSubscriptionResult {
  * });
  * ```
  */
-export function getRoleSubscriptionOutput(args: GetRoleSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleSubscriptionResult> {
+export function getRoleSubscriptionOutput(args: GetRoleSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getRoleSubscription:getRoleSubscription", {
         "notificationType": args.notificationType,

@@ -92,7 +92,7 @@ def get_themes(brand_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         themes=pulumi.get(__ret__, 'themes'))
 def get_themes_output(brand_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThemesResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThemesResult]:
     """
     Get Themes of a Brand of an Okta Organization.
 
@@ -101,7 +101,7 @@ def get_themes_output(brand_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['brandId'] = brand_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getThemes:getThemes', __args__, opts=opts, typ=GetThemesResult)
     return __ret__.apply(lambda __response__: GetThemesResult(
         brand_id=pulumi.get(__response__, 'brand_id'),

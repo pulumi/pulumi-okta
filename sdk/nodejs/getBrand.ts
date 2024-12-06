@@ -56,7 +56,7 @@ export interface GetBrandResult {
 /**
  * Get a single Brand from Okta.
  */
-export function getBrandOutput(args: GetBrandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrandResult> {
+export function getBrandOutput(args: GetBrandOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBrandResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getBrand:getBrand", {
         "brandId": args.brandId,

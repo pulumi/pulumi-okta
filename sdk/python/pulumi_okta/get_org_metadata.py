@@ -110,7 +110,7 @@ def get_org_metadata(domains: Optional[Union['GetOrgMetadataDomainsArgs', 'GetOr
         settings=pulumi.get(__ret__, 'settings'))
 def get_org_metadata_output(domains: Optional[pulumi.Input[Optional[Union['GetOrgMetadataDomainsArgs', 'GetOrgMetadataDomainsArgsDict']]]] = None,
                             settings: Optional[pulumi.Input[Optional[Union['GetOrgMetadataSettingsArgs', 'GetOrgMetadataSettingsArgsDict']]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrgMetadataResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrgMetadataResult]:
     """
     Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
 
@@ -121,7 +121,7 @@ def get_org_metadata_output(domains: Optional[pulumi.Input[Optional[Union['GetOr
     __args__ = dict()
     __args__['domains'] = domains
     __args__['settings'] = settings
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getOrgMetadata:getOrgMetadata', __args__, opts=opts, typ=GetOrgMetadataResult)
     return __ret__.apply(lambda __response__: GetOrgMetadataResult(
         domains=pulumi.get(__response__, 'domains'),

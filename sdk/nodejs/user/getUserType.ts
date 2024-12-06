@@ -76,7 +76,7 @@ export interface GetUserTypeResult {
  * });
  * ```
  */
-export function getUserTypeOutput(args?: GetUserTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserTypeResult> {
+export function getUserTypeOutput(args?: GetUserTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserTypeResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:user/getUserType:getUserType", {

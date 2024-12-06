@@ -251,7 +251,7 @@ def get_theme(brand_id: Optional[str] = None,
         theme_id=pulumi.get(__ret__, 'theme_id'))
 def get_theme_output(brand_id: Optional[pulumi.Input[str]] = None,
                      theme_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThemeResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThemeResult]:
     """
     Get a single Theme of a Brand of an Okta Organization.
 
@@ -262,7 +262,7 @@ def get_theme_output(brand_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['brandId'] = brand_id
     __args__['themeId'] = theme_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getTheme:getTheme', __args__, opts=opts, typ=GetThemeResult)
     return __ret__.apply(lambda __response__: GetThemeResult(
         background_image_url=pulumi.get(__response__, 'background_image_url'),
