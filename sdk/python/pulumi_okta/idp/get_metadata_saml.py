@@ -191,7 +191,7 @@ def get_metadata_saml(idp_id: Optional[str] = None,
         metadata=pulumi.get(__ret__, 'metadata'),
         signing_certificate=pulumi.get(__ret__, 'signing_certificate'))
 def get_metadata_saml_output(idp_id: Optional[pulumi.Input[Optional[str]]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetadataSamlResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetadataSamlResult]:
     """
     Get SAML IdP metadata from Okta.
 
@@ -209,7 +209,7 @@ def get_metadata_saml_output(idp_id: Optional[pulumi.Input[Optional[str]]] = Non
     """
     __args__ = dict()
     __args__['idpId'] = idp_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:idp/getMetadataSaml:getMetadataSaml', __args__, opts=opts, typ=GetMetadataSamlResult)
     return __ret__.apply(lambda __response__: GetMetadataSamlResult(
         assertions_signed=pulumi.get(__response__, 'assertions_signed'),

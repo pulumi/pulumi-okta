@@ -66,7 +66,7 @@ export interface GetDefaultPolicyResult {
  * });
  * ```
  */
-export function getDefaultPolicyOutput(args: GetDefaultPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultPolicyResult> {
+export function getDefaultPolicyOutput(args: GetDefaultPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefaultPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:policy/getDefaultPolicy:getDefaultPolicy", {
         "type": args.type,

@@ -164,7 +164,7 @@ def get_group_output(delay_read_seconds: Optional[pulumi.Input[Optional[str]]] =
                      include_users: Optional[pulumi.Input[Optional[bool]]] = None,
                      name: Optional[pulumi.Input[Optional[str]]] = None,
                      type: Optional[pulumi.Input[Optional[str]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Get a group from Okta.
 
@@ -189,7 +189,7 @@ def get_group_output(delay_read_seconds: Optional[pulumi.Input[Optional[str]]] =
     __args__['includeUsers'] = include_users
     __args__['name'] = name
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:group/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
     return __ret__.apply(lambda __response__: GetGroupResult(
         delay_read_seconds=pulumi.get(__response__, 'delay_read_seconds'),

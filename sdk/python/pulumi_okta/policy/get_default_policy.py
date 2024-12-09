@@ -89,7 +89,7 @@ def get_default_policy(type: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         type=pulumi.get(__ret__, 'type'))
 def get_default_policy_output(type: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultPolicyResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultPolicyResult]:
     """
     Use this data source to retrieve a default policy from Okta. This
     same thing can be achieved using the `policy_get_policy` with default
@@ -109,7 +109,7 @@ def get_default_policy_output(type: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:policy/getDefaultPolicy:getDefaultPolicy', __args__, opts=opts, typ=GetDefaultPolicyResult)
     return __ret__.apply(lambda __response__: GetDefaultPolicyResult(
         id=pulumi.get(__response__, 'id'),

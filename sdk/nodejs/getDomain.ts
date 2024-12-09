@@ -92,7 +92,7 @@ export interface GetDomainResult {
  * });
  * ```
  */
-export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
+export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getDomain:getDomain", {
         "domainIdOrName": args.domainIdOrName,

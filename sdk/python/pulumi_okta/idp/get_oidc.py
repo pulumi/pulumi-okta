@@ -299,7 +299,7 @@ def get_oidc(id: Optional[str] = None,
         user_info_url=pulumi.get(__ret__, 'user_info_url'))
 def get_oidc_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[Optional[str]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOidcResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOidcResult]:
     """
     Get a OIDC IdP from Okta.
 
@@ -319,7 +319,7 @@ def get_oidc_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:idp/getOidc:getOidc', __args__, opts=opts, typ=GetOidcResult)
     return __ret__.apply(lambda __response__: GetOidcResult(
         authorization_binding=pulumi.get(__response__, 'authorization_binding'),

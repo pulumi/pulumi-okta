@@ -73,7 +73,7 @@ export interface GetUserSecurityQuestionsResult {
  * });
  * ```
  */
-export function getUserSecurityQuestionsOutput(args: GetUserSecurityQuestionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSecurityQuestionsResult> {
+export function getUserSecurityQuestionsOutput(args: GetUserSecurityQuestionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserSecurityQuestionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", {
         "userId": args.userId,

@@ -159,7 +159,7 @@ def get_apps_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
                     label: Optional[pulumi.Input[Optional[str]]] = None,
                     label_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                     use_optimization: Optional[pulumi.Input[Optional[bool]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppsResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppsResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -175,7 +175,7 @@ def get_apps_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
     __args__['label'] = label
     __args__['labelPrefix'] = label_prefix
     __args__['useOptimization'] = use_optimization
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getApps:getApps', __args__, opts=opts, typ=GetAppsResult)
     return __ret__.apply(lambda __response__: GetAppsResult(
         active_only=pulumi.get(__response__, 'active_only'),

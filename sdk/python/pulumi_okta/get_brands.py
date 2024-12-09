@@ -82,7 +82,7 @@ def get_brands(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrand
     return AwaitableGetBrandsResult(
         brands=pulumi.get(__ret__, 'brands'),
         id=pulumi.get(__ret__, 'id'))
-def get_brands_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrandsResult]:
+def get_brands_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrandsResult]:
     """
     Get the brands belonging to an Okta organization.
 
@@ -96,7 +96,7 @@ def get_brands_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Out
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getBrands:getBrands', __args__, opts=opts, typ=GetBrandsResult)
     return __ret__.apply(lambda __response__: GetBrandsResult(
         brands=pulumi.get(__response__, 'brands'),

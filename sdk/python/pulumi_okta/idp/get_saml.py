@@ -247,7 +247,7 @@ def get_saml(id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_saml_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[Optional[str]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamlResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSamlResult]:
     """
     Get a SAML IdP from Okta.
 
@@ -267,7 +267,7 @@ def get_saml_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:idp/getSaml:getSaml', __args__, opts=opts, typ=GetSamlResult)
     return __ret__.apply(lambda __response__: GetSamlResult(
         acs_binding=pulumi.get(__response__, 'acs_binding'),

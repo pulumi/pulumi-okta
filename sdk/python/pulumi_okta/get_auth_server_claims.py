@@ -101,7 +101,7 @@ def get_auth_server_claims(auth_server_id: Optional[str] = None,
         claims=pulumi.get(__ret__, 'claims'),
         id=pulumi.get(__ret__, 'id'))
 def get_auth_server_claims_output(auth_server_id: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthServerClaimsResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthServerClaimsResult]:
     """
     Get a list of authorization server claims from Okta.
 
@@ -119,7 +119,7 @@ def get_auth_server_claims_output(auth_server_id: Optional[pulumi.Input[str]] = 
     """
     __args__ = dict()
     __args__['authServerId'] = auth_server_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getAuthServerClaims:getAuthServerClaims', __args__, opts=opts, typ=GetAuthServerClaimsResult)
     return __ret__.apply(lambda __response__: GetAuthServerClaimsResult(
         auth_server_id=pulumi.get(__response__, 'auth_server_id'),

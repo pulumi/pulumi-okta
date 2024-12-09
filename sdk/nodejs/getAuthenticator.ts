@@ -127,7 +127,7 @@ export interface GetAuthenticatorResult {
  * });
  * ```
  */
-export function getAuthenticatorOutput(args?: GetAuthenticatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthenticatorResult> {
+export function getAuthenticatorOutput(args?: GetAuthenticatorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthenticatorResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getAuthenticator:getAuthenticator", {

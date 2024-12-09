@@ -93,7 +93,7 @@ export interface GetRuleResult {
  * });
  * ```
  */
-export function getRuleOutput(args?: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
+export function getRuleOutput(args?: GetRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuleResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:group/getRule:getRule", {

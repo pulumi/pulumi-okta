@@ -90,7 +90,7 @@ export interface GetDeviceAssurancePolicyResult {
 /**
  * Get a policy assurance from Okta.
  */
-export function getDeviceAssurancePolicyOutput(args?: GetDeviceAssurancePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceAssurancePolicyResult> {
+export function getDeviceAssurancePolicyOutput(args?: GetDeviceAssurancePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceAssurancePolicyResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getDeviceAssurancePolicy:getDeviceAssurancePolicy", {
