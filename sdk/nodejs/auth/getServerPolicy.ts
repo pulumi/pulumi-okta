@@ -85,7 +85,7 @@ export interface GetServerPolicyResult {
  * });
  * ```
  */
-export function getServerPolicyOutput(args: GetServerPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerPolicyResult> {
+export function getServerPolicyOutput(args: GetServerPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:auth/getServerPolicy:getServerPolicy", {
         "authServerId": args.authServerId,

@@ -67,7 +67,7 @@ export interface GetEveryoneGroupResult {
  * const example = okta.group.getEveryoneGroup({});
  * ```
  */
-export function getEveryoneGroupOutput(args?: GetEveryoneGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEveryoneGroupResult> {
+export function getEveryoneGroupOutput(args?: GetEveryoneGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEveryoneGroupResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:group/getEveryoneGroup:getEveryoneGroup", {

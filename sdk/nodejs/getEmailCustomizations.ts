@@ -55,7 +55,7 @@ export interface GetEmailCustomizationsResult {
 /**
  * Get the email customizations of an email template belonging to a brand in an Okta organization.
  */
-export function getEmailCustomizationsOutput(args: GetEmailCustomizationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailCustomizationsResult> {
+export function getEmailCustomizationsOutput(args: GetEmailCustomizationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEmailCustomizationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getEmailCustomizations:getEmailCustomizations", {
         "brandId": args.brandId,

@@ -98,7 +98,7 @@ def get_trusted_origins(filter: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         trusted_origins=pulumi.get(__ret__, 'trusted_origins'))
 def get_trusted_origins_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustedOriginsResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustedOriginsResult]:
     """
     Get List of Trusted Origins using filters.
 
@@ -116,7 +116,7 @@ def get_trusted_origins_output(filter: Optional[pulumi.Input[Optional[str]]] = N
     """
     __args__ = dict()
     __args__['filter'] = filter
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getTrustedOrigins:getTrustedOrigins', __args__, opts=opts, typ=GetTrustedOriginsResult)
     return __ret__.apply(lambda __response__: GetTrustedOriginsResult(
         filter=pulumi.get(__response__, 'filter'),

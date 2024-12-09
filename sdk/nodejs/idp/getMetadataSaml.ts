@@ -95,7 +95,7 @@ export interface GetMetadataSamlResult {
  * });
  * ```
  */
-export function getMetadataSamlOutput(args?: GetMetadataSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataSamlResult> {
+export function getMetadataSamlOutput(args?: GetMetadataSamlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMetadataSamlResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:idp/getMetadataSaml:getMetadataSaml", {

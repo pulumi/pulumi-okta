@@ -168,7 +168,7 @@ export interface GetSocialResult {
  * });
  * ```
  */
-export function getSocialOutput(args?: GetSocialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSocialResult> {
+export function getSocialOutput(args?: GetSocialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSocialResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:idp/getSocial:getSocial", {
