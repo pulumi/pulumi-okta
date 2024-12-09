@@ -68,7 +68,7 @@ export interface GetAuthServerClaimsResult {
  * });
  * ```
  */
-export function getAuthServerClaimsOutput(args: GetAuthServerClaimsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthServerClaimsResult> {
+export function getAuthServerClaimsOutput(args: GetAuthServerClaimsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthServerClaimsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getAuthServerClaims:getAuthServerClaims", {
         "authServerId": args.authServerId,

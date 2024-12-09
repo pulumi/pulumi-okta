@@ -92,7 +92,7 @@ def get_templates(brand_id: Optional[str] = None,
         email_templates=pulumi.get(__ret__, 'email_templates'),
         id=pulumi.get(__ret__, 'id'))
 def get_templates_output(brand_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplatesResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplatesResult]:
     """
     Get the email templates belonging to a brand in an Okta organization.
 
@@ -101,7 +101,7 @@ def get_templates_output(brand_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['brandId'] = brand_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getTemplates:getTemplates', __args__, opts=opts, typ=GetTemplatesResult)
     return __ret__.apply(lambda __response__: GetTemplatesResult(
         brand_id=pulumi.get(__response__, 'brand_id'),

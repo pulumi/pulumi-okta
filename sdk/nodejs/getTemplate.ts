@@ -53,7 +53,7 @@ export interface GetTemplateResult {
 /**
  * Get a single Email Template for a Brand belonging to an Okta organization.
  */
-export function getTemplateOutput(args: GetTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateResult> {
+export function getTemplateOutput(args: GetTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getTemplate:getTemplate", {
         "brandId": args.brandId,

@@ -290,7 +290,7 @@ export interface GetSamlResult {
  * });
  * ```
  */
-export function getSamlOutput(args?: GetSamlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamlResult> {
+export function getSamlOutput(args?: GetSamlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSamlResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:app/getSaml:getSaml", {

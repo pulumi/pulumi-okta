@@ -132,7 +132,7 @@ export interface GetOidcResult {
  * });
  * ```
  */
-export function getOidcOutput(args?: GetOidcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOidcResult> {
+export function getOidcOutput(args?: GetOidcOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOidcResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:idp/getOidc:getOidc", {

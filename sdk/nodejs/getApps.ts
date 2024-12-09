@@ -77,7 +77,7 @@ export interface GetAppsResult {
      */
     readonly useOptimization?: boolean;
 }
-export function getAppsOutput(args?: GetAppsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppsResult> {
+export function getAppsOutput(args?: GetAppsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getApps:getApps", {

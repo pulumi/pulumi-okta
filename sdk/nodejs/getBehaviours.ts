@@ -66,7 +66,7 @@ export interface GetBehavioursResult {
  * });
  * ```
  */
-export function getBehavioursOutput(args?: GetBehavioursOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBehavioursResult> {
+export function getBehavioursOutput(args?: GetBehavioursOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBehavioursResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getBehaviours:getBehaviours", {

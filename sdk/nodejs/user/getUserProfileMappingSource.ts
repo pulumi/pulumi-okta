@@ -57,7 +57,7 @@ export interface GetUserProfileMappingSourceResult {
  * const example = okta.user.getUserProfileMappingSource({});
  * ```
  */
-export function getUserProfileMappingSourceOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetUserProfileMappingSourceResult> {
+export function getUserProfileMappingSourceOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserProfileMappingSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", {
     }, opts);

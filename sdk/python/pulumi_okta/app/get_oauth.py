@@ -435,7 +435,7 @@ def get_oauth_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
                      label_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                      skip_groups: Optional[pulumi.Input[Optional[bool]]] = None,
                      skip_users: Optional[pulumi.Input[Optional[bool]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOauthResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOauthResult]:
     """
     Get a OIDC application from Okta.
 
@@ -470,7 +470,7 @@ def get_oauth_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
     __args__['labelPrefix'] = label_prefix
     __args__['skipGroups'] = skip_groups
     __args__['skipUsers'] = skip_users
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:app/getOauth:getOauth', __args__, opts=opts, typ=GetOauthResult)
     return __ret__.apply(lambda __response__: GetOauthResult(
         active_only=pulumi.get(__response__, 'active_only'),

@@ -49,7 +49,7 @@ export interface GetBrandsResult {
  * const test = okta.getBrands({});
  * ```
  */
-export function getBrandsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetBrandsResult> {
+export function getBrandsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBrandsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getBrands:getBrands", {
     }, opts);

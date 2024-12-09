@@ -108,7 +108,7 @@ def get_app_signon_policy(app_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
 def get_app_signon_policy_output(app_id: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppSignonPolicyResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppSignonPolicyResult]:
     """
     Get a sign-on policy for the application.
 
@@ -134,7 +134,7 @@ def get_app_signon_policy_output(app_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['appId'] = app_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getAppSignonPolicy:getAppSignonPolicy', __args__, opts=opts, typ=GetAppSignonPolicyResult)
     return __ret__.apply(lambda __response__: GetAppSignonPolicyResult(
         app_id=pulumi.get(__response__, 'app_id'),

@@ -117,7 +117,7 @@ def get_user_type(id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'))
 def get_user_type_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                          name: Optional[pulumi.Input[Optional[str]]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserTypeResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserTypeResult]:
     """
     Get a user type from Okta.
 
@@ -137,7 +137,7 @@ def get_user_type_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:user/getUserType:getUserType', __args__, opts=opts, typ=GetUserTypeResult)
     return __ret__.apply(lambda __response__: GetUserTypeResult(
         description=pulumi.get(__response__, 'description'),

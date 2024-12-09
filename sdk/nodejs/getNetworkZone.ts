@@ -127,7 +127,7 @@ export interface GetNetworkZoneResult {
  * });
  * ```
  */
-export function getNetworkZoneOutput(args?: GetNetworkZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkZoneResult> {
+export function getNetworkZoneOutput(args?: GetNetworkZoneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkZoneResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getNetworkZone:getNetworkZone", {

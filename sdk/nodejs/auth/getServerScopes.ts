@@ -68,7 +68,7 @@ export interface GetServerScopesResult {
  * });
  * ```
  */
-export function getServerScopesOutput(args: GetServerScopesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerScopesResult> {
+export function getServerScopesOutput(args: GetServerScopesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerScopesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:auth/getServerScopes:getServerScopes", {
         "authServerId": args.authServerId,
