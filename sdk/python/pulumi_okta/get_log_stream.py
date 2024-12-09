@@ -123,7 +123,7 @@ def get_log_stream(id: Optional[str] = None,
 def get_log_stream_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                           name: Optional[pulumi.Input[Optional[str]]] = None,
                           settings: Optional[pulumi.Input[Optional[Union['GetLogStreamSettingsArgs', 'GetLogStreamSettingsArgsDict']]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogStreamResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogStreamResult]:
     """
     Log Streams
 
@@ -135,7 +135,7 @@ def get_log_stream_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['id'] = id
     __args__['name'] = name
     __args__['settings'] = settings
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getLogStream:getLogStream', __args__, opts=opts, typ=GetLogStreamResult)
     return __ret__.apply(lambda __response__: GetLogStreamResult(
         id=pulumi.get(__response__, 'id'),

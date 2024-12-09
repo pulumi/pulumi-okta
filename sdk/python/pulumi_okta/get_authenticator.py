@@ -230,7 +230,7 @@ def get_authenticator(id: Optional[str] = None,
 def get_authenticator_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                              key: Optional[pulumi.Input[Optional[str]]] = None,
                              name: Optional[pulumi.Input[Optional[str]]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthenticatorResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthenticatorResult]:
     """
     Get an authenticator by key, name of ID.
 
@@ -257,7 +257,7 @@ def get_authenticator_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['id'] = id
     __args__['key'] = key
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getAuthenticator:getAuthenticator', __args__, opts=opts, typ=GetAuthenticatorResult)
     return __ret__.apply(lambda __response__: GetAuthenticatorResult(
         id=pulumi.get(__response__, 'id'),

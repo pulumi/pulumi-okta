@@ -525,7 +525,7 @@ def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[str
                     skip_groups: Optional[pulumi.Input[Optional[bool]]] = None,
                     skip_roles: Optional[pulumi.Input[Optional[bool]]] = None,
                     user_id: Optional[pulumi.Input[Optional[str]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Get a single users from Okta.
 
@@ -544,7 +544,7 @@ def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[str
     __args__['skipGroups'] = skip_groups
     __args__['skipRoles'] = skip_roles
     __args__['userId'] = user_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:user/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
         admin_roles=pulumi.get(__response__, 'admin_roles'),

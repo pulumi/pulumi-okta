@@ -102,7 +102,7 @@ def get_everyone_group(include_users: Optional[bool] = None,
         id=pulumi.get(__ret__, 'id'),
         include_users=pulumi.get(__ret__, 'include_users'))
 def get_everyone_group_output(include_users: Optional[pulumi.Input[Optional[bool]]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEveryoneGroupResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEveryoneGroupResult]:
     """
     Use this data source to retrieve the `Everyone` group from Okta. The
     same can be achieved with the `group.Group` data
@@ -122,7 +122,7 @@ def get_everyone_group_output(include_users: Optional[pulumi.Input[Optional[bool
     """
     __args__ = dict()
     __args__['includeUsers'] = include_users
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:group/getEveryoneGroup:getEveryoneGroup', __args__, opts=opts, typ=GetEveryoneGroupResult)
     return __ret__.apply(lambda __response__: GetEveryoneGroupResult(
         description=pulumi.get(__response__, 'description'),

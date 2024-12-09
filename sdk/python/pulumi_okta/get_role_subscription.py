@@ -118,7 +118,7 @@ def get_role_subscription(notification_type: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'))
 def get_role_subscription_output(notification_type: Optional[pulumi.Input[str]] = None,
                                  role_type: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleSubscriptionResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleSubscriptionResult]:
     """
     Get subscriptions of a Role with a specific type
 
@@ -139,7 +139,7 @@ def get_role_subscription_output(notification_type: Optional[pulumi.Input[str]] 
     __args__ = dict()
     __args__['notificationType'] = notification_type
     __args__['roleType'] = role_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getRoleSubscription:getRoleSubscription', __args__, opts=opts, typ=GetRoleSubscriptionResult)
     return __ret__.apply(lambda __response__: GetRoleSubscriptionResult(
         id=pulumi.get(__response__, 'id'),

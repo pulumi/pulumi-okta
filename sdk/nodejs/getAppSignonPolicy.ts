@@ -82,7 +82,7 @@ export interface GetAppSignonPolicyResult {
  * });
  * ```
  */
-export function getAppSignonPolicyOutput(args: GetAppSignonPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppSignonPolicyResult> {
+export function getAppSignonPolicyOutput(args: GetAppSignonPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppSignonPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getAppSignonPolicy:getAppSignonPolicy", {
         "appId": args.appId,

@@ -132,7 +132,7 @@ def get_default_signin_page(brand_id: Optional[str] = None,
 def get_default_signin_page_output(brand_id: Optional[pulumi.Input[str]] = None,
                                    content_security_policy_setting: Optional[pulumi.Input[Optional[Union['GetDefaultSigninPageContentSecurityPolicySettingArgs', 'GetDefaultSigninPageContentSecurityPolicySettingArgsDict']]]] = None,
                                    widget_customizations: Optional[pulumi.Input[Optional[Union['GetDefaultSigninPageWidgetCustomizationsArgs', 'GetDefaultSigninPageWidgetCustomizationsArgsDict']]]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultSigninPageResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultSigninPageResult]:
     """
     Retrieve the default signin page of a brand
 
@@ -143,7 +143,7 @@ def get_default_signin_page_output(brand_id: Optional[pulumi.Input[str]] = None,
     __args__['brandId'] = brand_id
     __args__['contentSecurityPolicySetting'] = content_security_policy_setting
     __args__['widgetCustomizations'] = widget_customizations
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getDefaultSigninPage:getDefaultSigninPage', __args__, opts=opts, typ=GetDefaultSigninPageResult)
     return __ret__.apply(lambda __response__: GetDefaultSigninPageResult(
         brand_id=pulumi.get(__response__, 'brand_id'),

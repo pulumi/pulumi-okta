@@ -87,7 +87,7 @@ def get_app_user_assignments(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         users=pulumi.get(__ret__, 'users'))
 def get_app_user_assignments_output(id: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppUserAssignmentsResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppUserAssignmentsResult]:
     """
     Get a set of users assigned to an Okta application.
 
@@ -105,7 +105,7 @@ def get_app_user_assignments_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getAppUserAssignments:getAppUserAssignments', __args__, opts=opts, typ=GetAppUserAssignmentsResult)
     return __ret__.apply(lambda __response__: GetAppUserAssignmentsResult(
         id=pulumi.get(__response__, 'id'),

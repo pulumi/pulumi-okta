@@ -56,7 +56,7 @@ export interface GetDefaultSigninPageResult {
 /**
  * Retrieve the default signin page of a brand
  */
-export function getDefaultSigninPageOutput(args: GetDefaultSigninPageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultSigninPageResult> {
+export function getDefaultSigninPageOutput(args: GetDefaultSigninPageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefaultSigninPageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getDefaultSigninPage:getDefaultSigninPage", {
         "brandId": args.brandId,

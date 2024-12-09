@@ -101,7 +101,7 @@ def get_server_scopes(auth_server_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         scopes=pulumi.get(__ret__, 'scopes'))
 def get_server_scopes_output(auth_server_id: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerScopesResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerScopesResult]:
     """
     Get a list of authorization server scopes from Okta.
 
@@ -119,7 +119,7 @@ def get_server_scopes_output(auth_server_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['authServerId'] = auth_server_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:auth/getServerScopes:getServerScopes', __args__, opts=opts, typ=GetServerScopesResult)
     return __ret__.apply(lambda __response__: GetServerScopesResult(
         auth_server_id=pulumi.get(__response__, 'auth_server_id'),
