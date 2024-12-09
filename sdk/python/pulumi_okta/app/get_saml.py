@@ -704,7 +704,7 @@ def get_saml_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
                     request_compressed: Optional[pulumi.Input[Optional[bool]]] = None,
                     skip_groups: Optional[pulumi.Input[Optional[bool]]] = None,
                     skip_users: Optional[pulumi.Input[Optional[bool]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamlResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSamlResult]:
     """
     Get a SAML application from Okta.
 
@@ -737,7 +737,7 @@ def get_saml_output(active_only: Optional[pulumi.Input[Optional[bool]]] = None,
     __args__['requestCompressed'] = request_compressed
     __args__['skipGroups'] = skip_groups
     __args__['skipUsers'] = skip_users
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:app/getSaml:getSaml', __args__, opts=opts, typ=GetSamlResult)
     return __ret__.apply(lambda __response__: GetSamlResult(
         accessibility_error_redirect_url=pulumi.get(__response__, 'accessibility_error_redirect_url'),

@@ -62,7 +62,7 @@ export interface GetAppUserAssignmentsResult {
  * });
  * ```
  */
-export function getAppUserAssignmentsOutput(args: GetAppUserAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppUserAssignmentsResult> {
+export function getAppUserAssignmentsOutput(args: GetAppUserAssignmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppUserAssignmentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getAppUserAssignments:getAppUserAssignments", {
         "id": args.id,

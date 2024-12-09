@@ -206,7 +206,7 @@ export interface GetOauthResult {
  * });
  * ```
  */
-export function getOauthOutput(args?: GetOauthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOauthResult> {
+export function getOauthOutput(args?: GetOauthOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOauthResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:app/getOauth:getOauth", {

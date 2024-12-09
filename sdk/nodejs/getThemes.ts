@@ -46,7 +46,7 @@ export interface GetThemesResult {
 /**
  * Get Themes of a Brand of an Okta Organization.
  */
-export function getThemesOutput(args: GetThemesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemesResult> {
+export function getThemesOutput(args: GetThemesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetThemesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getThemes:getThemes", {
         "brandId": args.brandId,

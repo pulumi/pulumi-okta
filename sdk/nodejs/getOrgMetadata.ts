@@ -56,7 +56,7 @@ export interface GetOrgMetadataResult {
 /**
  * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
  */
-export function getOrgMetadataOutput(args?: GetOrgMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrgMetadataResult> {
+export function getOrgMetadataOutput(args?: GetOrgMetadataOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrgMetadataResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getOrgMetadata:getOrgMetadata", {

@@ -196,7 +196,7 @@ def get_device_assurance_policy_output(id: Optional[pulumi.Input[Optional[str]]]
                                        name: Optional[pulumi.Input[Optional[str]]] = None,
                                        secure_hardware_present: Optional[pulumi.Input[Optional[bool]]] = None,
                                        third_party_signal_provider: Optional[pulumi.Input[Optional[Union['GetDeviceAssurancePolicyThirdPartySignalProviderArgs', 'GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict']]]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceAssurancePolicyResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceAssurancePolicyResult]:
     """
     Get a policy assurance from Okta.
 
@@ -211,7 +211,7 @@ def get_device_assurance_policy_output(id: Optional[pulumi.Input[Optional[str]]]
     __args__['name'] = name
     __args__['secureHardwarePresent'] = secure_hardware_present
     __args__['thirdPartySignalProvider'] = third_party_signal_provider
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getDeviceAssurancePolicy:getDeviceAssurancePolicy', __args__, opts=opts, typ=GetDeviceAssurancePolicyResult)
     return __ret__.apply(lambda __response__: GetDeviceAssurancePolicyResult(
         disk_encryption_type=pulumi.get(__response__, 'disk_encryption_type'),

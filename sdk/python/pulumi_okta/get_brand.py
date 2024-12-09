@@ -130,7 +130,7 @@ def get_brand(brand_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         remove_powered_by_okta=pulumi.get(__ret__, 'remove_powered_by_okta'))
 def get_brand_output(brand_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrandResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrandResult]:
     """
     Get a single Brand from Okta.
 
@@ -139,7 +139,7 @@ def get_brand_output(brand_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['brandId'] = brand_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getBrand:getBrand', __args__, opts=opts, typ=GetBrandResult)
     return __ret__.apply(lambda __response__: GetBrandResult(
         brand_id=pulumi.get(__response__, 'brand_id'),

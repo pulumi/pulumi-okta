@@ -59,7 +59,7 @@ export interface GetLogStreamResult {
 /**
  * Log Streams
  */
-export function getLogStreamOutput(args?: GetLogStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogStreamResult> {
+export function getLogStreamOutput(args?: GetLogStreamOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogStreamResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getLogStream:getLogStream", {
